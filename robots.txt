@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hsk4.mandarinzone.com/sitemap.xml

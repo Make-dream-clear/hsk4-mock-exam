@@ -24,7 +24,7 @@
 ## Quick Start
 
 ```bash
-git clone https://github.com/mandarinzone/hsk4-mock-exam.git
+git clone https://github.com/Make-dream-clear/hsk4-mock-exam.git
 ```
 
 ```python

@@ -158,7 +158,7 @@ Each test became a clean JSON file:
 - NLP training data for Chinese language models
 - Your own quiz platform
 
-Check out the repo: **[github.com/mandarinzone/hsk4-mock-exam](https://github.com/mandarinzone/hsk4-mock-exam)**
+Check out the repo: **[github.com/Make-dream-clear/hsk4-mock-exam](https://github.com/Make-dream-clear/hsk4-mock-exam)**
 
 If you're learning Chinese or building language learning tools, I hope this helps. PRs welcome!
 
@@ -170,7 +170,7 @@ If you're learning Chinese or building language learning tools, I hope this help
 
 **PR Body:**
 
-Hi! I'd like to add [HSK 4 Mock Exam](https://github.com/mandarinzone/hsk4-mock-exam) to the list.
+Hi! I'd like to add [HSK 4 Mock Exam](https://github.com/Make-dream-clear/hsk4-mock-exam) to the list.
 
 It's a collection of 12 complete HSK 4 practice tests (1,176 questions) in structured JSON format, with an online demo. Covers listening, reading, and writing sections with answer keys.
 
@@ -179,7 +179,7 @@ Created by [Mandarin Zone](https://mandarinzone.com), a Chinese language school 
 **Suggested addition to the README** (under a "Practice Tests" or "HSK" section):
 
 ```markdown
-- [HSK 4 Mock Exam](https://github.com/mandarinzone/hsk4-mock-exam) - 12 complete HSK 4 practice tests with 1,176 questions in JSON format. Listening, reading, and writing sections with answer keys. [Online demo](https://mandarinzone.github.io/hsk4-mock-exam/).
+- [HSK 4 Mock Exam](https://github.com/Make-dream-clear/hsk4-mock-exam) - 12 complete HSK 4 practice tests with 1,176 questions in JSON format. Listening, reading, and writing sections with answer keys. [Online demo](https://hsk4.mandarinzone.com/).
 ```
 
 ---
