@@ -1,0 +1,1357 @@
+{
+  "quiz_id": 12,
+  "title": "Free HSK 4 Online Mock Test Series 11(H41111)",
+  "source": "Mandarin Zone (mandarinzone.com)",
+  "total_questions": 100,
+  "questions": [
+    {
+      "number": 1,
+      "original_id": 2937,
+      "type": "reading_comprehension",
+      "text": "1. ★ 葡萄酒可以多喝。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 2,
+      "original_id": 2936,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-02.wav",
+      "text": "2. ★ 他对小云没什么印象。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 3,
+      "original_id": 2935,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-03.wav",
+      "text": "3. ★ 高叔叔每天都睡得很晚。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 4,
+      "original_id": 2934,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-04.wav",
+      "text": "4. ★ 他觉得做地铁歌手很浪漫。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 5,
+      "original_id": 2933,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-05.wav",
+      "text": "5. ★ 手机减少了人们面对面的交流。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 6,
+      "original_id": 2932,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-06.wav",
+      "text": "6. ★ 他爱好表演。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 7,
+      "original_id": 2931,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-07.wav",
+      "text": "7. ★ 妻子要和女儿一起去。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 8,
+      "original_id": 2930,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-08.wav",
+      "text": "8. ★ 他刚从国外回来。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 9,
+      "original_id": 2929,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-09.wav",
+      "text": "9. ★ 怀疑精神有积极作用。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 10,
+      "original_id": 2928,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-10.wav",
+      "text": "10. ★ 张教授是坐飞机来的。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 11,
+      "original_id": 2927,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-12.wav",
+      "text": "11. 问题：这个市场怎么样？",
+      "options": [
+        "干净",
+        "热闹",
+        "条件差",
+        "服务热情"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 12,
+      "original_id": 2926,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-13.wav",
+      "text": "12. 问题：男的最可能是做什么的？",
+      "options": [
+        "老师",
+        "记者",
+        "售货员",
+        "出租车司机"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 13,
+      "original_id": 2925,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-14.wav",
+      "text": "13. 问题：女的是什么意见？",
+      "options": [
+        "下周再来",
+        "最好别买",
+        "价格太高",
+        "先参观一下"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 14,
+      "original_id": 2924,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-15.wav",
+      "text": "14. 问题：男的在做什么？",
+      "options": [
+        "上网",
+        "玩游戏",
+        "洗碗筷",
+        "看电视"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 15,
+      "original_id": 2923,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-16.wav",
+      "text": "15. 问题：男的怎么了？",
+      "options": [
+        "有些着急",
+        "刚下火车",
+        "行李箱丢了",
+        "提前回来了"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 16,
+      "original_id": 2922,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-17.wav",
+      "text": "16. 问题：他们打算在哪儿见面？",
+      "options": [
+        "教室",
+        "公园西门",
+        "学校东门",
+        "图书馆门口"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 17,
+      "original_id": 2921,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-18.wav",
+      "text": "17. 问题：女的为什么要道歉？",
+      "options": [
+        "迟到了",
+        "拿错伞了",
+        "忘密码了",
+        "弄错顺序了"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 18,
+      "original_id": 2920,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-19.wav",
+      "text": "18. 问题：根据对话，可以知道什么？",
+      "options": [
+        "夏天快来了",
+        "天气暖和了",
+        "昨晚下雪了",
+        "现在是秋季"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 19,
+      "original_id": 2919,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-20.wav",
+      "text": "19. 问题：复印机怎么了？",
+      "options": [
+        "坏了",
+        "没纸了",
+        "断电了",
+        "卡纸了"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 20,
+      "original_id": 2918,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-21.wav",
+      "text": "20. 问题：关于男的，可以知道什么？",
+      "options": [
+        "准备出差",
+        "被批评了",
+        "干得不错",
+        "反对加班"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 21,
+      "original_id": 2917,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-22.wav",
+      "text": "21. 问题：男的要去哪儿？",
+      "options": [
+        "银行",
+        "理发店",
+        "大使馆",
+        "公共汽车站"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 22,
+      "original_id": 2916,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-23.wav",
+      "text": "22. 问题：女的对什么专业有兴趣？",
+      "options": [
+        "新闻",
+        "中文",
+        "法律",
+        "经济"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 23,
+      "original_id": 2915,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-24.wav",
+      "text": "23. 问题：女的是什么意思？",
+      "options": [
+        "不用客气",
+        "忘记时间了",
+        "要打扮一下",
+        "有别的约会"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 24,
+      "original_id": 2914,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-25.wav",
+      "text": "24. 问题：女的觉得桌子上怎么样？",
+      "options": [
+        "很乱",
+        "很脏",
+        "很整齐",
+        "擦得很亮"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 25,
+      "original_id": 2913,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-26.wav",
+      "text": "25. 问题：女的为什么没告诉校长？",
+      "options": [
+        "感冒了",
+        "没找到他",
+        "不敢告诉他",
+        "没调查清楚"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 26,
+      "original_id": 2912,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-28.wav",
+      "text": "26. 问题：女的觉得那个电影怎么样？",
+      "options": [
+        "很无聊",
+        "不精彩",
+        "非常好",
+        "没小说好看"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 27,
+      "original_id": 2911,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-29.wav",
+      "text": "27. 问题：他们最可能在做什么？",
+      "options": [
+        "跳舞",
+        "打网球",
+        "踢足球",
+        "看杂志"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 28,
+      "original_id": 2910,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-30.wav",
+      "text": "28. 问题：小黄怎么了？",
+      "options": [
+        "住院了",
+        "肚子疼",
+        "被骗了",
+        "没被邀请"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 29,
+      "original_id": 2909,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-31.wav",
+      "text": "29. 问题：女的为什么不同意结婚？",
+      "options": [
+        "妈妈反对",
+        "还没放暑假",
+        "认识时间短",
+        "缺少共同语言"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 30,
+      "original_id": 2908,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-32.wav",
+      "text": "30. 问题：关于男的，可以知道什么？",
+      "options": [
+        "很失望",
+        "很吃惊",
+        "有点儿后悔",
+        "有点儿紧张"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 31,
+      "original_id": 2907,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-33.wav",
+      "text": "31. 问题：根据对话，下列哪个正确？",
+      "options": [
+        "奶奶在家",
+        "男的饿了",
+        "电话没响",
+        "奶奶在听广播"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 32,
+      "original_id": 2906,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-34.wav",
+      "text": "32. 问题：男的觉得这儿怎么样？",
+      "options": [
+        "变化很大",
+        "气温很低",
+        "风景美丽",
+        "天气干燥"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 33,
+      "original_id": 2905,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-35.wav",
+      "text": "33. 问题：男的让女的做什么？",
+      "options": [
+        "搬沙发",
+        "修冰箱",
+        "挂地图",
+        "打扫街道"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 34,
+      "original_id": 2904,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-36.wav",
+      "text": "34. 问题：男的在写什么材料？",
+      "options": [
+        "报道",
+        "总结",
+        "通知",
+        "证明"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 35,
+      "original_id": 2903,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-37.wav",
+      "text": "35. 问题：他们在谈什么？",
+      "options": [
+        "季节",
+        "网站",
+        "日记",
+        "电脑"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 36,
+      "original_id": 2902,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-38.wav",
+      "text": "36. 问题：妈妈是做什么工作的？",
+      "options": [
+        "经理",
+        "护士",
+        "大夫",
+        "警察"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 37,
+      "original_id": 2901,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-39.wav",
+      "text": "37. 问题：关于爸爸，下列哪个正确？",
+      "options": [
+        "很帅",
+        "非常勇敢",
+        "喜欢开玩笑",
+        "个子比较矮"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 38,
+      "original_id": 2900,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-40.wav",
+      "text": "38. 问题：房租一个月多少钱？",
+      "options": [
+        "800元",
+        "1000元",
+        "1200元",
+        "10000元"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 39,
+      "original_id": 2899,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-41.wav",
+      "text": "39. 问题：关于那个房子，可以知道什么？",
+      "options": [
+        "有点儿旧",
+        "一共两层",
+        "离公司近",
+        "有两个人住"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 40,
+      "original_id": 2898,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-42.wav",
+      "text": "40. 问题：那位教师对差学生怎么样？",
+      "options": [
+        "管理严格",
+        "不太关心",
+        "多表扬他们",
+        "陪他们读书"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 41,
+      "original_id": 2897,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-43.wav",
+      "text": "41. 问题：学生完成多少任务就能得到表扬？",
+      "options": [
+        "20%",
+        "40%",
+        "50%",
+        "60%"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 42,
+      "original_id": 2896,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-44.wav",
+      "text": "42. 问题：怎样才更容易快乐？",
+      "options": [
+        "信任朋友",
+        "理解别人",
+        "获得尊重",
+        "知道想要什么"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 43,
+      "original_id": 2895,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-45.wav",
+      "text": "43. 问题：这段话主要谈什么？",
+      "options": [
+        "幸福",
+        "教育",
+        "责任",
+        "民族"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 44,
+      "original_id": 2894,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-46.wav",
+      "text": "44. 问题：这段话中\\\"四十岁的心\\\"指的是什么？",
+      "options": [
+        "对人友好",
+        "做事粗心",
+        "会考虑问题",
+        "喜欢回忆过去"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 45,
+      "original_id": 2893,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-47.wav",
+      "text": "45. 问题：这段话主要谈什么？",
+      "options": [
+        "竞争的烦恼",
+        "什么是成熟",
+        "要学会原谅",
+        "不要可怜别人"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 46,
+      "original_id": 2892,
+      "type": "fill_in_blank",
+      "text": "46. 现在改变（ ）？恐怕晚了吧？来不及了。",
+      "options": [
+        "暂时",
+        "主意",
+        "导游",
+        "坚持",
+        "凉快",
+        "推迟"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 47,
+      "original_id": 2891,
+      "type": "fill_in_blank",
+      "text": "47. 那个幽默的（ ）让这次旅游变得十分有趣。",
+      "options": [
+        "暂时",
+        "主意",
+        "导游",
+        "坚持",
+        "凉快",
+        "推迟"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 48,
+      "original_id": 2890,
+      "type": "fill_in_blank",
+      "text": "48. 外面太热，房间里开着空调，（ ）多了。",
+      "options": [
+        "暂时",
+        "主意",
+        "导游",
+        "坚持",
+        "凉快",
+        "推迟"
+      ],
+      "correct_answer_index": 4
+    },
+    {
+      "number": 49,
+      "original_id": 2889,
+      "type": "fill_in_blank",
+      "text": "49. 相信我，困难只是（ ）的，只要不放弃，就一定会成功。",
+      "options": [
+        "暂时",
+        "主意",
+        "导游",
+        "坚持",
+        "凉快",
+        "推迟"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 50,
+      "original_id": 2888,
+      "type": "fill_in_blank",
+      "text": "50. 不可能吧？会议又（ ）了？改到几号了？",
+      "options": [
+        "暂时",
+        "主意",
+        "导游",
+        "坚持",
+        "凉快",
+        "推迟"
+      ],
+      "correct_answer_index": 5
+    },
+    {
+      "number": 51,
+      "original_id": 2887,
+      "type": "fill_in_blank",
+      "text": "51. 对话：A：希望我们的工作能让您满意。 B：我非常满意，一切都（ ）得很好，谢谢你们。",
+      "options": [
+        "害羞",
+        "羡慕",
+        "温度",
+        "起来",
+        "差不多",
+        "安排"
+      ],
+      "correct_answer_index": 5
+    },
+    {
+      "number": 52,
+      "original_id": 2886,
+      "type": "fill_in_blank",
+      "text": "52. 对话：A：王师傅，您是北方人吧？ B：对，我是北京人，在南方（ ）工作10年了。",
+      "options": [
+        "害羞",
+        "羡慕",
+        "温度",
+        "起来",
+        "差不多",
+        "安排"
+      ],
+      "correct_answer_index": 4
+    },
+    {
+      "number": 53,
+      "original_id": 2885,
+      "type": "fill_in_blank",
+      "text": "53. 对话：A：我昨天晚上做了一个特别有意思的梦，你听着…… B：奇怪，一般人醒了就想不（ ）自己做了什么梦，你怎么总能记住？",
+      "options": [
+        "害羞",
+        "羡慕",
+        "温度",
+        "起来",
+        "差不多",
+        "安排"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 54,
+      "original_id": 2884,
+      "type": "fill_in_blank",
+      "text": "54. 对话：A：你妹妹很可爱，但是好像不太爱说话。 B：她有点儿（ ），等跟大家熟悉了就好了。",
+      "options": [
+        "害羞",
+        "羡慕",
+        "温度",
+        "起来",
+        "差不多",
+        "安排"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 55,
+      "original_id": 2883,
+      "type": "fill_in_blank",
+      "text": "55. 对话：A：他的汉语说得很流利，真让人（ ）。 B：他是翻译，当然很厉害。",
+      "options": [
+        "害羞",
+        "羡慕",
+        "温度",
+        "起来",
+        "差不多",
+        "安排"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 56,
+      "original_id": 2882,
+      "type": "reading_ordering",
+      "text": "56. 排列句子顺序：A 现在很多女孩都认为瘦才是美的 B 其实健康才是最重要的 C 于是都努力减肥",
+      "options": [
+        "ACB",
+        "BAC",
+        "CBA",
+        "CAB"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 57,
+      "original_id": 2881,
+      "type": "reading_ordering",
+      "text": "57. 排列句子顺序：A 它不适合在南方生长 B 这种红色的植物在北方很常见 C 不过由于受气候的限制",
+      "options": [
+        "ABC",
+        "BCA",
+        "CBA",
+        "CAB"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 58,
+      "original_id": 2880,
+      "type": "reading_ordering",
+      "text": "58. 排列句子顺序：A 与他们握手并向他们表示祝贺 B 他走到研究生代表前 C 会议结束后",
+      "options": [
+        "ABC",
+        "BAC",
+        "CBA",
+        "CAB"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 59,
+      "original_id": 2879,
+      "type": "reading_ordering",
+      "text": "59. 排列句子顺序：A 这段时间，机场的乘客比平时几乎多了两倍 B 他们每天至少要工作10个小时 C 为保证所有航班都能按时起飞",
+      "options": [
+        "ABC",
+        "ACB",
+        "BAC",
+        "CBA"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 60,
+      "original_id": 2878,
+      "type": "reading_ordering",
+      "text": "60. 排列句子顺序：A 但过程比结果更重要 B 而且你还年轻，一切都可以重新开始 C 尽管这个计划失败了",
+      "options": [
+        "ABC",
+        "BAC",
+        "CBA",
+        "CAB"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 61,
+      "original_id": 2877,
+      "type": "reading_ordering",
+      "text": "61. 排列句子顺序：A 除了自己留一小部分外 B 白先生每个月发了工资和奖金后 C 把大部分都交给了妻子",
+      "options": [
+        "ABC",
+        "BAC",
+        "CBA",
+        "CAB"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 62,
+      "original_id": 2876,
+      "type": "reading_ordering",
+      "text": "62. 排列句子顺序：A 连五六十岁的老人都每人一个 B 我刚到那个城市就发现好多人都戴这种帽子 C 后来才知道戴这种帽子有很多好处",
+      "options": [
+        "ABC",
+        "BAC",
+        "CBA",
+        "CAB"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 63,
+      "original_id": 2875,
+      "type": "reading_ordering",
+      "text": "63. 排列句子顺序：A 它就能学会很多东西 B 哥哥的那只大黑狗聪明极了 C 只要稍微花点儿时间教教它",
+      "options": [
+        "ABC",
+        "BCA",
+        "CBA",
+        "CAB"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 64,
+      "original_id": 2874,
+      "type": "reading_ordering",
+      "text": "64. 排列句子顺序：A 我们从2月17号开始，到3月底 B 大概可以提供3000多个工作机会 C 还将举办5场招聘会",
+      "options": [
+        "ABC",
+        "ACB",
+        "BAC",
+        "CBA"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 65,
+      "original_id": 2873,
+      "type": "reading_ordering",
+      "text": "65. 排列句子顺序：A 实际上，有个简单的办法可以拒绝接收垃圾邮件 B 每天打开电子信箱，总会收到一些垃圾邮件 C 这真是件让人烦恼的事",
+      "options": [
+        "ABC",
+        "BCA",
+        "CBA",
+        "CAB"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 66,
+      "original_id": 2872,
+      "type": "choice",
+      "text": "66. 阅读短文：男人和女人在很多方面是不相同的。例如，在工作中遇到了不愉快的事，男人回到家，不喜欢跟妻子说，而女人正好相反。 问题：女人在工作中遇到不高兴的事，会：",
+      "options": [
+        "流泪",
+        "跟丈夫说",
+        "请父母帮忙",
+        "去商场购物"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 67,
+      "original_id": 2871,
+      "type": "choice",
+      "text": "67. 阅读短文：什么是朋友？朋友是在你得意时，提醒你不要骄傲的人；朋友是在你失败时，鼓励你继续前进的人。 问题：这段话主要谈的是：",
+      "options": [
+        "性别",
+        "礼貌",
+        "友谊",
+        "理想"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 68,
+      "original_id": 2870,
+      "type": "choice",
+      "text": "68. 阅读短文：由于没好好复习，今天考得不怎么样。有几个填空题不会做，有几个选择题，实在想不出来该选哪个，只好随便选一个。以前考试，我从来没猜过答案，今天是第一次。 问题：这次考试，我：",
+      "options": [
+        "没带铅笔",
+        "感觉不好",
+        "全部答错了",
+        "成绩不合格"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 69,
+      "original_id": 2869,
+      "type": "choice",
+      "text": "69. 阅读短文：\"笨鸟先飞早入林\"这句话说的是：能力不高没关系，做任何事情，只要能比别人早一些开始，比别人更努力一些，同样可以成功。所以，人可以不那么聪明，但是不能懒。 问题：\"笨鸟\"指的是：",
+      "options": [
+        "富人",
+        "穷人",
+        "懒人",
+        "不聪明的人"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 70,
+      "original_id": 2868,
+      "type": "choice",
+      "text": "70. 阅读短文：怎么样？这儿的环境还行吧？桌子和椅子一会儿就搬来了。想安静地写点儿东西，这儿是个不错的选择，肯定不会受到打扰。 问题：根据这段话，可以知道这儿：",
+      "options": [
+        "很安静",
+        "比较暗",
+        "有点儿吵",
+        "适合弹钢琴"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 71,
+      "original_id": 2867,
+      "type": "choice",
+      "text": "71. 阅读短文：交流能减少人与人之间的误会，使感情逐渐加深。主动与周围的人交流，可以交到更多的朋友，丰富我们的生活。 问题：通过交流，可以：",
+      "options": [
+        "获得同情",
+        "增进感情",
+        "节约时间",
+        "降低收入"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 72,
+      "original_id": 2866,
+      "type": "choice",
+      "text": "72. 阅读短文：我认为，广告会介绍一样东西的优点，却不会说它的缺点。人们把东西买回家，才发现原来并不像广告上说的那么好，所以不能完全相信广告。 问题：我觉得广告：",
+      "options": [
+        "只说优点",
+        "数量太多",
+        "内容是假的",
+        "应该受到重视"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 73,
+      "original_id": 2865,
+      "type": "choice",
+      "text": "73. 阅读短文：足球比赛规定比赛时间为90分钟，分为上下两个半场，各45分钟，中间休息10分钟。如果90分钟后仍然是0比0，按照规定，可以进行加时赛来决定输赢。 问题：关于加时赛，可以知道：",
+      "options": [
+        "每场都有",
+        "已被禁止",
+        "要有输赢结果",
+        "时间为60分钟"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 74,
+      "original_id": 2864,
+      "type": "choice",
+      "text": "74. 阅读短文：小时候，他经常生病，因此每天都去跑步锻炼身体。谁也没有想到，长大以后，他不仅身体健康，而且成了一名优秀的长跑运动员。 问题：人们没有想到的是，他：",
+      "options": [
+        "力气很大",
+        "在医院工作",
+        "身体越来越差",
+        "成为了运动员"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 75,
+      "original_id": 2863,
+      "type": "choice",
+      "text": "75. 阅读短文：超市里经常会提供一些免费食品让人们尝一尝，这吸引了许多顾客。他们本来没打算买这些食品，但最后都\"顺便\"买回去了。 问题：逛超市时，顾客们被什么吸引了？",
+      "options": [
+        "打折食品",
+        "新鲜水果",
+        "免费尝东西",
+        "漂亮的盒子"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 76,
+      "original_id": 2862,
+      "type": "choice",
+      "text": "76. 阅读短文：他总说自己特别喜欢看书，可是这本书他看了一个月才看到第5页。也许是因为工作太忙，但一个真正爱看书的人总能找出时间来阅读。 问题：根据这段话，他：",
+      "options": [
+        "工作轻松",
+        "经常请假",
+        "阅读速度快",
+        "不一定爱看书"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 77,
+      "original_id": 2861,
+      "type": "choice",
+      "text": "77. 阅读短文：有时候，哭并不一定是件坏事。哭可以让人从坏心情中走出来，是一种减轻压力的好办法。 问题：有时候哭并不是坏事，是因为哭能：",
+      "options": [
+        "感动别人",
+        "减轻压力",
+        "扩大范围",
+        "提高水平"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 78,
+      "original_id": 2860,
+      "type": "choice",
+      "text": "78. 阅读短文：从去年下半年起，面包店就没赚到什么钱。顾客一天比一天少，最近一个星期，每天来店里的顾客不超过20个，究竟是哪儿出问题了呢？ 问题：面包店怎么了？",
+      "options": [
+        "生意不好",
+        "换地址了",
+        "打算关门",
+        "需要借钱"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 79,
+      "original_id": 2859,
+      "type": "choice",
+      "text": "79. 阅读短文：\"生活中不缺少美，缺少的是发现美的眼睛。\"草绿了，那是生命的颜色；花开了，那是大自然的礼物。只要有心，生活中的美到处都是。生活的态度由自己选择。 问题：这段话主要讲的是：",
+      "options": [
+        "现代科技",
+        "生活的目的",
+        "美需要发现",
+        "植物的特点"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 80,
+      "original_id": 2858,
+      "type": "choice",
+      "text": "80. 阅读短文：人们在喝酒时为什么喜欢干杯呢？因为眼睛能看到酒的颜色，鼻子可以感觉到酒的香气，嘴能尝到酒的味道，只有耳朵没事做，不高兴。一干杯，杯子就会发出好听的声音，耳朵听到了，也就高兴起来了。 问题：人们干杯时：",
+      "options": [
+        "酒是满的",
+        "会很兴奋",
+        "往往很孤单",
+        "有好听的声音"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 81,
+      "original_id": 2857,
+      "type": "choice",
+      "text": "81. 阅读短文：人们在喝酒时为什么喜欢干杯呢？因为眼睛能看到酒的颜色，鼻子可以感觉到酒的香气，嘴能尝到酒的味道，只有耳朵没事做，不高兴。一干杯，杯子就会发出好听的声音，耳朵听到了，也就高兴起来了。 问题：这段话主要讲喝酒时：",
+      "options": [
+        "别抽烟",
+        "要小心什么",
+        "要慢点儿喝",
+        "为什么要干杯"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 82,
+      "original_id": 2856,
+      "type": "choice",
+      "text": "82. 阅读短文：一位妈妈很着急地给医生打电话，医生的妻子接的电话。\"我找马医生，我有急事！\"\"对不起，老马现在不在家，您有什么事吗？\"\"天哪，我10岁的儿子把一块儿手表吃到肚子里了，马医生什么时候能回来？\"\"大概两个小时。\"医生的妻子回答道。\"两个小时！这段时间我该怎么办呢？\"\"您恐怕只能先看另一块儿手表了。\" 问题：孩子怎么了？",
+      "options": [
+        "发烧了",
+        "流血了",
+        "吃错药了",
+        "把手表吃肚子里了"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 83,
+      "original_id": 2855,
+      "type": "choice",
+      "text": "83. 阅读短文：一位妈妈很着急地给医生打电话，医生的妻子接的电话。\"我找马医生，我有急事！\"\"对不起，老马现在不在家，您有什么事吗？\"\"天哪，我10岁的儿子把一块儿手表吃到肚子里了，马医生什么时候能回来？\"\"大概两个小时。\"医生的妻子回答道。\"两个小时！这段时间我该怎么办呢？\"\"您恐怕只能先看另一块儿手表了。\" 问题：关于马医生，可以知道什么？",
+      "options": [
+        "不在家",
+        "很伤心",
+        "鞋破了",
+        "很不负责"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 84,
+      "original_id": 2854,
+      "type": "choice",
+      "text": "84. 阅读短文：上班堵车怕迟到，下班堵车怕回家晚。每天在马路上开车，要想不遇到堵车，还真难。堵车浪费时间，遇到堵车，心情也\"堵\"，人们容易变得没有耐心。长期这样，会影响脾气甚至性格。我们改变不了堵车，但是，我们可以试着改变自己的心情。堵车时正好可以休息一下，还可以听听自己喜欢的音乐。 问题：根据这段话，遇到堵车：",
+      "options": [
+        "很危险",
+        "很普遍",
+        "要改变方向",
+        "要及时找交警"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 85,
+      "original_id": 2853,
+      "type": "choice",
+      "text": "85. 阅读短文：上班堵车怕迟到，下班堵车怕回家晚。每天在马路上开车，要想不遇到堵车，还真难。堵车浪费时间，遇到堵车，心情也\"堵\"，人们容易变得没有耐心。长期这样，会影响脾气甚至性格。我们改变不了堵车，但是，我们可以试着改变自己的心情。堵车时正好可以休息一下，还可以听听自己喜欢的音乐。 问题：这段话主要想说明：",
+      "options": [
+        "要诚实",
+        "要保护环境",
+        "堵车的原因",
+        "堵车时怎么办"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 86,
+      "original_id": 2852,
+      "type": "choice",
+      "text": "86. 把下列词语组成一个完整的句子：中午 又酸又辣 的 菜",
+      "options": [
+        "中午又酸又辣的菜。",
+        "中午的菜又酸又辣。",
+        "又酸又辣中午的菜。",
+        "菜中午的又酸又辣。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 87,
+      "original_id": 2851,
+      "type": "choice",
+      "text": "87. 把下列词语组成一个完整的句子：很多人的 注意 引起了 那篇文章",
+      "options": [
+        "很多人的注意引起了那篇文章。",
+        "那篇文章引起了许多人的注意。",
+        "引起了很多人的注意那篇文章。",
+        "注意很多人的那篇文章引起了。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 88,
+      "original_id": 2850,
+      "type": "choice",
+      "text": "88. 把下列词语组成一个完整的句子：森林 狮子 里 住着 一群",
+      "options": [
+        "森林狮子里住着一群。",
+        "森林里住着一群狮子。",
+        "狮子一群住着森林里。",
+        "住着里森林一群狮子。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 89,
+      "original_id": 2849,
+      "type": "choice",
+      "text": "89. 把下列词语组成一个完整的句子：香蕉皮 请 扔 垃圾桶里 把",
+      "options": [
+        "香蕉皮请扔垃圾桶里把。",
+        "请把香蕉皮扔垃圾桶里。",
+        "扔垃圾桶里请把香蕉皮。",
+        "把请香蕉皮扔垃圾桶里。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 90,
+      "original_id": 2848,
+      "type": "choice",
+      "text": "90. 把下列词语组成一个完整的句子：慢慢 积累的 是需要 知识",
+      "options": [
+        "慢慢积累的是需要知识。",
+        "知识是需要慢慢积累的。",
+        "是需要知识慢慢积累的。",
+        "积累的慢慢是需要知识。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 91,
+      "original_id": 2847,
+      "type": "choice",
+      "text": "91. 把下列词语组成一个完整的句子：他父亲 当地的 一位律师 是",
+      "options": [
+        "他父亲当地的一位律师是。",
+        "他父亲是当地的一位律师。",
+        "当地的一位律师他父亲是。",
+        "是他父亲当地的一位律师。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 92,
+      "original_id": 2846,
+      "type": "choice",
+      "text": "92. 把下列词语组成一个完整的句子：小弟弟 打针 邻居家 的 害怕",
+      "options": [
+        "小弟弟打针邻居家的害怕。",
+        "邻居家的小弟弟害怕打针。",
+        "害怕打针小弟弟邻居家的。",
+        "打针害怕邻居家的小弟弟。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 93,
+      "original_id": 2845,
+      "type": "choice",
+      "text": "93. 把下列词语组成一个完整的句子：果然是 这 好消息 一个激动人心的",
+      "options": [
+        "果然是这好消息一个激动人心的。",
+        "这果然是一个激动人心的好消息。",
+        "一个激动人心的好消息这果然是。",
+        "好消息果然是这一个激动人心的。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 94,
+      "original_id": 2844,
+      "type": "choice",
+      "text": "94. 把下列词语组成一个完整的句子：不符合 宾馆的 规定 这样做",
+      "options": [
+        "不符合宾馆的规定这样做。",
+        "这样做不符合宾馆的规定。",
+        "宾馆的规定不符合这样做。",
+        "规定这样做不符合宾馆的。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 95,
+      "original_id": 2843,
+      "type": "choice",
+      "text": "95. 把下列词语组成一个完整的句子：集合 到底什么时候 呢 明天",
+      "options": [
+        "集合到底什么时候呢明天。",
+        "明天到底什么时候集合呢？",
+        "到底什么时候明天集合呢？",
+        "呢明天集合到底什么时候？"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 96,
+      "original_id": 2842,
+      "type": "choice",
+      "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/厚.png",
+      "text": "96. 看图造句",
+      "options": [
+        "这本词典很厚。",
+        "这本书很薄。",
+        "书很新。",
+        "我在看书。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 97,
+      "original_id": 2841,
+      "type": "choice",
+      "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/区别.png",
+      "text": "97. 看图造句",
+      "options": [
+        "这是一个苹果。",
+        "这两个苹果有什么区别？",
+        "苹果很大。",
+        "我喜欢苹果。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 98,
+      "original_id": 2840,
+      "type": "choice",
+      "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/难受.png",
+      "text": "98. 看图造句",
+      "options": [
+        "她很开心。",
+        "听到这个消息，她很难受。",
+        "她在微笑。",
+        "她很兴奋。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 99,
+      "original_id": 2839,
+      "type": "choice",
+      "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/信心.png",
+      "text": "99. 看图造句",
+      "options": [
+        "他很紧张。",
+        "他对这件事很有信心。",
+        "他很失望。",
+        "他不开心。"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 100,
+      "original_id": 2838,
+      "type": "choice",
+      "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/躺.png",
+      "text": "100. 看图造句",
+      "options": [
+        "她在站着。",
+        "她在沙发上躺着。",
+        "她在跑步。",
+        "她在跳舞。"
+      ],
+      "correct_answer_index": 1
+    }
+  ]
+}

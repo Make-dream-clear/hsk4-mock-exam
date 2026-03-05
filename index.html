@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 4 Mock Exam — Free Online Practice Tests | Mandarin Zone</title>
+<meta name="description" content="Free HSK 4 practice tests online. 12 complete mock exams with 1,176 questions covering listening, reading, and writing. Open-source by Mandarin Zone.">
+<meta name="keywords" content="HSK 4, HSK mock exam, Chinese proficiency test, HSK practice test, learn Chinese, 汉语水平考试, HSK online test">
+<meta property="og:title" content="HSK 4 Mock Exam — Free Online Practice Tests">
+<meta property="og:description" content="12 complete HSK 4 mock exams with listening, reading, and writing sections. Free and open-source.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://mandarinzone.github.io/hsk4-mock-exam/">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf8f5;
+    --accent: #c23b22;
+    --accent-soft: #e8d5d0;
+    --jade: #2d6a4f;
+    --jade-soft: #d8f3dc;
+    --gold: #b8860b;
+    --gold-soft: #fef3cd;
+    --mist: #e8e4df;
+    --stone: #6b6b6b;
+    --correct: #2d6a4f;
+    --wrong: #c23b22;
+    --radius: 12px;
+    --shadow: 0 2px 20px rgba(26,26,46,0.08);
+    --shadow-lg: 0 8px 40px rgba(26,26,46,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .chinese { font-family: 'Noto Sans SC', 'Noto Serif SC', sans-serif; }
+  .serif-cn { font-family: 'Noto Serif SC', serif; }
+
+  /* === HEADER === */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--paper);
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .logo-text {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+  }
+
+  .logo-text span { color: var(--accent); }
+
+  .gh-link {
+    color: var(--paper);
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+  }
+  .gh-link:hover { opacity: 1; }
+  .gh-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+  /* === MAIN === */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  /* === SCREENS === */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* === HOME === */
+  .hero {
+    text-align: center;
+    padding: 48px 0 40px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 .accent { color: var(--accent); }
+
+  .hero p {
+    font-size: 17px;
+    color: var(--stone);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--stone);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* === TEST GRID === */
+  .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--stone);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--mist);
+  }
+
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .test-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .test-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .test-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .test-card:hover::before { opacity: 1; }
+
+  .test-card-num {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .test-card-title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .test-card-meta {
+    font-size: 13px;
+    color: var(--stone);
+    display: flex;
+    gap: 12px;
+  }
+
+  /* === QUIZ === */
+  .quiz-header {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .quiz-title {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .quiz-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .progress-bar {
+    width: 120px;
+    height: 6px;
+    background: var(--mist);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  .progress-text {
+    font-size: 13px;
+    color: var(--stone);
+    font-weight: 500;
+    min-width: 60px;
+    text-align: right;
+  }
+
+  .question-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+
+  .question-type-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+
+  .badge-listening { background: var(--gold-soft); color: var(--gold); }
+  .badge-reading { background: var(--jade-soft); color: var(--jade); }
+  .badge-writing { background: var(--accent-soft); color: var(--accent); }
+
+  .question-number {
+    font-size: 13px;
+    color: var(--stone);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .question-text {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    white-space: pre-wrap;
+  }
+
+  .audio-player {
+    margin-bottom: 24px;
+  }
+
+  .audio-player audio {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+  }
+
+  .audio-note {
+    font-size: 12px;
+    color: var(--stone);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    border: 2px solid var(--mist);
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  .option-btn:hover:not(.disabled) {
+    border-color: var(--accent);
+    background: #fdf8f7;
+  }
+
+  .option-btn .marker {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--mist);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--stone);
+    transition: all 0.15s;
+    margin-top: 1px;
+  }
+
+  .option-btn:hover:not(.disabled) .marker {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .option-btn.selected {
+    border-color: var(--accent);
+    background: #fdf8f7;
+  }
+
+  .option-btn.selected .marker {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .option-btn.correct {
+    border-color: var(--correct);
+    background: #f0faf4;
+  }
+
+  .option-btn.correct .marker {
+    background: var(--correct);
+    border-color: var(--correct);
+    color: white;
+  }
+
+  .option-btn.wrong {
+    border-color: var(--wrong);
+    background: #fef2f0;
+  }
+
+  .option-btn.wrong .marker {
+    background: var(--wrong);
+    border-color: var(--wrong);
+    color: white;
+  }
+
+  .option-btn.disabled { cursor: default; opacity: 0.7; }
+  .option-btn.disabled.correct, .option-btn.disabled.wrong { opacity: 1; }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+  .btn-primary:hover { background: #a83220; }
+
+  .btn-secondary {
+    background: var(--mist);
+    color: var(--ink);
+  }
+  .btn-secondary:hover { background: #d8d4cf; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--stone);
+    border: 1px solid var(--mist);
+  }
+  .btn-ghost:hover { background: var(--mist); }
+
+  /* === RESULTS === */
+  .results-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 24px;
+  }
+
+  .score-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 6px solid var(--mist);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+
+  .score-circle.pass { border-color: var(--correct); }
+  .score-circle.fail { border-color: var(--wrong); }
+
+  .score-num {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .score-label {
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 4px;
+  }
+
+  .results-msg {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .results-detail {
+    color: var(--stone);
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .results-breakdown {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .breakdown-item {
+    text-align: center;
+  }
+
+  .breakdown-num { font-size: 24px; font-weight: 700; }
+  .breakdown-num.green { color: var(--correct); }
+  .breakdown-num.red { color: var(--wrong); }
+  .breakdown-label { font-size: 12px; color: var(--stone); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .results-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* === CTA BANNER === */
+  .cta-banner {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .cta-banner h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .cta-banner p {
+    opacity: 0.7;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .cta-banner .btn-primary {
+    background: var(--accent);
+  }
+
+  .cta-link {
+    color: var(--paper);
+    opacity: 0.5;
+    font-size: 13px;
+    display: block;
+    margin-top: 12px;
+  }
+
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--stone);
+    font-size: 13px;
+    border-top: 1px solid var(--mist);
+    margin-top: 20px;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* === LOADING === */
+  .loading {
+    text-align: center;
+    padding: 60px;
+    color: var(--stone);
+  }
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--mist);
+    border-top: 3px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    .question-card { padding: 20px; }
+    .stats-row { gap: 20px; }
+    .results-breakdown { gap: 20px; }
+    .nav-buttons { flex-direction: column; }
+    .nav-buttons .btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="https://mandarinzone.com" class="logo" target="_blank" rel="noopener">
+      <div class="logo-mark chinese">考</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <a href="https://github.com/mandarinzone/hsk4-mock-exam" class="gh-link" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<main>
+  <!-- HOME SCREEN -->
+  <div id="home-screen" class="screen active">
+    <div class="hero">
+      <div class="hero-badge">Free & Open Source</div>
+      <h1 class="chinese">HSK 4 <span class="accent">模拟考试</span></h1>
+      <p>12 complete mock exams with listening, reading, and writing — practice anytime, for free.</p>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-num">12</div><div class="stat-label">Mock Exams</div></div>
+        <div class="stat"><div class="stat-num">1,176</div><div class="stat-label">Questions</div></div>
+        <div class="stat"><div class="stat-num chinese">四级</div><div class="stat-label">HSK Level</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">Choose a Test</div>
+    <div id="test-grid" class="test-grid">
+      <div class="loading"><div class="spinner"></div>Loading tests...</div>
+    </div>
+
+    <div class="cta-banner">
+      <h3 class="chinese">想要更系统地学中文？</h3>
+      <p>Mandarin Zone — Learn Chinese in Beijing & Online since 2008</p>
+      <a href="https://mandarinzone.com" target="_blank" rel="noopener" class="btn btn-primary">Visit Mandarin Zone</a>
+      <a href="https://github.com/mandarinzone/hsk4-mock-exam" class="cta-link" target="_blank" rel="noopener">or star us on GitHub ⭐</a>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="quiz-screen" class="screen">
+    <div class="quiz-header">
+      <div class="quiz-title" id="quiz-title"></div>
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text"></div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div id="question-type-badge" class="question-type-badge"></div>
+      <div class="question-number" id="question-number"></div>
+      <div id="audio-container" class="audio-player" style="display:none">
+        <audio id="audio-el" controls preload="none"></audio>
+        <div class="audio-note">Audio hosted by Mandarin Zone CDN</div>
+      </div>
+      <div class="question-text chinese" id="question-text"></div>
+      <div class="options-list" id="options-list"></div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-ghost" id="btn-quit" onclick="goHome()">← Back to Tests</button>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-secondary" id="btn-prev" onclick="prevQuestion()">Previous</button>
+        <button class="btn btn-primary" id="btn-next" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div id="results-screen" class="screen">
+    <div class="results-card">
+      <div class="score-circle" id="score-circle">
+        <div class="score-num" id="score-num"></div>
+        <div class="score-label">correct</div>
+      </div>
+      <div class="results-msg" id="results-msg"></div>
+      <div class="results-detail" id="results-detail"></div>
+      <div class="results-breakdown">
+        <div class="breakdown-item"><div class="breakdown-num green" id="res-correct"></div><div class="breakdown-label">Correct</div></div>
+        <div class="breakdown-item"><div class="breakdown-num red" id="res-wrong"></div><div class="breakdown-label">Wrong</div></div>
+        <div class="breakdown-item"><div class="breakdown-num" id="res-unanswered"></div><div class="breakdown-label">Skipped</div></div>
+      </div>
+      <div class="results-actions">
+        <button class="btn btn-ghost" onclick="goHome()">← All Tests</button>
+        <button class="btn btn-secondary" onclick="reviewAnswers()">Review Answers</button>
+        <button class="btn btn-primary" onclick="retakeTest()">Retake Test</button>
+      </div>
+    </div>
+
+    <div class="cta-banner">
+      <h3 class="chinese">准备好通过 HSK 4 了吗？</h3>
+      <p>98% HSK pass rate — Join 5,000+ students from 40+ countries</p>
+      <a href="https://mandarinzone.com" target="_blank" rel="noopener" class="btn btn-primary">Start Learning at Mandarin Zone</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> — Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;">Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/mandarinzone/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
+</footer>
+
+<script>
+// === STATE ===
+let allTests = [];
+let currentTest = null;
+let currentQ = 0;
+let userAnswers = {};
+let reviewMode = false;
+
+// === DATA LOADING ===
+const BASE = (() => {
+  const loc = window.location;
+  if (loc.hostname === 'localhost' || loc.hostname === '127.0.0.1' || loc.protocol === 'file:') {
+    return './data/';
+  }
+  return './data/';
+})();
+
+async function loadIndex() {
+  try {
+    const res = await fetch(BASE + 'index.json');
+    allTests = await res.json();
+    renderTestGrid();
+  } catch(e) {
+    document.getElementById('test-grid').innerHTML = '<p style="color:var(--stone);padding:20px;">Failed to load tests. Make sure you\'re serving this from a web server or GitHub Pages.</p>';
+  }
+}
+
+function renderTestGrid() {
+  const grid = document.getElementById('test-grid');
+  grid.innerHTML = allTests.map((t, i) => `
+    <div class="test-card" onclick="startTest(${i})">
+      <div class="test-card-num">Test ${String(i + 1).padStart(2, '0')}</div>
+      <div class="test-card-title">${t.title}</div>
+      <div class="test-card-meta">
+        <span>${t.questions} questions</span>
+        <span>~50 min</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+// === NAVIGATION ===
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goHome() {
+  currentTest = null;
+  currentQ = 0;
+  userAnswers = {};
+  reviewMode = false;
+  showScreen('home-screen');
+}
+
+// === QUIZ ===
+async function startTest(index) {
+  const meta = allTests[index];
+  try {
+    const res = await fetch(BASE + meta.file);
+    currentTest = await res.json();
+    currentQ = 0;
+    userAnswers = {};
+    reviewMode = false;
+    showScreen('quiz-screen');
+    renderQuestion();
+  } catch(e) {
+    alert('Failed to load test data.');
+  }
+}
+
+function renderQuestion() {
+  const q = currentTest.questions[currentQ];
+  const total = currentTest.questions.length;
+
+  document.getElementById('quiz-title').textContent = currentTest.title;
+  document.getElementById('progress-fill').style.width = ((currentQ + 1) / total * 100) + '%';
+  document.getElementById('progress-text').textContent = `${currentQ + 1} / ${total}`;
+  document.getElementById('question-number').textContent = `Question ${q.number}`;
+
+  // Type badge
+  const badge = document.getElementById('question-type-badge');
+  const typeMap = {
+    listening_true_false: ['Listening · 听力判断', 'badge-listening'],
+    listening_choice: ['Listening · 听力选择', 'badge-listening'],
+    fill_in_blank: ['Reading · 选词填空', 'badge-reading'],
+    reading_ordering: ['Reading · 语句排序', 'badge-reading'],
+    reading_comprehension: ['Reading · 阅读理解', 'badge-reading'],
+    choice: ['Writing · 书写', 'badge-writing'],
+  };
+  const [label, cls] = typeMap[q.type] || ['Question', 'badge-reading'];
+  badge.textContent = label;
+  badge.className = 'question-type-badge ' + cls;
+
+  // Audio
+  const ac = document.getElementById('audio-container');
+  const ae = document.getElementById('audio-el');
+  if (q.audio) {
+    ac.style.display = 'block';
+    ae.src = q.audio;
+  } else {
+    ac.style.display = 'none';
+    ae.src = '';
+  }
+
+  // Text
+  document.getElementById('question-text').textContent = q.text || '';
+
+  // Options
+  const ol = document.getElementById('options-list');
+  const markers = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const selected = userAnswers[currentQ];
+
+  ol.innerHTML = q.options.map((opt, i) => {
+    let cls = 'option-btn';
+    if (reviewMode) {
+      cls += ' disabled';
+      if (i === q.correct_answer_index) cls += ' correct';
+      else if (i === selected && i !== q.correct_answer_index) cls += ' wrong';
+    } else {
+      if (i === selected) cls += ' selected';
+    }
+    return `<button class="${cls}" onclick="selectOption(${i})">
+      <span class="marker">${markers[i] || i + 1}</span>
+      <span class="chinese">${opt}</span>
+    </button>`;
+  }).join('');
+
+  // Nav buttons
+  document.getElementById('btn-prev').style.display = currentQ > 0 ? 'inline-flex' : 'none';
+  const nextBtn = document.getElementById('btn-next');
+  if (currentQ === total - 1) {
+    nextBtn.textContent = reviewMode ? 'Back to Results' : 'Finish Test';
+  } else {
+    nextBtn.textContent = 'Next →';
+  }
+}
+
+function selectOption(i) {
+  if (reviewMode) return;
+  userAnswers[currentQ] = i;
+  renderQuestion();
+}
+
+function nextQuestion() {
+  const total = currentTest.questions.length;
+  if (currentQ < total - 1) {
+    currentQ++;
+    renderQuestion();
+    window.scrollTo(0, 0);
+  } else {
+    if (reviewMode) {
+      showScreen('results-screen');
+    } else {
+      showResults();
+    }
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+    window.scrollTo(0, 0);
+  }
+}
+
+// === RESULTS ===
+function showResults() {
+  const total = currentTest.questions.length;
+  let correct = 0;
+  let answered = 0;
+
+  currentTest.questions.forEach((q, i) => {
+    if (userAnswers[i] !== undefined) {
+      answered++;
+      if (userAnswers[i] === q.correct_answer_index) correct++;
+    }
+  });
+
+  const wrong = answered - correct;
+  const unanswered = total - answered;
+  const pct = Math.round(correct / total * 100);
+
+  const circle = document.getElementById('score-circle');
+  circle.className = 'score-circle ' + (pct >= 60 ? 'pass' : 'fail');
+  document.getElementById('score-num').textContent = pct + '%';
+  document.getElementById('results-msg').textContent = pct >= 60 ? '恭喜通过！Congratulations!' : '继续加油！Keep Practicing!';
+  document.getElementById('results-detail').textContent = `You got ${correct} out of ${total} questions correct.`;
+  document.getElementById('res-correct').textContent = correct;
+  document.getElementById('res-wrong').textContent = wrong;
+  document.getElementById('res-unanswered').textContent = unanswered;
+
+  showScreen('results-screen');
+}
+
+function reviewAnswers() {
+  reviewMode = true;
+  currentQ = 0;
+  showScreen('quiz-screen');
+  renderQuestion();
+}
+
+function retakeTest() {
+  userAnswers = {};
+  currentQ = 0;
+  reviewMode = false;
+  showScreen('quiz-screen');
+  renderQuestion();
+}
+
+// === INIT ===
+loadIndex();
+</script>
+
+</body>
+</html>

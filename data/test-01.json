@@ -1,0 +1,1247 @@
+{
+  "quiz_id": 2,
+  "title": "HSK 4 SAMPLE QUIZ",
+  "source": "Mandarin Zone (mandarinzone.com)",
+  "total_questions": 100,
+  "questions": [
+    {
+      "number": 1,
+      "original_id": 405,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-02.wav",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 2,
+      "original_id": 406,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-03.wav",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 3,
+      "original_id": 407,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-04.wav",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 4,
+      "original_id": 408,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-05.wav",
+      "text": "女朋友听过这个笑话。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 5,
+      "original_id": 409,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-06.wav",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 6,
+      "original_id": 410,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-07.wav",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 7,
+      "original_id": 411,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-08.wav",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 8,
+      "original_id": 412,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-09.wav",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 9,
+      "original_id": 413,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-10.wav",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 10,
+      "original_id": 414,
+      "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-11.wav",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 11,
+      "original_id": 415,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-13.wav",
+      "options": [
+        "A 没纸了",
+        "B 男的没发",
+        "C 打印机坏了",
+        "D 传真机坏了"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 12,
+      "original_id": 416,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-14.wav",
+      "options": [
+        "A 将来",
+        "B 理想",
+        "C 小说",
+        "D 职业"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 13,
+      "original_id": 417,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-15.wav",
+      "options": [
+        "A 办签证",
+        "B 去学校",
+        "C 打网球",
+        "D 打羽毛球"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 14,
+      "original_id": 418,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-16.wav",
+      "options": [
+        "A 不想出国",
+        "B 换个箱子",
+        "C 不符合规定",
+        "D 早点儿回来"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 15,
+      "original_id": 419,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-17.wav",
+      "options": [
+        "A 变胖了",
+        "B 很难受",
+        "C 正在减肥",
+        "D 工作很辛苦"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 16,
+      "original_id": 420,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-18.wav",
+      "options": [
+        "A 是研究生",
+        "B 参加工作了",
+        "C 已经毕业了",
+        "D 在准备考试"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 17,
+      "original_id": 421,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-19.wav",
+      "options": [
+        "A 打扫",
+        "B 等人",
+        "C 爬山",
+        "D 购物"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 18,
+      "original_id": 422,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-20.wav",
+      "options": [
+        "A 幽默",
+        "B 很难过",
+        "C 很粗心",
+        "D 没有耐心"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 19,
+      "original_id": 423,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-21.wav",
+      "options": [
+        "A 很酸",
+        "B 很甜",
+        "C 很咸",
+        "D 很辣"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 20,
+      "original_id": 424,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-22.wav",
+      "options": [
+        "A 他们输了",
+        "B 他们赢了",
+        "C 他们放弃了",
+        "D 他们很愉快"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 21,
+      "original_id": 425,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-23.wav",
+      "options": [
+        "A 学钢琴",
+        "B 去旅游",
+        "C 做生意",
+        "D 锻炼身体"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 22,
+      "original_id": 426,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-24.wav",
+      "options": [
+        "A 肚子疼",
+        "B 感冒了",
+        "C 觉得热",
+        "D 穿得太少"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 23,
+      "original_id": 427,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-25.wav",
+      "options": [
+        "A 周末",
+        "B 下周",
+        "C 两周后",
+        "D 下个月"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 24,
+      "original_id": 428,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-26.wav",
+      "options": [
+        "A 医生",
+        "B 导游",
+        "C 卖家具的",
+        "D 开出租车的"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 25,
+      "original_id": 429,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-27.wav",
+      "options": [
+        "A 我不会",
+        "B 马上来",
+        "C 没法解释",
+        "D 解决不了"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 26,
+      "original_id": 430,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-29.wav",
+      "text": "男的最可能在哪儿？",
+      "options": [
+        "A 医院",
+        "B 宾馆",
+        "C 图书馆",
+        "D 体育场"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 27,
+      "original_id": 431,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-30.wav",
+      "options": [
+        "A 很奇怪",
+        "B 很随便",
+        "C 很一般",
+        "D 很正式"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 28,
+      "original_id": 432,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-31.wav",
+      "options": [
+        "A 撞车了",
+        "B 车速太慢",
+        "C 他们是记者",
+        "D 女的很小心"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 29,
+      "original_id": 433,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-29.wav",
+      "options": [
+        "A 生病了",
+        "B 丢了电脑",
+        "C 忘了密码",
+        "D 弄坏镜子了"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 30,
+      "original_id": 434,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-33.wav",
+      "options": [
+        "A 5点",
+        "B 下班以后",
+        "C 明天",
+        "D 下个星期"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 31,
+      "original_id": 435,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-34.wav",
+      "options": [
+        "A 两元",
+        "B 3元5角",
+        "C 7元",
+        "D 9 元"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 32,
+      "original_id": 436,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-35.wav",
+      "options": [
+        "A 买手机",
+        "B 去亲戚家",
+        "C 交电话费",
+        "D 找李大夫"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 33,
+      "original_id": 437,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-36.wav",
+      "options": [
+        "A 毛巾",
+        "B 帽子",
+        "C 钥匙",
+        "D 笔记本"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 34,
+      "original_id": 438,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-37.wav",
+      "options": [
+        "A 车上",
+        "B 火车站",
+        "C 电梯里",
+        "D 地铁上"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 35,
+      "original_id": 439,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-38.wav",
+      "options": [
+        "A 公园",
+        "B 商店",
+        "C 洗手间",
+        "D 公共汽车"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 36,
+      "original_id": 440,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-39.wav",
+      "options": [
+        "A 睡觉",
+        "B 散散步",
+        "C 洗个澡",
+        "D 回忆过去"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 37,
+      "original_id": 441,
+      "type": "choice",
+      "text": "这段话主要想告诉我们什么？",
+      "options": [
+        "A 要互相关心",
+        "B 做事要冷静",
+        "C 运动很重要",
+        "D 怎样改变心情"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 38,
+      "original_id": 442,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-40.wav",
+      "options": [
+        "A 脾气好",
+        "B 爱做梦",
+        "C 很成功",
+        "D 工作压力大"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 39,
+      "original_id": 443,
+      "type": "choice",
+      "text": "他不同意儿子做什么？",
+      "options": [
+        "A 喝酒",
+        "B 抽烟",
+        "C 踢足球",
+        "D 说假话"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 40,
+      "original_id": 444,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-41.wav",
+      "options": [
+        "A 警察",
+        "B 司机",
+        "C 学生",
+        "D 家长"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 41,
+      "original_id": 445,
+      "type": "choice",
+      "text": "那条路现在怎么样？",
+      "options": [
+        "A 变宽了",
+        "B 比较窄",
+        "C 禁止停车",
+        "D 没有红绿灯"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 42,
+      "original_id": 446,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-42.wav",
+      "options": [
+        "A 失望",
+        "B 羡慕",
+        "C 后悔",
+        "D 激动"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 43,
+      "original_id": 447,
+      "type": "choice",
+      "text": "关于说话人，可以知道什么？",
+      "options": [
+        "A 是演员",
+        "B 结婚了",
+        "C 很年轻",
+        "D 没有得奖"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 44,
+      "original_id": 448,
+      "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-43.wav",
+      "options": [
+        "A 家里",
+        "B 厨房",
+        "C 教室",
+        "D 会议室"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 45,
+      "original_id": 449,
+      "type": "choice",
+      "text": "他们正在做什么？",
+      "options": [
+        "A 开会",
+        "B 参观",
+        "C 听广播",
+        "D 看电视"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 46,
+      "original_id": 450,
+      "type": "fill_in_blank",
+      "text": "虽然现在离（　）还有段时间，但是不少人已经开始准备过年的东西了。",
+      "options": [
+        "A 随着",
+        "B 尝",
+        "C 春节",
+        "D 坚持",
+        "E 收拾"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 47,
+      "original_id": 451,
+      "type": "fill_in_blank",
+      "text": "研究证明，人们的心情会（　）天气的变化而变化。",
+      "options": [
+        "A 随着",
+        "B 尝",
+        "C 春节",
+        "D 坚持",
+        "E 收拾"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 48,
+      "original_id": 452,
+      "type": "fill_in_blank",
+      "text": "明天可能下雨，你记得（　）儿子带雨伞。",
+      "options": [
+        "A 随着",
+        "B 尝",
+        "C 春节",
+        "D 坚持",
+        "E 收拾",
+        "F 提醒"
+      ],
+      "correct_answer_index": 5
+    },
+    {
+      "number": 49,
+      "original_id": 453,
+      "type": "fill_in_blank",
+      "text": "这是你做的饺子？真香！我先（　）一个。",
+      "options": [
+        "A 随着",
+        "B 尝",
+        "C 春节",
+        "D 坚持",
+        "E 收拾"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 50,
+      "original_id": 454,
+      "type": "fill_in_blank",
+      "text": "快把房间（　）一下，准备一些水果，一会儿有客人要来。",
+      "options": [
+        "A 随着",
+        "B 尝",
+        "C 春节",
+        "D 坚持",
+        "E 收拾"
+      ],
+      "correct_answer_index": 4
+    },
+    {
+      "number": 51,
+      "original_id": 455,
+      "type": "fill_in_blank",
+      "text": "A：这些瓶子的数量对吧？\nB：我都仔细检查过了，（　）没问题。",
+      "options": [
+        "A 反映",
+        "B 陪",
+        "C 温度",
+        "D 堵车",
+        "E 来得及",
+        "F 肯定"
+      ],
+      "correct_answer_index": 5
+    },
+    {
+      "number": 52,
+      "original_id": 456,
+      "type": "fill_in_blank",
+      "text": "A：讨论会开得顺利吗？\nB：顺利，大家（　）了不少管理过程中出现的问题，对下一步工作很有帮助。",
+      "options": [
+        "A 反映",
+        "B 陪",
+        "C 温度",
+        "D 堵车",
+        "E 来得及"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 53,
+      "original_id": 457,
+      "type": "fill_in_blank",
+      "text": "A：火车快开了，他怎么还没来？\nB：他一般很准时的，可能是路上（　），别着急，再等等。",
+      "options": [
+        "A 反映",
+        "B 陪",
+        "C 温度",
+        "D 堵车",
+        "E 来得及"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 54,
+      "original_id": 458,
+      "type": "fill_in_blank",
+      "text": "A：快点儿，今天千万不能迟到。\nB：还有 10 分钟呢，（　）。",
+      "options": [
+        "A 反映",
+        "B 陪",
+        "C 温度",
+        "D 堵车",
+        "E 来得及"
+      ],
+      "correct_answer_index": 4
+    },
+    {
+      "number": 55,
+      "original_id": 459,
+      "type": "fill_in_blank",
+      "text": "A：我（　）你一起去吧，可以顺便活动活动。\nB：太好了，我们现在就出发。",
+      "options": [
+        "A 反映",
+        "B 陪",
+        "C 温度",
+        "D 堵车",
+        "E 来得及"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 56,
+      "original_id": 460,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 她就给我留下了极深的印象\nB 那就是她特别热情、特别友好\nC 第一次和王小姐见面",
+      "options": [
+        "A. ABC",
+        "B. BAC",
+        "C. CAB"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 57,
+      "original_id": 461,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 茶不仅仅是一种饮料\nB 它在中国有着几千年的历史\nC 而且还是一种文化",
+      "options": [
+        "A. ABC",
+        "B. ACB",
+        "C. BAC"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 58,
+      "original_id": 462,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 昨天我和同事去逛街\nB 可惜没有我穿的号了\nC 我看上了一双挺漂亮的鞋，还打折",
+      "options": [
+        "A. ABC",
+        "B. ACB",
+        "C. BAC"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 59,
+      "original_id": 463,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 所以你喜欢哪种颜色\nB 因为不同的颜色表示不同的性格\nC 就说明你是哪种性格的人",
+      "options": [
+        "A. ABC",
+        "B. BAC",
+        "C. BCA"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 60,
+      "original_id": 464,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 因为工作的需要\nB 所以我去过那里几次\nC 对当地的文化有一些简单的了解",
+      "options": [
+        "A. ABC",
+        "B. BAC",
+        "C. BCA"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 61,
+      "original_id": 465,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 被大家普遍使用的是汉语普通话\nB 中国是一个多民族的国家\nC 很多民族都有自己的语言",
+      "options": [
+        "A. ABC",
+        "B. BCA",
+        "C. CAB"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 62,
+      "original_id": 466,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 还是从材料的质量上看\nB 无论从价格方面看\nC 这种盒子都是值得考虑的",
+      "options": [
+        "A. ABC",
+        "B. BAC",
+        "C. BCA"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 63,
+      "original_id": 467,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 这种鱼生活在深海中\nB 看起来像一个个会游泳的小电灯\nC 它们的身体能发出美丽的亮光",
+      "options": [
+        "A. ABC",
+        "B. ACB",
+        "C. BAC"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 64,
+      "original_id": 468,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 是父母的鼓励给了她信心\nB 其实她小时候很普通\nC 让她后来终于成为一位优秀的演员",
+      "options": [
+        "A. ABC",
+        "B. BAC",
+        "C. BCA"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 65,
+      "original_id": 469,
+      "type": "reading_ordering",
+      "text": "排列顺序：\nA 我们还是经常打电话联系\nB 尽管已经毕业那么多年\nC 他是我大学时最好的同学",
+      "options": [
+        "A. ABC",
+        "B. BAC",
+        "C. CBA"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 66,
+      "original_id": 470,
+      "type": "reading_comprehension",
+      "text": "小时候弟弟比我矮，现在却超过我了，看着他一米八二的个子，我真是羡慕极了。\n\n★ 根据这句话，可以知道现在：",
+      "options": [
+        "A 我一米八",
+        "B 我比弟弟矮",
+        "C 弟弟个子矮",
+        "D 我同情弟弟"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 67,
+      "original_id": 471,
+      "type": "reading_comprehension",
+      "text": "我是前天到北京的，想借这次机会去长城看看，可是公司的事情很多，时间安排得很紧张。\n\n★ 我最可能来北京：",
+      "options": [
+        "A 旅游",
+        "B 休息",
+        "C 出差",
+        "D 请假"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 68,
+      "original_id": 472,
+      "type": "reading_comprehension",
+      "text": "地球是我们共同的家，保护环境就是保护我们自己，为减少污染，我们应该养成节约的习惯，节约用水、节约用纸等等。\n\n★ 节约用纸主要是为了：",
+      "options": [
+        "A 保护环境",
+        "B 限制用水",
+        "C 改变地球",
+        "D 发展经济"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 69,
+      "original_id": 473,
+      "type": "reading_comprehension",
+      "text": "一些电影院拒绝观众带任何食品、饮料，人们不得不买电影院卖的东西。很多观众批评这个做法，因为电影院的东西特别贵，大约比超市贵三倍。\n\n★ 观众对什么不满意？",
+      "options": [
+        "A 票价高",
+        "B 座位少",
+        "C 东西太贵",
+        "D 电影不精彩"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 70,
+      "original_id": 474,
+      "type": "reading_comprehension",
+      "text": "进入21世纪，随着科学技术的发展，人与人的联系越来越方便，上网发电子邮件的人越来越多，写信的人越来越少。\n\n★ 根据这段话，人们更喜欢怎么交流？",
+      "options": [
+        "A 寄信",
+        "B 谈话",
+        "C 打电话",
+        "D 写电子邮件"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 71,
+      "original_id": 475,
+      "type": "reading_comprehension",
+      "text": "长江是中国也是亚洲最长的河，全长6397公里，它由西向东，流经十几个省市，最后由上海市流入东海。\n\n★ 长江：",
+      "options": [
+        "A 世界最长",
+        "B 是黄色的",
+        "C 流向东部",
+        "D 近 1 万公里"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 72,
+      "original_id": 476,
+      "type": "reading_comprehension",
+      "text": "兴趣是最好的老师，如果孩子对一件事情感兴趣，那他一定会主动、努力地去学习，效果也会更好。\n\n★ 为了提高学习效果，应该让孩子：",
+      "options": [
+        "A 积累经验",
+        "B 努力学习",
+        "C 产生兴趣",
+        "D 相信自己"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 73,
+      "original_id": 477,
+      "type": "reading_comprehension",
+      "text": "有的时候，我们要学会拒绝别人。拒绝别人，要找到合适、礼貌的方法，否则，如果表达不合适，就会引起误会。\n\n★ 这段话主要说怎样：",
+      "options": [
+        "A 拒绝别人",
+        "B 获得尊重",
+        "C 减少误会",
+        "D 获得原谅"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 74,
+      "original_id": 478,
+      "type": "reading_comprehension",
+      "text": "以前，日记是写给自己看的，然而现在更多的年轻人喜欢把自己的日记放到网站上，希望和更多的人交流。\n\n★ 现在许多年轻人写日记：",
+      "options": [
+        "A 写得很短",
+        "B 代替交流",
+        "C 只在网上写",
+        "D 允许别人看"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 75,
+      "original_id": 479,
+      "type": "reading_comprehension",
+      "text": "一个不喜欢开玩笑的人，不一定让人讨厌。但是一个会开玩笑的人，往往让人觉得很可爱。\n\n★ 会开玩笑的人：",
+      "options": [
+        "A 更聪明",
+        "B 很成熟",
+        "C 让人喜欢",
+        "D 比较无聊"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 76,
+      "original_id": 480,
+      "type": "reading_comprehension",
+      "text": "怎样才能说一口流利的外语呢？如果你有一定的语言基础和经济条件，那么出国是最好的选择。因为语言环境对学习语言有重要的作用。\n\n★ 去国外学习外语是因为：",
+      "options": [
+        "A 语言环境好",
+        "B 经济条件好",
+        "C 有语言基础",
+        "D 学习更认真"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 77,
+      "original_id": 481,
+      "type": "reading_comprehension",
+      "text": "生日快乐！\\\"\\\"祝爸爸生日快乐！\\\"晚上我刚回到家，妻子和儿子就一起祝我生日快乐，并送给我生日礼物。这时我才明白过来，今天是我的生日。\n\n★ 根据这段话，可以知道我：\n\n\\\"",
+      "options": [
+        "A 加班了",
+        "B 身体不舒服",
+        "C 没按时回家",
+        "D 忘记了生日"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 78,
+      "original_id": 482,
+      "type": "reading_comprehension",
+      "text": "我对现在的这份工作还比较满意。首先，我学的就是这个专业；其次，同事们都很喜欢我；另外，工资也还算可以，还有奖金，收入不错。\n\n★ 根据这段话，可以知道我：",
+      "options": [
+        "A 工作累",
+        "B 受欢迎",
+        "C 奖金很少",
+        "D 收入很低"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 79,
+      "original_id": 483,
+      "type": "reading_comprehension",
+      "text": "交通工具是现代生活中不可缺少的一部分。常见的交通工具包括汽车、飞机、船等，这一切拉近了人与人之间的距离，并且扩大了人们的活动范围。\n\n★ 这段话主要谈：",
+      "options": [
+        "A 生活经历",
+        "B 交通工具",
+        "C 社会责任",
+        "D 夫妻感情"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 80,
+      "original_id": 484,
+      "type": "reading_comprehension",
+      "text": "森林里，动物们决定举办一个晚会，这次演出吸引了几乎所有的动物。他们都很积极，准备的节目各有特点，小鸟要给大家唱歌，老虎要跳舞，小猫要画画儿，猴子要讲故事，狮子说他给大家照相，熊猫说：我不会表演，但是我可以当观众，为大家鼓掌。\\\"最后只剩下小牛了，她想了好久，忽然得意地说：\\\"我负责为大家送免费的牛奶！\\\"\n\n★ 谁打算为大家讲故事？\n\n\\\"",
+      "options": [
+        "A 狗",
+        "B 马",
+        "C 猴子",
+        "D 小猪"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 81,
+      "original_id": 485,
+      "type": "reading_comprehension",
+      "text": "森林里，动物们决定举办一个晚会，这次演出吸引了几乎所有的动物。他们都很积极，准备的节目各有特点，小鸟要给大家唱歌，老虎要跳舞，小猫要画画儿，猴子要讲故事，狮子说他给大家照相，熊猫说：我不会表演，但是我可以当观众，为大家鼓掌。\\\"最后只剩下小牛了，她想了好久，忽然得意地说：\\\"我负责为大家送免费的牛奶！\\\"\n\n★ 小牛负责为大家：\n\n\\\"",
+      "options": [
+        "A 报名",
+        "B 送牛奶",
+        "C 填写地址",
+        "D 小猪"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 82,
+      "original_id": 486,
+      "type": "reading_comprehension",
+      "text": "什么是真正的朋友？不同的人会有不同的理解，而我的理解是：在你遇到困难的时候，朋友会勇敢地站出来，及时给你帮助；在你孤单或者伤心流泪的时候，朋友会陪在你身边，想办法让你感到幸福；无论你是穷人还是富人，真正的朋友永远值得你信任。\n\n★ 根据这段话，朋友可以帮你：",
+      "options": [
+        "A 总结经验",
+        "B 照顾家人",
+        "C 远离危险",
+        "D 解决难题"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 83,
+      "original_id": 487,
+      "type": "reading_comprehension",
+      "text": "什么是真正的朋友？不同的人会有不同的理解，而我的理解是：在你遇到困难的时候，朋友会勇敢地站出来，及时给你帮助；在你孤单或者伤心流泪的时候，朋友会陪在你身边，想办法让你感到幸福；无论你是穷人还是富人，真正的朋友永远值得你信任。\n\n★ 这段话主要介绍的是：",
+      "options": [
+        "A 精神",
+        "B 爱情",
+        "C 态度",
+        "D 友谊"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 84,
+      "original_id": 488,
+      "type": "reading_comprehension",
+      "text": "南半球和北半球的季节正好相反。当北半球到处春暖花开的时候，南半球已经进入凉快的秋天，树叶也开始慢慢地变黄了；当北半球的气温逐渐降低的时候，南半球的天气却开始热起来，人们已经脱掉了厚厚的大衣。\n\n★ 南半球是秋天的时候，北半球是：",
+      "options": [
+        "A 春天",
+        "B 夏天",
+        "C 秋天",
+        "D 冬天"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 85,
+      "original_id": 489,
+      "type": "reading_comprehension",
+      "text": "南半球和北半球的季节正好相反。当北半球到处春暖花开的时候，南半球已经进入凉快的秋天，树叶也开始慢慢地变黄了；当北半球的气温逐渐降低的时候，南半球的天气却开始热起来，人们已经脱掉了厚厚的大衣。\n\n★ 关于南北半球，可以知道：",
+      "options": [
+        "A 季节不同",
+        "B 南半球更热",
+        "C 北半球植物多",
+        "D 秋天都很干燥"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 86,
+      "original_id": 490,
+      "type": "choice",
+      "text": "完成句子：音乐 喜欢 流行 他 听",
+      "options": [
+        "他喜欢听流行音乐。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 87,
+      "original_id": 491,
+      "type": "choice",
+      "text": "完成句子：有效 这种药 对 头疼 很",
+      "options": [
+        "这种药对头疼很有效。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 88,
+      "original_id": 492,
+      "type": "choice",
+      "text": "完成句子：更 南方 的 湿润 气候",
+      "options": [
+        "南方的气候更湿润。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 89,
+      "original_id": 493,
+      "type": "choice",
+      "text": "完成句子：自己的 每个人 优点和缺点 都 有",
+      "options": [
+        "每个人都有自己的优点和缺点。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 90,
+      "original_id": 494,
+      "type": "choice",
+      "text": "完成句子：公司 机会 提供了 一些 学习的",
+      "options": [
+        "公司提供了一些学习的机会。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 91,
+      "original_id": 495,
+      "type": "choice",
+      "text": "完成句子：看懂 能 他 中文 说明书",
+      "options": [
+        "他能看懂中文说明书。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 92,
+      "original_id": 496,
+      "type": "choice",
+      "text": "完成句子：菜 的 怎么样 这个 味道",
+      "options": [
+        "这个菜的味道怎么样？"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 93,
+      "original_id": 497,
+      "type": "choice",
+      "text": "完成句子：内容 那本杂志 的 十分 丰富",
+      "options": [
+        "那本杂志的内容十分丰富。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 94,
+      "original_id": 498,
+      "type": "choice",
+      "text": "完成句子：区别 发现 你 这两张照片的 吗 了",
+      "options": [
+        "你发现这两张照片的区别了吗？"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 95,
+      "original_id": 499,
+      "type": "choice",
+      "text": "完成句子：符合 太 他的看法 不 实际",
+      "options": [
+        "他的看法不太符合实际。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 96,
+      "original_id": 500,
+      "type": "choice",
+      "text": "看图，用词造句。词语：试",
+      "options": [
+        "她想试一下这条裙子%%%这个女孩想试一下这条裙子%%%这位女士想试穿这件衣服%%%这位顾客想试穿这件衣服%%%她准备去试衣间试穿%%%她拿着裙子准备去试%%%她觉得这条裙子很漂亮，想试一试%%%她正在挑选要试的衣服%%%她可以试穿这件衣服吗%%%她问店员是否可以试穿%%%你要不要试试这条裙子？"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 97,
+      "original_id": 501,
+      "type": "choice",
+      "text": "看图，用词造句。词语：答案",
+      "options": [
+        "他找不到答案。%%%这个男人找不到答案。%%%这位先生找不到答案。%%%他正在为答案而烦恼。%%%这个男人正在为答案而烦恼。%%%他不知道答案。%%%这个男人不知道答案。%%%这个问题没有简单的答案。%%%他想不出答案。%%%这个男人想不出答案。%%%找不到答案让他很头痛。%%%他正在思考答案。%%%这个男人正在思考答案。%%%这个问题太难了，他不知道答案。%%%他没有答案。%%%他不知道答案是什么"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 98,
+      "original_id": 502,
+      "type": "choice",
+      "text": "看图，用词造句。词语：风景",
+      "options": [
+        "她正在拍摄风景%%%这个女孩正在拍摄风景%%%这位女士正在拍摄风景%%%这位女性正在拍摄风景%%%这位摄影师正在拍摄风景%%%她喜欢拍摄风景%%%这个女孩喜欢拍摄风景%%%这位女士喜欢拍摄风景%%%她用摄像机记录风景%%%这个女孩用摄像机记录风景%%%这位女士用摄像机记录风景%%%她想把美丽的风景拍下来%%%这个女孩想把美丽的风景拍下来%%%她觉得这里的风景很美%%%这个女孩觉得这里的风景很美%%%这里的风景很美，所以她要拍摄它%%%这里的风景很美，所以这个女孩要拍摄它%%%她正在寻找美丽的风景%%%这个女孩正在寻找美丽的风景%%%为了记录风景，她带了摄像机%%%她拍风景。%%%女孩拍风景。%%%她用视频记录看到的风景%%%这个女人正在拍摄风景%%%照片里的女孩在拍风景"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 99,
+      "original_id": 503,
+      "type": "choice",
+      "text": "看图，用词造句。词语：醒",
+      "options": [
+        "她还没醒%%%闹钟响了，但她还不想醒%%%她需要闹钟才能醒%%%她每天被闹钟叫醒%%%她睡得很熟，不容易醒%%%她醒来后要做的第一件事就是关掉闹钟%%%虽然闹钟响了，但是她还没有醒%%%她设置了闹钟提醒自己醒来"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 100,
+      "original_id": 504,
+      "type": "choice",
+      "text": "看图，用词造句。词语：脏",
+      "options": [
+        "这位工人的脸弄脏了%%%她身上很脏%%%她的脸上很脏%%%她的衣服很脏%%%她的工作服很脏%%%她的脸弄脏了%%%她的衣服弄脏了%%%这位工人的脸很脏%%%虽然她的脸很脏，但是她笑得很开心%%%她不怕脏%%%工作把她的衣服弄脏了%%%因为工作，她的脸和衣服都脏了"
+      ],
+      "correct_answer_index": 0
+    }
+  ]
+}
