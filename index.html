@@ -862,15 +862,26 @@ async function loadIndex() {
     const res = await fetch(BASE + 'index.json');
     allTests = await res.json();
     renderTestGrid();
+    handleHash();
   } catch(e) {
     document.getElementById('test-grid').innerHTML = '<p style="color:var(--stone);padding:20px;">Failed to load tests. Make sure you\'re serving this from a web server or GitHub Pages.</p>';
   }
 }
 
+function handleHash() {
+  const hash = window.location.hash.slice(1);
+  if (!hash.startsWith('test-')) return;
+  const num = parseInt(hash.replace('test-', ''), 10);
+  if (isNaN(num) || num < 1 || num > allTests.length) return;
+  startTest(num - 1);
+}
+
+window.addEventListener('hashchange', handleHash);
+
 function renderTestGrid() {
   const grid = document.getElementById('test-grid');
   grid.innerHTML = allTests.map((t, i) => `
-    <div class="test-card" onclick="startTest(${i})">
+    <div class="test-card" onclick="window.location.hash='test-${String(i + 1).padStart(2, '0')}'" id="card-${String(i + 1).padStart(2, '0')}">
       <div class="test-card-num">Test ${String(i + 1).padStart(2, '0')}</div>
       <div class="test-card-title">${t.title}</div>
       <div class="test-card-meta">
@@ -893,6 +904,7 @@ function goHome() {
   currentQ = 0;
   userAnswers = {};
   reviewMode = false;
+  history.pushState(null, '', window.location.pathname + window.location.search);
   showScreen('home-screen');
 }
 
