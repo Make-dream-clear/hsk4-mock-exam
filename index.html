@@ -96,185 +96,45 @@
 }
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
 <style>
-  :root {
-    --ink: #1a1a2e;
-    --paper: #faf8f5;
-    --accent: #c23b22;
-    --accent-soft: #e8d5d0;
-    --jade: #2d6a4f;
-    --jade-soft: #d8f3dc;
-    --gold: #b8860b;
-    --gold-soft: #fef3cd;
-    --mist: #e8e4df;
-    --stone: #6b6b6b;
-    --correct: #2d6a4f;
-    --wrong: #c23b22;
-    --radius: 12px;
-    --shadow: 0 2px 20px rgba(26,26,46,0.08);
-    --shadow-lg: 0 8px 40px rgba(26,26,46,0.12);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-
-  .chinese { font-family: 'Noto Sans SC', 'Noto Serif SC', sans-serif; }
-  .serif-cn { font-family: 'Noto Serif SC', serif; }
-
-  /* === HEADER === */
-  header {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .header-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--paper);
-  }
-
-  .logo-mark {
-    width: 36px;
-    height: 36px;
-    background: var(--accent);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Noto Serif SC', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-  }
-
-  .logo-text {
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: -0.3px;
-  }
-
-  .logo-text span { color: var(--accent); }
-
-  .gh-link {
-    color: var(--paper);
-    opacity: 0.7;
-    text-decoration: none;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: opacity 0.2s;
-  }
-  .gh-link:hover { opacity: 1; }
-  .gh-link svg { width: 18px; height: 18px; fill: currentColor; }
-
-  /* === MAIN === */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 24px;
-  }
-
   /* === SCREENS === */
   .screen { display: none; }
   .screen.active { display: block; }
 
-  /* === HOME === */
-  .hero {
-    text-align: center;
-    padding: 48px 0 40px;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 100px;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
+  /* === PAGE OVERRIDES === */
   .hero h1 {
-    font-family: 'Noto Serif SC', serif;
     font-size: clamp(28px, 5vw, 42px);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 12px;
     letter-spacing: -0.5px;
   }
 
-  .hero h1 .accent { color: var(--accent); }
-
   .hero p {
-    font-size: 17px;
-    color: var(--stone);
     max-width: 520px;
-    margin: 0 auto;
   }
 
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 28px;
-    flex-wrap: wrap;
+  .btn {
+    padding: 12px 28px;
+    font-size: 15px;
   }
 
-  .stat {
-    text-align: center;
+  .cta-banner {
+    padding: 32px;
+    margin: 40px 0;
   }
 
-  .stat-num {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--ink);
+  .cta-banner .btn-primary {
+    background: var(--accent);
   }
 
-  .stat-label {
+  .cta-link {
+    color: var(--paper);
+    opacity: 0.5;
     font-size: 13px;
-    color: var(--stone);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 12px;
   }
 
   /* === TEST GRID === */
-  .section-title {
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--stone);
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--mist);
-  }
-
   .test-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -531,36 +391,6 @@
     gap: 12px;
   }
 
-  .btn {
-    padding: 12px 28px;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: white;
-  }
-  .btn-primary:hover { background: #a83220; }
-
-  .btn-secondary {
-    background: var(--mist);
-    color: var(--ink);
-  }
-  .btn-secondary:hover { background: #d8d4cf; }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--stone);
-    border: 1px solid var(--mist);
-  }
-  .btn-ghost:hover { background: var(--mist); }
-
   /* === RESULTS === */
   .results-card {
     background: white;
@@ -636,77 +466,9 @@
     flex-wrap: wrap;
   }
 
-  /* === CTA BANNER === */
-  .cta-banner {
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: var(--radius);
-    padding: 32px;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .cta-banner h3 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
-
-  .cta-banner p {
-    opacity: 0.7;
-    font-size: 15px;
-    margin-bottom: 20px;
-  }
-
-  .cta-banner .btn-primary {
-    background: var(--accent);
-  }
-
-  .cta-link {
-    color: var(--paper);
-    opacity: 0.5;
-    font-size: 13px;
-    display: block;
-    margin-top: 12px;
-  }
-
-  /* === FOOTER === */
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--stone);
-    font-size: 13px;
-    border-top: 1px solid var(--mist);
-    margin-top: 20px;
-  }
-
-  footer a { color: var(--accent); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  /* === LOADING === */
-  .loading {
-    text-align: center;
-    padding: 60px;
-    color: var(--stone);
-  }
-
-  .spinner {
-    width: 32px;
-    height: 32px;
-    border: 3px solid var(--mist);
-    border-top: 3px solid var(--accent);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin: 0 auto 16px;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-
   /* === RESPONSIVE === */
   @media (max-width: 600px) {
     .question-card { padding: 20px; }
-    .stats-row { gap: 20px; }
     .results-breakdown { gap: 20px; }
     .nav-buttons { flex-direction: column; }
     .nav-buttons .btn { width: 100%; text-align: center; }
@@ -717,14 +479,20 @@
 
 <header>
   <div class="header-inner">
-    <a href="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" class="logo" target="_blank" rel="noopener">
+    <a href="/" class="logo">
       <div class="logo-mark chinese">MZ</div>
       <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
     </a>
-    <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" class="gh-link" target="_blank" rel="noopener">
-      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      GitHub
-    </a>
+    <nav class="site-nav">
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+      <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" class="gh-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </nav>
   </div>
 </header>
 
@@ -745,6 +513,42 @@
     <div class="section-title">Choose a Test</div>
     <div id="test-grid" class="test-grid">
       <div class="loading"><div class="spinner"></div>Loading tests...</div>
+    </div>
+
+    <div class="section-title" style="margin-top:16px;">Study Tools</div>
+    <div class="test-grid">
+      <a href="/vocabulary/" class="test-card" style="text-decoration:none;color:inherit;">
+        <div class="test-card-num" style="color:var(--jade)">Vocabulary</div>
+        <div class="test-card-title">HSK 4 Vocabulary List / HSK4 词汇表</div>
+        <div class="test-card-meta">
+          <span>981 words</span>
+          <span>Flashcards & Quiz</span>
+        </div>
+      </a>
+      <a href="/grammar/" class="test-card" style="text-decoration:none;color:inherit;">
+        <div class="test-card-num" style="color:var(--gold)">Grammar</div>
+        <div class="test-card-title">HSK 4 Grammar Guide / HSK4 语法</div>
+        <div class="test-card-meta">
+          <span>7 topic areas</span>
+          <span>Interactive quizzes</span>
+        </div>
+      </a>
+      <a href="/words/" class="test-card" style="text-decoration:none;color:inherit;">
+        <div class="test-card-num" style="color:var(--stone)">Confusable Words</div>
+        <div class="test-card-title">HSK 4 Confusable Words / 易混词辨析</div>
+        <div class="test-card-meta">
+          <span>10 word pairs</span>
+          <span>Quizzes included</span>
+        </div>
+      </a>
+      <a href="/guide/" class="test-card" style="text-decoration:none;color:inherit;">
+        <div class="test-card-num" style="color:var(--accent)">Study Guide</div>
+        <div class="test-card-title">New HSK 4 Study Guide 2026 / 新HSK4备考指南</div>
+        <div class="test-card-meta">
+          <span>New syllabus</span>
+          <span>Self-assessment</span>
+        </div>
+      </a>
     </div>
 
     <div class="cta-banner">
@@ -837,7 +641,7 @@
 
 <footer>
   <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> — Learn Chinese in Beijing & Online since 2008</p>
-  <p style="margin-top:4px;">Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
+  <p style="margin-top:4px;"><a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/words/">Confusable Words</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
 </footer>
 
 <script>
@@ -847,6 +651,13 @@ let currentTest = null;
 let currentQ = 0;
 let userAnswers = {};
 let reviewMode = false;
+
+// === UTILS ===
+function escHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
 
 // === DATA LOADING ===
 const BASE = (() => {
@@ -860,6 +671,7 @@ const BASE = (() => {
 async function loadIndex() {
   try {
     const res = await fetch(BASE + 'index.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     allTests = await res.json();
     renderTestGrid();
   } catch(e) {
@@ -870,9 +682,9 @@ async function loadIndex() {
 function renderTestGrid() {
   const grid = document.getElementById('test-grid');
   grid.innerHTML = allTests.map((t, i) => `
-    <div class="test-card" onclick="startTest(${i})">
+    <div class="test-card" tabindex="0" role="button" onclick="startTest(${i})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();startTest(${i})}">
       <div class="test-card-num">Test ${String(i + 1).padStart(2, '0')}</div>
-      <div class="test-card-title">${t.title}</div>
+      <div class="test-card-title">${escHtml(t.title)}</div>
       <div class="test-card-meta">
         <span>${t.questions} questions</span>
         <span>~50 min</span>
@@ -901,6 +713,7 @@ async function startTest(index) {
   const meta = allTests[index];
   try {
     const res = await fetch(BASE + meta.file);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     currentTest = await res.json();
     currentQ = 0;
     userAnswers = {};
@@ -965,7 +778,7 @@ function renderQuestion() {
     }
     return `<button class="${cls}" onclick="selectOption(${i})">
       <span class="marker">${markers[i] || i + 1}</span>
-      <span class="chinese">${opt}</span>
+      <span class="chinese">${escHtml(opt)}</span>
     </button>`;
   }).join('');
 

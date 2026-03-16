@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把字句 (Ba-Sentence) — HSK 4 Grammar with Exercises | 把字句用法详解</title>
+<meta name="description" content="Master the 把 construction in Chinese. 8 patterns from HSK3 to HSK5 with interactive drag-and-drop exercises, error correction, and quizzes. Free by Mandarin Zone.">
+<meta name="keywords" content="把字句, ba sentence, HSK 4 grammar, 把字句用法, Chinese grammar patterns, HSK4 语法, 把 construction, Chinese word order, HSK grammar exercises">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/grammar/ba-sentence/">
+
+<meta property="og:title" content="把字句 Ba-Sentence — HSK 4 Grammar with Interactive Exercises">
+<meta property="og:description" content="Master all 8 把字句 patterns from HSK3 to HSK5. Drag-and-drop sentence builder, error correction cards, and comprehensive quizzes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/grammar/ba-sentence/">
+<meta property="og:site_name" content="Mandarin Zone">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="把字句 Ba-Sentence — HSK 4 Grammar Exercises">
+
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/grammar/ba-sentence/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/grammar/ba-sentence/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/grammar/ba-sentence/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "把字句 Ba-Sentence — Complete HSK 4 Grammar Guide",
+  "description": "Master all 8 把字句 patterns from HSK3 to HSK5 with interactive exercises.",
+  "url": "https://hsk4.mandarinzone.com/grammar/ba-sentence/",
+  "datePublished": "2026-03-16",
+  "dateModified": "2026-03-16",
+  "author": { "@type": "Organization", "name": "Mandarin Zone", "url": "https://mandarinzone.com" },
+  "publisher": { "@type": "Organization", "name": "Mandarin Zone" },
+  "inLanguage": ["en", "zh-CN"],
+  "educationalLevel": "Intermediate"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is 把字句 in Chinese grammar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "把字句 (bǎ zì jù) is a Chinese sentence pattern that uses the particle 把 to move the object before the verb, emphasizing the action's effect on the object. The structure is: Subject + 把 + Object + Verb + Result/Complement. The object must be definite (specific), and the verb cannot stand alone — it must be followed by a result, complement, or aspect marker like 了."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use 把 in Chinese?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use 把 when you want to emphasize what happens to a specific object. Common situations: disposing of something (把垃圾扔了), placing something (把书放在桌子上), changing something's state (把门关上), or completing an action on something (把作业做完了). Do NOT use 把 with psychological verbs (喜欢, 知道), with indefinite objects (一本书), or with bare verbs that have no result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many 把字句 patterns are tested at HSK 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HSK 4 introduces 4 new 把字句 patterns on top of 3 from HSK 3, for a total of 7 patterns. The new HSK 4 patterns are: 把+O+V一V (tentative), 把+O+V了 (completed), 把+O+V+duration/frequency (quantified), and 把+O+adverbial+V (modified). HSK 5 adds one more: 把+O+一+V."
+      }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  /* === TOOL SECTION === */
+  .tool-section {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 32px 0;
+  }
+  .tool-section h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* === PROGRESSION BAR === */
+  .prog-bar {
+    display: flex;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .prog-step {
+    flex: 1;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    border-right: 1px solid var(--mist);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .prog-step:last-child { border-right: none; }
+  .prog-step:hover { background: var(--paper); }
+  .prog-step.current { background: var(--accent-soft); }
+  .prog-step.dimmed { opacity: 0.5; }
+  .prog-level {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .prog-step.current .prog-level { color: var(--accent); }
+  .prog-count {
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .prog-detail {
+    display: none;
+    background: var(--paper);
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: -8px 0 24px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .prog-detail.open { display: block; }
+  .prog-detail-title {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  /* === ANATOMY === */
+  .anatomy-box {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 24px 0;
+  }
+  .anatomy-sentence {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 28px;
+    line-height: 2;
+    letter-spacing: 2px;
+  }
+  .anatomy-sentence [data-tip] {
+    position: relative;
+    cursor: help;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .anatomy-sentence [data-tip]:hover,
+  .anatomy-sentence [data-tip]:focus {
+    outline: none;
+  }
+  .anatomy-sentence [data-tip]::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 10;
+  }
+  .anatomy-sentence [data-tip]:hover::after,
+  .anatomy-sentence [data-tip]:focus::after { opacity: 1; }
+  .a-subject { border-bottom: 3px solid var(--ink); }
+  .a-ba { border-bottom: 3px solid var(--accent); color: var(--accent); font-weight: 700; }
+  .a-object { border-bottom: 3px solid var(--jade); }
+  .a-verb { border-bottom: 3px solid var(--gold); }
+  .a-result { border-bottom: 3px solid #7c3aed; }
+  .anatomy-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 16px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+  .anatomy-formula {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: var(--paper);
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* === PATTERN CARDS === */
+  .pattern-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .pattern-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .pattern-num {
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pattern-formula {
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .pattern-meaning {
+    font-size: 13px;
+    color: var(--stone);
+    margin-left: auto;
+  }
+  .ex-row {
+    padding: 12px 16px;
+    border-left: 3px solid var(--mist);
+    margin: 10px 0;
+    line-height: 1.7;
+  }
+  .ex-row .cn {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+  }
+  .ex-row .cn .hl { color: var(--accent); font-weight: 600; }
+  .ex-row .py { font-size: 13px; color: var(--stone); font-style: italic; }
+  .ex-row .en { font-size: 13px; color: var(--stone); }
+  .error-block {
+    background: #fff8f7;
+    border: 1px solid var(--accent-soft);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .error-block .wrong-mark { color: var(--accent); font-weight: 700; }
+  .error-block .right-mark { color: var(--jade); font-weight: 700; }
+  .error-note {
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid var(--accent-soft);
+  }
+
+  /* === HSK3 REVIEW TOGGLE === */
+  .review-toggle {
+    background: var(--paper);
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .review-toggle-header {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 15px;
+    user-select: none;
+  }
+  .review-toggle-header:hover { background: rgba(0,0,0,0.02); }
+  .review-toggle-arrow { transition: transform 0.2s; }
+  .review-toggle.open .review-toggle-arrow { transform: rotate(90deg); }
+  .review-toggle-body { display: none; padding: 0 20px 20px; }
+  .review-toggle.open .review-toggle-body { display: block; }
+
+  /* === DRAG & DROP === */
+  .dd-prompt {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .dd-zone {
+    min-height: 56px;
+    padding: 12px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .dd-target {
+    background: white;
+    border: 2px dashed var(--accent);
+    min-height: 64px;
+  }
+  .dd-target.drag-over { background: var(--accent-soft); }
+  .dd-bank {
+    background: var(--paper);
+    border: 1px dashed var(--mist);
+  }
+  .dd-tile {
+    padding: 10px 18px;
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    cursor: grab;
+    user-select: none;
+    transition: all 0.15s;
+    touch-action: none;
+  }
+  .dd-tile:hover { border-color: var(--accent); }
+  .dd-tile:active { cursor: grabbing; }
+  .dd-tile.dragging { opacity: 0.3; }
+  .dd-tile.correct { border-color: var(--correct); background: var(--jade-soft); }
+  .dd-tile.wrong { border-color: var(--wrong); background: #ffe0e0; animation: shake 0.3s; }
+  .dd-tile.grabbed { outline: 3px solid var(--accent); outline-offset: 2px; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+  .dd-feedback {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 14px;
+    display: none;
+  }
+  .dd-feedback.show { display: block; }
+  .dd-feedback.pass { background: var(--jade-soft); color: var(--jade); }
+  .dd-feedback.fail { background: #ffe0e0; color: var(--accent); }
+  .dd-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .dd-progress {
+    text-align: center;
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 12px;
+  }
+  .dd-final {
+    text-align: center;
+    padding: 24px;
+  }
+  .dd-final .score-big {
+    font-size: 36px;
+    font-weight: 700;
+  }
+  .dd-final .score-big.pass { color: var(--jade); }
+  .dd-final .score-big.fail { color: var(--accent); }
+
+  /* === ERROR CORRECTION CARDS === */
+  .ec-container { perspective: 800px; }
+  .ec-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    min-height: 180px;
+  }
+  .ec-sentence {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 22px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .ec-buttons { display: flex; justify-content: center; gap: 12px; }
+  .ec-reveal {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mist);
+    text-align: left;
+  }
+  .ec-reveal.hidden { display: none; }
+  .ec-verdict {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ec-verdict.right { color: var(--jade); }
+  .ec-verdict.wrong { color: var(--accent); }
+  .ec-fix {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+    padding: 10px 14px;
+    background: var(--jade-soft);
+    border-radius: 8px;
+  }
+  .ec-explain {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .ec-score {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--stone);
+  }
+
+  /* === FORMULA GENERATOR === */
+  .gen-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+  .gen-tab {
+    padding: 8px 20px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .gen-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .gen-panel { display: none; }
+  .gen-panel.active { display: block; }
+
+  /* Forward mode */
+  .gen-slots {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .gen-slot label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--stone);
+    margin-bottom: 4px;
+  }
+  .gen-slot select {
+    padding: 8px 12px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+  }
+  .gen-slot select:focus { border-color: var(--accent); outline: none; }
+  .gen-fixed {
+    padding: 8px 14px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .gen-output {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    background: var(--paper);
+    border-radius: var(--radius);
+    min-height: 48px;
+  }
+  .gen-pattern-label {
+    text-align: center;
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 8px;
+  }
+
+  /* Reverse mode */
+  .rev-sentence {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    background: var(--paper);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    line-height: 2;
+  }
+  .rev-word {
+    padding: 2px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    border-bottom: 3px solid transparent;
+  }
+  .rev-word:hover { background: var(--mist); }
+  .rev-word.selected { background: var(--accent-soft); }
+  .rev-word.labeled { opacity: 1; }
+  .rev-word.l-subject { border-bottom-color: var(--ink); }
+  .rev-word.l-ba { border-bottom-color: var(--accent); color: var(--accent); font-weight: 700; }
+  .rev-word.l-object { border-bottom-color: var(--jade); }
+  .rev-word.l-verb { border-bottom-color: var(--gold); }
+  .rev-word.l-result { border-bottom-color: #7c3aed; }
+  .label-bar {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .label-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--mist);
+    background: white;
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .label-btn:hover { border-color: var(--accent); }
+  .label-btn[data-l="subject"] { color: var(--ink); }
+  .label-btn[data-l="ba"] { color: var(--accent); }
+  .label-btn[data-l="object"] { color: var(--jade); }
+  .label-btn[data-l="verb"] { color: var(--gold); }
+  .label-btn[data-l="result"] { color: #7c3aed; }
+  .rev-instructions {
+    font-size: 13px;
+    color: var(--stone);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .rev-feedback {
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    display: none;
+  }
+  .rev-feedback.show { display: block; }
+  .rev-feedback.pass { background: var(--jade-soft); color: var(--jade); }
+  .rev-feedback.fail { background: #ffe0e0; color: var(--accent); }
+
+  /* === QUIZ === */
+  .quiz-item {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+  .quiz-stem {
+    font-size: 15px;
+    font-family: 'Noto Sans SC', sans-serif;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .quiz-stem .blank {
+    display: inline-block;
+    min-width: 50px;
+    border-bottom: 2px solid var(--accent);
+    margin: 0 4px;
+    text-align: center;
+  }
+  .quiz-opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .quiz-opt {
+    padding: 10px 14px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+  }
+  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .quiz-opt.correct { background: var(--jade-soft); border-color: var(--jade); color: var(--jade); font-weight: 600; }
+  .quiz-opt.wrong { background: #ffe0e0; border-color: var(--accent); color: var(--accent); }
+  .quiz-opt.disabled { pointer-events: none; opacity: 0.7; }
+  .quiz-opt.disabled.correct { opacity: 1; }
+  .quiz-explanation {
+    display: none;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: var(--paper);
+    border-radius: 6px;
+  }
+  .quiz-score-bar {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    margin-top: 8px;
+    display: none;
+  }
+  .quiz-score-bar .score-text { font-size: 16px; font-weight: 700; }
+  .quiz-score-bar .score-text.pass { color: var(--jade); }
+  .quiz-score-bar .score-text.fail { color: var(--accent); }
+
+  /* === RELATED LINKS === */
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .related-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .related-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+  .related-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .related-icon.red { background: var(--accent-soft); color: var(--accent); }
+  .related-icon.jade { background: var(--jade-soft); color: var(--jade); }
+  .related-icon.gold { background: var(--gold-soft); color: var(--gold); }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    .tool-section { padding: 20px 16px; }
+    .prog-bar { flex-direction: column; }
+    .prog-step { border-right: none; border-bottom: 1px solid var(--mist); }
+    .prog-step:last-child { border-bottom: none; }
+    .anatomy-sentence { font-size: 22px; }
+    .gen-slots { flex-direction: column; align-items: stretch; }
+    .gen-output, .rev-sentence { font-size: 20px; }
+    .quiz-opts { grid-template-columns: 1fr; }
+    .dd-tile { padding: 8px 14px; font-size: 15px; }
+    .ec-sentence { font-size: 18px; }
+    .pattern-header { flex-direction: column; align-items: flex-start; }
+    .pattern-meaning { margin-left: 0; }
+    .label-bar { gap: 4px; }
+    .label-btn { padding: 5px 10px; font-size: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dd-tile, .rev-word, .ec-card { transition: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">HSK 4 Grammar</div>
+  <h1 class="chinese">把字句 — The <span class="accent">把 Construction</span></h1>
+  <p>Master all 8 patterns of the 把 sentence across HSK 3–5 with drag-and-drop exercises, error correction, and interactive quizzes.</p>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Patterns</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">HSK Levels</div></div>
+    <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Exercises</div></div>
+  </div>
+</div>
+
+<!-- PROGRESSION BAR -->
+<div class="section-title">HSK Level Progression / 等级递进</div>
+
+<div class="prog-bar" role="tablist">
+  <div class="prog-step dimmed" role="tab" tabindex="0" aria-selected="false" onclick="toggleProg(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(0)}">
+    <div class="prog-level">HSK 2</div>
+    <div class="prog-count">Not applicable</div>
+  </div>
+  <div class="prog-step" role="tab" tabindex="0" aria-selected="false" onclick="toggleProg(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(1)}">
+    <div class="prog-level">HSK 3</div>
+    <div class="prog-count">3 patterns</div>
+  </div>
+  <div class="prog-step current" role="tab" tabindex="0" aria-selected="true" onclick="toggleProg(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(2)}">
+    <div class="prog-level">HSK 4</div>
+    <div class="prog-count">+4 new patterns</div>
+  </div>
+  <div class="prog-step" role="tab" tabindex="0" aria-selected="false" onclick="toggleProg(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(3)}">
+    <div class="prog-level">HSK 5</div>
+    <div class="prog-count">+1 pattern</div>
+  </div>
+</div>
+
+<div class="prog-detail" id="prog-0">
+  <div class="prog-detail-title">HSK 2 — No 把字句</div>
+  <p>把字句 is not introduced at HSK 2. At this level, simple SVO word order is used.</p>
+</div>
+<div class="prog-detail open" id="prog-1">
+  <div class="prog-detail-title">HSK 3 — 3 Foundation Patterns</div>
+  <p class="chinese" style="line-height:2;">
+    ① 把 + O + V + 在/到 &nbsp;→&nbsp; 请把书<b>放在</b>桌子上。<br>
+    ② 把 + O₁ + V + 给 + O₂ &nbsp;→&nbsp; 他把礼物<b>送给</b>了朋友。<br>
+    ③ 把 + O + V + result/direction complement &nbsp;→&nbsp; 她把门<b>关上</b>了。
+  </p>
+</div>
+<div class="prog-detail open" id="prog-2">
+  <div class="prog-detail-title">HSK 4 — 4 New Patterns (This Page)</div>
+  <p class="chinese" style="line-height:2;">
+    ④ 把 + O + V一V &nbsp;→&nbsp; 你把这道题<b>看一看</b>。<br>
+    ⑤ 把 + O + V了 &nbsp;→&nbsp; 他把那本书<b>借了</b>。<br>
+    ⑥ 把 + O + V + duration/frequency &nbsp;→&nbsp; 我把课文<b>读了三遍</b>。<br>
+    ⑦ 把 + O + adverbial + V &nbsp;→&nbsp; 请把桌子<b>仔细地</b>擦干净。
+  </p>
+</div>
+<div class="prog-detail" id="prog-3">
+  <div class="prog-detail-title">HSK 5 — 1 Advanced Pattern</div>
+  <p class="chinese" style="line-height:2;">
+    ⑧ 把 + O + 一 + V &nbsp;→&nbsp; 她把头发<b>一剪</b>，觉得轻松多了。
+  </p>
+  <p style="font-size:13px;color:var(--stone);margin-top:4px;">This pattern emphasizes a swift, decisive action on the object.</p>
+</div>
+
+<!-- SENTENCE ANATOMY -->
+<div class="section-title">Sentence Anatomy / 句子解剖</div>
+
+<div class="anatomy-box">
+  <div class="anatomy-sentence chinese">
+    <span class="a-subject" data-tip="Subject 主语" tabindex="0">妈妈</span>
+    <span class="a-ba" data-tip="把 particle" tabindex="0">把</span>
+    <span class="a-object" data-tip="Object 宾语 (definite)" tabindex="0">房间</span>
+    <span class="a-verb" data-tip="Verb 动词" tabindex="0">打扫</span>
+    <span class="a-result" data-tip="Result Complement 结果补语" tabindex="0">干净了</span>
+  </div>
+  <div class="anatomy-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--ink)"></div> Subject 主语</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> 把</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--jade)"></div> Object 宾语</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Verb 动词</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#7c3aed"></div> Result 补语</div>
+  </div>
+  <div class="anatomy-formula">
+    Subject + <span style="color:var(--accent);font-weight:700">把</span> + Object<sub>(definite)</sub> + Verb + Result / Complement
+  </div>
+</div>
+
+<!-- HSK3 REVIEW -->
+<div class="review-toggle" id="hsk3-review">
+  <div class="review-toggle-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleReview()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleReview()}">
+    <span class="chinese">HSK 3 Review — 3 Foundation Patterns (已学)</span>
+    <span class="review-toggle-arrow">&#9654;</span>
+  </div>
+  <div class="review-toggle-body">
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-1</span>
+        <span class="pattern-formula">把 + O + V + 在/到</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese">请<span class="hl">把</span>书<span class="hl">放在</span>桌子上。</div><div class="py">Qǐng bǎ shū fàng zài zhuōzi shàng.</div><div class="en">Please put the book on the table.</div></div>
+      <div class="ex-row"><div class="cn chinese">他<span class="hl">把</span>车<span class="hl">开到</span>学校门口了。</div><div class="py">Tā bǎ chē kāi dào xuéxiào ménkǒu le.</div><div class="en">He drove the car to the school gate.</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-2</span>
+        <span class="pattern-formula">把 + O₁ + V + 给 + O₂</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese">他<span class="hl">把</span>礼物<span class="hl">送给</span>了朋友。</div><div class="py">Tā bǎ lǐwù sòng gěi le péngyǒu.</div><div class="en">He gave the gift to his friend.</div></div>
+      <div class="ex-row"><div class="cn chinese">请<span class="hl">把</span>这封信<span class="hl">交给</span>王老师。</div><div class="py">Qǐng bǎ zhè fēng xìn jiāo gěi Wáng lǎoshī.</div><div class="en">Please hand this letter to Teacher Wang.</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-3</span>
+        <span class="pattern-formula">把 + O + V + result/direction complement</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese">她<span class="hl">把</span>门<span class="hl">关上</span>了。</div><div class="py">Tā bǎ mén guān shàng le.</div><div class="en">She closed the door.</div></div>
+      <div class="ex-row"><div class="cn chinese">风<span class="hl">把</span>树叶<span class="hl">吹走</span>了。</div><div class="py">Fēng bǎ shùyè chuī zǒu le.</div><div class="en">The wind blew the leaves away.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HSK4 PATTERNS -->
+<div class="section-title">HSK 4 New Patterns / HSK4 新句型</div>
+
+<div class="pattern-card" id="p1">
+  <div class="pattern-header">
+    <span class="pattern-num">Pattern 4</span>
+    <span class="pattern-formula chinese">把 + O + V一V</span>
+    <span class="pattern-meaning">Tentative action</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">你<span class="hl">把</span>这道题<span class="hl">看一看</span>。</div><div class="py">Nǐ bǎ zhè dào tí kàn yī kàn.</div><div class="en">Take a look at this question.</div></div>
+  <div class="ex-row"><div class="cn chinese">我<span class="hl">把</span>行李<span class="hl">整理一下</span>。</div><div class="py">Wǒ bǎ xínglǐ zhěnglǐ yīxià.</div><div class="en">Let me tidy up the luggage a bit.</div></div>
+  <div class="ex-row"><div class="cn chinese">请<span class="hl">把</span>这段话<span class="hl">翻译一下</span>。</div><div class="py">Qǐng bǎ zhè duàn huà fānyì yīxià.</div><div class="en">Please translate this passage.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">把这件衣服看一看。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese"><b>你</b>把这件衣服看一看。</span></div>
+    <div class="error-note">把字句 requires an explicit subject (你/我/他/请…), even in imperative sentences.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p2">
+  <div class="pattern-header">
+    <span class="pattern-num">Pattern 5</span>
+    <span class="pattern-formula chinese">把 + O + V了</span>
+    <span class="pattern-meaning">Completed action on object</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">他<span class="hl">把</span>那本书<span class="hl">借了</span>。</div><div class="py">Tā bǎ nà běn shū jiè le.</div><div class="en">He borrowed that book.</div></div>
+  <div class="ex-row"><div class="cn chinese">我<span class="hl">把</span>今天的作业<span class="hl">做了</span>。</div><div class="py">Wǒ bǎ jīntiān de zuòyè zuò le.</div><div class="en">I finished today's homework.</div></div>
+  <div class="ex-row"><div class="cn chinese">服务员<span class="hl">把</span>菜单<span class="hl">拿走了</span>。</div><div class="py">Fúwùyuán bǎ càidān ná zǒu le.</div><div class="en">The waiter took away the menu.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">我把一本书借了。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">我把<b>那本</b>书借了。</span></div>
+    <div class="error-note">The object after 把 must be definite (这/那/我的…). Indefinite objects (一本书) cannot be used with 把.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p3">
+  <div class="pattern-header">
+    <span class="pattern-num">Pattern 6</span>
+    <span class="pattern-formula chinese">把 + O + V + duration/frequency</span>
+    <span class="pattern-meaning">Quantified action</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">我<span class="hl">把</span>课文<span class="hl">读了三遍</span>。</div><div class="py">Wǒ bǎ kèwén dú le sān biàn.</div><div class="en">I read the text three times.</div></div>
+  <div class="ex-row"><div class="cn chinese">他<span class="hl">把</span>这首歌<span class="hl">唱了两遍</span>。</div><div class="py">Tā bǎ zhè shǒu gē chàng le liǎng biàn.</div><div class="en">He sang this song twice.</div></div>
+  <div class="ex-row"><div class="cn chinese">她<span class="hl">把</span>那个电影<span class="hl">看了三次</span>。</div><div class="py">Tā bǎ nàge diànyǐng kàn le sān cì.</div><div class="en">She watched that movie three times.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">我把课文读三遍。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">我把课文读<b>了</b>三遍。</span></div>
+    <div class="error-note">When quantifying a completed action, 了 is needed between the verb and the quantity to mark completion.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p4">
+  <div class="pattern-header">
+    <span class="pattern-num">Pattern 7</span>
+    <span class="pattern-formula chinese">把 + O + adverbial + V</span>
+    <span class="pattern-meaning">Modified action</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">请<span class="hl">把</span>桌子<span class="hl">仔细地</span>擦干净。</div><div class="py">Qǐng bǎ zhuōzi zǐxì de cā gānjìng.</div><div class="en">Please carefully wipe the table clean.</div></div>
+  <div class="ex-row"><div class="cn chinese">他<span class="hl">把</span>名字<span class="hl">认真地</span>写在纸上。</div><div class="py">Tā bǎ míngzì rènzhēn de xiě zài zhǐ shàng.</div><div class="en">He carefully wrote the name on the paper.</div></div>
+  <div class="ex-row"><div class="cn chinese">我们<span class="hl">把</span>教室<span class="hl">重新</span>布置了一下。</div><div class="py">Wǒmen bǎ jiàoshì chóngxīn bùzhì le yīxià.</div><div class="en">We rearranged the classroom.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">请仔细地把桌子擦干净。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">请把桌子<b>仔细地</b>擦干净。</span></div>
+    <div class="error-note">In this pattern, the adverbial modifier goes <b>after</b> the object, immediately before the verb — not before 把.</div>
+  </div>
+</div>
+
+<!-- DRAG & DROP SENTENCE BUILDER -->
+<div class="tool-section" id="drag-drop">
+  <h2 class="chinese">Sentence Builder / 语序拖拽排列</h2>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">Drag the word tiles into the correct 把字句 order. On mobile, tap a tile then tap a position.</p>
+
+  <div class="dd-prompt" id="dd-prompt"></div>
+  <div class="dd-zone dd-target" id="dd-target" role="list" aria-label="Drop zone: arrange tiles here"></div>
+  <div class="dd-zone dd-bank" id="dd-bank" role="list" aria-label="Word bank: available tiles"></div>
+  <div class="dd-feedback" id="dd-feedback" aria-live="polite"></div>
+  <div class="dd-controls">
+    <button class="btn btn-primary" id="dd-check-btn" onclick="ddCheck()">Check Answer</button>
+    <button class="btn btn-ghost" onclick="ddReset()">Reset</button>
+    <button class="btn btn-secondary" id="dd-next-btn" onclick="ddNext()" style="display:none;">Next &#8594;</button>
+  </div>
+  <div class="dd-progress" id="dd-progress"></div>
+  <div class="dd-final" id="dd-final" style="display:none;"></div>
+</div>
+
+<!-- FORMULA GENERATOR -->
+<div class="tool-section" id="formula-gen">
+  <h2 class="chinese">Formula Lab / 公式实验室</h2>
+
+  <div class="gen-tabs">
+    <button class="gen-tab active" onclick="genSwitchTab('forward')">Build a Sentence &#8594;</button>
+    <button class="gen-tab" onclick="genSwitchTab('reverse')">&#8592; Label Components</button>
+  </div>
+
+  <!-- Forward -->
+  <div class="gen-panel active" id="gen-forward">
+    <div class="gen-slots">
+      <div class="gen-slot">
+        <label>Subject 主语</label>
+        <select id="gen-subj" onchange="genUpdate()">
+          <option>我</option><option>你</option><option>他</option><option>她</option><option>老师</option><option>妈妈</option>
+        </select>
+      </div>
+      <div class="gen-fixed chinese">把</div>
+      <div class="gen-slot">
+        <label>Object 宾语</label>
+        <select id="gen-obj" onchange="genUpdate()">
+          <option>书</option><option>课文</option><option>门</option><option>桌子</option><option>作业</option><option>房间</option>
+        </select>
+      </div>
+      <div class="gen-slot">
+        <label>Verb + Complement</label>
+        <select id="gen-vc" onchange="genUpdate()">
+          <option value="看一看|Pattern 4: V一V">看一看</option>
+          <option value="借了|Pattern 5: V了">借了</option>
+          <option value="读了三遍|Pattern 6: V+frequency">读了三遍</option>
+          <option value="仔细地擦干净|Pattern 7: adv+V">仔细地擦干净</option>
+          <option value="放在桌子上|HSK3: V+在">放在桌子上</option>
+          <option value="关上了|HSK3: V+result">关上了</option>
+        </select>
+      </div>
+    </div>
+    <div class="gen-output chinese" id="gen-output" aria-live="polite"></div>
+    <div class="gen-pattern-label" id="gen-pattern"></div>
+  </div>
+
+  <!-- Reverse -->
+  <div class="gen-panel" id="gen-reverse">
+    <div class="rev-instructions">Click a word, then click a label to tag it. Tag all parts, then check.</div>
+    <div class="rev-sentence chinese" id="rev-sentence"></div>
+    <div class="label-bar">
+      <button class="label-btn" data-l="subject" onclick="revLabel('subject')">Subject 主语</button>
+      <button class="label-btn" data-l="ba" onclick="revLabel('ba')">把</button>
+      <button class="label-btn" data-l="object" onclick="revLabel('object')">Object 宾语</button>
+      <button class="label-btn" data-l="verb" onclick="revLabel('verb')">Verb 动词</button>
+      <button class="label-btn" data-l="result" onclick="revLabel('result')">Result 补语</button>
+    </div>
+    <div style="text-align:center;">
+      <button class="btn btn-primary" onclick="revCheck()">Check</button>
+      <button class="btn btn-secondary" onclick="revNext()">Next &#8594;</button>
+    </div>
+    <div class="rev-feedback" id="rev-feedback" aria-live="polite"></div>
+    <div style="text-align:center;margin-top:8px;font-size:13px;color:var(--stone);" id="rev-progress"></div>
+  </div>
+</div>
+
+<!-- ERROR CORRECTION CARDS -->
+<div class="tool-section" id="error-cards">
+  <h2 class="chinese">Error Spotting / 纠错练习</h2>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">Is this 把字句 correct or incorrect? Judge each sentence.</p>
+
+  <div class="ec-container">
+    <div class="ec-card" id="ec-card">
+      <div class="ec-sentence chinese" id="ec-sentence"></div>
+      <div class="ec-buttons" id="ec-buttons">
+        <button class="btn btn-jade" onclick="ecJudge(true)">&#10003; Correct</button>
+        <button class="btn btn-primary" onclick="ecJudge(false)">&#10007; Incorrect</button>
+      </div>
+      <div class="ec-reveal hidden" id="ec-reveal">
+        <div class="ec-verdict" id="ec-verdict"></div>
+        <div class="ec-fix" id="ec-fix"></div>
+        <div class="ec-explain" id="ec-explain"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ec-score" id="ec-score"></div>
+  <div style="text-align:center;margin-top:12px;">
+    <button class="btn btn-secondary" id="ec-next-btn" onclick="ecNext()" style="display:none;">Next Card &#8594;</button>
+  </div>
+  <div class="dd-final" id="ec-final" style="display:none;"></div>
+</div>
+
+<!-- COMPREHENSIVE QUIZ -->
+<div class="tool-section" id="quiz-section">
+  <h2 class="chinese">Comprehensive Quiz / 综合测试 (15 questions)</h2>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">请你<span class="blank"></span>这件事告诉他。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">对</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">把</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">被</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">让</button>
+    </div>
+    <div class="quiz-explanation">把 is used to indicate doing something to a specific, definite object. 请你把这件事告诉他 = Please tell him about this matter.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">她把房间<span class="blank"></span>。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">打扫</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">在打扫</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">打扫干净了</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很干净</button>
+    </div>
+    <div class="quiz-explanation">After 把, the verb must have a result or complement. A bare verb (打扫) or adjective phrase (很干净) is not enough. 打扫干净了 gives the completed result.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">我把课文<span class="blank"></span>。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">读了两遍</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">读</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">在读</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">会读</button>
+    </div>
+    <div class="quiz-explanation">把+O+V+frequency (Pattern 6). 读了两遍 = read two times, providing the required complement after the verb.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem">Which sentence uses 把 correctly?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我把他很喜欢。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">请把门关上。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我把一本书看。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">他把很累。</button>
+    </div>
+    <div class="quiz-explanation">把 cannot be used with psychological verbs (喜欢), indefinite objects (一本书), or without a verb. 请把门关上 is correct: 把+definite O+V+result.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">老师让我们把生词<span class="blank"></span>。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">写</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很好</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">抄一抄</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">是写</button>
+    </div>
+    <div class="quiz-explanation">把+O+V一V (Pattern 4). 抄一抄 = copy/write out (tentative aspect), giving the verb a proper complement.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">他把手机<span class="blank"></span>了。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">是坏</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">摔坏</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">坏</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很坏</button>
+    </div>
+    <div class="quiz-explanation">把+O+V+result complement. 摔坏 = dropped and broke (V+result). A bare adjective (坏) or 是 construction doesn't work in 把字句.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem">Which sentence is INCORRECT?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">她把衣服洗干净了。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">我把喜欢这本书。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">请把窗户打开。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">他把信寄给了朋友。</button>
+    </div>
+    <div class="quiz-explanation">把 cannot be followed by a psychological/stative verb like 喜欢. 把字句 requires an action verb that changes the state of the object.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">妈妈把菜<span class="blank"></span>。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">做</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">在做</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">做的</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">做好了</button>
+    </div>
+    <div class="quiz-explanation">把+O+V+result. A bare verb (做), progressive (在做), or 的 ending (做的) are all incomplete. 做好了 = finished cooking (V+result+了).</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">他把这首歌<span class="blank"></span>。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">唱</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">唱了两遍</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很好听</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">会唱</button>
+    </div>
+    <div class="quiz-explanation">把+O+V+frequency (Pattern 6). 唱了两遍 = sang twice. The other options either lack a complement or use non-action constructions.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">请把这段话<span class="blank"></span>翻译成英文。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">仔细地</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">仔细</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很仔细</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">仔细了</button>
+    </div>
+    <div class="quiz-explanation">把+O+adverbial+V (Pattern 7). The adverbial modifier uses 地 before the verb: 仔细地 = carefully. 仔细 alone is an adjective and cannot modify a verb directly in this structure.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">我们把教室<span class="blank"></span>布置了一下。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">重新</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">重</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">新</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">一重</button>
+    </div>
+    <div class="quiz-explanation">把+O+adverb+V (Pattern 7). 重新 = again/anew, is a proper adverb that can go between object and verb in 把字句.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem">Choose the correct word order:</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">把我行李整理一下。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">我把行李整理一下。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我行李把整理一下。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我整理一下把行李。</button>
+    </div>
+    <div class="quiz-explanation">The correct order is: Subject(我) + 把 + Object(行李) + Verb+complement(整理一下). 把 always comes after the subject and before the object.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem">Which sentence has a word order error?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">他把门关上了。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">请把灯打开。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">请仔细地把作业做完。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我把杯子放在桌子上了。</button>
+    </div>
+    <div class="quiz-explanation">In Pattern 7, the adverb goes after the object: 请把作业仔细地做完, not 请仔细地把作业做完. The adverbial modifier belongs between 把+O and V.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem chinese">她<span class="blank"></span>名字写在了黑板上。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">把</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">被</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">的</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">给</button>
+    </div>
+    <div class="quiz-explanation">She actively wrote the name on the blackboard — this is an action on a specific object, so 把 is correct. 被 would be passive (the name was written by someone), which doesn't match the meaning here.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="ba-full">
+    <div class="quiz-stem">How many rules must a valid 把字句 follow?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">Only 1: use 把 before the object</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">2: definite object + action verb</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,true)">3: definite object + action verb + result/complement after verb</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">4: including the object must be new information</button>
+    </div>
+    <div class="quiz-explanation">Three key rules: (1) the object must be definite/specific, (2) the verb must be an action verb (not stative/psychological), (3) the verb must be followed by some result, complement, or aspect marker — never bare.</div>
+  </div>
+
+  <div class="quiz-score-bar" id="score-ba-full" style="display:none;"></div>
+</div>
+
+<!-- RELATED -->
+<div class="section-title">Related / 相关内容</div>
+<div class="related-grid">
+  <a href="/grammar/passive/" class="related-card">
+    <div class="related-icon jade chinese">被</div>
+    <span>Passive Voice 被动句</span>
+  </a>
+  <a href="/grammar/" class="related-card">
+    <div class="related-icon red chinese">语</div>
+    <span>All Grammar Points</span>
+  </a>
+  <a href="/vocabulary/" class="related-card">
+    <div class="related-icon gold chinese">词</div>
+    <span>HSK 4 Vocabulary</span>
+  </a>
+</div>
+
+<div class="cta-banner">
+  <h3 class="chinese">用模拟考试检验把字句掌握情况</h3>
+  <p>Test your 把字句 knowledge with full HSK 4 mock exams</p>
+  <a href="/" class="btn btn-primary">Start a Mock Exam &#8594;</a>
+</div>
+
+</main>
+
+<footer>
+  <p>&copy; 2024–2026 <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a>, Beijing &middot; Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p style="margin-top:6px;">
+    <a href="/">Mock Exams</a> &middot;
+    <a href="/vocabulary/">Vocabulary</a> &middot;
+    <a href="/grammar/">Grammar</a> &middot;
+    <a href="/words/">Confusable Words</a> &middot;
+    <a href="/guide/">Study Guide</a>
+  </p>
+</footer>
+
+<script>
+/* =============================================
+   把字句 Interactive Page — JS
+   ============================================= */
+
+/* === PROGRESSION BAR === */
+function toggleProg(idx) {
+  var details = document.querySelectorAll('.prog-detail');
+  var steps = document.querySelectorAll('.prog-step');
+  details.forEach(function(d, i) {
+    if (i === idx) {
+      d.classList.toggle('open');
+      steps[i].setAttribute('aria-selected', d.classList.contains('open'));
+    } else {
+      d.classList.remove('open');
+      steps[i].setAttribute('aria-selected', 'false');
+    }
+  });
+}
+
+/* === HSK3 REVIEW TOGGLE === */
+function toggleReview() {
+  var el = document.getElementById('hsk3-review');
+  el.classList.toggle('open');
+  el.querySelector('[aria-expanded]').setAttribute('aria-expanded', el.classList.contains('open'));
+}
+
+/* === DRAG & DROP === */
+var DD_SENTENCES = [
+  { words: ['我','把','课文','读了','三遍'], hint: 'Pattern 6: V+frequency', en: 'I read the text three times.' },
+  { words: ['请','把','门','关上'], hint: 'HSK3: V+result', en: 'Please close the door.' },
+  { words: ['你','把','这道题','看一看'], hint: 'Pattern 4: V一V', en: 'Take a look at this question.' },
+  { words: ['他','把','那本书','借了'], hint: 'Pattern 5: V了', en: 'He borrowed that book.' },
+  { words: ['她','把','门','关上','了'], hint: 'HSK3: V+result', en: 'She closed the door.' },
+  { words: ['请','把','桌子','仔细地','擦干净'], hint: 'Pattern 7: adv+V', en: 'Please carefully wipe the table clean.' },
+  { words: ['他','把','这首歌','唱了','两遍'], hint: 'Pattern 6: V+frequency', en: 'He sang this song twice.' },
+  { words: ['妈妈','把','房间','打扫','干净了'], hint: 'HSK3: V+result', en: 'Mom cleaned the room.' }
+];
+var ddIdx = 0, ddCorrect = 0, ddChecked = false;
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+function ddRender() {
+  ddChecked = false;
+  var s = DD_SENTENCES[ddIdx];
+  document.getElementById('dd-prompt').textContent = 'Translate: "' + s.en + '"';
+  var target = document.getElementById('dd-target');
+  var bank = document.getElementById('dd-bank');
+  target.innerHTML = '';
+  bank.innerHTML = '';
+  document.getElementById('dd-feedback').className = 'dd-feedback';
+  document.getElementById('dd-feedback').textContent = '';
+  document.getElementById('dd-check-btn').style.display = '';
+  document.getElementById('dd-next-btn').style.display = 'none';
+  document.getElementById('dd-final').style.display = 'none';
+  document.getElementById('dd-progress').textContent = (ddIdx + 1) + ' / ' + DD_SENTENCES.length;
+
+  var shuffled = shuffle(s.words);
+  shuffled.forEach(function(w, i) {
+    var tile = document.createElement('div');
+    tile.className = 'dd-tile';
+    tile.textContent = w;
+    tile.draggable = true;
+    tile.dataset.word = w;
+    tile.tabIndex = 0;
+    tile.setAttribute('role', 'listitem');
+
+    // Mouse drag
+    tile.addEventListener('dragstart', function(e) {
+      e.dataTransfer.setData('text/plain', '');
+      this.classList.add('dragging');
+      ddDragging = this;
+    });
+    tile.addEventListener('dragend', function() {
+      this.classList.remove('dragging');
+      ddDragging = null;
+    });
+
+    // Touch / Click for mobile
+    tile.addEventListener('click', function() {
+      if (ddChecked) return;
+      var t = document.getElementById('dd-target');
+      if (this.parentNode === bank) {
+        t.appendChild(this);
+      } else {
+        bank.appendChild(this);
+      }
+    });
+
+    bank.appendChild(tile);
+  });
+
+  // Drop zone events
+  target.addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('drag-over'); });
+  target.addEventListener('dragleave', function() { this.classList.remove('drag-over'); });
+  target.addEventListener('drop', function(e) {
+    e.preventDefault();
+    this.classList.remove('drag-over');
+    if (ddDragging && !ddChecked) {
+      this.appendChild(ddDragging);
+    }
+  });
+  bank.addEventListener('dragover', function(e) { e.preventDefault(); });
+  bank.addEventListener('drop', function(e) {
+    e.preventDefault();
+    if (ddDragging && !ddChecked) {
+      this.appendChild(ddDragging);
+    }
+  });
+}
+var ddDragging = null;
+
+function ddCheck() {
+  if (ddChecked) return;
+  ddChecked = true;
+  var target = document.getElementById('dd-target');
+  var tiles = target.querySelectorAll('.dd-tile');
+  var s = DD_SENTENCES[ddIdx];
+  var correct = true;
+
+  tiles.forEach(function(tile, i) {
+    if (i < s.words.length && tile.dataset.word === s.words[i]) {
+      tile.classList.add('correct');
+    } else {
+      tile.classList.add('wrong');
+      correct = false;
+    }
+  });
+  if (tiles.length !== s.words.length) correct = false;
+
+  var fb = document.getElementById('dd-feedback');
+  if (correct) {
+    fb.textContent = 'Correct! ' + s.hint;
+    fb.className = 'dd-feedback show pass';
+    ddCorrect++;
+  } else {
+    fb.textContent = 'Not quite. Correct order: ' + s.words.join('') + ' (' + s.hint + ')';
+    fb.className = 'dd-feedback show fail';
+  }
+  document.getElementById('dd-check-btn').style.display = 'none';
+  document.getElementById('dd-next-btn').style.display = '';
+  saveProgress();
+}
+
+function ddReset() {
+  ddRender();
+}
+
+function ddNext() {
+  ddIdx++;
+  if (ddIdx >= DD_SENTENCES.length) {
+    document.getElementById('dd-target').style.display = 'none';
+    document.getElementById('dd-bank').style.display = 'none';
+    document.getElementById('dd-feedback').className = 'dd-feedback';
+    document.getElementById('dd-prompt').style.display = 'none';
+    document.querySelector('#drag-drop .dd-controls').style.display = 'none';
+    document.getElementById('dd-progress').style.display = 'none';
+    var fin = document.getElementById('dd-final');
+    fin.style.display = '';
+    var pct = Math.round(ddCorrect / DD_SENTENCES.length * 100);
+    fin.innerHTML = '<div class="score-big ' + (pct >= 60 ? 'pass' : 'fail') + '">' + ddCorrect + ' / ' + DD_SENTENCES.length + '</div><div style="color:var(--stone);margin-top:8px;">' + (pct >= 80 ? 'Excellent!' : pct >= 60 ? 'Good job!' : 'Keep practicing!') + '</div>';
+    saveProgress();
+  } else {
+    ddRender();
+  }
+}
+
+/* === FORMULA GENERATOR === */
+function genUpdate() {
+  var subj = document.getElementById('gen-subj').value;
+  var obj = document.getElementById('gen-obj').value;
+  var vcRaw = document.getElementById('gen-vc').value;
+  var parts = vcRaw.split('|');
+  var vc = parts[0];
+  var pattern = parts[1] || '';
+  document.getElementById('gen-output').textContent = subj + '把' + obj + vc + '。';
+  document.getElementById('gen-pattern').textContent = pattern;
+}
+
+function genSwitchTab(tab) {
+  var tabs = document.querySelectorAll('.gen-tab');
+  var panels = document.querySelectorAll('.gen-panel');
+  tabs.forEach(function(t, i) {
+    t.classList.toggle('active', (tab === 'forward' && i === 0) || (tab === 'reverse' && i === 1));
+  });
+  document.getElementById('gen-forward').classList.toggle('active', tab === 'forward');
+  document.getElementById('gen-reverse').classList.toggle('active', tab === 'reverse');
+  if (tab === 'reverse' && !revInited) { revRender(); revInited = true; }
+}
+
+/* Reverse mode */
+var REV_SENTENCES = [
+  { words: ['她','把','书','放在','桌子上','了'], labels: ['subject','ba','object','verb','result','result'] },
+  { words: ['我','把','作业','做完','了'], labels: ['subject','ba','object','verb','result'] },
+  { words: ['请','把','这道题','看一看'], labels: ['subject','ba','object','verb'] },
+  { words: ['他','把','课文','读了','三遍'], labels: ['subject','ba','object','verb','result'] },
+  { words: ['妈妈','把','房间','仔细地','打扫','干净了'], labels: ['subject','ba','object','verb','verb','result'] }
+];
+var revIdx = 0, revSelected = null, revAnswers = {}, revInited = false, revScore = 0;
+
+function revRender() {
+  var s = REV_SENTENCES[revIdx];
+  var container = document.getElementById('rev-sentence');
+  container.innerHTML = '';
+  revAnswers = {};
+  revSelected = null;
+  document.getElementById('rev-feedback').className = 'rev-feedback';
+  document.getElementById('rev-feedback').textContent = '';
+  document.getElementById('rev-progress').textContent = (revIdx + 1) + ' / ' + REV_SENTENCES.length;
+
+  s.words.forEach(function(w, i) {
+    var span = document.createElement('span');
+    span.className = 'rev-word';
+    span.textContent = w;
+    span.dataset.idx = i;
+    span.tabIndex = 0;
+    span.addEventListener('click', function() {
+      document.querySelectorAll('.rev-word').forEach(function(s) { s.classList.remove('selected'); });
+      this.classList.add('selected');
+      revSelected = this;
+    });
+    container.appendChild(span);
+  });
+}
+
+function revLabel(label) {
+  if (!revSelected) return;
+  var idx = revSelected.dataset.idx;
+  // Remove old label class
+  revSelected.className = 'rev-word labeled l-' + label;
+  revAnswers[idx] = label;
+  revSelected = null;
+}
+
+function revCheck() {
+  var s = REV_SENTENCES[revIdx];
+  var correct = true;
+  s.labels.forEach(function(l, i) {
+    if (revAnswers[i] !== l) correct = false;
+  });
+  var fb = document.getElementById('rev-feedback');
+  if (correct) {
+    fb.textContent = 'Correct! All components labeled correctly.';
+    fb.className = 'rev-feedback show pass';
+    revScore++;
+  } else {
+    var correctStr = s.words.map(function(w, i) { return w + '(' + s.labels[i] + ')'; }).join(' ');
+    fb.textContent = 'Not quite. Correct: ' + correctStr;
+    fb.className = 'rev-feedback show fail';
+  }
+}
+
+function revNext() {
+  revIdx++;
+  if (revIdx >= REV_SENTENCES.length) {
+    document.getElementById('rev-sentence').innerHTML = '<div class="score-big ' + (revScore >= 3 ? 'pass' : 'fail') + '">' + revScore + ' / ' + REV_SENTENCES.length + '</div><div style="color:var(--stone);margin-top:8px;">Component labeling complete!</div>';
+    document.querySelector('#gen-reverse .label-bar').style.display = 'none';
+    document.querySelector('#gen-reverse .rev-instructions').style.display = 'none';
+  } else {
+    revRender();
+  }
+}
+
+/* === ERROR CORRECTION CARDS === */
+var EC_CARDS = [
+  { sentence: '我把书看。', correct: false, fix: '我把书看了。/ 我把书看完了。', explain: 'After 把, the verb cannot stand alone. It must have a result complement (看完), aspect marker (看了), or other complement.' },
+  { sentence: '请把门关上。', correct: true, fix: '', explain: 'Correct! 把+definite O(门)+V+result(关上). A standard HSK3 pattern.' },
+  { sentence: '他把一个苹果吃了。', correct: false, fix: '他把那个苹果吃了。', explain: 'The object after 把 must be definite. 一个苹果 is indefinite — use 那个苹果 or 这个苹果 instead.' },
+  { sentence: '我把行李整理一下。', correct: true, fix: '', explain: 'Correct! 把+O+V一V (Pattern 4). 整理一下 provides the tentative complement.' },
+  { sentence: '他把她很喜欢。', correct: false, fix: '他很喜欢她。(No 把 needed)', explain: '把 cannot be used with psychological/stative verbs like 喜欢、知道、觉得. Use normal SVO word order instead.' },
+  { sentence: '妈妈把菜做好了。', correct: true, fix: '', explain: 'Correct! 把+O+V+result(好)+了. The result complement 好 indicates completion.' },
+  { sentence: '我把课文读三遍。', correct: false, fix: '我把课文读了三遍。', explain: 'When expressing a completed quantified action, 了 is needed: 读了三遍. Without 了, the sentence sounds incomplete.' },
+  { sentence: '请仔细地把这篇文章读一读。', correct: false, fix: '请把这篇文章仔细地读一读。', explain: 'In Pattern 7, the adverb goes after 把+O, before the verb — not before 把. Move 仔细地 after the object.' },
+  { sentence: '风把树叶吹走了。', correct: true, fix: '', explain: 'Correct! Even natural forces (风) can be the subject of 把字句. 吹走 is V+direction complement.' },
+  { sentence: '她把衣服洗干净了。', correct: true, fix: '', explain: 'Correct! 把+O+V+result(干净)+了. A standard pattern expressing a completed action with a clear result.' },
+  { sentence: '把这件衣服看一看。', correct: false, fix: '你把这件衣服看一看。/ 请把这件衣服看一看。', explain: '把字句 requires an explicit subject (你/我/请…). Even imperatives need 你 or 请 before 把.' },
+  { sentence: '他把名字认真地写在纸上。', correct: true, fix: '', explain: 'Correct! 把+O+adverb(认真地)+V+在+location (Pattern 7 combined with HSK3 pattern).' }
+];
+var ecIdx = 0, ecCorrect = 0, ecJudged = false;
+
+function ecRender() {
+  ecJudged = false;
+  document.getElementById('ec-sentence').textContent = EC_CARDS[ecIdx].sentence;
+  document.getElementById('ec-reveal').classList.add('hidden');
+  document.getElementById('ec-buttons').style.display = '';
+  document.getElementById('ec-next-btn').style.display = 'none';
+  document.getElementById('ec-final').style.display = 'none';
+  document.getElementById('ec-score').textContent = 'Card ' + (ecIdx + 1) + ' / ' + EC_CARDS.length + '  |  Score: ' + ecCorrect;
+}
+
+function ecJudge(userSaysCorrect) {
+  if (ecJudged) return;
+  ecJudged = true;
+  var card = EC_CARDS[ecIdx];
+  var isRight = (userSaysCorrect === card.correct);
+  if (isRight) ecCorrect++;
+
+  var verdict = document.getElementById('ec-verdict');
+  var fix = document.getElementById('ec-fix');
+  var explain = document.getElementById('ec-explain');
+
+  if (isRight) {
+    verdict.textContent = 'You got it!';
+    verdict.className = 'ec-verdict right';
+  } else {
+    verdict.textContent = 'Not quite...';
+    verdict.className = 'ec-verdict wrong';
+  }
+
+  if (card.correct) {
+    fix.textContent = 'This sentence IS correct.';
+    fix.style.background = 'var(--jade-soft)';
+  } else {
+    fix.textContent = 'Correction: ' + card.fix;
+    fix.style.background = 'var(--jade-soft)';
+  }
+  explain.textContent = card.explain;
+
+  document.getElementById('ec-reveal').classList.remove('hidden');
+  document.getElementById('ec-buttons').style.display = 'none';
+  document.getElementById('ec-next-btn').style.display = '';
+  document.getElementById('ec-score').textContent = 'Card ' + (ecIdx + 1) + ' / ' + EC_CARDS.length + '  |  Score: ' + ecCorrect;
+  saveProgress();
+}
+
+function ecNext() {
+  ecIdx++;
+  if (ecIdx >= EC_CARDS.length) {
+    document.getElementById('ec-card').style.display = 'none';
+    document.getElementById('ec-next-btn').style.display = 'none';
+    document.getElementById('ec-score').style.display = 'none';
+    var fin = document.getElementById('ec-final');
+    fin.style.display = '';
+    var pct = Math.round(ecCorrect / EC_CARDS.length * 100);
+    fin.innerHTML = '<div class="score-big ' + (pct >= 60 ? 'pass' : 'fail') + '">' + ecCorrect + ' / ' + EC_CARDS.length + '</div><div style="color:var(--stone);margin-top:8px;">' + (pct >= 80 ? 'Sharp eye!' : pct >= 60 ? 'Good work!' : 'Review the patterns above and try again.') + '</div>';
+    saveProgress();
+  } else {
+    ecRender();
+  }
+}
+
+/* === QUIZ === */
+var quizScores = {};
+function answerQuiz(btn, isCorrect) {
+  var item = btn.closest('.quiz-item');
+  var quizName = item.dataset.quiz;
+  if (btn.classList.contains('disabled')) return;
+
+  if (!quizScores[quizName]) quizScores[quizName] = { correct: 0, total: 0 };
+  quizScores[quizName].total++;
+
+  var opts = item.querySelectorAll('.quiz-opt');
+  opts.forEach(function(o) {
+    o.classList.add('disabled');
+    if (o === btn && !isCorrect) o.classList.add('wrong');
+  });
+  // Find and highlight the correct answer
+  opts.forEach(function(o) {
+    var handler = o.getAttribute('onclick');
+    if (handler && handler.indexOf('true') !== -1) o.classList.add('correct');
+  });
+
+  if (isCorrect) quizScores[quizName].correct++;
+
+  // Show explanation
+  var expl = item.querySelector('.quiz-explanation');
+  if (expl) expl.style.display = 'block';
+
+  // Check if all questions answered
+  var allItems = document.querySelectorAll('.quiz-item[data-quiz="' + quizName + '"]');
+  var answered = 0;
+  allItems.forEach(function(qi) {
+    if (qi.querySelector('.quiz-opt.disabled')) answered++;
+  });
+  if (answered === allItems.length) {
+    var scoreBar = document.getElementById('score-' + quizName);
+    if (scoreBar) {
+      var s = quizScores[quizName];
+      var pct = Math.round(s.correct / s.total * 100);
+      scoreBar.innerHTML = '<span class="score-text ' + (pct >= 60 ? 'pass' : 'fail') + '">' + s.correct + ' / ' + s.total + ' (' + pct + '%)</span>';
+      scoreBar.style.display = '';
+    }
+    saveProgress();
+  }
+}
+
+/* === LOCALSTORAGE === */
+var STORAGE_KEY = 'hsk4-grammar-ba';
+function saveProgress() {
+  try {
+    var state = {
+      dragDrop: { correct: ddCorrect, total: DD_SENTENCES.length, done: ddIdx >= DD_SENTENCES.length },
+      errorCards: { correct: ecCorrect, total: EC_CARDS.length, done: ecIdx >= EC_CARDS.length },
+      quiz: quizScores['ba-full'] || {},
+      lastVisit: new Date().toISOString().slice(0, 10)
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch(e) {}
+}
+
+/* === INIT === */
+ddRender();
+ecRender();
+genUpdate();
+</script>
+</body>
+</html>
