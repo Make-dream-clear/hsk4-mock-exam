@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>固定格式与四字格 — HSK 4 Grammar | Fixed Patterns & Idiom Structures</title>
+<meta name="description" content="Master 固定格式 and 四字格 patterns in Chinese. 20+ fixed patterns across 3 categories with interactive pattern generator, error correction, and quizzes. Free by Mandarin Zone.">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/grammar/fixed-patterns/">
+
+<meta property="og:title" content="固定格式与四字格 — HSK 4 Grammar with Interactive Exercises">
+<meta property="og:description" content="Master 20+ fixed patterns and four-character structures. Pattern generator, error correction cards, and comprehensive quizzes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/grammar/fixed-patterns/">
+<meta property="og:site_name" content="Mandarin Zone">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="固定格式与四字格 — HSK 4 Grammar Exercises">
+
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/grammar/fixed-patterns/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/grammar/fixed-patterns/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/grammar/fixed-patterns/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "固定格式与四字格 — Complete HSK 4 Grammar Guide",
+  "description": "Master 20+ fixed patterns and four-character structures with interactive exercises.",
+  "url": "https://hsk4.mandarinzone.com/grammar/fixed-patterns/",
+  "datePublished": "2026-03-16",
+  "dateModified": "2026-03-16",
+  "author": { "@type": "Organization", "name": "Mandarin Zone", "url": "https://mandarinzone.com" },
+  "publisher": { "@type": "Organization", "name": "Mandarin Zone" },
+  "inLanguage": ["en", "zh-CN"],
+  "educationalLevel": "Intermediate"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are 四字格 (four-character patterns) in Chinese?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "四字格 (sì zì gé) are four-character fixed expressions that follow predictable templates like 一A一B (一天一天), 无A无B (无忧无虑), and 有A有B (有说有笑). They are common in both spoken and written Chinese and tested at HSK 4 level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are 固定格式 (fixed expressions) in HSK 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "固定格式 are set phrases and structures that function as single units in Chinese, such as 来得及/来不及 (in time / too late), 有的是 (plenty of), 说不定 (maybe), 不怎么 (not very), and 就是说 (that is to say). They are essential for natural-sounding Chinese at the intermediate level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many fixed pattern types are tested at HSK 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HSK 4 tests three main categories of fixed patterns: 四字格 (four-character patterns like 一A一B, 无A无B, 有A有B), 固定格式 (fixed expressions like 来得及, 有的是, 说不定), and 句式格式 (sentence pattern formulas like 拿…来说, 再也不/没…, 在…方面). Together these cover 20+ patterns."
+      }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  /* === TOOL SECTION === */
+  .tool-section {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 32px 0;
+  }
+  .tool-section h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* === PATTERN CARDS === */
+  .pattern-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .pattern-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .pattern-num {
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pattern-formula {
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .pattern-meaning {
+    font-size: 13px;
+    color: var(--stone);
+    margin-left: auto;
+  }
+  .ex-row {
+    padding: 12px 16px;
+    border-left: 3px solid var(--mist);
+    margin: 10px 0;
+    line-height: 1.7;
+  }
+  .ex-row .cn {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+  }
+  .ex-row .cn .hl { color: var(--accent); font-weight: 600; }
+  .ex-row .py { font-size: 13px; color: var(--stone); font-style: italic; }
+  .ex-row .en { font-size: 13px; color: var(--stone); }
+  .error-block {
+    background: #fff8f7;
+    border: 1px solid var(--accent-soft);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .error-block .wrong-mark { color: var(--accent); font-weight: 700; }
+  .error-block .right-mark { color: var(--jade); font-weight: 700; }
+  .error-note {
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid var(--accent-soft);
+  }
+
+  /* === PATTERN GENERATOR === */
+  .gen-select-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .gen-select-row label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--stone);
+    margin-bottom: 4px;
+  }
+  .gen-select-row select,
+  .gen-select-row input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+  }
+  .gen-select-row input[type="text"] {
+    width: 80px;
+    cursor: text;
+  }
+  .gen-select-row select:focus,
+  .gen-select-row input[type="text"]:focus { border-color: var(--accent); outline: none; }
+  .gen-output {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    background: var(--paper);
+    border-radius: var(--radius);
+    min-height: 48px;
+  }
+  .gen-pattern-label {
+    text-align: center;
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 8px;
+  }
+  .gen-sample {
+    text-align: center;
+    font-size: 15px;
+    color: var(--stone);
+    margin-top: 8px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .gen-examples {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .gen-example-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--mist);
+    background: white;
+    transition: all 0.15s;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+  }
+  .gen-example-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+  /* === ERROR CORRECTION CARDS === */
+  .ec-container { perspective: 800px; }
+  .ec-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    min-height: 180px;
+  }
+  .ec-sentence {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 22px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .ec-buttons { display: flex; justify-content: center; gap: 12px; }
+  .ec-reveal {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mist);
+    text-align: left;
+  }
+  .ec-reveal.hidden { display: none; }
+  .ec-verdict {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ec-verdict.right { color: var(--jade); }
+  .ec-verdict.wrong { color: var(--accent); }
+  .ec-fix {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+    padding: 10px 14px;
+    background: var(--jade-soft);
+    border-radius: 8px;
+  }
+  .ec-explain {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .ec-score {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--stone);
+  }
+
+  /* === QUIZ === */
+  .quiz-item {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+  .quiz-stem {
+    font-size: 15px;
+    font-family: 'Noto Sans SC', sans-serif;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .quiz-stem .blank {
+    display: inline-block;
+    min-width: 50px;
+    border-bottom: 2px solid var(--accent);
+    margin: 0 4px;
+    text-align: center;
+  }
+  .quiz-opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .quiz-opt {
+    padding: 10px 14px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+  }
+  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .quiz-opt.correct { background: var(--jade-soft); border-color: var(--jade); color: var(--jade); font-weight: 600; }
+  .quiz-opt.wrong { background: #ffe0e0; border-color: var(--accent); color: var(--accent); }
+  .quiz-opt.disabled { pointer-events: none; opacity: 0.7; }
+  .quiz-opt.disabled.correct { opacity: 1; }
+  .quiz-explanation {
+    display: none;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: var(--paper);
+    border-radius: 6px;
+  }
+  .quiz-score-bar {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    margin-top: 8px;
+    display: none;
+  }
+  .quiz-score-bar .score-text { font-size: 16px; font-weight: 700; }
+  .quiz-score-bar .score-text.pass { color: var(--jade); }
+  .quiz-score-bar .score-text.fail { color: var(--accent); }
+
+  /* === FINAL SCORE === */
+  .dd-final {
+    text-align: center;
+    padding: 24px;
+  }
+  .dd-final .score-big {
+    font-size: 36px;
+    font-weight: 700;
+  }
+  .dd-final .score-big.pass { color: var(--jade); }
+  .dd-final .score-big.fail { color: var(--accent); }
+
+  /* === RELATED LINKS === */
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .related-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .related-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+  .related-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .related-icon.red { background: var(--accent-soft); color: var(--accent); }
+  .related-icon.jade { background: var(--jade-soft); color: var(--jade); }
+  .related-icon.gold { background: var(--gold-soft); color: var(--gold); }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    .tool-section { padding: 20px 16px; }
+    .gen-output { font-size: 20px; }
+    .gen-select-row { flex-direction: column; align-items: stretch; }
+    .quiz-opts { grid-template-columns: 1fr; }
+    .ec-sentence { font-size: 18px; }
+    .pattern-header { flex-direction: column; align-items: flex-start; }
+    .pattern-meaning { margin-left: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ec-card { transition: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">HSK 4 Grammar</div>
+  <h1 class="chinese">固定格式与四字格 — <span class="accent">Fixed Patterns</span> & Four-Character Structures</h1>
+  <p>Master 20+ essential fixed expressions, four-character patterns, and sentence formulas tested at HSK 4 with interactive exercises and quizzes.</p>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Patterns</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Categories</div></div>
+    <div class="stat"><div class="stat-num">35+</div><div class="stat-label">Exercises</div></div>
+  </div>
+</div>
+
+<!-- SECTION A: 四字格 -->
+<div class="section-title">Section A: 四字格 Four-Character Patterns / 四字格式</div>
+
+<div class="pattern-card" id="p-yiab">
+  <div class="pattern-header">
+    <span class="pattern-num">A-1</span>
+    <span class="pattern-formula chinese">一A一B</span>
+    <span class="pattern-meaning">one A, one B (gradual / repetitive)</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">时间<span class="hl">一天一天</span>地过去了。</div>
+    <div class="py">Shíjiān yī tiān yī tiān de guòqù le.</div>
+    <div class="en">Time passed day by day.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">孩子<span class="hl">一年一年</span>地长大了。</div>
+    <div class="py">Háizi yī nián yī nián de zhǎng dà le.</div>
+    <div class="en">The child grew up year by year.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">我们要<span class="hl">一步一步</span>地来。</div>
+    <div class="py">Wǒmen yào yī bù yī bù de lái.</div>
+    <div class="en">We need to take it step by step.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-wuab">
+  <div class="pattern-header">
+    <span class="pattern-num">A-2</span>
+    <span class="pattern-formula chinese">无A无B</span>
+    <span class="pattern-meaning">without A, without B</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">孩子们<span class="hl">无忧无虑</span>地玩着。</div>
+    <div class="py">Háizimen wú yōu wú lǜ de wán zhe.</div>
+    <div class="en">The children played carefree.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">他<span class="hl">无声无息</span>地离开了。</div>
+    <div class="py">Tā wú shēng wú xī de líkāi le.</div>
+    <div class="en">He left silently (without a sound).</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-youab">
+  <div class="pattern-header">
+    <span class="pattern-num">A-3</span>
+    <span class="pattern-formula chinese">有A有B</span>
+    <span class="pattern-meaning">have A and have B (well provided)</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">在他家，<span class="hl">有吃有喝</span>，什么都不缺。</div>
+    <div class="py">Zài tā jiā, yǒu chī yǒu hē, shénme dōu bù quē.</div>
+    <div class="en">At his home, there was plenty of food and drink; nothing was lacking.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">大家<span class="hl">有说有笑</span>，气氛很好。</div>
+    <div class="py">Dàjiā yǒu shuō yǒu xiào, qìfēn hěn hǎo.</div>
+    <div class="en">Everyone was chatting and laughing; the atmosphere was great.</div>
+  </div>
+</div>
+
+<!-- SECTION B: 固定格式 -->
+<div class="section-title">Section B: 固定格式 Fixed Expressions / 固定格式</div>
+
+<div class="pattern-card" id="p-laidejilaibuji">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--jade)">B-1</span>
+    <span class="pattern-formula chinese">来得及 / 来不及</span>
+    <span class="pattern-meaning">in time / too late</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">别着急，还<span class="hl">来得及</span>。</div>
+    <div class="py">Bié zháojí, hái lái de jí.</div>
+    <div class="en">Don't worry, there's still time.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">现在出发的话，<span class="hl">来得及</span>赶上火车。</div>
+    <div class="py">Xiànzài chūfā de huà, lái de jí gǎnshàng huǒchē.</div>
+    <div class="en">If we leave now, we can make it in time for the train.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">已经<span class="hl">来不及</span>了，飞机已经起飞了。</div>
+    <div class="py">Yǐjīng lái bu jí le, fēijī yǐjīng qǐfēi le.</div>
+    <div class="en">It's too late; the plane has already taken off.</div>
+  </div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">我来及不赶上公共汽车。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">我<b>来不及</b>赶上公共汽车。</span></div>
+    <div class="error-note">The negative form is 来不及 (lái bu jí), not 来及不. The 不 goes between 来 and 及.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-youdeshi">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--jade)">B-2</span>
+    <span class="pattern-formula chinese">有的是</span>
+    <span class="pattern-meaning">plenty of / there's no shortage of</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">别担心钱的问题，我<span class="hl">有的是</span>时间慢慢赚。</div>
+    <div class="py">Bié dānxīn qián de wèntí, wǒ yǒu de shì shíjiān mànmàn zhuàn.</div>
+    <div class="en">Don't worry about money; I have plenty of time to earn it slowly.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">这种东西超市里<span class="hl">有的是</span>。</div>
+    <div class="py">Zhè zhǒng dōngxi chāoshì lǐ yǒu de shì.</div>
+    <div class="en">There's no shortage of this kind of thing in the supermarket.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-shuobuding">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--jade)">B-3</span>
+    <span class="pattern-formula chinese">说不定</span>
+    <span class="pattern-meaning">maybe / perhaps</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">他还没来，<span class="hl">说不定</span>路上堵车了。</div>
+    <div class="py">Tā hái méi lái, shuōbudìng lùshàng dǔchē le.</div>
+    <div class="en">He hasn't come yet; maybe there's a traffic jam on the way.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese"><span class="hl">说不定</span>明天就会下雪。</div>
+    <div class="py">Shuōbudìng míngtiān jiù huì xià xuě.</div>
+    <div class="en">Perhaps it will snow tomorrow.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-buzenme">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--jade)">B-4</span>
+    <span class="pattern-formula chinese">不怎么</span>
+    <span class="pattern-meaning">not very / not particularly</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">这部电影<span class="hl">不怎么</span>好看。</div>
+    <div class="py">Zhè bù diànyǐng bù zěnme hǎokàn.</div>
+    <div class="en">This movie isn't particularly good.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">他最近<span class="hl">不怎么</span>说话。</div>
+    <div class="py">Tā zuìjìn bù zěnme shuōhuà.</div>
+    <div class="en">He hasn't been talking much lately.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-jiushishuo">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--jade)">B-5</span>
+    <span class="pattern-formula chinese">就是说</span>
+    <span class="pattern-meaning">that is to say</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">他不来了，<span class="hl">就是说</span>我们只有三个人。</div>
+    <div class="py">Tā bù lái le, jiù shì shuō wǒmen zhǐ yǒu sān ge rén.</div>
+    <div class="en">He's not coming, which means we only have three people.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese"><span class="hl">也就是说</span>，你已经决定了？</div>
+    <div class="py">Yě jiù shì shuō, nǐ yǐjīng juédìng le?</div>
+    <div class="en">In other words, you've already decided?</div>
+  </div>
+</div>
+
+<!-- SECTION C: 句式格式 -->
+<div class="section-title">Section C: 句式格式 Sentence Pattern Formulas / 句式格式</div>
+
+<div class="pattern-card" id="p-na-laishuo">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--gold)">C-1</span>
+    <span class="pattern-formula chinese">拿…来说</span>
+    <span class="pattern-meaning">take ... for example</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese"><span class="hl">拿</span>北京<span class="hl">来说</span>，冬天非常冷。</div>
+    <div class="py">Ná Běijīng lái shuō, dōngtiān fēicháng lěng.</div>
+    <div class="en">Take Beijing for example; winters are very cold.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese"><span class="hl">拿</span>我自己<span class="hl">来说</span>，学中文花了三年时间。</div>
+    <div class="py">Ná wǒ zìjǐ lái shuō, xué Zhōngwén huā le sān nián shíjiān.</div>
+    <div class="en">Take myself for example; learning Chinese took three years.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-zaiye">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--gold)">C-2</span>
+    <span class="pattern-formula chinese">再也不/没…</span>
+    <span class="pattern-meaning">never again</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">他<span class="hl">再也不</span>迟到了。</div>
+    <div class="py">Tā zài yě bù chídào le.</div>
+    <div class="en">He never arrived late again.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">从那以后，她<span class="hl">再也没</span>回来过。</div>
+    <div class="py">Cóng nà yǐhòu, tā zài yě méi huílái guò.</div>
+    <div class="en">After that, she never came back again.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-zai-fangmian">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--gold)">C-3</span>
+    <span class="pattern-formula chinese">在…方面</span>
+    <span class="pattern-meaning">in terms of / regarding</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">她<span class="hl">在</span>学习<span class="hl">方面</span>非常努力。</div>
+    <div class="py">Tā zài xuéxí fāngmiàn fēicháng nǔlì.</div>
+    <div class="en">She is very diligent in terms of studying.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese"><span class="hl">在</span>工作<span class="hl">方面</span>，他有很多经验。</div>
+    <div class="py">Zài gōngzuò fāngmiàn, tā yǒu hěn duō jīngyàn.</div>
+    <div class="en">Regarding work, he has a lot of experience.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-gou-de">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--gold)">C-4</span>
+    <span class="pattern-formula chinese">够…的</span>
+    <span class="pattern-meaning">quite ... enough</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">今天<span class="hl">够</span>冷<span class="hl">的</span>！</div>
+    <div class="py">Jīntiān gòu lěng de!</div>
+    <div class="en">It's quite cold enough today!</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">这道题<span class="hl">够</span>难<span class="hl">的</span>。</div>
+    <div class="py">Zhè dào tí gòu nán de.</div>
+    <div class="en">This question is really difficult enough.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p-weile-er">
+  <div class="pattern-header">
+    <span class="pattern-num" style="background:var(--gold)">C-5</span>
+    <span class="pattern-formula chinese">为了…而…</span>
+    <span class="pattern-meaning">in order to ... and thus ...</span>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">他<span class="hl">为了</span>学好中文<span class="hl">而</span>搬到了北京。</div>
+    <div class="py">Tā wèile xué hǎo Zhōngwén ér bān dào le Běijīng.</div>
+    <div class="en">He moved to Beijing in order to learn Chinese well.</div>
+  </div>
+  <div class="ex-row">
+    <div class="cn chinese">她<span class="hl">为了</span>健康<span class="hl">而</span>每天跑步。</div>
+    <div class="py">Tā wèile jiànkāng ér měitiān pǎobù.</div>
+    <div class="en">She runs every day for the sake of her health.</div>
+  </div>
+</div>
+
+<!-- PATTERN GENERATOR -->
+<div class="tool-section" id="pattern-gen">
+  <h2 class="chinese">Pattern Generator / 格式生成器</h2>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">Pick a pattern template, fill in the slots, and generate a complete expression. Click an example pair to auto-fill.</p>
+
+  <div class="gen-select-row">
+    <div>
+      <label>Pattern Template</label>
+      <select id="gen-template" onchange="genTemplateChange()">
+        <option value="0">一A一B</option>
+        <option value="1">无A无B</option>
+        <option value="2">有A有B</option>
+        <option value="3">拿…来说</option>
+        <option value="4">再也不/没…</option>
+        <option value="5">够…的</option>
+      </select>
+    </div>
+    <div>
+      <label id="gen-label-a">A</label>
+      <input type="text" id="gen-slot-a" oninput="genGenerate()" placeholder="A">
+    </div>
+    <div id="gen-slot-b-wrap">
+      <label id="gen-label-b">B</label>
+      <input type="text" id="gen-slot-b" oninput="genGenerate()" placeholder="B">
+    </div>
+    <div>
+      <button class="btn btn-primary" onclick="genGenerate()">Generate</button>
+    </div>
+  </div>
+
+  <div class="gen-examples" id="gen-examples"></div>
+
+  <div class="gen-output chinese" id="gen-output" aria-live="polite"></div>
+  <div class="gen-pattern-label" id="gen-pattern-label"></div>
+  <div class="gen-sample chinese" id="gen-sample"></div>
+</div>
+
+<!-- ERROR CORRECTION CARDS -->
+<div class="tool-section" id="error-cards">
+  <h2 class="chinese">Error Spotting / 纠错练习</h2>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">Is this sentence using the fixed pattern correctly? Judge each sentence.</p>
+
+  <div class="ec-container">
+    <div class="ec-card" id="ec-card">
+      <div class="ec-sentence chinese" id="ec-sentence"></div>
+      <div class="ec-buttons" id="ec-buttons">
+        <button class="btn btn-jade" onclick="ecJudge(true)">&#10003; Correct</button>
+        <button class="btn btn-primary" onclick="ecJudge(false)">&#10007; Incorrect</button>
+      </div>
+      <div class="ec-reveal hidden" id="ec-reveal">
+        <div class="ec-verdict" id="ec-verdict"></div>
+        <div class="ec-fix" id="ec-fix"></div>
+        <div class="ec-explain" id="ec-explain"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ec-score" id="ec-score"></div>
+  <div style="text-align:center;margin-top:12px;">
+    <button class="btn btn-secondary" id="ec-next-btn" onclick="ecNext()" style="display:none;">Next Card &#8594;</button>
+  </div>
+  <div class="dd-final" id="ec-final" style="display:none;"></div>
+</div>
+
+<!-- COMPREHENSIVE QUIZ -->
+<div class="tool-section" id="quiz-section">
+  <h2 class="chinese">Comprehensive Quiz / 综合测试 (12 questions)</h2>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">时间<span class="blank"></span>地过去了。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">一天一天</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">一个一个</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">天天一一</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">每天每天</button>
+    </div>
+    <div class="quiz-explanation">一A一B pattern: 一天一天 (day by day). The pattern uses 一+measure/noun repeated to express gradual progression.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">别担心钱，我<span class="blank"></span>时间。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">有很多</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">有的是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">是有的</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">都有</button>
+    </div>
+    <div class="quiz-explanation">有的是 means "plenty of / there's no shortage of." It emphasizes abundance and goes before the noun it modifies.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">他还没来，<span class="blank"></span>路上堵车了。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">一定</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">可能是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">说不定</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不一定</button>
+    </div>
+    <div class="quiz-explanation">说不定 means "maybe / perhaps," expressing a guess about a situation. It is a fixed expression used at the beginning of a clause.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese"><span class="blank"></span>北京来说，冬天非常冷。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">拿</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">把</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">对</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">给</button>
+    </div>
+    <div class="quiz-explanation">拿…来说 means "take ... for example." The structure is: 拿 + topic + 来说 + comment.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">从那以后，她<span class="blank"></span>回来过。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不再</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">再也没</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">也没再</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">没有再</button>
+    </div>
+    <div class="quiz-explanation">再也没… means "never again (in the past)." The fixed order is 再也 + 没 + verb + 过, emphasizing finality.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">她<span class="blank"></span>学习方面非常努力。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">在</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">对</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">从</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">给</button>
+    </div>
+    <div class="quiz-explanation">在…方面 means "in terms of / regarding." The preposition 在 introduces the aspect being discussed, followed by 方面.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem">Which sentence uses 够…的 correctly?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">今天够冷的！</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">今天的够冷！</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">今天冷够的！</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">够的今天冷！</button>
+    </div>
+    <div class="quiz-explanation">够…的 wraps around an adjective: 够 + adj + 的. It expresses "quite enough" with a tone of emphasis or even complaint.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">这部电影<span class="blank"></span>好看。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">没怎么</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">不怎么</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">怎么不</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不太怎么</button>
+    </div>
+    <div class="quiz-explanation">不怎么 means "not very / not particularly." It softens the negation compared to 不. The word order is fixed: 不怎么 + adj/verb.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">孩子们<span class="blank"></span>地玩着。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">无虑无忧</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">无忧无虑</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">没忧没虑</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不忧不虑</button>
+    </div>
+    <div class="quiz-explanation">无忧无虑 is a fixed four-character expression meaning "carefree." The order is fixed (忧 before 虑), and it uses 无, not 没 or 不.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">他不来了，<span class="blank"></span>我们只有三个人。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">是说就</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">说是就</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">就是说</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">就说是</button>
+    </div>
+    <div class="quiz-explanation">就是说 means "that is to say / in other words." It is a fixed expression used to restate or clarify a previous point.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem chinese">他<span class="blank"></span>学好中文而搬到了北京。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">为了</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">因为</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">所以</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">由于</button>
+    </div>
+    <div class="quiz-explanation">为了…而… means "in order to ... (and thus) ...." 为了 introduces the purpose, and 而 connects it to the resulting action.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="fixed-full">
+    <div class="quiz-stem">Which is the correct meaning of 来不及?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">Cannot come</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,true)">Too late / not enough time</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">Come quickly</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">Not worth coming</button>
+    </div>
+    <div class="quiz-explanation">来不及 is a fixed expression meaning "too late / not enough time (to do something)." It has nothing to do with the literal meaning of "come." Its positive form is 来得及 (in time).</div>
+  </div>
+
+  <div class="quiz-score-bar" id="score-fixed-full" style="display:none;"></div>
+</div>
+
+<!-- RELATED -->
+<div class="section-title">Related / 相关内容</div>
+<div class="related-grid">
+  <a href="/grammar/ba-sentence/" class="related-card">
+    <div class="related-icon red chinese">把</div>
+    <span>把字句 Ba-Sentence</span>
+  </a>
+  <a href="/grammar/" class="related-card">
+    <div class="related-icon jade chinese">语</div>
+    <span>All Grammar Points</span>
+  </a>
+  <a href="/vocabulary/" class="related-card">
+    <div class="related-icon gold chinese">词</div>
+    <span>HSK 4 Vocabulary</span>
+  </a>
+</div>
+
+<div class="cta-banner">
+  <h3 class="chinese">用模拟考试检验固定格式掌握情况</h3>
+  <p>Test your fixed pattern knowledge with full HSK 4 mock exams</p>
+  <a href="/" class="btn btn-primary">Start a Mock Exam &#8594;</a>
+</div>
+
+</main>
+
+<footer>
+  <p>&copy; 2024–2026 <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a>, Beijing &middot; Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p style="margin-top:6px;">
+    <a href="/">Mock Exams</a> &middot;
+    <a href="/vocabulary/">Vocabulary</a> &middot;
+    <a href="/grammar/">Grammar</a> &middot;
+    <a href="/writing/">Writing</a> &middot;
+    <a href="/words/">Confusable Words</a> &middot;
+    <a href="/guide/">Study Guide</a>
+  </p>
+</footer>
+
+<script>
+/* =============================================
+   固定格式与四字格 Interactive Page — JS
+   ============================================= */
+
+/* === PATTERN GENERATOR === */
+var PATTERNS = [
+  { template: '一A一B', slots: ['A','B'], slotCount: 2,
+    examples: [['天','天'],['年','年'],['步','步'],['个','个'],['口','口']],
+    generate: function(a,b) { return '一' + a + '一' + b; },
+    sample_sentences: {
+      '天天': '时间一天一天地过去了。',
+      '年年': '孩子一年一年地长大了。',
+      '步步': '我们要一步一步地来。',
+      '个个': '问题一个一个地解决了。',
+      '口口': '他一口一口地吃着饭。'
+    },
+    default_sample: '时间一天一天地过去了。'
+  },
+  { template: '无A无B', slots: ['A','B'], slotCount: 2,
+    examples: [['忧','虑'],['声','息'],['影','踪']],
+    generate: function(a,b) { return '无' + a + '无' + b; },
+    sample_sentences: {
+      '忧虑': '孩子们无忧无虑地玩着。',
+      '声息': '他无声无息地离开了。',
+      '影踪': '那只猫无影无踪地消失了。'
+    },
+    default_sample: '孩子们无忧无虑地玩着。'
+  },
+  { template: '有A有B', slots: ['A','B'], slotCount: 2,
+    examples: [['吃','喝'],['说','笑'],['头','尾']],
+    generate: function(a,b) { return '有' + a + '有' + b; },
+    sample_sentences: {
+      '吃喝': '在他家，有吃有喝，什么都不缺。',
+      '说笑': '大家有说有笑，气氛很好。',
+      '头尾': '做事要有头有尾。'
+    },
+    default_sample: '大家有说有笑，气氛很好。'
+  },
+  { template: '拿…来说', slots: ['Topic'], slotCount: 1,
+    examples: [['北京',''],['我自己',''],['中国菜','']],
+    generate: function(a) { return '拿' + a + '来说'; },
+    sample_sentences: {
+      '北京': '拿北京来说，冬天非常冷。',
+      '我自己': '拿我自己来说，学中文花了三年。',
+      '中国菜': '拿中国菜来说，每个地方口味都不一样。'
+    },
+    default_sample: '拿北京来说，冬天非常冷。'
+  },
+  { template: '再也不/没…', slots: ['Verb'], slotCount: 1,
+    examples: [['迟到',''],['回来',''],['说话','']],
+    generate: function(a) { return '再也不' + a + '了'; },
+    sample_sentences: {
+      '迟到': '他再也不迟到了。',
+      '回来': '她再也没回来过。',
+      '说话': '他再也不说话了。'
+    },
+    default_sample: '他再也不迟到了。'
+  },
+  { template: '够…的', slots: ['Adjective'], slotCount: 1,
+    examples: [['冷',''],['难',''],['累','']],
+    generate: function(a) { return '够' + a + '的'; },
+    sample_sentences: {
+      '冷': '今天够冷的！',
+      '难': '这道题够难的。',
+      '累': '今天够累的！'
+    },
+    default_sample: '今天够冷的！'
+  }
+];
+
+var currentPattern = 0;
+
+function genTemplateChange() {
+  currentPattern = parseInt(document.getElementById('gen-template').value);
+  var p = PATTERNS[currentPattern];
+
+  document.getElementById('gen-label-a').textContent = p.slots[0];
+  document.getElementById('gen-slot-a').placeholder = p.slots[0];
+  document.getElementById('gen-slot-a').value = '';
+
+  var bWrap = document.getElementById('gen-slot-b-wrap');
+  if (p.slotCount === 2) {
+    bWrap.style.display = '';
+    document.getElementById('gen-label-b').textContent = p.slots[1];
+    document.getElementById('gen-slot-b').placeholder = p.slots[1];
+    document.getElementById('gen-slot-b').value = '';
+  } else {
+    bWrap.style.display = 'none';
+    document.getElementById('gen-slot-b').value = '';
+  }
+
+  // Render example buttons
+  var exDiv = document.getElementById('gen-examples');
+  exDiv.innerHTML = '';
+  p.examples.forEach(function(ex) {
+    var btn = document.createElement('button');
+    btn.className = 'gen-example-btn chinese';
+    btn.textContent = p.slotCount === 2 ? ex[0] + ',' + ex[1] : ex[0];
+    btn.addEventListener('click', function() {
+      document.getElementById('gen-slot-a').value = ex[0];
+      if (p.slotCount === 2) document.getElementById('gen-slot-b').value = ex[1];
+      genGenerate();
+    });
+    exDiv.appendChild(btn);
+  });
+
+  document.getElementById('gen-output').textContent = '';
+  document.getElementById('gen-pattern-label').textContent = p.template;
+  document.getElementById('gen-sample').textContent = '';
+}
+
+function genGenerate() {
+  var p = PATTERNS[currentPattern];
+  var a = document.getElementById('gen-slot-a').value.trim();
+  var b = document.getElementById('gen-slot-b').value.trim();
+
+  if (!a) {
+    document.getElementById('gen-output').textContent = '';
+    document.getElementById('gen-sample').textContent = '';
+    return;
+  }
+  if (p.slotCount === 2 && !b) {
+    document.getElementById('gen-output').textContent = '';
+    document.getElementById('gen-sample').textContent = '';
+    return;
+  }
+
+  var result;
+  if (p.slotCount === 2) {
+    result = p.generate(a, b);
+  } else {
+    result = p.generate(a);
+  }
+
+  document.getElementById('gen-output').textContent = result;
+  document.getElementById('gen-pattern-label').textContent = p.template;
+
+  // Look up sample sentence
+  var key = p.slotCount === 2 ? a + b : a;
+  var sample = p.sample_sentences[key] || p.default_sample;
+  document.getElementById('gen-sample').textContent = sample;
+}
+
+/* === ERROR CORRECTION CARDS === */
+var EC_CARDS = [
+  { sentence: '时间一天天一地过去了。', correct: false, fix: '时间一天一天地过去了。', explain: 'The 一A一B pattern requires the structure: 一+A+一+B. The characters cannot be reordered.' },
+  { sentence: '孩子们无忧无虑地玩着。', correct: true, fix: '', explain: 'Correct! 无忧无虑 is a proper 四字格 meaning "carefree," used with 地 as an adverb.' },
+  { sentence: '我来及不赶上公共汽车了。', correct: false, fix: '我来不及赶上公共汽车了。', explain: 'The negative form is 来不及, not 来及不. The 不 goes between 来 and 及.' },
+  { sentence: '说不定明天就会下雪。', correct: true, fix: '', explain: 'Correct! 说不定 is properly used at the beginning of the clause to express a guess.' },
+  { sentence: '这部电影怎么不好看。', correct: false, fix: '这部电影不怎么好看。', explain: '不怎么 is a fixed expression meaning "not very." The 不 must come before 怎么, not after.' },
+  { sentence: '拿北京来说，冬天非常冷。', correct: true, fix: '', explain: 'Correct! 拿…来说 properly introduces an example. The structure is: 拿+topic+来说+comment.' },
+  { sentence: '他为了而学好中文搬到了北京。', correct: false, fix: '他为了学好中文而搬到了北京。', explain: '为了…而… requires the purpose after 为了 and the action after 而: 为了+purpose+而+action.' },
+  { sentence: '从那以后，她再也没回来过。', correct: true, fix: '', explain: 'Correct! 再也没…过 properly expresses "never again" for past events.' },
+  { sentence: '大家有笑有说，气氛很好。', correct: false, fix: '大家有说有笑，气氛很好。', explain: 'The fixed expression is 有说有笑 (chatting and laughing), not 有笑有说. The order of A and B is fixed in established 四字格.' },
+  { sentence: '她在学习方面非常努力。', correct: true, fix: '', explain: 'Correct! 在…方面 properly introduces the aspect being discussed. The structure is: 在+topic+方面+comment.' }
+];
+var ecIdx = 0, ecCorrect = 0, ecJudged = false;
+
+function ecRender() {
+  ecJudged = false;
+  document.getElementById('ec-sentence').textContent = EC_CARDS[ecIdx].sentence;
+  document.getElementById('ec-reveal').classList.add('hidden');
+  document.getElementById('ec-buttons').style.display = '';
+  document.getElementById('ec-next-btn').style.display = 'none';
+  document.getElementById('ec-final').style.display = 'none';
+  document.getElementById('ec-score').textContent = 'Card ' + (ecIdx + 1) + ' / ' + EC_CARDS.length + '  |  Score: ' + ecCorrect;
+}
+
+function ecJudge(userSaysCorrect) {
+  if (ecJudged) return;
+  ecJudged = true;
+  var card = EC_CARDS[ecIdx];
+  var isRight = (userSaysCorrect === card.correct);
+  if (isRight) ecCorrect++;
+
+  var verdict = document.getElementById('ec-verdict');
+  var fix = document.getElementById('ec-fix');
+  var explain = document.getElementById('ec-explain');
+
+  if (isRight) {
+    verdict.textContent = 'You got it!';
+    verdict.className = 'ec-verdict right';
+  } else {
+    verdict.textContent = 'Not quite...';
+    verdict.className = 'ec-verdict wrong';
+  }
+
+  if (card.correct) {
+    fix.textContent = 'This sentence IS correct.';
+    fix.style.background = 'var(--jade-soft)';
+  } else {
+    fix.textContent = 'Correction: ' + card.fix;
+    fix.style.background = 'var(--jade-soft)';
+  }
+  explain.textContent = card.explain;
+
+  document.getElementById('ec-reveal').classList.remove('hidden');
+  document.getElementById('ec-buttons').style.display = 'none';
+  document.getElementById('ec-next-btn').style.display = '';
+  document.getElementById('ec-score').textContent = 'Card ' + (ecIdx + 1) + ' / ' + EC_CARDS.length + '  |  Score: ' + ecCorrect;
+  saveProgress();
+}
+
+function ecNext() {
+  ecIdx++;
+  if (ecIdx >= EC_CARDS.length) {
+    document.getElementById('ec-card').style.display = 'none';
+    document.getElementById('ec-next-btn').style.display = 'none';
+    document.getElementById('ec-score').style.display = 'none';
+    var fin = document.getElementById('ec-final');
+    fin.style.display = '';
+    var pct = Math.round(ecCorrect / EC_CARDS.length * 100);
+    fin.innerHTML = '<div class="score-big ' + (pct >= 60 ? 'pass' : 'fail') + '">' + ecCorrect + ' / ' + EC_CARDS.length + '</div><div style="color:var(--stone);margin-top:8px;">' + (pct >= 80 ? 'Sharp eye!' : pct >= 60 ? 'Good work!' : 'Review the patterns above and try again.') + '</div>';
+    saveProgress();
+  } else {
+    ecRender();
+  }
+}
+
+/* === QUIZ === */
+var quizScores = {};
+function answerQuiz(btn, isCorrect) {
+  var item = btn.closest('.quiz-item');
+  var quizName = item.dataset.quiz;
+  if (btn.classList.contains('disabled')) return;
+
+  if (!quizScores[quizName]) quizScores[quizName] = { correct: 0, total: 0 };
+  quizScores[quizName].total++;
+
+  var opts = item.querySelectorAll('.quiz-opt');
+  opts.forEach(function(o) {
+    o.classList.add('disabled');
+    if (o === btn && !isCorrect) o.classList.add('wrong');
+  });
+  // Find and highlight the correct answer
+  opts.forEach(function(o) {
+    var handler = o.getAttribute('onclick');
+    if (handler && handler.indexOf('true') !== -1) o.classList.add('correct');
+  });
+
+  if (isCorrect) quizScores[quizName].correct++;
+
+  // Show explanation
+  var expl = item.querySelector('.quiz-explanation');
+  if (expl) expl.style.display = 'block';
+
+  // Check if all questions answered
+  var allItems = document.querySelectorAll('.quiz-item[data-quiz="' + quizName + '"]');
+  var answered = 0;
+  allItems.forEach(function(qi) {
+    if (qi.querySelector('.quiz-opt.disabled')) answered++;
+  });
+  if (answered === allItems.length) {
+    var scoreBar = document.getElementById('score-' + quizName);
+    if (scoreBar) {
+      var s = quizScores[quizName];
+      var pct = Math.round(s.correct / s.total * 100);
+      scoreBar.innerHTML = '<span class="score-text ' + (pct >= 60 ? 'pass' : 'fail') + '">' + s.correct + ' / ' + s.total + ' (' + pct + '%)</span>';
+      scoreBar.style.display = '';
+    }
+    saveProgress();
+  }
+}
+
+/* === LOCALSTORAGE === */
+var STORAGE_KEY = 'hsk4-grammar-fixed';
+function saveProgress() {
+  try {
+    var state = {
+      errorCards: { correct: ecCorrect, total: EC_CARDS.length, done: ecIdx >= EC_CARDS.length },
+      quiz: quizScores['fixed-full'] || {},
+      lastVisit: new Date().toISOString().slice(0, 10)
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch(e) {}
+}
+
+/* === INIT === */
+genTemplateChange();
+ecRender();
+</script>
+</body>
+</html>

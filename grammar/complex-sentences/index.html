@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>复句 Complex Sentences — HSK 4 Grammar | 复句关联词</title>
+<meta name="description" content="Master 11 types of Chinese complex sentence patterns (复句) with connectors like 尽管…但是, 不管…都, 即使…也, 既然…就. Interactive decision tree, error correction, and quizzes. Free by Mandarin Zone.">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/grammar/complex-sentences/">
+
+<meta property="og:title" content="复句 Complex Sentences — HSK 4 Grammar with Interactive Exercises">
+<meta property="og:description" content="Master 11 types of Chinese complex sentences. Connector decision tree, error correction cards, and comprehensive quizzes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/grammar/complex-sentences/">
+<meta property="og:site_name" content="Mandarin Zone">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="复句 Complex Sentences — HSK 4 Grammar Exercises">
+
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/grammar/complex-sentences/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/grammar/complex-sentences/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/grammar/complex-sentences/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "复句 Complex Sentences — Complete HSK 4 Grammar Guide",
+  "description": "Master 11 types of Chinese complex sentence patterns with interactive exercises.",
+  "url": "https://hsk4.mandarinzone.com/grammar/complex-sentences/",
+  "datePublished": "2026-03-16",
+  "dateModified": "2026-03-16",
+  "author": { "@type": "Organization", "name": "Mandarin Zone", "url": "https://mandarinzone.com" },
+  "publisher": { "@type": "Organization", "name": "Mandarin Zone" },
+  "inLanguage": ["en", "zh-CN"],
+  "educationalLevel": "Intermediate"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are 复句 (complex sentences) in Chinese?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "复句 (fùjù) are Chinese sentences composed of two or more clauses connected by conjunctions or paired connectors (关联词). They express logical relationships such as contrast (转折), condition (条件), concession (让步), cause-effect (因果), parallel (并列), and progression (递进). HSK 4 introduces connectors like 尽管…但是, 不管…都, 即使…也, and 既然…就."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose the right Chinese connector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First identify the logical relationship between your clauses: Is it contrast, condition, cause-effect, or progression? Then determine the nuance: for contrast, is the situation real (尽管…但是) or hypothetical (即使…也)? For condition, is it universal (不管…都) or causal (既然…就)? Each connector pair has a specific usage context."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between 尽管 and 即使?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "尽管 (jǐnguǎn) introduces a REAL, factual situation — 'even though (this is true).' 即使 (jíshǐ) introduces a HYPOTHETICAL situation — 'even if (this were to happen).' For example: 尽管下雨了，但是我们还是去了 (Even though it rained, we still went — it did rain). 即使下雨，我们也要去 (Even if it rains, we will still go — it may or may not rain)."
+      }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  /* === TOOL SECTION === */
+  .tool-section {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 32px 0;
+  }
+  .tool-section h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* === PROGRESSION BAR === */
+  .prog-bar {
+    display: flex;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .prog-step {
+    flex: 1;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    border-right: 1px solid var(--mist);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .prog-step:last-child { border-right: none; }
+  .prog-step:hover { background: var(--paper); }
+  .prog-step.current { background: var(--accent-soft); }
+  .prog-step.dimmed { opacity: 0.5; }
+  .prog-level {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .prog-step.current .prog-level { color: var(--accent); }
+  .prog-count {
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .prog-detail {
+    display: none;
+    background: var(--paper);
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: -8px 0 24px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .prog-detail.open { display: block; }
+  .prog-detail-title {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  /* === PATTERN CARDS === */
+  .pattern-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .pattern-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .pattern-num {
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pattern-formula {
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .pattern-meaning {
+    font-size: 13px;
+    color: var(--stone);
+    margin-left: auto;
+  }
+  .ex-row {
+    padding: 12px 16px;
+    border-left: 3px solid var(--mist);
+    margin: 10px 0;
+    line-height: 1.7;
+  }
+  .ex-row .cn {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+  }
+  .ex-row .cn .hl { color: var(--accent); font-weight: 600; }
+  .ex-row .py { font-size: 13px; color: var(--stone); font-style: italic; }
+  .ex-row .en { font-size: 13px; color: var(--stone); }
+  .error-block {
+    background: #fff8f7;
+    border: 1px solid var(--accent-soft);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .error-block .wrong-mark { color: var(--accent); font-weight: 700; }
+  .error-block .right-mark { color: var(--jade); font-weight: 700; }
+  .error-note {
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid var(--accent-soft);
+  }
+
+  /* === HSK3 REVIEW TOGGLE === */
+  .review-toggle {
+    background: var(--paper);
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .review-toggle-header {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 15px;
+    user-select: none;
+  }
+  .review-toggle-header:hover { background: rgba(0,0,0,0.02); }
+  .review-toggle-arrow { transition: transform 0.2s; }
+  .review-toggle.open .review-toggle-arrow { transform: rotate(90deg); }
+  .review-toggle-body { display: none; padding: 0 20px 20px; }
+  .review-toggle.open .review-toggle-body { display: block; }
+
+  /* === DECISION TREE === */
+  .tree-container {
+    background: var(--paper);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    min-height: 200px;
+  }
+  .tree-question {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .tree-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .tree-opt {
+    padding: 14px 18px;
+    border: 1px solid var(--mist);
+    border-radius: 10px;
+    background: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    text-align: center;
+  }
+  .tree-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .tree-opt.selected { background: var(--accent); color: white; border-color: var(--accent); }
+  .tree-path {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .tree-path-step {
+    padding: 4px 12px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .tree-path-arrow { color: var(--mist); }
+  .tree-result {
+    background: white;
+    border: 2px solid var(--jade);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+  .tree-result-connector {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .tree-result-desc {
+    font-size: 14px;
+    color: var(--stone);
+    margin-bottom: 12px;
+  }
+  .tree-result-example {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    padding: 12px 16px;
+    background: var(--jade-soft);
+    border-radius: 8px;
+    line-height: 1.7;
+  }
+  .tree-result-example .hl { color: var(--accent); font-weight: 600; }
+  .tree-result-en {
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 6px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* === ERROR CORRECTION CARDS === */
+  .ec-container { perspective: 800px; }
+  .ec-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    min-height: 180px;
+  }
+  .ec-sentence {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 22px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .ec-buttons { display: flex; justify-content: center; gap: 12px; }
+  .ec-reveal {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mist);
+    text-align: left;
+  }
+  .ec-reveal.hidden { display: none; }
+  .ec-verdict {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ec-verdict.right { color: var(--jade); }
+  .ec-verdict.wrong { color: var(--accent); }
+  .ec-fix {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+    padding: 10px 14px;
+    background: var(--jade-soft);
+    border-radius: 8px;
+  }
+  .ec-explain {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .ec-score {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--stone);
+  }
+
+  /* === QUIZ === */
+  .quiz-item {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+  .quiz-stem {
+    font-size: 15px;
+    font-family: 'Noto Sans SC', sans-serif;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .quiz-stem .blank {
+    display: inline-block;
+    min-width: 50px;
+    border-bottom: 2px solid var(--accent);
+    margin: 0 4px;
+    text-align: center;
+  }
+  .quiz-opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .quiz-opt {
+    padding: 10px 14px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+  }
+  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .quiz-opt.correct { background: var(--jade-soft); border-color: var(--jade); color: var(--jade); font-weight: 600; }
+  .quiz-opt.wrong { background: #ffe0e0; border-color: var(--accent); color: var(--accent); }
+  .quiz-opt.disabled { pointer-events: none; opacity: 0.7; }
+  .quiz-opt.disabled.correct { opacity: 1; }
+  .quiz-explanation {
+    display: none;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: var(--paper);
+    border-radius: 6px;
+  }
+  .quiz-score-bar {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    margin-top: 8px;
+    display: none;
+  }
+  .quiz-score-bar .score-text { font-size: 16px; font-weight: 700; }
+  .quiz-score-bar .score-text.pass { color: var(--jade); }
+  .quiz-score-bar .score-text.fail { color: var(--accent); }
+
+  /* === FINAL SCORES === */
+  .dd-final {
+    text-align: center;
+    padding: 24px;
+  }
+  .dd-final .score-big,
+  .score-big {
+    font-size: 36px;
+    font-weight: 700;
+  }
+  .score-big.pass { color: var(--jade); }
+  .score-big.fail { color: var(--accent); }
+
+  /* === RELATED LINKS === */
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .related-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .related-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+  .related-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .related-icon.red { background: var(--accent-soft); color: var(--accent); }
+  .related-icon.jade { background: var(--jade-soft); color: var(--jade); }
+  .related-icon.gold { background: var(--gold-soft); color: var(--gold); }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    .tool-section { padding: 20px 16px; }
+    .prog-bar { flex-direction: column; }
+    .prog-step { border-right: none; border-bottom: 1px solid var(--mist); }
+    .prog-step:last-child { border-bottom: none; }
+    .quiz-opts { grid-template-columns: 1fr; }
+    .ec-sentence { font-size: 18px; }
+    .pattern-header { flex-direction: column; align-items: flex-start; }
+    .pattern-meaning { margin-left: 0; }
+    .tree-options { grid-template-columns: 1fr 1fr; }
+    .tree-result-connector { font-size: 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tree-opt, .ec-card { transition: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">HSK 4 Grammar</div>
+  <h1 class="chinese">复句 — <span class="accent">Complex Sentence Patterns</span></h1>
+  <p>Master all 11 types of complex sentences with paired connectors (关联词) across HSK 3-5 with an interactive decision tree, error correction, and comprehensive quizzes.</p>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Types</div></div>
+    <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Connectors</div></div>
+    <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Exercises</div></div>
+  </div>
+</div>
+
+<!-- PROGRESSION BAR -->
+<div class="section-title">HSK Level Progression / 等级递进</div>
+
+<div class="prog-bar" role="tablist">
+  <div class="prog-step" role="tab" tabindex="0" aria-selected="false" onclick="toggleProg(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(0)}">
+    <div class="prog-level">HSK 3</div>
+    <div class="prog-count">5 patterns</div>
+  </div>
+  <div class="prog-step current" role="tab" tabindex="0" aria-selected="true" onclick="toggleProg(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(1)}">
+    <div class="prog-level">HSK 4</div>
+    <div class="prog-count">+8 connectors</div>
+  </div>
+  <div class="prog-step" role="tab" tabindex="0" aria-selected="false" onclick="toggleProg(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(2)}">
+    <div class="prog-level">HSK 5</div>
+    <div class="prog-count">+4 connectors</div>
+  </div>
+</div>
+
+<div class="prog-detail" id="prog-0">
+  <div class="prog-detail-title">HSK 3 — 5 Foundation Connectors</div>
+  <p class="chinese" style="line-height:2;">
+    ① 虽然…但是 (although...but)<br>
+    ② 因为…所以 (because...therefore)<br>
+    ③ 如果…就 (if...then)<br>
+    ④ 只有…才 (only if...then)<br>
+    ⑤ 只要…就 (as long as...then)
+  </p>
+</div>
+<div class="prog-detail open" id="prog-1">
+  <div class="prog-detail-title">HSK 4 — 8 New Connectors (This Page)</div>
+  <p class="chinese" style="line-height:2;">
+    ⑥ 尽管…但是/可是 (even though)<br>
+    ⑦ 然而 / 不过 (however)<br>
+    ⑧ 不管/无论…都/也 (no matter)<br>
+    ⑨ 即使/就是…也 (even if)<br>
+    ⑩ 既然…就 (since/given that)<br>
+    ⑪ 由于…因此 (due to...therefore)<br>
+    ⑫ 不是…而是 (not...but rather)<br>
+    ⑬ 既…又/也 (both...and)
+  </p>
+</div>
+<div class="prog-detail" id="prog-2">
+  <div class="prog-detail-title">HSK 5 — 4 Advanced Connectors</div>
+  <p class="chinese" style="line-height:2;">
+    ⑭ 一旦…就 (once...then)<br>
+    ⑮ 假如…就 (supposing...then)<br>
+    ⑯ 万一…就 (in case...then)<br>
+    ⑰ 哪怕…也 (even if / no matter what)
+  </p>
+  <p style="font-size:13px;color:var(--stone);margin-top:4px;">These connectors add nuance to hypothetical and extreme conditions.</p>
+</div>
+
+<!-- HSK3 REVIEW -->
+<div class="review-toggle" id="hsk3-review">
+  <div class="review-toggle-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleReview()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleReview()}">
+    <span class="chinese">HSK 3 Review — 5 Foundation Patterns (已学)</span>
+    <span class="review-toggle-arrow">&#9654;</span>
+  </div>
+  <div class="review-toggle-body">
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-1</span>
+        <span class="pattern-formula">虽然…但是</span>
+        <span class="pattern-meaning">although...but</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese"><span class="hl">虽然</span>今天很冷，<span class="hl">但是</span>他还是出去跑步了。</div><div class="py">Suīrán jīntiān hěn lěng, dànshì tā háishì chūqù pǎobù le.</div><div class="en">Although it's very cold today, he still went out jogging.</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-2</span>
+        <span class="pattern-formula">因为…所以</span>
+        <span class="pattern-meaning">because...therefore</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese"><span class="hl">因为</span>下雨了，<span class="hl">所以</span>我们没去公园。</div><div class="py">Yīnwèi xià yǔ le, suǒyǐ wǒmen méi qù gōngyuán.</div><div class="en">Because it rained, we didn't go to the park.</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-3</span>
+        <span class="pattern-formula">如果…就</span>
+        <span class="pattern-meaning">if...then</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese"><span class="hl">如果</span>明天不下雨，我们<span class="hl">就</span>去爬山。</div><div class="py">Rúguǒ míngtiān bù xià yǔ, wǒmen jiù qù páshān.</div><div class="en">If it doesn't rain tomorrow, we'll go hiking.</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-4</span>
+        <span class="pattern-formula">只有…才</span>
+        <span class="pattern-meaning">only if...then</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese"><span class="hl">只有</span>努力学习，<span class="hl">才</span>能通过考试。</div><div class="py">Zhǐyǒu nǔlì xuéxí, cái néng tōngguò kǎoshì.</div><div class="en">Only by studying hard can you pass the exam.</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-5</span>
+        <span class="pattern-formula">只要…就</span>
+        <span class="pattern-meaning">as long as...then</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese"><span class="hl">只要</span>你认真听课，<span class="hl">就</span>能学好。</div><div class="py">Zhǐyào nǐ rènzhēn tīng kè, jiù néng xué hǎo.</div><div class="en">As long as you pay attention in class, you can learn well.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HSK4 PATTERNS -->
+
+<!-- 转折 Concession/Contrast -->
+<div class="section-title">转折 Concession / Contrast</div>
+
+<div class="pattern-card" id="p1">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 1</span>
+    <span class="pattern-formula chinese">尽管…但是/可是</span>
+    <span class="pattern-meaning">even though (factual)</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">尽管</span>路很远，<span class="hl">但是</span>他每天都走路上班。</div><div class="py">Jǐnguǎn lù hěn yuǎn, dànshì tā měi tiān dōu zǒulù shàngbān.</div><div class="en">Even though the road is long, he walks to work every day.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">尽管</span>大家都反对，<span class="hl">可是</span>她还是坚持自己的想法。</div><div class="py">Jǐnguǎn dàjiā dōu fǎnduì, kěshì tā háishì jiānchí zìjǐ de xiǎngfǎ.</div><div class="en">Even though everyone opposed it, she still stuck to her own idea.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">尽管</span>他很累，<span class="hl">但是</span>还是完成了工作。</div><div class="py">Jǐnguǎn tā hěn lèi, dànshì háishì wánchéng le gōngzuò.</div><div class="en">Even though he was tired, he still finished the work.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese"><b>即使</b>他昨天生病了，但是今天来上课了。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese"><b>尽管</b>他昨天生病了，但是今天来上课了。</span></div>
+    <div class="error-note">Use 尽管 for facts that already happened. 即使 is for hypothetical situations. Since he was already sick yesterday (a fact), use 尽管.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p2">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 2</span>
+    <span class="pattern-formula chinese">然而 / 不过</span>
+    <span class="pattern-meaning">however / but</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">他学了很长时间，<span class="hl">然而</span>成绩还是不理想。</div><div class="py">Tā xué le hěn cháng shíjiān, rán'ér chéngjì háishì bù lǐxiǎng.</div><div class="en">He studied for a long time; however, his grades were still not ideal.</div></div>
+  <div class="ex-row"><div class="cn chinese">这个手机很好用，<span class="hl">不过</span>价格有点儿贵。</div><div class="py">Zhège shǒujī hěn hǎo yòng, búguò jiàgé yǒudiǎnr guì.</div><div class="en">This phone is easy to use, but the price is a bit expensive.</div></div>
+</div>
+
+<!-- 条件 Condition -->
+<div class="section-title">条件 Condition</div>
+
+<div class="pattern-card" id="p3">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 3</span>
+    <span class="pattern-formula chinese">不管/无论…都/也</span>
+    <span class="pattern-meaning">no matter (what/how)</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">不管</span>天气怎么样，他<span class="hl">都</span>坚持锻炼。</div><div class="py">Bùguǎn tiānqì zěnmeyàng, tā dōu jiānchí duànliàn.</div><div class="en">No matter what the weather is like, he keeps exercising.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">无论</span>遇到什么困难，我们<span class="hl">都</span>不能放弃。</div><div class="py">Wúlùn yù dào shénme kùnnán, wǒmen dōu bù néng fàngqì.</div><div class="en">No matter what difficulties we encounter, we cannot give up.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">不管</span>你同意不同意，我<span class="hl">也</span>要去。</div><div class="py">Bùguǎn nǐ tóngyì bù tóngyì, wǒ yě yào qù.</div><div class="en">Whether you agree or not, I'm still going.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">不管天气怎么样，他坚持锻炼。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">不管天气怎么样，他<b>都</b>坚持锻炼。</span></div>
+    <div class="error-note">不管/无论 must be paired with 都 or 也 in the second clause. Dropping the second connector is a common error.</div>
+  </div>
+</div>
+
+<!-- 让步 Concession -->
+<div class="section-title">让步 Concession</div>
+
+<div class="pattern-card" id="p4">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 4</span>
+    <span class="pattern-formula chinese">即使/就是…也</span>
+    <span class="pattern-meaning">even if (hypothetical)</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">即使</span>下雨，我<span class="hl">也</span>要去。</div><div class="py">Jíshǐ xià yǔ, wǒ yě yào qù.</div><div class="en">Even if it rains, I will still go.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">即使</span>再难，我们<span class="hl">也</span>不能放弃。</div><div class="py">Jíshǐ zài nán, wǒmen yě bù néng fàngqì.</div><div class="en">Even if it gets harder, we cannot give up.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">就是</span>你不说，我<span class="hl">也</span>知道。</div><div class="py">Jiùshì nǐ bù shuō, wǒ yě zhīdào.</div><div class="en">Even if you don't say it, I know.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese"><b>尽管</b>明天下雨，我也要去旅行。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese"><b>即使</b>明天下雨，我也要去旅行。</span></div>
+    <div class="error-note">Use 即使 for hypothetical future situations. 尽管 is for facts. Since it hasn't rained yet (tomorrow is uncertain), use 即使.</div>
+  </div>
+</div>
+
+<!-- 因果 Cause-Effect -->
+<div class="section-title">因果 Cause-Effect</div>
+
+<div class="pattern-card" id="p5">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 5</span>
+    <span class="pattern-formula chinese">既然…就</span>
+    <span class="pattern-meaning">since / given that</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">既然</span>你已经决定了，<span class="hl">就</span>不要后悔。</div><div class="py">Jìrán nǐ yǐjīng juédìng le, jiù bú yào hòuhuǐ.</div><div class="en">Since you've already decided, don't regret it.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">既然</span>大家都同意，我们<span class="hl">就</span>这么办吧。</div><div class="py">Jìrán dàjiā dōu tóngyì, wǒmen jiù zhème bàn ba.</div><div class="en">Since everyone agrees, let's do it this way.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">既然</span>来了，<span class="hl">就</span>好好玩儿吧。</div><div class="py">Jìrán lái le, jiù hǎohāo wánr ba.</div><div class="en">Since you're already here, enjoy yourself.</div></div>
+</div>
+
+<div class="pattern-card" id="p6">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 6</span>
+    <span class="pattern-formula chinese">由于…因此</span>
+    <span class="pattern-meaning">due to...therefore (formal)</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">由于</span>交通堵塞，<span class="hl">因此</span>会议推迟了。</div><div class="py">Yóuyú jiāotōng dǔsè, yīncǐ huìyì tuīchí le.</div><div class="en">Due to the traffic jam, the meeting was postponed.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">由于</span>他的努力，<span class="hl">因此</span>项目顺利完成了。</div><div class="py">Yóuyú tā de nǔlì, yīncǐ xiàngmù shùnlì wánchéng le.</div><div class="en">Due to his efforts, the project was completed smoothly.</div></div>
+</div>
+
+<!-- 并列 Parallel -->
+<div class="section-title">并列 Parallel</div>
+
+<div class="pattern-card" id="p7">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 7</span>
+    <span class="pattern-formula chinese">不是…而是</span>
+    <span class="pattern-meaning">not...but rather</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">他<span class="hl">不是</span>不想帮你，<span class="hl">而是</span>没有时间。</div><div class="py">Tā búshì bù xiǎng bāng nǐ, érshì méiyǒu shíjiān.</div><div class="en">It's not that he doesn't want to help you, but rather he has no time.</div></div>
+  <div class="ex-row"><div class="cn chinese">我<span class="hl">不是</span>累了，<span class="hl">而是</span>饿了。</div><div class="py">Wǒ búshì lèi le, érshì è le.</div><div class="en">I'm not tired, but rather hungry.</div></div>
+  <div class="ex-row"><div class="cn chinese">问题<span class="hl">不是</span>钱不够，<span class="hl">而是</span>时间不够。</div><div class="py">Wèntí búshì qián bú gòu, érshì shíjiān bú gòu.</div><div class="en">The problem isn't not enough money, but not enough time.</div></div>
+</div>
+
+<div class="pattern-card" id="p8">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 8</span>
+    <span class="pattern-formula chinese">既…又/也</span>
+    <span class="pattern-meaning">both...and</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">这个菜<span class="hl">既</span>好吃<span class="hl">又</span>便宜。</div><div class="py">Zhège cài jì hǎochī yòu piányi.</div><div class="en">This dish is both delicious and cheap.</div></div>
+  <div class="ex-row"><div class="cn chinese">她<span class="hl">既</span>会说英语，<span class="hl">也</span>会说法语。</div><div class="py">Tā jì huì shuō Yīngyǔ, yě huì shuō Fǎyǔ.</div><div class="en">She can speak both English and French.</div></div>
+</div>
+
+<!-- 递进 Progressive -->
+<div class="section-title">递进 Progressive</div>
+
+<div class="pattern-card" id="p9">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 9</span>
+    <span class="pattern-formula chinese">连…也/都</span>
+    <span class="pattern-meaning">even (emphasis)</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">他<span class="hl">连</span>饭<span class="hl">都</span>没吃就走了。</div><div class="py">Tā lián fàn dōu méi chī jiù zǒu le.</div><div class="en">He left without even eating.</div></div>
+  <div class="ex-row"><div class="cn chinese">这个字<span class="hl">连</span>老师<span class="hl">也</span>不认识。</div><div class="py">Zhège zì lián lǎoshī yě bú rènshi.</div><div class="en">Even the teacher doesn't know this character.</div></div>
+  <div class="ex-row"><div class="cn chinese">她<span class="hl">连</span>一句话<span class="hl">都</span>没说。</div><div class="py">Tā lián yī jù huà dōu méi shuō.</div><div class="en">She didn't even say a single word.</div></div>
+</div>
+
+<div class="pattern-card" id="p10">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 10</span>
+    <span class="pattern-formula chinese">不仅/不光…还/而且</span>
+    <span class="pattern-meaning">not only...but also</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">她<span class="hl">不仅</span>学习好，<span class="hl">而且</span>很会唱歌。</div><div class="py">Tā bùjǐn xuéxí hǎo, érqiě hěn huì chànggē.</div><div class="en">She not only studies well, but also sings beautifully.</div></div>
+  <div class="ex-row"><div class="cn chinese">他<span class="hl">不光</span>会做饭，<span class="hl">还</span>会做甜点。</div><div class="py">Tā bùguāng huì zuòfàn, hái huì zuò tiándiǎn.</div><div class="en">He can not only cook, but also make desserts.</div></div>
+</div>
+
+<div class="pattern-card" id="p11">
+  <div class="pattern-header">
+    <span class="pattern-num">Type 11</span>
+    <span class="pattern-formula chinese">甚至</span>
+    <span class="pattern-meaning">even / to the extent that</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">他很忙，<span class="hl">甚至</span>连吃饭的时间都没有。</div><div class="py">Tā hěn máng, shènzhì lián chīfàn de shíjiān dōu méiyǒu.</div><div class="en">He's so busy that he doesn't even have time to eat.</div></div>
+  <div class="ex-row"><div class="cn chinese">她的中文很好，<span class="hl">甚至</span>能看中文小说。</div><div class="py">Tā de Zhōngwén hěn hǎo, shènzhì néng kàn Zhōngwén xiǎoshuō.</div><div class="en">Her Chinese is so good that she can even read Chinese novels.</div></div>
+</div>
+
+<!-- CONNECTOR DECISION TREE -->
+<div class="tool-section" id="decision-tree">
+  <h2 class="chinese">Connector Decision Tree / 关联词选择器</h2>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">Answer the questions step by step to find the right connector for your sentence.</p>
+
+  <div class="tree-path" id="tree-path"></div>
+  <div class="tree-container" id="tree-container">
+    <div class="tree-question" id="tree-question"></div>
+    <div class="tree-options" id="tree-options"></div>
+    <div id="tree-result-box" style="display:none;"></div>
+  </div>
+  <div style="text-align:center;margin-top:12px;">
+    <button class="btn btn-ghost" onclick="treeReset()">Start Over</button>
+  </div>
+</div>
+
+<!-- ERROR CORRECTION CARDS -->
+<div class="tool-section" id="error-cards">
+  <h2 class="chinese">Error Spotting / 纠错练习</h2>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">Is this complex sentence correct or incorrect? Judge each sentence.</p>
+
+  <div class="ec-container">
+    <div class="ec-card" id="ec-card">
+      <div class="ec-sentence chinese" id="ec-sentence"></div>
+      <div class="ec-buttons" id="ec-buttons">
+        <button class="btn btn-jade" onclick="ecJudge(true)">&#10003; Correct</button>
+        <button class="btn btn-primary" onclick="ecJudge(false)">&#10007; Incorrect</button>
+      </div>
+      <div class="ec-reveal hidden" id="ec-reveal">
+        <div class="ec-verdict" id="ec-verdict"></div>
+        <div class="ec-fix" id="ec-fix"></div>
+        <div class="ec-explain" id="ec-explain"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ec-score" id="ec-score"></div>
+  <div style="text-align:center;margin-top:12px;">
+    <button class="btn btn-secondary" id="ec-next-btn" onclick="ecNext()" style="display:none;">Next Card &#8594;</button>
+  </div>
+  <div class="dd-final" id="ec-final" style="display:none;"></div>
+</div>
+
+<!-- COMPREHENSIVE QUIZ -->
+<div class="tool-section" id="quiz-section">
+  <h2 class="chinese">Comprehensive Quiz / 综合测试 (15 questions)</h2>
+
+  <!-- Q1: fill blank -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese"><span class="blank"></span>天气怎么样，他<span class="blank"></span>坚持跑步。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">不管…都</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">因为…所以</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">虽然…但是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">如果…就</button>
+    </div>
+    <div class="quiz-explanation">不管…都 means "no matter...still." The sentence describes an unconditional situation — he runs regardless of weather. 不管天气怎么样，他都坚持跑步。</div>
+  </div>
+
+  <!-- Q2: fill blank -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese"><span class="blank"></span>你已经答应了，<span class="blank"></span>不要反悔。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">尽管…但是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">既然…就</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">即使…也</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不管…都</button>
+    </div>
+    <div class="quiz-explanation">既然…就 means "since...then." The first clause states an established fact (you already agreed), and the second draws a logical conclusion. 既然你已经答应了，就不要反悔。</div>
+  </div>
+
+  <!-- Q3: identify type -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem">What type of complex sentence is this? <span class="chinese">即使考试很难，我也要试试。</span></div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">转折 Contrast</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,true)">让步 Concession</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">条件 Condition</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">因果 Cause-Effect</button>
+    </div>
+    <div class="quiz-explanation">即使…也 is a concession (让步) pattern. It introduces a hypothetical situation that won't change the outcome. "Even if the exam is hard, I will still try."</div>
+  </div>
+
+  <!-- Q4: fill blank -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese">他<span class="blank"></span>不想帮你，<span class="blank"></span>没有时间。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">不是…而是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不仅…而且</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">虽然…但是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">既…又</button>
+    </div>
+    <div class="quiz-explanation">不是…而是 means "not...but rather." It corrects a misunderstanding: he's not unwilling, he just doesn't have time.</div>
+  </div>
+
+  <!-- Q5: choose correct connector -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese"><span class="blank"></span>路很远，<span class="blank"></span>他每天都走着去上班。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">尽管…但是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">即使…也</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">既然…就</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不管…都</button>
+    </div>
+    <div class="quiz-explanation">尽管…但是 is for factual contrast. The road IS far (a real fact), but he still walks. 即使 would imply uncertainty about the distance.</div>
+  </div>
+
+  <!-- Q6: fill blank -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese">她<span class="blank"></span>会说英语，<span class="blank"></span>会说法语。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不仅…还</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">既…又</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不是…而是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">连…都</button>
+    </div>
+    <div class="quiz-explanation">既…又 means "both...and" (parallel structure). Both abilities are presented equally. 不仅…还 would emphasize progression rather than equality.</div>
+  </div>
+
+  <!-- Q7: identify type -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem">What type of complex sentence is this? <span class="chinese">她不仅会唱歌，而且还会弹钢琴。</span></div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">并列 Parallel</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,true)">递进 Progressive</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">转折 Contrast</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">因果 Cause-Effect</button>
+    </div>
+    <div class="quiz-explanation">不仅…而且 is a progressive (递进) pattern. It builds from one ability (singing) to a more impressive one (playing piano).</div>
+  </div>
+
+  <!-- Q8: fill blank -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese">他<span class="blank"></span>饭<span class="blank"></span>没吃就出门了。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">连…都</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不是…而是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">虽然…但是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">既然…就</button>
+    </div>
+    <div class="quiz-explanation">连…都 means "even." It emphasizes that something extreme or unexpected happened — he didn't even eat before leaving.</div>
+  </div>
+
+  <!-- Q9: choose correct -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem">Which sentence is CORRECT?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">即使他昨天生病了，但是今天来了。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">尽管他昨天生病了，但是今天来了。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不管他昨天生病了，但是今天来了。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">既然他昨天生病了，但是今天来了。</button>
+    </div>
+    <div class="quiz-explanation">尽管…但是 is correct here because "being sick yesterday" is a fact. 即使 is for hypothetical situations. 不管 pairs with 都/也, not 但是. 既然 pairs with 就.</div>
+  </div>
+
+  <!-- Q10: fill blank -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese"><span class="blank"></span>交通堵塞，<span class="blank"></span>会议推迟了。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">既然…就</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">虽然…但是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">由于…因此</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">尽管…但是</button>
+    </div>
+    <div class="quiz-explanation">由于…因此 (due to...therefore) expresses a formal cause-effect relationship. The traffic jam directly caused the meeting delay.</div>
+  </div>
+
+  <!-- Q11: identify incorrect -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem">Which sentence is INCORRECT?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不管你去不去，我都要去。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">无论天气好不好，他坚持锻炼。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">即使下大雨，我也要出门。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">既然来了，就好好玩儿吧。</button>
+    </div>
+    <div class="quiz-explanation">无论…must pair with 都 or 也. The sentence is missing 都: 无论天气好不好，他都坚持锻炼。</div>
+  </div>
+
+  <!-- Q12: fill blank -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese">这个菜<span class="blank"></span>好吃<span class="blank"></span>便宜。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不是…而是</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">既…又</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不仅…而且</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">连…都</button>
+    </div>
+    <div class="quiz-explanation">既…又 means "both...and," describing two equal qualities of the same subject in a parallel structure.</div>
+  </div>
+
+  <!-- Q13: choose correct connector -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem chinese">他很忙，<span class="blank"></span>连吃饭的时间都没有。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">然而</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不过</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">甚至</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">而且</button>
+    </div>
+    <div class="quiz-explanation">甚至 means "even / to the extent that." It introduces an extreme example to emphasize just how busy he is.</div>
+  </div>
+
+  <!-- Q14: identify type -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem">What type of complex sentence is this? <span class="chinese">由于天气原因，航班取消了。</span></div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">条件 Condition</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">转折 Contrast</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,true)">因果 Cause-Effect</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">递进 Progressive</button>
+    </div>
+    <div class="quiz-explanation">由于 introduces a cause (weather reasons), and the result follows (flight cancelled). This is a cause-effect (因果) structure.</div>
+  </div>
+
+  <!-- Q15: choose correct -->
+  <div class="quiz-item" data-quiz="complex-full">
+    <div class="quiz-stem">Which sentence correctly uses 即使…也?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">即使他生病了，也来了。(he was sick — fact)</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">即使明天下雨，我也要去。(may rain — hypothetical)</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">即使很贵，但是我买了。(wrong pair)</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">即使努力学习，所以考得好。(wrong pair)</button>
+    </div>
+    <div class="quiz-explanation">即使…也 is for hypothetical situations. "Tomorrow raining" is uncertain, making 即使 correct. The other options either use facts (use 尽管) or wrong connector pairs.</div>
+  </div>
+
+  <div class="quiz-score-bar" id="score-complex-full" style="display:none;"></div>
+</div>
+
+<!-- RELATED -->
+<div class="section-title">Related / 相关内容</div>
+<div class="related-grid">
+  <a href="/grammar/ba-sentence/" class="related-card">
+    <div class="related-icon red chinese">把</div>
+    <span>把字句 Ba-Sentence</span>
+  </a>
+  <a href="/grammar/passive/" class="related-card">
+    <div class="related-icon jade chinese">被</div>
+    <span>Passive Voice 被动句</span>
+  </a>
+  <a href="/grammar/" class="related-card">
+    <div class="related-icon red chinese">语</div>
+    <span>All Grammar Points</span>
+  </a>
+  <a href="/vocabulary/" class="related-card">
+    <div class="related-icon gold chinese">词</div>
+    <span>HSK 4 Vocabulary</span>
+  </a>
+</div>
+
+<div class="cta-banner">
+  <h3 class="chinese">用模拟考试检验复句掌握情况</h3>
+  <p>Test your complex sentence knowledge with full HSK 4 mock exams</p>
+  <a href="/" class="btn btn-primary">Start a Mock Exam &#8594;</a>
+</div>
+
+</main>
+
+<footer>
+  <p>&copy; 2024–2026 <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a>, Beijing &middot; Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p style="margin-top:6px;">
+    <a href="/">Mock Exams</a> &middot;
+    <a href="/vocabulary/">Vocabulary</a> &middot;
+    <a href="/grammar/">Grammar</a> &middot;
+    <a href="/writing/">Writing</a> &middot;
+    <a href="/words/">Confusable Words</a> &middot;
+    <a href="/guide/">Study Guide</a>
+  </p>
+</footer>
+
+<script>
+/* =============================================
+   复句 Complex Sentences Interactive Page — JS
+   ============================================= */
+
+/* === PROGRESSION BAR === */
+function toggleProg(idx) {
+  var details = document.querySelectorAll('.prog-detail');
+  var steps = document.querySelectorAll('.prog-step');
+  details.forEach(function(d, i) {
+    if (i === idx) {
+      d.classList.toggle('open');
+      steps[i].setAttribute('aria-selected', d.classList.contains('open'));
+    } else {
+      d.classList.remove('open');
+      steps[i].setAttribute('aria-selected', 'false');
+    }
+  });
+}
+
+/* === HSK3 REVIEW TOGGLE === */
+function toggleReview() {
+  var el = document.getElementById('hsk3-review');
+  el.classList.toggle('open');
+  el.querySelector('[aria-expanded]').setAttribute('aria-expanded', el.classList.contains('open'));
+}
+
+/* === CONNECTOR DECISION TREE === */
+var TREE = {
+  start: {
+    question: '你想表达什么逻辑关系？ What logical relationship?',
+    options: [
+      { label: '转折 Contrast', next: 'contrast' },
+      { label: '条件 Condition', next: 'condition' },
+      { label: '让步 Concession', next: 'concession' },
+      { label: '因果 Cause-Effect', next: 'cause' },
+      { label: '并列 Parallel', next: 'parallel' },
+      { label: '递进 Progressive', next: 'progressive' }
+    ]
+  },
+  contrast: {
+    question: '转折的程度？ Degree of contrast?',
+    options: [
+      { label: '强烈转折 Strong (even though)', next: 'contrast_strong' },
+      { label: '轻微转折 Mild (however/but)', next: 'contrast_mild' }
+    ]
+  },
+  contrast_strong: {
+    question: '情况是真实的还是假设的？ Is the situation real or hypothetical?',
+    options: [
+      { label: '真实 Real (it did happen)', next: 'result_jinguan' },
+      { label: '假设 Hypothetical (it might happen)', next: 'result_jishi' }
+    ]
+  },
+  contrast_mild: {
+    question: '语体风格？ Register?',
+    options: [
+      { label: '书面/正式 Written/Formal', next: 'result_raner' },
+      { label: '口语/随意 Spoken/Casual', next: 'result_buguo' }
+    ]
+  },
+  condition: {
+    question: '条件的类型？ Type of condition?',
+    options: [
+      { label: '无条件 Unconditional (no matter what)', next: 'result_buguan' },
+      { label: '一般条件 General condition (if)', next: 'result_ruguo' },
+      { label: '唯一条件 Only condition (only if)', next: 'result_zhiyou' },
+      { label: '充分条件 Sufficient (as long as)', next: 'result_zhiyao' }
+    ]
+  },
+  concession: {
+    question: '情况是真实的还是假设的？ Real or hypothetical?',
+    options: [
+      { label: '真实 Real (even though — fact)', next: 'result_jinguan' },
+      { label: '假设 Hypothetical (even if — might happen)', next: 'result_jishi' }
+    ]
+  },
+  cause: {
+    question: '因果关系的类型？ Type of cause-effect?',
+    options: [
+      { label: '已知前提推理 Known premise → conclusion', next: 'result_jiran' },
+      { label: '原因→结果 Reason → result (general)', next: 'result_yinwei' },
+      { label: '原因→结果 Reason → result (formal)', next: 'result_youyu' }
+    ]
+  },
+  parallel: {
+    question: '并列的类型？ Type of parallel?',
+    options: [
+      { label: '两个并存 Both...and (coexisting)', next: 'result_ji_you' },
+      { label: '否定一个肯定另一个 Not A but B', next: 'result_bushi_ershi' }
+    ]
+  },
+  progressive: {
+    question: '递进的方式？ Type of progression?',
+    options: [
+      { label: '不仅A而且B Not only...but also', next: 'result_bujin' },
+      { label: '连A都B Even A (emphasis)', next: 'result_lian' },
+      { label: '甚至 Even/to the extent', next: 'result_shenzhi' }
+    ]
+  },
+  /* --- Result nodes --- */
+  result_jinguan: {
+    result: true,
+    connector: '尽管…但是/可是',
+    pinyin: 'jǐnguǎn…dànshì/kěshì',
+    desc: 'Even though (factual concession). The first clause states a real fact, the second gives an unexpected result.',
+    example: '<span class="hl">尽管</span>路很远，<span class="hl">但是</span>他每天都走路上班。',
+    en: 'Even though the road is long, he walks to work every day.'
+  },
+  result_jishi: {
+    result: true,
+    connector: '即使/就是…也',
+    pinyin: 'jíshǐ/jiùshì…yě',
+    desc: 'Even if (hypothetical concession). The first clause presents a possible situation; the result won\'t change.',
+    example: '<span class="hl">即使</span>下雨，我<span class="hl">也</span>要去。',
+    en: 'Even if it rains, I will still go.'
+  },
+  result_raner: {
+    result: true,
+    connector: '然而',
+    pinyin: 'rán\'ér',
+    desc: 'However (formal/written). Used between two clauses to mark a contrast, common in essays and news.',
+    example: '他学了很长时间，<span class="hl">然而</span>成绩还是不理想。',
+    en: 'He studied for a long time; however, his grades were still not ideal.'
+  },
+  result_buguo: {
+    result: true,
+    connector: '不过',
+    pinyin: 'búguò',
+    desc: 'But / however (casual/spoken). A softer contrast than 但是, often used in everyday conversation.',
+    example: '这个手机很好用，<span class="hl">不过</span>价格有点儿贵。',
+    en: 'This phone is easy to use, but the price is a bit expensive.'
+  },
+  result_buguan: {
+    result: true,
+    connector: '不管/无论…都/也',
+    pinyin: 'bùguǎn/wúlùn…dōu/yě',
+    desc: 'No matter (what/how). Expresses that the result stays the same regardless of any condition.',
+    example: '<span class="hl">不管</span>天气怎么样，他<span class="hl">都</span>坚持锻炼。',
+    en: 'No matter what the weather is like, he keeps exercising.'
+  },
+  result_ruguo: {
+    result: true,
+    connector: '如果…就',
+    pinyin: 'rúguǒ…jiù',
+    desc: 'If...then. A general conditional — if the condition is met, the result follows. (HSK 3 pattern)',
+    example: '<span class="hl">如果</span>明天不下雨，我们<span class="hl">就</span>去爬山。',
+    en: 'If it doesn\'t rain tomorrow, we\'ll go hiking.'
+  },
+  result_zhiyou: {
+    result: true,
+    connector: '只有…才',
+    pinyin: 'zhǐyǒu…cái',
+    desc: 'Only if...then. The result can ONLY happen under this specific condition. (HSK 3 pattern)',
+    example: '<span class="hl">只有</span>努力学习，<span class="hl">才</span>能通过考试。',
+    en: 'Only by studying hard can you pass the exam.'
+  },
+  result_zhiyao: {
+    result: true,
+    connector: '只要…就',
+    pinyin: 'zhǐyào…jiù',
+    desc: 'As long as...then. The condition is sufficient — meeting it guarantees the result. (HSK 3 pattern)',
+    example: '<span class="hl">只要</span>你认真听课，<span class="hl">就</span>能学好。',
+    en: 'As long as you pay attention in class, you can learn well.'
+  },
+  result_jiran: {
+    result: true,
+    connector: '既然…就',
+    pinyin: 'jìrán…jiù',
+    desc: 'Since / given that...then. The first clause states a known/accepted premise; the second draws a logical conclusion.',
+    example: '<span class="hl">既然</span>你已经决定了，<span class="hl">就</span>不要后悔。',
+    en: 'Since you\'ve already decided, don\'t regret it.'
+  },
+  result_yinwei: {
+    result: true,
+    connector: '因为…所以',
+    pinyin: 'yīnwèi…suǒyǐ',
+    desc: 'Because...therefore. The most common cause-effect pattern. (HSK 3 pattern)',
+    example: '<span class="hl">因为</span>下雨了，<span class="hl">所以</span>我们没去公园。',
+    en: 'Because it rained, we didn\'t go to the park.'
+  },
+  result_youyu: {
+    result: true,
+    connector: '由于…因此',
+    pinyin: 'yóuyú…yīncǐ',
+    desc: 'Due to...therefore. Formal/written version of because...so. Common in news and academic writing.',
+    example: '<span class="hl">由于</span>交通堵塞，<span class="hl">因此</span>会议推迟了。',
+    en: 'Due to the traffic jam, the meeting was postponed.'
+  },
+  result_ji_you: {
+    result: true,
+    connector: '既…又/也',
+    pinyin: 'jì…yòu/yě',
+    desc: 'Both...and. Describes two qualities or actions that coexist equally.',
+    example: '这个菜<span class="hl">既</span>好吃<span class="hl">又</span>便宜。',
+    en: 'This dish is both delicious and cheap.'
+  },
+  result_bushi_ershi: {
+    result: true,
+    connector: '不是…而是',
+    pinyin: 'búshì…érshì',
+    desc: 'Not A but rather B. Negates one possibility and affirms another.',
+    example: '他<span class="hl">不是</span>不想帮你，<span class="hl">而是</span>没有时间。',
+    en: 'It\'s not that he doesn\'t want to help you, but rather he has no time.'
+  },
+  result_bujin: {
+    result: true,
+    connector: '不仅/不光…还/而且',
+    pinyin: 'bùjǐn/bùguāng…hái/érqiě',
+    desc: 'Not only...but also. The second clause goes further or adds something more impressive.',
+    example: '她<span class="hl">不仅</span>学习好，<span class="hl">而且</span>很会唱歌。',
+    en: 'She not only studies well, but also sings beautifully.'
+  },
+  result_lian: {
+    result: true,
+    connector: '连…也/都',
+    pinyin: 'lián…yě/dōu',
+    desc: 'Even (emphatic). Highlights something extreme or unexpected to stress a point.',
+    example: '他<span class="hl">连</span>饭<span class="hl">都</span>没吃就走了。',
+    en: 'He left without even eating.'
+  },
+  result_shenzhi: {
+    result: true,
+    connector: '甚至',
+    pinyin: 'shènzhì',
+    desc: 'Even / to the extent that. Introduces an extreme example that goes beyond expectations.',
+    example: '他很忙，<span class="hl">甚至</span>连吃饭的时间都没有。',
+    en: 'He\'s so busy that he doesn\'t even have time to eat.'
+  }
+};
+
+var treePath = [];
+var treeState = 'start';
+
+function treeRender() {
+  var node = TREE[treeState];
+
+  // Render path
+  var pathEl = document.getElementById('tree-path');
+  pathEl.innerHTML = '';
+  treePath.forEach(function(p, i) {
+    if (i > 0) {
+      var arrow = document.createElement('span');
+      arrow.className = 'tree-path-arrow';
+      arrow.innerHTML = '&#9654;';
+      pathEl.appendChild(arrow);
+    }
+    var step = document.createElement('span');
+    step.className = 'tree-path-step';
+    step.textContent = p;
+    pathEl.appendChild(step);
+  });
+
+  var resultBox = document.getElementById('tree-result-box');
+  var questionEl = document.getElementById('tree-question');
+  var optionsEl = document.getElementById('tree-options');
+
+  if (node.result) {
+    // Show result
+    questionEl.style.display = 'none';
+    optionsEl.style.display = 'none';
+    resultBox.style.display = '';
+    resultBox.innerHTML =
+      '<div class="tree-result">' +
+        '<div class="tree-result-connector chinese">' + node.connector + '</div>' +
+        '<div style="font-size:14px;color:var(--stone);font-style:italic;margin-bottom:8px;">' + node.pinyin + '</div>' +
+        '<div class="tree-result-desc">' + node.desc + '</div>' +
+        '<div class="tree-result-example chinese">' + node.example + '</div>' +
+        '<div class="tree-result-en">' + node.en + '</div>' +
+      '</div>';
+  } else {
+    // Show question & options
+    questionEl.style.display = '';
+    optionsEl.style.display = '';
+    resultBox.style.display = 'none';
+    questionEl.textContent = node.question;
+    optionsEl.innerHTML = '';
+    node.options.forEach(function(opt) {
+      var btn = document.createElement('button');
+      btn.className = 'tree-opt';
+      btn.textContent = opt.label;
+      btn.addEventListener('click', function() {
+        treePath.push(opt.label);
+        treeState = opt.next;
+        treeRender();
+      });
+      optionsEl.appendChild(btn);
+    });
+  }
+}
+
+function treeReset() {
+  treePath = [];
+  treeState = 'start';
+  treeRender();
+}
+
+/* === ERROR CORRECTION CARDS === */
+var EC_CARDS = [
+  { sentence: '即使他昨天生病了，但是今天来上课了。', correct: false, fix: '尽管他昨天生病了，但是今天来上课了。', explain: '昨天生病 is a fact, not a hypothetical. Use 尽管 (even though) for real situations, not 即使 (even if).' },
+  { sentence: '不管天气怎么样，他都坚持锻炼。', correct: true, fix: '', explain: 'Correct! 不管…都 properly expresses an unconditional situation with the required 都 in the second clause.' },
+  { sentence: '无论多忙，她坚持每天读书。', correct: false, fix: '无论多忙，她都坚持每天读书。', explain: '无论 must be paired with 都 or 也 in the second clause. Missing 都 is a common error.' },
+  { sentence: '既然来了，就好好玩儿吧。', correct: true, fix: '', explain: 'Correct! 既然…就 — since you are already here (known fact), the logical conclusion follows (enjoy yourself).' },
+  { sentence: '他不是不想帮你，而是没有时间。', correct: true, fix: '', explain: 'Correct! 不是…而是 properly negates one reason and affirms another.' },
+  { sentence: '尽管明天可能下雨，我也要去旅行。', correct: false, fix: '即使明天可能下雨，我也要去旅行。', explain: 'Tomorrow raining is hypothetical (可能 indicates uncertainty). Use 即使 for hypotheticals, not 尽管 which is for established facts.' },
+  { sentence: '她不仅学习好，而且很会唱歌。', correct: true, fix: '', explain: 'Correct! 不仅…而且 properly builds from one quality to another in progressive fashion.' },
+  { sentence: '因为天气不好，但是我们还是去了。', correct: false, fix: '虽然天气不好，但是我们还是去了。', explain: '因为 pairs with 所以 (cause-effect), not 但是. The sentence expresses contrast despite bad weather, so use 虽然…但是.' },
+  { sentence: '即使再难，我们也不能放弃。', correct: true, fix: '', explain: 'Correct! 即使…也 properly expresses a hypothetical concession — even if it gets harder.' },
+  { sentence: '连老师都不认识这个字。', correct: true, fix: '', explain: 'Correct! 连…都 emphasizes that even the teacher (who should know) doesn\'t recognize this character.' },
+  { sentence: '由于他的努力，所以项目完成了。', correct: false, fix: '由于他的努力，因此项目完成了。/ 因为他的努力，所以项目完成了。', explain: '由于 pairs with 因此 (formal), not 所以. Don\'t mix the formal pair (由于…因此) with the informal pair (因为…所以).' },
+  { sentence: '既他会唱歌，又会跳舞。', correct: false, fix: '他既会唱歌，又会跳舞。', explain: '既 must come after the subject, not before it. The correct word order is: Subject + 既…又….' }
+];
+var ecIdx = 0, ecCorrect = 0, ecJudged = false;
+
+function ecRender() {
+  ecJudged = false;
+  document.getElementById('ec-sentence').textContent = EC_CARDS[ecIdx].sentence;
+  document.getElementById('ec-reveal').classList.add('hidden');
+  document.getElementById('ec-buttons').style.display = '';
+  document.getElementById('ec-next-btn').style.display = 'none';
+  document.getElementById('ec-final').style.display = 'none';
+  document.getElementById('ec-score').textContent = 'Card ' + (ecIdx + 1) + ' / ' + EC_CARDS.length + '  |  Score: ' + ecCorrect;
+}
+
+function ecJudge(userSaysCorrect) {
+  if (ecJudged) return;
+  ecJudged = true;
+  var card = EC_CARDS[ecIdx];
+  var isRight = (userSaysCorrect === card.correct);
+  if (isRight) ecCorrect++;
+
+  var verdict = document.getElementById('ec-verdict');
+  var fix = document.getElementById('ec-fix');
+  var explain = document.getElementById('ec-explain');
+
+  if (isRight) {
+    verdict.textContent = 'You got it!';
+    verdict.className = 'ec-verdict right';
+  } else {
+    verdict.textContent = 'Not quite...';
+    verdict.className = 'ec-verdict wrong';
+  }
+
+  if (card.correct) {
+    fix.textContent = 'This sentence IS correct.';
+    fix.style.background = 'var(--jade-soft)';
+  } else {
+    fix.textContent = 'Correction: ' + card.fix;
+    fix.style.background = 'var(--jade-soft)';
+  }
+  explain.textContent = card.explain;
+
+  document.getElementById('ec-reveal').classList.remove('hidden');
+  document.getElementById('ec-buttons').style.display = 'none';
+  document.getElementById('ec-next-btn').style.display = '';
+  document.getElementById('ec-score').textContent = 'Card ' + (ecIdx + 1) + ' / ' + EC_CARDS.length + '  |  Score: ' + ecCorrect;
+  saveProgress();
+}
+
+function ecNext() {
+  ecIdx++;
+  if (ecIdx >= EC_CARDS.length) {
+    document.getElementById('ec-card').style.display = 'none';
+    document.getElementById('ec-next-btn').style.display = 'none';
+    document.getElementById('ec-score').style.display = 'none';
+    var fin = document.getElementById('ec-final');
+    fin.style.display = '';
+    var pct = Math.round(ecCorrect / EC_CARDS.length * 100);
+    fin.innerHTML = '<div class="score-big ' + (pct >= 60 ? 'pass' : 'fail') + '">' + ecCorrect + ' / ' + EC_CARDS.length + '</div><div style="color:var(--stone);margin-top:8px;">' + (pct >= 80 ? 'Sharp eye!' : pct >= 60 ? 'Good work!' : 'Review the patterns above and try again.') + '</div>';
+    saveProgress();
+  } else {
+    ecRender();
+  }
+}
+
+/* === QUIZ === */
+var quizScores = {};
+function answerQuiz(btn, isCorrect) {
+  var item = btn.closest('.quiz-item');
+  var quizName = item.dataset.quiz;
+  if (btn.classList.contains('disabled')) return;
+
+  if (!quizScores[quizName]) quizScores[quizName] = { correct: 0, total: 0 };
+  quizScores[quizName].total++;
+
+  var opts = item.querySelectorAll('.quiz-opt');
+  opts.forEach(function(o) {
+    o.classList.add('disabled');
+    if (o === btn && !isCorrect) o.classList.add('wrong');
+  });
+  // Find and highlight the correct answer
+  opts.forEach(function(o) {
+    var handler = o.getAttribute('onclick');
+    if (handler && handler.indexOf('true') !== -1) o.classList.add('correct');
+  });
+
+  if (isCorrect) quizScores[quizName].correct++;
+
+  // Show explanation
+  var expl = item.querySelector('.quiz-explanation');
+  if (expl) expl.style.display = 'block';
+
+  // Check if all questions answered
+  var allItems = document.querySelectorAll('.quiz-item[data-quiz="' + quizName + '"]');
+  var answered = 0;
+  allItems.forEach(function(qi) {
+    if (qi.querySelector('.quiz-opt.disabled')) answered++;
+  });
+  if (answered === allItems.length) {
+    var scoreBar = document.getElementById('score-' + quizName);
+    if (scoreBar) {
+      var s = quizScores[quizName];
+      var pct = Math.round(s.correct / s.total * 100);
+      scoreBar.innerHTML = '<span class="score-text ' + (pct >= 60 ? 'pass' : 'fail') + '">' + s.correct + ' / ' + s.total + ' (' + pct + '%)</span>';
+      scoreBar.style.display = '';
+    }
+    saveProgress();
+  }
+}
+
+/* === LOCALSTORAGE === */
+var STORAGE_KEY = 'hsk4-grammar-complex';
+function saveProgress() {
+  try {
+    var state = {
+      errorCards: { correct: ecCorrect, total: EC_CARDS.length, done: ecIdx >= EC_CARDS.length },
+      quiz: quizScores['complex-full'] || {},
+      lastVisit: new Date().toISOString().slice(0, 10)
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch(e) {}
+}
+
+/* === INIT === */
+treeRender();
+ecRender();
+</script>
+</body>
+</html>

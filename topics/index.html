@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 4 Topic Vocabulary — 1000 Words by 77 Topics | HSK4 话题词汇</title>
+<meta name="description" content="Browse HSK 4 vocabulary organized by 77 official exam topics from the HSK 3.0 syllabus. Study words by theme — daily life, education, work, nature, technology, society, culture.">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/topics/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="HSK 4 Topic Vocabulary — 1000 Words by 77 Topics">
+<meta property="og:description" content="Browse HSK 4 vocabulary organized by 77 official exam topics. Study words by theme with examples, pinyin, and quizzes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/topics/">
+<meta property="og:site_name" content="Mandarin Zone">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HSK 4 Topic Vocabulary — 1000 Words by 77 Topics">
+<meta name="twitter:description" content="Browse HSK 4 vocabulary by 77 official exam topics from the HSK 3.0 syllabus.">
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/topics/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/topics/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/topics/">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalApplication",
+  "name": "HSK 4 Topic Vocabulary Browser",
+  "description": "Browse and study HSK 4 vocabulary organized by 77 official exam topics from the HSK 3.0 syllabus.",
+  "url": "https://hsk4.mandarinzone.com/topics/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": {
+    "@type": "Organization",
+    "name": "Mandarin Zone",
+    "url": "https://mandarinzone.com"
+  },
+  "inLanguage": ["en", "zh-CN"],
+  "isAccessibleForFree": true,
+  "educationalLevel": "Intermediate"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words do I need to know for HSK 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The new HSK 3.0 Level 4 requires approximately 1,000 words. This is fewer than the old HSK 4 which required ~1,200, but the new exam expects deeper mastery — you need to use words actively in context across 77 specific topics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between HSK 2.0 and HSK 3.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HSK 3.0 (effective July 2026) features 9 levels instead of 6, task-based testing for real communication ability, topic-organized vocabulary across 77 real-life topics, and explicit testing of all four skills: listening, speaking, reading, and writing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I study HSK vocabulary alphabetically or by topic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For HSK 4, studying by topic is more effective because the exam tests real-life communication situations. Learning words in context (e.g., all food-related words together) prepares you to deploy them naturally in the task-based exam format."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to learn all HSK 4 vocabulary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With 15-20 new words per day, you can cover the 1,000-word list in 7-8 weeks. However, solid mastery requires 3-4 months with regular review, as research shows 7-10 meaningful encounters with a word are needed for long-term retention."
+      }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  /* === SEARCH BAR === */
+  .topic-search {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+  .topic-search input {
+    width: 100%;
+    padding: 14px 20px 14px 44px;
+    border: 2px solid var(--mist);
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    background: white;
+    transition: border-color 0.2s;
+  }
+  .topic-search input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .topic-search .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--stone);
+    font-size: 18px;
+    pointer-events: none;
+  }
+
+  /* === CATEGORY ACCORDION === */
+  .category {
+    margin-bottom: 12px;
+  }
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+  }
+  .category-header:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+  }
+  .category.open > .category-header {
+    border-radius: var(--radius) var(--radius) 0 0;
+    border-bottom-color: transparent;
+    border-color: var(--accent);
+  }
+  .category-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+  .category-info { flex: 1; }
+  .category-name {
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .category-name-en {
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .category-count {
+    font-size: 13px;
+    color: var(--stone);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .category-arrow {
+    font-size: 16px;
+    color: var(--stone);
+    transition: transform 0.25s;
+  }
+  .category.open > .category-header .category-arrow {
+    transform: rotate(90deg);
+  }
+
+  /* === CATEGORY BODY === */
+  .category-body {
+    display: none;
+    border: 1px solid var(--accent);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    background: white;
+    padding: 8px 20px 20px;
+  }
+  .category.open > .category-body { display: block; }
+
+  /* === TOPIC CHIPS === */
+  .topic-group {
+    margin-top: 16px;
+  }
+  .topic-group-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--stone);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .topic-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .topic-chip {
+    padding: 7px 14px;
+    border: 1px solid var(--mist);
+    border-radius: 100px;
+    font-size: 14px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s;
+    background: white;
+  }
+  .topic-chip:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .topic-chip.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .topic-chip .chip-count {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-left: 4px;
+  }
+
+  /* === WORD LIST === */
+  .word-list {
+    margin-top: 16px;
+  }
+  .word-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .word-list-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .word-list-count {
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .word-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .word-table th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--stone);
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--mist);
+  }
+  .word-table td {
+    padding: 10px 12px;
+    font-size: 15px;
+    border-bottom: 1px solid var(--mist);
+    vertical-align: top;
+  }
+  .word-table tr:last-child td { border-bottom: none; }
+  .word-table tr:hover td { background: rgba(0,0,0,0.015); }
+  .word-table .col-word {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .word-table .col-word:hover { color: var(--accent); }
+  .word-table .col-pinyin {
+    color: var(--stone);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .word-table .col-pos {
+    color: var(--stone);
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .word-table .col-meaning {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .word-example {
+    display: none;
+    padding: 12px 16px;
+    background: var(--paper);
+    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .word-example.show { display: block; }
+  .word-example .ex-cn {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  .word-example .ex-pinyin {
+    color: var(--stone);
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .word-example .ex-en {
+    color: var(--stone);
+    font-size: 13px;
+  }
+
+  /* === FUNCTION WORDS SECTION === */
+  .fn-words-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 24px auto;
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--stone);
+  }
+  .fn-words-btn:hover { border-color: var(--accent); color: var(--ink); }
+
+  /* === QUIZ === */
+  .quiz-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 50;
+  }
+  .quiz-float-btn {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.2s;
+    font-family: 'Noto Serif SC', serif;
+  }
+  .quiz-float-btn:hover { transform: scale(1.1); }
+  .quiz-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+  }
+  .quiz-modal.show { display: flex; }
+  .quiz-box {
+    background: white;
+    border-radius: var(--radius);
+    padding: 32px;
+    max-width: 480px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+  }
+  .quiz-box h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .quiz-word {
+    text-align: center;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .quiz-pinyin {
+    text-align: center;
+    color: var(--stone);
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .quiz-opt {
+    padding: 12px 16px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    transition: all 0.15s;
+    background: white;
+    text-align: left;
+  }
+  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .quiz-opt.correct { background: var(--jade-soft); border-color: var(--jade); }
+  .quiz-opt.wrong { background: #fde8e8; border-color: var(--accent); }
+  .quiz-opt.disabled { pointer-events: none; opacity: 0.6; }
+  .quiz-score {
+    text-align: center;
+    font-size: 14px;
+    color: var(--stone);
+    margin-bottom: 12px;
+  }
+  .quiz-next {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .quiz-next:hover { background: #a83220; }
+  .quiz-close {
+    position: absolute;
+    top: 12px; right: 16px;
+    background: none; border: none;
+    font-size: 24px; cursor: pointer;
+    color: var(--stone);
+  }
+
+  /* === TOPIC RICH CONTENT === */
+  .topic-rich {
+    margin: 16px 0 8px;
+    display: grid;
+    gap: 12px;
+  }
+  .rich-card {
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .rich-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .rich-dialogue {
+    background: #f0f4f8;
+  }
+  .rich-dialogue .rich-card-title { color: #2d6a8f; }
+  .rich-dialogue .dl-line {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .rich-dialogue .dl-role {
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .rich-dialogue .dl-text {
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .rich-dialogue .dl-text em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 600;
+  }
+  .rich-dialogue .dl-trans {
+    color: var(--stone);
+    font-size: 13px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #d0d8e0;
+    line-height: 1.6;
+  }
+  .rich-collocations {
+    background: var(--jade-soft);
+  }
+  .rich-collocations .rich-card-title { color: var(--jade); }
+  .colloc-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .colloc-item {
+    background: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    border: 1px solid rgba(45,106,79,0.15);
+  }
+  .colloc-item span { color: var(--stone); font-size: 12px; margin-left: 4px; }
+  .rich-culture {
+    background: var(--gold-soft);
+  }
+  .rich-culture .rich-card-title { color: var(--gold); }
+  .rich-wordfamily {
+    background: var(--accent-soft);
+  }
+  .rich-wordfamily .rich-card-title { color: var(--accent); }
+  .wf-chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .wf-chain .wf-arrow { color: var(--stone); font-size: 12px; }
+  .wf-chain .wf-root { color: var(--accent); font-weight: 700; }
+  .rich-challenge {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .rich-challenge .rich-card-title { color: var(--gold); }
+  .rich-challenge p { color: rgba(250,248,245,0.8); }
+  .challenge-input {
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 15px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+  }
+  .challenge-input::placeholder { color: rgba(255,255,255,0.4); }
+  .challenge-input:focus { outline: none; border-color: var(--gold); }
+  .challenge-hint {
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgba(250,248,245,0.5);
+    cursor: pointer;
+  }
+  .challenge-hint:hover { color: var(--gold); }
+  .challenge-answer {
+    display: none;
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 15px;
+  }
+
+  /* === CLICK HINT === */
+  .click-hint {
+    font-size: 12px;
+    color: var(--stone);
+    text-align: right;
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+
+  /* === EMPTY STATE === */
+  .empty-state {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--stone);
+  }
+  .empty-state .empty-icon { font-size: 36px; margin-bottom: 12px; }
+
+  /* === STUDY GUIDE SECTION === */
+  .study-guide {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 28px 28px 20px;
+    margin-bottom: 32px;
+  }
+  .study-guide h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .study-guide p, .study-guide li {
+    color: var(--stone);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  .study-guide ul { padding-left: 20px; margin: 8px 0 16px; }
+  .study-guide li { margin-bottom: 4px; }
+
+  /* === STUDY PATH === */
+  .study-path {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .path-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--paper);
+    border-radius: 8px;
+  }
+  .path-num {
+    width: 28px; height: 28px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .path-step-info { font-size: 14px; line-height: 1.5; }
+  .path-step-title {
+    font-weight: 600;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .path-step-why { color: var(--stone); font-size: 13px; }
+
+  /* === CATEGORY DESC === */
+  .cat-desc {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.7;
+    padding: 4px 0 12px;
+    border-bottom: 1px solid var(--mist);
+    margin-bottom: 4px;
+  }
+  .cat-desc strong { color: var(--ink); }
+
+  /* === EXAM TIPS === */
+  .exam-tip {
+    display: flex;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--gold-soft);
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .exam-tip-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* === FAQ === */
+  .faq { margin-top: 32px; }
+  .faq h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--mist);
+    padding: 16px 0;
+  }
+  .faq-q {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-q::after { content: '+'; color: var(--stone); font-size: 18px; }
+  .faq-item.open .faq-q::after { content: '−'; }
+  .faq-a {
+    display: none;
+    color: var(--stone);
+    font-size: 14px;
+    line-height: 1.8;
+    padding-right: 24px;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    .category-header { padding: 14px 16px; gap: 10px; }
+    .category-body { padding: 8px 14px 16px; }
+    .word-table .col-pos { display: none; }
+    .word-table td, .word-table th { padding: 8px; }
+    .category-icon { width: 36px; height: 36px; font-size: 16px; }
+    .topic-chip { padding: 5px 10px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">HSK 3.0 Syllabus</div>
+    <h1 class="chinese">HSK 4 <span class="accent">Topic Vocabulary</span> / 话题词汇</h1>
+    <p>Browse 1,000 words organized by the 77 official exam topics from the new HSK 3.0 syllabus《新版HSK考试大纲》. Click any topic to study its words.</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">1,000</div><div class="stat-label">Words</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Categories</div></div>
+      <div class="stat"><div class="stat-num">31</div><div class="stat-label">Topics</div></div>
+      <div class="stat"><div class="stat-num">77</div><div class="stat-label">Sub-topics</div></div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="topic-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search words or topics… / 搜索词汇或话题…" autocomplete="off">
+  </div>
+
+  <!-- STUDY GUIDE -->
+  <div class="study-guide">
+    <h2>How to Study Vocabulary by Topic / 话题学习法</h2>
+    <p>HSK 3.0 is task-based: the exam tests whether you can <strong>use Chinese in real situations</strong>, not just recognize isolated words. Studying vocabulary by topic prepares you for this by building "ready-to-use" word clusters. Here's the most effective approach:</p>
+    <ul>
+      <li><strong>Scene-based learning (场景学习法)</strong> — Don't just memorize words. Imagine yourself in the scene: ordering food (饮食), seeing a doctor (医疗健康), or discussing at work (职场交往). For each word, ask: <em>when would I actually say this?</em></li>
+      <li><strong>Output before input (先输出后输入)</strong> — Before opening a topic, try to list all the words you already know for it. Then check the list — the gap between what you produced and what's listed is exactly what you need to learn.</li>
+      <li><strong>3-word sentences (三词造句)</strong> — Pick any 3 words from the same topic and make one sentence using all three. This forces you to think about word relationships: 餐厅 + 服务员 + 点菜 → "我在餐厅让服务员帮我点菜。"</li>
+      <li><strong>Cross-topic connections (跨话题联想)</strong> — Many words appear in multiple topics. 支付 belongs to both Shopping and Technology. Notice these connections — they deepen your understanding.</li>
+    </ul>
+  </div>
+
+  <!-- STUDY PATH -->
+  <div class="section-title">Recommended Study Order / 建议学习顺序</div>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:16px;">Start with topics closest to daily life, then expand outward. This order is based on HSK 4 exam frequency and practical usefulness.</p>
+  <div class="study-path">
+    <div class="path-step">
+      <div class="path-num">1</div>
+      <div class="path-step-info">
+        <div class="path-step-title chinese">饮食 + 交通出行</div>
+        <div class="path-step-why">Highest-frequency exam topics. You'll encounter these in every mock exam.</div>
+      </div>
+    </div>
+    <div class="path-step">
+      <div class="path-num">2</div>
+      <div class="path-step-info">
+        <div class="path-step-title chinese">交往 + 家庭生活</div>
+        <div class="path-step-why">Core emotional and relationship vocabulary — essential for reading comprehension.</div>
+      </div>
+    </div>
+    <div class="path-step">
+      <div class="path-num">3</div>
+      <div class="path-step-info">
+        <div class="path-step-title chinese">学习情况 + 职场生活</div>
+        <div class="path-step-why">Common in HSK 4 writing and reading passages about school and work.</div>
+      </div>
+    </div>
+    <div class="path-step">
+      <div class="path-num">4</div>
+      <div class="path-step-info">
+        <div class="path-step-title chinese">医疗健康 + 购物</div>
+        <div class="path-step-why">Practical survival topics. Frequently tested in listening sections.</div>
+      </div>
+    </div>
+    <div class="path-step">
+      <div class="path-num">5</div>
+      <div class="path-step-info">
+        <div class="path-step-title chinese">社区 + 自然与环境</div>
+        <div class="path-step-why">Housing and nature vocabulary often appears in longer reading passages.</div>
+      </div>
+    </div>
+    <div class="path-step">
+      <div class="path-num">6</div>
+      <div class="path-step-info">
+        <div class="path-step-title chinese">科技 + 当代社会 + 文化</div>
+        <div class="path-step-why">Advanced topics that distinguish HSK 4 from HSK 3. Key for scoring 80+.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:40px;">Browse by Category / 分类浏览</div>
+
+  <!-- CATEGORIES -->
+  <div id="categories"></div>
+
+  <!-- SEARCH RESULTS -->
+  <div id="searchResults" style="display:none;"></div>
+
+  <!-- FUNCTION WORDS -->
+  <div style="text-align:center;">
+    <button class="fn-words-btn" onclick="showFunctionWords()">Show General Vocabulary (function words, adverbs, conjunctions…)</button>
+  </div>
+  <div id="fnWordsContainer" style="display:none;"></div>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h3 class="chinese">用模拟题检验词汇掌握情况</h3>
+    <p>Test your vocabulary knowledge with 12 full HSK 4 mock exams — 1,176 questions</p>
+    <a href="/" class="btn btn-primary">Start a Mock Exam</a>
+  </div>
+
+  <!-- HSK 3.0 Topic System Explained -->
+  <section style="margin-top:48px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:16px;">Understanding the HSK 3.0 Topic System / 新HSK话题大纲解读</h2>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      The new HSK 3.0 exam (《新版HSK考试大纲》, published November 2025, effective July 2026) introduces a fundamentally different approach from older HSK versions. Instead of testing vocabulary and grammar in isolation, it evaluates your ability to <strong>complete communicative tasks</strong> within specific topic areas. This means the words you learn must be "ready to deploy" in context.
+    </p>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      The syllabus defines a <strong>three-tier topic hierarchy</strong> (话题三级体系): 7 一级话题 (broad themes like 日常生活, 教育情况) → 31 二级话题 (specific areas like 饮食, 交通出行) → 77 三级话题 (granular topics like 食物饮品, 就餐, 做菜). Each tier narrows the context, and the exam draws its reading passages, listening recordings, and writing prompts from these 77 specific topics.
+    </p>
+
+    <h3 style="font-family:'Noto Serif SC',serif;font-size:18px;margin:24px 0 12px;">What Changed from HSK 2.0 to 3.0? / 新旧大纲对比</h3>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      The old HSK (2.0) simply listed ~1,200 vocabulary items without topic context. The new HSK 3.0 reduces the word count to ~1,000 but organizes them around real-life tasks. For example, the old syllabus listed 医院, 医生, 检查 as separate entries; the new syllabus groups them under 医疗健康 → 就医, so you learn them as a functional cluster for "seeing a doctor." This shift means <strong>knowing a word in isolation is not enough</strong> — you must know when and how to use it in the right situation.
+    </p>
+
+    <h3 style="font-family:'Noto Serif SC',serif;font-size:18px;margin:24px 0 12px;">Which Topics Are Most Important for the Exam? / 考试重点话题</h3>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      Based on analysis of official sample papers and the 30 task descriptions (任务大纲) in the HSK 3.0 syllabus, these topic areas carry the most weight at Level 4:
+    </p>
+    <ul style="color:var(--stone);line-height:1.8;padding-left:20px;margin-bottom:16px;">
+      <li><strong>日常生活 (Daily Life)</strong> — appears in ~40% of exam content. Especially 饮食, 交通出行, and 购物, which are common settings for listening dialogues and reading passages.</li>
+      <li><strong>教育 + 职场 (Education + Work)</strong> — ~25% of content. The exam frequently uses school and office scenarios for the writing section (排序题 and short paragraph writing).</li>
+      <li><strong>当代社会 (Contemporary Society)</strong> — ~20% of content. Topics like 科技发展 and 社会现象 are favored in reading comprehension because they allow for longer, more complex passages.</li>
+      <li><strong>文化与传统 (Culture)</strong> — ~15% of content. Often tested through reading passages about Chinese customs, festivals, or historical figures. Knowing 功夫, 京剧, 春节 vocabulary is directly useful.</li>
+    </ul>
+  </section>
+
+  <!-- Common Mistakes -->
+  <section style="margin-top:32px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:16px;">Common Vocabulary Mistakes by Topic / 话题常见错误</h2>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      From years of teaching HSK 4 preparation, these are the vocabulary mistakes students make most often, organized by topic:
+    </p>
+    <div style="display:grid;gap:12px;margin-bottom:16px;">
+      <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:16px;">
+        <div style="font-weight:600;margin-bottom:6px;" class="chinese">饮食 — Confusing 味 vs 味道</div>
+        <p style="color:var(--stone);font-size:14px;line-height:1.7;">味 is a bound morpheme (you can't use it alone as "taste"); 味道 is the free word. Say "这个菜的<strong>味道</strong>很好" not "这个菜的味很好." Similarly, 咸/甜/辣 describe flavors, while 味道 is the general concept of "taste."</p>
+      </div>
+      <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:16px;">
+        <div style="font-weight:600;margin-bottom:6px;" class="chinese">交通 — Confusing 坐/乘/乘坐</div>
+        <p style="color:var(--stone);font-size:14px;line-height:1.7;">All three mean "to ride (a vehicle)," but they differ in formality. 坐 is everyday spoken Chinese (坐公交车). 乘 is slightly formal and often used in announcements (乘客请注意). 乘坐 is the most formal, used in written Chinese and official notices.</p>
+      </div>
+      <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:16px;">
+        <div style="font-weight:600;margin-bottom:6px;" class="chinese">职场 — Confusing 工作/任务/工资</div>
+        <p style="color:var(--stone);font-size:14px;line-height:1.7;">工作 is "work/job" (the general concept), 任务 is "task" (a specific assignment), and 工资 is "salary." Students often say "我的工作很多" when they mean "I have many tasks (任务)." 工作多 implies you hold multiple jobs.</p>
+      </div>
+      <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:16px;">
+        <div style="font-weight:600;margin-bottom:6px;" class="chinese">情感 — Confusing 感觉/感受/感动</div>
+        <p style="color:var(--stone);font-size:14px;line-height:1.7;">感觉 is a general "feeling/sense" (physical or mental: 我感觉冷). 感受 is a deeper "experience/impression" (often after an event: 你的感受是什么？). 感动 specifically means "to be moved/touched" (emotionally: 这个故事很感动). Don't use 感动 for physical feelings.</p>
+      </div>
+    </div>
+    <p style="color:var(--stone);font-size:14px;line-height:1.8;">
+      For more word pairs that are easy to confuse, visit our <a href="/words/" style="color:var(--accent);">Confusable Words</a> page with detailed comparison tables and practice quizzes.
+    </p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>Frequently Asked Questions / 常见问题</h2>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How many words do I need to know for HSK 4?</div>
+      <div class="faq-a">The new HSK 3.0 Level 4 requires approximately 1,000 words (词汇大纲). This is actually fewer than the old HSK 4 which required ~1,200. However, the new exam expects deeper mastery: you need to use words actively in context, not just recognize them. The 1,000 words are distributed across 77 topics, with Daily Life (日常生活) containing the most vocabulary.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What is the difference between HSK 2.0 and HSK 3.0?</div>
+      <div class="faq-a">HSK 3.0 (effective July 2026) is a complete redesign. Key changes: (1) 9 levels instead of 6 — old HSK 4 roughly maps to new HSK 4, but content differs. (2) Task-based testing — the exam tests real communication ability, not just vocabulary recognition. (3) Topic-organized content — vocabulary is structured around 77 specific real-life topics. (4) Four skills explicitly tested — listening, speaking, reading, and writing each have dedicated sections. (5) ~1,000 words instead of ~1,200, but higher expected proficiency.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Should I study vocabulary alphabetically or by topic?</div>
+      <div class="faq-a">For HSK 4, <strong>by topic is more effective</strong>. The exam is designed around real-life situations, so learning words in context (e.g., all food-related words together) prepares you to deploy them naturally. Alphabetical order is useful as a reference tool but doesn't build the associative networks you need for the task-based exam format. Our recommendation: use this topic page for primary study, and the <a href="/vocabulary/" style="color:var(--accent);">alphabetical vocabulary list</a> for lookup and review.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Why are some words listed under multiple topics?</div>
+      <div class="faq-a">Some words naturally belong to more than one topic. For example, 支付 (to pay) relates to both 购物 (Shopping) and 科技发展 (Technology, as in mobile payment). 护士 (nurse) belongs to both 医疗健康 (Health) and 职业与经历 (Career). This cross-topic presence actually helps learning — seeing a word in different contexts strengthens your understanding of its usage range.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What are the "General Vocabulary" words not assigned to any topic?</div>
+      <div class="faq-a">About 40% of HSK 4 vocabulary consists of function words (虚词) and abstract terms that work across all topics: conjunctions like 不管, 即使, 虽然; adverbs like 确实, 往往, 甚至; prepositions like 按照, 由于, 关于; and general-purpose verbs like 增加, 完成, 继续. These words are the grammatical glue of Chinese — they don't belong to a specific topic but appear everywhere. You'll find them in the "General Vocabulary" section at the bottom of this page.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How long does it take to learn all HSK 4 vocabulary?</div>
+      <div class="faq-a">With focused daily study of 15–20 new words per day, you can cover the full 1,000-word list in about 7–8 weeks. However, learning words once is not enough — research shows you need 7–10 meaningful encounters with a word before it sticks in long-term memory. A realistic timeline for solid mastery is 3–4 months, combining new word learning with regular review and practice through <a href="/" style="color:var(--accent);">mock exams</a>.</div>
+    </div>
+  </section>
+
+  <!-- About / Attribution -->
+  <section style="margin-top:32px;">
+    <p style="color:var(--stone);line-height:1.8;font-size:14px;">
+      This topic vocabulary browser is based on the official 《新版HSK考试大纲》(New HSK Exam Syllabus, published November 2025). For the complete word list with flashcards and quizzes, visit our <a href="/vocabulary/" style="color:var(--accent);">HSK 4 Vocabulary List</a>. For grammar patterns, see our <a href="/grammar/" style="color:var(--accent);">HSK 4 Grammar Guide</a>. Created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>.
+    </p>
+  </section>
+</main>
+
+<!-- Quiz Modal -->
+<div class="quiz-modal" id="quizModal" onclick="if(event.target===this)closeQuiz()">
+  <div class="quiz-box" style="position:relative;">
+    <button class="quiz-close" onclick="closeQuiz()">&times;</button>
+    <h3 class="chinese">话题词汇 Quiz</h3>
+    <div class="quiz-score" id="quizScore"></div>
+    <div class="quiz-word chinese" id="quizWord"></div>
+    <div class="quiz-pinyin" id="quizPinyin"></div>
+    <div class="quiz-options" id="quizOptions"></div>
+    <button class="quiz-next" id="quizNext" onclick="nextQuizQuestion()" style="display:none;">Next Question</button>
+  </div>
+</div>
+
+<!-- Quiz Float Button -->
+<div class="quiz-float">
+  <button class="quiz-float-btn" onclick="startQuiz()" title="Topic Quiz">练</button>
+</div>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> — Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/writing/">Writing</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
+</footer>
+
+<script>
+const CATEGORY_COLORS = [
+  'var(--accent)',  // 日常生活
+  'var(--jade)',    // 教育情况
+  '#5a6abf',       // 职场生活
+  'var(--gold)',    // 自然与环境
+  '#2d6a8f',       // 科学技术
+  'var(--accent)',  // 当代社会
+  'var(--jade)',    // 文化与传统
+];
+const CATEGORY_ICONS = ['生','学','职','自','科','社','文'];
+
+const CATEGORY_DESCS = [
+  { // 日常生活
+    desc: 'The largest category — covering everything from ordering food to seeing a doctor to renting an apartment. These words form the foundation of everyday communication and appear in roughly <strong>40% of HSK 4 exam content</strong>.',
+    tip: 'Listening section tip: Most HSK 4 listening dialogues are set in daily life scenes (restaurants, hospitals, shops). If you master this category, you can handle nearly half the exam.',
+  },
+  { // 教育情况
+    desc: 'Covers classroom life, studying methods, exams, and educational concepts. HSK 4 frequently uses school scenarios in its reading and writing sections — knowing words like 考试, 成绩, 毕业 is essential.',
+    tip: 'Writing tip: The sentence ordering task (排序题) often uses education-themed passages. Practice connecting study-related words into logical sequences.',
+  },
+  { // 职场生活
+    desc: 'Workplace vocabulary from office tasks to career development. At HSK 4 level, you\'re expected to discuss work experiences, describe job responsibilities, and understand basic business communication.',
+    tip: 'Reading tip: Work-related reading passages often test your understanding of formal vs. informal register. Notice how 合同/方案/报告 (formal) differ from everyday equivalents.',
+  },
+  { // 自然与环境
+    desc: 'Nature, weather, animals, and environmental protection. These topics often appear in HSK 4 reading comprehension as informational passages — they tend to be more descriptive and factual.',
+    tip: 'Exam pattern: Environmental topics (环保/污染/节约) frequently appear as opinion passages in reading, asking you to identify the author\'s viewpoint.',
+  },
+  { // 科学技术
+    desc: 'Technology and science vocabulary that reflects modern Chinese life — from smartphones and internet to scientific discoveries. A relatively new focus area in HSK 3.0.',
+    tip: 'Vocabulary strategy: Tech words like 互联网, 支付, 平台, 数据 are used differently in Chinese than direct translations suggest. Focus on example sentences.',
+  },
+  { // 当代社会
+    desc: 'Broader social topics including geography, economy, arts, sports, and international relations. This category tests your ability to discuss more abstract concepts beyond personal experience.',
+    tip: 'Reading tip: Social topic passages are often the longest and most complex in the exam. Practice reading for main idea (中心思想) rather than translating word by word.',
+  },
+  { // 文化与传统
+    desc: 'Chinese cultural knowledge — language, food culture, festivals, customs, etiquette, and historical landmarks. HSK 3.0 explicitly tests cultural literacy as part of language proficiency.',
+    tip: 'Must-know cultural items: 春节 customs, 京剧 basics, 功夫 cultural significance, 红包 tradition, and major landmarks (长城/故宫). These appear as both vocabulary and reading comprehension topics.',
+  },
+];
+
+// ── Rich per-topic content: dialogues, collocations, culture, word families, challenges ──
+const TOPIC_CONTENT = {
+  food: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你想吃什么？这家餐厅的<em>菜单</em>上有很多<em>特色菜</em>。' },
+        { role: 'B', text: '我想<em>点</em>一个糖醋鱼，再来一碗<em>米饭</em>。' },
+        { role: 'A', text: '<em>味道</em>怎么样？<em>辣</em>不辣？' },
+        { role: 'B', text: '不辣，很<em>新鲜</em>，特别好吃！我们再<em>加</em>一个汤吧。' },
+      ],
+      translation: 'A: What do you want to eat? This restaurant has many specialties on the menu. B: I\'d like to order a sweet and sour fish, and a bowl of rice. A: How does it taste? Is it spicy? B: Not spicy, very fresh and delicious! Let\'s add a soup.',
+    },
+    collocations: [
+      { word: '点菜', gloss: 'order food' },
+      { word: '买单', gloss: 'pay the bill' },
+      { word: '味道不错', gloss: 'tastes good' },
+      { word: '吃饱了', gloss: 'eaten full' },
+      { word: '外卖', gloss: 'takeout' },
+      { word: '打包', gloss: 'doggy bag' },
+    ],
+    culture: '中国人吃饭讲究"色香味俱全" (color, aroma, taste). At restaurants, the host typically orders for everyone — guests shouldn\'t order the most expensive dish. Saying "我请客" means "my treat," and fighting over the bill (抢着买单) is a common social ritual.',
+    wordFamily: { root: '食', chain: ['食物', '饮食', '食品', '零食', '食堂'] },
+    challenge: {
+      prompt: 'You\'re at a restaurant. The waiter asks what you\'d like. Order a dish, ask about spice level, and request rice.',
+      hint: 'Use: 点 + dish, 辣不辣, 再来一碗米饭',
+      answer: '我想点一个宫保鸡丁，请问辣不辣？再来一碗米饭，谢谢。',
+    },
+  },
+  transport: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '请问，去<em>火车站</em>怎么走？' },
+        { role: 'B', text: '你可以<em>坐</em>地铁2号线，大概二十分钟就<em>到</em>了。' },
+        { role: 'A', text: '我的<em>航班</em>是下午三点的，来得及吗？' },
+        { role: 'B', text: '来得及。不过最好提前一个小时<em>出发</em>，免得<em>堵车</em>。' },
+      ],
+      translation: 'A: Excuse me, how do I get to the train station? B: You can take Metro Line 2, about 20 minutes. A: My flight is at 3 PM, will I make it? B: Yes. But better leave an hour early to avoid traffic jams.',
+    },
+    collocations: [
+      { word: '坐飞机', gloss: 'take a plane' },
+      { word: '坐地铁', gloss: 'take the metro' },
+      { word: '打车', gloss: 'take a taxi' },
+      { word: '堵车', gloss: 'traffic jam' },
+      { word: '转机', gloss: 'transfer flights' },
+      { word: '误点', gloss: 'delayed' },
+    ],
+    culture: 'China\'s high-speed rail (高铁/动车) network is the world\'s longest. A 动车 from Beijing to Shanghai takes just 4.5 hours. In cities, 共享单车 (bike-sharing) is everywhere — scan a QR code to unlock.',
+    wordFamily: { root: '车', chain: ['火车', '汽车', '动车', '停车', '堵车', '车站'] },
+    challenge: {
+      prompt: 'Ask someone how to get to the airport, and mention you need to arrive before 2 PM.',
+      hint: 'Use: 请问, 机场, 怎么去, 两点以前',
+      answer: '请问，去机场怎么走？我需要两点以前到，坐地铁来得及吗？',
+    },
+  },
+  social: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '好久不见！最近怎么样？' },
+        { role: 'B', text: '还不错，就是工作有点<em>忙</em>。你呢？' },
+        { role: 'A', text: '我最近心情不太好，跟朋友<em>吵架</em>了。' },
+        { role: 'B', text: '别<em>难过</em>了，有什么事可以跟我<em>聊聊</em>。朋友之间<em>误会</em>是正常的。' },
+      ],
+      translation: 'A: Long time no see! How have you been? B: Not bad, just a bit busy with work. You? A: I\'ve been feeling down — had a fight with a friend. B: Don\'t be sad. You can talk to me. Misunderstandings between friends are normal.',
+    },
+    collocations: [
+      { word: '心情好', gloss: 'in a good mood' },
+      { word: '发脾气', gloss: 'lose temper' },
+      { word: '道歉', gloss: 'apologize' },
+      { word: '原谅', gloss: 'forgive' },
+      { word: '关心', gloss: 'care about' },
+      { word: '感动', gloss: 'be touched' },
+    ],
+    culture: 'Chinese social culture values 面子 (face/dignity). Direct confrontation is generally avoided. Phrases like 不好意思 (sorry/excuse me) and 没关系 (it\'s fine) are used constantly to maintain social harmony (和谐).',
+    wordFamily: { root: '感', chain: ['感觉', '感受', '感动', '感谢', '感情'] },
+    challenge: {
+      prompt: 'Your friend is upset because they failed an exam. Comfort them and suggest a way to cheer up.',
+      hint: 'Use: 别难过, 下次, 一起去...',
+      answer: '别难过了，一次考试说明不了什么。下次一定能考好！我们一起去吃点好吃的，放松一下吧。',
+    },
+  },
+  shopping: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '这件衣服多少<em>钱</em>？' },
+        { role: 'B', text: '原价388，现在<em>打折</em>，只要268。' },
+        { role: 'A', text: '能不能<em>便宜</em>一点？我买两件。' },
+        { role: 'B', text: '好吧，两件一共<em>500</em>块。可以用<em>手机支付</em>。' },
+      ],
+      translation: 'A: How much is this? B: Original price 388, now on sale — only 268. A: Can you give me a discount? I\'ll buy two. B: OK, 500 for two. You can pay by phone.',
+    },
+    collocations: [
+      { word: '打折', gloss: 'on sale' },
+      { word: '付款', gloss: 'pay' },
+      { word: '退货', gloss: 'return goods' },
+      { word: '包邮', gloss: 'free shipping' },
+      { word: '网购', gloss: 'online shopping' },
+      { word: '性价比', gloss: 'value for money' },
+    ],
+    culture: 'Bargaining (讨价还价) is common at markets in China but not in malls or chain stores. Mobile payment (手机支付) via WeChat Pay or Alipay is used for almost everything — even street vendors. Cash is increasingly rare in cities.',
+    wordFamily: { root: '买', chain: ['买', '卖', '买单', '买卖', '购买'] },
+    challenge: {
+      prompt: 'You\'re at a market. Ask the price of a bag, try to bargain, and ask if they accept WeChat Pay.',
+      hint: 'Use: 多少钱, 便宜一点, 微信支付',
+      answer: '这个包多少钱？太贵了，能便宜一点吗？可以用微信支付吗？',
+    },
+  },
+  health: {
+    dialogue: {
+      lines: [
+        { role: '医生', text: '你哪里不<em>舒服</em>？' },
+        { role: '患者', text: '我<em>头疼</em>，而且<em>发烧</em>了，量了一下38.5度。' },
+        { role: '医生', text: '先去<em>验血</em>，然后我给你开点<em>药</em>。' },
+        { role: '患者', text: '需要<em>住院</em>吗？' },
+        { role: '医生', text: '不用，回家多<em>休息</em>，多喝水，按时<em>吃药</em>就行。' },
+      ],
+      translation: 'Doctor: Where does it hurt? Patient: I have a headache and fever — 38.5°C. Doctor: Let\'s do a blood test first, then I\'ll prescribe medicine. Patient: Do I need to stay in the hospital? Doctor: No — rest at home, drink water, take medicine on time.',
+    },
+    collocations: [
+      { word: '看病', gloss: 'see a doctor' },
+      { word: '挂号', gloss: 'register (hospital)' },
+      { word: '吃药', gloss: 'take medicine' },
+      { word: '量体温', gloss: 'take temperature' },
+      { word: '锻炼身体', gloss: 'exercise' },
+      { word: '注意身体', gloss: 'take care of health' },
+    ],
+    culture: 'Chinese hospitals use a registration system (挂号): you first register at a window, then wait to see a doctor. Traditional Chinese Medicine (中医) and Western medicine (西医) coexist — many Chinese people use both. "多喝热水" (drink more hot water) is classic advice for everything!',
+    wordFamily: { root: '医', chain: ['医生', '医院', '医疗', '医学', '中医'] },
+    challenge: {
+      prompt: 'You\'re at a hospital. Tell the doctor your symptoms (stomach ache for 2 days) and ask what you should do.',
+      hint: 'Use: 肚子疼, 两天了, 怎么办',
+      answer: '医生，我肚子疼了两天了，吃了药也没有好，您看我应该怎么办？',
+    },
+  },
+  study: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你<em>HSK</em>考试准备得怎么样了？' },
+        { role: 'B', text: '还行吧，<em>听力</em>进步了，但<em>写作</em>还是很难。' },
+        { role: 'A', text: '你可以多做<em>模拟题</em>，对提高成绩很有帮助。' },
+        { role: 'B', text: '好主意！我打算每天<em>复习</em>一个小时，争取<em>通过</em>四级。' },
+      ],
+      translation: 'A: How\'s your HSK prep going? B: OK — my listening improved, but writing is still hard. A: You could do more mock exams, they really help. B: Good idea! I plan to review one hour daily and try to pass Level 4.',
+    },
+    collocations: [
+      { word: '准备考试', gloss: 'prepare for exam' },
+      { word: '提高成绩', gloss: 'improve grades' },
+      { word: '复习功课', gloss: 'review lessons' },
+      { word: '通过考试', gloss: 'pass the exam' },
+      { word: '取得进步', gloss: 'make progress' },
+      { word: '学习方法', gloss: 'study methods' },
+    ],
+    culture: 'Education is highly valued in Chinese culture (重视教育). The phrase "活到老学到老" (live till old, learn till old) reflects the belief in lifelong learning. Chinese students often study in groups and consider 勤奋 (diligence) more important than 天赋 (talent).',
+    wordFamily: { root: '学', chain: ['学习', '学生', '学校', '学期', '学费', '科学'] },
+    challenge: {
+      prompt: 'Tell your language partner about your study plan for the week, mentioning at least two activities.',
+      hint: 'Use: 打算, 复习, 练习, 每天',
+      answer: '这个星期我打算每天复习两个小时。周一到周三练习听力，周四周五做模拟题，周末复习生词。',
+    },
+  },
+  career: {
+    dialogue: {
+      lines: [
+        { role: '面试官', text: '请简单<em>介绍</em>一下你自己。' },
+        { role: '应聘者', text: '我大学<em>毕业</em>后在一家公司<em>工作</em>了三年，主要负责<em>市场</em>推广。' },
+        { role: '面试官', text: '你为什么想<em>换</em>工作？' },
+        { role: '应聘者', text: '我希望有更好的<em>发展</em>机会，也想挑战更有<em>意义</em>的工作。' },
+      ],
+      translation: 'Interviewer: Please briefly introduce yourself. Candidate: After graduating, I worked at a company for 3 years, mainly in marketing. Interviewer: Why do you want to change jobs? Candidate: I hope for better career growth and more meaningful work.',
+    },
+    collocations: [
+      { word: '找工作', gloss: 'look for a job' },
+      { word: '面试', gloss: 'job interview' },
+      { word: '积累经验', gloss: 'gain experience' },
+      { word: '升职', gloss: 'get promoted' },
+      { word: '辞职', gloss: 'resign' },
+      { word: '加班', gloss: 'work overtime' },
+    ],
+    culture: 'In Chinese work culture, the concept of 996 (9 AM – 9 PM, 6 days/week) became controversial. Young workers increasingly value 工作生活平衡 (work-life balance). At interviews, showing 谦虚 (modesty) is valued — avoid sounding boastful.',
+    wordFamily: { root: '工', chain: ['工作', '工资', '工厂', '工程', '加工'] },
+    challenge: {
+      prompt: 'You\'re at a job interview. Introduce yourself: your education, experience, and why you want this job.',
+      hint: 'Use: 毕业, 经验, 希望, 发展',
+      answer: '我是北京大学毕业的，有三年工作经验。我对贵公司很感兴趣，希望能在这里得到更好的发展。',
+    },
+  },
+  community: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你们<em>小区</em>的<em>环境</em>怎么样？' },
+        { role: 'B', text: '挺好的，周围有<em>超市</em>、<em>公园</em>，交通也很<em>方便</em>。' },
+        { role: 'A', text: '<em>房租</em>贵不贵？' },
+        { role: 'B', text: '还可以，一个月3500，<em>包括</em>水电费。<em>邻居</em>也都很友好。' },
+      ],
+      translation: 'A: How\'s the neighborhood? B: Pretty good — supermarket, park nearby, convenient transport. A: Is the rent expensive? B: OK, 3500/month including utilities. The neighbors are friendly too.',
+    },
+    collocations: [
+      { word: '租房子', gloss: 'rent a place' },
+      { word: '搬家', gloss: 'move house' },
+      { word: '交通方便', gloss: 'convenient transport' },
+      { word: '周围环境', gloss: 'surroundings' },
+      { word: '物业管理', gloss: 'property management' },
+      { word: '装修', gloss: 'renovate' },
+    ],
+    culture: 'Chinese residential compounds (小区) typically have gates and security guards. Many have shared gardens, exercise equipment, and community spaces. Neighbors tend to know each other. The concept of 物业 (property management) handles shared facilities and complaints.',
+    wordFamily: { root: '房', chain: ['房子', '房间', '厨房', '房东', '房租'] },
+    challenge: {
+      prompt: 'You\'re looking for an apartment. Ask about the rent, nearby facilities, and transport.',
+      hint: 'Use: 房租, 附近有没有, 地铁站',
+      answer: '请问房租多少钱一个月？附近有没有超市和地铁站？小区环境怎么样？',
+    },
+  },
+  nature: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你看今天的<em>天气</em>多好，我们去<em>爬山</em>吧！' },
+        { role: 'B', text: '好啊！听说那座<em>山</em>上的<em>风景</em>特别漂亮。' },
+        { role: 'A', text: '是的，山上有<em>树林</em>和<em>湖</em>，秋天<em>叶子</em>都变红了。' },
+        { role: 'B', text: '太美了！我们一定要<em>拍照</em>留念。' },
+      ],
+      translation: 'A: The weather is so nice today — let\'s go hiking! B: Sure! I heard the scenery on that mountain is beautiful. A: Yes, there are forests and a lake — in autumn the leaves turn red. B: So beautiful! We must take photos.',
+    },
+    collocations: [
+      { word: '天气预报', gloss: 'weather forecast' },
+      { word: '空气质量', gloss: 'air quality' },
+      { word: '自然风光', gloss: 'natural scenery' },
+      { word: '保护环境', gloss: 'protect environment' },
+      { word: '气候变化', gloss: 'climate change' },
+      { word: '阳光明媚', gloss: 'sunny & bright' },
+    ],
+    culture: 'China\'s geography is incredibly diverse — from the Gobi Desert (戈壁) to tropical Hainan (海南). Chinese poetry has a deep tradition of nature writing (山水诗). The concept 天人合一 (harmony between humans and nature) is central to Chinese philosophy.',
+    wordFamily: { root: '山', chain: ['山', '山水', '爬山', '山区', '火山'] },
+    challenge: {
+      prompt: 'Describe the weather today and suggest an outdoor activity to a friend.',
+      hint: 'Use: 天气, 出去, 一起去...',
+      answer: '今天天气很好，阳光明媚，我们一起去公园走走吧，呼吸一下新鲜空气。',
+    },
+  },
+  tech: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你用什么<em>手机</em>？' },
+        { role: 'B', text: '华为的，<em>功能</em>很强大，<em>拍照</em>效果特别好。' },
+        { role: 'A', text: '现在<em>人工智能</em>发展得越来越快了。' },
+        { role: 'B', text: '是啊，<em>网络</em>购物、<em>在线</em>学习，<em>科技</em>改变了我们的生活。' },
+      ],
+      translation: 'A: What phone do you use? B: Huawei — very powerful, great camera. A: AI is developing faster and faster now. B: Yeah — online shopping, e-learning, technology has changed our lives.',
+    },
+    collocations: [
+      { word: '上网', gloss: 'go online' },
+      { word: '下载', gloss: 'download' },
+      { word: '搜索', gloss: 'search' },
+      { word: '扫码', gloss: 'scan QR code' },
+      { word: '充电', gloss: 'charge (device)' },
+      { word: '数据', gloss: 'data' },
+    ],
+    culture: 'China\'s tech ecosystem is unique: WeChat (微信) is an all-in-one app for messaging, payments, and services. QR codes (二维码) are used everywhere. The "Great Firewall" means many Western apps aren\'t available, with Chinese alternatives like Baidu (百度), Weibo (微博), and Bilibili (哔哩哔哩).',
+    wordFamily: { root: '网', chain: ['网络', '互联网', '上网', '网站', '网购'] },
+    challenge: {
+      prompt: 'Explain to a friend how to use mobile payment to buy something at a store.',
+      hint: 'Use: 手机, 扫码, 支付',
+      answer: '很简单，打开手机上的支付软件，扫一下商家的二维码，输入金额就可以支付了。',
+    },
+  },
+  arts: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你喜欢<em>音乐</em>吗？周末有一场<em>演出</em>。' },
+        { role: 'B', text: '当然！是什么类型的？<em>古典</em>音乐还是流行音乐？' },
+        { role: 'A', text: '是<em>京剧</em>表演，你看过吗？' },
+        { role: 'B', text: '没看过！我一直想了解中国的<em>传统</em>艺术，一起去吧！' },
+      ],
+      translation: 'A: Do you like music? There\'s a show this weekend. B: Of course! What kind — classical or pop? A: It\'s a Beijing Opera performance. Have you seen one? B: Never! I\'ve always wanted to learn about Chinese traditional arts — let\'s go!',
+    },
+    collocations: [
+      { word: '听音乐', gloss: 'listen to music' },
+      { word: '看电影', gloss: 'watch a movie' },
+      { word: '画画', gloss: 'paint/draw' },
+      { word: '表演节目', gloss: 'perform a show' },
+      { word: '文化遗产', gloss: 'cultural heritage' },
+      { word: '艺术品', gloss: 'artwork' },
+    ],
+    culture: 'Beijing Opera (京剧) combines singing, acting, acrobatics, and martial arts. Facial makeup colors indicate character traits: red = loyalty, white = treachery, black = honesty. Chinese calligraphy (书法) is considered the highest visual art form.',
+    wordFamily: { root: '艺', chain: ['艺术', '文艺', '工艺', '手艺', '园艺'] },
+    challenge: {
+      prompt: 'Invite a friend to a cultural event this weekend. Describe what it is and why they should come.',
+      hint: 'Use: 周末, 一起去, 有意思',
+      answer: '这个周末有一场京剧表演，我觉得很有意思。你想不想一起去看看？可以了解一下中国传统文化。',
+    },
+  },
+  customs: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你们国家过<em>春节</em>吗？' },
+        { role: 'B', text: '不过，但我知道春节很重要。你们一般怎么<em>庆祝</em>？' },
+        { role: 'A', text: '全家人一起吃<em>年夜饭</em>，看春晚，还会<em>放鞭炮</em>。' },
+        { role: 'B', text: '听说还有<em>红包</em>？我也想要！' },
+      ],
+      translation: 'A: Do you celebrate Spring Festival in your country? B: No, but I know it\'s important. How do you celebrate? A: Family dinner, watch the gala, and set off firecrackers. B: I heard there are red envelopes? I want one too!',
+    },
+    collocations: [
+      { word: '过节', gloss: 'celebrate a festival' },
+      { word: '传统习俗', gloss: 'traditional customs' },
+      { word: '拜年', gloss: 'New Year greeting' },
+      { word: '贴春联', gloss: 'post couplets' },
+      { word: '包饺子', gloss: 'make dumplings' },
+      { word: '放假', gloss: 'take holiday' },
+    ],
+    culture: 'Major Chinese festivals: 春节 (Spring Festival, Jan/Feb) — the biggest; 中秋节 (Mid-Autumn, Sep) — mooncakes and family reunion; 端午节 (Dragon Boat, Jun) — rice dumplings (粽子) and boat races; 清明节 (Tomb Sweeping, Apr) — honoring ancestors.',
+    wordFamily: { root: '节', chain: ['节日', '春节', '节目', '节约', '季节'] },
+    challenge: {
+      prompt: 'A foreign friend asks about Chinese New Year. Explain 2-3 customs in simple Chinese.',
+      hint: 'Use: 春节, 全家人, 吃年夜饭, 红包',
+      answer: '春节是中国最重要的节日。过年的时候，全家人一起吃年夜饭，大人会给小孩子红包，还会放鞭炮，非常热闹。',
+    },
+  },
+  sports: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你平时<em>锻炼</em>吗？' },
+        { role: 'B', text: '我每天早上<em>跑步</em>，周末打<em>篮球</em>。' },
+        { role: 'A', text: '你看昨天的<em>比赛</em>了吗？' },
+        { role: 'B', text: '看了！太<em>精彩</em>了，最后一分钟<em>进球</em>，太激动了！' },
+      ],
+      translation: 'A: Do you exercise regularly? B: I jog every morning and play basketball on weekends. A: Did you watch yesterday\'s game? B: Yes! So exciting — a goal in the last minute, so thrilling!',
+    },
+    collocations: [
+      { word: '做运动', gloss: 'do sports' },
+      { word: '打比赛', gloss: 'play a match' },
+      { word: '赢了/输了', gloss: 'won / lost' },
+      { word: '健身房', gloss: 'gym' },
+      { word: '坚持锻炼', gloss: 'keep exercising' },
+      { word: '散步', gloss: 'take a walk' },
+    ],
+    culture: 'Table tennis (乒乓球) is China\'s "national sport," though basketball and soccer are increasingly popular among youth. Morning exercise in parks (晨练) — including tai chi (太极拳) and square dancing (广场舞) — is a beloved tradition for older Chinese people.',
+    wordFamily: { root: '球', chain: ['球', '足球', '篮球', '乒乓球', '球迷'] },
+    challenge: {
+      prompt: 'Invite a friend to exercise with you. Suggest an activity, time, and place.',
+      hint: 'Use: 一起, 锻炼, 怎么样',
+      answer: '周末上午我们一起去公园跑步怎么样？跑完步还可以打打篮球，锻炼身体。',
+    },
+  },
+  leisure: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '周末你一般做什么？' },
+        { role: 'B', text: '有时候<em>看电影</em>，有时候在家<em>看书</em>。你呢？' },
+        { role: 'A', text: '我喜欢<em>旅游</em>，上个月刚去了云南。' },
+        { role: 'B', text: '真好！我也想去。下次<em>一起</em>吧！' },
+      ],
+      translation: 'A: What do you usually do on weekends? B: Sometimes watch movies, sometimes read at home. You? A: I like traveling — just went to Yunnan last month. B: So nice! I want to go too. Let\'s go together next time!',
+    },
+    collocations: [
+      { word: '看电影', gloss: 'watch a movie' },
+      { word: '听音乐', gloss: 'listen to music' },
+      { word: '出去玩', gloss: 'go out for fun' },
+      { word: '拍照', gloss: 'take photos' },
+      { word: '约朋友', gloss: 'meet up with friends' },
+      { word: '宅在家', gloss: 'stay home' },
+    ],
+    culture: 'Chinese people enjoy KTV (卡拉OK) as a social activity — private rooms with friends are more common than singing on a stage. Board games (桌游) and escape rooms (密室逃脱) are popular among young people. Parks (公园) are social hubs for all ages.',
+    wordFamily: { root: '旅', chain: ['旅游', '旅行', '旅客', '旅馆'] },
+    challenge: {
+      prompt: 'Make a plan with your friend for this weekend. Suggest two activities.',
+      hint: 'Use: 周末, 先...然后..., 怎么样',
+      answer: '这个周末我们先去看一场电影，然后去附近的公园散散步，怎么样？',
+    },
+  },
+  family: {
+    dialogue: {
+      lines: [
+        { role: 'A', text: '你<em>家</em>里几口人？' },
+        { role: 'B', text: '四口人：<em>爸爸妈妈</em>、我和<em>妹妹</em>。' },
+        { role: 'A', text: '你跟家人<em>关系</em>怎么样？' },
+        { role: 'B', text: '很好。虽然我在外地<em>工作</em>，但是每个星期都<em>打电话</em>。' },
+      ],
+      translation: 'A: How many people in your family? B: Four — parents, me, and my younger sister. A: How\'s your relationship with family? B: Great. Although I work in another city, I call every week.',
+    },
+    collocations: [
+      { word: '家人', gloss: 'family members' },
+      { word: '照顾', gloss: 'take care of' },
+      { word: '陪伴', gloss: 'accompany' },
+      { word: '长大', gloss: 'grow up' },
+      { word: '回老家', gloss: 'go back home' },
+      { word: '结婚', gloss: 'get married' },
+    ],
+    culture: 'Family (家庭) is the core unit of Chinese society. 孝顺 (filial piety) — respecting and caring for parents — is a deeply valued virtue. Adult children often send money home (孝敬父母). During Spring Festival, the whole country travels home for reunion (团圆).',
+    wordFamily: { root: '家', chain: ['家', '家庭', '家人', '家乡', '大家', '国家'] },
+    challenge: {
+      prompt: 'Introduce your family to a new friend. Mention what each person does.',
+      hint: 'Use: 家里有...口人, 爸爸是..., 妈妈...',
+      answer: '我家里有四口人。爸爸是老师，妈妈在医院工作。我还有一个弟弟，他现在上大学。',
+    },
+  },
+};
+
+let topicsData = null;
+let vocabData = null;
+let vocabMap = {};
+
+// Normalize POS tags to consistent English format
+function normalizePOS(pos) {
+  if (!pos) return '';
+  const map = {'动':'v.','名':'n.','形':'adj.','副':'adv.','代':'pron.','介':'prep.','连':'conj.','量':'mw.','助':'part.'};
+  let p = pos.replace(/\s+/g,'').replace(/[考国际汉]/g,'');
+  for (const [cn, en] of Object.entries(map)) {
+    p = p.replace(new RegExp(cn, 'g'), en);
+  }
+  // Clean up: remove orphan punctuation
+  p = p.replace(/[、（）()]+/g, '/').replace(/\/+/g, '/').replace(/^\/|\/$/g, '');
+  return p;
+}
+
+// Sort words by pinyin
+function sortByPinyin(words) {
+  return [...words].sort((a, b) => a.pinyin.localeCompare(b.pinyin, 'zh'));
+}
+
+async function init() {
+  try {
+    const [topicsRes, vocabRes] = await Promise.all([
+      fetch('/data/topics.json'),
+      fetch('/data/vocabulary.json')
+    ]);
+    topicsData = await topicsRes.json();
+    vocabData = await vocabRes.json();
+    vocabData.forEach(w => vocabMap[w.id] = w);
+    renderCategories();
+    setupSearch();
+  } catch (e) {
+    document.getElementById('categories').innerHTML =
+      '<div class="empty-state"><div class="empty-icon">&#9888;</div><p>Failed to load data. Please refresh.</p></div>';
+  }
+}
+
+function countUniqueWords(group) {
+  const ids = new Set();
+  group.topics.forEach(t => {
+    (topicsData.topic_words[t.id] || []).forEach(id => ids.add(id));
+  });
+  return ids.size;
+}
+
+function renderCategories() {
+  const container = document.getElementById('categories');
+  let html = '';
+
+  topicsData.hierarchy.forEach((group, gi) => {
+    const uniqueCount = countUniqueWords(group);
+    const color = CATEGORY_COLORS[gi];
+    const icon = CATEGORY_ICONS[gi];
+
+    html += `<div class="category" data-group="${gi}">
+      <div class="category-header" onclick="toggleCategory(${gi})">
+        <div class="category-icon" style="background:${color}"><span class="chinese">${icon}</span></div>
+        <div class="category-info">
+          <div class="category-name">${group.name}</div>
+          <div class="category-name-en">${group.name_en} · ${group.topics.length} topics</div>
+        </div>
+        <div class="category-count">${uniqueCount} words</div>
+        <div class="category-arrow">&#9654;</div>
+      </div>
+      <div class="category-body">
+        <div class="cat-desc">${CATEGORY_DESCS[gi].desc}</div>
+        <div class="exam-tip"><span class="exam-tip-icon">&#9733;</span><span>${CATEGORY_DESCS[gi].tip}</span></div>
+        <div class="topic-chips">`;
+
+    group.topics.forEach(t => {
+      html += `<span class="topic-chip chinese" data-topic="${t.id}" onclick="selectTopic('${t.id}',${gi})">${t.name} <span class="chip-count">${t.word_count}</span></span>`;
+    });
+
+    html += `</div>
+        <div class="word-list" id="wordlist-${gi}"></div>
+      </div>
+    </div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function toggleCategory(gi) {
+  const el = document.querySelector(`.category[data-group="${gi}"]`);
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.category').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) {
+    el.classList.add('open');
+    const firstChip = el.querySelector('.topic-chip');
+    if (firstChip && !el.querySelector('.topic-chip.active')) {
+      firstChip.click();
+    }
+  }
+}
+
+function selectTopic(topicId, gi) {
+  const category = document.querySelector(`.category[data-group="${gi}"]`);
+  category.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('active'));
+  category.querySelector(`.topic-chip[data-topic="${topicId}"]`).classList.add('active');
+
+  const group = topicsData.hierarchy[gi];
+  const topic = group.topics.find(t => t.id === topicId);
+  const wordIds = topicsData.topic_words[topicId] || [];
+  const words = sortByPinyin(wordIds.map(id => vocabMap[id]).filter(Boolean));
+
+  renderWordList(`wordlist-${gi}`, topic.name, topic.name_en, topic.sub_topics, words, topicId);
+}
+
+function renderRichContent(topicId) {
+  const tc = TOPIC_CONTENT[topicId];
+  if (!tc) return '';
+
+  let html = '<div class="topic-rich">';
+
+  // Mini dialogue
+  if (tc.dialogue) {
+    html += '<div class="rich-card rich-dialogue"><div class="rich-card-title">Mini Dialogue / 小对话</div>';
+    tc.dialogue.lines.forEach(l => {
+      html += `<div class="dl-line"><span class="dl-role">${l.role}：</span><span class="dl-text">${l.text}</span></div>`;
+    });
+    html += `<div class="dl-trans">${tc.dialogue.translation}</div></div>`;
+  }
+
+  // Collocations
+  if (tc.collocations) {
+    html += '<div class="rich-card rich-collocations"><div class="rich-card-title">Common Collocations / 常用搭配</div><div class="colloc-grid">';
+    tc.collocations.forEach(c => {
+      html += `<div class="colloc-item chinese">${c.word} <span>${c.gloss}</span></div>`;
+    });
+    html += '</div></div>';
+  }
+
+  // Word family
+  if (tc.wordFamily) {
+    html += '<div class="rich-card rich-wordfamily"><div class="rich-card-title">Word Family / 词族</div><div class="wf-chain">';
+    tc.wordFamily.chain.forEach((w, i) => {
+      const isRoot = w.includes(tc.wordFamily.root) && i === 0;
+      html += (i > 0 ? '<span class="wf-arrow">&#8594;</span>' : '') +
+        `<span class="${isRoot ? 'wf-root' : ''} chinese">${w}</span>`;
+    });
+    html += '</div></div>';
+  }
+
+  // Culture note
+  if (tc.culture) {
+    html += `<div class="rich-card rich-culture"><div class="rich-card-title">Culture Note / 文化小知识</div><p>${tc.culture}</p></div>`;
+  }
+
+  // Scenario challenge
+  if (tc.challenge) {
+    const cid = 'challenge-' + topicId;
+    html += `<div class="rich-card rich-challenge">
+      <div class="rich-card-title">Scenario Challenge / 情景挑战</div>
+      <p>${tc.challenge.prompt}</p>
+      <input class="challenge-input chinese" placeholder="Try typing your answer in Chinese…" autocomplete="off">
+      <div class="challenge-hint" onclick="document.getElementById('${cid}').style.display=document.getElementById('${cid}').style.display==='block'?'none':'block'">Show hint &amp; sample answer &#9660;</div>
+      <div class="challenge-answer" id="${cid}">
+        <div style="color:var(--gold);font-size:12px;margin-bottom:4px;">HINT: ${tc.challenge.hint}</div>
+        <div class="chinese">${tc.challenge.answer}</div>
+      </div>
+    </div>`;
+  }
+
+  html += '</div>';
+  return html;
+}
+
+function renderWordList(containerId, name, nameEn, subTopics, words, topicId) {
+  const container = document.getElementById(containerId);
+
+  if (!words.length) {
+    container.innerHTML = '<div class="empty-state"><p>No words in this topic yet.</p></div>';
+    return;
+  }
+
+  let subHtml = '';
+  if (subTopics && subTopics.length) {
+    subHtml = '<div style="margin-bottom:12px;font-size:13px;color:var(--stone);">Sub-topics: ' +
+      subTopics.map(s => `<span class="chinese" style="background:var(--paper);padding:2px 8px;border-radius:4px;margin:0 2px;">${s}</span>`).join(' ') +
+      '</div>';
+  }
+
+  const richHtml = topicId ? renderRichContent(topicId) : '';
+
+  let tableHtml = `
+    <div class="word-list-header">
+      <div class="word-list-title chinese">${name} <span style="font-weight:400;font-size:14px;color:var(--stone);">${nameEn}</span></div>
+      <div class="word-list-count">${words.length} words</div>
+    </div>
+    ${subHtml}
+    ${richHtml}
+    <div class="click-hint">Click a word to see its example sentence</div>
+    <table class="word-table">
+      <thead><tr>
+        <th>Word</th><th>Pinyin</th><th class="col-pos">POS</th><th>Meaning</th>
+      </tr></thead>
+      <tbody>`;
+
+  words.forEach(w => {
+    tableHtml += `<tr>
+      <td class="col-word chinese" onclick="toggleExample(this, ${w.id})">${w.word}</td>
+      <td class="col-pinyin">${w.pinyin}</td>
+      <td class="col-pos">${normalizePOS(w.pos)}</td>
+      <td class="col-meaning">
+        ${w.meaning}
+        <div class="word-example" id="ex-${w.id}">
+          <div class="ex-cn chinese">${w.example_cn || ''}</div>
+          <div class="ex-pinyin">${w.example_pinyin || ''}</div>
+          <div class="ex-en">${w.example_en || ''}</div>
+        </div>
+      </td>
+    </tr>`;
+  });
+
+  tableHtml += '</tbody></table>';
+  container.innerHTML = tableHtml;
+}
+
+function toggleExample(el, wordId) {
+  const exEl = document.getElementById('ex-' + wordId);
+  if (exEl) exEl.classList.toggle('show');
+}
+
+// ── Function Words ──────────────────────────────────────────────────
+function showFunctionWords() {
+  const container = document.getElementById('fnWordsContainer');
+  const btn = container.previousElementSibling.querySelector('.fn-words-btn');
+
+  if (container.style.display !== 'none') {
+    container.style.display = 'none';
+    btn.textContent = 'Show General Vocabulary (function words, adverbs, conjunctions…)';
+    return;
+  }
+
+  const classifiedIds = new Set();
+  for (const ids of Object.values(topicsData.topic_words)) {
+    ids.forEach(id => classifiedIds.add(id));
+  }
+  const fnWords = sortByPinyin(vocabData.filter(w => !classifiedIds.has(w.id)));
+
+  container.style.display = '';
+  btn.textContent = 'Hide General Vocabulary';
+
+  let html = `
+    <div style="margin-top:16px;">
+      <div class="word-list-header">
+        <div class="word-list-title chinese">通用词汇 <span style="font-weight:400;font-size:14px;color:var(--stone);">General Vocabulary</span></div>
+        <div class="word-list-count">${fnWords.length} words</div>
+      </div>
+      <div style="margin-bottom:12px;font-size:13px;color:var(--stone);">
+        These words are not specific to any topic — they include function words, abstract verbs, adjectives, adverbs, and conjunctions used across all contexts.
+      </div>
+      <div class="click-hint">Click a word to see its example sentence</div>
+      <table class="word-table">
+        <thead><tr><th>Word</th><th>Pinyin</th><th class="col-pos">POS</th><th>Meaning</th></tr></thead>
+        <tbody>`;
+
+  fnWords.forEach(w => {
+    html += `<tr>
+      <td class="col-word chinese" onclick="toggleExample(this, ${w.id})">${w.word}</td>
+      <td class="col-pinyin">${w.pinyin}</td>
+      <td class="col-pos">${normalizePOS(w.pos)}</td>
+      <td class="col-meaning">
+        ${w.meaning}
+        <div class="word-example" id="ex-${w.id}">
+          <div class="ex-cn chinese">${w.example_cn || ''}</div>
+          <div class="ex-pinyin">${w.example_pinyin || ''}</div>
+          <div class="ex-en">${w.example_en || ''}</div>
+        </div>
+      </td>
+    </tr>`;
+  });
+
+  html += '</tbody></table></div>';
+  container.innerHTML = html;
+}
+
+// ── Search ──────────────────────────────────────────────────────────
+function setupSearch() {
+  const input = document.getElementById('searchInput');
+  let debounce = null;
+  input.addEventListener('input', () => {
+    clearTimeout(debounce);
+    debounce = setTimeout(() => doSearch(input.value.trim()), 200);
+  });
+}
+
+function doSearch(query) {
+  const categories = document.getElementById('categories');
+  const results = document.getElementById('searchResults');
+  const fnSection = document.querySelector('.fn-words-btn')?.closest('div');
+
+  if (!query) {
+    categories.style.display = '';
+    results.style.display = 'none';
+    if (fnSection) fnSection.style.display = '';
+    return;
+  }
+
+  categories.style.display = 'none';
+  results.style.display = '';
+  if (fnSection) fnSection.style.display = 'none';
+
+  const q = query.toLowerCase();
+  const matched = vocabData.filter(w =>
+    w.word.includes(query) ||
+    w.pinyin.toLowerCase().includes(q) ||
+    (w.meaning && w.meaning.toLowerCase().includes(q))
+  ).slice(0, 50);
+
+  if (!matched.length) {
+    results.innerHTML = '<div class="empty-state"><p>No results for "' + query + '"</p></div>';
+    return;
+  }
+
+  let html = `<div style="margin-bottom:12px;font-size:14px;color:var(--stone);">${matched.length} result${matched.length>1?'s':''} for "${query}"</div>`;
+  html += '<div class="click-hint">Click a word to see its example sentence</div>';
+  html += '<table class="word-table"><thead><tr><th>Word</th><th>Pinyin</th><th class="col-pos">POS</th><th>Meaning</th><th style="font-size:12px;">Topics</th></tr></thead><tbody>';
+
+  matched.forEach(w => {
+    const wTopics = topicsData.word_topics[String(w.id)] || [];
+    const topicNames = wTopics.map(tid => {
+      for (const g of topicsData.hierarchy) {
+        const t = g.topics.find(x => x.id === tid);
+        if (t) return t.name;
+      }
+      return '';
+    }).filter(Boolean);
+    html += `<tr>
+      <td class="col-word chinese" onclick="toggleExample(this, ${w.id})">${w.word}</td>
+      <td class="col-pinyin">${w.pinyin}</td>
+      <td class="col-pos">${normalizePOS(w.pos)}</td>
+      <td class="col-meaning">
+        ${w.meaning}
+        <div class="word-example" id="ex-${w.id}">
+          <div class="ex-cn chinese">${w.example_cn || ''}</div>
+          <div class="ex-pinyin">${w.example_pinyin || ''}</div>
+          <div class="ex-en">${w.example_en || ''}</div>
+        </div>
+      </td>
+      <td style="font-size:12px;color:var(--stone);"><span class="chinese">${topicNames.join('、') || '—'}</span></td>
+    </tr>`;
+  });
+
+  html += '</tbody></table>';
+  results.innerHTML = html;
+}
+
+// ── Topic Quiz ──────────────────────────────────────────────────────
+let quizState = { correct: 0, total: 0, currentWord: null, answered: false };
+
+function startQuiz() {
+  quizState = { correct: 0, total: 0, currentWord: null, answered: false };
+  document.getElementById('quizModal').classList.add('show');
+  nextQuizQuestion();
+}
+
+function closeQuiz() {
+  document.getElementById('quizModal').classList.remove('show');
+}
+
+function nextQuizQuestion() {
+  quizState.answered = false;
+  document.getElementById('quizNext').style.display = 'none';
+
+  // Pick a random classified word
+  const classifiedEntries = Object.entries(topicsData.word_topics);
+  const [widStr, topicIds] = classifiedEntries[Math.floor(Math.random() * classifiedEntries.length)];
+  const word = vocabMap[parseInt(widStr)];
+  if (!word) return nextQuizQuestion();
+
+  quizState.currentWord = word;
+  const correctTopicId = topicIds[0];
+
+  // Get correct topic name
+  let correctName = '';
+  for (const g of topicsData.hierarchy) {
+    const t = g.topics.find(x => x.id === correctTopicId);
+    if (t) { correctName = t.name; break; }
+  }
+
+  // Get 3 wrong topic names
+  const allTopicNames = [];
+  topicsData.hierarchy.forEach(g => g.topics.forEach(t => {
+    if (!topicIds.includes(t.id) && t.word_count > 0) allTopicNames.push(t.name);
+  }));
+  const shuffled = allTopicNames.sort(() => Math.random() - 0.5);
+  const wrongNames = shuffled.slice(0, 3);
+
+  // Build options
+  const options = [correctName, ...wrongNames].sort(() => Math.random() - 0.5);
+
+  document.getElementById('quizWord').textContent = word.word;
+  document.getElementById('quizPinyin').textContent = word.pinyin + ' — ' + word.meaning;
+  document.getElementById('quizScore').textContent = quizState.total > 0
+    ? `Score: ${quizState.correct}/${quizState.total}`
+    : 'Which topic does this word belong to?';
+
+  const optContainer = document.getElementById('quizOptions');
+  optContainer.innerHTML = options.map(name =>
+    `<button class="quiz-opt chinese" onclick="answerQuiz(this,'${name}','${correctName}')">${name}</button>`
+  ).join('');
+}
+
+function answerQuiz(el, selected, correct) {
+  if (quizState.answered) return;
+  quizState.answered = true;
+  quizState.total++;
+
+  const opts = el.parentElement.querySelectorAll('.quiz-opt');
+  opts.forEach(o => {
+    o.classList.add('disabled');
+    if (o.textContent === correct) o.classList.add('correct');
+  });
+
+  if (selected === correct) {
+    quizState.correct++;
+    el.classList.add('correct');
+  } else {
+    el.classList.add('wrong');
+  }
+
+  document.getElementById('quizScore').textContent = `Score: ${quizState.correct}/${quizState.total}`;
+  document.getElementById('quizNext').style.display = '';
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 4 Sentence Ordering Practice — 排序题 Interactive Exercises | HSK4 写作</title>
+<meta name="description" content="Practice HSK 4 sentence ordering (排序题) with 10 interactive exercises. Learn word order rules for 把字句, 被字句, complex connectors, and time/place adverbials.">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/writing/sentence-order/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="HSK 4 Sentence Ordering Practice — 排序题 Exercises">
+<meta property="og:description" content="Practice HSK 4 sentence ordering with 10 interactive exercises covering key grammar patterns.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/writing/sentence-order/">
+<meta property="og:site_name" content="Mandarin Zone">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HSK 4 Sentence Ordering — 排序题 Exercises">
+<meta name="twitter:description" content="10 interactive exercises for HSK 4 sentence ordering practice.">
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/writing/sentence-order/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/writing/sentence-order/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/writing/sentence-order/">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalApplication",
+  "name": "HSK 4 Sentence Ordering Practice",
+  "description": "Interactive sentence ordering exercises for HSK 4 writing preparation.",
+  "url": "https://hsk4.mandarinzone.com/writing/sentence-order/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": {
+    "@type": "Organization",
+    "name": "Mandarin Zone",
+    "url": "https://mandarinzone.com"
+  },
+  "inLanguage": ["en", "zh-CN"],
+  "isAccessibleForFree": true,
+  "educationalLevel": "Intermediate"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  /* === STRATEGY CARDS === */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin: 16px 0 40px;
+  }
+  .strategy-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .strategy-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px; height: 26px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .strategy-card h4 {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .strategy-card p {
+    color: var(--stone);
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .strategy-card .example {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--paper);
+    border-radius: 6px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .strategy-card .example em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* === EXERCISE AREA === */
+  .exercise-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .exercise-progress {
+    font-size: 14px;
+    color: var(--stone);
+  }
+  .exercise-level {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+  .level-1 { background: var(--jade-soft); color: var(--jade); }
+  .level-2 { background: var(--gold-soft); color: var(--gold); }
+  .level-3 { background: var(--accent-soft); color: var(--accent); }
+
+  .exercise-box {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 16px;
+    min-height: 240px;
+  }
+  .exercise-instruction {
+    font-size: 14px;
+    color: var(--stone);
+    margin-bottom: 16px;
+  }
+  .exercise-grammar {
+    font-size: 12px;
+    color: var(--stone);
+    margin-bottom: 20px;
+    padding: 6px 12px;
+    background: var(--paper);
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  /* Answer zone */
+  .answer-zone {
+    min-height: 56px;
+    border: 2px dashed var(--mist);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+  }
+  .answer-zone.drag-over { border-color: var(--accent); background: rgba(194,59,34,0.03); }
+  .answer-zone.correct { border-color: var(--jade); background: var(--jade-soft); }
+  .answer-zone.wrong { border-color: var(--accent); background: var(--accent-soft); }
+  .answer-zone-label {
+    font-size: 12px;
+    color: var(--stone);
+    margin-bottom: 6px;
+  }
+
+  /* Fragment tiles */
+  .fragment-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .fragment {
+    padding: 10px 16px;
+    background: white;
+    border: 1.5px solid var(--mist);
+    border-radius: 8px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s;
+  }
+  .fragment:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .fragment.in-answer { opacity: 0.3; pointer-events: none; }
+  .fragment.in-zone {
+    background: var(--paper);
+    border-color: var(--stone);
+    cursor: pointer;
+  }
+  .fragment.in-zone:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .fragment.correct-fragment { border-color: var(--jade); background: var(--jade-soft); }
+  .fragment.wrong-fragment { border-color: var(--accent); background: var(--accent-soft); }
+
+  /* Buttons */
+  .exercise-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-check {
+    padding: 10px 24px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-check:hover { background: #a83220; }
+  .btn-check:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-reset {
+    padding: 10px 24px;
+    background: white;
+    color: var(--stone);
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-reset:hover { border-color: var(--accent); color: var(--ink); }
+  .btn-next {
+    padding: 10px 24px;
+    background: var(--jade);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    display: none;
+  }
+  .btn-next:hover { background: #245a40; }
+
+  /* Feedback */
+  .exercise-feedback {
+    display: none;
+    margin-top: 16px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .exercise-feedback.show { display: block; }
+  .exercise-feedback.pass { background: var(--jade-soft); color: var(--jade); }
+  .exercise-feedback.fail { background: var(--accent-soft); color: var(--accent); }
+  .exercise-feedback .correct-answer {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: white;
+    border-radius: 6px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* Results */
+  .results-box {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .results-score {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .results-label {
+    font-size: 16px;
+    color: var(--stone);
+    margin-bottom: 24px;
+  }
+  .results-msg {
+    font-size: 15px;
+    color: var(--stone);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  /* Reference table */
+  .pattern-ref {
+    margin-top: 40px;
+  }
+  .pattern-ref h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .pattern-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .pattern-table th {
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--stone);
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--mist);
+    font-weight: 600;
+  }
+  .pattern-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--mist);
+    vertical-align: top;
+  }
+  .pattern-table tr:last-child td { border-bottom: none; }
+  .pattern-table .cn { font-family: 'Noto Sans SC', sans-serif; font-weight: 500; }
+
+  @media (max-width: 600px) {
+    .strategy-grid { grid-template-columns: 1fr; }
+    .exercise-box { padding: 20px 16px; }
+    .fragment { padding: 8px 12px; font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link" style="opacity:1;">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Breadcrumb -->
+  <div style="font-size:13px;color:var(--stone);margin-bottom:8px;">
+    <a href="/writing/" style="color:var(--accent);">Writing Guide</a> &rsaquo; Sentence Ordering
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">Interactive Practice</div>
+    <h1 class="chinese">排序题 — <span class="accent">Sentence Ordering</span></h1>
+    <p>Arrange scrambled words and phrases into correct Chinese sentences. Click fragments in the right order — test your command of Chinese word order rules.</p>
+  </div>
+
+  <!-- STRATEGY -->
+  <div class="section-title">How to Approach Sentence Ordering / 解题策略</div>
+  <div class="strategy-grid">
+    <div class="strategy-card">
+      <div class="strategy-num">1</div>
+      <h4>Find the Time/Place Words</h4>
+      <p>Time and place expressions usually come <strong>before the verb</strong> and often near the beginning of the sentence.</p>
+      <div class="example"><em>昨天晚上</em> 我在图书馆 <em>学了</em> 两个小时。</div>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-num">2</div>
+      <h4>Spot the Connectors</h4>
+      <p>Paired connectors (虽然…但是, 不但…而且) tell you which clauses go together and in what order.</p>
+      <div class="example"><em>虽然</em>很累，<em>但是</em>他还是坚持了。</div>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-num">3</div>
+      <h4>Identify Topic & Subject</h4>
+      <p>Chinese sentences often start with a topic or subject, but subjects can be omitted. Look for who/what the sentence is about.</p>
+      <div class="example"><em>这个问题</em>，我们需要认真考虑。</div>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-num">4</div>
+      <h4>Check 把/被/比 Position</h4>
+      <p>These structural markers have fixed positions: 把 goes before the object, 被 before the agent, 比 between the two compared items.</p>
+      <div class="example">他 <em>把</em> 作业 做完了。<br>作业 <em>被</em> 他 做完了。</div>
+    </div>
+  </div>
+
+  <!-- EXERCISE AREA -->
+  <div class="section-title">Practice Exercises / 练习 <span style="font-weight:400;font-size:13px;color:var(--stone);">(click fragments in order)</span></div>
+
+  <div class="exercise-nav">
+    <div class="exercise-progress" id="exProgress">Exercise 1 / 10</div>
+    <div class="exercise-level" id="exLevel"></div>
+  </div>
+
+  <div class="exercise-box" id="exerciseBox">
+    <div class="exercise-grammar" id="exGrammar"></div>
+    <div class="answer-zone-label">Your answer (click to remove):</div>
+    <div class="answer-zone" id="answerZone"></div>
+    <div class="answer-zone-label">Available fragments:</div>
+    <div class="fragment-bank" id="fragmentBank"></div>
+    <div class="exercise-buttons">
+      <button class="btn-check" id="btnCheck" onclick="checkAnswer()" disabled>Check Answer</button>
+      <button class="btn-reset" id="btnReset" onclick="resetExercise()">Reset</button>
+      <button class="btn-next" id="btnNext" onclick="nextExercise()">Next &#8594;</button>
+    </div>
+    <div class="exercise-feedback" id="exFeedback"></div>
+  </div>
+
+  <div class="results-box" id="resultsBox">
+    <div class="results-score" id="resultsScore"></div>
+    <div class="results-label">out of 10 correct</div>
+    <div class="results-msg" id="resultsMsg"></div>
+    <button class="btn btn-primary" onclick="restartAll()">Try Again</button>
+    <a href="/writing/paragraph/" class="btn btn-secondary" style="margin-left:8px;">Try Paragraph Writing &#8594;</a>
+  </div>
+
+  <!-- PATTERN REFERENCE -->
+  <div class="pattern-ref">
+    <h2>Word Order Quick Reference / 语序速查</h2>
+    <p style="color:var(--stone);font-size:14px;margin-bottom:16px;">The standard Chinese sentence follows this order. Not every sentence uses all slots — but elements that do appear follow this sequence:</p>
+    <table class="pattern-table">
+      <thead><tr><th>Position</th><th>Element</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Time</td><td class="cn">昨天</td></tr>
+        <tr><td>2</td><td>Subject</td><td class="cn">我</td></tr>
+        <tr><td>3</td><td>Adverb</td><td class="cn">已经</td></tr>
+        <tr><td>4</td><td>Preposition phrase</td><td class="cn">在图书馆 / 把书 / 跟朋友</td></tr>
+        <tr><td>5</td><td>Verb</td><td class="cn">看完</td></tr>
+        <tr><td>6</td><td>Complement</td><td class="cn">得很好 / 了两个小时</td></tr>
+        <tr><td>7</td><td>Object</td><td class="cn">那本书</td></tr>
+        <tr><td>8</td><td>了/过/着</td><td class="cn">了</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--stone);font-size:13px;margin-top:12px;">This is a simplified overview — real Chinese sentences don't always use all positions, and some rules interact: (1) When 把 is used, the object moves before the verb. (2) When a verb has both an object and a degree complement (得…), the verb must be repeated: 他<strong>说</strong>中文<strong>说得</strong>很好. (3) 了 can appear right after the verb (completed action) or at the end of the sentence (changed state). For detailed rules, see our <a href="/grammar/" style="color:var(--accent);">Grammar Guide</a>.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner" style="margin-top:40px;">
+    <h3 class="chinese">准备好写段落了吗？</h3>
+    <p>Now that you've practiced sentence ordering, learn paragraph frameworks for the writing section.</p>
+    <a href="/writing/paragraph/" class="btn btn-primary">Paragraph Writing &#8594;</a>
+  </div>
+
+  <!-- Attribution -->
+  <section style="margin-top:32px;">
+    <p style="color:var(--stone);line-height:1.8;font-size:14px;">
+      All exercises use HSK 4 vocabulary and grammar patterns from the HSK 3.0 syllabus. For more grammar practice, visit our <a href="/grammar/" style="color:var(--accent);">Grammar Guide</a> with interactive quizzes on <a href="/grammar/ba-sentence/" style="color:var(--accent);">把字句</a>, <a href="/grammar/passive/" style="color:var(--accent);">被字句</a>, <a href="/grammar/complex-sentences/" style="color:var(--accent);">复句</a>, and more. Created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> — Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/topics/">Topics</a> · <a href="/writing/">Writing</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
+</footer>
+
+<script>
+// ── Exercise Data ────────────────────────────────────────────────────
+const EXERCISES = [
+  // Level 1: Basic (4 fragments)
+  {
+    fragments: ['请你', '把窗户', '关上', '好吗'],
+    answer: '请你把窗户关上好吗',
+    display: '请你把窗户关上好吗？',
+    grammar: '把字句 (bǎ construction)',
+    explanation: '把字句结构：主语 + 把 + 宾语 + 动词 + 结果。"请你"作为礼貌开头，"把窗户"提前宾语，"关上"是动词+结果补语。',
+    level: 1,
+  },
+  {
+    fragments: ['那本小说', '被同学', '借走了', '已经'],
+    answer: '那本小说已经被同学借走了',
+    display: '那本小说已经被同学借走了。',
+    grammar: '被字句 + 副词位置',
+    explanation: '被字句结构：受事主语 + 副词 + 被 + 施事 + 动词。副词"已经"放在"被"前面，不能放在句末。',
+    level: 1,
+  },
+  {
+    fragments: ['每天早上', '他都', '去公园', '跑步'],
+    answer: '每天早上他都去公园跑步',
+    display: '每天早上他都去公园跑步。',
+    grammar: '时间状语 + 频率副词',
+    explanation: '时间状语"每天早上"放在句首或主语前。"都"紧跟主语，表示"每次都"的意思。"去公园"是目的地，"跑步"是目的。',
+    level: 1,
+  },
+  // Level 2: Intermediate (5 fragments)
+  {
+    fragments: ['虽然', '外面下着大雨', '但是', '他还是', '准时到了'],
+    answer: '虽然外面下着大雨但是他还是准时到了',
+    display: '虽然外面下着大雨，但是他还是准时到了。',
+    grammar: '虽然…但是… (concession)',
+    explanation: '"虽然"引导让步从句，"但是"引导主句。"还是"加强转折语气，表示"despite that, still..."。注意"虽然"通常在主语前或后都可以。',
+    level: 2,
+  },
+  {
+    fragments: ['她', '不但', '会说中文', '而且', '会写书法'],
+    answer: '她不但会说中文而且会写书法',
+    display: '她不但会说中文，而且会写书法。',
+    grammar: '不但…而且… (progression)',
+    explanation: '"不但…而且…"表示递进关系。当两个分句主语相同时，"不但"放在主语后面：她不但…而且…。如果主语不同，"不但"放在主语前面。',
+    level: 2,
+  },
+  {
+    fragments: ['他', '说中文', '说得', '比我', '流利多了'],
+    answer: '他说中文说得比我流利多了',
+    display: '他说中文说得比我流利多了。',
+    grammar: '比较句 + 程度补语',
+    explanation: '动词带程度补语时，如果有宾语，需要重复动词：说中文 + 说得 + 比较。"流利多了"是"比"字句的程度表达，"多了"表示差距大。',
+    level: 2,
+  },
+  {
+    fragments: ['从我家', '到公司', '坐地铁', '只要', '半个小时'],
+    answer: '从我家到公司坐地铁只要半个小时',
+    altAnswers: ['坐地铁从我家到公司只要半个小时'],
+    display: '从我家到公司坐地铁只要半个小时。',
+    grammar: '从…到… + 方式 + 时间',
+    explanation: '"从…到…"表示起点和终点。"坐地铁"是交通方式，"只要半个小时"是所需时间。"坐地铁从我家到公司只要半个小时"也是正确的。',
+    level: 2,
+  },
+  // Level 3: Advanced (5-6 fragments)
+  {
+    fragments: ['无论', '遇到', '什么困难', '他都', '不会放弃'],
+    answer: '无论遇到什么困难他都不会放弃',
+    display: '无论遇到什么困难，他都不会放弃。',
+    grammar: '无论…都… (regardless)',
+    explanation: '"无论"引导条件从句，后面通常跟疑问代词（什么/怎么/多么），主句用"都"呼应。"无论遇到什么困难"是完整的条件从句。',
+    level: 3,
+  },
+  {
+    fragments: ['只有', '多跟中国人交流', '才能', '真正', '提高口语水平'],
+    answer: '只有多跟中国人交流才能真正提高口语水平',
+    display: '只有多跟中国人交流，才能真正提高口语水平。',
+    grammar: '只有…才… (only if)',
+    explanation: '"只有…才…"表示必要条件：只有做到A，才能实现B。"真正"是副词，修饰"提高"，放在动词前面。',
+    level: 3,
+  },
+  {
+    fragments: ['即使', '工作再忙', '他也', '坚持', '每天锻炼一个小时'],
+    answer: '即使工作再忙他也坚持每天锻炼一个小时',
+    display: '即使工作再忙，他也坚持每天锻炼一个小时。',
+    grammar: '即使…也… (even if)',
+    explanation: '"即使…也…"表示假设让步：即使条件成立，结果也不变。"再"表示"no matter how (busy)"。"每天锻炼一个小时"中，时间状语"每天"在动词前，时量补语"一个小时"在动词后。',
+    level: 3,
+  },
+];
+
+// ── State ────────────────────────────────────────────────────────────
+let currentEx = 0;
+let score = 0;
+let answered = false;
+let answerFragments = []; // indices of fragments in answer zone
+
+// ── Render ───────────────────────────────────────────────────────────
+function renderExercise() {
+  const ex = EXERCISES[currentEx];
+  answered = false;
+  answerFragments = [];
+
+  document.getElementById('exProgress').textContent = `Exercise ${currentEx + 1} / ${EXERCISES.length}`;
+
+  const levelLabels = { 1: 'Basic', 2: 'Intermediate', 3: 'Advanced' };
+  const levelEl = document.getElementById('exLevel');
+  levelEl.textContent = levelLabels[ex.level];
+  levelEl.className = 'exercise-level level-' + ex.level;
+
+  document.getElementById('exGrammar').textContent = ex.grammar;
+
+  // Shuffle fragments
+  const indices = [...Array(ex.fragments.length).keys()];
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+
+  const bank = document.getElementById('fragmentBank');
+  bank.innerHTML = indices.map(i =>
+    `<div class="fragment chinese" data-index="${i}" onclick="addToAnswer(${i})">${ex.fragments[i]}</div>`
+  ).join('');
+
+  document.getElementById('answerZone').innerHTML = '';
+  document.getElementById('answerZone').className = 'answer-zone';
+
+  document.getElementById('btnCheck').disabled = true;
+  document.getElementById('btnNext').style.display = 'none';
+  document.getElementById('btnReset').style.display = '';
+  document.getElementById('btnCheck').style.display = '';
+
+  const fb = document.getElementById('exFeedback');
+  fb.className = 'exercise-feedback';
+  fb.style.display = 'none';
+}
+
+function addToAnswer(index) {
+  if (answered) return;
+  if (answerFragments.includes(index)) return;
+  answerFragments.push(index);
+  updateDisplay();
+}
+
+function removeFromAnswer(index) {
+  if (answered) return;
+  answerFragments = answerFragments.filter(i => i !== index);
+  updateDisplay();
+}
+
+function updateDisplay() {
+  const ex = EXERCISES[currentEx];
+
+  // Update bank
+  document.querySelectorAll('#fragmentBank .fragment').forEach(el => {
+    const idx = parseInt(el.dataset.index);
+    el.classList.toggle('in-answer', answerFragments.includes(idx));
+  });
+
+  // Update answer zone
+  const zone = document.getElementById('answerZone');
+  zone.innerHTML = answerFragments.map(i =>
+    `<div class="fragment in-zone chinese" onclick="removeFromAnswer(${i})">${ex.fragments[i]}</div>`
+  ).join('');
+
+  // Enable check if all fragments placed
+  document.getElementById('btnCheck').disabled = answerFragments.length !== ex.fragments.length;
+}
+
+function checkAnswer() {
+  if (answered) return;
+  answered = true;
+
+  const ex = EXERCISES[currentEx];
+  const userAnswer = answerFragments.map(i => ex.fragments[i]).join('');
+  const validAnswers = [ex.answer, ...(ex.altAnswers || [])];
+  const isCorrect = validAnswers.includes(userAnswer);
+
+  if (isCorrect) score++;
+
+  // Style answer zone
+  const zone = document.getElementById('answerZone');
+  zone.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  // Style individual fragments
+  zone.querySelectorAll('.fragment').forEach(el => {
+    el.classList.add(isCorrect ? 'correct-fragment' : 'wrong-fragment');
+    el.style.pointerEvents = 'none';
+  });
+
+  // Show feedback
+  const fb = document.getElementById('exFeedback');
+  fb.className = 'exercise-feedback show ' + (isCorrect ? 'pass' : 'fail');
+  if (isCorrect) {
+    fb.innerHTML = `<strong>Correct!</strong> ${ex.explanation}`;
+  } else {
+    fb.innerHTML = `<strong>Not quite.</strong> ${ex.explanation}
+      <div class="correct-answer chinese">${ex.display || ex.answer}</div>`;
+  }
+
+  document.getElementById('btnCheck').style.display = 'none';
+  document.getElementById('btnReset').style.display = 'none';
+  document.getElementById('btnNext').style.display = '';
+  document.getElementById('btnNext').textContent = currentEx < EXERCISES.length - 1 ? 'Next \u2192' : 'See Results';
+}
+
+function resetExercise() {
+  renderExercise();
+}
+
+function nextExercise() {
+  currentEx++;
+  if (currentEx >= EXERCISES.length) {
+    showResults();
+    return;
+  }
+  renderExercise();
+}
+
+function showResults() {
+  document.getElementById('exerciseBox').style.display = 'none';
+  document.querySelector('.exercise-nav').style.display = 'none';
+
+  const box = document.getElementById('resultsBox');
+  box.style.display = 'block';
+  document.getElementById('resultsScore').textContent = `${score} / ${EXERCISES.length}`;
+
+  let msg = '';
+  const pct = score / EXERCISES.length;
+  if (pct === 1) msg = 'Perfect score! You have excellent command of Chinese word order. Ready for paragraph writing?';
+  else if (pct >= 0.7) msg = 'Good work! Review the ones you missed — pay attention to the grammar explanations. Then try paragraph writing.';
+  else if (pct >= 0.4) msg = 'Keep practicing! Focus on the strategy tips above, especially connector pairs and time/place positioning.';
+  else msg = 'Word order takes time to master. Review our <a href="/grammar/" style="color:var(--accent);">Grammar Guide</a> for the patterns tested here, then try again.';
+  document.getElementById('resultsMsg').innerHTML = msg;
+}
+
+function restartAll() {
+  currentEx = 0;
+  score = 0;
+  document.getElementById('exerciseBox').style.display = '';
+  document.querySelector('.exercise-nav').style.display = '';
+  document.getElementById('resultsBox').style.display = 'none';
+  renderExercise();
+}
+
+// ── Init ─────────────────────────────────────────────────────────────
+renderExercise();
+</script>
+</body>
+</html>

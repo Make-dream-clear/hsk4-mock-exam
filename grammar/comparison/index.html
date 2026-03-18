@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>比较句 Comparison Patterns — HSK 4 Grammar with Exercises | 比较句用法详解</title>
+<meta name="description" content="Master Chinese comparison patterns (比较句). 5 patterns from HSK2 to HSK5 with interactive balance-scale tool, error correction, and quizzes. Free by Mandarin Zone.">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/grammar/comparison/">
+
+<meta property="og:title" content="比较句 Comparison Patterns — HSK 4 Grammar with Interactive Exercises">
+<meta property="og:description" content="Master all 5 comparison patterns from HSK2 to HSK5. Interactive balance-scale tool, error correction cards, and comprehensive quizzes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/grammar/comparison/">
+<meta property="og:site_name" content="Mandarin Zone">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="比较句 Comparison Patterns — HSK 4 Grammar Exercises">
+
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/grammar/comparison/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/grammar/comparison/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/grammar/comparison/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "比较句 Comparison Patterns — Complete HSK 4 Grammar Guide",
+  "description": "Master all 5 comparison patterns from HSK2 to HSK5 with interactive exercises.",
+  "url": "https://hsk4.mandarinzone.com/grammar/comparison/",
+  "datePublished": "2026-03-16",
+  "dateModified": "2026-03-16",
+  "author": { "@type": "Organization", "name": "Mandarin Zone", "url": "https://mandarinzone.com" },
+  "publisher": { "@type": "Organization", "name": "Mandarin Zone" },
+  "inLanguage": ["en", "zh-CN"],
+  "educationalLevel": "Intermediate"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the main comparison patterns in Chinese?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chinese has several comparison patterns: A比B+adj (A is more adj than B), A有/没有B+adj (A is/isn't as adj as B), A跟B一样+adj (A is the same as B), A不如B (A is not as good as B), and 跟B相比 (compared with B). These patterns span HSK levels 2 through 5."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between 不如 and 不比 in Chinese?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不如 (bùrú) means 'not as good as' and clearly states that A is inferior to B. 不比 (bù bǐ) means 'not more than' and simply negates that A exceeds B — A could be equal to or less than B. For example, 我的中文不如他的好 (my Chinese is definitely worse), while 我的中文不比他的差 (my Chinese is not worse than his — it could be the same or better)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use 跟…相比 in a sentence?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "跟…相比 (gēn...xiāngbǐ) means 'compared with' and is used to set up a comparison context. It typically comes at the beginning of a sentence or clause: 跟去年相比，今年的天气更热了 (Compared with last year, this year's weather is hotter). The structure is: 跟 + B + 相比, A + comparison statement."
+      }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  /* === TOOL SECTION === */
+  .tool-section {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 32px 0;
+  }
+  .tool-section h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* === PROGRESSION BAR === */
+  .prog-bar {
+    display: flex;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .prog-step {
+    flex: 1;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    border-right: 1px solid var(--mist);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .prog-step:last-child { border-right: none; }
+  .prog-step:hover { background: var(--paper); }
+  .prog-step.current { background: var(--accent-soft); }
+  .prog-step.dimmed { opacity: 0.5; }
+  .prog-level {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .prog-step.current .prog-level { color: var(--accent); }
+  .prog-count {
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .prog-detail {
+    display: none;
+    background: var(--paper);
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: -8px 0 24px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .prog-detail.open { display: block; }
+  .prog-detail-title {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  /* === ANATOMY === */
+  .anatomy-box {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 24px 0;
+  }
+  .anatomy-sentence {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 28px;
+    line-height: 2;
+    letter-spacing: 2px;
+  }
+  .anatomy-sentence [data-tip] {
+    position: relative;
+    cursor: help;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .anatomy-sentence [data-tip]:hover,
+  .anatomy-sentence [data-tip]:focus {
+    outline: none;
+  }
+  .anatomy-sentence [data-tip]::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 10;
+  }
+  .anatomy-sentence [data-tip]:hover::after,
+  .anatomy-sentence [data-tip]:focus::after { opacity: 1; }
+  .a-subject { border-bottom: 3px solid var(--ink); }
+  .a-comp { border-bottom: 3px solid var(--accent); color: var(--accent); font-weight: 700; }
+  .a-object { border-bottom: 3px solid var(--jade); }
+  .a-adj { border-bottom: 3px solid var(--gold); }
+  .a-result { border-bottom: 3px solid #7c3aed; }
+  .anatomy-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 16px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+  .anatomy-formula {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: var(--paper);
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* === PATTERN CARDS === */
+  .pattern-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .pattern-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .pattern-num {
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pattern-formula {
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .pattern-meaning {
+    font-size: 13px;
+    color: var(--stone);
+    margin-left: auto;
+  }
+  .ex-row {
+    padding: 12px 16px;
+    border-left: 3px solid var(--mist);
+    margin: 10px 0;
+    line-height: 1.7;
+  }
+  .ex-row .cn {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+  }
+  .ex-row .cn .hl { color: var(--accent); font-weight: 600; }
+  .ex-row .py { font-size: 13px; color: var(--stone); font-style: italic; }
+  .ex-row .en { font-size: 13px; color: var(--stone); }
+  .error-block {
+    background: #fff8f7;
+    border: 1px solid var(--accent-soft);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .error-block .wrong-mark { color: var(--accent); font-weight: 700; }
+  .error-block .right-mark { color: var(--jade); font-weight: 700; }
+  .error-note {
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid var(--accent-soft);
+  }
+
+  /* === NOTE BOX === */
+  .note-box {
+    background: var(--gold-soft);
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .note-box-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--gold);
+  }
+
+  /* === HSK REVIEW TOGGLE === */
+  .review-toggle {
+    background: var(--paper);
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .review-toggle-header {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 15px;
+    user-select: none;
+  }
+  .review-toggle-header:hover { background: rgba(0,0,0,0.02); }
+  .review-toggle-arrow { transition: transform 0.2s; }
+  .review-toggle.open .review-toggle-arrow { transform: rotate(90deg); }
+  .review-toggle-body { display: none; padding: 0 20px 20px; }
+  .review-toggle.open .review-toggle-body { display: block; }
+
+  /* === BALANCE SCALE === */
+  .scale-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 30px;
+  }
+  .scale-fulcrum {
+    width: 0;
+    height: 0;
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-bottom: 32px solid var(--ink);
+    margin-bottom: -2px;
+    z-index: 2;
+  }
+  .scale-base {
+    width: 80px;
+    height: 8px;
+    background: var(--ink);
+    border-radius: 0 0 4px 4px;
+  }
+  .scale-beam {
+    width: 320px;
+    height: 4px;
+    background: var(--ink);
+    border-radius: 2px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center center;
+  }
+  .scale-pan {
+    position: absolute;
+    top: 4px;
+    width: 100px;
+    text-align: center;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .scale-pan.left {
+    left: -10px;
+  }
+  .scale-pan.right {
+    right: -10px;
+  }
+  .scale-pan-plate {
+    width: 100px;
+    height: 40px;
+    border: 2px solid var(--mist);
+    border-radius: 8px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  .scale-pan.left .scale-pan-plate { border-color: var(--accent); }
+  .scale-pan.right .scale-pan-plate { border-color: var(--jade); }
+  .scale-string {
+    width: 2px;
+    height: 20px;
+    background: var(--ink);
+    margin: 0 auto;
+  }
+  .scale-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--stone);
+    margin-top: 4px;
+  }
+  .scale-sentence-output {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 22px;
+    text-align: center;
+    padding: 16px 20px;
+    background: var(--paper);
+    border-radius: var(--radius);
+    min-height: 48px;
+    margin-top: 24px;
+  }
+  .scale-sentence-output .hl { color: var(--accent); font-weight: 700; }
+  .scale-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .scale-slot label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--stone);
+    margin-bottom: 4px;
+  }
+  .scale-slot select {
+    padding: 8px 12px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+  }
+  .scale-slot select:focus { border-color: var(--accent); outline: none; }
+  .scale-meaning {
+    text-align: center;
+    font-size: 14px;
+    color: var(--stone);
+    margin-top: 8px;
+  }
+
+  /* === ERROR CORRECTION CARDS === */
+  .ec-container { perspective: 800px; }
+  .ec-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    min-height: 180px;
+  }
+  .ec-sentence {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 22px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .ec-buttons { display: flex; justify-content: center; gap: 12px; }
+  .ec-reveal {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mist);
+    text-align: left;
+  }
+  .ec-reveal.hidden { display: none; }
+  .ec-verdict {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ec-verdict.right { color: var(--jade); }
+  .ec-verdict.wrong { color: var(--accent); }
+  .ec-fix {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+    padding: 10px 14px;
+    background: var(--jade-soft);
+    border-radius: 8px;
+  }
+  .ec-explain {
+    font-size: 14px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .ec-score {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--stone);
+  }
+
+  /* === QUIZ === */
+  .quiz-item {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+  .quiz-stem {
+    font-size: 15px;
+    font-family: 'Noto Sans SC', sans-serif;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .quiz-stem .blank {
+    display: inline-block;
+    min-width: 50px;
+    border-bottom: 2px solid var(--accent);
+    margin: 0 4px;
+    text-align: center;
+  }
+  .quiz-opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .quiz-opt {
+    padding: 10px 14px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+  }
+  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .quiz-opt.correct { background: var(--jade-soft); border-color: var(--jade); color: var(--jade); font-weight: 600; }
+  .quiz-opt.wrong { background: #ffe0e0; border-color: var(--accent); color: var(--accent); }
+  .quiz-opt.disabled { pointer-events: none; opacity: 0.7; }
+  .quiz-opt.disabled.correct { opacity: 1; }
+  .quiz-explanation {
+    display: none;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: var(--paper);
+    border-radius: 6px;
+  }
+  .quiz-score-bar {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    margin-top: 8px;
+    display: none;
+  }
+  .quiz-score-bar .score-text { font-size: 16px; font-weight: 700; }
+  .quiz-score-bar .score-text.pass { color: var(--jade); }
+  .quiz-score-bar .score-text.fail { color: var(--accent); }
+
+  /* === FINAL SCORE === */
+  .dd-final {
+    text-align: center;
+    padding: 24px;
+  }
+  .dd-final .score-big {
+    font-size: 36px;
+    font-weight: 700;
+  }
+  .dd-final .score-big.pass { color: var(--jade); }
+  .dd-final .score-big.fail { color: var(--accent); }
+
+  /* === RELATED LINKS === */
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .related-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .related-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+  .related-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .related-icon.red { background: var(--accent-soft); color: var(--accent); }
+  .related-icon.jade { background: var(--jade-soft); color: var(--jade); }
+  .related-icon.gold { background: var(--gold-soft); color: var(--gold); }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    .tool-section { padding: 20px 16px; }
+    .prog-bar { flex-direction: column; }
+    .prog-step { border-right: none; border-bottom: 1px solid var(--mist); }
+    .prog-step:last-child { border-bottom: none; }
+    .anatomy-sentence { font-size: 22px; }
+    .scale-beam { width: 240px; }
+    .scale-pan-plate { width: 80px; font-size: 14px; }
+    .scale-pan { width: 80px; font-size: 16px; }
+    .scale-controls { flex-direction: column; align-items: stretch; }
+    .scale-sentence-output { font-size: 18px; }
+    .quiz-opts { grid-template-columns: 1fr; }
+    .ec-sentence { font-size: 18px; }
+    .pattern-header { flex-direction: column; align-items: flex-start; }
+    .pattern-meaning { margin-left: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scale-beam, .ec-card { transition: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">HSK 4 Grammar</div>
+  <h1 class="chinese">比较句 — <span class="accent">Comparison Patterns</span></h1>
+  <p>Master all 5 comparison patterns across HSK 2-5 with an interactive balance-scale tool, error correction, and comprehensive quizzes.</p>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Patterns</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">HSK Levels</div></div>
+    <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Exercises</div></div>
+  </div>
+</div>
+
+<!-- PROGRESSION BAR -->
+<div class="section-title">HSK Level Progression / 等级递进</div>
+
+<div class="prog-bar" role="tablist">
+  <div class="prog-step" role="tab" tabindex="0" aria-selected="false" onclick="toggleProg(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(0)}">
+    <div class="prog-level">HSK 2</div>
+    <div class="prog-count">2 patterns</div>
+  </div>
+  <div class="prog-step" role="tab" tabindex="0" aria-selected="false" onclick="toggleProg(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(1)}">
+    <div class="prog-level">HSK 3</div>
+    <div class="prog-count">+2 patterns</div>
+  </div>
+  <div class="prog-step current" role="tab" tabindex="0" aria-selected="true" onclick="toggleProg(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(2)}">
+    <div class="prog-level">HSK 4</div>
+    <div class="prog-count">+2 new patterns</div>
+  </div>
+  <div class="prog-step" role="tab" tabindex="0" aria-selected="false" onclick="toggleProg(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProg(3)}">
+    <div class="prog-level">HSK 5</div>
+    <div class="prog-count">+1 pattern</div>
+  </div>
+</div>
+
+<div class="prog-detail" id="prog-0">
+  <div class="prog-detail-title">HSK 2 — 2 Foundation Patterns</div>
+  <p class="chinese" style="line-height:2;">
+    ① A + 比 + B + adj &nbsp;&rarr;&nbsp; 他<b>比</b>我<b>高</b>。(He is taller than me.)<br>
+    ② A + 有/没有 + B + (这么/那么) + adj &nbsp;&rarr;&nbsp; 她<b>没有</b>你<b>那么</b>漂亮。(She is not as pretty as you.)
+  </p>
+</div>
+<div class="prog-detail" id="prog-1">
+  <div class="prog-detail-title">HSK 3 — 2 Additional Patterns</div>
+  <p class="chinese" style="line-height:2;">
+    ③ A + 跟 + B + 一样 + (adj) &nbsp;&rarr;&nbsp; 我的手机<b>跟</b>你的<b>一样</b>大。(My phone is as big as yours.)<br>
+    ④ A + 不比 + B + adj &nbsp;&rarr;&nbsp; 今天<b>不比</b>昨天<b>冷</b>。(Today is not colder than yesterday.)
+  </p>
+</div>
+<div class="prog-detail open" id="prog-2">
+  <div class="prog-detail-title">HSK 4 — 2 New Patterns (This Page)</div>
+  <p class="chinese" style="line-height:2;">
+    ⑤ A + 不如 + B + (adj) &nbsp;&rarr;&nbsp; 我的中文<b>不如</b>他的<b>好</b>。(My Chinese is not as good as his.)<br>
+    ⑥ 跟 + B + 相比, A... &nbsp;&rarr;&nbsp; <b>跟</b>去年<b>相比</b>，今年更热了。(Compared with last year, this year is hotter.)
+  </p>
+</div>
+<div class="prog-detail" id="prog-3">
+  <div class="prog-detail-title">HSK 5 — 1 Advanced Pattern</div>
+  <p class="chinese" style="line-height:2;">
+    ⑦ A + adj + B + 数量补语 &nbsp;&rarr;&nbsp; 他<b>比</b>我<b>大三岁</b>。(He is three years older than me.)
+  </p>
+  <p style="font-size:13px;color:var(--stone);margin-top:4px;">This pattern adds a specific quantity to express the exact degree of difference in a comparison.</p>
+</div>
+
+<!-- SENTENCE ANATOMY -->
+<div class="section-title">Sentence Anatomy / 句子解剖</div>
+
+<div class="anatomy-box">
+  <div class="anatomy-sentence chinese">
+    <span class="a-subject" data-tip="A (Subject) 主语" tabindex="0">我的中文</span>
+    <span class="a-comp" data-tip="Comparison word 比较词" tabindex="0">不如</span>
+    <span class="a-object" data-tip="B (Standard) 比较对象" tabindex="0">他的</span>
+    <span class="a-adj" data-tip="Adjective 形容词" tabindex="0">好</span>
+  </div>
+  <div class="anatomy-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--ink)"></div> A (Subject)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Comparison Word</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--jade)"></div> B (Standard)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Adjective</div>
+  </div>
+  <div class="anatomy-formula">
+    A + <span style="color:var(--accent);font-weight:700">比较词</span> + B + Adjective
+  </div>
+</div>
+
+<!-- HSK2-3 REVIEW -->
+<div class="review-toggle" id="hsk23-review">
+  <div class="review-toggle-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleReview()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleReview()}">
+    <span class="chinese">HSK 2-3 Review — 4 Foundation Patterns (已学)</span>
+    <span class="review-toggle-arrow">&#9654;</span>
+  </div>
+  <div class="review-toggle-body">
+
+    <!-- 比 -->
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK2-1</span>
+        <span class="pattern-formula">A + 比 + B + adj</span>
+        <span class="pattern-meaning">"A is more adj than B"</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese">他<span class="hl">比</span>我高。</div><div class="py">Tā bǐ wǒ gāo.</div><div class="en">He is taller than me.</div></div>
+      <div class="ex-row"><div class="cn chinese">今天<span class="hl">比</span>昨天热。</div><div class="py">Jīntiān bǐ zuótiān rè.</div><div class="en">Today is hotter than yesterday.</div></div>
+    </div>
+
+    <!-- 有/没有 -->
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK2-2</span>
+        <span class="pattern-formula">A + 有/没有 + B + (这么/那么) + adj</span>
+        <span class="pattern-meaning">"A is / isn't as adj as B"</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese">她<span class="hl">没有</span>你<span class="hl">那么</span>漂亮。</div><div class="py">Tā méiyǒu nǐ nàme piàoliang.</div><div class="en">She is not as pretty as you.</div></div>
+      <div class="ex-row"><div class="cn chinese">这本书<span class="hl">有</span>那本书<span class="hl">那么</span>有意思吗？</div><div class="py">Zhè běn shū yǒu nà běn shū nàme yǒu yìsi ma?</div><div class="en">Is this book as interesting as that one?</div></div>
+    </div>
+
+    <!-- 一样 -->
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-1</span>
+        <span class="pattern-formula">A + 跟 + B + 一样 + (adj)</span>
+        <span class="pattern-meaning">"A is the same as B"</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese">我的手机<span class="hl">跟</span>你的<span class="hl">一样</span>大。</div><div class="py">Wǒ de shǒujī gēn nǐ de yīyàng dà.</div><div class="en">My phone is as big as yours.</div></div>
+      <div class="ex-row"><div class="cn chinese">他<span class="hl">跟</span>他爸爸<span class="hl">一样</span>高。</div><div class="py">Tā gēn tā bàba yīyàng gāo.</div><div class="en">He is as tall as his father.</div></div>
+    </div>
+
+    <!-- 不比 -->
+    <div class="pattern-card">
+      <div class="pattern-header">
+        <span class="pattern-num" style="background:var(--stone)">HSK3-2</span>
+        <span class="pattern-formula">A + 不比 + B + adj</span>
+        <span class="pattern-meaning">"A is not more adj than B"</span>
+      </div>
+      <div class="ex-row"><div class="cn chinese">今天<span class="hl">不比</span>昨天冷。</div><div class="py">Jīntiān bù bǐ zuótiān lěng.</div><div class="en">Today is not colder than yesterday (could be the same or warmer).</div></div>
+      <div class="ex-row"><div class="cn chinese">我的成绩<span class="hl">不比</span>他的差。</div><div class="py">Wǒ de chéngjì bù bǐ tā de chà.</div><div class="en">My grades are not worse than his (could be the same or better).</div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HSK4 PATTERNS -->
+<div class="section-title">HSK 4 New Patterns / HSK4 新句型</div>
+
+<div class="pattern-card" id="p1">
+  <div class="pattern-header">
+    <span class="pattern-num">Pattern 5</span>
+    <span class="pattern-formula chinese">A + 不如 + B (+ adj)</span>
+    <span class="pattern-meaning">"not as good as"</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese">我的中文<span class="hl">不如</span>他的好。</div><div class="py">Wǒ de zhōngwén bùrú tā de hǎo.</div><div class="en">My Chinese is not as good as his.</div></div>
+  <div class="ex-row"><div class="cn chinese">坐公交车<span class="hl">不如</span>坐地铁方便。</div><div class="py">Zuò gōngjiāo chē bùrú zuò dìtiě fāngbiàn.</div><div class="en">Taking the bus is not as convenient as taking the subway.</div></div>
+  <div class="ex-row"><div class="cn chinese">这家饭馆<span class="hl">不如</span>那家好吃。</div><div class="py">Zhè jiā fànguǎn bùrú nà jiā hǎochī.</div><div class="en">This restaurant is not as tasty as that one.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">我的中文不如比他的好。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">我的中文<b>不如</b>他的好。</span></div>
+    <div class="error-note">不如 already contains the comparison meaning. Do not add 比 after 不如 — they are separate comparison words and cannot be combined.</div>
+  </div>
+</div>
+
+<div class="pattern-card" id="p2">
+  <div class="pattern-header">
+    <span class="pattern-num">Pattern 6</span>
+    <span class="pattern-formula chinese">跟 + B + 相比, A...</span>
+    <span class="pattern-meaning">"compared with"</span>
+  </div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">跟</span>去年<span class="hl">相比</span>，今年的天气更热了。</div><div class="py">Gēn qùnián xiāngbǐ, jīnnián de tiānqì gèng rè le.</div><div class="en">Compared with last year, this year's weather is hotter.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">跟</span>大城市<span class="hl">相比</span>，小城市的生活更安静。</div><div class="py">Gēn dà chéngshì xiāngbǐ, xiǎo chéngshì de shēnghuó gèng ānjìng.</div><div class="en">Compared with big cities, life in small cities is quieter.</div></div>
+  <div class="ex-row"><div class="cn chinese"><span class="hl">跟</span>坐飞机<span class="hl">相比</span>，坐火车更便宜。</div><div class="py">Gēn zuò fēijī xiāngbǐ, zuò huǒchē gèng piányi.</div><div class="en">Compared with flying, taking the train is cheaper.</div></div>
+  <div class="error-block">
+    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">跟去年相比今年更热。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">跟去年相比<b>，</b>今年<b>的天气</b>更热<b>了</b>。</span></div>
+    <div class="error-note">After 跟...相比, use a comma to separate the comparison context from the main clause. Be specific about what is being compared (天气, not just 今年), and use 了 to indicate change of state.</div>
+  </div>
+</div>
+
+<!-- NOTE: 不如 vs 不比 -->
+<div class="note-box">
+  <div class="note-box-title">Key Distinction: 不如 vs 不比</div>
+  <p class="chinese" style="line-height:2;">
+    <b>不如</b> = "not as good as" &mdash; A is <b>definitely inferior</b> to B.<br>
+    <span style="color:var(--stone);">我的中文不如他的好。= My Chinese is definitely worse than his.</span>
+  </p>
+  <p class="chinese" style="line-height:2;margin-top:8px;">
+    <b>不比</b> = "not more than" &mdash; A is <b>not necessarily better</b> than B (could be equal or less).<br>
+    <span style="color:var(--stone);">我的中文不比他的差。= My Chinese is not worse than his (it might be the same or better).</span>
+  </p>
+  <p style="margin-top:8px;font-size:13px;color:var(--stone);">不如 makes a clear judgment; 不比 simply negates a comparison without committing to a direction.</p>
+</div>
+
+<!-- INTERACTIVE BALANCE SCALE -->
+<div class="tool-section" id="scale-tool">
+  <h2 class="chinese">Visual Balance / 比较天平</h2>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">Select A, B, a comparison type, and an adjective. The scale tilts to show the relationship, and a sentence is generated below.</p>
+
+  <div class="scale-controls">
+    <div class="scale-slot">
+      <label>A (Subject)</label>
+      <select id="scale-a" onchange="scaleUpdate()">
+        <option value="我|wǒ">我</option>
+        <option value="他|tā">他</option>
+        <option value="北京|Běijīng">北京</option>
+        <option value="坐地铁|zuò dìtiě">坐地铁</option>
+        <option value="这家饭馆|zhè jiā fànguǎn">这家饭馆</option>
+      </select>
+    </div>
+    <div class="scale-slot">
+      <label>Comparison Type</label>
+      <select id="scale-type" onchange="scaleUpdate()">
+        <option value="比">A 比 B (more than)</option>
+        <option value="不如">A 不如 B (not as good as)</option>
+        <option value="一样">A 跟 B 一样 (the same)</option>
+        <option value="跟…相比">跟 B 相比, A... (compared with)</option>
+      </select>
+    </div>
+    <div class="scale-slot">
+      <label>B (Standard)</label>
+      <select id="scale-b" onchange="scaleUpdate()">
+        <option value="你|nǐ">你</option>
+        <option value="她|tā">她</option>
+        <option value="上海|Shànghǎi">上海</option>
+        <option value="坐公交车|zuò gōngjiāo chē">坐公交车</option>
+        <option value="那家饭馆|nà jiā fànguǎn">那家饭馆</option>
+      </select>
+    </div>
+    <div class="scale-slot">
+      <label>Adjective 形容词</label>
+      <select id="scale-adj" onchange="scaleUpdate()">
+        <option value="高|gāo|tall">高</option>
+        <option value="快|kuài|fast">快</option>
+        <option value="大|dà|big">大</option>
+        <option value="好|hǎo|good">好</option>
+        <option value="方便|fāngbiàn|convenient">方便</option>
+        <option value="漂亮|piàoliang|pretty">漂亮</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="scale-container">
+    <div class="scale-beam" id="scale-beam">
+      <div class="scale-pan left">
+        <div class="scale-string"></div>
+        <div class="scale-pan-plate" id="scale-plate-a">我</div>
+        <div class="scale-label">A</div>
+      </div>
+      <div class="scale-pan right">
+        <div class="scale-string"></div>
+        <div class="scale-pan-plate" id="scale-plate-b">你</div>
+        <div class="scale-label">B</div>
+      </div>
+    </div>
+    <div class="scale-fulcrum"></div>
+    <div class="scale-base"></div>
+  </div>
+
+  <div class="scale-sentence-output chinese" id="scale-output" aria-live="polite"></div>
+  <div class="scale-meaning" id="scale-meaning"></div>
+</div>
+
+<!-- ERROR CORRECTION CARDS -->
+<div class="tool-section" id="error-cards">
+  <h2 class="chinese">Error Spotting / 纠错练习</h2>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">Is this comparison sentence correct or incorrect? Judge each sentence.</p>
+
+  <div class="ec-container">
+    <div class="ec-card" id="ec-card">
+      <div class="ec-sentence chinese" id="ec-sentence"></div>
+      <div class="ec-buttons" id="ec-buttons">
+        <button class="btn btn-jade" onclick="ecJudge(true)">&#10003; Correct</button>
+        <button class="btn btn-primary" onclick="ecJudge(false)">&#10007; Incorrect</button>
+      </div>
+      <div class="ec-reveal hidden" id="ec-reveal">
+        <div class="ec-verdict" id="ec-verdict"></div>
+        <div class="ec-fix" id="ec-fix"></div>
+        <div class="ec-explain" id="ec-explain"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ec-score" id="ec-score"></div>
+  <div style="text-align:center;margin-top:12px;">
+    <button class="btn btn-secondary" id="ec-next-btn" onclick="ecNext()" style="display:none;">Next Card &#8594;</button>
+  </div>
+  <div class="dd-final" id="ec-final" style="display:none;"></div>
+</div>
+
+<!-- COMPREHENSIVE QUIZ -->
+<div class="tool-section" id="quiz-section">
+  <h2 class="chinese">Comprehensive Quiz / 综合测试 (12 questions)</h2>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem chinese">他<span class="blank"></span>我高。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">比</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不如</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">跟</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">有</button>
+    </div>
+    <div class="quiz-explanation">A比B+adj: 他比我高 = He is taller than me. 比 introduces a direct comparison where A exceeds B.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem chinese">坐公交车<span class="blank"></span>坐地铁方便。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">比</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">不如</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">跟…一样</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">和</button>
+    </div>
+    <div class="quiz-explanation">A不如B+adj: Taking the bus is not as convenient as the subway. 不如 means A falls short of B.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem chinese">我的手机<span class="blank"></span>你的一样大。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">比</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不如</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">跟</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">对</button>
+    </div>
+    <div class="quiz-explanation">A跟B一样+adj: My phone is as big as yours. 跟...一样 expresses equality between A and B.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem">Which sentence correctly uses 不如?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">他不如比我高。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">这个办法不如那个好。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">不如他我聪明。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我不如很好。</button>
+    </div>
+    <div class="quiz-explanation">A不如B+adj: 这个办法不如那个好 = This method is not as good as that one. 不如 cannot be combined with 比, and requires both A and B.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem chinese"><span class="blank"></span>去年相比，今年的工资更高了。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">跟</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">比</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">对</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">把</button>
+    </div>
+    <div class="quiz-explanation">跟+B+相比 structure: 跟去年相比，今年的工资更高了 = Compared with last year, this year's salary is higher.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem">What does 不比 imply that 不如 does not?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">A is definitely worse than B</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,true)">A could be equal to B</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">A is definitely better than B</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">They mean the same thing</button>
+    </div>
+    <div class="quiz-explanation">不比 simply negates "A is more than B", meaning A could be equal or less. 不如 definitively states A is inferior to B. That ambiguity (A might be equal) is what distinguishes 不比.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem chinese">她没有你<span class="blank"></span>漂亮。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">比</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">那么</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">更</button>
+    </div>
+    <div class="quiz-explanation">A没有B+那么+adj: 她没有你那么漂亮 = She is not as pretty as you. 那么 (or 这么) is commonly used with 没有 in comparisons.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem">Which sentence is INCORRECT?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">他跟我一样高。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">他比我很高。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">跟上海相比，北京更冷。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">这本书不如那本有意思。</button>
+    </div>
+    <div class="quiz-explanation">In 比 sentences, you cannot use 很 before the adjective. Say 他比我高 or 他比我高得多, but never 他比我很高. The 比 structure itself implies a degree difference.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem chinese">跟坐飞机相比，坐火车<span class="blank"></span>便宜。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">更</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">比</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">最</button>
+    </div>
+    <div class="quiz-explanation">In 跟...相比 sentences, use 更 (even more) to express the comparison result, not 很 (very) or 比. The comparison context is already set by 跟...相比.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem chinese">今天不比昨天冷。This means:</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">Today is colder than yesterday</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">Today is definitely warmer than yesterday</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,true)">Today is not colder than yesterday (same or warmer)</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,false)">Today and yesterday are exactly the same temperature</button>
+    </div>
+    <div class="quiz-explanation">不比 negates the comparison without specifying the exact relationship. 今天不比昨天冷 means today is not colder &mdash; it could be the same temperature or warmer.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem chinese">他跟他爸爸一样<span class="blank"></span>。</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">高</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很高</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">更高</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">比高</button>
+    </div>
+    <div class="quiz-explanation">After 一样, use a bare adjective without 很 or 更. 他跟他爸爸一样高 = He is as tall as his father. Degree adverbs are not used with 一样+adj.</div>
+  </div>
+
+  <div class="quiz-item" data-quiz="comp-full">
+    <div class="quiz-stem">Choose the correct translation: "This restaurant is not as tasty as that one."</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">这家饭馆不如那家好吃。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">这家饭馆比那家好吃。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">这家饭馆不比那家好吃。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">这家饭馆跟那家一样好吃。</button>
+    </div>
+    <div class="quiz-explanation">"Not as tasty as" = A is definitively inferior, which matches 不如. 比 would mean "more than", 不比 would be ambiguous, and 一样 would mean "the same".</div>
+  </div>
+
+  <div class="quiz-score-bar" id="score-comp-full" style="display:none;"></div>
+</div>
+
+<!-- RELATED -->
+<div class="section-title">Related / 相关内容</div>
+<div class="related-grid">
+  <a href="/grammar/ba-sentence/" class="related-card">
+    <div class="related-icon red chinese">把</div>
+    <span>把字句 Ba-Sentence</span>
+  </a>
+  <a href="/grammar/" class="related-card">
+    <div class="related-icon jade chinese">语</div>
+    <span>All Grammar Points</span>
+  </a>
+  <a href="/vocabulary/" class="related-card">
+    <div class="related-icon gold chinese">词</div>
+    <span>HSK 4 Vocabulary</span>
+  </a>
+</div>
+
+<div class="cta-banner">
+  <h3 class="chinese">用模拟考试检验比较句掌握情况</h3>
+  <p>Test your comparison pattern knowledge with full HSK 4 mock exams</p>
+  <a href="/" class="btn btn-primary">Start a Mock Exam &#8594;</a>
+</div>
+
+</main>
+
+<footer>
+  <p>&copy; 2024&ndash;2026 <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a>, Beijing &middot; Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p style="margin-top:6px;">
+    <a href="/">Mock Exams</a> &middot;
+    <a href="/vocabulary/">Vocabulary</a> &middot;
+    <a href="/grammar/">Grammar</a> &middot;
+    <a href="/writing/">Writing</a> &middot;
+    <a href="/words/">Confusable Words</a> &middot;
+    <a href="/guide/">Study Guide</a>
+  </p>
+</footer>
+
+<script>
+/* =============================================
+   比较句 Comparison Patterns — JS
+   ============================================= */
+
+/* === PROGRESSION BAR === */
+function toggleProg(idx) {
+  var details = document.querySelectorAll('.prog-detail');
+  var steps = document.querySelectorAll('.prog-step');
+  details.forEach(function(d, i) {
+    if (i === idx) {
+      d.classList.toggle('open');
+      steps[i].setAttribute('aria-selected', d.classList.contains('open'));
+    } else {
+      d.classList.remove('open');
+      steps[i].setAttribute('aria-selected', 'false');
+    }
+  });
+}
+
+/* === HSK2-3 REVIEW TOGGLE === */
+function toggleReview() {
+  var el = document.getElementById('hsk23-review');
+  el.classList.toggle('open');
+  el.querySelector('[aria-expanded]').setAttribute('aria-expanded', el.classList.contains('open'));
+}
+
+/* === BALANCE SCALE === */
+function scaleUpdate() {
+  var aRaw = document.getElementById('scale-a').value;
+  var bRaw = document.getElementById('scale-b').value;
+  var adjRaw = document.getElementById('scale-adj').value;
+  var type = document.getElementById('scale-type').value;
+
+  var aParts = aRaw.split('|');
+  var bParts = bRaw.split('|');
+  var adjParts = adjRaw.split('|');
+
+  var aChar = aParts[0];
+  var aPy = aParts[1];
+  var bChar = bParts[0];
+  var bPy = bParts[1];
+  var adjChar = adjParts[0];
+  var adjPy = adjParts[1];
+  var adjEn = adjParts[2];
+
+  // Update pan labels
+  document.getElementById('scale-plate-a').textContent = aChar;
+  document.getElementById('scale-plate-b').textContent = bChar;
+
+  // Tilt the beam
+  var beam = document.getElementById('scale-beam');
+  var sentence = '';
+  var meaning = '';
+
+  if (type === '比') {
+    // A比B+adj: A is MORE, so A side goes up (heavier = more of the quality)
+    beam.style.transform = 'rotate(-12deg)';
+    sentence = '<span class="hl">' + aChar + '</span>比' + bChar + adjChar + '。';
+    meaning = aChar + ' is more ' + adjEn + ' than ' + bChar + ' (' + aPy + ' bǐ ' + bPy + ' ' + adjPy + ')';
+  } else if (type === '不如') {
+    // A不如B: A is LESS, so A side goes down
+    beam.style.transform = 'rotate(12deg)';
+    sentence = aChar + '<span class="hl">不如</span>' + bChar + adjChar + '。';
+    meaning = aChar + ' is not as ' + adjEn + ' as ' + bChar + ' (' + aPy + ' bùrú ' + bPy + ' ' + adjPy + ')';
+  } else if (type === '一样') {
+    // Equal: balanced
+    beam.style.transform = 'rotate(0deg)';
+    sentence = aChar + '<span class="hl">跟</span>' + bChar + '<span class="hl">一样</span>' + adjChar + '。';
+    meaning = aChar + ' is as ' + adjEn + ' as ' + bChar + ' (' + aPy + ' gēn ' + bPy + ' yīyàng ' + adjPy + ')';
+  } else if (type === '跟…相比') {
+    // Compared with: tilt based on "more" direction (A is more)
+    beam.style.transform = 'rotate(-8deg)';
+    sentence = '<span class="hl">跟</span>' + bChar + '<span class="hl">相比</span>，' + aChar + '更' + adjChar + '。';
+    meaning = 'Compared with ' + bChar + ', ' + aChar + ' is more ' + adjEn + ' (gēn ' + bPy + ' xiāngbǐ, ' + aPy + ' gèng ' + adjPy + ')';
+  }
+
+  document.getElementById('scale-output').innerHTML = sentence;
+  document.getElementById('scale-meaning').textContent = meaning;
+}
+
+/* === ERROR CORRECTION CARDS === */
+var EC_CARDS = [
+  { sentence: '他比我很高。', correct: false, fix: '他比我高。/ 他比我高得多。', explain: 'In 比 sentences, you cannot use 很 before the adjective. The comparison structure itself implies degree. Use 得多 or a specific amount for emphasis.' },
+  { sentence: '跟去年相比，今年的天气更热了。', correct: true, fix: '', explain: 'Correct! 跟+B+相比, A+更+adj+了. A well-formed comparison with context.' },
+  { sentence: '我的中文不如比他的好。', correct: false, fix: '我的中文不如他的好。', explain: '不如 and 比 are both comparison words and cannot be combined. Remove 比 — 不如 already expresses "not as good as".' },
+  { sentence: '这家饭馆不如那家好吃。', correct: true, fix: '', explain: 'Correct! A不如B+adj. This restaurant is not as tasty as that one.' },
+  { sentence: '他跟我一样很高。', correct: false, fix: '他跟我一样高。', explain: 'After 一样, use a bare adjective without 很. The 一样 structure already indicates the degree of equality.' },
+  { sentence: '坐公交车不如坐地铁方便。', correct: true, fix: '', explain: 'Correct! A不如B+adj. Taking the bus is not as convenient as the subway.' },
+  { sentence: '跟大城市相比小城市更安静。', correct: false, fix: '跟大城市相比，小城市的生活更安静。', explain: 'After 跟...相比, a comma is needed to separate the comparison context from the main clause. Also, be specific about what is being compared.' },
+  { sentence: '她没有你那么漂亮。', correct: true, fix: '', explain: 'Correct! A没有B+那么+adj. A standard HSK2 comparison pattern.' },
+  { sentence: '今天不比昨天冷。', correct: true, fix: '', explain: 'Correct! A不比B+adj. Today is not colder than yesterday (ambiguous — could be the same or warmer).' },
+  { sentence: '我比他不如聪明。', correct: false, fix: '我不如他聪明。', explain: '比 and 不如 cannot be used together. The correct structure is A+不如+B+adj. 不如 goes between A and B directly.' }
+];
+var ecIdx = 0, ecCorrect = 0, ecJudged = false;
+
+function ecRender() {
+  ecJudged = false;
+  document.getElementById('ec-sentence').textContent = EC_CARDS[ecIdx].sentence;
+  document.getElementById('ec-reveal').classList.add('hidden');
+  document.getElementById('ec-buttons').style.display = '';
+  document.getElementById('ec-next-btn').style.display = 'none';
+  document.getElementById('ec-final').style.display = 'none';
+  document.getElementById('ec-score').textContent = 'Card ' + (ecIdx + 1) + ' / ' + EC_CARDS.length + '  |  Score: ' + ecCorrect;
+}
+
+function ecJudge(userSaysCorrect) {
+  if (ecJudged) return;
+  ecJudged = true;
+  var card = EC_CARDS[ecIdx];
+  var isRight = (userSaysCorrect === card.correct);
+  if (isRight) ecCorrect++;
+
+  var verdict = document.getElementById('ec-verdict');
+  var fix = document.getElementById('ec-fix');
+  var explain = document.getElementById('ec-explain');
+
+  if (isRight) {
+    verdict.textContent = 'You got it!';
+    verdict.className = 'ec-verdict right';
+  } else {
+    verdict.textContent = 'Not quite...';
+    verdict.className = 'ec-verdict wrong';
+  }
+
+  if (card.correct) {
+    fix.textContent = 'This sentence IS correct.';
+    fix.style.background = 'var(--jade-soft)';
+  } else {
+    fix.textContent = 'Correction: ' + card.fix;
+    fix.style.background = 'var(--jade-soft)';
+  }
+  explain.textContent = card.explain;
+
+  document.getElementById('ec-reveal').classList.remove('hidden');
+  document.getElementById('ec-buttons').style.display = 'none';
+  document.getElementById('ec-next-btn').style.display = '';
+  document.getElementById('ec-score').textContent = 'Card ' + (ecIdx + 1) + ' / ' + EC_CARDS.length + '  |  Score: ' + ecCorrect;
+  saveProgress();
+}
+
+function ecNext() {
+  ecIdx++;
+  if (ecIdx >= EC_CARDS.length) {
+    document.getElementById('ec-card').style.display = 'none';
+    document.getElementById('ec-next-btn').style.display = 'none';
+    document.getElementById('ec-score').style.display = 'none';
+    var fin = document.getElementById('ec-final');
+    fin.style.display = '';
+    var pct = Math.round(ecCorrect / EC_CARDS.length * 100);
+    fin.innerHTML = '<div class="score-big ' + (pct >= 60 ? 'pass' : 'fail') + '">' + ecCorrect + ' / ' + EC_CARDS.length + '</div><div style="color:var(--stone);margin-top:8px;">' + (pct >= 80 ? 'Sharp eye!' : pct >= 60 ? 'Good work!' : 'Review the patterns above and try again.') + '</div>';
+    saveProgress();
+  } else {
+    ecRender();
+  }
+}
+
+/* === QUIZ === */
+var quizScores = {};
+function answerQuiz(btn, isCorrect) {
+  var item = btn.closest('.quiz-item');
+  var quizName = item.dataset.quiz;
+  if (btn.classList.contains('disabled')) return;
+
+  if (!quizScores[quizName]) quizScores[quizName] = { correct: 0, total: 0 };
+  quizScores[quizName].total++;
+
+  var opts = item.querySelectorAll('.quiz-opt');
+  opts.forEach(function(o) {
+    o.classList.add('disabled');
+    if (o === btn && !isCorrect) o.classList.add('wrong');
+  });
+  // Find and highlight the correct answer
+  opts.forEach(function(o) {
+    var handler = o.getAttribute('onclick');
+    if (handler && handler.indexOf('true') !== -1) o.classList.add('correct');
+  });
+
+  if (isCorrect) quizScores[quizName].correct++;
+
+  // Show explanation
+  var expl = item.querySelector('.quiz-explanation');
+  if (expl) expl.style.display = 'block';
+
+  // Check if all questions answered
+  var allItems = document.querySelectorAll('.quiz-item[data-quiz="' + quizName + '"]');
+  var answered = 0;
+  allItems.forEach(function(qi) {
+    if (qi.querySelector('.quiz-opt.disabled')) answered++;
+  });
+  if (answered === allItems.length) {
+    var scoreBar = document.getElementById('score-' + quizName);
+    if (scoreBar) {
+      var s = quizScores[quizName];
+      var pct = Math.round(s.correct / s.total * 100);
+      scoreBar.innerHTML = '<span class="score-text ' + (pct >= 60 ? 'pass' : 'fail') + '">' + s.correct + ' / ' + s.total + ' (' + pct + '%)</span>';
+      scoreBar.style.display = '';
+    }
+    saveProgress();
+  }
+}
+
+/* === LOCALSTORAGE === */
+var STORAGE_KEY = 'hsk4-grammar-comparison';
+function saveProgress() {
+  try {
+    var state = {
+      errorCards: { correct: ecCorrect, total: EC_CARDS.length, done: ecIdx >= EC_CARDS.length },
+      quiz: quizScores['comp-full'] || {},
+      lastVisit: new Date().toISOString().slice(0, 10)
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch(e) {}
+}
+
+/* === INIT === */
+ecRender();
+scaleUpdate();
+</script>
+</body>
+</html>

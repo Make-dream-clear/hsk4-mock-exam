@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HSK 4 Grammar Guide — Key Patterns with Interactive Exercises | HSK4 语法</title>
 <meta name="description" content="Master HSK 4 grammar points with interactive exercises. 把字句, 被字句, comparison patterns, complements, complex sentences — practice with quizzes and see HSK3→4→5 progression.">
-<meta name="keywords" content="HSK 4 grammar, HSK4 语法, 把字句, 被字句, 比较句, Chinese grammar, HSK grammar points, HSK 4 sentence patterns, 复句, HSK preparation">
 <link rel="canonical" href="https://hsk4.mandarinzone.com/grammar/">
 
 <!-- Open Graph -->
@@ -72,6 +71,7 @@
   .grammar-card:hover {
     border-color: var(--accent);
     box-shadow: var(--shadow);
+    transform: translateY(-1px);
   }
 
   .grammar-card-header {
@@ -123,215 +123,9 @@
     transition: transform 0.2s;
   }
 
-  .grammar-card.open .grammar-card-arrow { transform: rotate(90deg); }
-
-  .grammar-card-body {
-    display: none;
-    padding: 0 24px 24px;
-  }
-
-  .grammar-card.open .grammar-card-body { display: block; }
-
-  /* === PROGRESSION === */
-  .progression {
-    display: flex;
-    gap: 0;
-    margin: 16px 0;
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--mist);
-  }
-
-  .progression-step {
-    flex: 1;
-    padding: 12px 16px;
-    background: white;
-    border-right: 1px solid var(--mist);
-    font-size: 13px;
-  }
-
-  .progression-step:last-child { border-right: none; }
-
-  .progression-step.current {
-    background: var(--accent-soft);
-  }
-
-  .progression-level {
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
-
-  .progression-step.current .progression-level { color: var(--accent); }
-
-  .progression-content {
-    color: var(--stone);
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-  /* === PATTERN === */
-  .pattern-block {
-    background: var(--paper);
-    border: 1px solid var(--mist);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin: 12px 0;
-  }
-
-  .pattern-formula {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-
-  .pattern-example {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .pattern-cn {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 15px;
-    color: var(--ink);
-  }
-
-  .pattern-pinyin {
-    font-size: 13px;
-    color: var(--stone);
-    font-style: italic;
-  }
-
-  .pattern-en {
-    font-size: 13px;
-    color: var(--stone);
-  }
-
-  .pattern-highlight {
-    color: var(--accent);
-    font-weight: 600;
-  }
-
-  .error-block {
-    background: #fff5f5;
-    border: 1px solid #ffe0e0;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin: 8px 0;
-    font-size: 14px;
-  }
-
-  .error-block .wrong-mark {
-    color: var(--wrong);
-    font-weight: 700;
-  }
-
-  .error-block .right-mark {
-    color: var(--correct);
-    font-weight: 700;
-  }
-
-  /* === QUIZ === */
-  .quiz-section {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--mist);
-  }
-
-  .quiz-section-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 12px;
-  }
-
-  .quiz-item {
-    background: white;
-    border: 1px solid var(--mist);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-
-  .quiz-stem {
-    font-size: 15px;
-    font-family: 'Noto Sans SC', sans-serif;
-    margin-bottom: 10px;
-    line-height: 1.5;
-  }
-
-  .quiz-stem .blank {
-    display: inline-block;
-    min-width: 60px;
-    border-bottom: 2px solid var(--accent);
-    margin: 0 4px;
-    text-align: center;
-  }
-
-  .quiz-opts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-  }
-
-  .quiz-opt {
-    padding: 8px 14px;
-    border: 1px solid var(--mist);
-    border-radius: 8px;
-    background: white;
-    font-size: 14px;
-    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
-    cursor: pointer;
-    transition: all 0.15s;
-    text-align: left;
-  }
-
-  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .quiz-opt.correct { background: var(--jade-soft); border-color: var(--jade); color: var(--jade); font-weight: 600; }
-  .quiz-opt.wrong { background: #ffe0e0; border-color: var(--wrong); color: var(--wrong); }
-  .quiz-opt.disabled { pointer-events: none; opacity: 0.7; }
-  .quiz-opt.disabled.correct { opacity: 1; }
-
-  .quiz-explanation {
-    display: none;
-    margin-top: 10px;
-    font-size: 13px;
-    color: var(--stone);
-    line-height: 1.6;
-    padding: 10px 14px;
-    background: var(--paper);
-    border-radius: 6px;
-  }
-
-  .quiz-score-bar {
-    background: white;
-    border: 1px solid var(--mist);
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    margin-top: 8px;
-  }
-
-  .quiz-score-bar .score-text {
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  .quiz-score-bar .score-text.pass { color: var(--jade); }
-  .quiz-score-bar .score-text.fail { color: var(--wrong); }
-
   /* === RESPONSIVE === */
   @media (max-width: 600px) {
     .grammar-card-header { padding: 16px; gap: 12px; }
-    .grammar-card-body { padding: 0 16px 16px; }
-    .progression { flex-direction: column; }
-    .progression-step { border-right: none; border-bottom: 1px solid var(--mist); }
-    .progression-step:last-child { border-bottom: none; }
-    .quiz-opts { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -347,6 +141,8 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
@@ -377,697 +173,120 @@
     </a>
 
     <!-- 被动句 -->
-    <div class="grammar-card" id="passive">
-      <div class="grammar-card-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleGrammar(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleGrammar(this)}">
+    <a href="/grammar/passive/" class="grammar-card" id="passive" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
         <div class="grammar-icon jade chinese">被</div>
         <div class="grammar-card-info">
           <div class="grammar-card-title chinese">被动句 — Passive Sentences</div>
-          <div class="grammar-card-subtitle">HSK4 adds 叫/让 passive patterns</div>
+          <div class="grammar-card-subtitle">被/叫/让 · active↔passive converter · error correction · quizzes</div>
         </div>
-        <div class="grammar-card-arrow">&#9654;</div>
+        <div class="grammar-card-arrow">&#8594;</div>
       </div>
-      <div class="grammar-card-body">
-        <h3 style="font-size:15px;margin-bottom:12px;">HSK3 → HSK4 → HSK5 Progression</h3>
-        <div class="progression">
-          <div class="progression-step">
-            <div class="progression-level">HSK 3</div>
-            <div class="progression-content">被+O+V+other</div>
-          </div>
-          <div class="progression-step current">
-            <div class="progression-level">HSK 4 (New)</div>
-            <div class="progression-content">叫/让+O+V+other</div>
-          </div>
-          <div class="progression-step">
-            <div class="progression-level">HSK 5</div>
-            <div class="progression-content">被/叫/让+O+给+V+other</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">Pattern: S + 叫/让 + Agent + V + other</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">我的手机<span class="pattern-highlight">叫</span>弟弟<span class="pattern-highlight">摔坏了</span>。</div>
-            <div class="pattern-pinyin">Wǒ de shǒujī jiào dìdi shuāi huài le.</div>
-            <div class="pattern-en">My phone was broken by my younger brother (from dropping it).</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-example">
-            <div class="pattern-cn">蛋糕<span class="pattern-highlight">让</span>孩子们<span class="pattern-highlight">吃完了</span>。</div>
-            <div class="pattern-pinyin">Dàngāo ràng háizimen chī wán le.</div>
-            <div class="pattern-en">The cake was eaten up by the children.</div>
-          </div>
-        </div>
-
-        <p style="font-size:14px;color:var(--stone);margin-top:12px;"><strong>Note:</strong> 被 is more formal/written; 叫/让 are more colloquial. 叫 often implies something undesirable happened.</p>
-
-        <div class="error-block">
-          <div><span class="wrong-mark">✗</span> 我的车让偷了。 — Agent is missing</div>
-          <div><span class="right-mark">✓</span> 我的车让人偷了。 (Agent: 人)</div>
-        </div>
-
-        <div class="quiz-section" id="quiz-passive">
-          <div class="quiz-section-title">Quick Quiz — 被动句 (4 questions)</div>
-
-          <div class="quiz-item" data-quiz="passive" data-correct="1">
-            <div class="quiz-stem chinese">那本书<span class="blank"></span>同学借走了。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">把</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">被</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">对</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">给</button>
-            </div>
-            <div class="quiz-explanation">This is a passive construction: the book was borrowed by a classmate. 被 marks the passive voice.</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="passive" data-correct="2">
-            <div class="quiz-stem">Which sentence correctly uses 叫/让 as a passive marker?</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">妈妈让我去超市。</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">老师叫我回答问题。</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">钱包叫小偷偷走了。</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">我让他帮忙。</button>
-            </div>
-            <div class="quiz-explanation">Options A, B, D use 让/叫 as causative ("make/let someone do something"). Only C uses 叫 as a passive marker: "The wallet was stolen by a thief."</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="passive" data-correct="0">
-            <div class="quiz-stem chinese">自行车<span class="blank"></span>风吹倒了。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">让</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">把</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">从</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">向</button>
-            </div>
-            <div class="quiz-explanation">The bicycle (patient) was blown over by wind (agent). 让 marks the passive here: 自行车让风吹倒了。</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="passive" data-correct="3">
-            <div class="quiz-stem">Which passive marker is most formal?</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">叫</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">让</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">给 (colloquial)</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,true)">被</button>
-            </div>
-            <div class="quiz-explanation">被 is the most formal/written passive marker. 叫 and 让 are more colloquial. 给 is even more informal (dialectal).</div>
-          </div>
-
-          <div class="quiz-score-bar" id="score-passive" style="display:none;"></div>
-        </div>
-      </div>
-    </div>
+    </a>
 
     <!-- 比较句 -->
-    <div class="grammar-card" id="comparison">
-      <div class="grammar-card-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleGrammar(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleGrammar(this)}">
+    <a href="/grammar/comparison/" class="grammar-card" id="comparison" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
         <div class="grammar-icon gold chinese">比</div>
         <div class="grammar-card-info">
           <div class="grammar-card-title chinese">比较句 — Comparison Patterns</div>
-          <div class="grammar-card-subtitle">不如 and 跟…相比 — new at HSK4</div>
+          <div class="grammar-card-subtitle">比/不如/跟…相比 · balance scale visualizer · error correction · quizzes</div>
         </div>
-        <div class="grammar-card-arrow">&#9654;</div>
+        <div class="grammar-card-arrow">&#8594;</div>
       </div>
-      <div class="grammar-card-body">
-        <h3 style="font-size:15px;margin-bottom:12px;">HSK2 → HSK3 → HSK4 → HSK5 Progression</h3>
-        <div class="progression">
-          <div class="progression-step">
-            <div class="progression-level">HSK 2-3</div>
-            <div class="progression-content">A比B+adj<br>A跟B一样<br>A不比B+adj</div>
-          </div>
-          <div class="progression-step current">
-            <div class="progression-level">HSK 4 (New)</div>
-            <div class="progression-content">A不如B<br>跟…相比</div>
-          </div>
-          <div class="progression-step">
-            <div class="progression-level">HSK 5</div>
-            <div class="progression-content">A+adj+B+数量补语</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">Pattern 1: A + 不如 + B</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">我的中文<span class="pattern-highlight">不如</span>他的好。</div>
-            <div class="pattern-pinyin">Wǒ de zhōngwén bùrú tā de hǎo.</div>
-            <div class="pattern-en">My Chinese is not as good as his.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">Pattern 2: 跟 + B + 相比, A…</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">跟</span>去年<span class="pattern-highlight">相比</span>，今年的成绩好多了。</div>
-            <div class="pattern-pinyin">Gēn qùnián xiāngbǐ, jīnnián de chéngjì hǎo duō le.</div>
-            <div class="pattern-en">Compared to last year, this year's results are much better.</div>
-          </div>
-        </div>
-
-        <p style="font-size:14px;color:var(--stone);margin-top:12px;"><strong>不如 vs 不比:</strong> 不如 means "not as good as" (clear inferiority). 不比 means "not necessarily better than" (neutral).</p>
-
-        <div class="quiz-section" id="quiz-comparison">
-          <div class="quiz-section-title">Quick Quiz — 比较句 (3 questions)</div>
-
-          <div class="quiz-item" data-quiz="comparison" data-correct="1">
-            <div class="quiz-stem chinese">这家饭馆<span class="blank"></span>那家好吃。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">比</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">不如</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">和</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">跟</button>
-            </div>
-            <div class="quiz-explanation">不如 means "not as good as": This restaurant is not as good (in taste) as that one.</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="comparison" data-correct="0">
-            <div class="quiz-stem chinese"><span class="blank"></span>以前相比，他的汉语水平提高了很多。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">跟</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">把</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">对</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">被</button>
-            </div>
-            <div class="quiz-explanation">跟…相比 means "compared with…". 跟以前相比 = Compared with before.</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="comparison" data-correct="2">
-            <div class="quiz-stem">Which sentence means "Watching TV is not as good as reading"?</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">看电视比看书好。</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">看电视不比看书。</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">看电视不如看书。</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">看电视跟看书一样。</button>
-            </div>
-            <div class="quiz-explanation">不如 expresses "not as good as" — 看电视不如看书 = watching TV is not as good as reading.</div>
-          </div>
-
-          <div class="quiz-score-bar" id="score-comparison" style="display:none;"></div>
-        </div>
-      </div>
-    </div>
+    </a>
 
     <!-- 补语 -->
-    <div class="grammar-card" id="complement">
-      <div class="grammar-card-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleGrammar(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleGrammar(this)}">
+    <a href="/grammar/complement/" class="grammar-card" id="complement" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
         <div class="grammar-icon ink chinese">补</div>
         <div class="grammar-card-info">
           <div class="grammar-card-title chinese">补语 — Degree & Potential Complements</div>
-          <div class="grammar-card-subtitle">死了/厉害 (degree) and V得/不了 (potential)</div>
+          <div class="grammar-card-subtitle">死了/厉害/得了/不了 · sentence X-ray · error correction · quizzes</div>
         </div>
-        <div class="grammar-card-arrow">&#9654;</div>
+        <div class="grammar-card-arrow">&#8594;</div>
       </div>
-      <div class="grammar-card-body">
-        <div class="pattern-block">
-          <div class="pattern-formula">Degree Complement: Adj/心理V + 死了/厉害</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">今天<span class="pattern-highlight">热死了</span>！</div>
-            <div class="pattern-pinyin">Jīntiān rè sǐ le!</div>
-            <div class="pattern-en">It's extremely hot today!</div>
-          </div>
-          <div class="pattern-example" style="margin-top:8px;">
-            <div class="pattern-cn">她<span class="pattern-highlight">紧张得厉害</span>。</div>
-            <div class="pattern-pinyin">Tā jǐnzhāng de lìhài.</div>
-            <div class="pattern-en">She was extremely nervous.</div>
-          </div>
+    </a>
+
+    <!-- 兼语句 -->
+    <a href="/grammar/pivotal-sentences/" class="grammar-card" id="pivotal" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
+        <div class="grammar-icon gold chinese">兼</div>
+        <div class="grammar-card-info">
+          <div class="grammar-card-title chinese">兼语句 — Pivotal Sentences</div>
+          <div class="grammar-card-subtitle">表爱憎/称谓/致使 · pivot identifier · error correction · quizzes</div>
         </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">Potential Complement: V + 得/不 + 了</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">这么多菜，我们<span class="pattern-highlight">吃不了</span>。</div>
-            <div class="pattern-pinyin">Zhème duō cài, wǒmen chī bu liǎo.</div>
-            <div class="pattern-en">So many dishes, we can't finish them.</div>
-          </div>
-          <div class="pattern-example" style="margin-top:8px;">
-            <div class="pattern-cn">别担心，这个工作我<span class="pattern-highlight">做得了</span>。</div>
-            <div class="pattern-pinyin">Bié dānxīn, zhège gōngzuò wǒ zuò de liǎo.</div>
-            <div class="pattern-en">Don't worry, I can handle this job.</div>
-          </div>
-        </div>
-
-        <p style="font-size:14px;color:var(--stone);margin-top:12px;"><strong>了 (liǎo) vs 了 (le):</strong> In potential complements, 了 is pronounced "liǎo" and means "able to complete/manage". Don't confuse it with the particle 了 (le).</p>
-
-        <div class="quiz-section" id="quiz-complement">
-          <div class="quiz-section-title">Quick Quiz — 补语 (3 questions)</div>
-
-          <div class="quiz-item" data-quiz="complement" data-correct="2">
-            <div class="quiz-stem chinese">这些行李太重了，我一个人<span class="blank"></span>。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">拿不到</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">不拿</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">拿不了</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">拿得到</button>
-            </div>
-            <div class="quiz-explanation">拿不了 (ná bu liǎo) = unable to carry/manage. The potential complement V不了 expresses inability.</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="complement" data-correct="0">
-            <div class="quiz-stem chinese">昨天的考试<span class="blank"></span>，我一晚上没睡好。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">难死了</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">难得了</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">难不了</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">很难了</button>
-            </div>
-            <div class="quiz-explanation">Adj+死了 is the degree complement pattern meaning "extremely": 难死了 = extremely difficult.</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="complement" data-correct="1">
-            <div class="quiz-stem">What does 吃得了 mean?</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">Already ate</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,true)">Can finish eating / Can manage to eat</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">Ate well</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">Want to eat</button>
-            </div>
-            <div class="quiz-explanation">V得了 (de liǎo) is the affirmative potential complement: "can manage to V / is able to V". 吃得了 = can finish eating.</div>
-          </div>
-
-          <div class="quiz-score-bar" id="score-complement" style="display:none;"></div>
-        </div>
+        <div class="grammar-card-arrow">&#8594;</div>
       </div>
-    </div>
+    </a>
+
+    <!-- 固定格式 -->
+    <a href="/grammar/fixed-patterns/" class="grammar-card" id="fixed" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
+        <div class="grammar-icon jade chinese">式</div>
+        <div class="grammar-card-info">
+          <div class="grammar-card-title chinese">固定格式 & 四字格 — Fixed Patterns</div>
+          <div class="grammar-card-subtitle">一A一B/无A无B · pattern generator · error correction · quizzes</div>
+        </div>
+        <div class="grammar-card-arrow">&#8594;</div>
+      </div>
+    </a>
   </div>
 
   <div class="section-title">Complex Sentences / 复句</div>
   <div class="grammar-grid">
 
     <!-- 复句 -->
-    <div class="grammar-card" id="complex-sentences">
-      <div class="grammar-card-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleGrammar(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleGrammar(this)}">
+    <a href="/grammar/complex-sentences/" class="grammar-card" id="complex-sentences" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
         <div class="grammar-icon red chinese">复</div>
         <div class="grammar-card-info">
           <div class="grammar-card-title chinese">复句 — Complex Sentence Patterns</div>
-          <div class="grammar-card-subtitle">Concession, condition, cause-effect, and more</div>
+          <div class="grammar-card-subtitle">11 types · connector decision tree · error correction · quizzes</div>
         </div>
-        <div class="grammar-card-arrow">&#9654;</div>
+        <div class="grammar-card-arrow">&#8594;</div>
       </div>
-      <div class="grammar-card-body">
-        <h3 style="font-size:15px;margin-bottom:12px;">HSK3 → HSK4 Progression</h3>
-        <div class="progression">
-          <div class="progression-step">
-            <div class="progression-level">HSK 3</div>
-            <div class="progression-content">虽然…但是<br>因为…所以<br>如果…就<br>只有…才 / 只要…就</div>
-          </div>
-          <div class="progression-step current">
-            <div class="progression-level">HSK 4 (New)</div>
-            <div class="progression-content">尽管…但是 · 既然…就<br>不管…都 · 无论…都<br>即使…也 · 不是…而是<br>连…也/都 · 甚至</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">尽管…但是/可是 (concession — even though)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">尽管</span>天气不好，<span class="pattern-highlight">但是</span>我们还是出去了。</div>
-            <div class="pattern-pinyin">Jǐnguǎn tiānqì bù hǎo, dànshì wǒmen háishì chūqù le.</div>
-            <div class="pattern-en">Even though the weather was bad, we still went out.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">不管/无论…都/也 (condition — no matter)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">不管</span>多忙，我<span class="pattern-highlight">都</span>要锻炼身体。</div>
-            <div class="pattern-pinyin">Bùguǎn duō máng, wǒ dōu yào duànliàn shēntǐ.</div>
-            <div class="pattern-en">No matter how busy I am, I will exercise.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">即使…也 (concession — even if)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">即使</span>失败了，我<span class="pattern-highlight">也</span>不会放弃。</div>
-            <div class="pattern-pinyin">Jíshǐ shībài le, wǒ yě bú huì fàngqì.</div>
-            <div class="pattern-en">Even if I fail, I won't give up.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">既然…就 (since/given that)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">既然</span>你不喜欢，<span class="pattern-highlight">就</span>别买了。</div>
-            <div class="pattern-pinyin">Jìrán nǐ bù xǐhuan, jiù bié mǎi le.</div>
-            <div class="pattern-en">Since you don't like it, then don't buy it.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">不是…而是 (not… but rather)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">他<span class="pattern-highlight">不是</span>不想去，<span class="pattern-highlight">而是</span>没有时间。</div>
-            <div class="pattern-pinyin">Tā búshì bù xiǎng qù, érshì méiyǒu shíjiān.</div>
-            <div class="pattern-en">It's not that he doesn't want to go, but rather that he doesn't have time.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">连…也/都 (even — emphasis)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">他<span class="pattern-highlight">连</span>自己的名字<span class="pattern-highlight">都</span>不会写。</div>
-            <div class="pattern-pinyin">Tā lián zìjǐ de míngzì dōu bú huì xiě.</div>
-            <div class="pattern-en">He can't even write his own name.</div>
-          </div>
-        </div>
-
-        <div class="quiz-section" id="quiz-complex">
-          <div class="quiz-section-title">Quick Quiz — 复句 (5 questions)</div>
-
-          <div class="quiz-item" data-quiz="complex" data-correct="1">
-            <div class="quiz-stem chinese"><span class="blank"></span>天气多冷，他都坚持跑步。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">虽然</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">不管</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">因为</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">既然</button>
-            </div>
-            <div class="quiz-explanation">不管…都 = no matter…still. 不管天气多冷，他都坚持跑步 = No matter how cold it is, he keeps running.</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="complex" data-correct="2">
-            <div class="quiz-stem chinese"><span class="blank"></span>你已经决定了，<span class="blank"></span>去做吧。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">虽然…但是</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">不管…都</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">既然…就</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">即使…也</button>
-            </div>
-            <div class="quiz-explanation">既然…就 = since…then. "Since you've already decided, then go do it."</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="complex" data-correct="3">
-            <div class="quiz-stem chinese">他<span class="blank"></span>不想去，<span class="blank"></span>没有时间去。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">虽然…但是</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">因为…所以</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">即使…也</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">不是…而是</button>
-            </div>
-            <div class="quiz-explanation">不是…而是 = not…but rather. "It's not that he doesn't want to go, but rather that he doesn't have time."</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="complex" data-correct="0">
-            <div class="quiz-stem chinese"><span class="blank"></span>下雨，比赛<span class="blank"></span>不会取消。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">即使…也</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">虽然…但是</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">既然…就</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">不管…都</button>
-            </div>
-            <div class="quiz-explanation">即使…也 = even if…still. "Even if it rains, the competition still won't be cancelled." 即使 introduces a hypothetical scenario.</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="complex" data-correct="2">
-            <div class="quiz-stem chinese">他<span class="blank"></span>饭<span class="blank"></span>没吃就走了。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">不是…而是</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">虽然…但是</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">连…都</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">不管…也</button>
-            </div>
-            <div class="quiz-explanation">连…都 emphasizes that even the most basic thing wasn't done: "He didn't even eat and left." (He left without even eating.)</div>
-          </div>
-
-          <div class="quiz-score-bar" id="score-complex" style="display:none;"></div>
-        </div>
-      </div>
-    </div>
+    </a>
 
     <!-- 反问句 & 双重否定 -->
-    <div class="grammar-card" id="rhetorical">
-      <div class="grammar-card-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleGrammar(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleGrammar(this)}">
+    <a href="/grammar/rhetorical/" class="grammar-card" id="rhetorical" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
         <div class="grammar-icon jade chinese">问</div>
         <div class="grammar-card-info">
           <div class="grammar-card-title chinese">反问句 & 双重否定句 — Rhetorical & Double Negative</div>
-          <div class="grammar-card-subtitle">难道…吗？/ 疑问代词反问 / 不得不</div>
+          <div class="grammar-card-subtitle">难道…吗/不得不 · tone intensity slider · error correction · quizzes</div>
         </div>
-        <div class="grammar-card-arrow">&#9654;</div>
+        <div class="grammar-card-arrow">&#8594;</div>
       </div>
-      <div class="grammar-card-body">
-        <div class="pattern-block">
-          <div class="pattern-formula">Rhetorical: 难道…吗？(Don't tell me…?)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">难道</span>你不知道<span class="pattern-highlight">吗</span>？</div>
-            <div class="pattern-pinyin">Nándào nǐ bù zhīdào ma?</div>
-            <div class="pattern-en">Don't you know? (Of course you should know!)</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">Rhetorical with question pronouns</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">这<span class="pattern-highlight">谁</span>不知道啊？</div>
-            <div class="pattern-pinyin">Zhè shéi bù zhīdào a?</div>
-            <div class="pattern-en">Who doesn't know this? (= Everyone knows this.)</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">Double Negative: 不得不 / 不能不</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">时间不够了，我<span class="pattern-highlight">不得不</span>放弃。</div>
-            <div class="pattern-pinyin">Shíjiān bú gòu le, wǒ bùdébù fàngqì.</div>
-            <div class="pattern-en">There's not enough time, I have no choice but to give up.</div>
-          </div>
-        </div>
-
-        <p style="font-size:14px;color:var(--stone);margin-top:12px;"><strong>Key insight:</strong> Rhetorical questions express strong affirmation through a question form. Double negatives also express affirmation: 不得不 = must/have to.</p>
-
-        <div class="quiz-section" id="quiz-rhetorical">
-          <div class="quiz-section-title">Quick Quiz — 反问句 & 双重否定 (3 questions)</div>
-
-          <div class="quiz-item" data-quiz="rhetorical" data-correct="1">
-            <div class="quiz-stem chinese">难道你觉得这样做是对的吗？This sentence expresses:</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">A genuine question</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,true)">The speaker thinks it's wrong</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">The speaker is unsure</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">The speaker agrees</button>
-            </div>
-            <div class="quiz-explanation">难道…吗 is a rhetorical question expressing the opposite of what's literally asked. The speaker strongly implies "doing this is wrong."</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="rhetorical" data-correct="0">
-            <div class="quiz-stem chinese">下雨了，我<span class="blank"></span>带伞出门。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">不得不</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">不用</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">不要</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">不会</button>
-            </div>
-            <div class="quiz-explanation">不得不 = have to / have no choice but to. "It rained, so I had to bring an umbrella."</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="rhetorical" data-correct="2">
-            <div class="quiz-stem">What does 这谁不想要啊 mean?</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">Who doesn't want it? (genuine question)</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">Nobody wants this</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,true)">Everyone wants this</button>
-              <button class="quiz-opt" onclick="answerGrammar(this,false)">Who wants this?</button>
-            </div>
-            <div class="quiz-explanation">This is a rhetorical question using 谁不 (who doesn't…?), meaning "everyone does!" 这谁不想要啊 = Everyone wants this!</div>
-          </div>
-
-          <div class="quiz-score-bar" id="score-rhetorical" style="display:none;"></div>
-        </div>
-      </div>
-    </div>
+    </a>
   </div>
 
   <div class="section-title">Key Word Classes / 词类</div>
   <div class="grammar-grid">
 
     <!-- 副词 -->
-    <div class="grammar-card" id="adverbs">
-      <div class="grammar-card-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleGrammar(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleGrammar(this)}">
+    <a href="/grammar/adverbs/" class="grammar-card" id="adverbs" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
         <div class="grammar-icon gold chinese">副</div>
         <div class="grammar-card-info">
           <div class="grammar-card-title chinese">HSK4 副词 — Key Adverbs</div>
-          <div class="grammar-card-subtitle">竟然, 究竟, 到底, 难道, 千万, 确实, 只好</div>
+          <div class="grammar-card-subtitle">5 categories · category sorting game · error correction · quizzes</div>
         </div>
-        <div class="grammar-card-arrow">&#9654;</div>
+        <div class="grammar-card-arrow">&#8594;</div>
       </div>
-      <div class="grammar-card-body">
-
-        <div class="pattern-block">
-          <div class="pattern-formula">竟然 — unexpectedly (surprise)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">他<span class="pattern-highlight">竟然</span>通过了HSK 6！</div>
-            <div class="pattern-pinyin">Tā jìngrán tōngguò le HSK liù!</div>
-            <div class="pattern-en">He actually passed HSK 6! (unexpectedly)</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">究竟 / 到底 — after all, on earth (emphasis in questions)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">你<span class="pattern-highlight">到底</span>去不去？</div>
-            <div class="pattern-pinyin">Nǐ dàodǐ qù bu qù?</div>
-            <div class="pattern-en">Are you going or not? (emphatic)</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">千万 — by all means / absolutely must (not)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">明天考试，你<span class="pattern-highlight">千万</span>别迟到。</div>
-            <div class="pattern-pinyin">Míngtiān kǎoshì, nǐ qiānwàn bié chídào.</div>
-            <div class="pattern-en">There's an exam tomorrow — whatever you do, don't be late.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">只好 — have no choice but to</div>
-          <div class="pattern-example">
-            <div class="pattern-cn">没有公交车了，我<span class="pattern-highlight">只好</span>打车回家。</div>
-            <div class="pattern-pinyin">Méiyǒu gōngjiāo chē le, wǒ zhǐhǎo dǎ chē huí jiā.</div>
-            <div class="pattern-en">There were no more buses, so I had no choice but to take a taxi home.</div>
-          </div>
-        </div>
-
-        <div class="quiz-section" id="quiz-adverbs">
-          <div class="quiz-section-title">Quick Quiz — 副词 (4 questions)</div>
-
-          <div class="quiz-item" data-quiz="adverbs" data-correct="2">
-            <div class="quiz-stem chinese">没想到他<span class="blank"></span>能做出这么好吃的菜！</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">到底</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">千万</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">竟然</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">只好</button>
-            </div>
-            <div class="quiz-explanation">竟然 expresses surprise at an unexpected outcome: "Didn't expect he could actually make such delicious food!"</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="adverbs" data-correct="0">
-            <div class="quiz-stem chinese">过马路的时候<span class="blank"></span>要注意安全。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">千万</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">竟然</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">只好</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">确实</button>
-            </div>
-            <div class="quiz-explanation">千万 = absolutely must / by all means. Used for strong warnings and advice.</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="adverbs" data-correct="3">
-            <div class="quiz-stem chinese">钥匙丢了，我<span class="blank"></span>请人来开锁。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">竟然</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">到底</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">千万</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">只好</button>
-            </div>
-            <div class="quiz-explanation">只好 = had no choice but to. "I lost my key, so I had to call someone to open the lock."</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="adverbs" data-correct="1">
-            <div class="quiz-stem chinese">你<span class="blank"></span>想怎么办？</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">竟然</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">究竟</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">千万</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">只好</button>
-            </div>
-            <div class="quiz-explanation">究竟 (or 到底) is used in questions for emphasis: "What on earth do you want to do?"</div>
-          </div>
-
-          <div class="quiz-score-bar" id="score-adverbs" style="display:none;"></div>
-        </div>
-      </div>
-    </div>
+    </a>
 
     <!-- 介词 & 连词 -->
-    <div class="grammar-card" id="function-words">
-      <div class="grammar-card-header" tabindex="0" role="button" aria-expanded="false" onclick="toggleGrammar(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleGrammar(this)}">
+    <a href="/grammar/function-words/" class="grammar-card" id="function-words" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grammar-card-header" style="cursor:pointer;">
         <div class="grammar-icon ink chinese">词</div>
         <div class="grammar-card-info">
           <div class="grammar-card-title chinese">HSK4 介词 & 连词 — Prepositions & Conjunctions</div>
-          <div class="grammar-card-subtitle">对于, 关于, 由于, 按照, 作为 and key conjunctions</div>
+          <div class="grammar-card-subtitle">对于/关于/由于/作为 · contextual fill-in · error correction · quizzes</div>
         </div>
-        <div class="grammar-card-arrow">&#9654;</div>
+        <div class="grammar-card-arrow">&#8594;</div>
       </div>
-      <div class="grammar-card-body">
-
-        <div class="pattern-block">
-          <div class="pattern-formula">对于 — regarding / as for (introduces topic)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">对于</span>这个问题，大家看法不同。</div>
-            <div class="pattern-pinyin">Duìyú zhège wèntí, dàjiā kànfǎ bùtóng.</div>
-            <div class="pattern-en">Regarding this issue, everyone has different views.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">关于 — about / concerning (introduces topic)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">关于</span>HSK考试，我有几个问题想问。</div>
-            <div class="pattern-pinyin">Guānyú HSK kǎoshì, wǒ yǒu jǐ ge wèntí xiǎng wèn.</div>
-            <div class="pattern-en">Regarding the HSK exam, I have some questions to ask.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">由于 — due to / because of (formal)</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">由于</span>天气原因，航班取消了。</div>
-            <div class="pattern-pinyin">Yóuyú tiānqì yuányīn, hángbān qǔxiāo le.</div>
-            <div class="pattern-en">Due to weather, the flight was cancelled.</div>
-          </div>
-        </div>
-
-        <div class="pattern-block">
-          <div class="pattern-formula">作为 — as / in the capacity of</div>
-          <div class="pattern-example">
-            <div class="pattern-cn"><span class="pattern-highlight">作为</span>老师，他很受学生欢迎。</div>
-            <div class="pattern-pinyin">Zuòwéi lǎoshī, tā hěn shòu xuéshēng huānyíng.</div>
-            <div class="pattern-en">As a teacher, he is very popular with students.</div>
-          </div>
-        </div>
-
-        <p style="font-size:14px;color:var(--stone);margin-top:12px;"><strong>对于 vs 关于:</strong> 对于 focuses on attitude/opinion toward something. 关于 introduces a topic of discussion. Often interchangeable, but 关于 can be used as an attributive (关于HSK的书), while 对于 cannot.</p>
-
-        <div class="quiz-section" id="quiz-function">
-          <div class="quiz-section-title">Quick Quiz — 介词 & 连词 (3 questions)</div>
-
-          <div class="quiz-item" data-quiz="function" data-correct="1">
-            <div class="quiz-stem chinese"><span class="blank"></span>这件事，我不太了解。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">作为</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">关于</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">按照</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">由于</button>
-            </div>
-            <div class="quiz-explanation">关于 introduces the topic: "About this matter, I don't know much."</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="function" data-correct="2">
-            <div class="quiz-stem chinese"><span class="blank"></span>交通堵塞，他迟到了。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">对于</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">关于</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">由于</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">作为</button>
-            </div>
-            <div class="quiz-explanation">由于 = due to / because of (formal causation). "Due to traffic congestion, he was late."</div>
-          </div>
-
-          <div class="quiz-item" data-quiz="function" data-correct="3">
-            <div class="quiz-stem chinese"><span class="blank"></span>一名学生，你应该认真学习。</div>
-            <div class="quiz-opts">
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">关于</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">对于</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,false)">由于</button>
-              <button class="quiz-opt chinese" onclick="answerGrammar(this,true)">作为</button>
-            </div>
-            <div class="quiz-explanation">作为 = as / in the capacity of. "As a student, you should study seriously."</div>
-          </div>
-
-          <div class="quiz-score-bar" id="score-function" style="display:none;"></div>
-        </div>
-      </div>
-    </div>
+    </a>
   </div>
 
   <!-- CTA -->
@@ -1094,68 +313,9 @@
 
 <footer>
   <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> — Learn Chinese in Beijing & Online since 2008</p>
-  <p style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/writing/">Writing</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
 </footer>
 
-<script>
-// === TOGGLE GRAMMAR CARDS ===
-function toggleGrammar(header) {
-  const card = header.closest('.grammar-card');
-  card.classList.toggle('open');
-  header.setAttribute('aria-expanded', card.classList.contains('open'));
-}
-
-// === QUIZ LOGIC ===
-const quizScores = {};
-
-// On init, mark correct options via data attributes for reliable highlighting
-document.querySelectorAll('.quiz-opt').forEach(opt => {
-  const fn = opt.getAttribute('onclick') || '';
-  if (fn.includes(',true)')) opt.dataset.correct = '1';
-});
-
-function answerGrammar(btn, isCorrect) {
-  const item = btn.closest('.quiz-item');
-  if (item.dataset.answered) return;
-  item.dataset.answered = '1';
-
-  const quizName = item.dataset.quiz;
-  if (!quizScores[quizName]) quizScores[quizName] = { total: 0, correct: 0 };
-  quizScores[quizName].total++;
-  if (isCorrect) quizScores[quizName].correct++;
-
-  const opts = item.querySelectorAll('.quiz-opt');
-  opts.forEach(o => o.classList.add('disabled'));
-
-  if (isCorrect) {
-    btn.classList.add('correct');
-  } else {
-    btn.classList.add('wrong');
-    opts.forEach(o => {
-      if (o.dataset.correct === '1') o.classList.add('correct');
-    });
-  }
-
-  const explanation = item.querySelector('.quiz-explanation');
-  if (explanation) explanation.style.display = 'block';
-
-  // Show score when all questions in this section are answered
-  const section = item.closest('.quiz-section');
-  const allItems = section.querySelectorAll('.quiz-item[data-quiz="' + quizName + '"]');
-  const answeredItems = section.querySelectorAll('.quiz-item[data-quiz="' + quizName + '"][data-answered]');
-
-  if (allItems.length === answeredItems.length) {
-    const scoreBar = document.getElementById('score-' + quizName);
-    if (scoreBar) {
-      const s = quizScores[quizName];
-      const pct = Math.round(s.correct / s.total * 100);
-      const pass = pct >= 60;
-      scoreBar.innerHTML = `<div class="score-text ${pass ? 'pass' : 'fail'}">${s.correct}/${s.total} correct (${pct}%) — ${pass ? 'Well done! 做得好！' : 'Keep practicing! 继续加油！'}</div>`;
-      scoreBar.style.display = 'block';
-    }
-  }
-}
-</script>
 
 </body>
 </html>

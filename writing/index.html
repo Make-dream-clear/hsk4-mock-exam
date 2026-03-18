@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 4 Writing Guide — Sentence Ordering & Paragraph Writing | HSK4 写作</title>
+<meta name="description" content="Master HSK 4 writing with sentence ordering exercises and paragraph writing templates. Practice with drag-and-drop reordering, 4 paragraph frameworks, and guided writing challenges.">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/writing/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="HSK 4 Writing Guide — Sentence Ordering & Paragraph Writing">
+<meta property="og:description" content="Master HSK 4 writing with interactive sentence ordering and paragraph writing templates based on the HSK 3.0 syllabus.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/writing/">
+<meta property="og:site_name" content="Mandarin Zone">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HSK 4 Writing Guide — Sentence Ordering & Paragraph Writing">
+<meta name="twitter:description" content="Master HSK 4 writing with interactive exercises and paragraph templates.">
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/writing/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/writing/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/writing/">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalApplication",
+  "name": "HSK 4 Writing Guide",
+  "description": "Interactive HSK 4 writing practice with sentence ordering exercises and paragraph writing templates.",
+  "url": "https://hsk4.mandarinzone.com/writing/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": {
+    "@type": "Organization",
+    "name": "Mandarin Zone",
+    "url": "https://mandarinzone.com"
+  },
+  "inLanguage": ["en", "zh-CN"],
+  "isAccessibleForFree": true,
+  "educationalLevel": "Intermediate"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the HSK 4 writing section test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HSK 4 writing tests two main skills: (1) sentence ordering — arranging scrambled words and phrases into grammatically correct sentences, and (2) paragraph writing — composing a short paragraph on a given topic using provided keywords. Both require active command of HSK 4 vocabulary and grammar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I improve my HSK 4 writing score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three effective strategies: (1) Master sentence patterns — the ordering section tests grammar directly, so knowing structures like 把字句, 被字句, and complex connectors is essential. (2) Learn paragraph frameworks — having a clear structure (opening → details → conclusion) prevents rambling. (3) Practice with keywords — the exam gives you words to use, so practice building paragraphs around given vocabulary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the most common HSK 4 writing mistakes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most frequent mistakes are: wrong word order (especially with 把/被 constructions and time/place adverbials), missing connectors between clauses, mixing up similar conjunctions (虽然…但是 vs 即使…也), and writing sentences that are too long without proper punctuation. For paragraph writing, the biggest issue is lack of structure — no clear opening or conclusion."
+      }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .writing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+    margin: 32px 0 48px;
+  }
+  .writing-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.2s;
+  }
+  .writing-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+  .writing-card-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .writing-card h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 19px;
+    margin-bottom: 8px;
+  }
+  .writing-card p {
+    color: var(--stone);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .writing-card-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .writing-card-tag {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* Overview section */
+  .writing-overview {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+  .writing-overview h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .writing-overview p, .writing-overview li {
+    color: var(--stone);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  .writing-overview ul { padding-left: 20px; margin: 8px 0 16px; }
+  .writing-overview li { margin-bottom: 4px; }
+
+  /* Skill cards */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .skill-item {
+    padding: 16px;
+    background: var(--paper);
+    border-radius: 8px;
+  }
+  .skill-item-title {
+    font-weight: 600;
+    font-family: 'Noto Sans SC', sans-serif;
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .skill-item p {
+    font-size: 13px;
+    margin: 0;
+  }
+
+  /* FAQ */
+  .faq { margin-top: 32px; }
+  .faq h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--mist);
+    padding: 16px 0;
+  }
+  .faq-q {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-q::after { content: '+'; color: var(--stone); font-size: 18px; }
+  .faq-item.open .faq-q::after { content: '\2212'; }
+  .faq-a {
+    display: none;
+    color: var(--stone);
+    font-size: 14px;
+    line-height: 1.8;
+    padding-right: 24px;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  @media (max-width: 600px) {
+    .writing-cards { grid-template-columns: 1fr; }
+    .skill-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link" style="opacity:1;">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">HSK 3.0 Writing Skills</div>
+    <h1 class="chinese">HSK 4 <span class="accent">Writing Guide</span> / 写作指南</h1>
+    <p>Practice the two core writing skills tested on HSK 4: sentence ordering and paragraph composition. Interactive exercises with instant feedback.</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">10</div><div class="stat-label">Ordering Exercises</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Paragraph Templates</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Writing Challenges</div></div>
+    </div>
+  </div>
+
+  <!-- TWO MAIN SECTIONS -->
+  <div class="writing-cards">
+    <a href="/writing/sentence-order/" class="writing-card">
+      <div class="writing-card-icon" style="background:var(--accent);">
+        <span class="chinese">排</span>
+      </div>
+      <h3 class="chinese">排序题 — Sentence Ordering</h3>
+      <p>Rearrange scrambled words and phrases into correct Chinese sentences. Covers 把字句, 被字句, complex connectors, and more.</p>
+      <div class="writing-card-features">
+        <span class="writing-card-tag" style="background:var(--accent-soft);color:var(--accent);">10 exercises</span>
+        <span class="writing-card-tag" style="background:var(--accent-soft);color:var(--accent);">3 difficulty levels</span>
+        <span class="writing-card-tag" style="background:var(--accent-soft);color:var(--accent);">click to order</span>
+      </div>
+    </a>
+
+    <a href="/writing/paragraph/" class="writing-card">
+      <div class="writing-card-icon" style="background:var(--jade);">
+        <span class="chinese">段</span>
+      </div>
+      <h3 class="chinese">段落写作 — Paragraph Writing</h3>
+      <p>Learn 4 reusable paragraph frameworks, build your writing toolkit, and practice with guided challenges mapped to HSK 4 exam topics.</p>
+      <div class="writing-card-features">
+        <span class="writing-card-tag" style="background:var(--jade-soft);color:var(--jade);">4 templates</span>
+        <span class="writing-card-tag" style="background:var(--jade-soft);color:var(--jade);">6 challenges</span>
+        <span class="writing-card-tag" style="background:var(--jade-soft);color:var(--jade);">sample paragraphs</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- WHAT HSK4 WRITING TESTS -->
+  <div class="writing-overview">
+    <h2>What Does HSK 4 Writing Test? / HSK4 写作考什么</h2>
+    <p>The HSK 4 writing section (书写) tests your ability to <strong>actively produce Chinese</strong>, not just recognize it. According to the HSK 3.0 syllabus (《新版HSK考试大纲》), Level 4 candidates should be able to "写出一段话简单介绍/描述/叙述" — write a paragraph to briefly introduce, describe, or narrate. This is tested through two main task types:</p>
+
+    <div class="skill-grid">
+      <div class="skill-item">
+        <div class="skill-item-title chinese">排序 — Sentence Ordering</div>
+        <p>Given scrambled words and phrases, arrange them into a grammatically correct sentence. Tests your command of Chinese word order, which differs significantly from English.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-title chinese">写话 — Paragraph Composition</div>
+        <p>Given a topic or keywords, write a short paragraph. Tests your ability to organize ideas, use connectors, and express yourself clearly within HSK 4 vocabulary.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Noto Serif SC',serif;font-size:17px;margin:20px 0 12px;">Why Writing Is the Hardest Section / 为什么写作最难</h3>
+    <p>Listening and reading are <em>receptive</em> skills — you choose from given options. Writing is <em>productive</em> — you must recall vocabulary, apply grammar rules, and organize ideas simultaneously. This is why many students score highest on listening but lowest on writing. The good news: because writing patterns are finite and learnable, focused practice on sentence structures and paragraph frameworks can lead to clear improvement.</p>
+
+    <h3 style="font-family:'Noto Serif SC',serif;font-size:17px;margin:20px 0 12px;">Key Grammar for Writing / 写作核心语法</h3>
+    <p>These grammar patterns appear most frequently in HSK 4 writing tasks. Master them before attempting the exercises:</p>
+    <ul>
+      <li><strong>把字句</strong> — object disposal (我把书放在桌子上了). <a href="/grammar/ba-sentence/" style="color:var(--accent);">Practice &#8594;</a></li>
+      <li><strong>被字句</strong> — passive voice (那本书被他借走了). <a href="/grammar/passive/" style="color:var(--accent);">Practice &#8594;</a></li>
+      <li><strong>比较句</strong> — comparison (他比我高一点). <a href="/grammar/comparison/" style="color:var(--accent);">Practice &#8594;</a></li>
+      <li><strong>复句关联词</strong> — complex sentence connectors (虽然…但是, 不但…而且, 因为…所以). <a href="/grammar/complex-sentences/" style="color:var(--accent);">Practice &#8594;</a></li>
+      <li><strong>副词位置</strong> — adverb placement (他已经回来了, not 他回来已经了). <a href="/grammar/adverbs/" style="color:var(--accent);">Practice &#8594;</a></li>
+    </ul>
+  </div>
+
+  <!-- 3 TIPS -->
+  <div class="section-title">Quick Writing Tips / 写作要诀</div>
+  <div style="display:grid;gap:12px;margin-bottom:40px;">
+    <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:16px;display:flex;gap:12px;">
+      <div style="font-size:20px;flex-shrink:0;">1</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:4px;" class="chinese">先想结构，再写内容</div>
+        <p style="color:var(--stone);font-size:14px;line-height:1.7;margin:0;">Before writing, spend 30 seconds planning: What's my opening sentence? What details will I include? How will I end? A clear structure prevents rambling and earns higher scores.</p>
+      </div>
+    </div>
+    <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:16px;display:flex;gap:12px;">
+      <div style="font-size:20px;flex-shrink:0;">2</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:4px;" class="chinese">用你确定会的词，不要冒险</div>
+        <p style="color:var(--stone);font-size:14px;line-height:1.7;margin:0;">Writing is not the place to experiment with half-remembered vocabulary. Use words you're confident about. A simple, correct sentence scores higher than a complex, wrong one.</p>
+      </div>
+    </div>
+    <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:16px;display:flex;gap:12px;">
+      <div style="font-size:20px;flex-shrink:0;">3</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:4px;" class="chinese">检查"了/过/着"和标点</div>
+        <p style="color:var(--stone);font-size:14px;line-height:1.7;margin:0;">The most common point deductions: missing aspect markers (了/过/着) and wrong punctuation. After finishing, quickly scan for these. Chinese uses "，" (full-width comma), not ",".</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h3 class="chinese">从排序题开始练习</h3>
+    <p>Start with sentence ordering to build your grammar foundation, then move to paragraph writing.</p>
+    <a href="/writing/sentence-order/" class="btn btn-primary" style="margin-right:8px;">Sentence Ordering</a>
+    <a href="/writing/paragraph/" class="btn btn-secondary">Paragraph Writing</a>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>Frequently Asked Questions / 常见问题</h2>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What does the HSK 4 writing section test?</div>
+      <div class="faq-a">HSK 4 writing tests two main skills: (1) <strong>sentence ordering</strong> — arranging scrambled words and phrases into grammatically correct sentences, and (2) <strong>paragraph writing</strong> — composing a short paragraph on a given topic using provided keywords. Both require active command of HSK 4 vocabulary and grammar patterns.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How do I improve my HSK 4 writing score?</div>
+      <div class="faq-a">Three strategies: (1) <strong>Master sentence patterns</strong> — the ordering section tests grammar directly, so practice structures like 把字句, 被字句, and complex connectors in our <a href="/grammar/" style="color:var(--accent);">Grammar Guide</a>. (2) <strong>Learn paragraph frameworks</strong> — having a clear structure (opening &#8594; details &#8594; conclusion) prevents rambling. See our <a href="/writing/paragraph/" style="color:var(--accent);">paragraph templates</a>. (3) <strong>Practice with keywords</strong> — the exam gives you words to use, so practice building paragraphs around given vocabulary.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What are the most common HSK 4 writing mistakes?</div>
+      <div class="faq-a">The most frequent mistakes are: (1) <strong>Wrong word order</strong> — especially with 把/被 constructions and time/place adverbials. (2) <strong>Missing connectors</strong> between clauses — Chinese paragraphs need explicit connectors like 首先/然后/最后. (3) <strong>Mixing up similar conjunctions</strong> — e.g., 虽然…但是 (concession) vs 即使…也 (even if). (4) <strong>No paragraph structure</strong> — writing one long sentence instead of organized short sentences with clear punctuation.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Should I practice sentence ordering or paragraph writing first?</div>
+      <div class="faq-a">Start with <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering</a>. It builds the grammar foundation you need for paragraph writing — if you can't construct correct individual sentences, you won't be able to write a coherent paragraph. Once you're comfortable with word order, move to <a href="/writing/paragraph/" style="color:var(--accent);">paragraph templates</a>.</div>
+    </div>
+  </section>
+
+  <!-- Attribution -->
+  <section style="margin-top:32px;">
+    <p style="color:var(--stone);line-height:1.8;font-size:14px;">
+      This writing guide is based on the HSK 3.0 syllabus (《新版HSK考试大纲》, published November 2025). All exercises use HSK 4 vocabulary. For vocabulary study, visit our <a href="/vocabulary/" style="color:var(--accent);">HSK 4 Vocabulary List</a>. For grammar review, see our <a href="/grammar/" style="color:var(--accent);">Grammar Guide</a>. For topic-based vocabulary, browse our <a href="/topics/" style="color:var(--accent);">Topic Vocabulary</a> page. Created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> — Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/topics/">Topics</a> · <a href="/writing/">Writing</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
+</footer>
+
+</body>
+</html>

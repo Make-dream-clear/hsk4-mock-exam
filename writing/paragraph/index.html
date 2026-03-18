@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 4 Paragraph Writing — Templates & Practice Challenges | HSK4 段落写作</title>
+<meta name="description" content="Master HSK 4 paragraph writing with 4 reusable frameworks, a writing toolkit of connectors and sentence patterns, and 6 guided practice challenges with sample paragraphs.">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/writing/paragraph/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="HSK 4 Paragraph Writing — Templates & Practice Challenges">
+<meta property="og:description" content="Learn 4 paragraph frameworks for HSK 4 writing with guided practice challenges and sample paragraphs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/writing/paragraph/">
+<meta property="og:site_name" content="Mandarin Zone">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HSK 4 Paragraph Writing — Templates & Practice">
+<meta name="twitter:description" content="4 paragraph frameworks + 6 guided writing challenges for HSK 4.">
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/writing/paragraph/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/writing/paragraph/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/writing/paragraph/">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalApplication",
+  "name": "HSK 4 Paragraph Writing Guide",
+  "description": "Paragraph writing templates and practice challenges for HSK 4 writing preparation.",
+  "url": "https://hsk4.mandarinzone.com/writing/paragraph/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": {
+    "@type": "Organization",
+    "name": "Mandarin Zone",
+    "url": "https://mandarinzone.com"
+  },
+  "inLanguage": ["en", "zh-CN"],
+  "isAccessibleForFree": true,
+  "educationalLevel": "Intermediate"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  /* === TEMPLATE CARDS === */
+  .template-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .template-header {
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .template-header:hover { background: rgba(0,0,0,0.01); }
+  .template-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+  .template-info { flex: 1; }
+  .template-title {
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Noto Sans SC', sans-serif;
+    margin-bottom: 2px;
+  }
+  .template-subtitle {
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .template-arrow {
+    font-size: 16px;
+    color: var(--stone);
+    transition: transform 0.2s;
+  }
+  .template-card.open .template-arrow { transform: rotate(90deg); }
+  .template-body {
+    display: none;
+    padding: 0 24px 24px;
+  }
+  .template-card.open .template-body { display: block; }
+  .template-card.open .template-header {
+    border-bottom: 1px solid var(--mist);
+    padding-bottom: 16px;
+  }
+
+  /* Template structure visualization */
+  .template-structure {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0;
+  }
+  .template-slot {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  .slot-label {
+    padding: 10px 14px;
+    font-weight: 600;
+    color: white;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+  }
+  .slot-content {
+    padding: 10px 14px;
+    flex: 1;
+    line-height: 1.6;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--stone);
+  }
+  .slot-content strong { color: var(--ink); }
+
+  /* Sample paragraph */
+  .sample-para {
+    margin: 16px 0;
+  }
+  .sample-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--stone);
+    margin-bottom: 8px;
+  }
+  .sample-text {
+    padding: 16px 20px;
+    background: var(--paper);
+    border-radius: 8px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    line-height: 2;
+    color: var(--ink);
+  }
+  .sample-text .hl-open { color: var(--accent); font-weight: 600; }
+  .sample-text .hl-detail { color: var(--jade); font-weight: 500; }
+  .sample-text .hl-connect { color: var(--gold); font-weight: 600; }
+  .sample-text .hl-close { color: #5a6abf; font-weight: 600; }
+  .sample-annotation {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .sample-annotation span {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-right: 4px;
+  }
+
+  /* === WRITING TOOLKIT === */
+  .toolkit {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .toolkit h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .toolkit-group {
+    margin-bottom: 16px;
+  }
+  .toolkit-group-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--stone);
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--mist);
+  }
+  .phrase-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .phrase-item {
+    padding: 6px 12px;
+    background: var(--paper);
+    border-radius: 6px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    cursor: default;
+    border: 1px solid transparent;
+    transition: all 0.15s;
+  }
+  .phrase-item:hover { border-color: var(--mist); }
+  .phrase-item .phrase-en {
+    color: var(--stone);
+    font-size: 12px;
+    margin-left: 6px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* === PRACTICE CHALLENGES === */
+  .challenge-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .challenge-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    background: var(--jade);
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .challenge-title {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .challenge-desc {
+    color: var(--stone);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .challenge-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .challenge-keyword {
+    padding: 4px 12px;
+    background: var(--jade-soft);
+    color: var(--jade);
+    border-radius: 100px;
+    font-size: 13px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+  }
+  .challenge-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--mist);
+    border-radius: 8px;
+    font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    resize: vertical;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
+  .challenge-textarea:focus { outline: none; border-color: var(--accent); }
+  .challenge-textarea::placeholder { color: var(--stone); opacity: 0.5; }
+
+  /* Self-check */
+  .self-check {
+    margin: 12px 0;
+    padding: 12px 16px;
+    background: var(--paper);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--stone);
+  }
+  .self-check-title {
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .self-check label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    line-height: 1.5;
+  }
+  .self-check input[type="checkbox"] { accent-color: var(--jade); }
+
+  /* Sample reveal */
+  .sample-toggle {
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    color: var(--stone);
+    transition: all 0.15s;
+  }
+  .sample-toggle:hover { border-color: var(--accent); color: var(--ink); }
+  .sample-reveal {
+    display: none;
+    margin-top: 12px;
+  }
+  .sample-reveal.show { display: block; }
+
+  @media (max-width: 600px) {
+    .template-header { padding: 14px 16px; gap: 10px; }
+    .template-body { padding: 0 16px 16px; }
+    .toolkit { padding: 18px 16px; }
+    .challenge-card { padding: 18px 16px; }
+    .slot-label { min-width: 64px; font-size: 12px; padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link" style="opacity:1;">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Breadcrumb -->
+  <div style="font-size:13px;color:var(--stone);margin-bottom:8px;">
+    <a href="/writing/" style="color:var(--accent);">Writing Guide</a> &rsaquo; Paragraph Writing
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">Writing Frameworks</div>
+    <h1 class="chinese">段落写作 — <span class="accent">Paragraph Writing</span></h1>
+    <p>Learn 4 reusable paragraph frameworks for HSK 4 writing tasks, build your connector toolkit, and practice with 6 guided challenges.</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1: PARAGRAPH TEMPLATES -->
+  <!-- ============================================================ -->
+  <div class="section-title">4 Paragraph Frameworks / 四种段落框架</div>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:16px;">These are not rigid formulas — they're flexible structures to help you organize your ideas. Each framework works across multiple exam topics.</p>
+
+  <!-- Template 1: Narrating an Experience -->
+  <div class="template-card" id="tpl-narrate" onclick="this.classList.toggle('open')">
+    <div class="template-header">
+      <div class="template-icon" style="background:var(--accent);"><span class="chinese">叙</span></div>
+      <div class="template-info">
+        <div class="template-title chinese">叙述经历 — Narrating an Experience</div>
+        <div class="template-subtitle">For: travel stories, dining experiences, medical visits, shopping stories</div>
+      </div>
+      <div class="template-arrow">&#9654;</div>
+    </div>
+    <div class="template-body">
+      <div class="template-structure">
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--accent);">开头</div>
+          <div class="slot-content"><strong>When + where + who</strong> — set the scene. 上个周末，我和朋友一起去了…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--gold);">经过</div>
+          <div class="slot-content"><strong>What happened</strong> — describe the main event(s) in order. Use 先…然后…最后… or 首先…接着…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--jade);">细节</div>
+          <div class="slot-content"><strong>A specific detail</strong> — one vivid moment that makes it interesting. 特别是… / 让我印象最深的是…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:#5a6abf;">感受</div>
+          <div class="slot-content"><strong>Feeling or lesson</strong> — how you felt or what you learned. 这次经历让我… / 我觉得…</div>
+        </div>
+      </div>
+
+      <div class="sample-para">
+        <div class="sample-label">Sample Paragraph — A Dining Experience</div>
+        <div class="sample-text">
+          <span class="hl-open">上个星期六，</span>我和同事一起去了一家新开的四川餐厅。<span class="hl-connect">我们先</span>点了几个招牌菜，<span class="hl-connect">然后</span>又要了一个火锅。<span class="hl-detail">菜的味道非常好，特别是那个水煮鱼，又辣又鲜，大家都觉得很好吃。</span><span class="hl-close">这次聚餐让我们都很开心，以后还想再去。</span>
+        </div>
+        <div class="sample-annotation">
+          <span style="background:var(--accent-soft);color:var(--accent);">Opening</span> Time + who + where
+          <span style="background:var(--gold-soft);color:var(--gold);">Sequence</span> 先…然后…
+          <span style="background:var(--jade-soft);color:var(--jade);">Detail</span> Specific vivid moment
+          <span style="background:#e8e0f0;color:#5a6abf;">Closing</span> Feeling + future intention
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template 2: Describing a Person/Thing -->
+  <div class="template-card" id="tpl-describe" onclick="this.classList.toggle('open')">
+    <div class="template-header">
+      <div class="template-icon" style="background:var(--jade);"><span class="chinese">描</span></div>
+      <div class="template-info">
+        <div class="template-title chinese">描述介绍 — Describing People or Things</div>
+        <div class="template-subtitle">For: introducing a friend, a city, a festival, a sport, a technology</div>
+      </div>
+      <div class="template-arrow">&#9654;</div>
+    </div>
+    <div class="template-body">
+      <div class="template-structure">
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--accent);">是什么</div>
+          <div class="slot-content"><strong>Introduce the subject</strong> — who/what it is. 我最好的朋友叫… / …是中国的传统节日。</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--gold);">特点</div>
+          <div class="slot-content"><strong>Key features</strong> — 2-3 characteristics. 他/她/它最大的特点是… / 不但…而且…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--jade);">举例</div>
+          <div class="slot-content"><strong>A concrete example</strong> — one story or fact to support. 有一次… / 比如说…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:#5a6abf;">评价</div>
+          <div class="slot-content"><strong>Your opinion</strong> — why it matters to you. 我觉得… / 总的来说…</div>
+        </div>
+      </div>
+
+      <div class="sample-para">
+        <div class="sample-label">Sample Paragraph — My Best Friend</div>
+        <div class="sample-text">
+          <span class="hl-open">我最好的朋友叫小明，我们从大学开始就认识了。</span><span class="hl-detail">他性格很开朗，不但幽默而且很热心，同学们都喜欢他。</span><span class="hl-connect">有一次</span>我生病了，他每天下课以后都来看我，还帮我带饭。<span class="hl-close">我觉得有这样的朋友是很幸运的事情。</span>
+        </div>
+        <div class="sample-annotation">
+          <span style="background:var(--accent-soft);color:var(--accent);">Intro</span> Who + relationship
+          <span style="background:var(--jade-soft);color:var(--jade);">Features</span> 不但…而且… for dual traits
+          <span style="background:var(--gold-soft);color:var(--gold);">Example</span> 有一次… concrete story
+          <span style="background:#e8e0f0;color:#5a6abf;">Opinion</span> 我觉得… personal evaluation
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template 3: Expressing an Opinion -->
+  <div class="template-card" id="tpl-opinion" onclick="this.classList.toggle('open')">
+    <div class="template-header">
+      <div class="template-icon" style="background:var(--gold);"><span class="chinese">论</span></div>
+      <div class="template-info">
+        <div class="template-title chinese">表达观点 — Expressing an Opinion</div>
+        <div class="template-subtitle">For: views on online shopping, environment, technology, social phenomena</div>
+      </div>
+      <div class="template-arrow">&#9654;</div>
+    </div>
+    <div class="template-body">
+      <div class="template-structure">
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--accent);">话题</div>
+          <div class="slot-content"><strong>Introduce the topic</strong> — what phenomenon you'll discuss. 现在越来越多的人… / 说到…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--gold);">观点</div>
+          <div class="slot-content"><strong>State your view</strong> — clearly say what you think. 我认为… / 在我看来…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--jade);">理由</div>
+          <div class="slot-content"><strong>Give 1-2 reasons</strong> — support your view. 首先… 其次… / 一方面…另一方面…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:#5a6abf;">总结</div>
+          <div class="slot-content"><strong>Conclude</strong> — restate or extend your view. 总的来说… / 所以我觉得…</div>
+        </div>
+      </div>
+
+      <div class="sample-para">
+        <div class="sample-label">Sample Paragraph — Views on Online Shopping</div>
+        <div class="sample-text">
+          <span class="hl-open">现在越来越多的人喜欢在网上购物。</span><span class="hl-detail">我认为网购确实很方便。</span><span class="hl-connect">首先，</span>在家里就可以买到各种各样的商品，不用出门。<span class="hl-connect">其次，</span>网上的价格往往比实体店便宜，还经常有打折活动。<span class="hl-close">当然，网购也有缺点，比如看不到实物，有时候收到的东西和图片不一样。总的来说，我觉得只要注意选择可靠的商家，网购还是很值得的。</span>
+        </div>
+        <div class="sample-annotation">
+          <span style="background:var(--accent-soft);color:var(--accent);">Topic</span> 现在越来越多… trend intro
+          <span style="background:var(--jade-soft);color:var(--jade);">Reasons</span> 首先…其次… structured support
+          <span style="background:#e8e0f0;color:#5a6abf;">Conclusion</span> Balanced view + 总的来说
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template 4: Practical Writing -->
+  <div class="template-card" id="tpl-practical" onclick="this.classList.toggle('open')">
+    <div class="template-header">
+      <div class="template-icon" style="background:#5a6abf;"><span class="chinese">用</span></div>
+      <div class="template-info">
+        <div class="template-title chinese">实用写作 — Practical Writing (Emails & Messages)</div>
+        <div class="template-subtitle">For: leave requests, greeting cards, feedback, invitations</div>
+      </div>
+      <div class="template-arrow">&#9654;</div>
+    </div>
+    <div class="template-body">
+      <div class="template-structure">
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--accent);">称呼</div>
+          <div class="slot-content"><strong>Salutation</strong> — who you're writing to. 亲爱的…老师：/ …你好！</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--gold);">原因</div>
+          <div class="slot-content"><strong>Why you're writing</strong> — state the purpose. 我写这封邮件是想… / 关于…的事情…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:var(--jade);">内容</div>
+          <div class="slot-content"><strong>Details</strong> — the specific information or request. 具体情况是… / 我希望能…</div>
+        </div>
+        <div class="template-slot">
+          <div class="slot-label" style="background:#5a6abf;">结束</div>
+          <div class="slot-content"><strong>Closing</strong> — polite ending. 谢谢您！/ 期待您的回复。/ 祝好！+ 署名</div>
+        </div>
+      </div>
+
+      <div class="sample-para">
+        <div class="sample-label">Sample — Leave Request Email</div>
+        <div class="sample-text">
+          <span class="hl-open">王老师，您好！</span><span class="hl-detail">我是四班的李明。我写这封邮件是想请假。</span><span class="hl-connect">因为</span>我这两天感冒发烧了，医生说需要在家休息两天，<span class="hl-connect">所以</span>明天和后天的课我不能来上了。落下的课我会找同学借笔记补上。<span class="hl-close">给您添麻烦了，非常抱歉。谢谢老师！</span><br><br>学生：李明<br>3月18日
+        </div>
+        <div class="sample-annotation">
+          <span style="background:var(--accent-soft);color:var(--accent);">Greeting</span> Respectful 您好
+          <span style="background:var(--jade-soft);color:var(--jade);">Purpose + Details</span> Reason + duration + solution
+          <span style="background:#e8e0f0;color:#5a6abf;">Closing</span> Apology + thanks + signature + date
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2: WRITING TOOLKIT -->
+  <!-- ============================================================ -->
+  <div class="section-title" style="margin-top:40px;">Writing Toolkit / 写作工具箱</div>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:16px;">Bookmark these phrases — they work across all paragraph types. Each phrase includes an English gloss.</p>
+
+  <div class="toolkit">
+    <div class="toolkit-group">
+      <div class="toolkit-group-title">Opening Sentences / 开头句式</div>
+      <div class="phrase-grid">
+        <div class="phrase-item chinese">上个周末/星期六<span class="phrase-en">last weekend/Saturday</span></div>
+        <div class="phrase-item chinese">有一次<span class="phrase-en">one time</span></div>
+        <div class="phrase-item chinese">最近<span class="phrase-en">recently</span></div>
+        <div class="phrase-item chinese">说到…我想起…<span class="phrase-en">speaking of...I recall...</span></div>
+        <div class="phrase-item chinese">大家都知道<span class="phrase-en">everyone knows</span></div>
+        <div class="phrase-item chinese">现在越来越多的人…<span class="phrase-en">more and more people...</span></div>
+      </div>
+    </div>
+
+    <div class="toolkit-group">
+      <div class="toolkit-group-title">Sequence & Time / 时间顺序</div>
+      <div class="phrase-grid">
+        <div class="phrase-item chinese">首先<span class="phrase-en">first of all</span></div>
+        <div class="phrase-item chinese">然后 / 接着<span class="phrase-en">then / next</span></div>
+        <div class="phrase-item chinese">最后<span class="phrase-en">finally</span></div>
+        <div class="phrase-item chinese">先…再…<span class="phrase-en">first...then...</span></div>
+        <div class="phrase-item chinese">后来<span class="phrase-en">later on</span></div>
+        <div class="phrase-item chinese">…的时候<span class="phrase-en">when...</span></div>
+      </div>
+    </div>
+
+    <div class="toolkit-group">
+      <div class="toolkit-group-title">Cause & Effect / 因果关系</div>
+      <div class="phrase-grid">
+        <div class="phrase-item chinese">因为…所以…<span class="phrase-en">because...so...</span></div>
+        <div class="phrase-item chinese">由于<span class="phrase-en">due to (formal)</span></div>
+        <div class="phrase-item chinese">因此<span class="phrase-en">therefore</span></div>
+        <div class="phrase-item chinese">是因为<span class="phrase-en">it's because</span></div>
+      </div>
+    </div>
+
+    <div class="toolkit-group">
+      <div class="toolkit-group-title">Contrast & Concession / 转折让步</div>
+      <div class="phrase-grid">
+        <div class="phrase-item chinese">虽然…但是…<span class="phrase-en">although...but...</span></div>
+        <div class="phrase-item chinese">不过<span class="phrase-en">however (casual)</span></div>
+        <div class="phrase-item chinese">尽管…还是…<span class="phrase-en">despite...still...</span></div>
+        <div class="phrase-item chinese">当然…不过…<span class="phrase-en">of course...but...</span></div>
+      </div>
+    </div>
+
+    <div class="toolkit-group">
+      <div class="toolkit-group-title">Addition & Progression / 递进并列</div>
+      <div class="phrase-grid">
+        <div class="phrase-item chinese">不但…而且…<span class="phrase-en">not only...but also...</span></div>
+        <div class="phrase-item chinese">除了…以外<span class="phrase-en">besides / apart from</span></div>
+        <div class="phrase-item chinese">另外<span class="phrase-en">in addition</span></div>
+        <div class="phrase-item chinese">一方面…另一方面…<span class="phrase-en">on one hand...on the other...</span></div>
+      </div>
+    </div>
+
+    <div class="toolkit-group">
+      <div class="toolkit-group-title">Closing Sentences / 结尾句式</div>
+      <div class="phrase-grid">
+        <div class="phrase-item chinese">总的来说<span class="phrase-en">overall / in general</span></div>
+        <div class="phrase-item chinese">通过这件事我明白了…<span class="phrase-en">through this I understood...</span></div>
+        <div class="phrase-item chinese">我觉得…是很重要的<span class="phrase-en">I think...is important</span></div>
+        <div class="phrase-item chinese">希望以后…<span class="phrase-en">I hope in the future...</span></div>
+        <div class="phrase-item chinese">所以我认为…<span class="phrase-en">so I think...</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3: PRACTICE CHALLENGES -->
+  <!-- ============================================================ -->
+  <div class="section-title" style="margin-top:40px;">Writing Challenges / 写作练习</div>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:16px;">Write a short paragraph using the provided keywords. Use the self-evaluation checklist before revealing the sample answer.</p>
+
+  <!-- Challenge 1 -->
+  <div class="challenge-card">
+    <div class="challenge-num">1</div>
+    <div class="challenge-title chinese">介绍一次就餐经历</div>
+    <div class="challenge-desc">Write about a meal experience — where you went, what you ate, and how it was. Use the <strong>Narrating an Experience</strong> framework.</div>
+    <div class="challenge-keywords">
+      <span class="challenge-keyword chinese">餐厅</span>
+      <span class="challenge-keyword chinese">点菜</span>
+      <span class="challenge-keyword chinese">味道</span>
+      <span class="challenge-keyword chinese">特别</span>
+      <span class="challenge-keyword chinese">开心</span>
+    </div>
+    <textarea class="challenge-textarea chinese" placeholder="在这里写你的段落… Write your paragraph here…"></textarea>
+    <div class="self-check">
+      <div class="self-check-title">Self-Evaluation Checklist</div>
+      <label><input type="checkbox"> I have a clear opening (time + place + who)</label>
+      <label><input type="checkbox"> I used at least one sequence connector (先/然后/最后)</label>
+      <label><input type="checkbox"> I included all 5 keywords</label>
+      <label><input type="checkbox"> I ended with a feeling or reflection</label>
+      <label><input type="checkbox"> I checked my punctuation (Chinese commas ，and periods 。)</label>
+    </div>
+    <button class="sample-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Sample Paragraph</button>
+    <div class="sample-reveal">
+      <div class="sample-text" style="margin-top:8px;">
+        上个星期六，我和朋友一起去了学校旁边新开的一家<strong>餐厅</strong>。我们<strong>点</strong>了几个<strong>菜</strong>，有糖醋排骨和西红柿炒鸡蛋。<strong>味道</strong>非常好，<strong>特别</strong>是那个糖醋排骨，又甜又酸，我们都很喜欢。吃完饭以后，我们在餐厅聊了很久。那天我们都非常<strong>开心</strong>，打算下个周末再去。
+      </div>
+    </div>
+  </div>
+
+  <!-- Challenge 2 -->
+  <div class="challenge-card">
+    <div class="challenge-num">2</div>
+    <div class="challenge-title chinese">介绍你的好朋友</div>
+    <div class="challenge-desc">Describe your best friend — their personality, something they did, and why they're important to you. Use the <strong>Describing</strong> framework.</div>
+    <div class="challenge-keywords">
+      <span class="challenge-keyword chinese">认识</span>
+      <span class="challenge-keyword chinese">性格</span>
+      <span class="challenge-keyword chinese">帮助</span>
+      <span class="challenge-keyword chinese">有一次</span>
+      <span class="challenge-keyword chinese">觉得</span>
+    </div>
+    <textarea class="challenge-textarea chinese" placeholder="在这里写你的段落…"></textarea>
+    <div class="self-check">
+      <div class="self-check-title">Self-Evaluation Checklist</div>
+      <label><input type="checkbox"> I introduced who this person is</label>
+      <label><input type="checkbox"> I described 2+ personality traits</label>
+      <label><input type="checkbox"> I included a specific example or story</label>
+      <label><input type="checkbox"> I ended with my opinion or feeling</label>
+      <label><input type="checkbox"> I used all 5 keywords</label>
+    </div>
+    <button class="sample-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Sample Paragraph</button>
+    <div class="sample-reveal">
+      <div class="sample-text" style="margin-top:8px;">
+        我最好的朋友叫小红，我们是大学时<strong>认识</strong>的。她<strong>性格</strong>很开朗，喜欢笑，大家都喜欢跟她在一起。<strong>有一次</strong>考试前，我压力很大，她每天陪我复习，还<strong>帮助</strong>我整理笔记。因为她的帮助，我那次考得很好。我<strong>觉得</strong>能有这样的朋友是一件很幸运的事。
+      </div>
+    </div>
+  </div>
+
+  <!-- Challenge 3 -->
+  <div class="challenge-card">
+    <div class="challenge-num">3</div>
+    <div class="challenge-title chinese">你对网络购物的看法</div>
+    <div class="challenge-desc">Share your views on online shopping — advantages, disadvantages, and your conclusion. Use the <strong>Expressing an Opinion</strong> framework.</div>
+    <div class="challenge-keywords">
+      <span class="challenge-keyword chinese">方便</span>
+      <span class="challenge-keyword chinese">价格</span>
+      <span class="challenge-keyword chinese">缺点</span>
+      <span class="challenge-keyword chinese">认为</span>
+      <span class="challenge-keyword chinese">越来越</span>
+    </div>
+    <textarea class="challenge-textarea chinese" placeholder="在这里写你的段落…"></textarea>
+    <div class="self-check">
+      <div class="self-check-title">Self-Evaluation Checklist</div>
+      <label><input type="checkbox"> I introduced the topic clearly</label>
+      <label><input type="checkbox"> I stated my opinion (我认为/我觉得)</label>
+      <label><input type="checkbox"> I gave at least one reason (首先/因为)</label>
+      <label><input type="checkbox"> I mentioned both sides (当然…不过…)</label>
+      <label><input type="checkbox"> I concluded with a summary (总的来说)</label>
+    </div>
+    <button class="sample-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Sample Paragraph</button>
+    <div class="sample-reveal">
+      <div class="sample-text" style="margin-top:8px;">
+        现在<strong>越来越</strong>多的人喜欢网上购物。我<strong>认为</strong>网购有很多好处。首先，网购非常<strong>方便</strong>，在家就可以买到各种东西。其次，网上的<strong>价格</strong>经常比商店便宜。当然，网购也有<strong>缺点</strong>，比如看不到实物，有时候质量不太好。总的来说，我觉得网购利大于弊，但要选择可靠的商家。
+      </div>
+    </div>
+  </div>
+
+  <!-- Challenge 4 -->
+  <div class="challenge-card">
+    <div class="challenge-num">4</div>
+    <div class="challenge-title chinese">给老师写一封请假邮件</div>
+    <div class="challenge-desc">Write an email to your teacher requesting 2 days off due to illness. Use the <strong>Practical Writing</strong> framework.</div>
+    <div class="challenge-keywords">
+      <span class="challenge-keyword chinese">老师</span>
+      <span class="challenge-keyword chinese">生病</span>
+      <span class="challenge-keyword chinese">请假</span>
+      <span class="challenge-keyword chinese">休息</span>
+      <span class="challenge-keyword chinese">抱歉</span>
+    </div>
+    <textarea class="challenge-textarea chinese" placeholder="在这里写你的邮件…"></textarea>
+    <div class="self-check">
+      <div class="self-check-title">Self-Evaluation Checklist</div>
+      <label><input type="checkbox"> I started with a proper greeting (老师，您好！)</label>
+      <label><input type="checkbox"> I stated my purpose clearly (请假)</label>
+      <label><input type="checkbox"> I explained the reason (生病)</label>
+      <label><input type="checkbox"> I mentioned how I'll catch up (补课/借笔记)</label>
+      <label><input type="checkbox"> I ended politely (谢谢/抱歉) with signature</label>
+    </div>
+    <button class="sample-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Sample Paragraph</button>
+    <div class="sample-reveal">
+      <div class="sample-text" style="margin-top:8px;">
+        张<strong>老师</strong>，您好！<br><br>我是您班上的学生王力。我写这封邮件是想<strong>请假</strong>两天。因为我昨天开始<strong>生病</strong>了，发烧38度多，医生让我在家<strong>休息</strong>两天。所以这周三和周四的课我不能来了。落下的功课我会找同学借笔记，尽快补上。给老师添麻烦了，非常<strong>抱歉</strong>。谢谢老师！<br><br>学生：王力
+      </div>
+    </div>
+  </div>
+
+  <!-- Challenge 5 -->
+  <div class="challenge-card">
+    <div class="challenge-num">5</div>
+    <div class="challenge-title chinese">分享一次旅行经历</div>
+    <div class="challenge-desc">Write about a trip — where you went, what you saw, and what impressed you most. Use the <strong>Narrating an Experience</strong> framework.</div>
+    <div class="challenge-keywords">
+      <span class="challenge-keyword chinese">旅游</span>
+      <span class="challenge-keyword chinese">风景</span>
+      <span class="challenge-keyword chinese">拍照</span>
+      <span class="challenge-keyword chinese">印象</span>
+      <span class="challenge-keyword chinese">值得</span>
+    </div>
+    <textarea class="challenge-textarea chinese" placeholder="在这里写你的段落…"></textarea>
+    <div class="self-check">
+      <div class="self-check-title">Self-Evaluation Checklist</div>
+      <label><input type="checkbox"> I set the scene (when, where, with whom)</label>
+      <label><input type="checkbox"> I described what I saw or did</label>
+      <label><input type="checkbox"> I mentioned a specific impressive moment</label>
+      <label><input type="checkbox"> I ended with my overall feeling</label>
+      <label><input type="checkbox"> I used all 5 keywords</label>
+    </div>
+    <button class="sample-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Sample Paragraph</button>
+    <div class="sample-reveal">
+      <div class="sample-text" style="margin-top:8px;">
+        去年暑假，我去云南<strong>旅游</strong>了一个星期。那里的<strong>风景</strong>非常漂亮，到处是青山绿水。我们每天都<strong>拍</strong>了很多<strong>照</strong>片。让我<strong>印象</strong>最深的是洱海，湖水特别清，蓝蓝的，像一面镜子。那次旅行让我很放松，我觉得云南是一个非常<strong>值得</strong>去的地方，以后有机会还想再去一次。
+      </div>
+    </div>
+  </div>
+
+  <!-- Challenge 6 -->
+  <div class="challenge-card">
+    <div class="challenge-num">6</div>
+    <div class="challenge-title chinese">介绍你家乡的一个节日</div>
+    <div class="challenge-desc">Introduce a traditional festival from your hometown or country. Use the <strong>Describing</strong> framework.</div>
+    <div class="challenge-keywords">
+      <span class="challenge-keyword chinese">传统</span>
+      <span class="challenge-keyword chinese">庆祝</span>
+      <span class="challenge-keyword chinese">活动</span>
+      <span class="challenge-keyword chinese">意义</span>
+      <span class="challenge-keyword chinese">开心</span>
+    </div>
+    <textarea class="challenge-textarea chinese" placeholder="在这里写你的段落…"></textarea>
+    <div class="self-check">
+      <div class="self-check-title">Self-Evaluation Checklist</div>
+      <label><input type="checkbox"> I named the festival and when it is</label>
+      <label><input type="checkbox"> I described 2+ activities or customs</label>
+      <label><input type="checkbox"> I explained why it's important</label>
+      <label><input type="checkbox"> I shared a personal connection or feeling</label>
+      <label><input type="checkbox"> I used all 5 keywords</label>
+    </div>
+    <button class="sample-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Sample Paragraph</button>
+    <div class="sample-reveal">
+      <div class="sample-text" style="margin-top:8px;">
+        春节是中国最重要的<strong>传统</strong>节日，通常在一月或二月。过年的时候，人们用很多方式<strong>庆祝</strong>。最重要的<strong>活动</strong>是除夕晚上全家一起吃年夜饭，然后看春节联欢晚会。大人还会给小孩子红包。春节的<strong>意义</strong>是团圆，不管在哪里工作，大家都会回家过年。每年春节我都很<strong>开心</strong>，因为可以见到很久没见的亲人。
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner" style="margin-top:40px;">
+    <h3 class="chinese">用模拟考试检验写作水平</h3>
+    <p>Ready to test your writing in a full exam setting? Try our HSK 4 mock exams.</p>
+    <a href="/" class="btn btn-primary">Start a Mock Exam</a>
+    <a href="/writing/sentence-order/" class="btn btn-secondary" style="margin-left:8px;">Practice Sentence Ordering</a>
+  </div>
+
+  <!-- Attribution -->
+  <section style="margin-top:32px;">
+    <p style="color:var(--stone);line-height:1.8;font-size:14px;">
+      All writing samples use HSK 4 level vocabulary and grammar. Topics are aligned with the 30 task descriptions (任务大纲) in the HSK 3.0 syllabus. For topic-specific vocabulary, visit our <a href="/topics/" style="color:var(--accent);">Topic Vocabulary</a> page. For grammar patterns used in writing, see our <a href="/grammar/" style="color:var(--accent);">Grammar Guide</a>. Created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> — Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/topics/">Topics</a> · <a href="/writing/">Writing</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
+</footer>
+
+</body>
+</html>
