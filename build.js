@@ -574,7 +574,7 @@ ${testLinks}
 // 4. UPDATE SITEMAP with test pages
 // ============================================================
 
-function buildSitemap() {
+function buildSitemap(taskSlugs) {
   console.log('[sitemap] Updating sitemap.xml...');
   const index = readJSON('index.json');
   const today = new Date().toISOString().split('T')[0];
@@ -607,7 +607,13 @@ function buildSitemap() {
     priority: '0.8',
   }));
 
-  const allPages = [...existingPages, ...testPages];
+  // Add task topic pages
+  const taskPages = (taskSlugs || []).map(slug => ({
+    loc: `/topics/${slug}/`,
+    priority: '0.7',
+  }));
+
+  const allPages = [...existingPages, ...testPages, ...taskPages];
 
   const urls = allPages.map(p => `  <url>
     <loc>https://hsk4.mandarinzone.com${p.loc}</loc>
@@ -981,6 +987,395 @@ function buildWritingGuide() {
 }
 
 // ============================================================
+// 10. GENERATE 25 TASK TOPIC PAGES
+// ============================================================
+
+function buildTaskTopicPages() {
+  console.log('[task-topics] Generating 25 task topic pages...');
+  const topics = readJSON('topics.json');
+  const vocab = readJSON('vocabulary.json');
+  const wordMap = {};
+  vocab.forEach(w => { wordMap[w.id] = w; });
+
+  // 25 official tasks mapped to topic IDs, descriptions, grammar links
+  const tasks = [
+    {
+      slug: 'describe-a-person', task_cn: '\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269', task_en: 'Describe a Person',
+      topic_ids: ['personal', 'social'],
+      desc: 'Discuss someone\u2019s background, appearance, personality, and influence. The syllabus requires handling \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain complexity) \u2014 not just \u201che is tall\u201d but describing someone\u2019s career background, character traits, and impact.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u4ED6\u4EBA\u5173\u4E8E\u67D0\u4E2A\u719F\u4EBA\u6216\u516C\u4F17\u4EBA\u7269\u4E2A\u4EBA\u4FE1\u606F\u3001\u4E2A\u4EBA\u7279\u5F81\u65B9\u9762\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u5C65\u5386\u3001\u5BB6\u5EAD\u80CC\u666F\u3001\u804C\u4E1A\u80CC\u666F\u3001\u5916\u8C8C\u3001\u88C5\u626E\u3001\u6027\u683C\u3001\u5F71\u54CD\u529B\u7B49\u3002',
+      grammar: ['/grammar/ba-sentence/', '/grammar/complement/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'daily-affairs', task_cn: '\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1', task_en: 'Handle Daily Affairs',
+      topic_ids: ['daily-affairs'],
+      desc: 'Handle practical situations: mailing packages, processing documents, requesting help from police or translators. This task tests your ability to explain your situation and ask for assistance in real-world scenarios.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u65E5\u5E38\u751F\u6D3B\u4E2D\u6709\u5173\u4E1A\u52A1\u5904\u7406\u3001\u56F0\u96BE\u6C42\u52A9\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BDD\u8BED\u3002\u5982\u529E\u7406\u5FEB\u9012\u6536\u53D1\u3001\u8BC1\u4EF6\u529E\u7406\u3001\u7533\u8BF7\u4F1A\u5458\u3001\u6CD5\u5F8B\u54A8\u8BE2\u3001\u8B66\u52A1\u6C42\u52A9\u7B49\u3002',
+      grammar: ['/grammar/ba-sentence/', '/grammar/passive/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'social-expressions', task_cn: '\u65E5\u5E38\u8A00\u8BED\u4EA4\u5F80', task_en: 'Daily Social Expressions',
+      topic_ids: ['social', 'etiquette'],
+      desc: 'Express politeness, praise, congratulations, encouragement, and apologies with appropriate complexity. At HSK 4, simple \u201c\u8C22\u8C22\u201d is not enough \u2014 you need expressions like \u201c\u8BA9\u60A8\u8D39\u5FC3\u4E86\u201d or \u201c\u592A\u611F\u8C22\u60A8\u7684\u5E2E\u52A9\u4E86\u201d.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u65E5\u5E38\u4EA4\u5F80\u4E2D\u5BF9\u65B9\u8868\u8FBE\u5BA2\u6C14\u3001\u8D5E\u7F8E\u3001\u795D\u8D3A\u3001\u9F13\u52B1\u3001\u6B49\u610F\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8A00\u8BED\u3002',
+      grammar: ['/grammar/complement/', '/grammar/rhetorical/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'emotions', task_cn: '\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898', task_en: 'Discuss Emotions',
+      topic_ids: ['social', 'family'],
+      desc: 'Discuss love, friendship, family bonds, and ideals. HSK 4 requires not just naming emotions but sharing experiences and opinions about them \u2014 \u201cWhat does friendship mean to you?\u201d rather than \u201cI am happy.\u201d',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u60C5\u611F\u53CA\u611F\u609F\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u7231\u60C5\u3001\u53CB\u60C5\u3001\u4EB2\u60C5\u3001\u7406\u60F3\u7B49\u3002',
+      grammar: ['/grammar/complex-sentences/', '/grammar/adverbs/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'food-dining', task_cn: '\u4ECB\u7ECD\u996E\u98DF\u60C5\u51B5', task_en: 'Food & Dining',
+      topic_ids: ['food', 'food-culture'],
+      desc: 'Describe food flavors, restaurant experiences, and cooking processes. Goes beyond ordering food (HSK 3) to discussing taste, food culture, and sharing dining experiences.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u98DF\u7269\u996E\u54C1\u3001\u5C31\u9910\u60C5\u51B5\u3001\u83DC\u54C1\u5236\u4F5C\u60C5\u51B5\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u6216\u4ECB\u7ECD\u3002\u5982\u996E\u98DF\u5473\u9053\u3001\u79CD\u7C7B\u3001\u7279\u70B9\u3001\u9910\u5385\u73AF\u5883\u3001\u670D\u52A1\u3001\u5236\u4F5C\u8FC7\u7A0B\u7B49\u3002',
+      grammar: ['/grammar/complement/', '/grammar/ba-sentence/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'transportation', task_cn: '\u8C08\u8BBA\u4EA4\u901A\u51FA\u884C', task_en: 'Transportation & Travel',
+      topic_ids: ['transport'],
+      desc: 'Discuss travel experiences, transportation choices, trip planning, and hotel booking. Includes sharing feelings about journeys and understanding driving/traffic situations.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4EA4\u901A\u51FA\u884C\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u51FA\u884C\u7ECF\u5386\u611F\u53D7\u3001\u4EA4\u901A\u5BA2\u8FD0\u60C5\u51B5\u3001\u884C\u7A0B\u8BA1\u5212\u3001\u9152\u5E97\u9884\u8BA2\u7B49\u3002',
+      grammar: ['/grammar/comparison/', '/grammar/complement/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'shopping', task_cn: '\u4EA4\u6D41\u8D2D\u7269\u4F53\u9A8C', task_en: 'Shopping Experiences',
+      topic_ids: ['shopping'],
+      desc: 'Discuss product selection, online shopping, brand choices, spending, payment methods, and sales promotions. HSK 4 goes beyond price negotiation to evaluating shopping experiences.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5546\u54C1\u9009\u8D2D\u3001\u8D2D\u7269\u4F53\u9A8C\u3001\u5546\u4E1A\u6D3B\u52A8\u7B49\u65B9\u9762\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u7F51\u8D2D\u4E0E\u54C1\u724C\u9009\u62E9\u3001\u652F\u4ED8\u65B9\u5F0F\u3001\u6253\u6298\u4FC3\u9500\u7B49\u3002',
+      grammar: ['/grammar/comparison/', '/grammar/adverbs/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'health-medical', task_cn: '\u8C08\u8BBA\u5C31\u533B\u3001\u5065\u5EB7\u751F\u6D3B', task_en: 'Health & Medical',
+      topic_ids: ['health'],
+      desc: 'Discuss symptoms, medical visits, health conditions, and healthy lifestyle concepts. At HSK 4 you need to describe illness experiences in detail and discuss health opinions.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C31\u533B\u60C5\u51B5\u3001\u5065\u5EB7\u751F\u6D3B\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u751F\u75C5\u75C7\u72B6\u3001\u53D7\u4F24\u60C5\u51B5\u3001\u5065\u5EB7\u89C2\u5FF5\u548C\u5E38\u8BC6\u7B49\u3002',
+      grammar: ['/grammar/ba-sentence/', '/grammar/complement/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'hobbies-leisure', task_cn: '\u4EA4\u6D41\u4E1A\u4F59\u7231\u597D\u3001\u4F11\u95F2\u5EA6\u5047', task_en: 'Hobbies & Leisure',
+      topic_ids: ['leisure'],
+      desc: 'Discuss leisure activities, reading, internet activities, sports, fitness, travel, and parties. Share feelings and opinions about these activities.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4F11\u95F2\u6D3B\u52A8\u60C5\u51B5\u53CA\u611F\u53D7\u3001\u770B\u6CD5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u9605\u8BFB\u3001\u7F51\u7EDC\u6D3B\u52A8\u3001\u8FD0\u52A8\u3001\u5065\u8EAB\u3001\u65C5\u884C\u3001\u805A\u4F1A\u7B49\u3002',
+      grammar: ['/grammar/adverbs/', '/grammar/complex-sentences/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'housing-community', task_cn: '\u4EA4\u6D41\u5C45\u4F4F\u3001\u793E\u533A\u60C5\u51B5', task_en: 'Housing & Community',
+      topic_ids: ['community'],
+      desc: 'Discuss living conditions, neighborhood relationships, community services, and house renting/buying. Includes understanding rental listings and community notices.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C45\u4F4F\u60C5\u51B5\u3001\u793E\u533A\u751F\u6D3B\u3001\u623F\u5C4B\u79DF\u8D41\u4E0E\u4E70\u5356\u7B49\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5C0F\u533A\u73AF\u5883\u3001\u90BB\u91CC\u76F8\u5904\u3001\u79DF\u623F\u6761\u4EF6\u7B49\u3002',
+      grammar: ['/grammar/comparison/', '/grammar/passive/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'family-life', task_cn: '\u4EA4\u6D41\u5BB6\u5EAD\u751F\u6D3B', task_en: 'Family Life',
+      topic_ids: ['family'],
+      desc: 'Discuss home life, family relationships, growing up, habits, and household affairs. Includes topics like parent-child relationships and hometown memories.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C45\u5BB6\u751F\u6D3B\u3001\u5BB6\u5EAD\u5173\u7CFB\u3001\u6210\u957F\u8FC7\u7A0B\u3001\u751F\u6D3B\u4E60\u60EF\u3001\u5BB6\u5EAD\u4E8B\u52A1\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002',
+      grammar: ['/grammar/complex-sentences/', '/grammar/pivotal-sentences/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'education-learning', task_cn: '\u8C08\u8BBA\u6559\u5B66\u3001\u5B66\u4E60', task_en: 'Education & Learning',
+      topic_ids: ['study'],
+      desc: 'Discuss courses, teaching activities, study experiences, exams, study plans, degrees, scholarships, and learning methods.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u8BFE\u7A0B\u60C5\u51B5\u3001\u6559\u5B66\u60C5\u51B5\u3001\u5B66\u4E60\u7ECF\u5386\u4E0E\u5FC3\u5F97\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u8BFE\u7A0B\u3001\u4E13\u4E1A\u3001\u8003\u8BD5\u3001\u5B66\u4E1A\u89C4\u5212\u3001\u5B66\u4F4D\u5B66\u5386\u3001\u5956\u5B66\u91D1\u3001\u5B66\u4E60\u65B9\u6CD5\u7B49\u3002',
+      grammar: ['/grammar/adverbs/', '/grammar/complement/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'campus-life', task_cn: '\u4EA4\u6D41\u6821\u56ED\u751F\u6D3B', task_en: 'Campus Life',
+      topic_ids: ['campus', 'study'],
+      desc: 'Discuss campus activities, school facilities satisfaction, graduation events, campus environment, tuition, and majors.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u6821\u56ED\u6D3B\u52A8\u3001\u5B66\u6821\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u98DF\u5802\u3001\u56FE\u4E66\u9986\u3001\u6BD5\u4E1A\u665A\u4F1A\u3001\u6821\u56ED\u73AF\u5883\u3001\u8D39\u7528\u3001\u4E13\u4E1A\u7B49\u3002',
+      grammar: ['/grammar/comparison/', '/grammar/adverbs/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'education-issues', task_cn: '\u8C08\u8BBA\u6559\u80B2\u73B0\u8C61', task_en: 'Education Phenomena',
+      topic_ids: ['edu-issues'],
+      desc: 'Discuss family education, social education concepts, college entrance exam choices, vocational education, and trending education topics.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5BB6\u5EAD\u6559\u80B2\u3001\u793E\u4F1A\u6559\u80B2\u7B49\u6559\u80B2\u95EE\u9898\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u6559\u80B2\u76EE\u6807\u3001\u6559\u80B2\u65B9\u5F0F\u3001\u5347\u5B66\u62A5\u8003\u3001\u804C\u4E1A\u6559\u80B2\u7B49\u3002',
+      grammar: ['/grammar/complex-sentences/', '/grammar/rhetorical/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'work-performance', task_cn: '\u8C08\u8BBA\u5DE5\u4F5C\u60C5\u51B5\u4E0E\u8868\u73B0', task_en: 'Work & Performance',
+      topic_ids: ['office', 'workplace-social'],
+      desc: 'Discuss office tasks, work performance, workplace relationships, and team activities in a professional setting.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u529E\u516C\u4E8B\u52A1\u3001\u5DE5\u4F5C\u8868\u73B0\u3001\u804C\u573A\u4EA4\u5F80\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5DE5\u4F5C\u5B89\u6392\u3001\u5DE5\u4F5C\u6001\u5EA6\u80FD\u529B\u3001\u540C\u4E8B\u76F8\u5904\u3001\u56E2\u5EFA\u6D3B\u52A8\u7B49\u3002',
+      grammar: ['/grammar/pivotal-sentences/', '/grammar/passive/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'career-experience', task_cn: '\u4ECB\u7ECD\u804C\u4E1A\u7ECF\u5386\u4E0E\u5355\u4F4D\u60C5\u51B5', task_en: 'Career & Company',
+      topic_ids: ['career', 'company'],
+      desc: 'Discuss job seeking, work experiences, career changes, recruitment, interviews, work environment, and salary/benefits.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u804C\u4E1A\u4E0E\u5DE5\u4F5C\u7ECF\u5386\u3001\u5355\u4F4D\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u6C42\u804C\u3001\u6253\u5DE5\u3001\u804C\u4F4D\u53D8\u52A8\u3001\u62DB\u8058\u5E94\u8058\u3001\u8003\u6838\u9762\u8BD5\u3001\u5DE5\u4F5C\u73AF\u5883\u4E0E\u5F85\u9047\u7B49\u3002',
+      grammar: ['/grammar/passive/', '/grammar/pivotal-sentences/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'nature', task_cn: '\u8C08\u8BBA\u81EA\u7136\u60C5\u51B5', task_en: 'Nature & Geography',
+      topic_ids: ['nature'],
+      desc: 'Discuss geography, climate, animals, plants, natural landscapes, and weather phenomena. Includes topics like oceans, forests, stars, and seasons.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u81EA\u7136\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5730\u7403\u3001\u6D77\u6D0B\u3001\u68EE\u6797\u3001\u6C14\u5019\u3001\u52A8\u690D\u7269\u3001\u81EA\u7136\u666F\u89C2\u3001\u5929\u6C14\u73B0\u8C61\u7B49\u3002',
+      grammar: ['/grammar/complement/', '/grammar/comparison/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'environment', task_cn: '\u8C08\u8BBA\u751F\u6D3B\u4E2D\u7684\u73AF\u4FDD\u60C5\u51B5', task_en: 'Environmental Protection',
+      topic_ids: ['environment', 'nature'],
+      desc: 'Discuss environmental conditions, pollution, conservation practices, environmental laws, and green living.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u73AF\u5883\u72B6\u51B5\u3001\u73AF\u4FDD\u60C5\u51B5\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u73AF\u5883\u7684\u4E00\u822C\u60C5\u51B5\u3001\u6C61\u67D3\u60C5\u51B5\u3001\u73AF\u4FDD\u505A\u6CD5\u3001\u89C2\u5FF5\u3001\u76F8\u5173\u6CD5\u89C4\u7B49\u3002',
+      grammar: ['/grammar/complex-sentences/', '/grammar/passive/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'technology', task_cn: '\u4ECB\u7ECD\u65B0\u6280\u672F\u5E94\u7528\u53CA\u79D1\u6280\u6210\u679C', task_en: 'Technology',
+      topic_ids: ['tech', 'science'],
+      desc: 'Discuss new technology applications like mobile payment and drones, practical science knowledge, and simple research findings.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u65B0\u6280\u672F\u8FD0\u7528\u3001\u79D1\u666E\u77E5\u8BC6\u3001\u79D1\u6280\u6210\u679C\u7B49\u76F8\u5173\u60C5\u51B5\u7684\u4E00\u822C\u6027\u8BE2\u95EE\u3002\u5982\u626B\u7801\u652F\u4ED8\u3001\u65E0\u4EBA\u673A\u7B49\u65B0\u6280\u672F\u3001\u5B9E\u7528\u79D1\u666E\u77E5\u8BC6\u3001\u7B80\u5355\u7684\u7814\u7A76\u53D1\u73B0\u7B49\u3002',
+      grammar: ['/grammar/passive/', '/grammar/complement/'],
+      skills: ['listening', 'speaking', 'reading'],
+    },
+    {
+      slug: 'china-provinces', task_cn: '\u4ECB\u7ECD\u4E2D\u56FD\u7684\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF', task_en: 'Chinese Provinces & Ethnicities',
+      topic_ids: ['overview'],
+      desc: 'Introduce major Chinese cities like Beijing and Yunnan, and discuss characteristics and distribution of ethnic minorities.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4E2D\u56FD\u67D0\u4E2A\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF\u7684\u4E00\u822C\u6027\u8BE2\u95EE\u6216\u4ECB\u7ECD\u3002\u5982\u4E2D\u56FD\u9996\u90FD\u3001\u5404\u7701\u4E3B\u8981\u57CE\u5E02\u3001\u5C11\u6570\u6C11\u65CF\u7279\u70B9\u3001\u5206\u5E03\u7B49\u3002',
+      grammar: ['/grammar/adverbs/', '/grammar/fixed-patterns/'],
+      skills: ['listening', 'speaking', 'reading'],
+    },
+    {
+      slug: 'economy', task_cn: '\u8C08\u8BBA\u7ECF\u6D4E\u73B0\u8C61', task_en: 'Economic Phenomena',
+      topic_ids: ['economy'],
+      desc: 'Discuss trending products, new business models (online stores, short videos, delivery economy), and economic conditions.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u6D41\u884C\u4EA7\u54C1\u3001\u65B0\u5546\u4E1A\u5F62\u6001\u3001\u7ECF\u6D4E\u72B6\u51B5\u7B49\u7ECF\u6D4E\u73B0\u8C61\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u7F51\u5E97\u3001\u77ED\u89C6\u9891\u3001\u4E0A\u95E8\u7ECF\u6D4E\u7B49\u3002',
+      grammar: ['/grammar/complex-sentences/', '/grammar/adverbs/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'social-phenomena', task_cn: '\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61', task_en: 'Social Phenomena',
+      topic_ids: ['social-phenomena'],
+      desc: 'Discuss life attitudes (marriage, consumption), internet life and its impact, and trending social phenomena.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u751F\u6D3B\u89C2\u5FF5\u3001\u7F51\u7EDC\u751F\u6D3B\u3001\u6D41\u884C\u4E8B\u7269\u7B49\u793E\u4F1A\u73B0\u8C61\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5A5A\u604B\u89C2\u3001\u6D88\u8D39\u89C2\u3001\u7F51\u7EDC\u751F\u6D3B\u7684\u65B9\u5F0F\u548C\u5F71\u54CD\u7B49\u3002',
+      grammar: ['/grammar/complex-sentences/', '/grammar/rhetorical/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'arts-entertainment', task_cn: '\u4ECB\u7ECD\u6587\u827A\u5F62\u5F0F\u3001\u6D3B\u52A8\u3001\u4F5C\u54C1', task_en: 'Arts & Entertainment',
+      topic_ids: ['arts'],
+      desc: 'Discuss novels, movies, theater, performances, competitions, and introduce artists and their works.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u67D0\u79CD\u6587\u827A\u5F62\u5F0F\u3001\u6587\u827A\u6D3B\u52A8\u3001\u6587\u827A\u4F5C\u54C1\u521B\u4F5C\u8005\u53CA\u5176\u4F5C\u54C1\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u67D0\u90E8\u5C0F\u8BF4\u3001\u7535\u5F71\u3001\u8BDD\u5267\u7684\u5927\u81F4\u5185\u5BB9\u3001\u67D0\u573A\u6587\u827A\u8868\u6F14\u3001\u67D0\u4F4D\u6B4C\u624B\u3001\u4F5C\u5BB6\u7B49\u3002',
+      grammar: ['/grammar/complement/', '/grammar/fixed-patterns/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'sports', task_cn: '\u8C08\u8BBA\u4F53\u80B2\u9879\u76EE\u53CA\u6BD4\u8D5B', task_en: 'Sports',
+      topic_ids: ['sports'],
+      desc: 'Discuss sports like table tennis, volleyball, and badminton; competition results, player performances, and sports stories.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4E52\u4E53\u7403\u3001\u6392\u7403\u7B49\u9879\u76EE\u60C5\u51B5\u3001\u6BD4\u8D5B\u60C5\u51B5\u3001\u4F53\u80B2\u540D\u4EBA\u53CA\u6545\u4E8B\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002',
+      grammar: ['/grammar/comparison/', '/grammar/complement/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'international-friendship', task_cn: '\u8BB2\u8FF0\u4E2D\u5916\u53CB\u597D\u6545\u4E8B', task_en: 'China-World Friendship',
+      topic_ids: ['exchange'],
+      desc: 'Tell stories of international friendship: sister cities, cross-border friendships, study abroad experiences, and Chinese language competitions.',
+      syllabus_cn: '\u80FD\u542C\u61C2\u5BF9\u65B9\u8BB2\u8FF0\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u4E2D\u5916\u53CB\u597D\u5F80\u6765\u7684\u6545\u4E8B\u53CA\u5176\u4EA7\u751F\u7684\u5F71\u54CD\u3002\u5982\u53CB\u597D\u57CE\u5E02\u3001\u53CB\u597D\u5B66\u6821\u3001\u8DE8\u56FD\u53CB\u8C0A\u3001\u7559\u5B66\u7ECF\u5386\u3001\u4E2D\u6587\u6BD4\u8D5B\u7ECF\u5386\u7B49\u3002',
+      grammar: ['/grammar/complex-sentences/', '/grammar/fixed-patterns/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+  ];
+
+  tasks.forEach(task => {
+    const dir = path.join(ROOT, 'topics', task.slug);
+    ensureDir(dir);
+
+    // Gather words for this task
+    const wordIds = new Set();
+    task.topic_ids.forEach(tid => {
+      (topics.topic_words[tid] || []).forEach(id => wordIds.add(id));
+    });
+    const words = [...wordIds].map(id => wordMap[id]).filter(Boolean);
+
+    // Build word list HTML
+    const wordListHtml = words.map(w =>
+      `<tr>
+        <td class="chinese" style="font-size:18px;font-weight:600;">${escHtml(w.word)}</td>
+        <td style="color:var(--accent);">${escHtml(w.pinyin)}</td>
+        <td>${escHtml(w.meaning)}</td>
+        <td class="chinese" style="font-size:13px;color:var(--stone);">${escHtml(w.example_cn || '')}</td>
+      </tr>`
+    ).join('\n      ');
+
+    // Grammar links
+    const grammarLinksHtml = task.grammar.map(g => {
+      const name = g.replace('/grammar/', '').replace('/', '');
+      return `<a href="${g}" class="btn btn-ghost" style="font-size:13px;">${name}</a>`;
+    }).join(' ');
+
+    const pageTitle = `HSK 4 ${task.task_en} Vocabulary \u2014 ${task.task_cn} | HSK4 \u8BDD\u9898\u8BCD\u6C47`;
+    const pageDesc = `${words.length} essential HSK 4 words for the "${task.task_en}" (${task.task_cn}) task. Vocabulary list with pinyin, meanings, and example sentences aligned with the 2025 official syllabus.`;
+
+    const pageHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escHtml(pageTitle)}</title>
+<meta name="description" content="${escHtml(pageDesc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
+
+<meta property="og:title" content="HSK 4 ${escHtml(task.task_en)} Vocabulary \u2014 ${escHtml(task.task_cn)}">
+<meta property="og:description" content="${escHtml(pageDesc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/topics/${task.slug}/">
+<meta property="og:site_name" content="Mandarin Zone">
+
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "HSK 4 ${escHtml(task.task_en)} Vocabulary (${escHtml(task.task_cn)})",
+  "description": "${escHtml(pageDesc)}",
+  "url": "https://hsk4.mandarinzone.com/topics/${task.slug}/",
+  "author": { "@type": "Organization", "name": "Mandarin Zone", "url": "https://mandarinzone.com" },
+  "inLanguage": ["en", "zh-CN"],
+  "educationalLevel": "Intermediate"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .task-badge { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
+  .syllabus-box { background:var(--paper); border:1px solid var(--mist); border-radius:var(--radius); padding:20px 24px; margin:20px 0; }
+  .syllabus-box h3 { font-size:14px; color:var(--stone); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+  .syllabus-box p { font-family:'Noto Sans SC',sans-serif; font-size:15px; line-height:1.8; color:var(--ink); }
+  .word-table { width:100%; border-collapse:collapse; margin:20px 0; font-size:14px; }
+  .word-table th { padding:10px 12px; text-align:left; border-bottom:2px solid var(--mist); font-size:13px; text-transform:uppercase; letter-spacing:0.5px; color:var(--stone); }
+  .word-table td { padding:8px 12px; border-bottom:1px solid var(--mist); vertical-align:top; }
+  .word-table tr:hover td { background:white; }
+  .skills-row { display:flex; gap:8px; margin:16px 0; flex-wrap:wrap; }
+  .skill-tag { padding:6px 14px; border-radius:6px; font-size:13px; font-weight:600; }
+  .skill-tag.listening { background:var(--gold-soft); color:var(--gold); }
+  .skill-tag.reading { background:var(--jade-soft); color:var(--jade); }
+  .skill-tag.writing { background:var(--accent-soft); color:var(--accent); }
+  .skill-tag.speaking { background:#e8e4ff; color:#5b4fc4; }
+  .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+  .breadcrumb a:hover { text-decoration:underline; }
+  .task-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
+  @media (max-width:600px) { .word-table { font-size:13px; } .word-table th,.word-table td { padding:6px 8px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/topics/">Topics</a> &rsaquo; ${escHtml(task.task_en)}
+  </nav>
+
+  <div class="hero">
+    <div class="task-badge">Official Syllabus Task</div>
+    <h1 class="chinese">${escHtml(task.task_cn)} \u2014 <span class="accent">${escHtml(task.task_en)}</span></h1>
+    <p>${escHtml(task.desc)}</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">${words.length}</div><div class="stat-label">Words</div></div>
+      <div class="stat"><div class="stat-num">${task.skills.length}</div><div class="stat-label">Skills Tested</div></div>
+    </div>
+  </div>
+
+  <div class="skills-row">
+    ${task.skills.map(s => `<span class="skill-tag ${s}">${s.charAt(0).toUpperCase() + s.slice(1)}</span>`).join('\n    ')}
+  </div>
+
+  <div class="syllabus-box">
+    <h3>Official Syllabus Requirement / \u5927\u7EB2\u8981\u6C42</h3>
+    <p>${escHtml(task.syllabus_cn)}</p>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Related Grammar Patterns / \u76F8\u5173\u8BED\u6CD5</h2>
+  <p style="color:var(--stone);margin-bottom:12px;">These grammar points are commonly tested in ${escHtml(task.task_en).toLowerCase()} contexts:</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;">
+    ${grammarLinksHtml}
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Core Vocabulary / \u6838\u5FC3\u8BCD\u6C47 (${words.length} words)</h2>
+  <table class="word-table">
+    <thead>
+      <tr><th>Word</th><th>Pinyin</th><th>Meaning</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      ${wordListHtml}
+    </tbody>
+  </table>
+
+  <div style="text-align:center;margin:32px 0;">
+    <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
+    <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
+  </div>
+
+  <div class="task-nav">
+    ${tasks.indexOf(task) > 0 ? `<a href="/topics/${tasks[tasks.indexOf(task)-1].slug}/" class="btn btn-ghost">&larr; ${escHtml(tasks[tasks.indexOf(task)-1].task_en)}</a>` : '<span></span>'}
+    <a href="/topics/" class="btn btn-secondary">All Topics</a>
+    ${tasks.indexOf(task) < tasks.length - 1 ? `<a href="/topics/${tasks[tasks.indexOf(task)+1].slug}/" class="btn btn-ghost">${escHtml(tasks[tasks.indexOf(task)+1].task_en)} &rarr;</a>` : '<span></span>'}
+  </div>
+</main>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/topics/">Topics</a> \u00B7 <a href="/writing/">Writing</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</footer>
+
+</body>
+</html>`;
+
+    fs.writeFileSync(path.join(dir, 'index.html'), pageHtml, 'utf8');
+  });
+
+  // Add to sitemap
+  console.log(`[task-topics] Generated ${tasks.length} task topic pages under /topics/`);
+  return tasks.map(t => t.slug);
+}
+
+// ============================================================
 // RUN ALL
 // ============================================================
 
@@ -993,5 +1388,6 @@ fixGuide();
 buildSentenceOrder();
 addGrammarCrossLinks();
 buildWritingGuide();
-buildSitemap();
+const taskSlugs = buildTaskTopicPages();
+buildSitemap(taskSlugs);
 console.log('\nDone! All static content pre-rendered.');
