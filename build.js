@@ -725,6 +725,12 @@ function buildTopics() {
   <div id="categories"></div>`
   );
 
+  // Fix meta description length
+  html = html.replace(
+    /(<meta name="description" content=")[^"]+"/,
+    '$1HSK 4 vocabulary by topic: daily life, education, work, nature, technology, society, culture. Study words by theme."'
+  );
+
   // Fix title: 77 topics is misleading, it's 32 sub-topics across 7 categories
   html = html.replace(
     /HSK 4 Topic Vocabulary — 1000 Words by 77 Topics \| HSK4 话题词汇/g,
@@ -1166,7 +1172,7 @@ function buildTaskTopicPages() {
       skills: ['listening', 'speaking', 'reading'],
     },
     {
-      slug: 'china-provinces', task_cn: '\u4ECB\u7ECD\u4E2D\u56FD\u7684\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF', task_en: 'Chinese Provinces & Ethnicities',
+      slug: 'china-provinces', task_cn: '\u4ECB\u7ECD\u4E2D\u56FD\u7701\u5E02\u6C11\u65CF', task_en: 'China Overview',
       topic_ids: ['overview'],
       desc: 'Introduce major Chinese cities like Beijing and Yunnan, and discuss characteristics and distribution of ethnic minorities.',
       syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4E2D\u56FD\u67D0\u4E2A\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF\u7684\u4E00\u822C\u6027\u8BE2\u95EE\u6216\u4ECB\u7ECD\u3002\u5982\u4E2D\u56FD\u9996\u90FD\u3001\u5404\u7701\u4E3B\u8981\u57CE\u5E02\u3001\u5C11\u6570\u6C11\u65CF\u7279\u70B9\u3001\u5206\u5E03\u7B49\u3002',
@@ -1242,7 +1248,14 @@ function buildTaskTopicPages() {
       return `<a href="${g}" class="btn btn-ghost" style="font-size:13px;">${name}</a>`;
     }).join(' ');
 
-    const pageTitle = `HSK 4 ${task.task_en} \u2014 ${task.task_cn} | Vocabulary`;
+    // Keep title under 65 chars
+    let pageTitle = `HSK 4 ${task.task_en} \u2014 ${task.task_cn} | Vocabulary`;
+    if (pageTitle.length > 65) {
+      pageTitle = `HSK 4 ${task.task_en} \u2014 ${task.task_cn}`;
+    }
+    if (pageTitle.length > 65) {
+      pageTitle = `HSK 4: ${task.task_en} | ${task.task_cn}`;
+    }
     const pageDesc = truncDesc(`${words.length} HSK 4 words for "${task.task_en}" (${task.task_cn}). Vocabulary with pinyin, meanings, examples from the official syllabus.`);
 
     const pageHtml = `<!DOCTYPE html>
