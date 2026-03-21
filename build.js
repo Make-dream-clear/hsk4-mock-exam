@@ -26,6 +26,12 @@ function readJSON(file) {
   return JSON.parse(fs.readFileSync(path.join(DATA, file), 'utf8'));
 }
 
+function truncDesc(s, max) {
+  max = max || 155;
+  if (s.length <= max) return s;
+  return s.substring(0, s.lastIndexOf(' ', max - 3)) + '...';
+}
+
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
@@ -191,10 +197,12 @@ function buildTestPages() {
       <strong>Note:</strong> This test covers listening and reading sections only. The writing section (sentence construction) cannot be auto-scored in our online format. For writing practice, see our <a href="/writing/sentence-order/" style="color:var(--gold);font-weight:600;">sentence ordering exercises</a> and <a href="/writing/paragraph/" style="color:var(--gold);font-weight:600;">paragraph writing practice</a>.
     </div>`;
 
-    const pageTitle = `${meta.title} \u2014 ${meta.questions} Questions with Answers | HSK4 \u6A21\u62DF\u8BD5\u5377 ${num}`;
-    const pageDesc = isComplete
-      ? `Free HSK 4 practice test #${num} with ${meta.questions} questions: ${listeningCount} listening, ${readingCount} reading, ${writingCount} writing. Take the interactive quiz or review all questions with answer keys.`
-      : `Free HSK 4 practice test #${num} with ${meta.questions} questions covering listening (${listeningCount}q) and reading (${readingCount}q). Auto-scored online quiz with answer keys.`;
+    // Keep title under 60 chars
+    const shortTitle = meta.title.length > 30 ? `HSK 4 Mock Test ${num}` : meta.title;
+    const pageTitle = `${shortTitle} \u2014 ${meta.questions} Questions | HSK4 \u6A21\u62DF\u8BD5\u5377 ${num}`;
+    const pageDesc = truncDesc(isComplete
+      ? `Free HSK 4 practice test #${num}: ${listeningCount} listening, ${readingCount} reading, ${writingCount} writing questions with answer keys.`
+      : `Free HSK 4 practice test #${num}: ${listeningCount} listening + ${readingCount} reading questions. Auto-scored with answer keys.`);
 
     // Extract sample reading passages for this test (unique content per page)
     const readingQs = test.questions.filter(q => q.text && q.text.length > 50);
@@ -1234,8 +1242,8 @@ function buildTaskTopicPages() {
       return `<a href="${g}" class="btn btn-ghost" style="font-size:13px;">${name}</a>`;
     }).join(' ');
 
-    const pageTitle = `HSK 4 ${task.task_en} Vocabulary \u2014 ${task.task_cn} | HSK4 \u8BDD\u9898\u8BCD\u6C47`;
-    const pageDesc = `${words.length} essential HSK 4 words for the "${task.task_en}" (${task.task_cn}) task. Vocabulary list with pinyin, meanings, and example sentences aligned with the 2025 official syllabus.`;
+    const pageTitle = `HSK 4 ${task.task_en} \u2014 ${task.task_cn} | Vocabulary`;
+    const pageDesc = truncDesc(`${words.length} HSK 4 words for "${task.task_en}" (${task.task_cn}). Vocabulary with pinyin, meanings, examples from the official syllabus.`);
 
     const pageHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -1356,6 +1364,16 @@ function buildTaskTopicPages() {
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
+    <a href="/words/" class="btn btn-ghost" style="margin-left:8px;">Confusable Words</a>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This Topic</h2>
+  <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Test your knowledge of ${escHtml(task.task_en).toLowerCase()} vocabulary in context:</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <a href="/test/01/" class="btn btn-ghost" style="font-size:13px;">Mock Test 01</a>
+    <a href="/test/03/" class="btn btn-ghost" style="font-size:13px;">Mock Test 03</a>
+    <a href="/test/06/" class="btn btn-ghost" style="font-size:13px;">Mock Test 06</a>
+    <a href="/writing/sentence-order/" class="btn btn-ghost" style="font-size:13px;">Sentence Ordering</a>
   </div>
 
   <div class="task-nav">
@@ -1401,22 +1419,32 @@ function buildConfusablePages() {
       }
     }).join('\n        ');
 
-    const quizHtml = pair.quiz.map((q, qi) => `
+    const quizHtml = pair.quiz.map((q, qi) => {
+      // Randomize option order so correct isn't always first
+      const correctFirst = (pi + qi) % 2 === 0; // alternates based on pair+question index
+      const opt1 = correctFirst
+        ? `<button class="q-opt chinese" data-correct="1" onclick="answer(this,true)">${escHtml(q.correct)}</button>`
+        : `<button class="q-opt chinese" onclick="answer(this,false)">${escHtml(q.wrong)}</button>`;
+      const opt2 = correctFirst
+        ? `<button class="q-opt chinese" onclick="answer(this,false)">${escHtml(q.wrong)}</button>`
+        : `<button class="q-opt chinese" data-correct="1" onclick="answer(this,true)">${escHtml(q.correct)}</button>`;
+      return `
         <div class="q-item">
           <div class="q-stem chinese">${escHtml(q.stem).replace('___', '<span class="blank"></span>')}</div>
           <div class="q-opts">
-            <button class="q-opt chinese" data-correct="1" onclick="answer(this,true)">${escHtml(q.correct)}</button>
-            <button class="q-opt chinese" onclick="answer(this,false)">${escHtml(q.wrong)}</button>
+            ${opt1}
+            ${opt2}
           </div>
           <div class="q-explain">${escHtml(q.explain)}</div>
-        </div>`).join('\n');
+        </div>`;
+    }).join('\n');
 
     // Nav links
     const prevPair = pi > 0 ? pairs[pi - 1] : null;
     const nextPair = pi < pairs.length - 1 ? pairs[pi + 1] : null;
 
     const pageTitle = `${pair.wordA} vs ${pair.wordB} \u2014 HSK 4 Confusable Words | ${pair.wordA}\u548C${pair.wordB}\u7684\u533A\u522B`;
-    const pageDesc = `${pair.subtitle}. Clear comparison of ${pair.wordA} (${pair.pinyinA}) and ${pair.wordB} (${pair.pinyinB}) with examples, rules, and quiz. HSK 4 vocabulary.`;
+    const pageDesc = truncDesc(`${pair.wordA} vs ${pair.wordB}: ${pair.subtitle}. Comparison, examples, and quiz for HSK 4.`);
 
     const pageHtml = `<!DOCTYPE html>
 <html lang="en">
