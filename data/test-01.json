@@ -457,7 +457,7 @@
     {
       "number": 37,
       "original_id": 441,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "这段话主要想告诉我们什么？",
       "options": [
         "A 要互相关心",
@@ -483,7 +483,7 @@
     {
       "number": 39,
       "original_id": 443,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "他不同意儿子做什么？",
       "options": [
         "A 喝酒",
@@ -509,7 +509,7 @@
     {
       "number": 41,
       "original_id": 445,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "那条路现在怎么样？",
       "options": [
         "A 变宽了",
@@ -535,7 +535,7 @@
     {
       "number": 43,
       "original_id": 447,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "关于说话人，可以知道什么？",
       "options": [
         "A 是演员",
@@ -561,7 +561,7 @@
     {
       "number": 45,
       "original_id": 449,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "他们正在做什么？",
       "options": [
         "A 开会",
@@ -1096,7 +1096,7 @@
     {
       "number": 86,
       "original_id": 490,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：音乐 喜欢 流行 他 听",
       "options": [
         "他喜欢听流行音乐。"
@@ -1106,7 +1106,7 @@
     {
       "number": 87,
       "original_id": 491,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：有效 这种药 对 头疼 很",
       "options": [
         "这种药对头疼很有效。"
@@ -1116,7 +1116,7 @@
     {
       "number": 88,
       "original_id": 492,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：更 南方 的 湿润 气候",
       "options": [
         "南方的气候更湿润。"
@@ -1126,7 +1126,7 @@
     {
       "number": 89,
       "original_id": 493,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：自己的 每个人 优点和缺点 都 有",
       "options": [
         "每个人都有自己的优点和缺点。"
@@ -1136,7 +1136,7 @@
     {
       "number": 90,
       "original_id": 494,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：公司 机会 提供了 一些 学习的",
       "options": [
         "公司提供了一些学习的机会。"
@@ -1146,7 +1146,7 @@
     {
       "number": 91,
       "original_id": 495,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：看懂 能 他 中文 说明书",
       "options": [
         "他能看懂中文说明书。"
@@ -1156,7 +1156,7 @@
     {
       "number": 92,
       "original_id": 496,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：菜 的 怎么样 这个 味道",
       "options": [
         "这个菜的味道怎么样？"
@@ -1166,7 +1166,7 @@
     {
       "number": 93,
       "original_id": 497,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：内容 那本杂志 的 十分 丰富",
       "options": [
         "那本杂志的内容十分丰富。"
@@ -1176,7 +1176,7 @@
     {
       "number": 94,
       "original_id": 498,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：区别 发现 你 这两张照片的 吗 了",
       "options": [
         "你发现这两张照片的区别了吗？"
@@ -1186,7 +1186,7 @@
     {
       "number": 95,
       "original_id": 499,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "完成句子：符合 太 他的看法 不 实际",
       "options": [
         "他的看法不太符合实际。"
@@ -1196,7 +1196,7 @@
     {
       "number": 96,
       "original_id": 500,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "看图，用词造句。词语：试",
       "options": [
         "她想试一下这条裙子%%%这个女孩想试一下这条裙子%%%这位女士想试穿这件衣服%%%这位顾客想试穿这件衣服%%%她准备去试衣间试穿%%%她拿着裙子准备去试%%%她觉得这条裙子很漂亮，想试一试%%%她正在挑选要试的衣服%%%她可以试穿这件衣服吗%%%她问店员是否可以试穿%%%你要不要试试这条裙子？"
@@ -1206,7 +1206,7 @@
     {
       "number": 97,
       "original_id": 501,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "看图，用词造句。词语：答案",
       "options": [
         "他找不到答案。%%%这个男人找不到答案。%%%这位先生找不到答案。%%%他正在为答案而烦恼。%%%这个男人正在为答案而烦恼。%%%他不知道答案。%%%这个男人不知道答案。%%%这个问题没有简单的答案。%%%他想不出答案。%%%这个男人想不出答案。%%%找不到答案让他很头痛。%%%他正在思考答案。%%%这个男人正在思考答案。%%%这个问题太难了，他不知道答案。%%%他没有答案。%%%他不知道答案是什么"
@@ -1216,7 +1216,7 @@
     {
       "number": 98,
       "original_id": 502,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "看图，用词造句。词语：风景",
       "options": [
         "她正在拍摄风景%%%这个女孩正在拍摄风景%%%这位女士正在拍摄风景%%%这位女性正在拍摄风景%%%这位摄影师正在拍摄风景%%%她喜欢拍摄风景%%%这个女孩喜欢拍摄风景%%%这位女士喜欢拍摄风景%%%她用摄像机记录风景%%%这个女孩用摄像机记录风景%%%这位女士用摄像机记录风景%%%她想把美丽的风景拍下来%%%这个女孩想把美丽的风景拍下来%%%她觉得这里的风景很美%%%这个女孩觉得这里的风景很美%%%这里的风景很美，所以她要拍摄它%%%这里的风景很美，所以这个女孩要拍摄它%%%她正在寻找美丽的风景%%%这个女孩正在寻找美丽的风景%%%为了记录风景，她带了摄像机%%%她拍风景。%%%女孩拍风景。%%%她用视频记录看到的风景%%%这个女人正在拍摄风景%%%照片里的女孩在拍风景"
@@ -1226,7 +1226,7 @@
     {
       "number": 99,
       "original_id": 503,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "看图，用词造句。词语：醒",
       "options": [
         "她还没醒%%%闹钟响了，但她还不想醒%%%她需要闹钟才能醒%%%她每天被闹钟叫醒%%%她睡得很熟，不容易醒%%%她醒来后要做的第一件事就是关掉闹钟%%%虽然闹钟响了，但是她还没有醒%%%她设置了闹钟提醒自己醒来"
@@ -1236,7 +1236,7 @@
     {
       "number": 100,
       "original_id": 504,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "看图，用词造句。词语：脏",
       "options": [
         "这位工人的脸弄脏了%%%她身上很脏%%%她的脸上很脏%%%她的衣服很脏%%%她的工作服很脏%%%她的脸弄脏了%%%她的衣服弄脏了%%%这位工人的脸很脏%%%虽然她的脸很脏，但是她笑得很开心%%%她不怕脏%%%工作把她的衣服弄脏了%%%因为工作，她的脸和衣服都脏了"

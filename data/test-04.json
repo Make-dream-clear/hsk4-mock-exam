@@ -752,7 +752,7 @@
     {
       "number": 55,
       "original_id": 1272,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "56. 排序：A 带来一天的好心情 B 一个笑话 C 也许就能带走我们的烦恼",
       "options": [
         "ABC",
@@ -767,7 +767,7 @@
     {
       "number": 56,
       "original_id": 1271,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "57. 排序：A 就可以变得越来越优秀 B 但只要能发现自己的缺点并及时去改 C 每个人都有缺点",
       "options": [
         "ABC",
@@ -782,7 +782,7 @@
     {
       "number": 57,
       "original_id": 1270,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "58. 排序：A 平时，儿子总是在学校上课 B 只有放了假，才有可能和我们一块儿去旅游 C 学习很紧张，很少有时间出去玩儿",
       "options": [
         "ABC",
@@ -797,7 +797,7 @@
     {
       "number": 58,
       "original_id": 1269,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "59. 排序：A 因为无论成功还是失败，努力过的人都应获得掌声 B 当然，也不要忘了鼓励那些失败的人 C 我们要为那些通过自己努力获得成功的人鼓掌",
       "options": [
         "ABC",
@@ -812,7 +812,7 @@
     {
       "number": 59,
       "original_id": 1268,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "60. 排序：A 所以对我来说，年龄只是一个数字 B 我的理解是，重要的是要有永远年轻的心 C 我从来不关心它",
       "options": [
         "ABC",
@@ -827,7 +827,7 @@
     {
       "number": 60,
       "original_id": 1267,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "61. 排序：A 在原有的基础上，增加了一部分文化交流的内容 B 王校长，根据您的要求 C 我把这篇报道稍微改了一下",
       "options": [
         "ABC",
@@ -842,7 +842,7 @@
     {
       "number": 61,
       "original_id": 1266,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "62. 排序：A 放弃并不代表认输，而是代表新的开始 B 因此，为了获得更多 C 需要主动丢掉一些不重要的东西",
       "options": [
         "ABC",
@@ -857,7 +857,7 @@
     {
       "number": 62,
       "original_id": 1265,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "63. 排序：A 人就容易梦到什么内容 B 例如，一个人脚冷时就可能会梦见在雪地里行走 C 晚上睡觉时，身体感觉到什么",
       "options": [
         "ABC",
@@ -872,7 +872,7 @@
     {
       "number": 63,
       "original_id": 1264,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "64. 排序：A 我打算毕业以后 B 为将来自己做生意积累一些管理经验 C 先在叔叔开的公司里干一段时间",
       "options": [
         "ABC",
@@ -887,7 +887,7 @@
     {
       "number": 64,
       "original_id": 1263,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "65. 排序：A 她是我的同学，从小就想成为一名警察 B 现在她决定，一定要找一个警察做丈夫 C 然而由于种种原因，她没能当上警察",
       "options": [
         "ABC",
@@ -1162,7 +1162,7 @@
     {
       "number": 85,
       "original_id": 1242,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "86. 组句：爷爷 非常 感兴趣 对 京剧",
       "options": [
         "爷爷对京剧非常感兴趣。"
@@ -1172,7 +1172,7 @@
     {
       "number": 86,
       "original_id": 1241,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "87. 组句：请 那张表格 把 两份 打印",
       "options": [
         "请把那张表格打印两份。"
@@ -1182,7 +1182,7 @@
     {
       "number": 87,
       "original_id": 1240,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "88. 组句：很详细 这个传真机的 写 得 说明书",
       "options": [
         "这个传真机的说明书写得很详细。"
@@ -1192,7 +1192,7 @@
     {
       "number": 88,
       "original_id": 1239,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "89. 组句：2009年7月8号 我孙子 是 出生的",
       "options": [
         "我孙子是2009年7月8号出生的。"
@@ -1202,7 +1202,7 @@
     {
       "number": 89,
       "original_id": 1238,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "90. 组句：亿元 许多家饭店的 都超过了 年收入",
       "options": [
         "许多家饭店的年收入都超过了亿元。"
@@ -1212,7 +1212,7 @@
     {
       "number": 90,
       "original_id": 1237,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "91. 组句：保证 我 完成 按时 任务",
       "options": [
         "我保证按时完成任务。%%%我保证任务按时完成。"
@@ -1222,7 +1222,7 @@
     {
       "number": 91,
       "original_id": 1236,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "92. 组句：这个 没有 语法错误 句子",
       "options": [
         "这个句子没有语法错误。"
@@ -1232,7 +1232,7 @@
     {
       "number": 92,
       "original_id": 1235,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "93. 组句：马上 结束了 就要 这场足球赛",
       "options": [
         "这场足球赛马上就要结束了。%%%马上这场足球赛就要结束了。%%%这场足球赛就要马上结束了。"
@@ -1242,7 +1242,7 @@
     {
       "number": 93,
       "original_id": 1234,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "94. 组句：不知道 难道你 连这个规定 都",
       "options": [
         "难道你连这个规定都不知道？%%%你难道连这个规定都不知道？"
@@ -1252,7 +1252,7 @@
     {
       "number": 94,
       "original_id": 1233,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "95. 组句：顺利 祝 你们 这次访问 一切",
       "options": [
         "祝你们这次访问一切顺利。%%%祝这次访问你们一切顺利。"
@@ -1262,7 +1262,7 @@
     {
       "number": 95,
       "original_id": 1232,
-      "type": "choice",
+      "type": "fill_in_blank",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/收拾.png",
       "text": "96. 看图，用词造句：收拾",
       "options": [
@@ -1278,7 +1278,7 @@
     {
       "number": 96,
       "original_id": 1231,
-      "type": "choice",
+      "type": "fill_in_blank",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/理发.png",
       "text": "97. 看图，用词造句：理发",
       "options": [
@@ -1294,7 +1294,7 @@
     {
       "number": 97,
       "original_id": 1230,
-      "type": "choice",
+      "type": "fill_in_blank",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/困.png",
       "text": "98. 看图，用词造句：困",
       "options": [
@@ -1310,7 +1310,7 @@
     {
       "number": 98,
       "original_id": 1229,
-      "type": "choice",
+      "type": "fill_in_blank",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/激动.png",
       "text": "99. 看图，用词造句：激动",
       "options": [
@@ -1326,7 +1326,7 @@
     {
       "number": 99,
       "original_id": 1228,
-      "type": "choice",
+      "type": "fill_in_blank",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/讨论.png",
       "text": "100. 看图，用词造句：讨论",
       "options": [

@@ -872,7 +872,7 @@
     {
       "number": 66,
       "original_id": 570,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "66. 刷牙的时候，水太冷或者太热，都会给牙的健康带来不好的影响。研究发现，用35度的温水刷牙才是最合适的。刷牙时，我们应该：",
       "options": [
         "A 使用温水",
@@ -885,7 +885,7 @@
     {
       "number": 67,
       "original_id": 571,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "67. 这种葡萄酒，不仅味道好，而且每个酒瓶也都像一件高级艺术品。很多人愿意出高价购买它，很多时候是被那些特别的酒瓶吸引了。这种葡萄酒：",
       "options": [
         "A 比较甜",
@@ -898,7 +898,7 @@
     {
       "number": 68,
       "original_id": 572,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "68. 阅读能力好的人不但容易找到工作，而且工资也比较高。另外，阅读考试的分数往往还能反映一个国家的教育水平。阅读能力好的人一般：",
       "options": [
         "A 收入高",
@@ -911,7 +911,7 @@
     {
       "number": 69,
       "original_id": 573,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "69. 有些人喜欢不停地换工作，他们总以为新工作一定比现在的好。实际上，一般情况下，完全适应一个新的工作需要一年时间，因此，经常换工作不一定好，根据自己的条件，把一份工作坚持做到最好才是正确的选择。有些人经常换工作是因为他们：",
       "options": [
         "A 极其努力",
@@ -924,7 +924,7 @@
     {
       "number": 70,
       "original_id": 574,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "70. 我喜欢读这份报纸，因为它的内容丰富，而且广告少，最重要的是，经济方面的新闻对我的工作很有帮助。他喜欢这份报纸的原因之一是：",
       "options": [
         "A 免费",
@@ -937,7 +937,7 @@
     {
       "number": 71,
       "original_id": 575,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "71. 医生提醒人们，在使用感冒药之前，一定要仔细阅读说明书。并且最好只选择一种感冒药，否则药物之间可能互相作用，会影响我们的健康。医生一共有几个提醒？",
       "options": [
         "A 一个",
@@ -950,7 +950,7 @@
     {
       "number": 72,
       "original_id": 576,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "72. 在中国生活的三年使他在音乐方面有了很多新的想法，他把京剧的一些特点增加到自己的音乐中，取得了很好的效果。根据这段话，可以知道他：",
       "options": [
         "A 很热情",
@@ -963,7 +963,7 @@
     {
       "number": 73,
       "original_id": 577,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "73. 儿子小时候一说话就脸红，回答老师问题的时候声音也很小，我当时很替他担心。但随着年龄的增长，他逐渐成熟了，大学毕业后成了一名优秀的律师，真让人吃惊。\"让人吃惊\"的是儿子：",
       "options": [
         "A 当了律师",
@@ -976,7 +976,7 @@
     {
       "number": 74,
       "original_id": 578,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "74. 做生意时会遇到竞争带来的压力，但是大家的机会也是相同的。清楚地了解市场和顾客的需要，做一个符合市场发展需要的计划非常重要。做生意需要重视：",
       "options": [
         "A 节约",
@@ -989,7 +989,7 @@
     {
       "number": 75,
       "original_id": 579,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "75. 原谅是一种美，我们常说要学会原谅别人，但也要试着原谅自己。我们都有缺点，不可能把每件事都做得很好。这段话主要说，我们应该：",
       "options": [
         "A 感谢别人",
@@ -1002,7 +1002,7 @@
     {
       "number": 76,
       "original_id": 580,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "76. 您好，我们翻译，每1000字150元人民币。这些信息在公司网站上都有详细的介绍，您有什么特别要求或任何不清楚的地方欢迎和我们联系。说话人正在做什么？",
       "options": [
         "A 总结",
@@ -1015,7 +1015,7 @@
     {
       "number": 77,
       "original_id": 581,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "77. 大部分人每天晚上至少应该睡7个小时，但是这个标准并不适合每一个人，有些人即使只睡5个小时也很有精神。每天晚上睡7个小时适合：",
       "options": [
         "A 儿童",
@@ -1028,7 +1028,7 @@
     {
       "number": 78,
       "original_id": 582,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "78. 很多时候孩子发脾气是为了得到一些好处，父母不能因为孩子发脾气就给他好处。如果我们不重视这个问题，他就容易养成发脾气的坏习惯。孩子发脾气主要是因为：",
       "options": [
         "A 缺少关心",
@@ -1041,7 +1041,7 @@
     {
       "number": 79,
       "original_id": 583,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "79. 什么是真正的朋友？有些人觉得就是能和自己一起快乐的人，其实朋友应该像镜子，能帮你看清自己的缺点；无论你成功或者失败，永远都支持你。这段话主要谈：",
       "options": [
         "A 谁能成功",
@@ -1054,7 +1054,7 @@
     {
       "number": 80,
       "original_id": 584,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "80. 世界上第一部无声电影出现的时候，吸引了成千上万的观众。有个女观众看到电影中有一辆马车向自己跑过来，害怕得离开了座位，跑得远远的，直到那辆马车在画面中不见了，她才回到座位上。有的观众看到电影里下雨的画面，把自己的雨伞也打了起来。现在我们都觉得挺好笑的，但是看电影在当时确实是个新鲜事儿。世界上第一部无声电影：",
       "options": [
         "A 很幽默",
@@ -1067,7 +1067,7 @@
     {
       "number": 81,
       "original_id": 585,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "81. 世界上第一部无声电影出现的时候，吸引了成千上万的观众。有个女观众看到电影中有一辆马车向自己跑过来，害怕得离开了座位，跑得远远的，直到那辆马车在画面中不见了，她才回到座位上。有的观众看到电影里下雨的画面，把自己的雨伞也打了起来。现在我们都觉得挺好笑的，但是看电影在当时确实是个新鲜事儿。那个观众为什么要打伞？",
       "options": [
         "A 误会了",
@@ -1080,7 +1080,7 @@
     {
       "number": 82,
       "original_id": 586,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "82. 研究证明，女孩子们对衣服颜色的选择往往与她们的性格有关。喜欢穿白色衣服的女孩子们性格比较阳光，生活态度积极向上是她们的共同特点；而喜欢红色衣服的女孩子们性格比较浪漫，在爱情上也比较主动。喜欢穿白色衣服的女孩子在生活中：",
       "options": [
         "A 很懒",
@@ -1093,7 +1093,7 @@
     {
       "number": 83,
       "original_id": 587,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "83. 研究证明，女孩子们对衣服颜色的选择往往与她们的性格有关。喜欢穿白色衣服的女孩子们性格比较阳光，生活态度积极向上是她们的共同特点；而喜欢红色衣服的女孩子们性格比较浪漫，在爱情上也比较主动。这段话主要讲了颜色和什么的关系？",
       "options": [
         "A 理想",
@@ -1106,7 +1106,7 @@
     {
       "number": 84,
       "original_id": 588,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "84. 科学技术的发展确实给生活带来了许多方便，但也给我们增加了不少烦恼。最普遍的是，每个现代人头脑中都要记住很多密码：信用卡需要密码，电脑需要密码，电子信箱需要密码，有时候甚至连开门都需要密码。如果谁不小心忘记了这些密码，那麻烦可就大了。人们需要记住什么？",
       "options": [
         "A 友谊",
@@ -1119,7 +1119,7 @@
     {
       "number": 85,
       "original_id": 589,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "85. 科学技术的发展确实给生活带来了许多方便，但也给我们增加了不少烦恼。最普遍的是，每个现代人头脑中都要记住很多密码：信用卡需要密码，电脑需要密码，电子信箱需要密码，有时候甚至连开门都需要密码。如果谁不小心忘记了这些密码，那麻烦可就大了。给人们带来烦恼的是：",
       "options": [
         "A 科学技术",
@@ -1132,7 +1132,7 @@
     {
       "number": 86,
       "original_id": 590,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "86. 请将下列词语组成正确的句子：会弹钢琴的人 羡慕 很 她",
       "options": [
         "她很羡慕会弹钢琴的人。",
@@ -1145,7 +1145,7 @@
     {
       "number": 87,
       "original_id": 591,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "87. 请将下列词语组成正确的句子：亚洲经济的 正在 逐渐 提高 增长速度",
       "options": [
         "亚洲经济的增长速度正在逐渐提高。",
@@ -1158,7 +1158,7 @@
     {
       "number": 88,
       "original_id": 592,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "88. 请将下列词语组成正确的句子：专为老年人 提供的 这椅子 是",
       "options": [
         "这椅子是专为老年人提供的。",
@@ -1171,7 +1171,7 @@
     {
       "number": 89,
       "original_id": 593,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "89. 请将下列词语组成正确的句子：中文 很流利 说得 他的",
       "options": [
         "他的中文说得很流利。",
@@ -1184,7 +1184,7 @@
     {
       "number": 90,
       "original_id": 594,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "90. 请将下列词语组成正确的句子：已经 报名人数 900 超过了",
       "options": [
         "报名人数已经超过了900。",
@@ -1210,7 +1210,7 @@
     {
       "number": 92,
       "original_id": 596,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "92. 请将下列词语组成正确的句子：作者 很有名 小说的 那本",
       "options": [
         "那本小说的作者很有名。",
@@ -1223,7 +1223,7 @@
     {
       "number": 93,
       "original_id": 597,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "93. 请将下列词语组成正确的句子：合格的警察 最需要的 一个 是责任感",
       "options": [
         "一个合格的警察最需要的是责任感。",
@@ -1236,7 +1236,7 @@
     {
       "number": 94,
       "original_id": 598,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "94. 请将下列词语组成正确的句子：代表们 结束 会议 决定",
       "options": [
         "代表们决定结束会议。",
@@ -1249,7 +1249,7 @@
     {
       "number": 95,
       "original_id": 599,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "95. 请将下列词语组成正确的句子：对 很熟悉 我 这个城市",
       "options": [
         "我对这个城市很熟悉。",
@@ -1262,7 +1262,7 @@
     {
       "number": 96,
       "original_id": 600,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "96. 请根据图片，用\\\"日记\\\"造句。下面每个选项都是对的，在本测试中只供参考和学习",
       "options": [
         "她每天都坚持写日记。",
@@ -1275,7 +1275,7 @@
     {
       "number": 97,
       "original_id": 601,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "97. 请根据图片，用\\\"尝\\\"造句。下面每个选项都是对的，在本测试中只供参考和学习",
       "options": [
         "你尝一尝？味道很好。",
@@ -1288,7 +1288,7 @@
     {
       "number": 98,
       "original_id": 602,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "98. 请根据图片，用\\\"破\\\"造句。",
       "options": [
         "鸡蛋被打破了。",
@@ -1301,7 +1301,7 @@
     {
       "number": 99,
       "original_id": 603,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/凉快.png",
       "text": "99. 请根据图片，用\\\"凉快\\\"造句。下面每个选项都是对的，在本测试中只供参考和学习",
       "options": [
@@ -1315,7 +1315,7 @@
     {
       "number": 100,
       "original_id": 604,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/活泼.png",
       "text": "100. 请根据图片，用\\\"活泼\\\"造句。下面每个选项都是对的，在本测试中只供参考",
       "options": [

@@ -897,7 +897,7 @@
     {
       "number": 66,
       "original_id": 2672,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "66. 阅读短文：篮球不是一个人的运动或表演。即使你很厉害、很优秀，没有其他球员的努力，也不能赢得一场比赛。篮球需要所有球员的共同努力。 问题：根据这段话，打篮球需要：",
       "options": [
         "个子高",
@@ -910,7 +910,7 @@
     {
       "number": 67,
       "original_id": 2671,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "67. 阅读短文：一般来说，睡觉时间短的人比睡觉时间长的人更容易长胖。据调查，每天睡7到8小时的人，要比每天睡5到6小时的人瘦。 问题：调查结果说明：",
       "options": [
         "做梦不好",
@@ -923,7 +923,7 @@
     {
       "number": 68,
       "original_id": 2670,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "68. 阅读短文：广告越来越多，几乎无处不在。不只是广播、电视、网站有广告，公共汽车、地铁上也有很多广告，连我家的电梯里都挂着三个广告。广告虽然给我们带来很多方便，但数量太多也会让人觉得讨厌。 问题：作者认为广告：",
       "options": [
         "太多了",
@@ -936,7 +936,7 @@
     {
       "number": 69,
       "original_id": 2669,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "69. 阅读短文：\"读书好，读好书，好读书。\"首先，说的是读书有很多好处；其次，每个人的时间都是有限的，不可能把世界上每一本书都读完，所以要读好的书；最后，就是要养成阅读的习惯，使读书真正成为自己的兴趣爱好。 问题：根据这段话，读书：",
       "options": [
         "需要耐心",
@@ -949,7 +949,7 @@
     {
       "number": 70,
       "original_id": 2668,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "70. 阅读短文：很多大学生毕业后，选择的第一个职业，往往和自己的专业没什么关系，这种情况现在越来越普遍。 问题：许多大学生的第一份工作往往：",
       "options": [
         "挺辛苦",
@@ -962,7 +962,7 @@
     {
       "number": 71,
       "original_id": 2667,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "71. 阅读短文：先生，对不起，我们宾馆有规定，这里禁止抽烟。前面有专门的抽烟室，往前走就能看到，就在楼梯右边，请。 问题：抽烟室在：",
       "options": [
         "厨房左边",
@@ -975,7 +975,7 @@
     {
       "number": 72,
       "original_id": 2666,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "72. 阅读短文：一个城市的交通，反映这个城市的经济发展水平，尤其是公共交通，对社会的发展有很大影响。 问题：根据这段话，为了社会的发展，城市应该：",
       "options": [
         "发展文化",
@@ -988,7 +988,7 @@
     {
       "number": 73,
       "original_id": 2665,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "73. 阅读短文：人比动物聪明，但动物仍然有很多值得人学习的地方。拿狮子来说，它们困的时候才睡觉，饿的时候才进食，永远不为昨天的事烦恼，也不为明天的事担心。如果能有和它们一样的生命态度，人们一定会健康快乐很多。 问题：狮子有什么特点？",
       "options": [
         "很懒",
@@ -1001,7 +1001,7 @@
     {
       "number": 74,
       "original_id": 2664,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "74. 阅读短文：我们乘坐的航班没有按时起飞，乘客们都很着急。机场很快就向乘客们做出解释：由于天气原因，航班不得不推迟起飞。 问题：关于本次航班，可以知道：",
       "options": [
         "还没起飞",
@@ -1014,7 +1014,7 @@
     {
       "number": 75,
       "original_id": 2663,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "75. 阅读短文：她换上了新买的那双鞋，穿了一条裙子，看起来特别精神，又说又笑，好像变了一个人。同事们都明白了，她今天要去约会。 问题：她今天：",
       "options": [
         "要出差",
@@ -1027,7 +1027,7 @@
     {
       "number": 76,
       "original_id": 2662,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "76. 阅读短文：遇到解决不了的问题或者无法完成的任务时，我们要学会拒绝。有时候，拒绝并不代表不愿意帮忙，而是表示对事情或任务负责。 问题：根据这段话，有时候拒绝别人：",
       "options": [
         "让人感动",
@@ -1040,7 +1040,7 @@
     {
       "number": 77,
       "original_id": 2661,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "77. 阅读短文：尽管地球上大部分地方是海洋，但海水是咸的，不能直接饮用，人们的生活用水主要从江河和雨水而来。 问题：地球上的水：",
       "options": [
         "都能喝",
@@ -1053,7 +1053,7 @@
     {
       "number": 78,
       "original_id": 2660,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "78. 阅读短文：李经理让我告诉大家一个好消息，经过会议讨论决定，这个月每人多发1500元的奖金，感谢大家这三个月来的辛苦工作。 问题：\"好消息\"指的是：",
       "options": [
         "多发奖金",
@@ -1066,7 +1066,7 @@
     {
       "number": 79,
       "original_id": 2659,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "79. 阅读短文：耳朵每天都被人使用，但它却不像眼睛、鼻子和嘴那样受到重视，很多时候人们都感觉不到它，忘记了它。可是，仔细看看耳朵吧，有研究发现，通过它可以看出一个人是不是健康，甚至是什么样的性格。 问题：这段话主要讲：",
       "options": [
         "有趣的脚",
@@ -1079,7 +1079,7 @@
     {
       "number": 80,
       "original_id": 2658,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "80. 阅读短文：现在，城市里越来越多的\"汽车族\"变成了\"弃车族\"，走路上下班成为他们共同的生活习惯。人们放弃开车，不仅锻炼了身体，节约了金钱，还减少了道路堵车情况，这样一来，连空气也变新鲜了。 问题：\"弃车族\"指的是什么样的人？",
       "options": [
         "车丢了",
@@ -1092,7 +1092,7 @@
     {
       "number": 81,
       "original_id": 2657,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "81. 阅读短文：现在，城市里越来越多的\"汽车族\"变成了\"弃车族\"，走路上下班成为他们共同的生活习惯。人们放弃开车，不仅锻炼了身体，节约了金钱，还减少了道路堵车情况，这样一来，连空气也变新鲜了。 问题：那些人为什么要成为\"弃车族\"？",
       "options": [
         "更安全",
@@ -1105,7 +1105,7 @@
     {
       "number": 82,
       "original_id": 2656,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "82. 阅读短文：你对别人好，别人也会对你好。实际上，我们很多人做不到这一点。当我们看到别人的缺点时，总是按照自己的理解去教育别人。但是每个人都有自己的生活，谁都不能把自己的想法加在别人身上。试着尊重他人的想法与生活习惯，更多地帮助他们，你会发现，他们真的觉得你很好，也会真的对你好。 问题：发现别人有缺点时，应该：",
       "options": [
         "保护他",
@@ -1118,7 +1118,7 @@
     {
       "number": 83,
       "original_id": 2655,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "83. 阅读短文：你对别人好，别人也会对你好。实际上，我们很多人做不到这一点。当我们看到别人的缺点时，总是按照自己的理解去教育别人。但是每个人都有自己的生活，谁都不能把自己的想法加在别人身上。试着尊重他人的想法与生活习惯，更多地帮助他们，你会发现，他们真的觉得你很好，也会真的对你好。 问题：这段话主要告诉我们什么？",
       "options": [
         "人都有缺点",
@@ -1131,7 +1131,7 @@
     {
       "number": 84,
       "original_id": 2654,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "84. 阅读短文：妻子下班回到家，看见丈夫又在喝酒，生气地说：\"你别再喝这么多了！难道你不记得大夫说过的话了吗？他只允许你每天喝一杯！\"丈夫一脸认真地说：\"我当然记得，而且一直都在按他说的去做。我现在喝的是2015年9月7日的那杯，你陪我干了这杯吧？\" 问题：医生要求丈夫：",
       "options": [
         "别加班",
@@ -1144,7 +1144,7 @@
     {
       "number": 85,
       "original_id": 2653,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "85. 阅读短文：妻子下班回到家，看见丈夫又在喝酒，生气地说：\"你别再喝这么多了！难道你不记得大夫说过的话了吗？他只允许你每天喝一杯！\"丈夫一脸认真地说：\"我当然记得，而且一直都在按他说的去做。我现在喝的是2015年9月7日的那杯，你陪我干了这杯吧？\" 问题：根据这段话，可以知道丈夫：",
       "options": [
         "爱干净",
@@ -1157,7 +1157,7 @@
     {
       "number": 86,
       "original_id": 2652,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "86. 把下列词语组成一个完整的句子：愉快 她们俩 聊得 非常",
       "options": [
         "愉快她们俩聊得非常。",
@@ -1170,7 +1170,7 @@
     {
       "number": 87,
       "original_id": 2651,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "87. 把下列词语组成一个完整的句子：附近的森林 很熟悉 邻居 对",
       "options": [
         "附近的森林很熟悉邻居对。",
@@ -1183,7 +1183,7 @@
     {
       "number": 88,
       "original_id": 2650,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "88. 把下列词语组成一个完整的句子：儿童 被 好玩儿的游戏 接受 更容易",
       "options": [
         "儿童被好玩儿的游戏接受更容易。",
@@ -1196,7 +1196,7 @@
     {
       "number": 89,
       "original_id": 2649,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "89. 把下列词语组成一个完整的句子：那个司机 当地的 气候 不太适应",
       "options": [
         "那个司机当地的气候不太适应。",
@@ -1209,7 +1209,7 @@
     {
       "number": 90,
       "original_id": 2648,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "90. 把下列词语组成一个完整的句子：页 一共 400多 这本小说",
       "options": [
         "页一共400多这本小说。",
@@ -1222,7 +1222,7 @@
     {
       "number": 91,
       "original_id": 2647,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "91. 把下列词语组成一个完整的句子：你 收拾 把行李箱 一下",
       "options": [
         "你收拾把行李箱一下。",
@@ -1235,7 +1235,7 @@
     {
       "number": 92,
       "original_id": 2646,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "92. 把下列词语组成一个完整的句子：一个窗户旁边的 座位 我朋友 想要",
       "options": [
         "一个窗户旁边的座位我朋友想要。",
@@ -1248,7 +1248,7 @@
     {
       "number": 93,
       "original_id": 2645,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "93. 把下列词语组成一个完整的句子：很 他 可爱 刚睡醒的样子",
       "options": [
         "很他可爱刚睡醒的样子。",
@@ -1261,7 +1261,7 @@
     {
       "number": 94,
       "original_id": 2644,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "94. 把下列词语组成一个完整的句子：母亲 没 从来 去过 农村",
       "options": [
         "母亲没从来去过农村。",
@@ -1274,7 +1274,7 @@
     {
       "number": 95,
       "original_id": 2643,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "95. 把下列词语组成一个完整的句子：他 是 京剧演员 20世纪 最有名的",
       "options": [
         "他京剧演员是20世纪最有名的。",
@@ -1287,7 +1287,7 @@
     {
       "number": 96,
       "original_id": 2642,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/41009-棵-300x271.jpg",
       "text": "96. 看图造句",
       "options": [
@@ -1301,7 +1301,7 @@
     {
       "number": 97,
       "original_id": 2641,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/来不及-254x300.jpg",
       "text": "97. 看图造句",
       "options": [
@@ -1315,7 +1315,7 @@
     {
       "number": 98,
       "original_id": 2640,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/吃惊-205x300.jpg",
       "text": "98. 看图造句",
       "options": [
@@ -1329,7 +1329,7 @@
     {
       "number": 99,
       "original_id": 2639,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/联系-192x300.jpg",
       "text": "99. 看图造句",
       "options": [
@@ -1343,7 +1343,7 @@
     {
       "number": 100,
       "original_id": 2638,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/毛巾-284x300.jpg",
       "text": "100. 看图造句",
       "options": [

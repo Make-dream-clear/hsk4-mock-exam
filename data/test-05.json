@@ -91,7 +91,7 @@
     {
       "number": 8,
       "original_id": 1673,
-      "type": "choice",
+      "type": "listening_true_false",
       "text": "8. 好书越来越少。",
       "options": [
         "对",
@@ -140,7 +140,7 @@
     {
       "number": 12,
       "original_id": 1669,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "12. 男的觉得哪种女孩子比较好？",
       "options": [
         "A 聪明",
@@ -195,7 +195,7 @@
     {
       "number": 16,
       "original_id": 1665,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "16. 关于女的，可以知道什么？",
       "options": [
         "A 很不满意",
@@ -208,7 +208,7 @@
     {
       "number": 17,
       "original_id": 1664,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "17. 男的为什么不去购物了？",
       "options": [
         "A 要请客",
@@ -249,7 +249,7 @@
     {
       "number": 20,
       "original_id": 1661,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "20. 男的是什么意思？",
       "options": [
         "A 散散步",
@@ -262,7 +262,7 @@
     {
       "number": 21,
       "original_id": 1660,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "21. 根据对话，可以知道什么？",
       "options": [
         "A 他们在理发",
@@ -289,7 +289,7 @@
     {
       "number": 23,
       "original_id": 1658,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "23. 男的在帮女的做什么？",
       "options": [
         "A 擦桌子",
@@ -316,7 +316,7 @@
     {
       "number": 25,
       "original_id": 1656,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "25. 男的哪里不舒服？",
       "options": [
         "A 嘴",
@@ -455,7 +455,7 @@
     {
       "number": 35,
       "original_id": 1646,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "35. 男的认为应该怎么复习？",
       "options": [
         "A 要仔细",
@@ -496,7 +496,7 @@
     {
       "number": 38,
       "original_id": 1643,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "38. 那个孩子为什么哭？",
       "options": [
         "A 钱丢了",
@@ -509,7 +509,7 @@
     {
       "number": 39,
       "original_id": 1642,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "39. 那个孩子现在有多少钱？",
       "options": [
         "A 10块",
@@ -536,7 +536,7 @@
     {
       "number": 41,
       "original_id": 1640,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "41. 幽默的人为什么受欢迎？",
       "options": [
         "A 使人快乐",
@@ -549,7 +549,7 @@
     {
       "number": 42,
       "original_id": 1639,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "42. 许多人都有过怎样的经历？",
       "options": [
         "A 后悔",
@@ -576,7 +576,7 @@
     {
       "number": 44,
       "original_id": 1637,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "44. 说话人最可能是谁？",
       "options": [
         "A 导游",
@@ -589,7 +589,7 @@
     {
       "number": 45,
       "original_id": 1636,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "45. 这段话最可能是在什么时候说的？",
       "options": [
         "A 访问",
@@ -752,7 +752,7 @@
     {
       "number": 56,
       "original_id": 1625,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "56. A 因此养成一个好习惯需要坚持 B 习惯不是一天之内养成的 C 而改掉一个坏习惯也需要坚持",
       "options": [
         "ABC",
@@ -767,7 +767,7 @@
     {
       "number": 57,
       "original_id": 1624,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "57. A 没想到竟然得了第一名 B 她本来只是抱着试试的态度去参加比赛 C 这让她又吃惊又高兴",
       "options": [
         "ABC",
@@ -782,7 +782,7 @@
     {
       "number": 58,
       "original_id": 1623,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "58. A \"地球一小时\"活动是从2007年开始的 B 它还希望引起人们对气候变暖问题的关注 C 除了提醒人们节约用电以外",
       "options": [
         "ABC",
@@ -797,7 +797,7 @@
     {
       "number": 59,
       "original_id": 1622,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "59. A 他们也会感到很幸福 B 即使只是陪他们吃吃饭、聊聊天 C 有空你应该多回家看看爸妈",
       "options": [
         "ABC",
@@ -812,7 +812,7 @@
     {
       "number": 60,
       "original_id": 1621,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "60. A 这个公司的工资虽然不算很高 B 但是奖金很多 C 所以总的来说收入还不错",
       "options": [
         "ABC",
@@ -827,7 +827,7 @@
     {
       "number": 61,
       "original_id": 1620,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "61. A 后来这成了一个笑话，大家经常拿来开玩笑 B 飞机起飞时，我一直抱着前面的椅子不放 C 我第一次乘坐飞机的时候心里害怕极了",
       "options": [
         "ABC",
@@ -842,7 +842,7 @@
     {
       "number": 62,
       "original_id": 1619,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "62. A 甚至有人说那只是一种感觉，没有标准 B 成熟的标准到底是什么 C 不同人给出的答案各不相同",
       "options": [
         "ABC",
@@ -857,7 +857,7 @@
     {
       "number": 63,
       "original_id": 1618,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "63. A 全长约6300公里，比黄河长800多公里 B 长江，是中国第一大河 C 它们都是中国的\"母亲河\"",
       "options": [
         "ABC",
@@ -872,7 +872,7 @@
     {
       "number": 64,
       "original_id": 1617,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "64. A 音乐是他们5个人的共同爱好 B 中国很多年轻人都喜欢\"五月天\" C 它是由5个热情的大男生组成的",
       "options": [
         "ABC",
@@ -887,7 +887,7 @@
     {
       "number": 65,
       "original_id": 1616,
-      "type": "choice",
+      "type": "fill_in_blank",
       "text": "65. A 这台笔记本电脑的价格是2500元 B 而且上网速度也很快 C 它的特点是很小、很轻",
       "options": [
         "ABC",
@@ -902,7 +902,7 @@
     {
       "number": 66,
       "original_id": 1615,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "66. 提前出发是为了：（文章：首都体育馆今天晚上有活动...）",
       "options": [
         "A 参加活动",
@@ -915,7 +915,7 @@
     {
       "number": 67,
       "original_id": 1614,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "67. 应该怎样教育孩子？（文章：在教育孩子时，我们应该少批评、多鼓励...）",
       "options": [
         "A 不能批评",
@@ -928,7 +928,7 @@
     {
       "number": 68,
       "original_id": 1613,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "68. 根据这段话，质量很好的东西：（文章：大家都说：便宜没好货...）",
       "options": [
         "A 当然很贵",
@@ -941,7 +941,7 @@
     {
       "number": 69,
       "original_id": 1612,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "69. 这段话最可能是：（文章：一群性格各不相同的年轻人...）",
       "options": [
         "A 广告",
@@ -954,7 +954,7 @@
     {
       "number": 70,
       "original_id": 1611,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "70. 这段话告诉我们，学会放弃：（文章：昨天的放弃决定了今天的选择...）",
       "options": [
         "A 值得原谅",
@@ -967,7 +967,7 @@
     {
       "number": 71,
       "original_id": 1610,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "71. 小刘想了解哪方面的情况？（文章：小刘，这方面的问题我也不太懂...）",
       "options": [
         "A 艺术",
@@ -980,7 +980,7 @@
     {
       "number": 72,
       "original_id": 1609,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "72. 这种植物：（文章：森林里有一种植物...）",
       "options": [
         "A 花很香",
@@ -993,7 +993,7 @@
     {
       "number": 73,
       "original_id": 1608,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "73. 这段话的主要意思是：（文章：你有一个苹果，我有一个香蕉...）",
       "options": [
         "A 要关心别人",
@@ -1006,7 +1006,7 @@
     {
       "number": 74,
       "original_id": 1607,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "74. 他为什么获得了尊重？（文章：他这些年做生意赚了不少钱...）",
       "options": [
         "A 年龄大",
@@ -1019,7 +1019,7 @@
     {
       "number": 75,
       "original_id": 1606,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "75. 握手时要注意：（文章：当我们与别人见面握手时...）",
       "options": [
         "A 力气要大",
@@ -1032,7 +1032,7 @@
     {
       "number": 76,
       "original_id": 1605,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "76. 这段话主要谈经济增长和什么的关系？（文章：社会的发展不能光看经济的增长...）",
       "options": [
         "A 历史文化",
@@ -1045,7 +1045,7 @@
     {
       "number": 77,
       "original_id": 1604,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "77. 刚到这里的人为什么感觉不舒服？（文章：这个省的大部分地方都是山...）",
       "options": [
         "A 空气少",
@@ -1058,7 +1058,7 @@
     {
       "number": 78,
       "original_id": 1603,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "78. 新闻报道中的数字：（文章：新闻报道中使用数字的目的是...）",
       "options": [
         "A 不易理解",
@@ -1071,7 +1071,7 @@
     {
       "number": 79,
       "original_id": 1602,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "79. 对熟悉的东西，我们往往：（文章：\"熟悉的地方没有风景\"...）",
       "options": [
         "A 很有感情",
@@ -1084,7 +1084,7 @@
     {
       "number": 80,
       "original_id": 1601,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "80. 遇到伤心的事，应该：（文章：说话虽然是生活中最普通的事...）",
       "options": [
         "A 和同事说",
@@ -1097,7 +1097,7 @@
     {
       "number": 81,
       "original_id": 1600,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "81. 将来的事，应该怎么说？（文章：说话虽然是生活中最普通的事...）",
       "options": [
         "A 马上说",
@@ -1110,7 +1110,7 @@
     {
       "number": 82,
       "original_id": 1599,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "82. 关于减肥，最重要的是：（文章：如果你想减肥，那么必须做到两点...）",
       "options": [
         "A 多锻炼",
@@ -1123,7 +1123,7 @@
     {
       "number": 83,
       "original_id": 1598,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "83. 如果想减肥成功，一定要：（文章：如果你想减肥，那么必须做到两点...）",
       "options": [
         "A 简单",
@@ -1136,7 +1136,7 @@
     {
       "number": 84,
       "original_id": 1597,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "84. 去丽江旅游，什么时候比较好？（文章：很多人问哪个季节去丽江旅游比较好...）",
       "options": [
         "A 2月",
@@ -1149,7 +1149,7 @@
     {
       "number": 85,
       "original_id": 1596,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "85. 关于丽江，下列哪个正确？（文章：很多人问哪个季节去丽江旅游比较好...）",
       "options": [
         "A 交通不便",
@@ -1162,7 +1162,7 @@
     {
       "number": 86,
       "original_id": 1595,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "86. 你 关了 把窗户 吗",
       "options": [
         "你把窗户关了吗？"
@@ -1172,7 +1172,7 @@
     {
       "number": 87,
       "original_id": 1594,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "87. 拉近 了 人与人之间的 手机 距离",
       "options": [
         "手机拉近了人与人之间的距离。"
@@ -1182,7 +1182,7 @@
     {
       "number": 88,
       "original_id": 1593,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "88. 去年秋天 我孙子 出生 是 的",
       "options": [
         "我孙子是去年秋天出生的。"
@@ -1192,7 +1192,7 @@
     {
       "number": 89,
       "original_id": 1592,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "89. 打针 好 比吃药 效果",
       "options": [
         "打针比吃药效果好。"
@@ -1202,7 +1202,7 @@
     {
       "number": 90,
       "original_id": 1591,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "90. 这个城市 出租车的数量 决定 增加",
       "options": [
         "这个城市决定增加出租车的数量。"
@@ -1212,7 +1212,7 @@
     {
       "number": 91,
       "original_id": 1590,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "91. 非常 大 影响范围 这场降水 的",
       "options": [
         "这场降水的影响范围非常大。"
@@ -1222,7 +1222,7 @@
     {
       "number": 92,
       "original_id": 1589,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "92. 工具书 是 一本 现代汉语词典",
       "options": [
         "现代汉语词典是一本工具书。"
@@ -1232,7 +1232,7 @@
     {
       "number": 93,
       "original_id": 1588,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "93. 哥哥 睡不着觉 得 兴奋",
       "options": [
         "哥哥兴奋得睡不着觉。"
@@ -1242,7 +1242,7 @@
     {
       "number": 94,
       "original_id": 1587,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "94. 好处 抽烟对你 没有 一点儿",
       "options": [
         "抽烟对你没有一点儿好处。",
@@ -1253,7 +1253,7 @@
     {
       "number": 95,
       "original_id": 1586,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "95. 完全 国家的 这么做 符合 法律规定",
       "options": [
         "这么做完全符合国家的法律规定。"
@@ -1263,7 +1263,7 @@
     {
       "number": 96,
       "original_id": 1585,
-      "type": "choice",
+      "type": "fill_in_blank",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/消息.png",
       "text": "96. 看图，用\\\"消息\\\"造句。",
       "options": [
@@ -1279,7 +1279,7 @@
     {
       "number": 97,
       "original_id": 1584,
-      "type": "choice",
+      "type": "fill_in_blank",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/猜.png",
       "text": "97. 看图，用\\\"猜\\\"造句。",
       "options": [
@@ -1295,7 +1295,7 @@
     {
       "number": 98,
       "original_id": 1583,
-      "type": "choice",
+      "type": "fill_in_blank",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/信用卡.png",
       "text": "98. 看图，用\\\"信用卡\\\"造句。",
       "options": [
@@ -1311,7 +1311,7 @@
     {
       "number": 99,
       "original_id": 1582,
-      "type": "choice",
+      "type": "reading_ordering",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/沙发.png",
       "text": "99. 看图，用\\\"沙发\\\"造句。",
       "options": [
@@ -1327,7 +1327,7 @@
     {
       "number": 100,
       "original_id": 1581,
-      "type": "choice",
+      "type": "reading_ordering",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/困了.png",
       "text": "100. 看图，用\\\"困\\\"造句。",
       "options": [

@@ -253,7 +253,7 @@
     {
       "number": 20,
       "original_id": 2618,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "20. 根据对话，可以知道什么？",
       "options": [
         "天晴了",
@@ -891,7 +891,7 @@
     {
       "number": 66,
       "original_id": 2572,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "66. 阅读短文：生活中，很多事情不像做数学题那样有一个正确答案。有些事情如果你一定要找一个正确答案，恐怕会让简单的生活变得复杂起来。问题：这段话告诉我们，生活：",
       "options": [
         "让人失望",
@@ -904,7 +904,7 @@
     {
       "number": 67,
       "original_id": 2571,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "67. 阅读短文：很多时候，我们不得不去做一些自己不愿意做甚至很讨厌的工作。这时，我们最需要的就是耐心和责任心，还有一个愉快的心情。问题：做不喜欢做的工作时，应该：",
       "options": [
         "有耐心",
@@ -917,7 +917,7 @@
     {
       "number": 68,
       "original_id": 2570,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "68. 阅读短文：有些年轻人申请了信用卡，但在购物时却没有考虑自己的经济能力，最后不能按时还银行的钱，因此出现严重的信用问题。问题：申请了信用卡，人们：",
       "options": [
         "很紧张",
@@ -930,7 +930,7 @@
     {
       "number": 69,
       "original_id": 2569,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "69. 阅读短文：夏天的晚上，这条街道尤其热闹。白天太热，晚上很凉快，树底下坐了很多人，谈一些有意思的事情，还有自己的看法。问题：夏天人们喜欢在哪里聊天儿？",
       "options": [
         "网上",
@@ -943,7 +943,7 @@
     {
       "number": 70,
       "original_id": 2568,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "70. 阅读短文：买了大房子后，我一直想把以前的旧房子租出去。然而不知为什么，一直没有人给我打电话。后来才发现，原来广告上的电话号码写错了一个数字。问题：没人给他打电话，是因为：",
       "options": [
         "家具太破",
@@ -956,7 +956,7 @@
     {
       "number": 71,
       "original_id": 2567,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "71. 阅读短文：乒乓球运动在世界上很多国家受到人们的喜爱。在中国，喜爱这一运动的男女老少成千上万，到处都有很多乒乓球桌。问题：在中国，喜欢乒乓球运动的人：",
       "options": [
         "非常多",
@@ -969,7 +969,7 @@
     {
       "number": 72,
       "original_id": 2566,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "72. 阅读短文：时间是没有感情的，它走过了无数个春夏秋冬，它不会因为你快乐而多停留一分钟，也不会因为你伤心而加快脚步。问题：这段话主要想告诉我们，时间：",
       "options": [
         "带给人希望",
@@ -982,7 +982,7 @@
     {
       "number": 73,
       "original_id": 2565,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "73. 阅读短文：有些笑话，不光能给人带来快乐，还有教育的作用，能使人们在大笑的时候重新认识一些问题。问题：这段话主要讲笑话的：",
       "options": [
         "作用",
@@ -995,7 +995,7 @@
     {
       "number": 74,
       "original_id": 2564,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "74. 阅读短文：教孩子用筷子时，要提醒他们不能用筷子敲盘子、碗等，更不能拿筷子指着别人，这样会让别人觉得你很没礼貌。问题：根据这段话，使用筷子时：",
       "options": [
         "要用右手",
@@ -1008,7 +1008,7 @@
     {
       "number": 75,
       "original_id": 2563,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "75. 阅读短文：不准时的人很难获得别人的信任，迟到总是会给人留下不好的印象。不管是上课、上班，还是与别人约会，准时都非常重要。问题：一个经常迟到的人：",
       "options": [
         "爱做梦",
@@ -1021,7 +1021,7 @@
     {
       "number": 76,
       "original_id": 2562,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "76. 阅读短文：这个杂志的内容还算精彩，图片也很漂亮，它的缺点是价格定得太高。经过调查，我们发现，有不少人往往因为觉得太贵而放弃了它。问题：这个杂志：",
       "options": [
         "有缺点",
@@ -1034,7 +1034,7 @@
     {
       "number": 77,
       "original_id": 2561,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "77. 阅读短文：\"活到老，学到老。\"在现代社会中，我们必须坚持学习。只有努力获得新的知识，才能适应社会的发展速度，做一个合格的现代人。问题：\"活到老，学到老\"的意思是：",
       "options": [
         "永远年轻",
@@ -1047,7 +1047,7 @@
     {
       "number": 78,
       "original_id": 2560,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "78. 阅读短文：他的聪明、幽默深深地吸引了她。虽然他也有一些缺点，但她还是认为他是最可爱、最优秀的人，和他在一起很幸福。问题：他是个什么样的人？",
       "options": [
         "浪漫",
@@ -1060,7 +1060,7 @@
     {
       "number": 79,
       "original_id": 2559,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "79. 阅读短文：年龄的增长并不一定代表成熟，有的人20多岁了还没学会照顾自己，而有的人十几岁就开始步入社会，赚钱养家。穷人的孩子早当家，他们也许没有很多钱，却可能比富人家的孩子经历得更多。问题：十几岁就步入社会的人：",
       "options": [
         "经历丰富",
@@ -1073,7 +1073,7 @@
     {
       "number": 80,
       "original_id": 2558,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "80. 阅读短文：不仅人与人之间有竞争，森林里的各种植物之间也有竞争，这一点儿也不奇怪。植物会为了阳光、空气和水而竞争。一些又高又大的植物往往能获得更多的阳光、空气和水，于是越长越高大。而一些比较低矮的植物就只能长在这些高大植物的下面。问题：森林里的植物：",
       "options": [
         "都很高大",
@@ -1086,7 +1086,7 @@
     {
       "number": 81,
       "original_id": 2557,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "81. 阅读短文：不仅人与人之间有竞争，森林里的各种植物之间也有竞争，这一点儿也不奇怪。植物会为了阳光、空气和水而竞争。一些又高又大的植物往往能获得更多的阳光、空气和水，于是越长越高大。而一些比较低矮的植物就只能长在这些高大植物的下面。问题：为什么有的植物长得特别高大？",
       "options": [
         "离河远",
@@ -1099,7 +1099,7 @@
     {
       "number": 82,
       "original_id": 2556,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "82. 阅读短文：每个人都有自己的优点和缺点。优点多不一定值得骄傲，有缺点也很正常。问题是，有的人看自己时，只看到优点；看别人时，只看到缺点。这不但不能说明他聪明，相反，只能说明他对自己还不够有信心，这会给他带来麻烦。因为一个不知道自己缺点的人，永远都不会想要去改变。问题：看不到自己缺点的人：",
       "options": [
         "不冷静",
@@ -1112,7 +1112,7 @@
     {
       "number": 83,
       "original_id": 2555,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "83. 阅读短文：每个人都有自己的优点和缺点。优点多不一定值得骄傲，有缺点也很正常。问题是，有的人看自己时，只看到优点；看别人时，只看到缺点。这不但不能说明他聪明，相反，只能说明他对自己还不够有信心，这会给他带来麻烦。因为一个不知道自己缺点的人，永远都不会想要去改变。问题：这段话主要想告诉我们，要：",
       "options": [
         "有理想",
@@ -1125,7 +1125,7 @@
     {
       "number": 84,
       "original_id": 2554,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "84. 阅读短文：爸爸下班回到家已经很晚了，很累。他发现7岁的儿子还在门口等他。儿子问：\"爸，您一小时可以赚多少钱？\"\"我想想，大概是20块。\"小孩又问：\"您可以借我10块钱吗？\"尽管父亲有些生气，但还是拿出了10块钱。儿子一边感谢爸爸，一边从手里拿出另外10块钱，说：\"爸，我可以向您买一个小时的时间吗？明天请早一点儿回家，我想和您一起吃晚饭。\" 问题：儿子原来有多少钱？",
       "options": [
         "5元",
@@ -1138,7 +1138,7 @@
     {
       "number": 85,
       "original_id": 2553,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "85. 阅读短文：爸爸下班回到家已经很晚了，很累。他发现7岁的儿子还在门口等他。儿子问：\"爸，您一小时可以赚多少钱？\"\"我想想，大概是20块。\"小孩又问：\"您可以借我10块钱吗？\"尽管父亲有些生气，但还是拿出了10块钱。儿子一边感谢爸爸，一边从手里拿出另外10块钱，说：\"爸，我可以向您买一个小时的时间吗？明天请早一点儿回家，我想和您一起吃晚饭。\" 问题：关于父亲，可以知道：",
       "options": [
         "力气大",
@@ -1151,7 +1151,7 @@
     {
       "number": 86,
       "original_id": 2552,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "86. 把下列词语组成一个完整的句子：质量 你的 怎么样 笔记本电脑",
       "options": [
         "质量你的怎么样笔记本电脑？",
@@ -1164,7 +1164,7 @@
     {
       "number": 87,
       "original_id": 2551,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "87. 把下列词语组成一个完整的句子：为我们 提供了 牙刷和牙膏 宾馆",
       "options": [
         "为我们提供了牙刷和牙膏宾馆。",
@@ -1177,7 +1177,7 @@
     {
       "number": 88,
       "original_id": 2550,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "88. 把下列词语组成一个完整的句子：温度 比较 室内 低",
       "options": [
         "温度比较室内低。",
@@ -1190,7 +1190,7 @@
     {
       "number": 89,
       "original_id": 2549,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "89. 把下列词语组成一个完整的句子：把 家里 母亲 整整齐齐 收拾得",
       "options": [
         "把家里母亲整整齐齐收拾得。",
@@ -1203,7 +1203,7 @@
     {
       "number": 90,
       "original_id": 2548,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "90. 把下列词语组成一个完整的句子：俩 没通过 普通话考试 她们",
       "options": [
         "俩没通过普通话考试她们。",
@@ -1216,7 +1216,7 @@
     {
       "number": 91,
       "original_id": 2547,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "91. 把下列词语组成一个完整的句子：效果 很 好 这个方法",
       "options": [
         "效果很好这个方法。",
@@ -1229,7 +1229,7 @@
     {
       "number": 92,
       "original_id": 2546,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "92. 把下列词语组成一个完整的句子：那个警察 任务 完成了 顺利地",
       "options": [
         "那个警察任务完成了顺利地。",
@@ -1242,7 +1242,7 @@
     {
       "number": 93,
       "original_id": 2545,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "93. 把下列词语组成一个完整的句子：邀请信 收到 三分之一的报名者 会",
       "options": [
         "邀请信收到三分之一的报名者会。",
@@ -1255,7 +1255,7 @@
     {
       "number": 94,
       "original_id": 2544,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "94. 把下列词语组成一个完整的句子：他 负责 技术工作 网站 的",
       "options": [
         "他技术工作负责网站的。",
@@ -1268,7 +1268,7 @@
     {
       "number": 95,
       "original_id": 2543,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "95. 把下列词语组成一个完整的句子：两名售货员 招聘 楼下的商店 要",
       "options": [
         "两名售货员招聘楼下的商店要。",
@@ -1281,7 +1281,7 @@
     {
       "number": 96,
       "original_id": 2542,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/困-1.png",
       "text": "96. 看图造句",
       "options": [
@@ -1295,7 +1295,7 @@
     {
       "number": 97,
       "original_id": 2541,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/味道.png",
       "text": "97. 看图造句",
       "options": [
@@ -1309,7 +1309,7 @@
     {
       "number": 98,
       "original_id": 2540,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/怀疑.png",
       "text": "98. 看图造句",
       "options": [
@@ -1323,7 +1323,7 @@
     {
       "number": 99,
       "original_id": 2539,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/来得及.png",
       "text": "99. 看图造句",
       "options": [
@@ -1337,7 +1337,7 @@
     {
       "number": 100,
       "original_id": 2538,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/肚子.png",
       "text": "100. 看图造句",
       "options": [

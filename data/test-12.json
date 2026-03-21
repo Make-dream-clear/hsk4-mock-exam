@@ -747,7 +747,7 @@
     {
       "number": 56,
       "original_id": 2995,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 相反，会使问题变得更复杂 B 不但不能解决任何问题 C 现在和当时的情况不同，如果还是使用以前的办法",
       "options": [
         "A. ABC",
@@ -760,7 +760,7 @@
     {
       "number": 57,
       "original_id": 2994,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 今天早上，北京突然下起雪来 B 所有航班都无法起飞，所以我先生只好又回来了 C 并且越下越大，完全没有要停的意思",
       "options": [
         "A. ABC",
@@ -773,7 +773,7 @@
     {
       "number": 58,
       "original_id": 2993,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 那件事情，我们一直以为是他的错 B 但后来才发现，是我们误会他了 C 应该由他负全部责任",
       "options": [
         "A. ABC",
@@ -786,7 +786,7 @@
     {
       "number": 59,
       "original_id": 2992,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 毕业以后我们就很少见面了 B 只有在过春节的时候 C 才会在一起吃顿饭，聊聊天儿",
       "options": [
         "A. ABC",
@@ -799,7 +799,7 @@
     {
       "number": 60,
       "original_id": 2991,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 5点请大家准时在门口集合 B 我们在海洋馆玩儿的时间是两个小时，现在是3点 C 接下来我们要去参观的地方是海洋馆",
       "options": [
         "A. ABC",
@@ -812,7 +812,7 @@
     {
       "number": 61,
       "original_id": 2990,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 人们会变得成熟起来 B 随着年龄的增长 C 对事情的判断力也会大大提高",
       "options": [
         "A. ABC",
@@ -825,7 +825,7 @@
     {
       "number": 62,
       "original_id": 2989,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 但房租可不便宜 B 这儿离地铁站很近，交通很方便 C 所以，别看房子有点儿旧",
       "options": [
         "A. ABC",
@@ -838,7 +838,7 @@
     {
       "number": 63,
       "original_id": 2988,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 今天是女儿第一次坐飞机 B 她看着窗户外面的蓝天、白云，兴奋极了 C 飞机起飞以后",
       "options": [
         "A. ABC",
@@ -851,7 +851,7 @@
     {
       "number": 64,
       "original_id": 2987,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 天黑得越来越早 B 每年从6月22号起 C 北半球的白天开始逐渐变短",
       "options": [
         "A. ABC",
@@ -864,7 +864,7 @@
     {
       "number": 65,
       "original_id": 2986,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "A 生意是越来越火了 B 右边那家饭店的饺子做得确实好吃 C 肉鲜而多汁，每天都有成群的客人去吃饭",
       "options": [
         "A. ABC",
@@ -1137,7 +1137,7 @@
     {
       "number": 86,
       "original_id": 2965,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：能力 重要 比知识 更",
       "options": [
         "能力比知识更重要。",
@@ -1150,7 +1150,7 @@
     {
       "number": 87,
       "original_id": 2964,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：爱情 并 生命的全部 不是",
       "options": [
         "爱情并不是生命的全部。",
@@ -1163,7 +1163,7 @@
     {
       "number": 88,
       "original_id": 2963,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：沙发 你的钥匙 在 上",
       "options": [
         "你的钥匙在沙发上。",
@@ -1176,7 +1176,7 @@
     {
       "number": 89,
       "original_id": 2962,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：观众 那个电影 让 很失望",
       "options": [
         "那个电影让观众很失望。",
@@ -1189,7 +1189,7 @@
     {
       "number": 90,
       "original_id": 2961,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：她 一遍 又重新 检查了",
       "options": [
         "她又重新检查了一遍。",
@@ -1202,7 +1202,7 @@
     {
       "number": 91,
       "original_id": 2960,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：顺序 别 把 弄乱了",
       "options": [
         "别把顺序弄乱了。",
@@ -1215,7 +1215,7 @@
     {
       "number": 92,
       "original_id": 2959,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：了 寄出去 你的申请材料 吗",
       "options": [
         "你的申请材料寄出去了吗？",
@@ -1228,7 +1228,7 @@
     {
       "number": 93,
       "original_id": 2958,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：一万公里 是 这两个城市 距离 的",
       "options": [
         "这两个城市的距离是一万公里。",
@@ -1241,7 +1241,7 @@
     {
       "number": 94,
       "original_id": 2957,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：很成熟 制造技术 已经 这种电梯的",
       "options": [
         "这种电梯的制造技术已经很成熟。",
@@ -1254,7 +1254,7 @@
     {
       "number": 95,
       "original_id": 2956,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "完成句子：印象 那位导游 很深的 给我 留下了",
       "options": [
         "那位导游给我留下了很深的印象。",
@@ -1267,7 +1267,7 @@
     {
       "number": 96,
       "original_id": 2955,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/咸.png",
       "text": "看图，用词造句：咸（图片显示女人尝汤的表情）",
       "options": [
@@ -1281,7 +1281,7 @@
     {
       "number": 97,
       "original_id": 2954,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "看图，用词造句：力气",
       "options": [
         "比一比，看谁的力气大。",
@@ -1294,7 +1294,7 @@
     {
       "number": 98,
       "original_id": 2953,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/养成.png",
       "text": "看图，用词造句：养成（图片显示刷牙）",
       "options": [
@@ -1308,7 +1308,7 @@
     {
       "number": 99,
       "original_id": 2952,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "看图，用词造句：经历（图片显示商务人士）",
       "options": [
         "他的经历非常丰富。",
@@ -1321,7 +1321,7 @@
     {
       "number": 100,
       "original_id": 2951,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/抱.png",
       "text": "看图，用词造句：抱",
       "options": [

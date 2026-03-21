@@ -896,7 +896,7 @@
     {
       "number": 66,
       "original_id": 2872,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "66. 阅读短文：男人和女人在很多方面是不相同的。例如，在工作中遇到了不愉快的事，男人回到家，不喜欢跟妻子说，而女人正好相反。 问题：女人在工作中遇到不高兴的事，会：",
       "options": [
         "流泪",
@@ -909,7 +909,7 @@
     {
       "number": 67,
       "original_id": 2871,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "67. 阅读短文：什么是朋友？朋友是在你得意时，提醒你不要骄傲的人；朋友是在你失败时，鼓励你继续前进的人。 问题：这段话主要谈的是：",
       "options": [
         "性别",
@@ -922,7 +922,7 @@
     {
       "number": 68,
       "original_id": 2870,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "68. 阅读短文：由于没好好复习，今天考得不怎么样。有几个填空题不会做，有几个选择题，实在想不出来该选哪个，只好随便选一个。以前考试，我从来没猜过答案，今天是第一次。 问题：这次考试，我：",
       "options": [
         "没带铅笔",
@@ -935,7 +935,7 @@
     {
       "number": 69,
       "original_id": 2869,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "69. 阅读短文：\"笨鸟先飞早入林\"这句话说的是：能力不高没关系，做任何事情，只要能比别人早一些开始，比别人更努力一些，同样可以成功。所以，人可以不那么聪明，但是不能懒。 问题：\"笨鸟\"指的是：",
       "options": [
         "富人",
@@ -948,7 +948,7 @@
     {
       "number": 70,
       "original_id": 2868,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "70. 阅读短文：怎么样？这儿的环境还行吧？桌子和椅子一会儿就搬来了。想安静地写点儿东西，这儿是个不错的选择，肯定不会受到打扰。 问题：根据这段话，可以知道这儿：",
       "options": [
         "很安静",
@@ -961,7 +961,7 @@
     {
       "number": 71,
       "original_id": 2867,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "71. 阅读短文：交流能减少人与人之间的误会，使感情逐渐加深。主动与周围的人交流，可以交到更多的朋友，丰富我们的生活。 问题：通过交流，可以：",
       "options": [
         "获得同情",
@@ -974,7 +974,7 @@
     {
       "number": 72,
       "original_id": 2866,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "72. 阅读短文：我认为，广告会介绍一样东西的优点，却不会说它的缺点。人们把东西买回家，才发现原来并不像广告上说的那么好，所以不能完全相信广告。 问题：我觉得广告：",
       "options": [
         "只说优点",
@@ -987,7 +987,7 @@
     {
       "number": 73,
       "original_id": 2865,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "73. 阅读短文：足球比赛规定比赛时间为90分钟，分为上下两个半场，各45分钟，中间休息10分钟。如果90分钟后仍然是0比0，按照规定，可以进行加时赛来决定输赢。 问题：关于加时赛，可以知道：",
       "options": [
         "每场都有",
@@ -1000,7 +1000,7 @@
     {
       "number": 74,
       "original_id": 2864,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "74. 阅读短文：小时候，他经常生病，因此每天都去跑步锻炼身体。谁也没有想到，长大以后，他不仅身体健康，而且成了一名优秀的长跑运动员。 问题：人们没有想到的是，他：",
       "options": [
         "力气很大",
@@ -1013,7 +1013,7 @@
     {
       "number": 75,
       "original_id": 2863,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "75. 阅读短文：超市里经常会提供一些免费食品让人们尝一尝，这吸引了许多顾客。他们本来没打算买这些食品，但最后都\"顺便\"买回去了。 问题：逛超市时，顾客们被什么吸引了？",
       "options": [
         "打折食品",
@@ -1026,7 +1026,7 @@
     {
       "number": 76,
       "original_id": 2862,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "76. 阅读短文：他总说自己特别喜欢看书，可是这本书他看了一个月才看到第5页。也许是因为工作太忙，但一个真正爱看书的人总能找出时间来阅读。 问题：根据这段话，他：",
       "options": [
         "工作轻松",
@@ -1039,7 +1039,7 @@
     {
       "number": 77,
       "original_id": 2861,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "77. 阅读短文：有时候，哭并不一定是件坏事。哭可以让人从坏心情中走出来，是一种减轻压力的好办法。 问题：有时候哭并不是坏事，是因为哭能：",
       "options": [
         "感动别人",
@@ -1052,7 +1052,7 @@
     {
       "number": 78,
       "original_id": 2860,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "78. 阅读短文：从去年下半年起，面包店就没赚到什么钱。顾客一天比一天少，最近一个星期，每天来店里的顾客不超过20个，究竟是哪儿出问题了呢？ 问题：面包店怎么了？",
       "options": [
         "生意不好",
@@ -1065,7 +1065,7 @@
     {
       "number": 79,
       "original_id": 2859,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "79. 阅读短文：\"生活中不缺少美，缺少的是发现美的眼睛。\"草绿了，那是生命的颜色；花开了，那是大自然的礼物。只要有心，生活中的美到处都是。生活的态度由自己选择。 问题：这段话主要讲的是：",
       "options": [
         "现代科技",
@@ -1078,7 +1078,7 @@
     {
       "number": 80,
       "original_id": 2858,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "80. 阅读短文：人们在喝酒时为什么喜欢干杯呢？因为眼睛能看到酒的颜色，鼻子可以感觉到酒的香气，嘴能尝到酒的味道，只有耳朵没事做，不高兴。一干杯，杯子就会发出好听的声音，耳朵听到了，也就高兴起来了。 问题：人们干杯时：",
       "options": [
         "酒是满的",
@@ -1091,7 +1091,7 @@
     {
       "number": 81,
       "original_id": 2857,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "81. 阅读短文：人们在喝酒时为什么喜欢干杯呢？因为眼睛能看到酒的颜色，鼻子可以感觉到酒的香气，嘴能尝到酒的味道，只有耳朵没事做，不高兴。一干杯，杯子就会发出好听的声音，耳朵听到了，也就高兴起来了。 问题：这段话主要讲喝酒时：",
       "options": [
         "别抽烟",
@@ -1104,7 +1104,7 @@
     {
       "number": 82,
       "original_id": 2856,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "82. 阅读短文：一位妈妈很着急地给医生打电话，医生的妻子接的电话。\"我找马医生，我有急事！\"\"对不起，老马现在不在家，您有什么事吗？\"\"天哪，我10岁的儿子把一块儿手表吃到肚子里了，马医生什么时候能回来？\"\"大概两个小时。\"医生的妻子回答道。\"两个小时！这段时间我该怎么办呢？\"\"您恐怕只能先看另一块儿手表了。\" 问题：孩子怎么了？",
       "options": [
         "发烧了",
@@ -1117,7 +1117,7 @@
     {
       "number": 83,
       "original_id": 2855,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "83. 阅读短文：一位妈妈很着急地给医生打电话，医生的妻子接的电话。\"我找马医生，我有急事！\"\"对不起，老马现在不在家，您有什么事吗？\"\"天哪，我10岁的儿子把一块儿手表吃到肚子里了，马医生什么时候能回来？\"\"大概两个小时。\"医生的妻子回答道。\"两个小时！这段时间我该怎么办呢？\"\"您恐怕只能先看另一块儿手表了。\" 问题：关于马医生，可以知道什么？",
       "options": [
         "不在家",
@@ -1130,7 +1130,7 @@
     {
       "number": 84,
       "original_id": 2854,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "84. 阅读短文：上班堵车怕迟到，下班堵车怕回家晚。每天在马路上开车，要想不遇到堵车，还真难。堵车浪费时间，遇到堵车，心情也\"堵\"，人们容易变得没有耐心。长期这样，会影响脾气甚至性格。我们改变不了堵车，但是，我们可以试着改变自己的心情。堵车时正好可以休息一下，还可以听听自己喜欢的音乐。 问题：根据这段话，遇到堵车：",
       "options": [
         "很危险",
@@ -1143,7 +1143,7 @@
     {
       "number": 85,
       "original_id": 2853,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "85. 阅读短文：上班堵车怕迟到，下班堵车怕回家晚。每天在马路上开车，要想不遇到堵车，还真难。堵车浪费时间，遇到堵车，心情也\"堵\"，人们容易变得没有耐心。长期这样，会影响脾气甚至性格。我们改变不了堵车，但是，我们可以试着改变自己的心情。堵车时正好可以休息一下，还可以听听自己喜欢的音乐。 问题：这段话主要想说明：",
       "options": [
         "要诚实",
@@ -1156,7 +1156,7 @@
     {
       "number": 86,
       "original_id": 2852,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "86. 把下列词语组成一个完整的句子：中午 又酸又辣 的 菜",
       "options": [
         "中午又酸又辣的菜。",
@@ -1169,7 +1169,7 @@
     {
       "number": 87,
       "original_id": 2851,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "87. 把下列词语组成一个完整的句子：很多人的 注意 引起了 那篇文章",
       "options": [
         "很多人的注意引起了那篇文章。",
@@ -1182,7 +1182,7 @@
     {
       "number": 88,
       "original_id": 2850,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "88. 把下列词语组成一个完整的句子：森林 狮子 里 住着 一群",
       "options": [
         "森林狮子里住着一群。",
@@ -1195,7 +1195,7 @@
     {
       "number": 89,
       "original_id": 2849,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "89. 把下列词语组成一个完整的句子：香蕉皮 请 扔 垃圾桶里 把",
       "options": [
         "香蕉皮请扔垃圾桶里把。",
@@ -1208,7 +1208,7 @@
     {
       "number": 90,
       "original_id": 2848,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "90. 把下列词语组成一个完整的句子：慢慢 积累的 是需要 知识",
       "options": [
         "慢慢积累的是需要知识。",
@@ -1221,7 +1221,7 @@
     {
       "number": 91,
       "original_id": 2847,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "91. 把下列词语组成一个完整的句子：他父亲 当地的 一位律师 是",
       "options": [
         "他父亲当地的一位律师是。",
@@ -1234,7 +1234,7 @@
     {
       "number": 92,
       "original_id": 2846,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "92. 把下列词语组成一个完整的句子：小弟弟 打针 邻居家 的 害怕",
       "options": [
         "小弟弟打针邻居家的害怕。",
@@ -1247,7 +1247,7 @@
     {
       "number": 93,
       "original_id": 2845,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "93. 把下列词语组成一个完整的句子：果然是 这 好消息 一个激动人心的",
       "options": [
         "果然是这好消息一个激动人心的。",
@@ -1260,7 +1260,7 @@
     {
       "number": 94,
       "original_id": 2844,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "94. 把下列词语组成一个完整的句子：不符合 宾馆的 规定 这样做",
       "options": [
         "不符合宾馆的规定这样做。",
@@ -1273,7 +1273,7 @@
     {
       "number": 95,
       "original_id": 2843,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "95. 把下列词语组成一个完整的句子：集合 到底什么时候 呢 明天",
       "options": [
         "集合到底什么时候呢明天。",
@@ -1286,7 +1286,7 @@
     {
       "number": 96,
       "original_id": 2842,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/厚.png",
       "text": "96. 看图造句",
       "options": [
@@ -1300,7 +1300,7 @@
     {
       "number": 97,
       "original_id": 2841,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/区别.png",
       "text": "97. 看图造句",
       "options": [
@@ -1314,7 +1314,7 @@
     {
       "number": 98,
       "original_id": 2840,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/难受.png",
       "text": "98. 看图造句",
       "options": [
@@ -1328,7 +1328,7 @@
     {
       "number": 99,
       "original_id": 2839,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/信心.png",
       "text": "99. 看图造句",
       "options": [
@@ -1342,7 +1342,7 @@
     {
       "number": 100,
       "original_id": 2838,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/躺.png",
       "text": "100. 看图造句",
       "options": [

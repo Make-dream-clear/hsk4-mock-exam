@@ -631,7 +631,7 @@
     {
       "number": 42,
       "original_id": 2069,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "动植物改变身体颜色，是为了：",
       "options": [
         "A 保护环境",
@@ -644,7 +644,7 @@
     {
       "number": 43,
       "original_id": 2068,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "做不喜欢做的工作时，应该：",
       "options": [
         "A 有耐心",
@@ -657,7 +657,7 @@
     {
       "number": 44,
       "original_id": 2067,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "年轻人最好穿什么样的衣服？",
       "options": [
         "A 宽大的",
@@ -670,7 +670,7 @@
     {
       "number": 45,
       "original_id": 2066,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "根据这段话，读书应该：",
       "options": [
         "A 信任作者",
@@ -683,7 +683,7 @@
     {
       "number": 46,
       "original_id": 2065,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "没人给他打电话，是因为：",
       "options": [
         "A 家具太破",
@@ -696,7 +696,7 @@
     {
       "number": 47,
       "original_id": 2064,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "那个人画画儿：",
       "options": [
         "A 很有特点",
@@ -709,7 +709,7 @@
     {
       "number": 48,
       "original_id": 2063,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "那个演员怎么样？",
       "options": [
         "A 对人友好",
@@ -722,7 +722,7 @@
     {
       "number": 49,
       "original_id": 2062,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "遇到困难时首先应该：",
       "options": [
         "A 接受邀请",
@@ -735,7 +735,7 @@
     {
       "number": 50,
       "original_id": 2061,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "根据这段话，使用筷子时：",
       "options": [
         "A 要用右手",
@@ -748,7 +748,7 @@
     {
       "number": 51,
       "original_id": 2060,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "中国人喝茶：",
       "options": [
         "A 很普遍",
@@ -761,7 +761,7 @@
     {
       "number": 52,
       "original_id": 2059,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "这个杂志：",
       "options": [
         "A 有缺点",
@@ -774,7 +774,7 @@
     {
       "number": 53,
       "original_id": 2058,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "根据这段话，西红柿：",
       "options": [
         "A 是水果",
@@ -787,7 +787,7 @@
     {
       "number": 54,
       "original_id": 2057,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "他怎样引起别人的注意？",
       "options": [
         "A 讲笑话",
@@ -800,7 +800,7 @@
     {
       "number": 55,
       "original_id": 2056,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "十几岁就步入社会的人：",
       "options": [
         "A 经历丰富",
@@ -813,7 +813,7 @@
     {
       "number": 56,
       "original_id": 2055,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "北风和南风为什么吵起来？",
       "options": [
         "A 太热了",
@@ -826,7 +826,7 @@
     {
       "number": 57,
       "original_id": 2054,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "这个故事告诉我们，做事情必须：",
       "options": [
         "A 多商量",
@@ -839,7 +839,7 @@
     {
       "number": 58,
       "original_id": 2053,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "关于老李，可以知道什么？",
       "options": [
         "A 很感动",
@@ -852,7 +852,7 @@
     {
       "number": 59,
       "original_id": 2052,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "交警对老李是什么态度？",
       "options": [
         "A 表扬",
@@ -865,7 +865,7 @@
     {
       "number": 60,
       "original_id": 2051,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "儿子原来有多少钱？",
       "options": [
         "A 5 元",
@@ -878,7 +878,7 @@
     {
       "number": 61,
       "original_id": 2050,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "关于父亲，可以知道：",
       "options": [
         "A 力气大",
@@ -891,7 +891,7 @@
     {
       "number": 62,
       "original_id": 2049,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "他的答案完全正确。（答案 的 他 完全 正确）",
       "options": [],
       "correct_answer_index": null
@@ -899,7 +899,7 @@
     {
       "number": 63,
       "original_id": 2048,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "他被外面的响声吵醒了。（他 外面的响声 吵醒了 被）",
       "options": [],
       "correct_answer_index": null
@@ -907,7 +907,7 @@
     {
       "number": 64,
       "original_id": 2047,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "他的工资是我的两倍。（我的 两倍 他的工资 是）",
       "options": [],
       "correct_answer_index": null
@@ -915,7 +915,7 @@
     {
       "number": 65,
       "original_id": 2046,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "奶奶做的饺子真香。（饺子 香 奶奶 做的 真）",
       "options": [],
       "correct_answer_index": null
@@ -923,7 +923,7 @@
     {
       "number": 66,
       "original_id": 2045,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "你们俩的看法没什么区别。（什么 区别 你们俩的看法 没）",
       "options": [],
       "correct_answer_index": null
@@ -931,7 +931,7 @@
     {
       "number": 67,
       "original_id": 2044,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "这些食品符合国家安全标准吗？（安全标准 符合 国家 这些食品 吗）",
       "options": [],
       "correct_answer_index": null
@@ -939,7 +939,7 @@
     {
       "number": 68,
       "original_id": 2043,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "你最好不要打扰他。（打扰 他 你最好 不要）",
       "options": [],
       "correct_answer_index": null
@@ -947,7 +947,7 @@
     {
       "number": 69,
       "original_id": 2042,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "她是当地儿童医院的护士。（她 儿童医院的 是 护士 当地）",
       "options": [],
       "correct_answer_index": null
@@ -955,7 +955,7 @@
     {
       "number": 70,
       "original_id": 2041,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "我已经逐渐适应了这里的气候。（我 已经 这里的气候 逐渐 适应了）",
       "options": [],
       "correct_answer_index": null
@@ -963,7 +963,7 @@
     {
       "number": 71,
       "original_id": 2040,
-      "type": "choice",
+      "type": "writing_construction",
       "text": "导游把那份申请寄出去了。（导游 把 那份申请 寄 出去了）",
       "options": [],
       "correct_answer_index": null
@@ -971,7 +971,7 @@
     {
       "number": 72,
       "original_id": 2039,
-      "type": "choice",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/干杯.png",
       "text": "请看图造句，使用词语：干杯",
       "options": [
@@ -982,7 +982,7 @@
     {
       "number": 73,
       "original_id": 2038,
-      "type": "choice",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/流利.png",
       "text": "请看图造句，使用词语：流利",
       "options": [
@@ -993,7 +993,7 @@
     {
       "number": 74,
       "original_id": 2037,
-      "type": "choice",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/禁止.png",
       "text": "请看图造句，使用词语：禁止",
       "options": [
@@ -1004,7 +1004,7 @@
     {
       "number": 75,
       "original_id": 2036,
-      "type": "choice",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/激动-1.png",
       "text": "请看图造句，使用词语：激动",
       "options": [
@@ -1015,7 +1015,7 @@
     {
       "number": 76,
       "original_id": 2035,
-      "type": "choice",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/洗衣机.png",
       "text": "请看图造句，使用词语：洗衣机",
       "options": [

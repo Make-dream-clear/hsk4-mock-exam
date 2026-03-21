@@ -896,7 +896,7 @@
     {
       "number": 66,
       "original_id": 2772,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "66. 阅读短文：有些电话号码只有3个数字，这是为了方便人们记住。例如，你想找警察帮忙，可以打110；想知道天气情况，可以打121；有人生病了，可以打120。 问题：根据这段话，打121是因为想：",
       "options": [
         "找大夫",
@@ -909,7 +909,7 @@
     {
       "number": 67,
       "original_id": 2771,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "67. 阅读短文：虽然京剧的历史才两百多年，但是已经发展得很成熟了。随着社会的发展，京剧也在改变着，以适应不同年龄观众的需要。 问题：关于京剧，可以知道：",
       "options": [
         "很流行",
@@ -922,7 +922,7 @@
     {
       "number": 68,
       "original_id": 2770,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "68. 阅读短文：要想获得别人的尊重，首先要学会尊重别人。尊重别人，不仅指对人友好、有礼貌，而且还要尊重别人的兴趣和爱好，在与别人看法不同时，能尊重别人的意见或者选择。 问题：这段话主要想告诉我们，怎样：",
       "options": [
         "互相帮助",
@@ -935,7 +935,7 @@
     {
       "number": 69,
       "original_id": 2769,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "69. 阅读短文：中国有句话叫做\"要想富，先修路\"，意思是，交通对一个地方经济的发展有很大的影响。一些地方因为比较穷，没有钱修路，经济、教育、文化等各方面的发展都受到很大的限制。 问题：\"要想富，先修路\"说明什么对经济的发展有影响？",
       "options": [
         "科学技术",
@@ -948,7 +948,7 @@
     {
       "number": 70,
       "original_id": 2768,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "70. 阅读短文：要想做出正确的判断，首先要耐心地听别人说明情况，其次要把这些情况考虑清楚。只有这样，做出的判断才可能是对的。 问题：要做出正确的判断，必须：",
       "options": [
         "仔细介绍",
@@ -961,7 +961,7 @@
     {
       "number": 71,
       "original_id": 2767,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "71. 阅读短文：根据多年的教学经验，他发现：性格活泼的人可能更适合学习语言，因为这样的人学习比较积极，喜欢主动与人交流，所以学习效果更好。 问题：性格活泼的人：",
       "options": [
         "说话直接",
@@ -974,7 +974,7 @@
     {
       "number": 72,
       "original_id": 2766,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "72. 阅读短文：生活不会一直都顺利，人总是会遇到各种各样的麻烦，可是不管你是快乐还是难过，生活总要继续下去，那我们为什么不选择快乐地生活呢？ 问题：这段话主要想告诉我们，应该：",
       "options": [
         "懂得放弃",
@@ -987,7 +987,7 @@
     {
       "number": 73,
       "original_id": 2765,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "73. 阅读短文：做事情有计划，这是一种很好的习惯，更重要的是，它还反映了一个人做事的态度。许多人能取得成功，其中最主要的一个原因就是事前有很好的计划。 问题：很多人获得成功的关键是：",
       "options": [
         "有信心",
@@ -1000,7 +1000,7 @@
     {
       "number": 74,
       "original_id": 2764,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "74. 阅读短文：云南在中国的西南部，是著名的旅游目的地。当地美丽的自然风景吸引了很多游客，除了美景外，那儿的民族文化也有很大的吸引力。 问题：关于云南，可以知道：",
       "options": [
         "特别热",
@@ -1013,7 +1013,7 @@
     {
       "number": 75,
       "original_id": 2763,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "75. 阅读短文：春节是中国人最重要的节日。每年春节，在外地工作和上学的人们都会开车或乘坐汽车、火车、飞机回家，和家人一起过年。 问题：春节时，人们都要：",
       "options": [
         "请客",
@@ -1026,7 +1026,7 @@
     {
       "number": 76,
       "original_id": 2762,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "76. 阅读短文：广告几乎无处不在，街头、地铁、电视、网上，到处都会看到各种各样的广告。不管你是喜欢还是讨厌它，我们每天都生活在广告之中。 问题：根据这段话，广告：",
       "options": [
         "数量多",
@@ -1039,7 +1039,7 @@
     {
       "number": 77,
       "original_id": 2761,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "77. 阅读短文：李师傅平时总是穿一件白衬衫、一条黑裤子。但是公司开会的时候，他一定会换上很正式的西服，皮鞋也擦得亮亮的。 问题：开会时，李师傅：",
       "options": [
         "爱喝茶",
@@ -1052,7 +1052,7 @@
     {
       "number": 78,
       "original_id": 2760,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "78. 阅读短文：年轻人常常会因为找不到工作而烦恼，其实，明白自己需要什么样的工作比找到一份工作更重要，因为方向比速度重要。 问题：找工作以前，应该清楚：",
       "options": [
         "法律规定",
@@ -1065,7 +1065,7 @@
     {
       "number": 79,
       "original_id": 2759,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "79. 阅读短文：《长江之歌》这首歌的词作者以浪漫的文字，表达了他对长江的深厚感情。歌词前一部分写长江像母亲一样照顾儿女，后一部分写长江的历史和它对社会发展的推动作用。 问题：这段话主要讲《长江之歌》的：",
       "options": [
         "歌词",
@@ -1078,7 +1078,7 @@
     {
       "number": 80,
       "original_id": 2758,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "80. 阅读短文：经理的妻子给他拿来了早饭和报纸就出门了。两个小时后，妻子回到家，发现丈夫仍然坐在桌子旁边看报纸。妻子奇怪地问他：\"你今天不去办公室吗？今天休息？\"经理吃惊地跳起来说：\"天啊！你怎么不提醒我呢？我以为我已经在上班了！\" 问题：妻子回到家，看见丈夫：",
       "options": [
         "准备出门",
@@ -1091,7 +1091,7 @@
     {
       "number": 81,
       "original_id": 2757,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "81. 阅读短文：经理的妻子给他拿来了早饭和报纸就出门了。两个小时后，妻子回到家，发现丈夫仍然坐在桌子旁边看报纸。妻子奇怪地问他：\"你今天不去办公室吗？今天休息？\"经理吃惊地跳起来说：\"天啊！你怎么不提醒我呢？我以为我已经在上班了！\" 问题：根据这段话，可以知道经理：",
       "options": [
         "要加班",
@@ -1104,7 +1104,7 @@
     {
       "number": 82,
       "original_id": 2756,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "82. 阅读短文：现在有些父母认为，孩子接受国外的教育越早越好，因此，一些孩子很小的时候就被送去留学了。但是另外一些人有不同的看法，他们担心孩子太小，还不会照顾自己，并不能很好地适应国外的学习和生活。 问题：关于小孩子出国学习，可以知道：",
       "options": [
         "学费很贵",
@@ -1117,7 +1117,7 @@
     {
       "number": 83,
       "original_id": 2755,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "83. 阅读短文：现在有些父母认为，孩子接受国外的教育越早越好，因此，一些孩子很小的时候就被送去留学了。但是另外一些人有不同的看法，他们担心孩子太小，还不会照顾自己，并不能很好地适应国外的学习和生活。 问题：这段话主要讨论什么问题？",
       "options": [
         "学习方法",
@@ -1130,7 +1130,7 @@
     {
       "number": 84,
       "original_id": 2754,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "84. 阅读短文：现代社会离不开交流。如果工作中遇到了难题，要试着和同事交流，他也许可以帮你解决。如果朋友之间发生了不高兴的事情，你不应该自己一个人生气，而应该去和他交流，很有可能你会发现那是个误会。一个公司内部如果经常交流，公司的竞争力一定会得到提高。家人之间如果经常交流，一定会生活得很幸福。 问题：跟同事交流可能会帮你：",
       "options": [
         "更勇敢",
@@ -1143,7 +1143,7 @@
     {
       "number": 85,
       "original_id": 2753,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "85. 阅读短文：现代社会离不开交流。如果工作中遇到了难题，要试着和同事交流，他也许可以帮你解决。如果朋友之间发生了不高兴的事情，你不应该自己一个人生气，而应该去和他交流，很有可能你会发现那是个误会。一个公司内部如果经常交流，公司的竞争力一定会得到提高。家人之间如果经常交流，一定会生活得很幸福。 问题：这段话主要介绍：",
       "options": [
         "什么是幸福",
@@ -1156,7 +1156,7 @@
     {
       "number": 86,
       "original_id": 2752,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "86. 把下列词语组成一个完整的句子：这篇文章 三部分 组成 由",
       "options": [
         "这篇文章三部分组成由。",
@@ -1169,7 +1169,7 @@
     {
       "number": 87,
       "original_id": 2751,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "87. 把下列词语组成一个完整的句子：儿童 欢迎 很 这个节目 受",
       "options": [
         "儿童欢迎很这个节目受。",
@@ -1182,7 +1182,7 @@
     {
       "number": 88,
       "original_id": 2750,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "88. 把下列词语组成一个完整的句子：离大使馆 友谊宾馆 远 吗",
       "options": [
         "离大使馆友谊宾馆远吗？",
@@ -1195,7 +1195,7 @@
     {
       "number": 89,
       "original_id": 2749,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "89. 把下列词语组成一个完整的句子：很 诚实 那个 确实 司机",
       "options": [
         "很诚实那个确实司机。",
@@ -1208,7 +1208,7 @@
     {
       "number": 90,
       "original_id": 2748,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "90. 把下列词语组成一个完整的句子：加油站 使用 手机 禁止",
       "options": [
         "加油站使用手机禁止。",
@@ -1221,7 +1221,7 @@
     {
       "number": 91,
       "original_id": 2747,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "91. 把下列词语组成一个完整的句子：去 公园 你陪姐姐 散散步 吧",
       "options": [
         "去公园你陪姐姐散散步吧。",
@@ -1234,7 +1234,7 @@
     {
       "number": 92,
       "original_id": 2746,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "92. 把下列词语组成一个完整的句子：有点儿 咸 中午的 西红柿鸡蛋汤 稍微",
       "options": [
         "有点儿咸中午的西红柿鸡蛋汤稍微。",
@@ -1247,7 +1247,7 @@
     {
       "number": 93,
       "original_id": 2745,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "93. 把下列词语组成一个完整的句子：中文 说得 你们校长 的 很流利",
       "options": [
         "中文说得你们校长的很流利。",
@@ -1260,7 +1260,7 @@
     {
       "number": 94,
       "original_id": 2744,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "94. 把下列词语组成一个完整的句子：90%的 通过了考试 同学 大约有",
       "options": [
         "90%的通过了考试同学大约有。",
@@ -1273,7 +1273,7 @@
     {
       "number": 95,
       "original_id": 2743,
-      "type": "choice",
+      "type": "reading_comprehension",
       "text": "95. 把下列词语组成一个完整的句子：房间 米小姐 把 收拾好了",
       "options": [
         "房间米小姐把收拾好了。",
@@ -1286,7 +1286,7 @@
     {
       "number": 96,
       "original_id": 2742,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/袜子.png",
       "text": "96. 看图造句",
       "options": [
@@ -1300,7 +1300,7 @@
     {
       "number": 97,
       "original_id": 2741,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/害羞.png",
       "text": "97. 看图造句",
       "options": [
@@ -1314,7 +1314,7 @@
     {
       "number": 98,
       "original_id": 2740,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/醒.png",
       "text": "98. 看图造句",
       "options": [
@@ -1328,7 +1328,7 @@
     {
       "number": 99,
       "original_id": 2739,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/密码.png",
       "text": "99. 看图造句",
       "options": [
@@ -1342,7 +1342,7 @@
     {
       "number": 100,
       "original_id": 2738,
-      "type": "choice",
+      "type": "reading_comprehension",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/咳嗽.png",
       "text": "100. 看图造句",
       "options": [

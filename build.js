@@ -1,0 +1,997 @@
+#!/usr/bin/env node
+/**
+ * SEO Build Script for HSK4 Mock Exam
+ *
+ * Pre-renders dynamic JSON content into static HTML so search engines
+ * can index vocabulary words, test questions, and other content that
+ * would otherwise require JavaScript execution.
+ *
+ * Usage: node build.js
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = __dirname;
+const DATA = path.join(ROOT, 'data');
+
+// --- Helpers ---
+
+function escHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function readJSON(file) {
+  return JSON.parse(fs.readFileSync(path.join(DATA, file), 'utf8'));
+}
+
+function ensureDir(dir) {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+}
+
+// ============================================================
+// 1. PRE-RENDER VOCABULARY INTO vocabulary/index.html
+// ============================================================
+
+function buildVocabulary() {
+  console.log('[vocab] Pre-rendering vocabulary...');
+  const words = readJSON('vocabulary.json');
+  const htmlPath = path.join(ROOT, 'vocabulary', 'index.html');
+  let html = fs.readFileSync(htmlPath, 'utf8');
+
+  // Build a static word list that crawlers can index
+  // The JS will replace this on load, but crawlers see the full list
+  const staticRows = words.map(w => {
+    const mastered = '';
+    return `<div class="vocab-card" data-id="${w.id}">
+  <div class="vocab-collapsed">
+    <span class="vocab-word chinese">${escHtml(w.word)}</span>
+    <span class="vocab-pinyin">${escHtml(w.pinyin)}</span>
+    <span class="pos-badge">${escHtml(w.pos || '')}</span>
+    <span class="vocab-meaning">${escHtml(w.meaning || '')}</span>
+  </div>
+  <div class="vocab-expanded">
+    <div class="example-block">
+      <div class="example-cn chinese">${escHtml(w.example_cn || '')}</div>
+      <div class="example-pinyin">${escHtml(w.example_pinyin || '')}</div>
+      <div class="example-en">${escHtml(w.example_en || '')}</div>
+    </div>
+  </div>
+</div>`;
+  }).join('\n');
+
+  // Replace the loading spinner inside #vocab-list with pre-rendered content
+  html = html.replace(
+    /<div class="vocab-list" id="vocab-list">\s*<div class="loading">.*?<\/div>\s*<\/div>/s,
+    `<div class="vocab-list" id="vocab-list">\n${staticRows}\n</div>`
+  );
+
+  // Move SEO content BEFORE the vocab list so it's near the top of the page
+  // We do this by replacing the existing SEO section AND injecting new content before the filter bar
+  const newVocabSEO = `<section class="seo-content" style="margin-top:48px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">HSK 4 Vocabulary (2026 New Syllabus)</h2>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      This word list follows the <strong>2025 official HSK syllabus</strong> (published by the Center for Language Education and Cooperation, effective July 2026). The new syllabus organizes HSK 4 around 25 communicative tasks \u2014 from discussing people (\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269) and emotions (\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898), to handling daily affairs (\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1), to discussing social phenomena (\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61).
+    </p>
+
+    <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">How HSK 4 Vocabulary Differs from HSK 3</h3>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      HSK 3 covers about 600 words for daily survival \u2014 ordering food, asking directions, describing your family. HSK 4 adds roughly 600 new words that shift toward <strong>abstract thinking and opinion expression</strong>. The official syllabus explicitly requires you to handle \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain level of complexity) in conversations. This means words like \u201c\u5374\u201d (qu\u00E8, however), \u201c\u5C3D\u7BA1\u201d (j\u01D0ngu\u01CEn, despite), \u201c\u7ADF\u7136\u201d (j\u00ECngr\u00E1n, unexpectedly), and \u201c\u65E2\u7136\u201d (j\u00ECr\u00E1n, since) become essential for building the complex sentences the exam tests.
+    </p>
+
+    <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">Key Word Categories Added at HSK 4 (from the Official Grammar Syllabus)</h3>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      According to the 2025 grammar syllabus, HSK 4 adds these specific categories beyond HSK 3:
+    </p>
+    <ul style="color:var(--stone);line-height:2;margin-bottom:16px;padding-left:20px;">
+      <li><strong>Degree adverbs / \u7A0B\u5EA6\u526F\u8BCD</strong>: \u5341\u5206, \u66F4\u52A0, \u7A0D, \u7A0D\u5FAE, \u5C24\u5176, \u591A\u4E48 \u2014 for expressing nuance and degree</li>
+      <li><strong>Scope adverbs / \u8303\u56F4\u526F\u8BCD</strong>: \u5171, \u5168, \u5149, \u4EC5, \u4EC5\u4EC5, \u81F3\u5C11 \u2014 for being precise about quantities</li>
+      <li><strong>Tone adverbs / \u8BED\u6C14\u526F\u8BCD</strong>: \u7ADF\u7136, \u7A76\u7ADF, \u6B63\u597D, \u5230\u5E95, \u96BE\u9053, \u5343\u4E07, \u786E\u5B9E, \u53EA\u597D, \u5DEE(\u4E00)\u70B9\u513F \u2014 for expressing surprise, emphasis, attitude</li>
+      <li><strong>New conjunctions / \u8FDE\u8BCD</strong>: \u6B64\u5916, \u800C, \u65E2\u7136, \u751A\u81F3, \u4E0D\u8FC7, \u5E76\u4E14, \u4E0D\u5149, \u4E0D\u4EC5, \u53E6\u5916, \u8981\u662F, \u56E0\u6B64, \u7531\u4E8E, \u52A0\u4E0A \u2014 for linking complex sentences</li>
+      <li><strong>New measure words / \u91CF\u8BCD</strong>: \u6253, \u888B, \u68F5, \u53F0, \u5E45, \u8138, \u624B, \u76D2, \u5C4B\u5B50, \u684C\u5B50 \u2014 borrowed and specialized classifiers</li>
+    </ul>
+
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+      All ${words.length} words below include pinyin, English translations, and example sentences in context. Use the flashcard and quiz modes above to practice active recall. Your progress is saved locally so you can pick up where you left off.
+    </p>
+
+    <p style="color:var(--stone);line-height:1.8;">
+      Created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>, a Chinese language school in Beijing since 2008.
+    </p>
+  </section>`;
+
+  // Remove old SEO section (after the word list)
+  html = html.replace(
+    /<!-- STATIC SEO CONTENT -->.*?<\/section>/s,
+    `<!-- SEO content moved above word list -->`
+  );
+
+  // Inject SEO content BEFORE the search/filter bar so it's near the top
+  html = html.replace(
+    /<!-- SEARCH & FILTER -->/,
+    `<!-- STATIC SEO CONTENT -->\n  ${newVocabSEO}\n\n  <!-- SEARCH & FILTER -->`
+  );
+
+  fs.writeFileSync(htmlPath, html, 'utf8');
+  console.log(`[vocab] Pre-rendered ${words.length} words into vocabulary/index.html`);
+}
+
+// ============================================================
+// 2. GENERATE STATIC TEST PAGES: /test/01/index.html ...
+// ============================================================
+
+function buildTestPages() {
+  console.log('[tests] Generating static test pages...');
+  const index = readJSON('index.json');
+
+  index.forEach((meta, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    const test = readJSON(meta.file);
+    const dir = path.join(ROOT, 'test', num);
+    ensureDir(dir);
+
+    const typeLabels = {
+      listening_true_false: 'Listening \u00B7 \u542C\u529B\u5224\u65AD',
+      listening_choice: 'Listening \u00B7 \u542C\u529B\u9009\u62E9',
+      fill_in_blank: 'Reading \u00B7 \u9009\u8BCD\u586B\u7A7A',
+      reading_ordering: 'Reading \u00B7 \u8BED\u53E5\u6392\u5E8F',
+      reading_comprehension: 'Reading \u00B7 \u9605\u8BFB\u7406\u89E3',
+      writing_construction: 'Writing \u00B7 \u770B\u56FE\u9020\u53E5',
+      choice: 'Writing \u00B7 \u4E66\u5199',
+    };
+
+    // Group questions by section
+    const sections = {};
+    test.questions.forEach(q => {
+      const label = typeLabels[q.type] || 'Question';
+      if (!sections[label]) sections[label] = [];
+      sections[label].push(q);
+    });
+
+    const questionsHtml = Object.entries(sections).map(([section, qs]) => {
+      const qsHtml = qs.map(q => {
+        const markers = ['A', 'B', 'C', 'D', 'E', 'F'];
+        const optionsHtml = q.options.map((opt, oi) =>
+          `<div class="static-option"><span class="static-marker">${markers[oi] || oi + 1}</span> <span class="chinese">${escHtml(opt)}</span></div>`
+        ).join('\n            ');
+
+        return `
+          <div class="static-question">
+            <div class="static-q-num">Question ${q.number}</div>
+            ${q.text ? `<div class="static-q-text chinese">${escHtml(q.text)}</div>` : ''}
+            <div class="static-options">
+            ${optionsHtml}
+            </div>
+          </div>`;
+      }).join('\n');
+
+      return `
+        <div class="static-section">
+          <h3 class="static-section-title">${escHtml(section)}</h3>
+          ${qsHtml}
+        </div>`;
+    }).join('\n');
+
+    // Count by type
+    const listeningCount = test.questions.filter(q => q.type && q.type.startsWith('listening')).length;
+    const readingCount = test.questions.filter(q => q.type && (q.type.startsWith('reading') || q.type === 'fill_in_blank')).length;
+    const writingCount = test.questions.filter(q => q.type === 'choice' || q.type === 'writing_construction').length;
+
+    const isComplete = writingCount > 0;
+    const coverageLabel = isComplete
+      ? `Listening + Reading + Writing`
+      : `Listening + Reading only`;
+    const coverageBadge = isComplete
+      ? `<span style="display:inline-block;background:var(--jade-soft);color:var(--jade);font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px;margin-left:8px;">Complete Mock</span>`
+      : `<span style="display:inline-block;background:var(--gold-soft);color:var(--gold);font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px;margin-left:8px;">Listening + Reading</span>`;
+    const coverageNote = isComplete
+      ? ''
+      : `<div style="background:var(--gold-soft);border:1px solid #e8d5a0;border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:14px;line-height:1.6;color:var(--gold);">
+      <strong>Note:</strong> This test covers listening and reading sections only. The writing section (sentence construction) cannot be auto-scored in our online format. For writing practice, see our <a href="/writing/sentence-order/" style="color:var(--gold);font-weight:600;">sentence ordering exercises</a> and <a href="/writing/paragraph/" style="color:var(--gold);font-weight:600;">paragraph writing practice</a>.
+    </div>`;
+
+    const pageTitle = `${meta.title} \u2014 ${meta.questions} Questions with Answers | HSK4 \u6A21\u62DF\u8BD5\u5377 ${num}`;
+    const pageDesc = isComplete
+      ? `Free HSK 4 practice test #${num} with ${meta.questions} questions: ${listeningCount} listening, ${readingCount} reading, ${writingCount} writing. Take the interactive quiz or review all questions with answer keys.`
+      : `Free HSK 4 practice test #${num} with ${meta.questions} questions covering listening (${listeningCount}q) and reading (${readingCount}q). Auto-scored online quiz with answer keys.`;
+
+    // Extract sample reading passages for this test (unique content per page)
+    const readingQs = test.questions.filter(q => q.text && q.text.length > 50);
+    const sampleTopics = readingQs.slice(0, 3).map(q => {
+      const text = q.text.substring(0, 60).replace(/\n/g, ' ');
+      return text;
+    });
+
+    // Count question types for this specific test
+    const typeCounts = {};
+    test.questions.forEach(q => {
+      const t = q.type || 'unknown';
+      typeCounts[t] = (typeCounts[t] || 0) + 1;
+    });
+    const typeBreakdown = Object.entries(typeCounts)
+      .map(([t, c]) => `${c} ${(typeLabels[t] || t).split(' · ')[0].toLowerCase()}`)
+      .join(', ');
+
+    const pageHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escHtml(pageTitle)}</title>
+<meta name="description" content="${escHtml(pageDesc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/test/${num}/">
+
+<meta property="og:title" content="${escHtml(meta.title)} \u2014 Free HSK 4 Practice Test">
+<meta property="og:description" content="${escHtml(pageDesc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/test/${num}/">
+<meta property="og:site_name" content="Mandarin Zone">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escHtml(meta.title)}">
+<meta name="twitter:description" content="${escHtml(pageDesc)}">
+
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/test/${num}/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/test/${num}/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/test/${num}/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "${escHtml(meta.title)}",
+  "description": "${escHtml(pageDesc)}",
+  "url": "https://hsk4.mandarinzone.com/test/${num}/",
+  "educationalLevel": "Intermediate",
+  "inLanguage": ["en", "zh-CN"],
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Organization",
+    "name": "Mandarin Zone",
+    "url": "https://mandarinzone.com"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "HSK 4 Chinese Proficiency Test"
+  },
+  "hasPart": [
+    {
+      "@type": "Quiz",
+      "name": "Listening Section",
+      "description": "${listeningCount} listening comprehension questions with audio"
+    },
+    {
+      "@type": "Quiz",
+      "name": "Reading Section",
+      "description": "${readingCount} reading comprehension and vocabulary questions"
+    },
+    {
+      "@type": "Quiz",
+      "name": "Writing Section",
+      "description": "${writingCount} sentence construction questions"
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .test-hero { text-align: center; padding: 40px 0 32px; }
+  .test-hero h1 { font-family: 'Noto Serif SC', serif; font-size: clamp(22px, 4vw, 32px); margin-bottom: 12px; }
+  .test-meta { display: flex; justify-content: center; gap: 24px; color: var(--stone); font-size: 14px; margin-bottom: 24px; flex-wrap: wrap; }
+  .test-meta-item { display: flex; align-items: center; gap: 6px; }
+  .start-btn-wrap { margin: 24px 0 40px; text-align: center; }
+
+  .static-section { margin-bottom: 40px; }
+  .static-section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--mist);
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+  .static-question {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .static-q-num { font-size: 13px; color: var(--stone); font-weight: 500; margin-bottom: 8px; }
+  .static-q-text { font-size: 16px; line-height: 1.8; margin-bottom: 14px; white-space: pre-wrap; }
+  .static-options { display: flex; flex-direction: column; gap: 6px; }
+  .static-option {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .static-marker {
+    min-width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--mist);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; color: var(--stone);
+  }
+
+  .breadcrumb { font-size: 13px; color: var(--stone); margin-bottom: 8px; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .test-nav { display: flex; justify-content: space-between; margin: 40px 0; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 600px) {
+    .static-question { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark chinese">MZ</div>
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/">Mock Exams</a> &rsaquo; Test ${num}
+  </nav>
+
+  <div class="test-hero">
+    <h1 class="chinese">${escHtml(meta.title)} ${coverageBadge}</h1>
+    <div class="test-meta">
+      <span class="test-meta-item">${meta.questions} questions</span>
+      <span class="test-meta-item">${listeningCount} listening</span>
+      <span class="test-meta-item">${readingCount} reading</span>
+      ${writingCount > 0 ? `<span class="test-meta-item">${writingCount} writing</span>` : ''}
+      <span class="test-meta-item">~50 min</span>
+    </div>
+    ${coverageNote}
+    <p style="color:var(--stone);max-width:560px;margin:0 auto 24px;">
+      Take this HSK 4 practice test interactively with instant scoring, or scroll down to review all ${meta.questions} questions.
+    </p>
+    <div class="start-btn-wrap">
+      <a href="/?start=${i}" class="btn btn-primary" style="padding:14px 36px;font-size:16px;">Start Interactive Test</a>
+    </div>
+  </div>
+
+  <div class="section-title">All Questions / \u5168\u90E8\u9898\u76EE</div>
+  ${questionsHtml}
+
+  <div class="test-nav">
+    ${i > 0 ? `<a href="/test/${String(i).padStart(2, '0')}/" class="btn btn-ghost">&larr; Test ${String(i).padStart(2, '0')}</a>` : '<span></span>'}
+    <a href="/" class="btn btn-secondary">All Tests</a>
+    ${i < index.length - 1 ? `<a href="/test/${String(i + 2).padStart(2, '0')}/" class="btn btn-ghost">Test ${String(i + 2).padStart(2, '0')} &rarr;</a>` : '<span></span>'}
+  </div>
+
+  <section style="margin-top:40px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:14px;">About Test ${num}</h2>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">
+      Test ${num} contains ${meta.questions} questions: ${typeBreakdown}. ${isComplete ? 'This is a complete mock covering all three sections of the HSK 4 exam.' : 'This test covers the listening and reading sections. The writing section (sentence construction from given words) is not included because it requires manual scoring that cannot be automated online.'} You can <a href="/?start=${i}" style="color:var(--accent);">take it interactively</a> with automatic scoring. The pass mark for the real HSK 4 exam is 180/300 (60%).
+    </p>
+    ${sampleTopics.length > 0 ? `<p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">
+      Reading passages in this test cover topics such as: ${sampleTopics.map(t => '\u201c' + escHtml(t) + '\u2026\u201d').join(', ')}. These reflect the HSK 4 syllabus requirement to handle real-world topics with a certain level of complexity.
+    </p>` : ''}
+    <p style="color:var(--stone);line-height:1.8;">
+      Browse all 12 tests on the <a href="/" style="color:var(--accent);">homepage</a>, or study with our <a href="/vocabulary/" style="color:var(--accent);">vocabulary list</a>, <a href="/grammar/" style="color:var(--accent);">grammar guides</a>, and <a href="/writing/" style="color:var(--accent);">writing exercises</a>.
+    </p>
+  </section>
+
+  <div class="cta-banner">
+    <h3 class="chinese">\u60F3\u8981\u66F4\u7CFB\u7EDF\u5730\u5B66\u4E2D\u6587\uFF1F</h3>
+    <p>Mandarin Zone \u2014 Learn Chinese in Beijing & Online since 2008</p>
+    <a href="https://mandarinzone.com" target="_blank" rel="noopener" class="btn btn-primary">Visit Mandarin Zone</a>
+  </div>
+</main>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/writing/">Writing</a> \u00B7 <a href="/guide/">Study Guide</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</footer>
+
+</body>
+</html>`;
+
+    fs.writeFileSync(path.join(dir, 'index.html'), pageHtml, 'utf8');
+    console.log(`[tests] Generated test/${num}/index.html (${meta.questions} questions)`);
+  });
+}
+
+// ============================================================
+// 3. REWRITE HOMEPAGE SEO CONTENT
+// ============================================================
+
+function buildHomepage() {
+  console.log('[home] Rewriting homepage SEO content...');
+  const htmlPath = path.join(ROOT, 'index.html');
+  let html = fs.readFileSync(htmlPath, 'utf8');
+
+  // Add links to static test pages in the test grid's noscript fallback
+  const index = readJSON('index.json');
+  // Check which tests have writing questions
+  const testLinks = index.map((meta, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    const test = readJSON(meta.file);
+    const hasWriting = test.questions.some(q => q.type === 'writing_construction');
+    const label = hasWriting ? '' : ' (Listening + Reading)';
+    return `      <li><a href="/test/${num}/">${escHtml(meta.title)} (${meta.questions} questions)${label}</a></li>`;
+  }).join('\n');
+
+  const noscriptBlock = `<noscript>
+    <div style="margin:20px 0;">
+      <h2 style="font-size:18px;margin-bottom:12px;">Available Tests:</h2>
+      <ul style="line-height:2;padding-left:20px;">
+${testLinks}
+      </ul>
+    </div>
+  </noscript>`;
+
+  // Insert noscript after test-grid div
+  html = html.replace(
+    /(<div id="test-grid" class="test-grid">.*?<\/div>)/s,
+    `$1\n    ${noscriptBlock}`
+  );
+
+  // Replace generic SEO section with unique, valuable content
+  const newSEO = `<!-- STATIC SEO CONTENT -->
+    <section style="margin-top:48px;">
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">Free HSK 4 Practice Tests \u2014 Aligned with the 2026 Official Syllabus</h2>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        These 12 practice tests follow the <strong>2025 official HSK syllabus</strong> (published by the Center for Language Education and Cooperation, effective July 2026). 5 tests include all three sections (listening, reading, and writing); the other 7 cover listening and reading only, as the writing section requires manual scoring that cannot be automated online. All tests are auto-scored with instant results.
+      </p>
+
+      <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">Section-by-Section Tips</h3>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        <strong>Listening (\u542C\u529B):</strong> The HSK 4 listening section plays each audio clip only once. The true/false section (\u5224\u65AD\u5BF9\u9519) tests inference \u2014 not just what was said, but what it implies. Tip: practice deciding \u201cwhat does the speaker really mean?\u201d rather than just recognizing individual words.
+      </p>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        <strong>Sentence ordering (\u8BED\u53E5\u6392\u5E8F):</strong> These questions follow structural templates: time/place setup \u2192 subject \u2192 action \u2192 result/comment. Recognizing these patterns makes the section much more manageable. See our <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering practice</a> for targeted drills.
+      </p>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        <strong>Fill-in-the-blank (\u9009\u8BCD\u586B\u7A7A):</strong> This section rewards collocations, not just vocabulary. For example, knowing \u201c\u5F71\u54CD\u201d means \u201cinfluence\u201d is not enough \u2014 you need to know it pairs with \u201c\u5BF9\u2026\u4EA7\u751F\u5F71\u54CD\u201d. Our <a href="/vocabulary/" style="color:var(--accent);">vocabulary list</a> includes example sentences showing these collocations in context.
+      </p>
+
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:32px;">HSK 4 Exam Format at a Glance</h2>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:15px;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--mist);text-align:left;">
+            <th style="padding:10px 12px;">Section</th>
+            <th style="padding:10px 12px;">Questions</th>
+            <th style="padding:10px 12px;">Time</th>
+            <th style="padding:10px 12px;">What It Tests</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--mist);">
+            <td style="padding:10px 12px;">\u542C\u529B Listening</td>
+            <td style="padding:10px 12px;">45</td>
+            <td style="padding:10px 12px;">~30 min</td>
+            <td style="padding:10px 12px;">True/false judgments, multiple choice from audio clips</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--mist);">
+            <td style="padding:10px 12px;">\u9605\u8BFB Reading</td>
+            <td style="padding:10px 12px;">40</td>
+            <td style="padding:10px 12px;">40 min</td>
+            <td style="padding:10px 12px;">Vocabulary fill-in, sentence ordering, passage comprehension</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--mist);">
+            <td style="padding:10px 12px;">\u4E66\u5199 Writing</td>
+            <td style="padding:10px 12px;">15</td>
+            <td style="padding:10px 12px;">25 min</td>
+            <td style="padding:10px 12px;">Construct sentences from given words</td>
+          </tr>
+          <tr style="background:var(--paper);">
+            <td style="padding:10px 12px;font-weight:600;">Total</td>
+            <td style="padding:10px 12px;font-weight:600;">100</td>
+            <td style="padding:10px 12px;font-weight:600;">~105 min</td>
+            <td style="padding:10px 12px;">Pass mark: 180/300 (60%)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:32px;">The 25 HSK 4 Task Topics (2026 Syllabus)</h2>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        Unlike HSK 3 which focuses on basic daily needs, the new HSK 4 syllabus requires handling \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain level of complexity) across 25 communicative tasks:
+      </p>
+      <ol style="color:var(--stone);line-height:2.2;margin-bottom:16px;padding-left:20px;columns:2;column-gap:32px;font-size:14px;">
+        <li>\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269 \u2014 Discuss a person</li>
+        <li>\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1 \u2014 Handle daily affairs</li>
+        <li>\u65E5\u5E38\u8A00\u8BED\u4EA4\u5F80 \u2014 Daily verbal interactions</li>
+        <li>\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898 \u2014 Discuss emotions</li>
+        <li>\u4ECB\u7ECD\u996E\u98DF\u60C5\u51B5 \u2014 Describe food & dining</li>
+        <li>\u8C08\u8BBA\u4EA4\u901A\u51FA\u884C \u2014 Discuss transportation</li>
+        <li>\u4EA4\u6D41\u8D2D\u7269\u4F53\u9A8C \u2014 Share shopping experiences</li>
+        <li>\u8C08\u8BBA\u5C31\u533B\u3001\u5065\u5EB7\u751F\u6D3B \u2014 Health & medical</li>
+        <li>\u4EA4\u6D41\u4E1A\u4F59\u7231\u597D \u2014 Hobbies & leisure</li>
+        <li>\u4EA4\u6D41\u5C45\u4F4F\u3001\u793E\u533A\u60C5\u51B5 \u2014 Housing & community</li>
+        <li>\u4EA4\u6D41\u5BB6\u5EAD\u751F\u6D3B \u2014 Family life</li>
+        <li>\u8C08\u8BBA\u6559\u5B66\u3001\u5B66\u4E60 \u2014 Education & learning</li>
+        <li>\u4EA4\u6D41\u6821\u56ED\u751F\u6D3B \u2014 Campus life</li>
+        <li>\u8C08\u8BBA\u6559\u80B2\u73B0\u8C61 \u2014 Education phenomena</li>
+        <li>\u8C08\u8BBA\u5DE5\u4F5C\u60C5\u51B5 \u2014 Work situations</li>
+        <li>\u4ECB\u7ECD\u804C\u4E1A\u7ECF\u5386 \u2014 Career experiences</li>
+        <li>\u8C08\u8BBA\u81EA\u7136\u60C5\u51B5 \u2014 Nature & geography</li>
+        <li>\u8C08\u8BBA\u73AF\u4FDD\u60C5\u51B5 \u2014 Environmental protection</li>
+        <li>\u4ECB\u7ECD\u65B0\u6280\u672F\u5E94\u7528 \u2014 Technology</li>
+        <li>\u4ECB\u7ECD\u4E2D\u56FD\u7701\u5E02\u3001\u6C11\u65CF \u2014 Chinese provinces & ethnicities</li>
+        <li>\u8C08\u8BBA\u7ECF\u6D4E\u73B0\u8C61 \u2014 Economic phenomena</li>
+        <li>\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61 \u2014 Social phenomena</li>
+        <li>\u4ECB\u7ECD\u6587\u827A\u5F62\u5F0F \u2014 Arts & entertainment</li>
+        <li>\u8C08\u8BBA\u4F53\u80B2\u6BD4\u8D5B \u2014 Sports</li>
+        <li>\u8BB2\u8FF0\u4E2D\u5916\u53CB\u597D\u6545\u4E8B \u2014 China-world friendship</li>
+      </ol>
+
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:32px;">HSK 4 Grammar: What the 2026 Syllabus Adds</h2>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        The official grammar syllabus adds significant complexity at Level 4. Key new patterns include: <strong>\u628A\u5B57\u53E52</strong> with four new structures (tentative, completed, quantified, and modified forms); <strong>\u88AB\u52A8\u53E52</strong> using \u53EB/\u8BA9 instead of just \u88AB; <strong>\u517C\u8BED\u53E52</strong> for causative and evaluative sentences; <strong>\u6BD4\u8F83\u53E53</strong> with \u201cA\u4E0D\u5982B\u201d and \u201c\u8DDF\u2026\u76F8\u6BD4\u201d; <strong>\u53CC\u91CD\u5426\u5B9A\u53E5</strong> for emphasis; plus many new complex sentence types (\u590D\u53E5) including concessive (\u5C3D\u7BA1\u2026\u4F46\u662F), conditional (\u4E0D\u7BA1\u2026\u90FD, \u65E0\u8BBA\u2026\u90FD), and hypothetical (\u8981\u662F\u2026\u5426\u5219) patterns. See our <a href="/grammar/" style="color:var(--accent);">grammar guide</a> for interactive practice on each pattern.
+      </p>
+
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:32px;">How to Use These Mock Exams Effectively</h2>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        <strong>Week 1\u20134:</strong> Take one test per week under timed conditions. After each test, spend twice as long reviewing your wrong answers as you spent taking the test. For every wrong answer, find the grammar pattern or vocabulary word you missed and add it to your study list.
+      </p>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        <strong>Week 5\u20138:</strong> Focus on your weakest section. If listening is your weakest, replay the audio questions from completed tests and practice shadowing the dialogues. If reading is weakest, use our <a href="/grammar/" style="color:var(--accent);">grammar guide</a> to fill gaps in sentence patterns. If writing is weakest, practice the <a href="/writing/" style="color:var(--accent);">sentence ordering drills</a>.
+      </p>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
+        <strong>Final 2 weeks:</strong> Take 2\u20133 full tests back-to-back to build exam stamina. By this point, aim for 70%+ consistently \u2014 that gives you a comfortable margin above the 60% pass line.
+      </p>
+      <p style="color:var(--stone);line-height:1.8;">
+        These tests are created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>, a Chinese language school in Beijing since 2008. For personalized HSK preparation with experienced teachers, visit our website for online and in-person classes.
+      </p>
+    </section>`;
+
+  html = html.replace(
+    /<!-- Static SEO content for search engines -->.*?<\/section>/s,
+    newSEO
+  );
+
+  fs.writeFileSync(htmlPath, html, 'utf8');
+  console.log('[home] Homepage SEO content updated');
+}
+
+// ============================================================
+// 4. UPDATE SITEMAP with test pages
+// ============================================================
+
+function buildSitemap() {
+  console.log('[sitemap] Updating sitemap.xml...');
+  const index = readJSON('index.json');
+  const today = new Date().toISOString().split('T')[0];
+
+  const existingPages = [
+    { loc: '/', priority: '1.0' },
+    { loc: '/vocabulary/', priority: '0.9' },
+    { loc: '/grammar/', priority: '0.8' },
+    { loc: '/topics/', priority: '0.9' },
+    { loc: '/guide/', priority: '0.8' },
+    { loc: '/grammar/ba-sentence/', priority: '0.8' },
+    { loc: '/grammar/passive/', priority: '0.8' },
+    { loc: '/grammar/comparison/', priority: '0.8' },
+    { loc: '/grammar/complement/', priority: '0.8' },
+    { loc: '/grammar/complex-sentences/', priority: '0.8' },
+    { loc: '/grammar/rhetorical/', priority: '0.8' },
+    { loc: '/grammar/adverbs/', priority: '0.8' },
+    { loc: '/grammar/function-words/', priority: '0.8' },
+    { loc: '/grammar/pivotal-sentences/', priority: '0.8' },
+    { loc: '/grammar/fixed-patterns/', priority: '0.8' },
+    { loc: '/writing/', priority: '0.9' },
+    { loc: '/writing/sentence-order/', priority: '0.8' },
+    { loc: '/writing/paragraph/', priority: '0.8' },
+    { loc: '/words/', priority: '0.7' },
+  ];
+
+  // Add test pages
+  const testPages = index.map((_, i) => ({
+    loc: `/test/${String(i + 1).padStart(2, '0')}/`,
+    priority: '0.8',
+  }));
+
+  const allPages = [...existingPages, ...testPages];
+
+  const urls = allPages.map(p => `  <url>
+    <loc>https://hsk4.mandarinzone.com${p.loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`).join('\n');
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`;
+
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
+  console.log(`[sitemap] Updated with ${allPages.length} URLs (added ${testPages.length} test pages)`);
+}
+
+// ============================================================
+// 5. PRE-RENDER TOPICS PAGE
+// ============================================================
+
+function buildTopics() {
+  console.log('[topics] Pre-rendering topic vocabulary...');
+  const topics = readJSON('topics.json');
+  const vocab = readJSON('vocabulary.json');
+  const htmlPath = path.join(ROOT, 'topics', 'index.html');
+  let html = fs.readFileSync(htmlPath, 'utf8');
+
+  // Build a word lookup
+  const wordMap = {};
+  vocab.forEach(w => { wordMap[w.id] = w; });
+
+  // Generate static HTML for each category and topic
+  const categoryColors = [
+    'var(--accent)', 'var(--jade)', 'var(--gold)',
+    '#6b9bd2', '#9b59b6', '#e67e22', 'var(--ink)'
+  ];
+
+  const staticHtml = topics.hierarchy.map((cat, ci) => {
+    const color = categoryColors[ci] || 'var(--stone)';
+    const topicsHtml = cat.topics.map(topic => {
+      const wordIds = topics.topic_words[topic.id] || [];
+      const words = wordIds.map(id => wordMap[id]).filter(Boolean);
+      if (words.length === 0) return '';
+
+      const wordsHtml = words.map(w =>
+        `<span class="static-topic-word"><span class="chinese">${escHtml(w.word)}</span> <span class="pinyin">${escHtml(w.pinyin)}</span> ${escHtml(w.meaning)}</span>`
+      ).join('\n          ');
+
+      return `
+      <div class="static-topic">
+        <h4 class="static-topic-name">${escHtml(topic.name)} <span class="static-topic-en">${escHtml(topic.name_en)}</span> <span class="static-topic-count">${words.length} words</span></h4>
+        <div class="static-topic-words">
+          ${wordsHtml}
+        </div>
+      </div>`;
+    }).join('\n');
+
+    return `
+    <div class="static-category">
+      <h3 class="static-cat-name" style="border-left:4px solid ${color};padding-left:12px;">${escHtml(cat.name)} / ${escHtml(cat.name_en)} <span class="static-cat-count">${cat.topics.length} topics</span></h3>
+      ${topicsHtml}
+    </div>`;
+  }).join('\n');
+
+  // CSS for static topic content
+  const staticCSS = `
+  <style>
+  .static-topic-content { margin: 32px 0; }
+  .static-category { margin-bottom: 32px; }
+  .static-cat-name { font-family: 'Noto Serif SC', serif; font-size: 20px; margin-bottom: 16px; }
+  .static-cat-count { font-size: 13px; color: var(--stone); font-weight: 400; }
+  .static-topic { margin-bottom: 20px; padding-left: 16px; }
+  .static-topic-name { font-size: 16px; font-weight: 600; margin-bottom: 8px; font-family: 'Noto Sans SC', sans-serif; }
+  .static-topic-en { font-weight: 400; color: var(--stone); font-size: 14px; }
+  .static-topic-count { font-size: 12px; color: var(--stone); font-weight: 400; }
+  .static-topic-words { display: flex; flex-wrap: wrap; gap: 6px; }
+  .static-topic-word {
+    display: inline-block; padding: 4px 10px; border: 1px solid var(--mist);
+    border-radius: 6px; font-size: 13px; line-height: 1.5; background: white;
+  }
+  .static-topic-word .pinyin { color: var(--stone); font-size: 12px; }
+  </style>`;
+
+  // Insert static content before the empty #categories div
+  html = html.replace(
+    /<div id="categories"><\/div>/,
+    `<noscript>${staticCSS}
+  <div class="static-topic-content">
+    <p style="color:var(--stone);margin-bottom:20px;">Browse HSK 4 vocabulary organized by topic. Enable JavaScript for interactive features including search, flashcards, and quizzes.</p>
+    ${staticHtml}
+  </div>
+  </noscript>
+  <div id="categories"></div>`
+  );
+
+  // Fix title: 77 topics is misleading, it's 32 sub-topics across 7 categories
+  html = html.replace(
+    /HSK 4 Topic Vocabulary — 1000 Words by 77 Topics \| HSK4 话题词汇/g,
+    'HSK 4 Topic Vocabulary \u2014 Words by Topic Category | HSK4 \u8BDD\u9898\u8BCD\u6C47'
+  );
+  html = html.replace(
+    /HSK 4 Topic Vocabulary — 1000 Words by 77 Topics/g,
+    'HSK 4 Topic Vocabulary \u2014 Words by Topic Category'
+  );
+  html = html.replace(
+    /77 official exam topics/g,
+    'official exam topic categories'
+  );
+  html = html.replace(
+    /organized by 77 official exam topics from the HSK 3\.0 syllabus/g,
+    'organized by topic categories from the official HSK syllabus'
+  );
+  html = html.replace(
+    /Browse HSK 4 vocabulary organized by 77 official exam topics/g,
+    'Browse HSK 4 vocabulary organized by official exam topic categories'
+  );
+  html = html.replace(
+    /by 77 official exam topics from the HSK 3\.0 syllabus/g,
+    'by official exam topic categories from the HSK syllabus'
+  );
+  html = html.replace(
+    /77 specific topics/g,
+    'specific topic categories'
+  );
+  html = html.replace(
+    /across 77 real-life topics/g,
+    'across real-life topic categories'
+  );
+
+  fs.writeFileSync(htmlPath, html, 'utf8');
+  const totalWords = Object.values(topics.topic_words).reduce((sum, ids) => sum + ids.length, 0);
+  console.log(`[topics] Pre-rendered ${topics.hierarchy.length} categories, ${totalWords} word entries into noscript block`);
+}
+
+// ============================================================
+// 6. FIX GUIDE PAGE: 30 tasks → 25 tasks + 5 cultural topics
+// ============================================================
+
+function fixGuide() {
+  console.log('[guide] Fixing task count consistency (30 → 25+5)...');
+  const htmlPath = path.join(ROOT, 'guide', 'index.html');
+  let html = fs.readFileSync(htmlPath, 'utf8');
+
+  // Fix the section title
+  html = html.replace(
+    /30 Task Scenarios \/ 30个交际任务/g,
+    '25 Communicative Tasks + 5 Cultural Topics / 25\u4E2A\u4EA4\u9645\u4EFB\u52A1 + 5\u4E2A\u6587\u5316\u8BDD\u9898'
+  );
+
+  // Fix the description paragraph
+  html = html.replace(
+    /defines exactly 30 communicative tasks/,
+    'defines 25 communicative tasks and 5 cultural knowledge topics'
+  );
+
+  // Fix the info card that says "30 Task Scenarios"
+  html = html.replace(
+    /<div class="info-card-num" style="color:var\(--jade\);font-size:24px;">30<\/div>\s*<div class="info-card-label">Task Scenarios<\/div>\s*<div class="info-card-detail">Covering 7 topic categories<\/div>/,
+    `<div class="info-card-num" style="color:var(--jade);font-size:24px;">25+5</div>
+      <div class="info-card-label">Tasks & Topics</div>
+      <div class="info-card-detail">25 tasks + 5 cultural topics</div>`
+  );
+
+  // Add a note before the Culture category to distinguish tasks from topics
+  html = html.replace(
+    /<div class="task-category">\s*<div class="task-category-header"><div class="task-dot" style="background:var\(--ink\)"><\/div> Culture \/ 文化<\/div>/,
+    `<p style="color:var(--stone);font-size:14px;margin:16px 0 8px;font-style:italic;">The following 5 items are cultural knowledge topics (\u8BDD\u9898\u5927\u7EB2), not communicative tasks (\u4EFB\u52A1\u5927\u7EB2). They define background knowledge the exam may reference.</p>
+    <div class="task-category">
+      <div class="task-category-header"><div class="task-dot" style="background:var(--ink)"></div> Cultural Knowledge / \u6587\u5316\u77E5\u8BC6 <span style="font-size:12px;color:var(--stone);font-weight:400;margin-left:4px;">(\u8BDD\u9898\u5927\u7EB2)</span></div>`
+  );
+
+  // Fix FAQ structured data if it mentions 30
+  html = html.replace(
+    /30 defined task scenarios/g,
+    '25 communicative tasks and 5 cultural knowledge topics'
+  );
+
+  fs.writeFileSync(htmlPath, html, 'utf8');
+  console.log('[guide] Fixed: 25 tasks + 5 cultural topics, with clear distinction');
+}
+
+// ============================================================
+// 7. PRE-RENDER WRITING/SENTENCE-ORDER EXERCISES
+// ============================================================
+
+function buildSentenceOrder() {
+  console.log('[sentence-order] Pre-rendering exercises...');
+  const htmlPath = path.join(ROOT, 'writing', 'sentence-order', 'index.html');
+  let html = fs.readFileSync(htmlPath, 'utf8');
+
+  // Extract EXERCISES data from the script block
+  const match = html.match(/const EXERCISES = \[([\s\S]*?)\];/);
+  if (!match) {
+    console.log('[sentence-order] Could not find EXERCISES data, skipping');
+    return;
+  }
+
+  // Parse exercise data manually (it's JS object notation, not JSON)
+  const exercises = [];
+  const exRegex = /fragments:\s*\[([^\]]+)\],\s*answer:\s*'([^']*)',[\s\S]*?display:\s*'([^']*)',\s*grammar:\s*'([^']*)',\s*explanation:\s*'([^']*)'/g;
+  let m;
+  while ((m = exRegex.exec(match[1])) !== null) {
+    const frags = m[1].match(/'([^']*)'/g).map(s => s.replace(/'/g, ''));
+    exercises.push({
+      fragments: frags,
+      display: m[3],
+      grammar: m[4],
+      explanation: m[5],
+    });
+  }
+
+  if (exercises.length === 0) {
+    console.log('[sentence-order] No exercises parsed, skipping');
+    return;
+  }
+
+  // Generate static HTML for exercises
+  const exercisesHtml = exercises.map((ex, i) => `
+    <div class="static-exercise">
+      <div class="static-ex-num">Exercise ${i + 1} <span class="static-ex-grammar">${escHtml(ex.grammar)}</span></div>
+      <div class="static-ex-frags">${ex.fragments.map(f => `<span class="static-frag chinese">${escHtml(f)}</span>`).join(' ')}</div>
+      <details class="static-ex-answer">
+        <summary>Show correct answer</summary>
+        <div class="static-ex-correct chinese">${escHtml(ex.display)}</div>
+        <div class="static-ex-explain">${escHtml(ex.explanation)}</div>
+      </details>
+    </div>`).join('\n');
+
+  const noscriptBlock = `<noscript>
+  <style>
+    .static-exercise { background:white; border:1px solid var(--mist); border-radius:var(--radius); padding:20px; margin-bottom:12px; }
+    .static-ex-num { font-size:13px; font-weight:600; color:var(--stone); margin-bottom:10px; }
+    .static-ex-grammar { color:var(--accent); margin-left:8px; }
+    .static-ex-frags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+    .static-frag { padding:8px 16px; border:1px solid var(--mist); border-radius:8px; font-size:16px; background:var(--paper); }
+    .static-ex-answer { margin-top:8px; }
+    .static-ex-answer summary { cursor:pointer; color:var(--accent); font-size:14px; font-weight:600; }
+    .static-ex-correct { font-size:18px; margin:10px 0; padding:12px; background:var(--jade-soft); border-radius:8px; }
+    .static-ex-explain { font-size:14px; color:var(--stone); line-height:1.7; }
+  </style>
+  <div style="margin:20px 0;">
+    <h3 style="font-size:18px;margin-bottom:16px;">All 10 Exercises (arrange the fragments into correct sentences)</h3>
+    ${exercisesHtml}
+  </div>
+  </noscript>`;
+
+  // Insert before the exercise box
+  html = html.replace(
+    /<div class="exercise-nav">/,
+    `${noscriptBlock}\n  <div class="exercise-nav">`
+  );
+
+  fs.writeFileSync(htmlPath, html, 'utf8');
+  console.log(`[sentence-order] Pre-rendered ${exercises.length} exercises into noscript block`);
+}
+
+// ============================================================
+// 8. ADD INTERNAL CROSS-LINKS TO GRAMMAR PAGES
+// ============================================================
+
+function addGrammarCrossLinks() {
+  console.log('[grammar] Adding cross-links between grammar pages...');
+
+  const grammarPages = [
+    { dir: 'ba-sentence', name: '\u628A\u5B57\u53E5', nameEn: 'Ba-Sentence' },
+    { dir: 'passive', name: '\u88AB\u5B57\u53E5', nameEn: 'Passive' },
+    { dir: 'comparison', name: '\u6BD4\u8F83\u53E5', nameEn: 'Comparison' },
+    { dir: 'complement', name: '\u8865\u8BED', nameEn: 'Complements' },
+    { dir: 'complex-sentences', name: '\u590D\u53E5', nameEn: 'Complex Sentences' },
+    { dir: 'adverbs', name: '\u526F\u8BCD', nameEn: 'Adverbs' },
+    { dir: 'function-words', name: '\u865A\u8BCD', nameEn: 'Function Words' },
+    { dir: 'pivotal-sentences', name: '\u517C\u8BED\u53E5', nameEn: 'Pivotal Sentences' },
+    { dir: 'fixed-patterns', name: '\u56FA\u5B9A\u642D\u914D', nameEn: 'Fixed Patterns' },
+    { dir: 'rhetorical', name: '\u4FEE\u8F9E', nameEn: 'Rhetorical' },
+  ];
+
+  grammarPages.forEach(page => {
+    const htmlPath = path.join(ROOT, 'grammar', page.dir, 'index.html');
+    if (!fs.existsSync(htmlPath)) return;
+    let html = fs.readFileSync(htmlPath, 'utf8');
+
+    // Skip if cross-links already added
+    if (html.includes('seo-cross-links')) return;
+
+    // Build links to other grammar pages (excluding self)
+    const links = grammarPages
+      .filter(p => p.dir !== page.dir)
+      .map(p => `<a href="/grammar/${p.dir}/" style="color:var(--accent);text-decoration:none;padding:4px 12px;border:1px solid var(--mist);border-radius:6px;font-size:13px;display:inline-block;margin:3px;">${p.name} ${p.nameEn}</a>`)
+      .join('\n      ');
+
+    const crossLinkBlock = `
+  <!-- seo-cross-links -->
+  <section style="margin-top:32px;padding-top:24px;border-top:1px solid var(--mist);">
+    <h3 style="font-size:16px;margin-bottom:12px;color:var(--stone);">Other HSK 4 Grammar Topics</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;">
+      ${links}
+    </div>
+    <p style="margin-top:16px;font-size:14px;color:var(--stone);">
+      Practice these grammar patterns in context with our <a href="/" style="color:var(--accent);">mock exams</a>, or review the full <a href="/vocabulary/" style="color:var(--accent);">HSK 4 vocabulary list</a>. For sentence-level practice, try our <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering exercises</a>.
+    </p>
+  </section>`;
+
+    // Insert before closing </main>
+    html = html.replace(
+      /<\/main>/,
+      `${crossLinkBlock}\n</main>`
+    );
+
+    fs.writeFileSync(htmlPath, html, 'utf8');
+  });
+
+  console.log(`[grammar] Added cross-links to ${grammarPages.length} grammar pages`);
+}
+
+// ============================================================
+// 9. ENRICH WRITING ENTRY PAGE
+// ============================================================
+
+function buildWritingGuide() {
+  console.log('[writing] Enriching writing entry page...');
+  const htmlPath = path.join(ROOT, 'writing', 'index.html');
+  if (!fs.existsSync(htmlPath)) {
+    console.log('[writing] writing/index.html not found, skipping');
+    return;
+  }
+  let html = fs.readFileSync(htmlPath, 'utf8');
+
+  // Skip if already enriched
+  if (html.includes('writing-seo-content')) return;
+
+  const writingContent = `
+  <!-- writing-seo-content -->
+  <section style="margin-top:40px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:14px;">HSK 4 Writing Section: What the Exam Actually Tests</h2>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">
+      The HSK 4 writing section (\u4E66\u5199) has <strong>15 questions in 25 minutes</strong>, worth 100 points. It consists of two parts:
+    </p>
+    <ul style="color:var(--stone);line-height:2;margin-bottom:16px;padding-left:20px;">
+      <li><strong>Part 1 \u2014 Sentence ordering (\u8BED\u53E5\u6392\u5E8F):</strong> You are given 4\u20136 sentence fragments and must arrange them into a grammatically correct sentence. This tests your understanding of Chinese word order rules: time before place, adverbs before verbs, \u628A/\u88AB placement, complement positions. <a href="/writing/sentence-order/" style="color:var(--accent);">Practice sentence ordering \u2192</a></li>
+      <li><strong>Part 2 \u2014 Sentence construction (\u770B\u56FE\u9020\u53E5):</strong> Given a set of words (usually 3\u20135) and sometimes a picture, you must write a complete, grammatically correct sentence using all the given words. This tests productive grammar \u2014 you cannot just recognize patterns, you must generate them.</li>
+    </ul>
+
+    <h3 style="font-family:'Noto Serif SC',serif;font-size:18px;margin-bottom:12px;margin-top:24px;">Common Mistakes in HSK 4 Writing (and How to Avoid Them)</h3>
+    <ol style="color:var(--stone);line-height:2;margin-bottom:16px;padding-left:20px;">
+      <li><strong>\u628A\u5B57\u53E5 word order errors:</strong> Putting the complement before \u628A instead of after the verb. Correct: \u4ED6<em>\u628A</em>\u4E66<em>\u653E\u5728</em>\u684C\u5B50\u4E0A\u3002 <a href="/grammar/ba-sentence/" style="color:var(--accent);">Review \u628A\u5B57\u53E5 \u2192</a></li>
+      <li><strong>Adverb misplacement:</strong> Adverbs like \u5DF2\u7ECF, \u90FD, \u53C8 must go <em>before</em> the verb, not at the end. Correct: \u4ED6<em>\u5DF2\u7ECF</em>\u5230\u4E86\u3002</li>
+      <li><strong>Missing \u4E86/\u8FC7/\u7740:</strong> Forgetting aspect markers changes the meaning entirely. \u4ED6\u5403\u996D = He eats. \u4ED6\u5403<em>\u4E86</em>\u996D = He ate.</li>
+      <li><strong>Comparison structure errors:</strong> Mixing up A\u6BD4B+adj. vs. A\u6CA1\u6709B+adj. The negative form uses \u6CA1\u6709, never \u4E0D\u6BD4. <a href="/grammar/comparison/" style="color:var(--accent);">Review comparisons \u2192</a></li>
+      <li><strong>Complex sentence connector pairing:</strong> Using \u867D\u7136 without \u4F46\u662F, or putting \u56E0\u4E3A/\u6240\u4EE5 in the wrong clause. <a href="/grammar/complex-sentences/" style="color:var(--accent);">Review \u590D\u53E5 \u2192</a></li>
+    </ol>
+
+    <h3 style="font-family:'Noto Serif SC',serif;font-size:18px;margin-bottom:12px;margin-top:24px;">Writing Section Strategy</h3>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">
+      <strong>For sentence ordering:</strong> First identify the time/place word (it usually goes first), then find paired connectors (\u5C3D\u7BA1\u2026\u4F46\u662F, \u4E0D\u4F46\u2026\u800C\u4E14), then slot in the subject and verb. Check your answer by reading the complete sentence aloud \u2014 if it sounds unnatural, something is likely out of order.
+    </p>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">
+      <strong>For sentence construction:</strong> Before writing, decide the sentence pattern first (\u628A\u5B57\u53E5? \u88AB\u5B57\u53E5? \u6BD4\u8F83\u53E5?). Then place each given word into its correct slot in the pattern. Make sure every given word is used exactly once.
+    </p>
+    <p style="color:var(--stone);line-height:1.8;">
+      The official syllabus requires HSK 4 students to \u201c\u5199\u51FA\u4E00\u6BB5\u8BDD\u7B80\u5355\u4ECB\u7ECD\u201d (write a paragraph to briefly describe) topics. Practice with our <a href="/writing/paragraph/" style="color:var(--accent);">paragraph writing exercises</a> to build this skill.
+    </p>
+  </section>`;
+
+  // Insert before closing </main>
+  html = html.replace(/<\/main>/, `${writingContent}\n</main>`);
+
+  fs.writeFileSync(htmlPath, html, 'utf8');
+  console.log('[writing] Added writing section guide content');
+}
+
+// ============================================================
+// RUN ALL
+// ============================================================
+
+console.log('=== HSK4 SEO Build ===\n');
+buildVocabulary();
+buildTestPages();
+buildHomepage();
+buildTopics();
+fixGuide();
+buildSentenceOrder();
+addGrammarCrossLinks();
+buildWritingGuide();
+buildSitemap();
+console.log('\nDone! All static content pre-rendered.');
