@@ -1530,7 +1530,7 @@
       "py": "Jǐnguǎn wàimiàn xià zhe dà yǔ, tā háishì chū mén le.",
       "en": "Despite the heavy rain outside, he still went out. (factual — it IS raining)"
     },
-    "tip": "即使 = EVEN IF (the situation might not happen). 尽管 = DESPITE (the situation is already real). Check: has it happened? Yes → 尽管. Not yet / might not → 即使.",
+    "tip": "即使 = EVEN IF (hypothetical, 假设 — the situation has NOT happened yet or may not happen). 尽管 = DESPITE (factual, 事实 — the situation IS true or HAS happened). Check: has it happened? Yes → 尽管. Not yet / might not → 即使. This is one of the most tested distinctions at HSK 4.",
     "quiz": [
       {
         "stem": "___价格再贵，这个东西我也要买。",
@@ -1846,7 +1846,7 @@
       "py": "Zhōumò nǐ kěyǐ kàn diànyǐng huòzhě qù páshān.",
       "en": "Weekend: watch a movie or go hiking."
     },
-    "tip": "Question → 还是. Statement → 或者. Most reliable test on the exam.",
+    "tip": "还是 = or (in QUESTIONS, asking someone to choose). 或者 = or (in STATEMENTS, listing options). The most reliable test: is it a question? → 还是. Is it a statement? → 或者. Exception: 还是…吧 can appear in statements as advice meaning \"had better\" (还是别去了吧 = you'd better not go).",
     "quiz": [
       {
         "stem": "你想吃中餐___西餐？",
