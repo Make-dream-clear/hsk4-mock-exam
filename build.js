@@ -36,6 +36,80 @@ function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
 
+function generateFillExercises(exercises, instruction) {
+  const items = exercises.map((ex, ei) => {
+    const sentenceHtml = escHtml(ex.sentence).replace('___',
+      '<input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="' + ei + '">');
+    const hintField = ex.hint
+      ? '<div class="fill-hint" style="display:none;">' + escHtml(ex.hint) + '</div>'
+      : (ex.context ? '<div class="fill-context" style="display:none;">' + escHtml(ex.context) + '</div>' : '');
+    return `
+    <div class="fill-item" data-answer="${escHtml(ex.answer)}">
+      <div class="fill-sentence chinese">${sentenceHtml}</div>
+      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
+      <div class="fill-feedback"></div>
+      ${hintField}
+    </div>`;
+  }).join('\n');
+
+  return `
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Fill in the Blank / \u586B\u7A7A\u7EC3\u4E60</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">${escHtml(instruction)}</p>
+  <div class="fill-exercises">${items}</div>`;
+}
+
+function generateTopicQuiz(words) {
+  // Pick 5 random words for a vocabulary matching quiz
+  const shuffled = [...words].sort(() => Math.random() - 0.5);
+  const quizWords = shuffled.slice(0, Math.min(5, words.length));
+
+  const quizItems = quizWords.map((w, qi) => {
+    const others = words.filter(x => x.id !== w.id).sort(() => Math.random() - 0.5).slice(0, 2);
+    const allOpts = [w, ...others].sort(() => Math.random() - 0.5);
+    const optsHtml = allOpts.map(o => {
+      if (o.id === w.id) {
+        return '<button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">' + escHtml(o.meaning) + '</button>';
+      }
+      return '<button class="q-opt" onclick="tqAnswer(this,false)">' + escHtml(o.meaning) + '</button>';
+    }).join('');
+    return `
+    <div class="tq-item" data-answer="${escHtml(w.meaning)}">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">${escHtml(w.word)} <span style="font-size:14px;color:var(--accent);font-weight:400;">${escHtml(w.pinyin)}</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;">${optsHtml}</div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>`;
+  }).join('\n');
+
+  return `
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / \u8BCD\u6C47\u7EC3\u4E60</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
+  <div id="topic-quiz">${quizItems}</div>
+  <script>
+  function tqAnswer(btn, correct) {
+    var item = btn.closest('.tq-item');
+    if (item.dataset.done) return;
+    item.dataset.done = '1';
+    item.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.add('disabled');
+      if (o.dataset.correct === '1') o.classList.add('correct');
+    });
+    var fb = item.querySelector('.tq-feedback');
+    fb.style.display = 'block';
+    if (correct) {
+      if (!btn.classList.contains('correct')) btn.classList.add('correct');
+      fb.style.background = 'var(--jade-soft)';
+      fb.style.color = 'var(--jade)';
+      fb.textContent = '\\u2713 Correct!';
+    } else {
+      btn.classList.add('wrong');
+      fb.style.background = '#ffe0e0';
+      fb.style.color = 'var(--accent)';
+      fb.textContent = '\\u2717 The answer is: ' + item.dataset.answer;
+    }
+  }
+  </` + `script>`;
+}
+
 // ============================================================
 // 1. PRE-RENDER VOCABULARY INTO vocabulary/index.html
 // ============================================================
@@ -582,7 +656,7 @@ ${testLinks}
 // 4. UPDATE SITEMAP with test pages
 // ============================================================
 
-function buildSitemap(taskSlugs, confusableSlugs) {
+function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
   console.log('[sitemap] Updating sitemap.xml...');
   const index = readJSON('index.json');
   const today = new Date().toISOString().split('T')[0];
@@ -627,7 +701,13 @@ function buildSitemap(taskSlugs, confusableSlugs) {
     priority: '0.7',
   }));
 
-  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages];
+  // Add grammar pattern pages
+  const grammarPatternPages = (grammarPatternSlugs || []).map(slug => ({
+    loc: `/grammar/patterns/${slug}/`,
+    priority: '0.7',
+  }));
+
+  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages];
 
   const urls = allPages.map(p => `  <url>
     <loc>https://hsk4.mandarinzone.com${p.loc}</loc>
@@ -1221,7 +1301,11 @@ function buildTaskTopicPages() {
     },
   ];
 
+  // Skip thin pages (< 10 words) — content merged into related pages
+  const skipSlugs = new Set(['economy', 'education-issues', 'international-friendship']);
+
   tasks.forEach(task => {
+    if (skipSlugs.has(task.slug)) return;
     const dir = path.join(ROOT, 'topics', task.slug);
     ensureDir(dir);
 
@@ -1374,6 +1458,8 @@ function buildTaskTopicPages() {
     </tbody>
   </table>
 
+  ${words.length >= 8 ? generateTopicQuiz(words) : ''}
+
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
@@ -1408,8 +1494,9 @@ function buildTaskTopicPages() {
   });
 
   // Add to sitemap
-  console.log(`[task-topics] Generated ${tasks.length} task topic pages under /topics/`);
-  return tasks.map(t => t.slug);
+  const generated = tasks.filter(t => !skipSlugs.has(t.slug));
+  console.log(`[task-topics] Generated ${generated.length} task topic pages (skipped ${skipSlugs.size} thin pages)`);
+  return generated.map(t => t.slug);
 }
 
 // ============================================================
@@ -1520,8 +1607,21 @@ function buildConfusablePages() {
   .q-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.6; padding:10px 14px; background:var(--paper); border-radius:6px; }
   .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
   .breadcrumb a { color:var(--accent); text-decoration:none; }
+  .fill-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .fill-sentence { font-size:17px; line-height:1.8; margin-bottom:10px; }
+  .fill-input { width:60px; border:none; border-bottom:2px solid var(--accent); background:transparent; font-size:17px; font-family:'Noto Sans SC',sans-serif; text-align:center; outline:none; padding:2px 4px; }
+  .fill-input:focus { border-bottom-color:var(--jade); }
+  .fill-input.correct { border-bottom-color:var(--jade); color:var(--jade); font-weight:600; }
+  .fill-input.wrong { border-bottom-color:var(--accent); color:var(--accent); }
+  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:white; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.15s; }
+  .fill-check-btn:hover { border-color:var(--accent); background:var(--accent-soft); }
+  .fill-check-btn.done { pointer-events:none; opacity:0.5; }
+  .fill-feedback { margin-top:8px; font-size:13px; line-height:1.5; display:none; padding:8px 12px; border-radius:6px; }
+  .fill-feedback.show { display:block; }
+  .fill-feedback.pass { background:var(--jade-soft); color:var(--jade); }
+  .fill-feedback.fail { background:#ffe0e0; color:var(--accent); }
   .pair-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
-  @media (max-width:600px) { .cmp-table th,.cmp-table td { padding:6px 8px; font-size:13px; } .q-opts { flex-direction:column; } }
+  @media (max-width:600px) { .cmp-table th,.cmp-table td { padding:6px 8px; font-size:13px; } .q-opts { flex-direction:column; } .fill-input { width:50px; } }
 </style>
 </head>
 <body>
@@ -1574,6 +1674,8 @@ function buildConfusablePages() {
     <strong>Quick rule:</strong> ${escHtml(pair.tip)}
   </div>
 
+  ${pair.exercises && pair.exercises.length > 0 ? generateFillExercises(pair.exercises, 'Type the correct word to complete each sentence. Press Enter or click Check.') : ''}
+
   <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Quick Quiz / \u5C0F\u6D4B\u9A8C</h2>
   <div id="quiz-area">
     ${quizHtml}
@@ -1603,6 +1705,35 @@ function answer(btn, correct) {
   if (!correct) btn.classList.add('wrong');
   item.querySelector('.q-explain').style.display = 'block';
 }
+function checkFill(btn) {
+  var item = btn.closest('.fill-item');
+  var input = item.querySelector('.fill-input');
+  var fb = item.querySelector('.fill-feedback');
+  var ctx = item.querySelector('.fill-context');
+  var ans = item.dataset.answer;
+  var val = input.value.trim();
+  if (!val) { input.focus(); return; }
+  btn.classList.add('done');
+  input.disabled = true;
+  fb.classList.add('show');
+  if (val === ans) {
+    input.classList.add('correct');
+    fb.classList.add('pass');
+    fb.textContent = '\\u2713 Correct! ' + (ctx ? ctx.textContent : '');
+  } else {
+    input.classList.add('wrong');
+    fb.classList.add('fail');
+    fb.innerHTML = '\\u2717 Answer: <strong>' + ans + '</strong>. ' + (ctx ? ctx.textContent : '');
+  }
+}
+document.querySelectorAll('.fill-input').forEach(function(inp) {
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      var btn = this.closest('.fill-item').querySelector('.fill-check-btn');
+      if (!btn.classList.contains('done')) checkFill(btn);
+    }
+  });
+});
 </script>
 
 </body>
@@ -1616,7 +1747,258 @@ function answer(btn, correct) {
 }
 
 // ============================================================
-// 12. ADD MOCK EXAM LINKS TO HUB PAGES
+// 12. GENERATE GRAMMAR PATTERN PAGES
+// ============================================================
+
+function buildGrammarPatternPages() {
+  console.log('[grammar-patterns] Generating grammar pattern pages...');
+  const patterns = readJSON('grammar-patterns.json');
+
+  patterns.forEach((pat, pi) => {
+    const dir = path.join(ROOT, 'grammar', 'patterns', pat.slug);
+    ensureDir(dir);
+
+    const examplesHtml = pat.examples.map(ex => `
+      <div class="ex-card">
+        <div class="ex-cn chinese">${escHtml(ex.cn)}</div>
+        <div class="ex-py">${escHtml(ex.py)}</div>
+        <div class="ex-en">${escHtml(ex.en)}</div>
+        ${ex.note ? `<div class="ex-note">${escHtml(ex.note)}</div>` : ''}
+      </div>`).join('\n');
+
+    const wrongHtml = pat.wrong_examples.map(we => `
+      <div class="wrong-card">
+        <div class="wrong-line"><span class="wrong-mark">\u2717</span> <span class="chinese">${escHtml(we.wrong)}</span></div>
+        <div class="right-line"><span class="right-mark">\u2713</span> <span class="chinese">${escHtml(we.right)}</span></div>
+        <div class="wrong-explain">${escHtml(we.explain)}</div>
+      </div>`).join('\n');
+
+    const quizHtml = pat.quiz.map((q, qi) => {
+      const correctFirst = (pi + qi) % 2 === 0;
+      const opt1 = correctFirst
+        ? `<button class="q-opt" data-correct="1" onclick="answer(this,true)">${escHtml(q.correct)}</button>`
+        : `<button class="q-opt" onclick="answer(this,false)">${escHtml(q.wrong)}</button>`;
+      const opt2 = correctFirst
+        ? `<button class="q-opt" onclick="answer(this,false)">${escHtml(q.wrong)}</button>`
+        : `<button class="q-opt" data-correct="1" onclick="answer(this,true)">${escHtml(q.correct)}</button>`;
+      return `
+      <div class="q-item">
+        <div class="q-stem chinese">${escHtml(q.stem)}</div>
+        <div class="q-opts">${opt1} ${opt2}</div>
+        <div class="q-explain">${escHtml(q.explain)}</div>
+      </div>`;
+    }).join('\n');
+
+    const prevPat = pi > 0 ? patterns[pi - 1] : null;
+    const nextPat = pi < patterns.length - 1 ? patterns[pi + 1] : null;
+
+    const pageTitle = truncDesc(`${pat.pattern_cn} \u2014 HSK 4 Grammar | ${pat.pattern_en}`, 65);
+    const pageDesc = truncDesc(`${pat.pattern_cn} (${pat.pattern_en}): ${pat.summary} Examples, common errors, and quiz.`);
+
+    const pageHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escHtml(pageTitle)}</title>
+<meta name="description" content="${escHtml(pageDesc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
+
+<meta property="og:title" content="${escHtml(pat.pattern_cn)} \u2014 HSK 4 Grammar">
+<meta property="og:description" content="${escHtml(pageDesc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
+<meta property="og:site_name" content="Mandarin Zone">
+
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "${escHtml(pat.pattern_cn)} \u2014 HSK 4 Grammar Pattern",
+  "description": "${escHtml(pageDesc)}",
+  "url": "https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/",
+  "author": { "@type": "Organization", "name": "Mandarin Zone", "url": "https://mandarinzone.com" },
+  "inLanguage": ["en", "zh-CN"],
+  "educationalLevel": "Intermediate"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .pattern-box { background:var(--ink); color:var(--paper); border-radius:var(--radius); padding:24px 28px; margin:20px 0; text-align:center; }
+  .pattern-formula { font-family:'Noto Sans SC',sans-serif; font-size:22px; font-weight:600; letter-spacing:1px; }
+  .pattern-type { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
+  .ex-card { background:var(--paper); border:1px solid var(--mist); border-radius:8px; padding:16px 20px; margin:10px 0; }
+  .ex-cn { font-family:'Noto Sans SC',sans-serif; font-size:17px; margin-bottom:4px; }
+  .ex-py { font-size:13px; color:var(--stone); font-style:italic; }
+  .ex-en { font-size:14px; color:var(--stone); margin-top:4px; }
+  .ex-note { font-size:12px; color:var(--accent); margin-top:6px; padding-top:6px; border-top:1px solid var(--mist); }
+  .wrong-card { background:#fff8f7; border:1px solid var(--accent-soft); border-radius:8px; padding:16px 20px; margin:10px 0; }
+  .wrong-line { font-family:'Noto Sans SC',sans-serif; font-size:15px; margin-bottom:6px; }
+  .wrong-mark { color:var(--accent); font-weight:700; font-size:16px; }
+  .right-line { font-family:'Noto Sans SC',sans-serif; font-size:15px; margin-bottom:6px; }
+  .right-mark { color:var(--jade); font-weight:700; font-size:16px; }
+  .wrong-explain { font-size:13px; color:var(--stone); line-height:1.6; margin-top:8px; padding-top:8px; border-top:1px solid var(--accent-soft); }
+  .compare-box { background:var(--gold-soft); border:1px solid #e8d5a0; border-radius:8px; padding:14px 18px; margin:20px 0; font-size:14px; line-height:1.6; }
+  .compare-box strong { color:var(--gold); }
+  .q-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .q-stem { font-size:16px; font-family:'Noto Sans SC',sans-serif; margin-bottom:12px; line-height:1.5; }
+  .q-opts { display:flex; gap:8px; flex-wrap:wrap; }
+  .q-opt { padding:10px 20px; border:1px solid var(--mist); border-radius:8px; background:white; font-size:14px; cursor:pointer; transition:all 0.15s; font-family:'DM Sans',sans-serif; }
+  .q-opt:hover { border-color:var(--accent); background:var(--accent-soft); }
+  .q-opt.correct { background:var(--jade-soft); border-color:var(--jade); color:var(--jade); font-weight:600; }
+  .q-opt.wrong { background:#ffe0e0; border-color:var(--accent); color:var(--accent); }
+  .q-opt.disabled { pointer-events:none; opacity:0.7; }
+  .q-opt.disabled.correct { opacity:1; }
+  .q-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.6; padding:10px 14px; background:var(--paper); border-radius:6px; }
+  .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+  .fill-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .fill-sentence { font-size:17px; line-height:1.8; margin-bottom:10px; }
+  .fill-input { width:80px; border:none; border-bottom:2px solid var(--accent); background:transparent; font-size:17px; font-family:'Noto Sans SC',sans-serif; text-align:center; outline:none; padding:2px 4px; }
+  .fill-input:focus { border-bottom-color:var(--jade); }
+  .fill-input.correct { border-bottom-color:var(--jade); color:var(--jade); font-weight:600; }
+  .fill-input.wrong { border-bottom-color:var(--accent); color:var(--accent); }
+  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:white; font-size:13px; font-weight:600; cursor:pointer; }
+  .fill-check-btn:hover { border-color:var(--accent); background:var(--accent-soft); }
+  .fill-check-btn.done { pointer-events:none; opacity:0.5; }
+  .fill-feedback { margin-top:8px; font-size:13px; display:none; padding:8px 12px; border-radius:6px; }
+  .fill-feedback.show { display:block; }
+  .fill-feedback.pass { background:var(--jade-soft); color:var(--jade); }
+  .fill-feedback.fail { background:#ffe0e0; color:var(--accent); }
+  .pat-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
+  @media (max-width:600px) { .pattern-formula { font-size:18px; } .q-opts { flex-direction:column; } .fill-input { width:60px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo"><div class="logo-mark chinese">MZ</div><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/grammar/">Grammar</a> &rsaquo; ${escHtml(pat.pattern_cn)}
+  </nav>
+
+  <div class="hero">
+    <div class="pattern-type">${escHtml(pat.type_cn)} \u00B7 ${escHtml(pat.hsk_level)}</div>
+    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">${escHtml(pat.pattern_cn)}</h1>
+    <p>${escHtml(pat.summary)}</p>
+  </div>
+
+  <div class="pattern-box">
+    <div class="pattern-formula">${escHtml(pat.structure)}</div>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:28px 0 8px;">Examples / \u4F8B\u53E5</h2>
+  ${examplesHtml}
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Common Errors / \u5E38\u89C1\u9519\u8BEF</h2>
+  ${wrongHtml}
+
+  ${pat.compare_with ? `
+  <div class="compare-box">
+    <strong>Easily confused:</strong> ${escHtml(pat.compare_note)}
+    <a href="${pat.compare_with}" style="color:var(--gold);font-weight:600;margin-left:4px;">See comparison \u2192</a>
+  </div>` : ''}
+
+  ${pat.exercises && pat.exercises.length > 0 ? generateFillExercises(pat.exercises, 'Complete each sentence using this pattern. Type the missing word(s) and press Enter.') : ''}
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Quick Quiz / \u5C0F\u6D4B\u9A8C</h2>
+  ${quizHtml}
+
+  <div style="text-align:center;margin:32px 0;">
+    <a href="/grammar/" class="btn btn-primary">All Grammar Topics</a>
+    <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
+    <a href="/writing/sentence-order/" class="btn btn-ghost" style="margin-left:8px;">Sentence Ordering</a>
+  </div>
+
+  <div class="pat-nav">
+    ${prevPat ? `<a href="/grammar/patterns/${prevPat.slug}/" class="btn btn-ghost">&larr; ${escHtml(prevPat.pattern_cn)}</a>` : '<span></span>'}
+    <a href="/grammar/" class="btn btn-secondary">Grammar Hub</a>
+    ${nextPat ? `<a href="/grammar/patterns/${nextPat.slug}/" class="btn btn-ghost">${escHtml(nextPat.pattern_cn)} &rarr;</a>` : '<span></span>'}
+  </div>
+</main>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</footer>
+
+<script>
+function answer(btn, correct) {
+  const item = btn.closest('.q-item');
+  if (item.dataset.answered === 'true') return;
+  item.dataset.answered = 'true';
+  item.querySelectorAll('.q-opt').forEach(o => {
+    o.classList.add('disabled');
+    if (o.dataset.correct === '1') o.classList.add('correct');
+  });
+  if (!correct) btn.classList.add('wrong');
+  item.querySelector('.q-explain').style.display = 'block';
+}
+function checkFill(btn) {
+  var item = btn.closest('.fill-item');
+  var input = item.querySelector('.fill-input');
+  var fb = item.querySelector('.fill-feedback');
+  var hint = item.querySelector('.fill-hint');
+  var ans = item.dataset.answer;
+  var val = input.value.trim();
+  if (!val) { input.focus(); return; }
+  btn.classList.add('done');
+  input.disabled = true;
+  fb.classList.add('show');
+  // Check if answer matches (handle multi-part answers like "不管...都")
+  var correct = val === ans || val === ans.replace('...','') || ans.indexOf(val) === 0;
+  if (correct) {
+    input.classList.add('correct');
+    fb.classList.add('pass');
+    fb.textContent = '\\u2713 Correct! ' + (hint ? hint.textContent : '');
+  } else {
+    input.classList.add('wrong');
+    fb.classList.add('fail');
+    fb.innerHTML = '\\u2717 Answer: <strong>' + ans + '</strong>. ' + (hint ? hint.textContent : '');
+  }
+}
+document.querySelectorAll('.fill-input').forEach(function(inp) {
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      var btn = this.closest('.fill-item').querySelector('.fill-check-btn');
+      if (!btn.classList.contains('done')) checkFill(btn);
+    }
+  });
+});
+</script>
+
+</body>
+</html>`;
+
+    fs.writeFileSync(path.join(dir, 'index.html'), pageHtml, 'utf8');
+  });
+
+  console.log(`[grammar-patterns] Generated ${patterns.length} grammar pattern pages`);
+  return patterns.map(p => p.slug);
+}
+
+// ============================================================
+// 13. ADD MOCK EXAM LINKS TO HUB PAGES
 // ============================================================
 
 function addTestLinksToHubs() {
@@ -1665,6 +2047,7 @@ addGrammarCrossLinks();
 buildWritingGuide();
 const taskSlugs = buildTaskTopicPages();
 const confusableSlugs = buildConfusablePages();
+const grammarPatternSlugs = buildGrammarPatternPages();
 addTestLinksToHubs();
-buildSitemap(taskSlugs, confusableSlugs);
+buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs);
 console.log('\nDone! All static content pre-rendered.');

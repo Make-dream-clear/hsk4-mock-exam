@@ -265,12 +265,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hsk4.mandarinzone.com/topics/education-issues/</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://hsk4.mandarinzone.com/topics/work-performance/</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -307,12 +301,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hsk4.mandarinzone.com/topics/economy/</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://hsk4.mandarinzone.com/topics/social-phenomena/</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -326,12 +314,6 @@
   </url>
   <url>
     <loc>https://hsk4.mandarinzone.com/topics/sports/</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hsk4.mandarinzone.com/topics/international-friendship/</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -512,6 +494,54 @@
   </url>
   <url>
     <loc>https://hsk4.mandarinzone.com/words/tingshuo-juede-renwei/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/grammar/patterns/jinguan-danshi/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/grammar/patterns/buguan-dou/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/grammar/patterns/jishi-ye/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/grammar/patterns/zhiyou-cai/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/grammar/patterns/yaoshi-fouze/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/grammar/patterns/lian-dou-ye/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/grammar/patterns/bushi-ershi/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/grammar/patterns/yifangmian-lingyifangmian/</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

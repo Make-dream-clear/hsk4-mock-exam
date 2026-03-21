@@ -296,6 +296,64 @@
     </tbody>
   </table>
 
+  
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
+  <div id="topic-quiz">
+    <div class="tq-item" data-answer="low price">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">低价 <span style="font-size:14px;color:var(--accent);font-weight:400;">dījià</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">low price</button><button class="q-opt" onclick="tqAnswer(this,false)">to earn (money)</button><button class="q-opt" onclick="tqAnswer(this,false)">brand; sign; label</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="sign; brand; card">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">牌 <span style="font-size:14px;color:var(--accent);font-weight:400;">pái</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">sign; brand; card</button><button class="q-opt" onclick="tqAnswer(this,false)">goods; cargo; merchandise</button><button class="q-opt" onclick="tqAnswer(this,false)">cash</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="goods; cargo; merchandise">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">货 <span style="font-size:14px;color:var(--accent);font-weight:400;">huò</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">goods; cargo; merchandise</button><button class="q-opt" onclick="tqAnswer(this,false)">to book; to order</button><button class="q-opt" onclick="tqAnswer(this,false)">high price</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="pocket money; allowance">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">零花钱 <span style="font-size:14px;color:var(--accent);font-weight:400;">línghuāqián</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">cost; expense; fee</button><button class="q-opt" onclick="tqAnswer(this,false)">to save; to store; to deposit</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">pocket money; allowance</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="fee; charge; expense">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">费 <span style="font-size:14px;color:var(--accent);font-weight:400;">fèi</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">small change; loose coins</button><button class="q-opt" onclick="tqAnswer(this,false)">to earn (money)</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">fee; charge; expense</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div></div>
+  <script>
+  function tqAnswer(btn, correct) {
+    var item = btn.closest('.tq-item');
+    if (item.dataset.done) return;
+    item.dataset.done = '1';
+    item.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.add('disabled');
+      if (o.dataset.correct === '1') o.classList.add('correct');
+    });
+    var fb = item.querySelector('.tq-feedback');
+    fb.style.display = 'block';
+    if (correct) {
+      if (!btn.classList.contains('correct')) btn.classList.add('correct');
+      fb.style.background = 'var(--jade-soft)';
+      fb.style.color = 'var(--jade)';
+      fb.textContent = '\u2713 Correct!';
+    } else {
+      btn.classList.add('wrong');
+      fb.style.background = '#ffe0e0';
+      fb.style.color = 'var(--accent)';
+      fb.textContent = '\u2717 The answer is: ' + item.dataset.answer;
+    }
+  }
+  </script>
+
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>

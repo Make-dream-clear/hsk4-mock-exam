@@ -59,6 +59,23 @@
         "wrong": "就",
         "explain": "Only 30 yuan = less than expected → 才 (emphasizing 'only')."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "他学了三年中文，___会说一点点。",
+        "answer": "才",
+        "context": "Three years but only a little = less than expected"
+      },
+      {
+        "sentence": "她一听到这个消息，___高兴得跳了起来。",
+        "answer": "就",
+        "context": "Immediately happy = quick reaction"
+      },
+      {
+        "sentence": "这本书我___看了两页，太难了。",
+        "answer": "才",
+        "context": "Only 2 pages = less than expected"
+      }
     ]
   },
   {
@@ -120,6 +137,23 @@
         "correct": "再",
         "wrong": "又",
         "explain": "Never again (from now on) → 不再/再也不."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "这部电影太好看了，我想___看一遍。",
+        "answer": "再",
+        "context": "Want to watch again = future plan"
+      },
+      {
+        "sentence": "他___迟到了，老师很不高兴。",
+        "answer": "又",
+        "context": "Late again = repeated past event"
+      },
+      {
+        "sentence": "请你___说一遍，我没听清楚。",
+        "answer": "再",
+        "context": "Say again = request for future action"
       }
     ]
   },
@@ -183,6 +217,23 @@
         "wrong": "已经",
         "explain": "Was a forest before, no longer true → 曾经."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "他们___离开了，你来晚了。",
+        "answer": "已经",
+        "context": "Already left (current state matters)"
+      },
+      {
+        "sentence": "这里___是一片草地，现在变成了停车场。",
+        "answer": "曾经",
+        "context": "Was once (no longer true now)"
+      },
+      {
+        "sentence": "我___吃过饭了，不饱。",
+        "answer": "已经",
+        "context": "Already ate (result relevant now)"
+      }
     ]
   },
   {
@@ -244,6 +295,23 @@
         "correct": "比较",
         "wrong": "比",
         "explain": "No second item to compare — 'quite high' → 比较."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "今天天气___冷，多穿点衣服。",
+        "answer": "比较",
+        "context": "Relatively cold (no comparison target)"
+      },
+      {
+        "sentence": "北京的冬天___上海冷多了。",
+        "answer": "比",
+        "context": "Comparing Beijing to Shanghai"
+      },
+      {
+        "sentence": "这道菜___好吃，你尝尝。",
+        "answer": "比较",
+        "context": "Quite tasty (standalone, no comparison)"
       }
     ]
   },
@@ -307,6 +375,23 @@
         "wrong": "无论",
         "explain": "Personal/spoken context → 不管. (Both are acceptable.)"
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "___刮风下雨，他每天都去锻炼。",
+        "answer": "不管",
+        "context": "Casual context, daily routine"
+      },
+      {
+        "sentence": "___从哪个方面来看，这个决定都是正确的。",
+        "answer": "无论",
+        "context": "Formal analytical context"
+      },
+      {
+        "sentence": "___你做什么工作，都应该认真负责。",
+        "answer": "不管",
+        "context": "Spoken advice"
+      }
     ]
   },
   {
@@ -368,6 +453,23 @@
         "correct": "不但",
         "wrong": "不仅",
         "explain": "Same subject, standard usage → 不但…而且/还… All three work here."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "他___会说英语，而且会说法语。",
+        "answer": "不但",
+        "context": "Standard 'not only' usage"
+      },
+      {
+        "sentence": "___他通过了考试，小李也通过了。",
+        "answer": "不但",
+        "context": "Different subjects: 不但 before first subject"
+      },
+      {
+        "sentence": "这家店___东西质量好，价格也不贵。",
+        "answer": "不仅",
+        "context": "Written/formal context"
       }
     ]
   },
@@ -431,6 +533,23 @@
         "wrong": "既然",
         "explain": "Such a simple problem but can't solve it = surprise → 竟然."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "没想到他___能一个人完成这么难的任务。",
+        "answer": "竟然",
+        "context": "Unexpected result = surprise"
+      },
+      {
+        "sentence": "___你已经决定了，那就这样吧。",
+        "answer": "既然",
+        "context": "Since you decided (known fact) = logical conclusion"
+      },
+      {
+        "sentence": "这么远的路，他___走着来的！",
+        "answer": "竟然",
+        "context": "Surprisingly walked = unexpected"
+      }
     ]
   },
   {
@@ -493,6 +612,23 @@
         "wrong": "练习",
         "explain": "Haven't been in contact → 联系."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "如果有问题，请随时___我。",
+        "answer": "联系",
+        "context": "Contact me (person as object)"
+      },
+      {
+        "sentence": "每天___口语半小时，进步会很快。",
+        "answer": "练习",
+        "context": "Practice a skill"
+      },
+      {
+        "sentence": "我们很久没___了，你还好吗？",
+        "answer": "联系",
+        "context": "Haven't been in contact"
+      }
     ]
   },
   {
@@ -550,6 +686,23 @@
         "wrong": "得",
         "explain": "妈妈做 modifies noun 菜 → attributive marker 的."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "她高兴___唱起歌来。",
+        "answer": "得",
+        "context": "So happy that... = degree complement"
+      },
+      {
+        "sentence": "请认真___完成作业。",
+        "answer": "地",
+        "context": "Carefully + verb = adverbial modifier"
+      },
+      {
+        "sentence": "桌子上放着一本新买___书。",
+        "answer": "的",
+        "context": "Newly bought + noun = attributive modifier"
+      }
     ]
   },
   {
@@ -606,6 +759,23 @@
         "correct": "向",
         "wrong": "对",
         "explain": "Learning toward/from someone → 向…学习."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "吸烟___身体有害。",
+        "answer": "对",
+        "context": "Effect on health"
+      },
+      {
+        "sentence": "请___我倒一杯水。",
+        "answer": "给",
+        "context": "Pour FOR me (transfer)"
+      },
+      {
+        "sentence": "我们应该___他学习。",
+        "answer": "向",
+        "context": "Learn toward/from someone"
       }
     ]
   },
@@ -669,6 +839,23 @@
         "wrong": "简单",
         "explain": "Not easy to DO → 容易 (describes difficulty of the action)."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "这个问题很___，大家都会做。",
+        "answer": "简单",
+        "context": "Not complex"
+      },
+      {
+        "sentence": "冬天___感冒，要多喝热水。",
+        "answer": "容易",
+        "context": "Prone to / likely to"
+      },
+      {
+        "sentence": "这件事说起来___，做起来难。",
+        "answer": "容易",
+        "context": "Easy to say (do action)"
+      }
     ]
   },
   {
@@ -730,6 +917,23 @@
         "correct": "突然",
         "wrong": "忽然",
         "explain": "Modifying a noun (___的+noun) = adjective → only 突然."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "他的决定来得很___，我们都没准备。",
+        "answer": "突然",
+        "context": "With 得 = adjective use, only 突然"
+      },
+      {
+        "sentence": "走着走着，___下起了大雨。",
+        "answer": "忽然",
+        "context": "Narrative flow, both work but 忽然 natural"
+      },
+      {
+        "sentence": "这是一个非常___的变化。",
+        "answer": "突然",
+        "context": "突然的+noun = adjective, only 突然"
       }
     ]
   },
@@ -793,6 +997,23 @@
         "wrong": "因此",
         "explain": "Story flow (saw → ran to help) → 于是."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "天黑了，___我们决定回家。",
+        "answer": "于是",
+        "context": "Narrative sequence (then we decided)"
+      },
+      {
+        "sentence": "空气污染越来越严重，___政府采取了新措施。",
+        "answer": "因此",
+        "context": "Formal cause-effect analysis"
+      },
+      {
+        "sentence": "他吃完饭___出门了。",
+        "answer": "于是",
+        "context": "Story flow (ate then left)"
+      }
     ]
   },
   {
@@ -854,6 +1075,23 @@
         "correct": "只要…就",
         "wrong": "只有…才",
         "explain": "Exercising is enough to improve → 只要…就."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___你每天坚持练习，中文___会越来越好。",
+        "answer": "只要…就",
+        "context": "Sufficient condition = 只要"
+      },
+      {
+        "sentence": "___亲自去看看，___能知道那里的情况。",
+        "answer": "只有…才",
+        "context": "Necessary condition = 只有"
+      },
+      {
+        "sentence": "___用心学，___一定能学会。",
+        "answer": "只要…就",
+        "context": "Effort is enough = 只要"
       }
     ]
   },
@@ -917,6 +1155,23 @@
         "wrong": "尽管",
         "explain": "Standard concession → 虽然 is most natural. (尽管 also works.)"
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "___外面很冷，他还是穿得很少。",
+        "answer": "尽管",
+        "context": "It IS cold (factual) but still..."
+      },
+      {
+        "sentence": "___我不太喜欢运动，但是我每天都坚持跑步。",
+        "answer": "虽然",
+        "context": "Standard concession"
+      },
+      {
+        "sentence": "你有什么问题___问，不用客气。",
+        "answer": "尽管",
+        "context": "Feel free to ask = unique 尽管 usage"
+      }
     ]
   },
   {
@@ -978,6 +1233,23 @@
         "correct": "到底",
         "wrong": "究竟",
         "explain": "Direct question seeking truth → both work, but 到底 is more common in spoken questions."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "你___想吃什么？快决定！",
+        "answer": "到底",
+        "context": "Impatient demand"
+      },
+      {
+        "sentence": "科学家一直在研究这种植物___有什么作用。",
+        "answer": "究竟",
+        "context": "Formal/scientific context"
+      },
+      {
+        "sentence": "你___同意不同意？给个明确的答复！",
+        "answer": "到底",
+        "context": "Direct demand for answer"
       }
     ]
   },
@@ -1041,6 +1313,23 @@
         "wrong": "而且",
         "explain": "Two parallel benefits → 并且. (而且 also acceptable with progressive reading.)"
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "这里的菜不但好吃，___很便宜。",
+        "answer": "而且",
+        "context": "Progressive: cheap is bonus info, pairs with 不但"
+      },
+      {
+        "sentence": "请填写这张表格，___交给前台。",
+        "answer": "并且",
+        "context": "Two parallel actions of equal weight"
+      },
+      {
+        "sentence": "他不仅通过了考试，___得了第一名。",
+        "answer": "而且",
+        "context": "Progressive result, pairs with 不仅"
+      }
     ]
   },
   {
@@ -1102,6 +1391,23 @@
         "correct": "刚才",
         "wrong": "刚",
         "explain": "Referring to a specific moment 'just now' → 刚才. (刚 also works grammatically here.)"
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "我___到公司，还没开始工作。",
+        "answer": "刚",
+        "context": "Before verb 到 = adverb 刚"
+      },
+      {
+        "sentence": "___的那个电话是谁打来的？",
+        "answer": "刚才",
+        "context": "刚才的+noun = time noun"
+      },
+      {
+        "sentence": "他___说了什么？我没听清。",
+        "answer": "刚才",
+        "context": "Referring to a moment just now"
       }
     ]
   },
@@ -1165,6 +1471,23 @@
         "wrong": "厉害",
         "explain": "Smog getting worse = negative problem → 严重. (厉害 also possible but 严重 is more precise.)"
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "这次的交通事故非常___，好几个人受伤了。",
+        "answer": "严重",
+        "context": "Accident = negative situation"
+      },
+      {
+        "sentence": "他一个人就把这个项目做完了，真___！",
+        "answer": "厉害",
+        "context": "Praising someone = impressive"
+      },
+      {
+        "sentence": "最近雾霾越来越___了。",
+        "answer": "严重",
+        "context": "Smog worsening = negative problem"
+      }
     ]
   },
   {
@@ -1226,6 +1549,23 @@
         "correct": "即使",
         "wrong": "尽管",
         "explain": "Hypothetical future difficulty → 即使."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___明天下大雪，我们也要按时出发。",
+        "answer": "即使",
+        "context": "Hypothetical (hasn't snowed yet)"
+      },
+      {
+        "sentence": "___他已经很努力了，但结果还是不理想。",
+        "answer": "尽管",
+        "context": "Factual (he DID try hard)"
+      },
+      {
+        "sentence": "___条件再差，我也不会放弃。",
+        "answer": "即使",
+        "context": "Hypothetical extreme condition"
       }
     ]
   },
@@ -1289,6 +1629,23 @@
         "wrong": "被",
         "explain": "Causative: teacher TOLD him → 叫."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "这首歌___我想起了小时候的事。",
+        "answer": "让",
+        "context": "Causative: song MADE me remember"
+      },
+      {
+        "sentence": "他的钱包___小偷偷走了。",
+        "answer": "被",
+        "context": "Standard passive"
+      },
+      {
+        "sentence": "妈妈___我去超市买点东西。",
+        "answer": "让",
+        "context": "Causative: mom TOLD me to go"
+      }
     ]
   },
   {
@@ -1350,6 +1707,23 @@
         "correct": "可以",
         "wrong": "能",
         "explain": "Asking permission → 可以."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "你___用筷子吃饭吗？",
+        "answer": "会",
+        "context": "Learned skill = 会"
+      },
+      {
+        "sentence": "图书馆里不___大声说话。",
+        "answer": "可以",
+        "context": "Not allowed = 不可以"
+      },
+      {
+        "sentence": "他受伤了，不___参加比赛。",
+        "answer": "能",
+        "context": "Unable due to circumstance = 不能"
       }
     ]
   },
@@ -1413,6 +1787,23 @@
         "wrong": "着",
         "explain": "Completed action (he left) → 了."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "你以前吃___北京烤鸭吗？",
+        "answer": "过",
+        "context": "Past experience = 过"
+      },
+      {
+        "sentence": "外面下___雨，别忘了带伞。",
+        "answer": "着",
+        "context": "Ongoing state = 着"
+      },
+      {
+        "sentence": "他昨天买___一双新鞋。",
+        "answer": "了",
+        "context": "Completed action = 了"
+      }
     ]
   },
   {
@@ -1474,6 +1865,23 @@
         "correct": "或者",
         "wrong": "还是",
         "explain": "Suggesting alternative → 或者."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "周末你想在家休息___出去玩？",
+        "answer": "还是",
+        "context": "Question asking for choice"
+      },
+      {
+        "sentence": "你可以坐公交___打车去公司。",
+        "answer": "或者",
+        "context": "Statement listing options"
+      },
+      {
+        "sentence": "你喜欢吃米饭___面条？",
+        "answer": "还是",
+        "context": "Question about preference"
       }
     ]
   },
@@ -1537,6 +1945,23 @@
         "wrong": "可能",
         "explain": "不一定 = not necessarily → 一定."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "放心吧，我___会准时到的。",
+        "answer": "一定",
+        "context": "Promise = definite"
+      },
+      {
+        "sentence": "他没接电话，___是在开会。",
+        "answer": "可能",
+        "context": "Guessing = uncertain"
+      },
+      {
+        "sentence": "这件事不___是他做的，别冤枉人。",
+        "answer": "一定",
+        "context": "不一定 = not necessarily"
+      }
     ]
   },
   {
@@ -1598,6 +2023,23 @@
         "correct": "应该",
         "wrong": "必须",
         "explain": "Estimation (probably) → 应该."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "你___早点休息，明天还要上班。",
+        "answer": "应该",
+        "context": "Friendly advice"
+      },
+      {
+        "sentence": "18岁以下___有家长陪同才能进入。",
+        "answer": "必须",
+        "context": "Mandatory rule"
+      },
+      {
+        "sentence": "现在九点了，他___快到了。",
+        "answer": "应该",
+        "context": "Estimation (probably)"
       }
     ]
   },
@@ -1661,6 +2103,23 @@
         "wrong": "想",
         "explain": "About to happen → 要…了."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "我___喝一杯咖啡。",
+        "answer": "想",
+        "context": "Polite wish"
+      },
+      {
+        "sentence": "你不___在教室里吃东西！",
+        "answer": "要",
+        "context": "Prohibition/command"
+      },
+      {
+        "sentence": "快看，太阳___出来了！",
+        "answer": "要",
+        "context": "About to happen"
+      }
     ]
   },
   {
@@ -1722,6 +2181,23 @@
         "correct": "也",
         "wrong": "还",
         "explain": "Emphasis (not at all) → 一点儿也不."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "这次考试___难，很多人没通过。",
+        "answer": "更",
+        "context": "Even more difficult"
+      },
+      {
+        "sentence": "除了中文，他___学了日语。",
+        "answer": "还",
+        "context": "Also learned (addition)"
+      },
+      {
+        "sentence": "他___在睡觉，别叫他。",
+        "answer": "还",
+        "context": "Still sleeping (continuing)"
       }
     ]
   },
@@ -1785,6 +2261,23 @@
         "wrong": "之后",
         "explain": "General future life → 以后."
       }
+    ],
+    "exercises": [
+      {
+        "sentence": "___别再犯同样的错误了。",
+        "answer": "以后",
+        "context": "General future (from now on)"
+      },
+      {
+        "sentence": "比赛结束___，大家一起去吃饭。",
+        "answer": "之后",
+        "context": "After specific event"
+      },
+      {
+        "sentence": "长大___你想做什么？",
+        "answer": "以后",
+        "context": "General future life"
+      }
     ]
   },
   {
@@ -1846,6 +2339,23 @@
         "correct": "认为",
         "wrong": "觉得",
         "explain": "Formal expert opinion → 认为."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___明天要下雨，我们改天再去吧。",
+        "answer": "听说",
+        "context": "Heard from others"
+      },
+      {
+        "sentence": "我___这样做不太合适。",
+        "answer": "觉得",
+        "context": "Personal feeling"
+      },
+      {
+        "sentence": "专家们___这个方法最有效。",
+        "answer": "认为",
+        "context": "Formal expert opinion"
       }
     ]
   }

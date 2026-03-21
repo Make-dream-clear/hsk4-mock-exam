@@ -59,8 +59,21 @@
   .q-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.6; padding:10px 14px; background:var(--paper); border-radius:6px; }
   .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
   .breadcrumb a { color:var(--accent); text-decoration:none; }
+  .fill-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .fill-sentence { font-size:17px; line-height:1.8; margin-bottom:10px; }
+  .fill-input { width:60px; border:none; border-bottom:2px solid var(--accent); background:transparent; font-size:17px; font-family:'Noto Sans SC',sans-serif; text-align:center; outline:none; padding:2px 4px; }
+  .fill-input:focus { border-bottom-color:var(--jade); }
+  .fill-input.correct { border-bottom-color:var(--jade); color:var(--jade); font-weight:600; }
+  .fill-input.wrong { border-bottom-color:var(--accent); color:var(--accent); }
+  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:white; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.15s; }
+  .fill-check-btn:hover { border-color:var(--accent); background:var(--accent-soft); }
+  .fill-check-btn.done { pointer-events:none; opacity:0.5; }
+  .fill-feedback { margin-top:8px; font-size:13px; line-height:1.5; display:none; padding:8px 12px; border-radius:6px; }
+  .fill-feedback.show { display:block; }
+  .fill-feedback.pass { background:var(--jade-soft); color:var(--jade); }
+  .fill-feedback.fail { background:#ffe0e0; color:var(--accent); }
   .pair-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
-  @media (max-width:600px) { .cmp-table th,.cmp-table td { padding:6px 8px; font-size:13px; } .q-opts { flex-direction:column; } }
+  @media (max-width:600px) { .cmp-table th,.cmp-table td { padding:6px 8px; font-size:13px; } .q-opts { flex-direction:column; } .fill-input { width:50px; } }
 </style>
 </head>
 <body>
@@ -115,6 +128,31 @@
   <div class="tip-box">
     <strong>Quick rule:</strong> 想 = wish (may not happen). 要 = decision/certainty. Negatives: 不想 = rather not (polite); 不要 = don't! (imperative).
   </div>
+
+  
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Fill in the Blank / 填空练习</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Type the correct word to complete each sentence. Press Enter or click Check.</p>
+  <div class="fill-exercises">
+    <div class="fill-item" data-answer="想">
+      <div class="fill-sentence chinese">我<input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="0">喝一杯咖啡。</div>
+      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
+      <div class="fill-feedback"></div>
+      <div class="fill-context" style="display:none;">Polite wish</div>
+    </div>
+
+    <div class="fill-item" data-answer="要">
+      <div class="fill-sentence chinese">你不<input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="1">在教室里吃东西！</div>
+      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
+      <div class="fill-feedback"></div>
+      <div class="fill-context" style="display:none;">Prohibition/command</div>
+    </div>
+
+    <div class="fill-item" data-answer="要">
+      <div class="fill-sentence chinese">快看，太阳<input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="2">出来了！</div>
+      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
+      <div class="fill-feedback"></div>
+      <div class="fill-context" style="display:none;">About to happen</div>
+    </div></div>
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Quick Quiz / 小测验</h2>
   <div id="quiz-area">
@@ -171,6 +209,35 @@ function answer(btn, correct) {
   if (!correct) btn.classList.add('wrong');
   item.querySelector('.q-explain').style.display = 'block';
 }
+function checkFill(btn) {
+  var item = btn.closest('.fill-item');
+  var input = item.querySelector('.fill-input');
+  var fb = item.querySelector('.fill-feedback');
+  var ctx = item.querySelector('.fill-context');
+  var ans = item.dataset.answer;
+  var val = input.value.trim();
+  if (!val) { input.focus(); return; }
+  btn.classList.add('done');
+  input.disabled = true;
+  fb.classList.add('show');
+  if (val === ans) {
+    input.classList.add('correct');
+    fb.classList.add('pass');
+    fb.textContent = '\u2713 Correct! ' + (ctx ? ctx.textContent : '');
+  } else {
+    input.classList.add('wrong');
+    fb.classList.add('fail');
+    fb.innerHTML = '\u2717 Answer: <strong>' + ans + '</strong>. ' + (ctx ? ctx.textContent : '');
+  }
+}
+document.querySelectorAll('.fill-input').forEach(function(inp) {
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      var btn = this.closest('.fill-item').querySelector('.fill-check-btn');
+      if (!btn.classList.contains('done')) checkFill(btn);
+    }
+  });
+});
 </script>
 
 </body>

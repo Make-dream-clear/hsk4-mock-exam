@@ -296,6 +296,64 @@
     </tbody>
   </table>
 
+  
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
+  <div id="topic-quiz">
+    <div class="tq-item" data-answer="ocean; sea">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">海洋 <span style="font-size:14px;color:var(--accent);font-weight:400;">hǎiyáng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">river</button><button class="q-opt" onclick="tqAnswer(this,false)">leaf; leaves</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">ocean; sea</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="sunshine; sunlight">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">阳光 <span style="font-size:14px;color:var(--accent);font-weight:400;">yángguāng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">sunshine; sunlight</button><button class="q-opt" onclick="tqAnswer(this,false)">soil; earth; local; unsophisticated</button><button class="q-opt" onclick="tqAnswer(this,false)">to cool down; temperature drop</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="soil; earth; local; unsophisticated">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">土 <span style="font-size:14px;color:var(--accent);font-weight:400;">tǔ</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">grove; woods</button><button class="q-opt" onclick="tqAnswer(this,false)">forest</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">soil; earth; local; unsophisticated</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="air temperature">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">气温 <span style="font-size:14px;color:var(--accent);font-weight:400;">qìwēn</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">scenery; landscape</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">air temperature</button><button class="q-opt" onclick="tqAnswer(this,false)">cold; frigid</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="star">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">星星 <span style="font-size:14px;color:var(--accent);font-weight:400;">xīngxing</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">star</button><button class="q-opt" onclick="tqAnswer(this,false)">ocean; sea</button><button class="q-opt" onclick="tqAnswer(this,false)">forest</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div></div>
+  <script>
+  function tqAnswer(btn, correct) {
+    var item = btn.closest('.tq-item');
+    if (item.dataset.done) return;
+    item.dataset.done = '1';
+    item.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.add('disabled');
+      if (o.dataset.correct === '1') o.classList.add('correct');
+    });
+    var fb = item.querySelector('.tq-feedback');
+    fb.style.display = 'block';
+    if (correct) {
+      if (!btn.classList.contains('correct')) btn.classList.add('correct');
+      fb.style.background = 'var(--jade-soft)';
+      fb.style.color = 'var(--jade)';
+      fb.textContent = '\u2713 Correct!';
+    } else {
+      btn.classList.add('wrong');
+      fb.style.background = '#ffe0e0';
+      fb.style.color = 'var(--accent)';
+      fb.textContent = '\u2717 The answer is: ' + item.dataset.answer;
+    }
+  }
+  </script>
+
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>

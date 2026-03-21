@@ -1,0 +1,650 @@
+[
+  {
+    "slug": "jinguan-danshi",
+    "pattern_cn": "尽管…但是/可是…",
+    "pattern_en": "Despite... but...",
+    "type": "concessive",
+    "type_cn": "转折复句",
+    "summary": "Concedes a fact, then states something contrary. The first clause is TRUE, but the second clause contradicts expectations.",
+    "structure": "尽管 + fact, 但是/可是/还是 + contrary result",
+    "hsk_level": "HSK 4 (new at this level)",
+    "compare_with": "/words/jishi-jinguan/",
+    "compare_note": "尽管 = factual (it IS raining). 即使 = hypothetical (even IF it rains).",
+    "examples": [
+      {
+        "cn": "尽管天气很冷，他还是坚持每天跑步。",
+        "py": "Jǐnguǎn tiānqì hěn lěng, tā háishi jiānchí měitiān pǎobù.",
+        "en": "Despite the cold weather, he still runs every day.",
+        "note": "还是 emphasizes persistence against the odds"
+      },
+      {
+        "cn": "尽管工作很忙，但是她总是按时吃饭。",
+        "py": "Jǐnguǎn gōngzuò hěn máng, dànshì tā zǒngshì ànshí chīfàn.",
+        "en": "Despite being busy at work, she always eats on time.",
+        "note": "但是 is the standard pair with 尽管"
+      },
+      {
+        "cn": "尽管他解释了很多遍，大家还是不理解。",
+        "py": "Jǐnguǎn tā jiěshì le hěn duō biàn, dàjiā háishi bù lǐjiě.",
+        "en": "Despite his many explanations, no one understood.",
+        "note": "还是不 = still don't (negative persistence)"
+      }
+    ],
+    "wrong_examples": [
+      {
+        "wrong": "尽管明天可能下雨，我也要去。",
+        "right": "即使明天可能下雨，我也要去。",
+        "explain": "Tomorrow's rain is hypothetical (hasn't happened) → use 即使, not 尽管."
+      },
+      {
+        "wrong": "尽管很累，所以我早点睡了。",
+        "right": "尽管很累，但是我还是坚持工作。/ 因为很累，所以我早点睡了。",
+        "explain": "尽管 pairs with 但是/还是 (contrast), NOT 所以 (result). If using 所以, the cause word should be 因为."
+      }
+    ],
+    "quiz": [
+      {
+        "stem": "___价格比较贵，___这家餐厅的菜确实好吃。",
+        "correct": "尽管…但是",
+        "wrong": "因为…所以",
+        "explain": "Concession (expensive BUT good) → 尽管…但是."
+      },
+      {
+        "stem": "___他已经道歉了，她___不肯原谅他。",
+        "correct": "尽管…还是",
+        "wrong": "即使…也",
+        "explain": "He DID apologize (factual) → 尽管. If hypothetical, use 即使."
+      },
+      {
+        "stem": "___学中文不容易，___越来越多的人开始学了。",
+        "correct": "尽管…但是",
+        "wrong": "虽然…所以",
+        "explain": "Concessive contrast → 尽管/虽然…但是. Never 所以."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___路很远，他每天都走路上班。",
+        "answer": "尽管",
+        "hint": "Despite the long road..."
+      },
+      {
+        "sentence": "尽管很累，___他还是坚持完成了。",
+        "answer": "但是",
+        "hint": "...but he still finished"
+      },
+      {
+        "sentence": "尽管下着大雨，他___出门了。",
+        "answer": "还是",
+        "hint": "...he still went out"
+      }
+    ]
+  },
+  {
+    "slug": "buguan-dou",
+    "pattern_cn": "不管…都/也…",
+    "pattern_en": "No matter... all/still...",
+    "type": "conditional",
+    "type_cn": "条件复句",
+    "summary": "States that the result holds true regardless of ANY condition. Often used with question words (什么/怎么/多么) to cover all possibilities.",
+    "structure": "不管 + question word + condition, 都/也 + result",
+    "hsk_level": "HSK 4 (new at this level)",
+    "compare_with": "/words/buguan-wulun/",
+    "compare_note": "不管 is spoken/casual. 无论 is formal/written. Both pair with 都/也.",
+    "examples": [
+      {
+        "cn": "不管你怎么说，我都不会改变主意。",
+        "py": "Bùguǎn nǐ zěnme shuō, wǒ dōu bú huì gǎibiàn zhǔyì.",
+        "en": "No matter what you say, I won't change my mind.",
+        "note": "怎么 covers all ways of saying"
+      },
+      {
+        "cn": "不管天气好不好，我们都要出发。",
+        "py": "Bùguǎn tiānqì hǎo bù hǎo, wǒmen dōu yào chūfā.",
+        "en": "Regardless of the weather, we're leaving.",
+        "note": "A不A pattern covers both possibilities"
+      },
+      {
+        "cn": "不管多忙，她都会给父母打电话。",
+        "py": "Bùguǎn duō máng, tā dōu huì gěi fùmǔ dǎ diànhuà.",
+        "en": "No matter how busy, she always calls her parents.",
+        "note": "多+adj covers all degrees"
+      }
+    ],
+    "wrong_examples": [
+      {
+        "wrong": "不管你努力学习，就能通过考试。",
+        "right": "只要你努力学习，就能通过考试。",
+        "explain": "不管 needs a VARIABLE (怎么/什么/多). A fixed condition uses 只要…就."
+      },
+      {
+        "wrong": "不管下雨，我不去了。",
+        "right": "不管下不下雨，我都去。/ 因为下雨，我不去了。",
+        "explain": "不管 must cover multiple possibilities (下不下雨) and pair with 都/也."
+      }
+    ],
+    "quiz": [
+      {
+        "stem": "___遇到什么困难，我们___不能放弃。",
+        "correct": "不管…都",
+        "wrong": "只要…就",
+        "explain": "Any difficulty (variable) → 不管. 只要 is for a specific condition."
+      },
+      {
+        "stem": "___结果怎么样，我___不后悔自己的选择。",
+        "correct": "不管…都",
+        "wrong": "尽管…但是",
+        "explain": "Covering all possible results → 不管…都."
+      },
+      {
+        "stem": "___多远，他每天___骑自行车上班。",
+        "correct": "不管…都",
+        "wrong": "即使…也",
+        "explain": "多远 = however far (variable degree) → 不管."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___他怎么解释，我___不相信。",
+        "answer": "不管...都",
+        "hint": "No matter how he explains..."
+      },
+      {
+        "sentence": "不管多远，他___骑自行车去。",
+        "answer": "都",
+        "hint": "...he always bikes there"
+      },
+      {
+        "sentence": "___是周末还是工作日，他都在学习。",
+        "answer": "不管",
+        "hint": "Whether weekend or weekday..."
+      }
+    ]
+  },
+  {
+    "slug": "jishi-ye",
+    "pattern_cn": "即使…也…",
+    "pattern_en": "Even if... still...",
+    "type": "concessive-hypothetical",
+    "type_cn": "让步复句",
+    "summary": "Assumes a hypothetical extreme situation, then states the result won't change. The condition may NOT be true — it's a worst-case scenario.",
+    "structure": "即使 + hypothetical condition, 也 + unchanged result",
+    "hsk_level": "HSK 4 (new at this level)",
+    "compare_with": "/words/jishi-jinguan/",
+    "compare_note": "即使 = even IF (hypothetical). 尽管 = despite (factual). This is one of the most tested distinctions at HSK 4.",
+    "examples": [
+      {
+        "cn": "即使明天下雪，我也要去上班。",
+        "py": "Jíshǐ míngtiān xià xuě, wǒ yě yào qù shàng bān.",
+        "en": "Even if it snows tomorrow, I'll still go to work.",
+        "note": "Tomorrow's snow hasn't happened — hypothetical"
+      },
+      {
+        "cn": "即使困难再大，我们也不会放弃。",
+        "py": "Jíshǐ kùnnán zài dà, wǒmen yě bú huì fàngqì.",
+        "en": "Even if the difficulties are greater, we won't give up.",
+        "note": "再 emphasizes 'even more extreme'"
+      },
+      {
+        "cn": "即使你不同意，我也要这样做。",
+        "py": "Jíshǐ nǐ bù tóngyì, wǒ yě yào zhèyàng zuò.",
+        "en": "Even if you disagree, I'll still do it this way.",
+        "note": "Your disagreement is hypothetical / anticipated"
+      }
+    ],
+    "wrong_examples": [
+      {
+        "wrong": "即使外面正在下大雨，他也出门了。",
+        "right": "尽管外面正在下大雨，他还是出门了。",
+        "explain": "It IS raining right now (factual, 正在) → use 尽管, not 即使."
+      },
+      {
+        "wrong": "即使很累，但是我很开心。",
+        "right": "即使很累，我也很开心。/ 虽然很累，但是我很开心。",
+        "explain": "即使 pairs with 也, NOT 但是. Use 虽然…但是 instead."
+      }
+    ],
+    "quiz": [
+      {
+        "stem": "___价格再贵，这个东西我___要买。",
+        "correct": "即使…也",
+        "wrong": "尽管…但是",
+        "explain": "Hypothetical (might be expensive) → 即使."
+      },
+      {
+        "stem": "___失败了，我们___要再试一次。",
+        "correct": "即使…也",
+        "wrong": "不管…都",
+        "explain": "Hypothetical extreme (even if we fail) → 即使…也."
+      },
+      {
+        "stem": "___他说得很有道理，我___不完全同意。",
+        "correct": "即使…也",
+        "wrong": "尽管…还是",
+        "explain": "Both work, but 即使 emphasizes the hypothetical concession more strongly."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___失败了，我___不会后悔。",
+        "answer": "即使...也",
+        "hint": "Even if I fail..."
+      },
+      {
+        "sentence": "即使价格再贵，我___要买。",
+        "answer": "也",
+        "hint": "...I'll still buy it"
+      },
+      {
+        "sentence": "___明天下雪，比赛也不会取消。",
+        "answer": "即使",
+        "hint": "Even if it snows tomorrow..."
+      }
+    ]
+  },
+  {
+    "slug": "zhiyou-cai",
+    "pattern_cn": "只有…才…",
+    "pattern_en": "Only if... can...",
+    "type": "necessary-condition",
+    "type_cn": "条件复句",
+    "summary": "States a NECESSARY condition — B can ONLY happen if A is met. There is no other way to achieve B.",
+    "structure": "只有 + necessary condition, 才 + result",
+    "hsk_level": "HSK 3→4 (reinforced)",
+    "compare_with": "/words/zhiyao-zhiyou/",
+    "compare_note": "只有…才 = necessary (ONLY way). 只要…就 = sufficient (one of many ways). Opposite logic!",
+    "examples": [
+      {
+        "cn": "只有多练习，才能提高口语水平。",
+        "py": "Zhǐyǒu duō liànxí, cái néng tígāo kǒuyǔ shuǐpíng.",
+        "en": "Only by practicing more can you improve your speaking.",
+        "note": "Practice is the ONLY way"
+      },
+      {
+        "cn": "只有亲自去一趟，才能了解真实情况。",
+        "py": "Zhǐyǒu qīnzì qù yí tàng, cái néng liǎojiě zhēnshí qíngkuàng.",
+        "en": "Only by going yourself can you understand the real situation.",
+        "note": "No substitute for being there"
+      },
+      {
+        "cn": "只有大家一起努力，才能完成这个项目。",
+        "py": "Zhǐyǒu dàjiā yìqǐ nǔlì, cái néng wánchéng zhège xiàngmù.",
+        "en": "Only if everyone works together can we finish this project.",
+        "note": "Collective effort is necessary"
+      }
+    ],
+    "wrong_examples": [
+      {
+        "wrong": "只有你努力，就能成功。",
+        "right": "只有你努力，才能成功。/ 只要你努力，就能成功。",
+        "explain": "只有 pairs with 才 (not 就). If using 就, change to 只要."
+      },
+      {
+        "wrong": "只有今天天气好，才去爬山。",
+        "right": "只要今天天气好，就去爬山。",
+        "explain": "Good weather is sufficient (not the ONLY factor) → 只要…就."
+      }
+    ],
+    "quiz": [
+      {
+        "stem": "___坚持锻炼，___能保持健康。",
+        "correct": "只有…才",
+        "wrong": "只要…就",
+        "explain": "Exercise is necessary for health (strict) → 只有…才."
+      },
+      {
+        "stem": "___通过了HSK 4，___能申请这个奖学金。",
+        "correct": "只有…才",
+        "wrong": "只要…就",
+        "explain": "HSK 4 is a mandatory requirement → 只有…才."
+      },
+      {
+        "stem": "___认真听讲，___能学好这门课。",
+        "correct": "只有…才",
+        "wrong": "不管…都",
+        "explain": "Listening carefully is necessary → 只有…才."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___多读多练，___能提高水平。",
+        "answer": "只有...才",
+        "hint": "Only by reading and practicing..."
+      },
+      {
+        "sentence": "只有亲自去看，___知道是什么样子。",
+        "answer": "才",
+        "hint": "...can you know what it's like"
+      },
+      {
+        "sentence": "___大家一起努力，才能成功。",
+        "answer": "只有",
+        "hint": "Only if everyone works together..."
+      }
+    ]
+  },
+  {
+    "slug": "yaoshi-fouze",
+    "pattern_cn": "要是…否则/不然…",
+    "pattern_en": "If... otherwise...",
+    "type": "hypothetical-consequence",
+    "type_cn": "假设复句",
+    "summary": "Presents a condition and warns about the negative consequence if it's NOT met. 否则/不然 mean 'otherwise'.",
+    "structure": "要是 + condition, (就)… ; 否则/不然 + bad consequence",
+    "hsk_level": "HSK 4 (new at this level)",
+    "compare_with": "/words/zhiyao-zhiyou/",
+    "compare_note": "要是…就 = if A, then B (neutral). 要是…否则 = if NOT A, then bad B (warning).",
+    "examples": [
+      {
+        "cn": "要是明天不下雨，我们就去爬山。",
+        "py": "Yàoshi míngtiān bú xià yǔ, wǒmen jiù qù páshān.",
+        "en": "If it doesn't rain tomorrow, we'll go hiking.",
+        "note": "要是…就 = simple if-then"
+      },
+      {
+        "cn": "你要早点出发，否则会迟到的。",
+        "py": "Nǐ yào zǎo diǎn chūfā, fǒuzé huì chídào de.",
+        "en": "You should leave early, otherwise you'll be late.",
+        "note": "否则 = otherwise (formal warning)"
+      },
+      {
+        "cn": "快点写作业，不然来不及了。",
+        "py": "Kuài diǎn xiě zuòyè, bùrán lái bù jí le.",
+        "en": "Do your homework quickly, or you won't make it.",
+        "note": "不然 = otherwise (casual)"
+      }
+    ],
+    "wrong_examples": [
+      {
+        "wrong": "要是你不来，否则我自己去。",
+        "right": "要是你不来，我就自己去。/ 你最好来，否则我自己去了。",
+        "explain": "Don't combine 要是 directly with 否则 — 否则 already implies 'if not'. Either use 要是…就 or state the condition + 否则."
+      },
+      {
+        "wrong": "否则努力学习，你不能通过考试。",
+        "right": "如果不努力学习，你就不能通过考试。",
+        "explain": "否则 goes AFTER the main statement, not at the beginning."
+      }
+    ],
+    "quiz": [
+      {
+        "stem": "你得多穿点衣服，___会感冒的。",
+        "correct": "否则",
+        "wrong": "要是",
+        "explain": "Warning consequence → 否则 (otherwise you'll catch cold)."
+      },
+      {
+        "stem": "___你有时间，就来我家吃饭吧。",
+        "correct": "要是",
+        "wrong": "否则",
+        "explain": "Simple if-then → 要是."
+      },
+      {
+        "stem": "快走吧，___赶不上火车了。",
+        "correct": "不然",
+        "wrong": "要是",
+        "explain": "Casual 'otherwise' → 不然."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "你得早点出发，___会迟到的。",
+        "answer": "否则",
+        "hint": "...otherwise you'll be late"
+      },
+      {
+        "sentence": "___明天天气好，我们就去爬山。",
+        "answer": "要是",
+        "hint": "If the weather is good..."
+      },
+      {
+        "sentence": "快点出发吧，___来不及了。",
+        "answer": "不然",
+        "hint": "...or we won't make it"
+      }
+    ]
+  },
+  {
+    "slug": "lian-dou-ye",
+    "pattern_cn": "连…都/也…",
+    "pattern_en": "Even... (emphasis)",
+    "type": "emphasis",
+    "type_cn": "递进强调",
+    "summary": "Emphasizes that EVEN the most unlikely or extreme case is true, implying everything else is even more so.",
+    "structure": "连 + extreme case + 都/也 + verb",
+    "hsk_level": "HSK 4 (new at this level)",
+    "compare_with": "/grammar/adverbs/",
+    "compare_note": "连…都 is stronger emphasis than just using 也 or 都 alone.",
+    "examples": [
+      {
+        "cn": "他连自己的名字都不会写。",
+        "py": "Tā lián zìjǐ de míngzì dōu bú huì xiě.",
+        "en": "He can't even write his own name.",
+        "note": "Name = easiest thing, so everything else is implied impossible"
+      },
+      {
+        "cn": "这道题连老师都不会做。",
+        "py": "Zhè dào tí lián lǎoshī dōu bú huì zuò.",
+        "en": "Even the teacher can't solve this problem.",
+        "note": "Teacher = most capable person, emphasizing extreme difficulty"
+      },
+      {
+        "cn": "她忙得连吃饭的时间都没有。",
+        "py": "Tā máng de lián chīfàn de shíjiān dōu méiyǒu.",
+        "en": "She's so busy she doesn't even have time to eat.",
+        "note": "Eating = basic necessity, emphasizing extreme busyness"
+      }
+    ],
+    "wrong_examples": [
+      {
+        "wrong": "连他很聪明都不会做。",
+        "right": "连他都不会做。/ 他那么聪明都不会做。",
+        "explain": "连 directly precedes the emphasized element (him), not a full clause. Put 连 right before the noun/pronoun."
+      },
+      {
+        "wrong": "他连不会做这道题。",
+        "right": "他连这道题都不会做。",
+        "explain": "Must have 都/也 after the emphasized element. 连…都/也 is a fixed frame."
+      }
+    ],
+    "quiz": [
+      {
+        "stem": "这个字太难了，___老师___不认识。",
+        "correct": "连…都",
+        "wrong": "即使…也",
+        "explain": "Emphasizing extreme case (even the teacher) → 连…都."
+      },
+      {
+        "stem": "他累得___话___不想说了。",
+        "correct": "连…都",
+        "wrong": "不管…都",
+        "explain": "So tired that even talking is too much → 连…都."
+      },
+      {
+        "stem": "这件事___小孩子___知道。",
+        "correct": "连…都",
+        "wrong": "只有…才",
+        "explain": "Even children know (easiest/most basic case) → 连…都."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "他___自己的名字___不会写。",
+        "answer": "连...都",
+        "hint": "He can't even write his own name"
+      },
+      {
+        "sentence": "她忙得___吃饭的时间___没有。",
+        "answer": "连...都",
+        "hint": "So busy she doesn't even have time to eat"
+      },
+      {
+        "sentence": "___老师都解决不了这个问题。",
+        "answer": "连",
+        "hint": "Even the teacher can't solve it"
+      }
+    ]
+  },
+  {
+    "slug": "bushi-ershi",
+    "pattern_cn": "不是…而是…",
+    "pattern_en": "Not A, but rather B",
+    "type": "contrastive",
+    "type_cn": "并列复句",
+    "summary": "Negates one interpretation and asserts the correct one. Used to correct a misunderstanding or clarify the real situation.",
+    "structure": "不是 + wrong assumption, 而是 + correct reality",
+    "hsk_level": "HSK 4 (new at this level)",
+    "compare_with": "/grammar/complex-sentences/",
+    "compare_note": "不是…而是 corrects. 不但…而且 adds. Very different logic.",
+    "examples": [
+      {
+        "cn": "他不是不想去，而是没有时间。",
+        "py": "Tā búshì bù xiǎng qù, érshì méiyǒu shíjiān.",
+        "en": "It's not that he doesn't want to go, but that he has no time.",
+        "note": "Correcting a misunderstanding about his reluctance"
+      },
+      {
+        "cn": "成功不是靠运气，而是靠努力。",
+        "py": "Chénggōng búshì kào yùnqi, érshì kào nǔlì.",
+        "en": "Success isn't about luck, but about effort.",
+        "note": "Correcting a common belief"
+      },
+      {
+        "cn": "我不是生气，而是有点儿失望。",
+        "py": "Wǒ búshì shēngqì, érshì yǒudiǎnr shīwàng.",
+        "en": "I'm not angry, just a bit disappointed.",
+        "note": "Clarifying the real emotion"
+      }
+    ],
+    "wrong_examples": [
+      {
+        "wrong": "不是他来了，而是她来了。",
+        "right": "来的不是他，而是她。",
+        "explain": "The structure corrects what comes after 不是. Rephrase so the corrected element follows 不是 directly."
+      },
+      {
+        "wrong": "他不是聪明，而且努力。",
+        "right": "他不是聪明，而是努力。/ 他不但聪明，而且努力。",
+        "explain": "不是 pairs with 而是 (correction). 不但 pairs with 而且 (addition). Don't mix them."
+      }
+    ],
+    "quiz": [
+      {
+        "stem": "问题___出在方法上，___出在态度上。",
+        "correct": "不是…而是",
+        "wrong": "不但…而且",
+        "explain": "Correcting where the problem lies → 不是…而是."
+      },
+      {
+        "stem": "他___不会做，___不想做。",
+        "correct": "不是…而是",
+        "wrong": "虽然…但是",
+        "explain": "Correcting assumption (not 'can't' but 'won't') → 不是…而是."
+      },
+      {
+        "stem": "学好中文___靠天分，___靠坚持。",
+        "correct": "不是…而是",
+        "wrong": "不管…都",
+        "explain": "Not talent, but persistence → 不是…而是."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "我___不想去，___没有时间。",
+        "answer": "不是...而是",
+        "hint": "Not unwilling, but no time"
+      },
+      {
+        "sentence": "成功不是靠运气，___靠努力。",
+        "answer": "而是",
+        "hint": "...but rather by effort"
+      },
+      {
+        "sentence": "___他不聊明，而是不够努力。",
+        "answer": "不是",
+        "hint": "It's not that he's not smart..."
+      }
+    ]
+  },
+  {
+    "slug": "yifangmian-lingyifangmian",
+    "pattern_cn": "一方面…另一方面…",
+    "pattern_en": "On one hand... on the other hand...",
+    "type": "parallel",
+    "type_cn": "并列复句",
+    "summary": "Presents two aspects, reasons, or sides of a situation. Both clauses are equally weighted.",
+    "structure": "一方面 + aspect A, 另一方面 + aspect B",
+    "hsk_level": "HSK 4 (new at this level)",
+    "compare_with": "/grammar/complex-sentences/",
+    "compare_note": "一方面…另一方面 = two equal sides. 不但…而且 = progressive (second is more important).",
+    "examples": [
+      {
+        "cn": "一方面他想去留学，另一方面他又舍不得离开家人。",
+        "py": "Yì fāngmiàn tā xiǎng qù liúxué, lìng yì fāngmiàn tā yòu shěbude líkāi jiārén.",
+        "en": "On one hand he wants to study abroad; on the other, he can't bear to leave his family.",
+        "note": "Two conflicting feelings of equal weight"
+      },
+      {
+        "cn": "这份工作一方面工资高，另一方面压力也大。",
+        "py": "Zhè fèn gōngzuò yì fāngmiàn gōngzī gāo, lìng yì fāngmiàn yālì yě dà.",
+        "en": "This job has a high salary on one hand, but also high pressure on the other.",
+        "note": "Balancing pros and cons"
+      },
+      {
+        "cn": "一方面要保护环境，另一方面也要发展经济。",
+        "py": "Yì fāngmiàn yào bǎohù huánjìng, lìng yì fāngmiàn yě yào fāzhǎn jīngjì.",
+        "en": "On one hand we must protect the environment; on the other, develop the economy.",
+        "note": "Two equally important goals"
+      }
+    ],
+    "wrong_examples": [
+      {
+        "wrong": "一方面他很聪明，另一方面他考了第一名。",
+        "right": "他不但很聪明，而且考了第一名。",
+        "explain": "Getting 1st place is a RESULT of being smart, not a parallel aspect. Use 不但…而且 for progressive results."
+      },
+      {
+        "wrong": "一方面下雨了，另一方面我没带伞。",
+        "right": "因为下雨了，而且我没带伞，所以…",
+        "explain": "These are not two balanced aspects but a cause-effect chain."
+      }
+    ],
+    "quiz": [
+      {
+        "stem": "___工作很有意思，___工资也不低。",
+        "correct": "一方面…另一方面",
+        "wrong": "不但…而且",
+        "explain": "Two equal aspects of a job → 一方面…另一方面. (不但…而且 also works but implies the second is more important.)"
+      },
+      {
+        "stem": "___要节约用水，___也不能影响正常生活。",
+        "correct": "一方面…另一方面",
+        "wrong": "虽然…但是",
+        "explain": "Two balanced considerations → 一方面…另一方面."
+      },
+      {
+        "stem": "学中文___能了解中国文化，___对找工作也有帮助。",
+        "correct": "一方面…另一方面",
+        "wrong": "因为…所以",
+        "explain": "Two parallel benefits → 一方面…另一方面."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___他想去留学，___又舍不得家人。",
+        "answer": "一方面...另一方面",
+        "hint": "On one hand study abroad, on the other miss family"
+      },
+      {
+        "sentence": "一方面要保护环境，___也要发展经济。",
+        "answer": "另一方面",
+        "hint": "...on the other hand develop economy"
+      },
+      {
+        "sentence": "这份工作___工资高，另一方面压力也大。",
+        "answer": "一方面",
+        "hint": "On one hand high salary..."
+      }
+    ]
+  }
+]

@@ -194,6 +194,64 @@
     </tbody>
   </table>
 
+  
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
+  <div id="topic-quiz">
+    <div class="tq-item" data-answer="to disturb; to bother">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">打扰 <span style="font-size:14px;color:var(--accent);font-weight:400;">dǎrǎo</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to disturb; to bother</button><button class="q-opt" onclick="tqAnswer(this,false)">to sign up; to register</button><button class="q-opt" onclick="tqAnswer(this,false)">to fill in; to fill out</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="ID card; identity card">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">身份证 <span style="font-size:14px;color:var(--accent);font-weight:400;">shēnfènzhèng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to handle affairs</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">ID card; identity card</button><button class="q-opt" onclick="tqAnswer(this,false)">to handle; to process</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="troublesome; to trouble; trouble (n)">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">麻烦 <span style="font-size:14px;color:var(--accent);font-weight:400;">máfan</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">ID card; identity card</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">troublesome; to trouble; trouble (n)</button><button class="q-opt" onclick="tqAnswer(this,false)">to handle affairs</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="identity document; certificate">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">证件 <span style="font-size:14px;color:var(--accent);font-weight:400;">zhèngjiàn</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to mail; to send by post</button><button class="q-opt" onclick="tqAnswer(this,false)">to disturb; to bother</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">identity document; certificate</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="to handle; to process">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">办理 <span style="font-size:14px;color:var(--accent);font-weight:400;">bànlǐ</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">troublesome; to trouble; trouble (n)</button><button class="q-opt" onclick="tqAnswer(this,false)">identity document; certificate</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to handle; to process</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div></div>
+  <script>
+  function tqAnswer(btn, correct) {
+    var item = btn.closest('.tq-item');
+    if (item.dataset.done) return;
+    item.dataset.done = '1';
+    item.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.add('disabled');
+      if (o.dataset.correct === '1') o.classList.add('correct');
+    });
+    var fb = item.querySelector('.tq-feedback');
+    fb.style.display = 'block';
+    if (correct) {
+      if (!btn.classList.contains('correct')) btn.classList.add('correct');
+      fb.style.background = 'var(--jade-soft)';
+      fb.style.color = 'var(--jade)';
+      fb.textContent = '\u2713 Correct!';
+    } else {
+      btn.classList.add('wrong');
+      fb.style.background = '#ffe0e0';
+      fb.style.color = 'var(--accent)';
+      fb.textContent = '\u2717 The answer is: ' + item.dataset.answer;
+    }
+  }
+  </script>
+
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>

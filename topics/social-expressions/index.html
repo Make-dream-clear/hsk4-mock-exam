@@ -452,6 +452,64 @@
     </tbody>
   </table>
 
+  
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
+  <div id="topic-quiz">
+    <div class="tq-item" data-answer="to accompany; to keep company">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">陪 <span style="font-size:14px;color:var(--accent);font-weight:400;">péi</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to accompany; to keep company</button><button class="q-opt" onclick="tqAnswer(this,false)">to apologize</button><button class="q-opt" onclick="tqAnswer(this,false)">pleased with oneself; proud</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="romantic">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">浪漫 <span style="font-size:14px;color:var(--accent);font-weight:400;">làngmàn</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">romantic</button><button class="q-opt" onclick="tqAnswer(this,false)">romantic love</button><button class="q-opt" onclick="tqAnswer(this,false)">to praise; to commend</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="to praise; to commend">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">表扬 <span style="font-size:14px;color:var(--accent);font-weight:400;">biǎoyáng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to praise; to commend</button><button class="q-opt" onclick="tqAnswer(this,false)">to be disappointed; disappointed</button><button class="q-opt" onclick="tqAnswer(this,false)">mood; state of mind</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="confidence">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">信心 <span style="font-size:14px;color:var(--accent);font-weight:400;">xìnxīn</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">confidence</button><button class="q-opt" onclick="tqAnswer(this,false)">to apologize</button><button class="q-opt" onclick="tqAnswer(this,false)">to accompany; to keep company</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="dream; aspiration">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">梦想 <span style="font-size:14px;color:var(--accent);font-weight:400;">mèngxiǎng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">nervous; tense; tight</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">dream; aspiration</button><button class="q-opt" onclick="tqAnswer(this,false)">worried; troubled; upset</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div></div>
+  <script>
+  function tqAnswer(btn, correct) {
+    var item = btn.closest('.tq-item');
+    if (item.dataset.done) return;
+    item.dataset.done = '1';
+    item.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.add('disabled');
+      if (o.dataset.correct === '1') o.classList.add('correct');
+    });
+    var fb = item.querySelector('.tq-feedback');
+    fb.style.display = 'block';
+    if (correct) {
+      if (!btn.classList.contains('correct')) btn.classList.add('correct');
+      fb.style.background = 'var(--jade-soft)';
+      fb.style.color = 'var(--jade)';
+      fb.textContent = '\u2713 Correct!';
+    } else {
+      btn.classList.add('wrong');
+      fb.style.background = '#ffe0e0';
+      fb.style.color = 'var(--accent)';
+      fb.textContent = '\u2717 The answer is: ' + item.dataset.answer;
+    }
+  }
+  </script>
+
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>

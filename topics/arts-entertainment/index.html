@@ -230,6 +230,64 @@
     </tbody>
   </table>
 
+  
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
+  <div id="topic-quiz">
+    <div class="tq-item" data-answer="to perform; performance; show">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">演出 <span style="font-size:14px;color:var(--accent);font-weight:400;">yǎnchū</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">audience; viewers</button><button class="q-opt" onclick="tqAnswer(this,false)">writer; author</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to perform; performance; show</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="theater">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">剧院 <span style="font-size:14px;color:var(--accent);font-weight:400;">jùyuàn</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">theater</button><button class="q-opt" onclick="tqAnswer(this,false)">art</button><button class="q-opt" onclick="tqAnswer(this,false)">singer</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="art">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">艺术 <span style="font-size:14px;color:var(--accent);font-weight:400;">yìshù</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">art</button><button class="q-opt" onclick="tqAnswer(this,false)">singer</button><button class="q-opt" onclick="tqAnswer(this,false)">singing voice; sound of singing</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="actor; actress; performer">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">演员 <span style="font-size:14px;color:var(--accent);font-weight:400;">yǎnyuán</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to sing (in a performance)</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">actor; actress; performer</button><button class="q-opt" onclick="tqAnswer(this,false)">to play (a musical instrument)</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="piano">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">钢琴 <span style="font-size:14px;color:var(--accent);font-weight:400;">gāngqín</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">audience; viewers</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">piano</button><button class="q-opt" onclick="tqAnswer(this,false)">theater</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div></div>
+  <script>
+  function tqAnswer(btn, correct) {
+    var item = btn.closest('.tq-item');
+    if (item.dataset.done) return;
+    item.dataset.done = '1';
+    item.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.add('disabled');
+      if (o.dataset.correct === '1') o.classList.add('correct');
+    });
+    var fb = item.querySelector('.tq-feedback');
+    fb.style.display = 'block';
+    if (correct) {
+      if (!btn.classList.contains('correct')) btn.classList.add('correct');
+      fb.style.background = 'var(--jade-soft)';
+      fb.style.color = 'var(--jade)';
+      fb.textContent = '\u2713 Correct!';
+    } else {
+      btn.classList.add('wrong');
+      fb.style.background = '#ffe0e0';
+      fb.style.color = 'var(--accent)';
+      fb.textContent = '\u2717 The answer is: ' + item.dataset.answer;
+    }
+  }
+  </script>
+
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
