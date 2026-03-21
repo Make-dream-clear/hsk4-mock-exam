@@ -1616,6 +1616,41 @@ function answer(btn, correct) {
 }
 
 // ============================================================
+// 12. ADD MOCK EXAM LINKS TO HUB PAGES
+// ============================================================
+
+function addTestLinksToHubs() {
+  console.log('[hub-links] Adding mock exam links to hub pages...');
+  const hubPages = [
+    'vocabulary/index.html',
+    'grammar/index.html',
+    'topics/index.html',
+    'words/index.html',
+    'writing/index.html',
+    'guide/index.html',
+  ];
+
+  const testLinkBlock = `\n  <!-- hub-test-link -->
+  <div style="background:white;border:1px solid var(--mist);border-radius:var(--radius);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <span style="font-size:14px;color:var(--stone);">Practice what you learned with our free mock exams</span>
+    <a href="/" class="btn btn-primary" style="font-size:13px;padding:8px 18px;">Take a Mock Exam \u2192</a>
+  </div>`;
+
+  let count = 0;
+  hubPages.forEach(page => {
+    const htmlPath = path.join(ROOT, page);
+    if (!fs.existsSync(htmlPath)) return;
+    let html = fs.readFileSync(htmlPath, 'utf8');
+    if (html.includes('hub-test-link')) return;
+    // Insert before </main>
+    html = html.replace(/<\/main>/, `${testLinkBlock}\n</main>`);
+    fs.writeFileSync(htmlPath, html, 'utf8');
+    count++;
+  });
+  console.log(`[hub-links] Added mock exam links to ${count} hub pages`);
+}
+
+// ============================================================
 // RUN ALL
 // ============================================================
 
@@ -1630,5 +1665,6 @@ addGrammarCrossLinks();
 buildWritingGuide();
 const taskSlugs = buildTaskTopicPages();
 const confusableSlugs = buildConfusablePages();
+addTestLinksToHubs();
 buildSitemap(taskSlugs, confusableSlugs);
 console.log('\nDone! All static content pre-rendered.');
