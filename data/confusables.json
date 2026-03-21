@@ -1,0 +1,400 @@
+[
+  {
+    "slug": "cai-jiu",
+    "category": "Adverbs / 副词",
+    "wordA": "才", "pinyinA": "cái", "wordB": "就", "pinyinB": "jiù",
+    "subtitle": "late/only vs early/already — the hardest HSK 4 adverb pair",
+    "rows": [
+      ["Time feel", "Later than expected / too slow", "Earlier than expected / fast"],
+      ["Quantity", "Only (少): 才三个人", "Already (多): 就三个人"],
+      ["Condition", "Only if / not until: 你来了我才走", "As soon as: 你一来我就走"],
+      ["Tone", "Implies difficulty or reluctance", "Implies ease or quickness"]
+    ],
+    "exA": {"cn": "他九点才来，迟到了半个小时。", "py": "Tā jiǔ diǎn cái lái, chídào le bàn ge xiǎoshí.", "en": "He didn't come until 9 — half an hour late. (later than expected)"},
+    "exB": {"cn": "他八点就来了，比谁都早。", "py": "Tā bā diǎn jiù lái le, bǐ shéi dōu zǎo.", "en": "He came as early as 8 — earlier than anyone. (earlier than expected)"},
+    "tip": "才 always implies 'later/less than expected' and often carries a negative tone. 就 implies 'sooner/more than expected' and sounds positive or neutral. This distinction is tested constantly in HSK 4 fill-in-the-blank.",
+    "quiz": [
+      {"stem": "电影七点开始，他七点半___到。", "correct": "才", "wrong": "就", "explain": "Arriving at 7:30 for a 7:00 movie = late → 才 (later than expected)."},
+      {"stem": "我们约的九点，她八点___来了。", "correct": "就", "wrong": "才", "explain": "Arriving at 8:00 for a 9:00 appointment = early → 就 (earlier than expected)."},
+      {"stem": "这本书___三十块钱，很便宜。", "correct": "才", "wrong": "就", "explain": "Only 30 yuan = less than expected → 才 (emphasizing 'only')."}
+    ]
+  },
+  {
+    "slug": "you-zai",
+    "category": "Adverbs / 副词",
+    "wordA": "又", "pinyinA": "yòu", "wordB": "再", "pinyinB": "zài",
+    "subtitle": "again (past) vs again (future) — completed vs planned repetition",
+    "rows": [
+      ["Time", "Past: something happened again", "Future: will do again"],
+      ["Tense", "Already occurred (often with 了)", "Not yet occurred (plan/request)"],
+      ["Example pattern", "又…了: 他又迟到了", "再…: 请再说一遍"],
+      ["Negative", "又不 (not again, as before)", "不再 (never again, from now on)"]
+    ],
+    "exA": {"cn": "昨天又下雨了，已经连续下了一个星期。", "py": "Zuótiān yòu xià yǔ le, yǐjīng liánxù xià le yí ge xīngqī.", "en": "It rained again yesterday — a whole week in a row. (past repetition)"},
+    "exB": {"cn": "下次再来的时候，别忘了给我打电话。", "py": "Xià cì zài lái de shíhou, bié wàng le gěi wǒ dǎ diànhuà.", "en": "Next time you come again, don't forget to call me. (future repetition)"},
+    "tip": "又 = already happened again (look for past markers like 了). 再 = will happen again (look for future context, requests, or 下次). A common trap: 他又来了 (He came again) vs 他会再来 (He will come again).",
+    "quiz": [
+      {"stem": "这个电影太好看了，我想___看一遍。", "correct": "再", "wrong": "又", "explain": "Want to watch again = future plan → 再."},
+      {"stem": "他___忘了带钥匙，已经第三次了。", "correct": "又", "wrong": "再", "explain": "Forgot again (already happened) → 又."},
+      {"stem": "我决定___也不吃那家饭馆的菜了。", "correct": "再", "wrong": "又", "explain": "Never again (from now on) → 不再/再也不."}
+    ]
+  },
+  {
+    "slug": "yijing-cengjing",
+    "category": "Adverbs / 副词",
+    "wordA": "已经", "pinyinA": "yǐjīng", "wordB": "曾经", "pinyinB": "céngjīng",
+    "subtitle": "already (current state) vs once (past experience no longer true)",
+    "rows": [
+      ["Focus", "Result still relevant now", "Past experience, may not be true now"],
+      ["Implication", "The state continues", "The state has changed"],
+      ["With 了", "Often: 已经…了", "Rarely used with 了"],
+      ["English", "already, by now", "once, formerly, used to"]
+    ],
+    "exA": {"cn": "我已经吃过饭了，不饿。", "py": "Wǒ yǐjīng chī guò fàn le, bù è.", "en": "I've already eaten — I'm not hungry. (result still relevant)"},
+    "exB": {"cn": "他曾经是一名老师，后来改行做了生意。", "py": "Tā céngjīng shì yì míng lǎoshī, hòulái gǎiháng zuò le shēngyi.", "en": "He was once a teacher, then switched to business. (no longer true)"},
+    "tip": "已经 = the result matters NOW (已经毕业了 = graduated and that's my current status). 曾经 = it was true BEFORE but may not be now (曾经住在北京 = used to live in Beijing, but doesn't anymore).",
+    "quiz": [
+      {"stem": "她___在法国留过学，所以法语说得很好。", "correct": "曾经", "wrong": "已经", "explain": "Past experience (studied in France before) → 曾经."},
+      {"stem": "飞机___起飞了，你赶不上了。", "correct": "已经", "wrong": "曾经", "explain": "Current state (plane has taken off now) → 已经."},
+      {"stem": "这里___是一片森林，现在变成了城市。", "correct": "曾经", "wrong": "已经", "explain": "Was a forest before, no longer true → 曾经."}
+    ]
+  },
+  {
+    "slug": "bijiao-bi",
+    "category": "Comparison / 比较",
+    "wordA": "比较", "pinyinA": "bǐjiào", "wordB": "比", "pinyinB": "bǐ",
+    "subtitle": "relatively/quite vs comparing A to B",
+    "rows": [
+      ["Function", "Adverb: 'relatively, quite'", "Preposition: A 比 B + adj."],
+      ["Structure", "比较 + adj./v.", "A 比 B + adj. (+ 多了/一点儿)"],
+      ["Comparison", "No explicit comparison object", "Must have two things being compared"],
+      ["Degree", "Cannot add 很/非常 before adj.", "Cannot add 很 after 比"]
+    ],
+    "exA": {"cn": "今天比较冷，多穿点衣服。", "py": "Jīntiān bǐjiào lěng, duō chuān diǎn yīfu.", "en": "It's relatively cold today — wear more. (no comparison target)"},
+    "exB": {"cn": "今天比昨天冷多了。", "py": "Jīntiān bǐ zuótiān lěng duō le.", "en": "Today is much colder than yesterday. (comparing two days)"},
+    "tip": "比较 = 'relatively' (standalone, no B needed). 比 = 'than' (must have A 比 B). Common error: ×今天比昨天比较冷 — don't use both together.",
+    "quiz": [
+      {"stem": "这个城市的交通___方便。", "correct": "比较", "wrong": "比", "explain": "No comparison target — just 'relatively convenient' → 比较."},
+      {"stem": "坐飞机___坐火车快。", "correct": "比", "wrong": "比较", "explain": "Comparing plane vs train → A 比 B structure."},
+      {"stem": "他的中文水平___高，能看中文小说。", "correct": "比较", "wrong": "比", "explain": "No second item to compare — 'quite high' → 比较."}
+    ]
+  },
+  {
+    "slug": "buguan-wulun",
+    "category": "Conjunctions / 连词",
+    "wordA": "不管", "pinyinA": "bùguǎn", "wordB": "无论", "pinyinB": "wúlùn",
+    "subtitle": "no matter (spoken) vs regardless (formal) — often interchangeable",
+    "rows": [
+      ["Register", "Spoken / informal", "Written / formal"],
+      ["Structure", "不管…都/也…", "无论…都/也…"],
+      ["Flexibility", "More flexible, used in daily speech", "Sounds more literary"],
+      ["HSK test", "Both appear in reading; 无论 more in written passages", ""]
+    ],
+    "exA": {"cn": "不管你怎么说，我都不会改变主意。", "py": "Bùguǎn nǐ zěnme shuō, wǒ dōu bú huì gǎibiàn zhǔyì.", "en": "No matter what you say, I won't change my mind. (casual)"},
+    "exB": {"cn": "无论遇到什么困难，我们都不能放弃。", "py": "Wúlùn yù dào shénme kùnnán, wǒmen dōu bù néng fàngqì.", "en": "Regardless of any difficulty, we must not give up. (formal)"},
+    "tip": "They are nearly interchangeable in meaning. On the HSK 4 exam: if the passage is formal/written, choose 无论; if conversational, choose 不管. Both require 都 or 也 in the main clause.",
+    "quiz": [
+      {"stem": "___天气怎么样，他每天都去跑步。", "correct": "不管", "wrong": "无论", "explain": "Casual context (daily routine) → 不管 is more natural. (无论 is also grammatically correct.)"},
+      {"stem": "___从哪个角度分析，这个方案都是最合理的。", "correct": "无论", "wrong": "不管", "explain": "Formal analytical context → 无论 fits better."},
+      {"stem": "___多忙，她都会给父母打电话。", "correct": "不管", "wrong": "无论", "explain": "Personal/spoken context → 不管. (Both are acceptable.)"}
+    ]
+  },
+  {
+    "slug": "budan-bujin-buguang",
+    "category": "Conjunctions / 连词",
+    "wordA": "不但", "pinyinA": "búdàn", "wordB": "不仅/不光", "pinyinB": "bùjǐn/bùguāng",
+    "subtitle": "not only — three ways to say it, slight differences",
+    "rows": [
+      ["Register", "Standard / written", "不仅: formal; 不光: spoken"],
+      ["Pair with", "而且 / 还", "而且 / 还 / 也"],
+      ["Same subject", "不但 after subject: 他不但…而且…", "Same rule applies"],
+      ["Diff subjects", "不但 before subject: 不但他…而且她也…", "Same rule applies"]
+    ],
+    "exA": {"cn": "她不但会说中文，而且会写书法。", "py": "Tā búdàn huì shuō zhōngwén, érqiě huì xiě shūfǎ.", "en": "She not only speaks Chinese but also writes calligraphy. (standard)"},
+    "exB": {"cn": "他不仅是我的老师，还是我的朋友。", "py": "Tā bùjǐn shì wǒ de lǎoshī, hái shì wǒ de péngyou.", "en": "He is not only my teacher but also my friend. (slightly more formal)"},
+    "tip": "All three mean 'not only' and are usually interchangeable. Key rule: when two clauses have the SAME subject, put 不但/不仅/不光 AFTER the subject. When subjects DIFFER, put it BEFORE the first subject.",
+    "quiz": [
+      {"stem": "___小王通过了考试，小李也通过了。（两个主语不同）", "correct": "不但", "wrong": "不仅", "explain": "Different subjects → 不但 before the first subject. (不仅 also works but 不但 is most standard for exams.)"},
+      {"stem": "这家餐厅___菜好吃，服务也很好。", "correct": "不仅", "wrong": "不光", "explain": "Written/formal context → 不仅 fits well. (不光 sounds too casual for written text.)"},
+      {"stem": "他___会开车，___会修车。", "correct": "不但", "wrong": "不仅", "explain": "Same subject, standard usage → 不但…而且/还… All three work here."}
+    ]
+  },
+  {
+    "slug": "jiran-jingran",
+    "category": "Adverbs / 副词",
+    "wordA": "既然", "pinyinA": "jìrán", "wordB": "竟然", "pinyinB": "jìngrán",
+    "subtitle": "since/given that vs unexpectedly — similar pronunciation, opposite meaning",
+    "rows": [
+      ["Meaning", "Since, given that (logical premise)", "Unexpectedly, surprisingly"],
+      ["Function", "Conjunction: introduces known fact", "Adverb: expresses surprise"],
+      ["Structure", "既然…就/那就…", "竟然 + verb (no pair needed)"],
+      ["Tone", "Calm, logical reasoning", "Surprised, emotional"]
+    ],
+    "exA": {"cn": "既然你不想去，那就别去了。", "py": "Jìrán nǐ bù xiǎng qù, nà jiù bié qù le.", "en": "Since you don't want to go, then don't. (logical conclusion from a known fact)"},
+    "exB": {"cn": "没想到他竟然通过了考试！", "py": "Méi xiǎng dào tā jìngrán tōngguò le kǎoshì!", "en": "I didn't expect he actually passed the exam! (surprise)"},
+    "tip": "既然 = 'since' (you already know this fact, so logically…). 竟然 = 'surprisingly' (you did NOT expect this). They sound similar but work completely differently. HSK 4 loves testing this distinction.",
+    "quiz": [
+      {"stem": "___你已经决定了，我就不再劝你了。", "correct": "既然", "wrong": "竟然", "explain": "Since you've decided (known fact → logical conclusion) → 既然."},
+      {"stem": "他平时不怎么学习，___考了第一名。", "correct": "竟然", "wrong": "既然", "explain": "Unexpected result (doesn't study but got #1) → 竟然."},
+      {"stem": "这么简单的问题他___不会做。", "correct": "竟然", "wrong": "既然", "explain": "Such a simple problem but can't solve it = surprise → 竟然."}
+    ]
+  },
+  {
+    "slug": "lianxi-practice",
+    "category": "Verbs / 动词",
+    "wordA": "联系", "pinyinA": "liánxì", "wordB": "练习", "pinyinB": "liànxí",
+    "subtitle": "contact/connect vs practice — tones and meanings differ",
+    "rows": [
+      ["Meaning", "To contact; connection/relationship", "To practice; exercise/drill"],
+      ["Tones", "lián xì (2nd + 4th)", "liàn xí (4th + 2nd)"],
+      ["Object", "联系 + person: 联系他", "练习 + skill: 练习口语"],
+      ["As noun", "保持联系 (stay in contact)", "做练习 (do exercises)"]
+    ],
+    "exA": {"cn": "如果有问题，请随时联系我。", "py": "Rúguǒ yǒu wèntí, qǐng suíshí liánxì wǒ.", "en": "If you have questions, contact me anytime."},
+    "exB": {"cn": "每天练习半个小时口语，进步会很快。", "py": "Měitiān liànxí bàn ge xiǎoshí kǒuyǔ, jìnbù huì hěn kuài.", "en": "Practice speaking for half an hour daily and you'll improve fast."},
+    "tip": "联系 (2nd-4th tone) = contact a PERSON. 练习 (4th-2nd tone) = practice a SKILL. The tones are swapped — listen carefully in the listening section.",
+    "quiz": [
+      {"stem": "请把你的电话号码给我，方便以后___。", "correct": "联系", "wrong": "练习", "explain": "Exchanging numbers to stay in contact → 联系."},
+      {"stem": "为了准备HSK考试，我每天___听力。", "correct": "练习", "wrong": "联系", "explain": "Practicing listening skills → 练习."},
+      {"stem": "我们已经很久没有___了，不知道她最近怎么样。", "correct": "联系", "wrong": "练习", "explain": "Haven't been in contact → 联系."}
+    ]
+  },
+  {
+    "slug": "de-de-de",
+    "category": "Particles / 助词",
+    "wordA": "的/得", "pinyinA": "de", "wordB": "地", "pinyinB": "de",
+    "subtitle": "the three 'de' — which goes where",
+    "rows": [
+      ["的", "After modifier → noun: 漂亮的花", "Attributive marker (adj/noun → noun)"],
+      ["得", "After verb → complement: 跑得快", "Complement marker (verb → degree/result)"],
+      ["地", "After modifier → verb: 高兴地说", "Adverbial marker (adj → verb)"]
+    ],
+    "exA": {"cn": "她高兴得跳了起来。（verb + 得 + complement）", "py": "Tā gāoxìng de tiào le qǐlái.", "en": "She was so happy she jumped up. (得 links verb to degree complement)"},
+    "exB": {"cn": "她高兴地跑过来。（adj. + 地 + verb）", "py": "Tā gāoxìng de pǎo guòlái.", "en": "She happily ran over. (地 links adverb to verb)"},
+    "tip": "Formula: ___的+NOUN, VERB+得___, ___地+VERB. The key test: what comes AFTER? Noun → 的. Already have a verb before and describing how well → 得. About to do a verb → 地.",
+    "quiz": [
+      {"stem": "他认真___看完了这本书。", "correct": "地", "wrong": "得", "explain": "认真 modifies the verb 看 → adverbial marker 地."},
+      {"stem": "他跑___很快，我追不上。", "correct": "得", "wrong": "地", "explain": "跑 + how fast = degree complement → 得."},
+      {"stem": "这是我妈妈做___菜。", "correct": "的", "wrong": "得", "explain": "妈妈做 modifies noun 菜 → attributive marker 的."}
+    ]
+  },
+  {
+    "slug": "dui-gei-xiang",
+    "category": "Prepositions / 介词",
+    "wordA": "对", "pinyinA": "duì", "wordB": "给/向", "pinyinB": "gěi/xiàng",
+    "subtitle": "toward/to — three prepositions for directing actions",
+    "rows": [
+      ["对", "Toward (attitude/effect): 对他很好", "Used with feelings, attitudes, influence"],
+      ["给", "For/to (transfer): 给他打电话", "Used with giving, doing for someone"],
+      ["向", "Toward (direction): 向他学习", "Used with direction, requesting from"]
+    ],
+    "exA": {"cn": "吸烟对身体有害。", "py": "Xīyān duì shēntǐ yǒu hài.", "en": "Smoking is harmful to the body. (对 = effect/attitude toward)"},
+    "exB": {"cn": "请你给我倒杯水。/ 我向老师请教了一个问题。", "py": "Qǐng nǐ gěi wǒ dào bēi shuǐ. / Wǒ xiàng lǎoshī qǐngjiào le yí ge wèntí.", "en": "Please pour me a glass of water. (给 = for someone) / I consulted the teacher about a question. (向 = toward someone)"},
+    "tip": "对 = attitude/effect ON someone. 给 = doing something FOR someone (transfer). 向 = moving TOWARD someone (direction/request). Common pattern: 对…有影响, 给…打电话, 向…学习.",
+    "quiz": [
+      {"stem": "运动___健康有很大的好处。", "correct": "对", "wrong": "给", "explain": "Effect on health → 对…有好处."},
+      {"stem": "请___我介绍一下这个城市。", "correct": "给", "wrong": "对", "explain": "Doing something for me → 给."},
+      {"stem": "我们应该___优秀的人学习。", "correct": "向", "wrong": "对", "explain": "Learning toward/from someone → 向…学习."}
+    ]
+  },
+  {
+    "slug": "rongyi-jiandan",
+    "category": "Adjectives / 形容词",
+    "wordA": "容易", "pinyinA": "róngyì", "wordB": "简单", "pinyinB": "jiǎndān",
+    "subtitle": "easy (to do) vs simple (not complex)",
+    "rows": [
+      ["Focus", "Easy to do / likely to happen", "Simple, not complicated"],
+      ["Structure", "容易 + verb: 容易感冒", "简单 + noun: 简单的问题"],
+      ["Opposite", "难 (hard to do)", "复杂 (complex)"],
+      ["Special use", "Prone to: 容易生气 (easily gets angry)", "No 'prone to' usage"]
+    ],
+    "exA": {"cn": "冬天容易感冒，要多喝热水。", "py": "Dōngtiān róngyì gǎnmào, yào duō hē rè shuǐ.", "en": "It's easy to catch a cold in winter. (prone to / likely to)"},
+    "exB": {"cn": "这道题很简单，大家都会做。", "py": "Zhè dào tí hěn jiǎndān, dàjiā dōu huì zuò.", "en": "This question is simple — everyone can do it. (not complex)"},
+    "tip": "容易 = easy to DO (verb follows) or likely/prone to. 简单 = simple, not complicated (describes a thing). You can say 这道题很简单 AND 这道题很容易, but only 容易 works in 容易感冒 (prone to catching cold).",
+    "quiz": [
+      {"stem": "这个问题不___，需要仔细想想。", "correct": "简单", "wrong": "容易", "explain": "The problem is not simple (not complex) → 简单."},
+      {"stem": "这种天气特别___让人生病。", "correct": "容易", "wrong": "简单", "explain": "'Prone to' / likely to → 容易."},
+      {"stem": "学中文不___，但是很有意思。", "correct": "容易", "wrong": "简单", "explain": "Not easy to DO → 容易 (describes difficulty of the action)."}
+    ]
+  },
+  {
+    "slug": "turan-huran",
+    "category": "Adverbs / 副词",
+    "wordA": "突然", "pinyinA": "tūrán", "wordB": "忽然", "pinyinB": "hūrán",
+    "subtitle": "sudden — one is also an adjective, the other is adverb-only",
+    "rows": [
+      ["Part of speech", "Adj. AND adv.: 很突然的变化", "Adverb only: ×很忽然"],
+      ["Can use 很?", "Yes: 来得很突然", "No: ×很忽然"],
+      ["As attributive", "Yes: 突然的消息", "No: ×忽然的消息"],
+      ["As adverb", "他突然站起来", "他忽然站起来 (same)"]
+    ],
+    "exA": {"cn": "这场雨来得很突然。", "py": "Zhè chǎng yǔ lái de hěn tūrán.", "en": "This rain came very suddenly. (突然 as adj. with 很)"},
+    "exB": {"cn": "她忽然想起了一件重要的事。", "py": "Tā hūrán xiǎng qǐ le yí jiàn zhòngyào de shì.", "en": "She suddenly remembered something important. (忽然 as adverb)"},
+    "tip": "When used as an adverb before a verb, they are interchangeable. The difference: 突然 can also be an adjective (很突然, 突然的变化), but 忽然 CANNOT. If you see 很___ or ___的+noun, it must be 突然.",
+    "quiz": [
+      {"stem": "这件事发生得太___了，大家都没准备。", "correct": "突然", "wrong": "忽然", "explain": "With 得 + degree = adjective use → only 突然 works."},
+      {"stem": "走着走着，___下起了大雨。", "correct": "忽然", "wrong": "突然", "explain": "Adverb before verb — both work, but 忽然 is more natural for narrative flow."},
+      {"stem": "这是一个非常___的决定。", "correct": "突然", "wrong": "忽然", "explain": "Modifying a noun (___的+noun) = adjective → only 突然."}
+    ]
+  },
+  {
+    "slug": "yushi-yinci",
+    "category": "Conjunctions / 连词",
+    "wordA": "于是", "pinyinA": "yúshì", "wordB": "因此", "pinyinB": "yīncǐ",
+    "subtitle": "so/then (narrative) vs therefore (logical) — both mean 'so' but feel different",
+    "rows": [
+      ["Type", "Sequential: then, so (story flow)", "Causal: therefore, as a result"],
+      ["Register", "Narrative / storytelling", "Formal / argumentative"],
+      ["Focus", "What happened NEXT", "Logical CONSEQUENCE"],
+      ["Replaceable by", "然后 (then)", "所以 (so/therefore)"]
+    ],
+    "exA": {"cn": "天黑了，于是我们决定回家。", "py": "Tiān hēi le, yúshì wǒmen juédìng huí jiā.", "en": "It got dark, so we decided to go home. (narrative sequence)"},
+    "exB": {"cn": "他没有认真复习，因此没有通过考试。", "py": "Tā méiyǒu rènzhēn fùxí, yīncǐ méiyǒu tōngguò kǎoshì.", "en": "He didn't review seriously; therefore he didn't pass. (logical cause-effect)"},
+    "tip": "于是 tells a STORY (this happened, then that happened). 因此 makes an ARGUMENT (because of X, therefore Y). In reading passages: 于是 appears in narratives, 因此 in explanatory/analytical texts.",
+    "quiz": [
+      {"stem": "他找了很久都没找到，___放弃了。", "correct": "于是", "wrong": "因此", "explain": "Narrative sequence (searched → gave up) → 于是."},
+      {"stem": "空气污染越来越严重，___政府采取了新的措施。", "correct": "因此", "wrong": "于是", "explain": "Formal cause-effect analysis → 因此."},
+      {"stem": "他看到路边有人摔倒了，___跑过去帮忙。", "correct": "于是", "wrong": "因此", "explain": "Story flow (saw → ran to help) → 于是."}
+    ]
+  },
+  {
+    "slug": "zhiyao-zhiyou",
+    "category": "Conjunctions / 连词",
+    "wordA": "只要", "pinyinA": "zhǐyào", "wordB": "只有", "pinyinB": "zhǐyǒu",
+    "subtitle": "as long as (sufficient) vs only if (necessary) — opposite logic",
+    "rows": [
+      ["Logic", "Sufficient condition: A is enough for B", "Necessary condition: B requires A"],
+      ["Pair", "只要…就…", "只有…才…"],
+      ["Meaning", "As long as A, then B will happen", "Only if A, can B happen"],
+      ["Flexibility", "A is one of many ways to get B", "A is the ONLY way to get B"]
+    ],
+    "exA": {"cn": "只要努力学习，就一定能通过考试。", "py": "Zhǐyào nǔlì xuéxí, jiù yídìng néng tōngguò kǎoshì.", "en": "As long as you study hard, you'll definitely pass. (sufficient)"},
+    "exB": {"cn": "只有努力学习，才能通过考试。", "py": "Zhǐyǒu nǔlì xuéxí, cái néng tōngguò kǎoshì.", "en": "Only by studying hard can you pass. (necessary, no other way)"},
+    "tip": "只要…就 = A is ENOUGH (optimistic). 只有…才 = A is the ONLY way (stricter). Same topic, different emphasis. This is one of the most frequently tested pairs in HSK 4.",
+    "quiz": [
+      {"stem": "___你有信心，___没有做不到的事。", "correct": "只要…就", "wrong": "只有…才", "explain": "Confidence is sufficient (optimistic) → 只要…就."},
+      {"stem": "___亲自去一趟，___能了解真实情况。", "correct": "只有…才", "wrong": "只要…就", "explain": "Going in person is the ONLY way → 只有…才."},
+      {"stem": "___坚持锻炼，身体___会越来越好。", "correct": "只要…就", "wrong": "只有…才", "explain": "Exercising is enough to improve → 只要…就."}
+    ]
+  },
+  {
+    "slug": "jinguan-danshi-suiran",
+    "category": "Conjunctions / 连词",
+    "wordA": "尽管", "pinyinA": "jǐnguǎn", "wordB": "虽然", "pinyinB": "suīrán",
+    "subtitle": "despite (stronger) vs although (standard) — both concessive",
+    "rows": [
+      ["Strength", "Stronger concession, more emphatic", "Standard concession"],
+      ["Pair with", "尽管…但是/可是…", "虽然…但是/可是…"],
+      ["Special use", "Can mean 'feel free to': 你尽管说", "No 'feel free' usage"],
+      ["Register", "Slightly more formal / written", "Neutral, most common"]
+    ],
+    "exA": {"cn": "尽管天气很冷，他还是坚持每天跑步。", "py": "Jǐnguǎn tiānqì hěn lěng, tā háishì jiānchí měitiān pǎobù.", "en": "Despite the cold weather, he still persists in running daily. (stronger emphasis)"},
+    "exB": {"cn": "虽然很累，但是我很开心。", "py": "Suīrán hěn lèi, dànshì wǒ hěn kāixīn.", "en": "Although tired, I'm happy. (standard concession)"},
+    "tip": "Both mean 'although/despite' and are often interchangeable. 尽管 is slightly stronger and more emphatic. Unique to 尽管: it can also mean 'feel free to' (你尽管问 = feel free to ask). 虽然 never has this meaning.",
+    "quiz": [
+      {"stem": "___路上堵车很严重，他还是准时到了。", "correct": "尽管", "wrong": "虽然", "explain": "Emphasizing that traffic was bad but he STILL made it → 尽管 (stronger). 虽然 also works."},
+      {"stem": "你有什么想法___说，不用客气。", "correct": "尽管", "wrong": "虽然", "explain": "'Feel free to say' → only 尽管 has this meaning."},
+      {"stem": "___他说得很有道理，但我还是不同意。", "correct": "虽然", "wrong": "尽管", "explain": "Standard concession → 虽然 is most natural. (尽管 also works.)"}
+    ]
+  },
+  {
+    "slug": "daodi-jiujing",
+    "category": "Adverbs / 副词",
+    "wordA": "到底", "pinyinA": "dàodǐ", "wordB": "究竟", "pinyinB": "jiūjìng",
+    "subtitle": "on earth / exactly — both express urgency in questions",
+    "rows": [
+      ["Register", "Spoken / informal", "Written / slightly formal"],
+      ["Tone", "Can sound impatient: 你到底去不去？", "More neutral curiosity"],
+      ["Special use", "After all (conclusion): 她到底是老师", "Less common in this usage"],
+      ["In statements", "到底 in both questions and statements", "究竟 mainly in questions"]
+    ],
+    "exA": {"cn": "你到底想吃什么？快决定！", "py": "Nǐ dàodǐ xiǎng chī shénme? Kuài juédìng!", "en": "What on earth do you want to eat? Decide! (impatient)"},
+    "exB": {"cn": "我很想知道事情究竟是怎么发生的。", "py": "Wǒ hěn xiǎng zhīdào shìqing jiūjìng shì zěnme fāshēng de.", "en": "I really want to know how it actually happened. (curious, formal)"},
+    "tip": "Both mean 'on earth / exactly' in questions and are usually interchangeable. 到底 is more casual and can sound impatient. 究竟 is more formal and curious. In HSK 4 reading: use context — casual dialogue = 到底, formal passage = 究竟.",
+    "quiz": [
+      {"stem": "你___同意不同意？给个明确的答复！", "correct": "到底", "wrong": "究竟", "explain": "Impatient demand for answer → 到底."},
+      {"stem": "科学家们一直在研究这种植物___有什么作用。", "correct": "究竟", "wrong": "到底", "explain": "Formal/scientific context → 究竟."},
+      {"stem": "这件事___是谁做的？", "correct": "到底", "wrong": "究竟", "explain": "Direct question seeking truth → both work, but 到底 is more common in spoken questions."}
+    ]
+  },
+  {
+    "slug": "erqie-bingqie",
+    "category": "Conjunctions / 连词",
+    "wordA": "而且", "pinyinA": "érqiě", "wordB": "并且", "pinyinB": "bìngqiě",
+    "subtitle": "moreover/and — progressive vs parallel",
+    "rows": [
+      ["Logic", "Progressive: and furthermore (A → more B)", "Parallel: and also (A + B side by side)"],
+      ["Emphasis", "The second clause is MORE important", "Both clauses are equally weighted"],
+      ["Common pair", "不但…而且…", "…并且… (standalone)"],
+      ["Register", "Neutral", "Slightly more formal"]
+    ],
+    "exA": {"cn": "这里的菜不但好吃，而且很便宜。", "py": "Zhèlǐ de cài búdàn hǎochī, érqiě hěn piányi.", "en": "The food here is not only delicious, but also cheap. (progressive: cheap is bonus info)"},
+    "exB": {"cn": "请仔细阅读合同，并且签上你的名字。", "py": "Qǐng zǐxì yuèdú hétong, bìngqiě qiān shàng nǐ de míngzì.", "en": "Please read the contract carefully and sign your name. (parallel: two equal actions)"},
+    "tip": "而且 = and MOREOVER (the second part adds something impressive or important). 并且 = and ALSO (two actions of equal weight, often instructions). If paired with 不但, always use 而且.",
+    "quiz": [
+      {"stem": "请填写这张表格，___交给前台。", "correct": "并且", "wrong": "而且", "explain": "Two equal actions (fill in + hand in) → 并且."},
+      {"stem": "他不但通过了考试，___得了第一名。", "correct": "而且", "wrong": "并且", "explain": "Progressive (passed → and even got 1st place!) → 而且."},
+      {"stem": "这个方案既节约成本，___提高了效率。", "correct": "并且", "wrong": "而且", "explain": "Two parallel benefits → 并且. (而且 also acceptable with progressive reading.)"}
+    ]
+  },
+  {
+    "slug": "gang-gangcai",
+    "category": "Adverbs / 副词",
+    "wordA": "刚", "pinyinA": "gāng", "wordB": "刚才", "pinyinB": "gāngcái",
+    "subtitle": "just (adverb before verb) vs just now (time word)",
+    "rows": [
+      ["Function", "Adverb: goes before verb", "Time noun: can be subject/object modifier"],
+      ["Position", "Must be before verb: 刚到", "Flexible: 刚才的话 / 我刚才说的"],
+      ["With 的", "Cannot: ×刚的事", "Can: 刚才的事 (the thing from just now)"],
+      ["Time feel", "Emphasizes 'just' (very recent action)", "Points to a moment 'just now'"]
+    ],
+    "exA": {"cn": "我刚到公司，还没开始工作。", "py": "Wǒ gāng dào gōngsī, hái méi kāishǐ gōngzuò.", "en": "I just arrived at the company. (刚 before verb 到)"},
+    "exB": {"cn": "刚才那个人是谁？", "py": "Gāngcái nàge rén shì shéi?", "en": "Who was that person just now? (刚才 as time word modifying noun)"},
+    "tip": "刚 = adverb, must go right before a verb (刚吃, 刚到). 刚才 = time noun, can modify nouns (刚才的电话) or stand alone as a time reference. Test: can you put 的 after it? Yes → 刚才. No → 刚.",
+    "quiz": [
+      {"stem": "我___吃完饭，现在不饿。", "correct": "刚", "wrong": "刚才", "explain": "Before verb 吃完 → adverb 刚."},
+      {"stem": "___的那个电话是谁打来的？", "correct": "刚才", "wrong": "刚", "explain": "刚才的 + noun → time noun 刚才."},
+      {"stem": "她___说了什么？我没听清。", "correct": "刚才", "wrong": "刚", "explain": "Referring to a specific moment 'just now' → 刚才. (刚 also works grammatically here.)"}
+    ]
+  },
+  {
+    "slug": "lihai-yanzhong",
+    "category": "Adjectives / 形容词",
+    "wordA": "厉害", "pinyinA": "lìhai", "wordB": "严重", "pinyinB": "yánzhòng",
+    "subtitle": "severe/impressive vs serious/grave — positive vs negative",
+    "rows": [
+      ["Tone", "Can be positive OR negative", "Always negative"],
+      ["Positive", "你太厉害了！(You're amazing!)", "Cannot be used as praise"],
+      ["Negative", "头疼得厉害 (terrible headache)", "污染很严重 (serious pollution)"],
+      ["Objects", "People, skills, pain, weather", "Problems, situations, illness, damage"]
+    ],
+    "exA": {"cn": "她中文说得太厉害了！/ 外面风刮得很厉害。", "py": "Tā zhōngwén shuō de tài lìhai le! / Wàimiàn fēng guā de hěn lìhai.", "en": "Her Chinese is amazing! / The wind outside is fierce. (positive + negative uses)"},
+    "exB": {"cn": "空气污染问题越来越严重了。", "py": "Kōngqì wūrǎn wèntí yuè lái yuè yánzhòng le.", "en": "Air pollution is getting more and more serious. (always negative)"},
+    "tip": "厉害 is versatile — compliment (你真厉害!) or describe severity (疼得厉害). 严重 is ONLY for bad situations (严重的问题/污染/错误). Never say ×你真严重 as a compliment.",
+    "quiz": [
+      {"stem": "这次的交通事故非常___，好几个人受伤了。", "correct": "严重", "wrong": "厉害", "explain": "Accident = negative situation → 严重."},
+      {"stem": "他一个人就把这个项目做完了，真___！", "correct": "厉害", "wrong": "严重", "explain": "Praising someone → 厉害 (impressive)."},
+      {"stem": "最近雾霾越来越___了，出门要戴口罩。", "correct": "严重", "wrong": "厉害", "explain": "Smog getting worse = negative problem → 严重. (厉害 also possible but 严重 is more precise.)"}
+    ]
+  },
+  {
+    "slug": "jishi-jinguan",
+    "category": "Conjunctions / 连词",
+    "wordA": "即使", "pinyinA": "jíshǐ", "wordB": "尽管", "pinyinB": "jǐnguǎn",
+    "subtitle": "even if (hypothetical) vs despite (factual)",
+    "rows": [
+      ["Reality", "Hypothetical: may not be true", "Factual: already true"],
+      ["Meaning", "Even if (假设): hasn't happened yet", "Despite (让步): already happened"],
+      ["Pair with", "即使…也…", "尽管…但是/还是…"],
+      ["Example", "即使下雨我也去 (even if it rains)", "尽管下着雨他还是去了 (despite the rain)"]
+    ],
+    "exA": {"cn": "即使明天下雪，我也要去上班。", "py": "Jíshǐ míngtiān xià xuě, wǒ yě yào qù shàng bān.", "en": "Even if it snows tomorrow, I'll still go to work. (hypothetical — hasn't snowed yet)"},
+    "exB": {"cn": "尽管外面下着大雨，他还是出门了。", "py": "Jǐnguǎn wàimiàn xià zhe dà yǔ, tā háishì chū mén le.", "en": "Despite the heavy rain outside, he still went out. (factual — it IS raining)"},
+    "tip": "即使 = EVEN IF (the situation might not happen). 尽管 = DESPITE (the situation is already real). Check: has it happened? Yes → 尽管. Not yet / might not → 即使.",
+    "quiz": [
+      {"stem": "___价格再贵，这个东西我也要买。", "correct": "即使", "wrong": "尽管", "explain": "Hypothetical (price might be high) → 即使."},
+      {"stem": "___他已经道歉了，她还是不肯原谅他。", "correct": "尽管", "wrong": "即使", "explain": "He already apologized (factual) → 尽管."},
+      {"stem": "___困难再大，我们也不会放弃。", "correct": "即使", "wrong": "尽管", "explain": "Hypothetical future difficulty → 即使."}
+    ]
+  }
+]

@@ -574,7 +574,7 @@ ${testLinks}
 // 4. UPDATE SITEMAP with test pages
 // ============================================================
 
-function buildSitemap(taskSlugs) {
+function buildSitemap(taskSlugs, confusableSlugs) {
   console.log('[sitemap] Updating sitemap.xml...');
   const index = readJSON('index.json');
   const today = new Date().toISOString().split('T')[0];
@@ -613,7 +613,13 @@ function buildSitemap(taskSlugs) {
     priority: '0.7',
   }));
 
-  const allPages = [...existingPages, ...testPages, ...taskPages];
+  // Add confusable word pages
+  const confusablePages = (confusableSlugs || []).map(slug => ({
+    loc: `/words/${slug}/`,
+    priority: '0.7',
+  }));
+
+  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages];
 
   const urls = allPages.map(p => `  <url>
     <loc>https://hsk4.mandarinzone.com${p.loc}</loc>
@@ -1376,6 +1382,199 @@ function buildTaskTopicPages() {
 }
 
 // ============================================================
+// 11. GENERATE CONFUSABLE WORD PAIR PAGES
+// ============================================================
+
+function buildConfusablePages() {
+  console.log('[confusables] Generating confusable word pair pages...');
+  const pairs = readJSON('confusables.json');
+
+  pairs.forEach((pair, pi) => {
+    const dir = path.join(ROOT, 'words', pair.slug);
+    ensureDir(dir);
+
+    const rowsHtml = pair.rows.map(r => {
+      if (r.length === 3) {
+        return `<tr><td class="label-cell">${escHtml(r[0])}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`;
+      } else {
+        return `<tr><td class="label-cell">${escHtml(r[0])}</td><td colspan="2">${r[1]}</td></tr>`;
+      }
+    }).join('\n        ');
+
+    const quizHtml = pair.quiz.map((q, qi) => `
+        <div class="q-item">
+          <div class="q-stem chinese">${escHtml(q.stem).replace('___', '<span class="blank"></span>')}</div>
+          <div class="q-opts">
+            <button class="q-opt chinese" data-correct="1" onclick="answer(this,true)">${escHtml(q.correct)}</button>
+            <button class="q-opt chinese" onclick="answer(this,false)">${escHtml(q.wrong)}</button>
+          </div>
+          <div class="q-explain">${escHtml(q.explain)}</div>
+        </div>`).join('\n');
+
+    // Nav links
+    const prevPair = pi > 0 ? pairs[pi - 1] : null;
+    const nextPair = pi < pairs.length - 1 ? pairs[pi + 1] : null;
+
+    const pageTitle = `${pair.wordA} vs ${pair.wordB} \u2014 HSK 4 Confusable Words | ${pair.wordA}\u548C${pair.wordB}\u7684\u533A\u522B`;
+    const pageDesc = `${pair.subtitle}. Clear comparison of ${pair.wordA} (${pair.pinyinA}) and ${pair.wordB} (${pair.pinyinB}) with examples, rules, and quiz. HSK 4 vocabulary.`;
+
+    const pageHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escHtml(pageTitle)}</title>
+<meta name="description" content="${escHtml(pageDesc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/words/${pair.slug}/">
+
+<meta property="og:title" content="${escHtml(pair.wordA)} vs ${escHtml(pair.wordB)} \u2014 HSK 4 Confusable Words">
+<meta property="og:description" content="${escHtml(pageDesc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/words/${pair.slug}/">
+<meta property="og:site_name" content="Mandarin Zone">
+
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/words/${pair.slug}/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/words/${pair.slug}/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/words/${pair.slug}/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "${escHtml(pair.wordA)} vs ${escHtml(pair.wordB)} \u2014 HSK 4 Confusable Words",
+  "description": "${escHtml(pageDesc)}",
+  "url": "https://hsk4.mandarinzone.com/words/${pair.slug}/",
+  "author": { "@type": "Organization", "name": "Mandarin Zone", "url": "https://mandarinzone.com" },
+  "inLanguage": ["en", "zh-CN"],
+  "educationalLevel": "Intermediate"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .cmp-table { width:100%; border-collapse:collapse; margin:20px 0; font-size:14px; }
+  .cmp-table th { padding:10px 14px; text-align:left; font-weight:600; border-bottom:2px solid var(--mist); font-size:16px; }
+  .cmp-table th:first-child { color:var(--accent); }
+  .cmp-table th:last-child { color:var(--jade); }
+  .cmp-table td { padding:8px 14px; border-bottom:1px solid var(--mist); vertical-align:top; line-height:1.5; }
+  .label-cell { font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:0.3px; color:var(--stone); width:100px; }
+  .ex-block { background:var(--paper); border:1px solid var(--mist); border-radius:8px; padding:14px 18px; margin:8px 0; }
+  .ex-cn { font-family:'Noto Sans SC',sans-serif; font-size:15px; }
+  .ex-pinyin { font-size:13px; color:var(--stone); font-style:italic; }
+  .ex-en { font-size:13px; color:var(--stone); }
+  .ex-highlight { color:var(--accent); font-weight:600; }
+  .tip-box { background:var(--gold-soft); border:1px solid #e8d5a0; border-radius:8px; padding:14px 18px; margin:20px 0; font-size:14px; line-height:1.6; }
+  .tip-box strong { color:var(--gold); }
+  .q-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .q-stem { font-size:15px; font-family:'Noto Sans SC',sans-serif; margin-bottom:10px; line-height:1.5; }
+  .q-stem .blank { display:inline-block; min-width:50px; border-bottom:2px solid var(--accent); margin:0 4px; text-align:center; }
+  .q-opts { display:flex; gap:8px; flex-wrap:wrap; }
+  .q-opt { padding:8px 18px; border:1px solid var(--mist); border-radius:8px; background:white; font-size:15px; font-family:'Noto Sans SC','DM Sans',sans-serif; cursor:pointer; transition:all 0.15s; }
+  .q-opt:hover { border-color:var(--accent); background:var(--accent-soft); }
+  .q-opt.correct { background:var(--jade-soft); border-color:var(--jade); color:var(--jade); font-weight:600; }
+  .q-opt.wrong { background:#ffe0e0; border-color:var(--accent); color:var(--accent); }
+  .q-opt.disabled { pointer-events:none; opacity:0.7; }
+  .q-opt.disabled.correct { opacity:1; }
+  .q-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.6; padding:10px 14px; background:var(--paper); border-radius:6px; }
+  .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+  .pair-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
+  @media (max-width:600px) { .cmp-table th,.cmp-table td { padding:6px 8px; font-size:13px; } .q-opts { flex-direction:column; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo"><div class="logo-mark chinese">MZ</div><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
+    <nav class="site-nav">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/writing/" class="nav-link">Writing</a>
+      <a href="/words/" class="nav-link" style="opacity:1;">Words</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/words/">Confusable Words</a> &rsaquo; ${escHtml(pair.wordA)} vs ${escHtml(pair.wordB)}
+  </nav>
+
+  <div class="hero">
+    <div class="hero-badge">${escHtml(pair.category)}</div>
+    <h1 class="chinese"><span class="accent">${escHtml(pair.wordA)}</span> vs <span style="color:var(--jade);">${escHtml(pair.wordB)}</span></h1>
+    <p>${escHtml(pair.subtitle)}</p>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:24px 0 8px;">Comparison / \u5BF9\u6BD4</h2>
+  <table class="cmp-table">
+    <tr><th class="chinese">${escHtml(pair.wordA)} ${escHtml(pair.pinyinA)}</th><th></th><th class="chinese">${escHtml(pair.wordB)} ${escHtml(pair.pinyinB)}</th></tr>
+    ${rowsHtml}
+  </table>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Examples / \u4F8B\u53E5</h2>
+  <div class="ex-block">
+    <div class="ex-cn chinese"><span class="ex-highlight">${escHtml(pair.wordA)}</span>: ${escHtml(pair.exA.cn)}</div>
+    <div class="ex-pinyin">${escHtml(pair.exA.py)}</div>
+    <div class="ex-en">${escHtml(pair.exA.en)}</div>
+  </div>
+  <div class="ex-block">
+    <div class="ex-cn chinese"><span style="color:var(--jade);font-weight:600;">${escHtml(pair.wordB)}</span>: ${escHtml(pair.exB.cn)}</div>
+    <div class="ex-pinyin">${escHtml(pair.exB.py)}</div>
+    <div class="ex-en">${escHtml(pair.exB.en)}</div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Quick rule:</strong> ${escHtml(pair.tip)}
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Quick Quiz / \u5C0F\u6D4B\u9A8C</h2>
+  <div id="quiz-area">
+    ${quizHtml}
+  </div>
+
+  <div class="pair-nav">
+    ${prevPair ? `<a href="/words/${prevPair.slug}/" class="btn btn-ghost">&larr; ${escHtml(prevPair.wordA)} vs ${escHtml(prevPair.wordB)}</a>` : '<span></span>'}
+    <a href="/words/" class="btn btn-secondary">All Confusable Words</a>
+    ${nextPair ? `<a href="/words/${nextPair.slug}/" class="btn btn-ghost">${escHtml(nextPair.wordA)} vs ${escHtml(nextPair.wordB)} &rarr;</a>` : '<span></span>'}
+  </div>
+</main>
+
+<footer>
+  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</footer>
+
+<script>
+function answer(btn, correct) {
+  const item = btn.closest('.q-item');
+  if (item.dataset.answered === 'true') return;
+  item.dataset.answered = 'true';
+  item.querySelectorAll('.q-opt').forEach(o => {
+    o.classList.add('disabled');
+    if (o.dataset.correct === '1') o.classList.add('correct');
+  });
+  if (!correct) btn.classList.add('wrong');
+  item.querySelector('.q-explain').style.display = 'block';
+}
+</script>
+
+</body>
+</html>`;
+
+    fs.writeFileSync(path.join(dir, 'index.html'), pageHtml, 'utf8');
+  });
+
+  console.log(`[confusables] Generated ${pairs.length} confusable word pair pages under /words/`);
+  return pairs.map(p => p.slug);
+}
+
+// ============================================================
 // RUN ALL
 // ============================================================
 
@@ -1389,5 +1588,6 @@ buildSentenceOrder();
 addGrammarCrossLinks();
 buildWritingGuide();
 const taskSlugs = buildTaskTopicPages();
-buildSitemap(taskSlugs);
+const confusableSlugs = buildConfusablePages();
+buildSitemap(taskSlugs, confusableSlugs);
 console.log('\nDone! All static content pre-rendered.');
