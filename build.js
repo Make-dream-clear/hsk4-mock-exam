@@ -1054,7 +1054,10 @@ function buildSentenceOrder() {
   </div>
   </noscript>`;
 
-  // Insert before the exercise box
+  // Remove all previously-injected noscript blocks (avoid duplicates across rebuilds)
+  html = html.replace(/<noscript>[\s\S]*?<\/noscript>\s*/g, '');
+
+  // Insert a single noscript block before the exercise box
   html = html.replace(
     /<div class="exercise-nav">/,
     `${noscriptBlock}\n  <div class="exercise-nav">`
@@ -1440,6 +1443,90 @@ function buildTaskTopicPages() {
       return `<a href="${g}" class="btn btn-ghost" style="font-size:13px;">${name}</a>`;
     }).join(' ');
 
+    // Find real HSK 4 questions matching this topic (search test JSONs)
+    // Build a keyword set from topic words (top 8 high-frequency-content words)
+    const topicKeywords = words
+      .filter(w => w.word && w.word.length >= 2)
+      .slice(0, 12)
+      .map(w => w.word);
+    const matchingQuestions = [];
+    if (topicKeywords.length > 0) {
+      for (let ti = 0; ti < 12 && matchingQuestions.length < 3; ti++) {
+        try {
+          const tjson = readJSON(`test-${String(ti+1).padStart(2,'0')}.json`);
+          for (const q of tjson.questions) {
+            const text = (q.text || '') + ' ' + (q.options || []).join(' ');
+            const matchCount = topicKeywords.filter(kw => text.includes(kw)).length;
+            if (matchCount >= 2 && text.length >= 80 && text.length < 300 &&
+                (q.type === 'reading_comprehension' || q.type === 'listening_choice')) {
+              matchingQuestions.push({
+                test: ti + 1,
+                num: q.number,
+                text: q.text || '',
+                options: q.options || [],
+                answer: q.correct_answer_index,
+                type: q.type,
+              });
+              if (matchingQuestions.length >= 3) break;
+            }
+          }
+        } catch (e) { /* skip */ }
+      }
+    }
+    const realQuestionHtml = matchingQuestions.length > 0
+      ? `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Real HSK 4 Questions on ${escHtml(task.task_en)} / 真题示例</h2>
+  <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">Below are 1-${matchingQuestions.length} actual HSK 4 ${escHtml(task.task_en).toLowerCase()} questions from our 12 mock exams. Each was solved using the vocabulary above:</p>
+  ${matchingQuestions.map(mq => `
+  <div style="background:white;border:1px solid var(--mist);border-radius:var(--radius);padding:18px 22px;margin:14px 0;">
+    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num} · ${mq.type === 'listening_choice' ? '听力 Listening' : '阅读 Reading'}</div>
+    <div style="font-family:'Noto Sans SC',sans-serif;font-size:15px;line-height:1.6;margin-bottom:10px;">${escHtml(mq.text).replace(/\n/g, '<br>')}</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      ${mq.options.map((o, oi) => `<span style="font-size:13px;padding:4px 10px;border-radius:6px;background:${oi === mq.answer ? 'var(--correct-soft)' : 'var(--paper)'};color:${oi === mq.answer ? 'var(--correct)' : 'var(--stone)'};font-weight:${oi === mq.answer ? '600' : '400'};">${escHtml(o)}${oi === mq.answer ? ' ✓' : ''}</span>`).join('')}
+    </div>
+  </div>
+`).join('')}`
+      : '';
+
+    // Topic-specific "Why HSK 4 candidates struggle" — generated from desc + words
+    const topWordsForExample = words.slice(0, 4).map(w => `<strong>${escHtml(w.word)}</strong> (${escHtml(w.pinyin)}, ${escHtml(w.meaning.split(';')[0])})`).join(', ');
+    const challengeHtml = `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Why HSK 4 Candidates Struggle with ${escHtml(task.task_en)}</h2>
+  <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">${escHtml(task.desc)}</p>
+  <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">The biggest challenge for HSK 4 candidates on the <strong>${escHtml(task.task_en).toLowerCase()}</strong> topic isn't memorizing the ${words.length} core words — it's understanding how they combine in extended contexts. HSK 4 ${escHtml(task.task_en).toLowerCase()} questions typically require you to understand cause and effect, opinion shifts, or comparative judgements, not just basic vocabulary recognition.</p>
+  ${words.length >= 4 ? `<p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">Key vocabulary to anchor your understanding: ${topWordsForExample}. These words frequently appear in HSK 4 listening dialogues (听力) and reading passages (阅读), often with grammar patterns like ${task.grammar.map(g => `<a href="${g}" style="color:var(--accent);">${g.replace('/grammar/','').replace('/','')}</a>`).join(' and ')}.</p>` : ''}`;
+
+    // Topic-specific FAQ (3 unique Q&A per topic, generated from task.task_en)
+    const topicFaqs = [
+      {
+        q: `How many HSK 4 words cover ${task.task_en.toLowerCase()}?`,
+        a: `The HSK 4 official syllabus has ${words.length} core words specifically for the ${task.task_en.toLowerCase()} task scenario. These come from ${task.topic_ids.length} sub-topic categories: ${task.topic_ids.join(', ')}. Mastering these ${words.length} words gives you 70-80% comprehension on ${task.task_en.toLowerCase()}-themed questions in HSK 4.`,
+      },
+      {
+        q: `Which HSK 4 grammar points are most relevant to ${task.task_en.toLowerCase()}?`,
+        a: `${task.grammar.length === 0 ? 'General HSK 4 patterns' : task.grammar.map(g => g.replace('/grammar/','').replace('/','')).join(' and ')} appear most frequently in ${task.task_en.toLowerCase()} contexts. The HSK 4 syllabus expects you to ${task.skills.includes('writing') ? 'not only understand but also produce' : 'understand'} these patterns when they involve ${task.task_en.toLowerCase()} vocabulary.`,
+      },
+      {
+        q: `What's the difference between HSK 3 and HSK 4 expectations on ${task.task_en.toLowerCase()}?`,
+        a: `HSK 3 expects simple statements about ${task.task_en.toLowerCase()} (e.g., basic facts and short descriptions). HSK 4 raises the bar to "有一定复杂度" — handling extended contexts with opinions, comparisons, and reasoning. You'll need to express feelings (感受) and views (看法) about ${task.task_en.toLowerCase()}, not just describe them.`,
+      },
+    ];
+    const faqHtml = `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">${escHtml(task.task_en)} FAQ / 常见问题</h2>
+  ${topicFaqs.map((f, i) => `<details style="background:var(--paper);border-radius:8px;padding:14px 18px;margin:8px 0;">
+    <summary style="font-weight:600;cursor:pointer;color:var(--ink);">${escHtml(f.q)}</summary>
+    <p style="margin:12px 0 0;color:var(--stone);line-height:1.7;font-size:14px;">${escHtml(f.a)}</p>
+  </details>`).join('\n  ')}`;
+
+    // Generate FAQPage schema for the 3 topic FAQs (extra structured data signal)
+    const faqJsonLd = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': topicFaqs.map(f => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    }, null, 2);
+
+
     // Keep title under 65 chars
     let pageTitle = `HSK 4 ${task.task_en} \u2014 ${task.task_cn} | Vocabulary`;
     if (pageTitle.length > 65) {
@@ -1480,6 +1567,9 @@ function buildTaskTopicPages() {
   "inLanguage": ["en", "zh-CN"],
   "educationalLevel": "Intermediate"
 }
+</script>
+<script type="application/ld+json">
+${faqJsonLd}
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1552,6 +1642,8 @@ function buildTaskTopicPages() {
     <p>${escHtml(task.syllabus_cn)}</p>
   </div>
 
+  ${challengeHtml}
+
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Related Grammar Patterns / \u76F8\u5173\u8BED\u6CD5</h2>
   <p style="color:var(--stone);margin-bottom:12px;">These grammar points are commonly tested in ${escHtml(task.task_en).toLowerCase()} contexts:</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;">
@@ -1575,6 +1667,10 @@ function buildTaskTopicPages() {
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
     <a href="/words/" class="btn btn-ghost" style="margin-left:8px;">Confusable Words</a>
   </div>
+
+  ${realQuestionHtml}
+
+  ${faqHtml}
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This HSK 4 Topic</h2>
   <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Test your knowledge of ${escHtml(task.task_en).toLowerCase()} vocabulary in context:</p>
@@ -1642,6 +1738,62 @@ function buildConfusablePages() {
     const dir = path.join(ROOT, 'words', pair.slug);
     ensureDir(dir);
 
+    // Find real HSK 4 mock exam questions where these confusable words appear
+    const matchingQs = [];
+    const wordsToFind = [pair.wordA, pair.wordB];
+    for (let ti = 0; ti < 12 && matchingQs.length < 2; ti++) {
+      try {
+        const tjson = readJSON(`test-${String(ti+1).padStart(2,'0')}.json`);
+        for (const q of tjson.questions) {
+          const text = (q.text || '') + ' ' + (q.options || []).join(' ');
+          if (wordsToFind.some(w => text.includes(w)) && text.length >= 60 && text.length < 250) {
+            matchingQs.push({ test: ti+1, num: q.number, text: q.text || '', options: q.options || [], answer: q.correct_answer_index });
+            if (matchingQs.length >= 2) break;
+          }
+        }
+      } catch (e) { /* skip */ }
+    }
+    const realQHtml = matchingQs.length > 0
+      ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Real HSK 4 Test Questions Using ${escHtml(pair.wordA)} or ${escHtml(pair.wordB)} / 真题示例</h2>
+  <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">${matchingQs.length} actual HSK 4 questions from our mock exams that test the ${escHtml(pair.wordA)} vs ${escHtml(pair.wordB)} distinction:</p>
+  ${matchingQs.map(mq => `<div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
+    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num}</div>
+    <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">${escHtml(mq.text).replace(/\n/g, '<br>')}</div>
+    ${mq.options.length > 0 ? `<div style="display:flex;gap:6px;flex-wrap:wrap;">${mq.options.map((o, oi) => `<span style="font-size:12px;padding:3px 9px;border-radius:5px;background:${oi === mq.answer ? 'var(--correct-soft)' : 'var(--paper)'};color:${oi === mq.answer ? 'var(--correct)' : 'var(--stone)'};">${escHtml(o)}${oi === mq.answer ? ' ✓' : ''}</span>`).join('')}</div>` : ''}
+  </div>`).join('')}`
+      : '';
+
+    // Pair-specific FAQ (3 unique Q&A per pair)
+    const pairFaqs = [
+      {
+        q: `Are ${pair.wordA} and ${pair.wordB} interchangeable in HSK 4?`,
+        a: `No. Although ${pair.wordA} (${pair.pinyinA}) and ${pair.wordB} (${pair.pinyinB}) translate similarly into English, HSK 4 fill-in-the-blank and listening questions test exactly the distinction between them. ${pair.tip ? pair.tip.split('.')[0] + '.' : ''}`,
+      },
+      {
+        q: `How is ${pair.wordA} vs ${pair.wordB} tested in HSK 4?`,
+        a: `Most often in HSK 4 阅读 (reading) Part 1 选词填空 (Q46-55), where you choose the correct word for a blank in a sentence. Also appears in 听力 (listening) where the speaker uses one but the printed answer paraphrases with the other. Master both ${pair.wordA} and ${pair.wordB} collocations to lock in these points.`,
+      },
+      {
+        q: `What's the quickest way to remember ${pair.wordA} vs ${pair.wordB}?`,
+        a: `${pair.tip || `Memorize one example sentence for each: "${pair.exA?.cn || ''}" for ${pair.wordA}, "${pair.exB?.cn || ''}" for ${pair.wordB}. Recall the example when stuck.`} Practice 3-5 fill-in-blank questions in our HSK 4 mock exams to lock the distinction.`,
+      },
+    ];
+    const pairFaqHtml = `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">${escHtml(pair.wordA)} vs ${escHtml(pair.wordB)} FAQ</h2>
+  ${pairFaqs.map(f => `<details style="background:var(--paper);border-radius:8px;padding:12px 16px;margin:6px 0;">
+    <summary style="font-weight:600;cursor:pointer;color:var(--ink);">${escHtml(f.q)}</summary>
+    <p style="margin:10px 0 0;color:var(--stone);line-height:1.7;font-size:14px;">${escHtml(f.a)}</p>
+  </details>`).join('\n  ')}`;
+
+    const pairFaqJsonLd = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': pairFaqs.map(f => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    }, null, 2);
+
     const rowsHtml = pair.rows.map(r => {
       if (r.length === 3) {
         return `<tr><td class="label-cell">${escHtml(r[0])}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`;
@@ -1707,6 +1859,9 @@ function buildConfusablePages() {
   "inLanguage": ["en", "zh-CN"],
   "educationalLevel": "Intermediate"
 }
+</script>
+<script type="application/ld+json">
+${pairFaqJsonLd}
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1814,6 +1969,10 @@ function buildConfusablePages() {
     ${quizHtml}
   </div>
 
+${realQHtml}
+
+${pairFaqHtml}
+
   <div class="pair-nav">
     ${prevPair ? `<a href="/words/${prevPair.slug}/" class="btn btn-ghost">&larr; ${escHtml(prevPair.wordA)} vs ${escHtml(prevPair.wordB)}</a>` : '<span></span>'}
     <a href="/words/" class="btn btn-secondary">All Confusable Words</a>
@@ -1913,6 +2072,62 @@ function buildGrammarPatternPages() {
     const dir = path.join(ROOT, 'grammar', 'patterns', pat.slug);
     ensureDir(dir);
 
+    // Find real HSK 4 questions using this pattern
+    const patMatchQs = [];
+    const patternKey = pat.pattern_cn.split('…')[0].trim() || pat.pattern_cn.split('/')[0].trim();
+    for (let ti = 0; ti < 12 && patMatchQs.length < 2; ti++) {
+      try {
+        const tjson = readJSON(`test-${String(ti+1).padStart(2,'0')}.json`);
+        for (const q of tjson.questions) {
+          const text = (q.text || '') + ' ' + (q.options || []).join(' ');
+          if (patternKey && text.includes(patternKey) && text.length >= 60 && text.length < 250) {
+            patMatchQs.push({ test: ti+1, num: q.number, text: q.text || '', options: q.options || [], answer: q.correct_answer_index });
+            if (patMatchQs.length >= 2) break;
+          }
+        }
+      } catch (e) { /* skip */ }
+    }
+    const patRealQHtml = patMatchQs.length > 0
+      ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">HSK 4 Mock Test Questions Using ${escHtml(pat.pattern_cn)} / 真题示例</h2>
+  <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">${patMatchQs.length} real HSK 4 questions from our mock exams that test this pattern:</p>
+  ${patMatchQs.map(mq => `<div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
+    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num}</div>
+    <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">${escHtml(mq.text).replace(/\n/g, '<br>')}</div>
+    ${mq.options.length > 0 ? `<div style="display:flex;gap:6px;flex-wrap:wrap;">${mq.options.map((o, oi) => `<span style="font-size:12px;padding:3px 9px;border-radius:5px;background:${oi === mq.answer ? 'var(--correct-soft)' : 'var(--paper)'};color:${oi === mq.answer ? 'var(--correct)' : 'var(--stone)'};">${escHtml(o)}${oi === mq.answer ? ' ✓' : ''}</span>`).join('')}</div>` : ''}
+  </div>`).join('')}`
+      : '';
+
+    // Pattern-specific FAQ
+    const patFaqs = [
+      {
+        q: `When is ${pat.pattern_cn} tested in HSK 4?`,
+        a: `${pat.pattern_cn} (${pat.pattern_en}) appears in HSK 4 reading comprehension (Q66-85) when texts use complex sentences, in 阅读排序 (Q56-65) where this pattern's connectors signal sentence order, and in listening 段落 (Q26-45) where the speaker uses it to express ${pat.summary ? pat.summary.split('.')[0].toLowerCase() : 'logical relationships'}.`,
+      },
+      {
+        q: `What's the most common mistake with ${pat.pattern_cn}?`,
+        a: `${pat.compare_note ? pat.compare_note : `The most common HSK 4 mistake with ${pat.pattern_cn} is using it in contexts where another similar pattern would be more natural — read each example sentence carefully and notice the trigger words (time, condition, contrast).`}`,
+      },
+      {
+        q: `Is ${pat.pattern_cn} required at HSK 4 or higher?`,
+        a: `${pat.hsk_level || `${pat.pattern_cn} is part of the official HSK 4 syllabus and is tested explicitly in 阅读 (reading) and 听力 (listening). At HSK 5 the pattern continues to appear but in more nuanced contexts.`}`,
+      },
+    ];
+    const patFaqHtml = `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">${escHtml(pat.pattern_cn)} FAQ</h2>
+  ${patFaqs.map(f => `<details style="background:var(--paper);border-radius:8px;padding:12px 16px;margin:6px 0;">
+    <summary style="font-weight:600;cursor:pointer;color:var(--ink);">${escHtml(f.q)}</summary>
+    <p style="margin:10px 0 0;color:var(--stone);line-height:1.7;font-size:14px;">${escHtml(f.a)}</p>
+  </details>`).join('\n  ')}`;
+
+    const patFaqJsonLd = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': patFaqs.map(f => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    }, null, 2);
+
     const examplesHtml = pat.examples.map(ex => `
       <div class="ex-card">
         <div class="ex-cn chinese">${escHtml(ex.cn)}</div>
@@ -1980,6 +2195,9 @@ function buildGrammarPatternPages() {
   "inLanguage": ["en", "zh-CN"],
   "educationalLevel": "Intermediate"
 }
+</script>
+<script type="application/ld+json">
+${patFaqJsonLd}
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -2086,6 +2304,10 @@ function buildGrammarPatternPages() {
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="margin-left:8px;">Sentence Ordering</a>
   </div>
+
+${patRealQHtml}
+
+${patFaqHtml}
 
   <div class="pat-nav">
     ${prevPat ? `<a href="/grammar/patterns/${prevPat.slug}/" class="btn btn-ghost">&larr; ${escHtml(prevPat.pattern_cn)}</a>` : '<span></span>'}
