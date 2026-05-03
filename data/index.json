@@ -1,62 +1,62 @@
 [
   {
     "file": "test-01.json",
-    "title": "HSK 4 SAMPLE QUIZ",
+    "title": "HSK 4 Mock Test 01 — Sample Quiz",
     "questions": 100
   },
   {
     "file": "test-02.json",
-    "title": "HSK 4 Online Mock Test Series 2",
+    "title": "HSK 4 Mock Test 02",
     "questions": 100
   },
   {
     "file": "test-03.json",
-    "title": "HSK 4 Online Mock Exam H41002",
+    "title": "HSK 4 Mock Test 03 (H41002)",
     "questions": 100
   },
   {
     "file": "test-04.json",
-    "title": "HSK 4 Online Mock Exam Series 4",
+    "title": "HSK 4 Mock Test 04",
     "questions": 100
   },
   {
     "file": "test-05.json",
-    "title": "HSK 4 Online Mock Exam Series 5",
+    "title": "HSK 4 Mock Test 05",
     "questions": 100
   },
   {
     "file": "test-06.json",
-    "title": "HSK 4 Online Mock Exam Series 6 Based on HSK41006",
+    "title": "HSK 4 Mock Test 06 (H41006)",
     "questions": 100
   },
   {
     "file": "test-07.json",
-    "title": "HSK 4 Online Mock Test Series 7",
+    "title": "HSK 4 Mock Test 07 (H41007 partial)",
     "questions": 76
   },
   {
     "file": "test-08.json",
-    "title": "HSK 4 Online Mock Test Series 8 Based HSK41008",
+    "title": "HSK 4 Mock Test 08 (H41008)",
     "questions": 100
   },
   {
     "file": "test-09.json",
-    "title": "HSK 4 Online Mock Test Series 9 Based HSK41009",
+    "title": "HSK 4 Mock Test 09 (H41009)",
     "questions": 100
   },
   {
     "file": "test-10.json",
-    "title": "HSK 4 Online Mock Test Series 10(H41010)",
+    "title": "HSK 4 Mock Test 10 (H41010)",
     "questions": 100
   },
   {
     "file": "test-11.json",
-    "title": "Free HSK 4 Online Mock Test Series 11(H41111)",
+    "title": "HSK 4 Mock Test 11 (H41111)",
     "questions": 100
   },
   {
     "file": "test-12.json",
-    "title": "Free HSK 4 Online Mock Test Series 12",
+    "title": "HSK 4 Mock Test 12",
     "questions": 100
   }
 ]

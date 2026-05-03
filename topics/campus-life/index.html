@@ -70,6 +70,7 @@
       <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -82,7 +83,7 @@
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">交流校园生活 — <span class="accent">Campus Life</span></h1>
+    <h1 class="chinese">HSK 4 交流校园生活 — <span class="accent">Campus Life</span></h1>
     <p>Discuss campus activities, school facilities satisfaction, graduation events, campus environment, tuition, and majors.</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">53</div><div class="stat-label">Words</div></div>
@@ -439,33 +440,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
+    <div class="tq-item" data-answer="to teach oneself; self-study">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">自学 <span style="font-size:14px;color:var(--accent);font-weight:400;">zìxué</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">study independentl</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to teach oneself; self-study</button><button class="q-opt" onclick="tqAnswer(this,false)">summer vacation; summer holiday</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
     <div class="tq-item" data-answer="to go abroad">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">出国 <span style="font-size:14px;color:var(--accent);font-weight:400;">chūguó</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">education; to educate</button><button class="q-opt" onclick="tqAnswer(this,false)">diary</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to go abroad</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to go abroad</button><button class="q-opt" onclick="tqAnswer(this,false)">curriculum; course; program</button><button class="q-opt" onclick="tqAnswer(this,false)">teacher (formal)</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="dean; president (of college)">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">院长 <span style="font-size:14px;color:var(--accent);font-weight:400;">yuànzhǎng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">dean; president (of college)</button><button class="q-opt" onclick="tqAnswer(this,false)">college entrance exam (Gaokao)</button><button class="q-opt" onclick="tqAnswer(this,false)">to go abroad</button></div>
+    <div class="tq-item" data-answer="education; to educate">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">教育 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiàoyù</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to understand; to comprehend</button><button class="q-opt" onclick="tqAnswer(this,false)">to explain; explanation</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">education; to educate</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to explain; instructi ons">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">说明 <span style="font-size:14px;color:var(--accent);font-weight:400;">shuōmíng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">classroom</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to explain; instructi ons</button><button class="q-opt" onclick="tqAnswer(this,false)">education; to educate</button></div>
+    <div class="tq-item" data-answer="homework; schoolw ork">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">功课 <span style="font-size:14px;color:var(--accent);font-weight:400;">gōngkè</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">composition; essay; to write</button><button class="q-opt" onclick="tqAnswer(this,false)">summer vacation; summer holiday</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">homework; schoolw ork</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="exam question; test item">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">试题 <span style="font-size:14px;color:var(--accent);font-weight:400;">shìtí</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">study independentl</button><button class="q-opt" onclick="tqAnswer(this,false)">to teach oneself; self-study</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">exam question; test item</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="to carry on back">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">背 <span style="font-size:14px;color:var(--accent);font-weight:400;">bēi</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to call the roll; to name names</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to carry on back</button><button class="q-opt" onclick="tqAnswer(this,false)">to translate; translator</button></div>
+    <div class="tq-item" data-answer="to compete; to enter a competition">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">参赛 <span style="font-size:14px;color:var(--accent);font-weight:400;">cānsài</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">undergraduate degree</button><button class="q-opt" onclick="tqAnswer(this,false)">to compete; competition</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to compete; to enter a competition</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>

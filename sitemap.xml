@@ -163,6 +163,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://hsk4.mandarinzone.com/compare/</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/compare/hsk4-vs-hsk3/</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hsk4.mandarinzone.com/compare/hsk4-vs-hsk5/</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://hsk4.mandarinzone.com/writing/</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>

@@ -271,9 +271,9 @@ function buildTestPages() {
       <strong>Note:</strong> This test covers listening and reading sections only. The writing section (sentence construction) cannot be auto-scored in our online format. For writing practice, see our <a href="/writing/sentence-order/" style="color:var(--gold);font-weight:600;">sentence ordering exercises</a> and <a href="/writing/paragraph/" style="color:var(--gold);font-weight:600;">paragraph writing practice</a>.
     </div>`;
 
-    // Keep title under 60 chars
-    const shortTitle = meta.title.length > 30 ? `HSK 4 Mock Test ${num}` : meta.title;
-    const pageTitle = `${shortTitle} \u2014 ${meta.questions} Questions | HSK4 \u6A21\u62DF\u8BD5\u5377 ${num}`;
+    // Standardized HSK 4 mock test title across all 12 tests
+    const shortTitle = `HSK 4 Mock Test ${num}`;
+    const pageTitle = `${shortTitle} \u2014 ${meta.questions} Free Questions | HSK4 \u6A21\u62DF\u8BD5\u5377 ${num}`;
     const pageDesc = truncDesc(isComplete
       ? `Free HSK 4 practice test #${num}: ${listeningCount} listening, ${readingCount} reading, ${writingCount} writing questions with answer keys.`
       : `Free HSK 4 practice test #${num}: ${listeningCount} listening + ${readingCount} reading questions. Auto-scored with answer keys.`);
@@ -430,6 +430,7 @@ function buildTestPages() {
       <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -476,7 +477,7 @@ function buildTestPages() {
       Reading passages in this test cover topics such as: ${sampleTopics.map(t => '\u201c' + escHtml(t) + '\u2026\u201d').join(', ')}. These reflect the HSK 4 syllabus requirement to handle real-world topics with a certain level of complexity.
     </p>` : ''}
     <p style="color:var(--stone);line-height:1.8;">
-      Browse all 12 tests on the <a href="/" style="color:var(--accent);">homepage</a>, or study with our <a href="/vocabulary/" style="color:var(--accent);">vocabulary list</a>, <a href="/grammar/" style="color:var(--accent);">grammar guides</a>, <a href="/sentences/" style="color:var(--accent);">100 essential sentences</a>, and <a href="/writing/" style="color:var(--accent);">writing exercises</a>.
+      Browse all 12 HSK 4 mock tests on the <a href="/" style="color:var(--accent);">free HSK 4 practice test homepage</a>, or study with our <a href="/vocabulary/" style="color:var(--accent);">1000-word HSK 4 vocabulary list</a>, <a href="/grammar/" style="color:var(--accent);">HSK 4 grammar guide</a>, <a href="/sentences/" style="color:var(--accent);">100 essential HSK 4 sentence patterns</a>, <a href="/writing/" style="color:var(--accent);">HSK 4 writing exercises</a>, or compare difficulty levels with our <a href="/compare/hsk4-vs-hsk3/" style="color:var(--accent);">HSK 4 vs HSK 3</a> and <a href="/compare/hsk4-vs-hsk5/" style="color:var(--accent);">HSK 4 vs HSK 5</a> guides.
     </p>
   </section>
 
@@ -558,9 +559,9 @@ ${testLinks}
   // Replace generic SEO section with unique, valuable content
   const newSEO = `<!-- STATIC SEO CONTENT -->
     <section style="margin-top:48px;">
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">Free HSK 4 Practice Tests \u2014 Aligned with the 2026 Official Syllabus</h2>
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">Free HSK 4 Mock Exams (HSK4 \u6a21\u62df\u8bd5\u9898) \u2014 Aligned with the 2026 Official Syllabus</h2>
       <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        These 12 practice tests follow the <strong>2025 official HSK syllabus</strong> (published by the Center for Language Education and Cooperation, effective July 2026). 5 tests include all three sections (listening, reading, and writing); the other 7 cover listening and reading only, as the writing section requires manual scoring that cannot be automated online. All tests are auto-scored with instant results.
+        These 12 HSK 4 practice tests (HSK4 \u6a21\u62df\u8003\u8bd5) follow the <strong>2025 official HSK syllabus</strong> (\u300a\u65b0\u7248HSK\u8003\u8bd5\u5927\u7eb2\u300b, published by the Center for Language Education and Cooperation, effective July 2026). 5 tests include all three sections (\u542c\u529b listening, \u9605\u8bfb reading, and \u4e66\u5199 writing); the other 7 cover listening and reading only, as the writing section (\u4e66\u5199) requires manual scoring that cannot be automated online. All tests are auto-scored with instant results, supporting both English-language HSK 4 prep and \u4e2d\u6587 HSK4 \u5907\u8003 needs.
       </p>
 
       <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">Section-by-Section Tips</h3>
@@ -706,6 +707,16 @@ ${testLinks}
           <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Measure Words</h3>
           <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">8 new MW (打/袋/棵/台/幅/场/顿/趟) + borrowed MW + quiz.</p>
         </a>
+        <a href="/compare/hsk4-vs-hsk3/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚖ COMPARE</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 vs HSK 3</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">What changes from HSK 3 to HSK 4: vocabulary, grammar, exam time, study weeks.</p>
+        </a>
+        <a href="/compare/hsk4-vs-hsk5/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚖ COMPARE</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 vs HSK 5</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">After HSK 4: 1300 new words, advanced grammar, full essay writing.</p>
+        </a>
       </div>
     </section>`;
 
@@ -755,6 +766,9 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
     { loc: '/grammar/pivotal-sentences/', priority: '0.8' },
     { loc: '/grammar/fixed-patterns/', priority: '0.8' },
     { loc: '/grammar/measure-words/', priority: '0.8' },
+    { loc: '/compare/', priority: '0.8' },
+    { loc: '/compare/hsk4-vs-hsk3/', priority: '0.8' },
+    { loc: '/compare/hsk4-vs-hsk5/', priority: '0.8' },
     { loc: '/writing/', priority: '0.9' },
     { loc: '/writing/sentence-order/', priority: '0.8' },
     { loc: '/writing/paragraph/', priority: '0.8' },
@@ -1508,6 +1522,7 @@ function buildTaskTopicPages() {
       <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -1520,7 +1535,7 @@ function buildTaskTopicPages() {
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">${escHtml(task.task_cn)} \u2014 <span class="accent">${escHtml(task.task_en)}</span></h1>
+    <h1 class="chinese">HSK 4 ${escHtml(task.task_cn)} \u2014 <span class="accent">${escHtml(task.task_en)}</span></h1>
     <p>${escHtml(task.desc)}</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">${words.length}</div><div class="stat-label">Words</div></div>
@@ -1753,6 +1768,7 @@ function buildConfusablePages() {
       <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
       <a href="/words/" class="nav-link" style="opacity:1;">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -1765,7 +1781,7 @@ function buildConfusablePages() {
 
   <div class="hero">
     <div class="hero-badge">${escHtml(pair.category)}</div>
-    <h1 class="chinese"><span class="accent">${escHtml(pair.wordA)}</span> vs <span style="color:var(--jade);">${escHtml(pair.wordB)}</span></h1>
+    <h1 class="chinese">HSK 4 <span class="accent">${escHtml(pair.wordA)}</span> vs <span style="color:var(--jade);">${escHtml(pair.wordB)}</span></h1>
     <p>${escHtml(pair.subtitle)}</p>
   </div>
 
@@ -2027,6 +2043,7 @@ function buildGrammarPatternPages() {
       <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -2039,7 +2056,7 @@ function buildGrammarPatternPages() {
 
   <div class="hero">
     <div class="pattern-type">${escHtml(pat.type_cn)} \u00B7 ${escHtml(pat.hsk_level)}</div>
-    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">${escHtml(pat.pattern_cn)}</h1>
+    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">HSK 4 Pattern: ${escHtml(pat.pattern_cn)}</h1>
     <p>${escHtml(pat.summary)}</p>
   </div>
 
