@@ -271,9 +271,9 @@ function buildTestPages() {
       <strong>Note:</strong> This test covers listening and reading sections only. The writing section (sentence construction) cannot be auto-scored in our online format. For writing practice, see our <a href="/writing/sentence-order/" style="color:var(--gold);font-weight:600;">sentence ordering exercises</a> and <a href="/writing/paragraph/" style="color:var(--gold);font-weight:600;">paragraph writing practice</a>.
     </div>`;
 
-    // Keep title under 60 chars
-    const shortTitle = meta.title.length > 30 ? `HSK 4 Mock Test ${num}` : meta.title;
-    const pageTitle = `${shortTitle} \u2014 ${meta.questions} Questions | HSK4 \u6A21\u62DF\u8BD5\u5377 ${num}`;
+    // Standardized HSK 4 mock test title across all 12 tests
+    const shortTitle = `HSK 4 Mock Test ${num}`;
+    const pageTitle = `${shortTitle} \u2014 ${meta.questions} Free Questions | HSK4 \u6A21\u62DF\u8BD5\u5377 ${num}`;
     const pageDesc = truncDesc(isComplete
       ? `Free HSK 4 practice test #${num}: ${listeningCount} listening, ${readingCount} reading, ${writingCount} writing questions with answer keys.`
       : `Free HSK 4 practice test #${num}: ${listeningCount} listening + ${readingCount} reading questions. Auto-scored with answer keys.`);
@@ -426,9 +426,11 @@ function buildTestPages() {
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -475,7 +477,27 @@ function buildTestPages() {
       Reading passages in this test cover topics such as: ${sampleTopics.map(t => '\u201c' + escHtml(t) + '\u2026\u201d').join(', ')}. These reflect the HSK 4 syllabus requirement to handle real-world topics with a certain level of complexity.
     </p>` : ''}
     <p style="color:var(--stone);line-height:1.8;">
-      Browse all 12 tests on the <a href="/" style="color:var(--accent);">homepage</a>, or study with our <a href="/vocabulary/" style="color:var(--accent);">vocabulary list</a>, <a href="/grammar/" style="color:var(--accent);">grammar guides</a>, and <a href="/writing/" style="color:var(--accent);">writing exercises</a>.
+      Browse all 12 HSK 4 mock tests on the <a href="/" style="color:var(--accent);">free HSK 4 practice test homepage</a>, or study with our <a href="/vocabulary/" style="color:var(--accent);">1000-word HSK 4 vocabulary list</a>, <a href="/grammar/" style="color:var(--accent);">HSK 4 grammar guide</a>, <a href="/sentences/" style="color:var(--accent);">100 essential HSK 4 sentence patterns</a>, <a href="/writing/" style="color:var(--accent);">HSK 4 writing exercises</a>, or compare difficulty levels with our <a href="/compare/hsk4-vs-hsk3/" style="color:var(--accent);">HSK 4 vs HSK 3</a> and <a href="/compare/hsk4-vs-hsk5/" style="color:var(--accent);">HSK 4 vs HSK 5</a> guides.
+    </p>
+  </section>
+
+  <section style="margin-top:32px;background:var(--gold-soft);border-radius:var(--radius);padding:24px 28px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">Before You Start Test ${num} — HSK 4 Strategies / 应试技巧</h2>
+    <p style="color:var(--stone);line-height:1.7;margin-bottom:14px;">
+      Read the relevant strategy guide first to gain 15-30 score points on this mock exam:
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));gap:10px;">
+      <a href="/strategies/listening-judgment/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力判断 (Q1-10) →</a>
+      <a href="/strategies/listening-dialog/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力短对话 (Q11-25) →</a>
+      <a href="/strategies/listening-passage/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力长对话 (Q26-45) →</a>
+      <a href="/strategies/listening-keywords/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力信号词 →</a>
+      <a href="/strategies/reading-fill/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读选词填空 (Q46-55) →</a>
+      <a href="/strategies/reading-ordering/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读排序 (Q56-65) →</a>
+      <a href="/strategies/reading-comprehension/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读理解 (Q66-85) →</a>
+      ${isComplete ? '<a href="/strategies/writing-construction/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">书写排词 (Q86-95) →</a><a href="/strategies/picture-templates/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">看图造句 (Q96-100) →</a>' : ''}
+    </div>
+    <p style="margin-top:14px;color:var(--stone);font-size:13px;">
+      Or jump to the <a href="/strategies/" style="color:var(--accent);font-weight:600;">complete HSK 4 strategy hub</a> &middot; <a href="/sentences/" style="color:var(--accent);font-weight:600;">100 essential sentences</a> &middot; <a href="/grammar/measure-words/" style="color:var(--accent);font-weight:600;">HSK 4 measure words (量词)</a> &middot; <a href="/words/" style="color:var(--accent);font-weight:600;">43 confusable pairs</a>.
     </p>
   </section>
 
@@ -537,9 +559,9 @@ ${testLinks}
   // Replace generic SEO section with unique, valuable content
   const newSEO = `<!-- STATIC SEO CONTENT -->
     <section style="margin-top:48px;">
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">Free HSK 4 Practice Tests \u2014 Aligned with the 2026 Official Syllabus</h2>
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">Free HSK 4 Mock Exams (HSK4 \u6a21\u62df\u8bd5\u9898) \u2014 Aligned with the 2026 Official Syllabus</h2>
       <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        These 12 practice tests follow the <strong>2025 official HSK syllabus</strong> (published by the Center for Language Education and Cooperation, effective July 2026). 5 tests include all three sections (listening, reading, and writing); the other 7 cover listening and reading only, as the writing section requires manual scoring that cannot be automated online. All tests are auto-scored with instant results.
+        These 12 HSK 4 practice tests (HSK4 \u6a21\u62df\u8003\u8bd5) follow the <strong>2025 official HSK syllabus</strong> (\u300a\u65b0\u7248HSK\u8003\u8bd5\u5927\u7eb2\u300b, published by the Center for Language Education and Cooperation, effective July 2026). 5 tests include all three sections (\u542c\u529b listening, \u9605\u8bfb reading, and \u4e66\u5199 writing); the other 7 cover listening and reading only, as the writing section (\u4e66\u5199) requires manual scoring that cannot be automated online. All tests are auto-scored with instant results, supporting both English-language HSK 4 prep and \u4e2d\u6587 HSK4 \u5907\u8003 needs.
       </p>
 
       <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">Section-by-Section Tips</h3>
@@ -641,10 +663,65 @@ ${testLinks}
       <p style="color:var(--stone);line-height:1.8;">
         These tests are created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>, a Chinese language school in Beijing since 2008. For personalized HSK preparation with experienced teachers, visit our website for online and in-person classes.
       </p>
+
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:40px;">All HSK 4 Study Resources / HSK 4 复习资源导航</h2>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:20px;">Beyond the 12 mock exams, this site offers a complete HSK 4 preparation toolkit. Each resource targets a specific score-improvement angle:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:14px;margin-top:16px;">
+        <a href="/strategies/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚡ HIGH-IMPACT</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Strategies (9 guides)</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Test-taking tips for all 7 question types + listening signal words + picture templates.</p>
+        </a>
+        <a href="/sentences/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">📝 WRITING BOOST</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">100 Essential HSK 4 Sentences</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">High-frequency sentence templates for opinion, suggestion, comparison, time — ready for the writing section.</p>
+        </a>
+        <a href="/vocabulary/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">📚 FOUNDATION</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">1000 HSK 4 Vocabulary</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Complete word list with pinyin, examples, topic categories. Aligned with 2025 syllabus.</p>
+        </a>
+        <a href="/grammar/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🔧 GRAMMAR</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Grammar Hub (14 topics)</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">把字句, 被字句, 比较句, complements, complex sentences, measure words.</p>
+        </a>
+        <a href="/words/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🔍 PRECISION</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">43 Confusable Word Pairs</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">才/就, 被/让/叫, 关于/对于, 从来/一直 and other tested distinctions.</p>
+        </a>
+        <a href="/topics/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🎯 SCENARIO</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">22 HSK 4 Topic Scenarios</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Vocabulary by communicative situation: family, work, health, food, technology, etc.</p>
+        </a>
+        <a href="/guide/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🗺 OVERVIEW</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Study Guide</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Exam structure, scoring, HSK 3 → 4 progression, study timeline.</p>
+        </a>
+        <a href="/grammar/measure-words/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚡ NEW</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Measure Words</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">8 new MW (打/袋/棵/台/幅/场/顿/趟) + borrowed MW + quiz.</p>
+        </a>
+        <a href="/compare/hsk4-vs-hsk3/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚖ COMPARE</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 vs HSK 3</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">What changes from HSK 3 to HSK 4: vocabulary, grammar, exam time, study weeks.</p>
+        </a>
+        <a href="/compare/hsk4-vs-hsk5/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚖ COMPARE</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 vs HSK 5</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">After HSK 4: 1300 new words, advanced grammar, full essay writing.</p>
+        </a>
+      </div>
     </section>`;
 
   html = html.replace(
-    /<!-- Static SEO content for search engines -->.*?<\/section>/s,
+    /<!-- (?:Static SEO content for search engines|STATIC SEO CONTENT) -->.*?<\/section>/s,
     newSEO
   );
 
@@ -667,6 +744,17 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
     { loc: '/grammar/', priority: '0.8' },
     { loc: '/topics/', priority: '0.9' },
     { loc: '/guide/', priority: '0.8' },
+    { loc: '/sentences/', priority: '0.9' },
+    { loc: '/strategies/', priority: '0.9' },
+    { loc: '/strategies/listening-judgment/', priority: '0.8' },
+    { loc: '/strategies/listening-dialog/', priority: '0.8' },
+    { loc: '/strategies/listening-passage/', priority: '0.8' },
+    { loc: '/strategies/listening-keywords/', priority: '0.8' },
+    { loc: '/strategies/reading-fill/', priority: '0.8' },
+    { loc: '/strategies/reading-ordering/', priority: '0.8' },
+    { loc: '/strategies/reading-comprehension/', priority: '0.8' },
+    { loc: '/strategies/writing-construction/', priority: '0.8' },
+    { loc: '/strategies/picture-templates/', priority: '0.8' },
     { loc: '/grammar/ba-sentence/', priority: '0.8' },
     { loc: '/grammar/passive/', priority: '0.8' },
     { loc: '/grammar/comparison/', priority: '0.8' },
@@ -677,6 +765,10 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
     { loc: '/grammar/function-words/', priority: '0.8' },
     { loc: '/grammar/pivotal-sentences/', priority: '0.8' },
     { loc: '/grammar/fixed-patterns/', priority: '0.8' },
+    { loc: '/grammar/measure-words/', priority: '0.8' },
+    { loc: '/compare/', priority: '0.8' },
+    { loc: '/compare/hsk4-vs-hsk3/', priority: '0.8' },
+    { loc: '/compare/hsk4-vs-hsk5/', priority: '0.8' },
     { loc: '/writing/', priority: '0.9' },
     { loc: '/writing/sentence-order/', priority: '0.8' },
     { loc: '/writing/paragraph/', priority: '0.8' },
@@ -980,16 +1072,17 @@ function addGrammarCrossLinks() {
   console.log('[grammar] Adding cross-links between grammar pages...');
 
   const grammarPages = [
-    { dir: 'ba-sentence', name: '\u628A\u5B57\u53E5', nameEn: 'Ba-Sentence' },
-    { dir: 'passive', name: '\u88AB\u5B57\u53E5', nameEn: 'Passive' },
-    { dir: 'comparison', name: '\u6BD4\u8F83\u53E5', nameEn: 'Comparison' },
-    { dir: 'complement', name: '\u8865\u8BED', nameEn: 'Complements' },
-    { dir: 'complex-sentences', name: '\u590D\u53E5', nameEn: 'Complex Sentences' },
-    { dir: 'adverbs', name: '\u526F\u8BCD', nameEn: 'Adverbs' },
-    { dir: 'function-words', name: '\u865A\u8BCD', nameEn: 'Function Words' },
-    { dir: 'pivotal-sentences', name: '\u517C\u8BED\u53E5', nameEn: 'Pivotal Sentences' },
-    { dir: 'fixed-patterns', name: '\u56FA\u5B9A\u642D\u914D', nameEn: 'Fixed Patterns' },
-    { dir: 'rhetorical', name: '\u4FEE\u8F9E', nameEn: 'Rhetorical' },
+    { dir: 'ba-sentence', name: '\u628A\u5B57\u53E5', nameEn: 'Ba-Sentence', strategy: 'writing-construction' },
+    { dir: 'passive', name: '\u88AB\u5B57\u53E5', nameEn: 'Passive', strategy: 'writing-construction' },
+    { dir: 'comparison', name: '\u6BD4\u8F83\u53E5', nameEn: 'Comparison', strategy: 'reading-fill' },
+    { dir: 'complement', name: '\u8865\u8BED', nameEn: 'Complements', strategy: 'writing-construction' },
+    { dir: 'complex-sentences', name: '\u590D\u53E5', nameEn: 'Complex Sentences', strategy: 'reading-ordering' },
+    { dir: 'adverbs', name: '\u526F\u8BCD', nameEn: 'Adverbs', strategy: 'reading-fill' },
+    { dir: 'function-words', name: '\u865A\u8BCD', nameEn: 'Function Words', strategy: 'reading-fill' },
+    { dir: 'pivotal-sentences', name: '\u517C\u8BED\u53E5', nameEn: 'Pivotal Sentences', strategy: 'writing-construction' },
+    { dir: 'fixed-patterns', name: '\u56FA\u5B9A\u642D\u914D', nameEn: 'Fixed Patterns', strategy: 'reading-fill' },
+    { dir: 'rhetorical', name: '\u4FEE\u8F9E', nameEn: 'Rhetorical', strategy: 'listening-keywords' },
+    { dir: 'measure-words', name: '\u91CF\u8BCD', nameEn: 'Measure Words', strategy: 'reading-fill' },
   ];
 
   grammarPages.forEach(page => {
@@ -997,8 +1090,8 @@ function addGrammarCrossLinks() {
     if (!fs.existsSync(htmlPath)) return;
     let html = fs.readFileSync(htmlPath, 'utf8');
 
-    // Skip if cross-links already added
-    if (html.includes('seo-cross-links')) return;
+    // Remove old cross-link block (legacy versions) so we can re-inject the up-to-date one
+    html = html.replace(/\s*<!-- seo-cross-links -->[\s\S]*?<\/section>/, '');
 
     // Build links to other grammar pages (excluding self)
     const links = grammarPages
@@ -1009,12 +1102,27 @@ function addGrammarCrossLinks() {
     const crossLinkBlock = `
   <!-- seo-cross-links -->
   <section style="margin-top:32px;padding-top:24px;border-top:1px solid var(--mist);">
+    <h3 style="font-size:16px;margin-bottom:12px;color:var(--stone);">Apply this HSK 4 grammar in test conditions</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin-bottom:16px;">
+      <a href="/strategies/${page.strategy}/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u26A1 Strategy</div>
+        <div style="font-size:14px;font-weight:600;">HSK 4 ${page.nameEn} test-taking tips</div>
+      </a>
+      <a href="/sentences/" style="background:var(--gold-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F4DD} Patterns</div>
+        <div style="font-size:14px;font-weight:600;">100 essential HSK 4 sentences</div>
+      </a>
+      <a href="/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F3AF} Practice</div>
+        <div style="font-size:14px;font-weight:600;">12 HSK 4 mock exams</div>
+      </a>
+    </div>
     <h3 style="font-size:16px;margin-bottom:12px;color:var(--stone);">Other HSK 4 Grammar Topics</h3>
     <div style="display:flex;flex-wrap:wrap;gap:4px;">
       ${links}
     </div>
     <p style="margin-top:16px;font-size:14px;color:var(--stone);">
-      Practice these grammar patterns in context with our <a href="/" style="color:var(--accent);">mock exams</a>, or review the full <a href="/vocabulary/" style="color:var(--accent);">HSK 4 vocabulary list</a>. For sentence-level practice, try our <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering exercises</a>.
+      Review the full <a href="/vocabulary/" style="color:var(--accent);">HSK 4 vocabulary (1000 words)</a>, common <a href="/words/" style="color:var(--accent);">HSK 4 confusable word pairs (43)</a>, and <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering exercises</a>. For test-day reading, see <a href="/strategies/" style="color:var(--accent);">all 9 HSK 4 strategy guides</a>.
     </p>
   </section>`;
 
@@ -1410,9 +1518,11 @@ function buildTaskTopicPages() {
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -1425,7 +1535,7 @@ function buildTaskTopicPages() {
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">${escHtml(task.task_cn)} \u2014 <span class="accent">${escHtml(task.task_en)}</span></h1>
+    <h1 class="chinese">HSK 4 ${escHtml(task.task_cn)} \u2014 <span class="accent">${escHtml(task.task_en)}</span></h1>
     <p>${escHtml(task.desc)}</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">${words.length}</div><div class="stat-label">Words</div></div>
@@ -1466,13 +1576,34 @@ function buildTaskTopicPages() {
     <a href="/words/" class="btn btn-ghost" style="margin-left:8px;">Confusable Words</a>
   </div>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This Topic</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This HSK 4 Topic</h2>
   <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Test your knowledge of ${escHtml(task.task_en).toLowerCase()} vocabulary in context:</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <a href="/test/01/" class="btn btn-ghost" style="font-size:13px;">Mock Test 01</a>
     <a href="/test/03/" class="btn btn-ghost" style="font-size:13px;">Mock Test 03</a>
     <a href="/test/06/" class="btn btn-ghost" style="font-size:13px;">Mock Test 06</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="font-size:13px;">Sentence Ordering</a>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Apply This HSK 4 Vocabulary on Test Day</h2>
+  <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">${escHtml(task.task_en)} vocabulary appears in HSK 4 listening dialogues, reading passages, and the writing section. These resources turn the words you learned above into test points:</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin:16px 0;">
+    <a href="/strategies/listening-dialog/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 listening dialog tactics</div>
+    </a>
+    <a href="/strategies/reading-comprehension/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 reading comprehension</div>
+    </a>
+    <a href="/sentences/" style="background:var(--gold-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F4DD} Patterns</div>
+      <div style="font-size:14px;font-weight:600;">100 essential HSK 4 sentences</div>
+    </a>
+    <a href="/words/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F50D} Confusables</div>
+      <div style="font-size:14px;font-weight:600;">43 HSK 4 confusable pairs</div>
+    </a>
   </div>
 
   <div class="task-nav">
@@ -1633,9 +1764,11 @@ function buildConfusablePages() {
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link" style="opacity:1;">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -1648,7 +1781,7 @@ function buildConfusablePages() {
 
   <div class="hero">
     <div class="hero-badge">${escHtml(pair.category)}</div>
-    <h1 class="chinese"><span class="accent">${escHtml(pair.wordA)}</span> vs <span style="color:var(--jade);">${escHtml(pair.wordB)}</span></h1>
+    <h1 class="chinese">HSK 4 <span class="accent">${escHtml(pair.wordA)}</span> vs <span style="color:var(--jade);">${escHtml(pair.wordB)}</span></h1>
     <p>${escHtml(pair.subtitle)}</p>
   </div>
 
@@ -1686,11 +1819,33 @@ function buildConfusablePages() {
     <a href="/words/" class="btn btn-secondary">All Confusable Words</a>
     ${nextPair ? `<a href="/words/${nextPair.slug}/" class="btn btn-ghost">${escHtml(nextPair.wordA)} vs ${escHtml(nextPair.wordB)} &rarr;</a>` : '<span></span>'}
   </div>
+
+  <section style="margin-top:32px;padding-top:24px;border-top:1px solid var(--mist);">
+    <h3 style="font-size:16px;margin-bottom:12px;color:var(--stone);">Use this HSK 4 distinction in real test conditions</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;">
+      <a href="/strategies/reading-fill/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u26A1 Strategy</div>
+        <div style="font-size:14px;font-weight:600;">HSK 4 \u9009\u8BCD\u586B\u7A7A (Q46-55) tips</div>
+      </a>
+      <a href="/sentences/" style="background:var(--gold-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F4DD} Patterns</div>
+        <div style="font-size:14px;font-weight:600;">100 essential HSK 4 sentences</div>
+      </a>
+      <a href="/grammar/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F527} Grammar</div>
+        <div style="font-size:14px;font-weight:600;">HSK 4 grammar guide (14 topics)</div>
+      </a>
+      <a href="/" style="background:var(--paper);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:11px;color:var(--stone);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F3AF} Practice</div>
+        <div style="font-size:14px;font-weight:600;">12 HSK 4 mock exams</div>
+      </a>
+    </div>
+  </section>
 </main>
 
 <footer>
   <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
-  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/sentences/">Sentences</a> \u00B7 <a href="/strategies/">Strategies</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>
 
 <script>
@@ -1884,9 +2039,11 @@ function buildGrammarPatternPages() {
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -1899,7 +2056,7 @@ function buildGrammarPatternPages() {
 
   <div class="hero">
     <div class="pattern-type">${escHtml(pat.type_cn)} \u00B7 ${escHtml(pat.hsk_level)}</div>
-    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">${escHtml(pat.pattern_cn)}</h1>
+    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">HSK 4 Pattern: ${escHtml(pat.pattern_cn)}</h1>
     <p>${escHtml(pat.summary)}</p>
   </div>
 

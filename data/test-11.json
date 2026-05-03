@@ -7,7 +7,7 @@
     {
       "number": 1,
       "original_id": 2937,
-      "type": "reading_comprehension",
+      "type": "listening_true_false",
       "text": "1. ★ 葡萄酒可以多喝。",
       "options": [
         "对",
@@ -590,7 +590,7 @@
       "original_id": 2894,
       "type": "listening_choice",
       "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/08/h41111-46.wav",
-      "text": "44. 问题：这段话中\\\"四十岁的心\\\"指的是什么？",
+      "text": "44. 问题：这段话中\"四十岁的心\"指的是什么？",
       "options": [
         "对人友好",
         "做事粗心",
@@ -1156,7 +1156,7 @@
     {
       "number": 86,
       "original_id": 2852,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "86. 把下列词语组成一个完整的句子：中午 又酸又辣 的 菜",
       "options": [
         "中午又酸又辣的菜。",
@@ -1169,7 +1169,7 @@
     {
       "number": 87,
       "original_id": 2851,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "87. 把下列词语组成一个完整的句子：很多人的 注意 引起了 那篇文章",
       "options": [
         "很多人的注意引起了那篇文章。",
@@ -1182,7 +1182,7 @@
     {
       "number": 88,
       "original_id": 2850,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "88. 把下列词语组成一个完整的句子：森林 狮子 里 住着 一群",
       "options": [
         "森林狮子里住着一群。",
@@ -1195,7 +1195,7 @@
     {
       "number": 89,
       "original_id": 2849,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "89. 把下列词语组成一个完整的句子：香蕉皮 请 扔 垃圾桶里 把",
       "options": [
         "香蕉皮请扔垃圾桶里把。",
@@ -1208,7 +1208,7 @@
     {
       "number": 90,
       "original_id": 2848,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "90. 把下列词语组成一个完整的句子：慢慢 积累的 是需要 知识",
       "options": [
         "慢慢积累的是需要知识。",
@@ -1221,7 +1221,7 @@
     {
       "number": 91,
       "original_id": 2847,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "91. 把下列词语组成一个完整的句子：他父亲 当地的 一位律师 是",
       "options": [
         "他父亲当地的一位律师是。",
@@ -1234,7 +1234,7 @@
     {
       "number": 92,
       "original_id": 2846,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "92. 把下列词语组成一个完整的句子：小弟弟 打针 邻居家 的 害怕",
       "options": [
         "小弟弟打针邻居家的害怕。",
@@ -1247,7 +1247,7 @@
     {
       "number": 93,
       "original_id": 2845,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "93. 把下列词语组成一个完整的句子：果然是 这 好消息 一个激动人心的",
       "options": [
         "果然是这好消息一个激动人心的。",
@@ -1260,7 +1260,7 @@
     {
       "number": 94,
       "original_id": 2844,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "94. 把下列词语组成一个完整的句子：不符合 宾馆的 规定 这样做",
       "options": [
         "不符合宾馆的规定这样做。",
@@ -1273,7 +1273,7 @@
     {
       "number": 95,
       "original_id": 2843,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "95. 把下列词语组成一个完整的句子：集合 到底什么时候 呢 明天",
       "options": [
         "集合到底什么时候呢明天。",
@@ -1286,7 +1286,7 @@
     {
       "number": 96,
       "original_id": 2842,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/厚.png",
       "text": "96. 看图造句",
       "options": [
@@ -1300,7 +1300,7 @@
     {
       "number": 97,
       "original_id": 2841,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/区别.png",
       "text": "97. 看图造句",
       "options": [
@@ -1314,7 +1314,7 @@
     {
       "number": 98,
       "original_id": 2840,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/难受.png",
       "text": "98. 看图造句",
       "options": [
@@ -1328,7 +1328,7 @@
     {
       "number": 99,
       "original_id": 2839,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/信心.png",
       "text": "99. 看图造句",
       "options": [
@@ -1342,7 +1342,7 @@
     {
       "number": 100,
       "original_id": 2838,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/躺.png",
       "text": "100. 看图造句",
       "options": [

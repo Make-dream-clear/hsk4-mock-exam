@@ -66,9 +66,11 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -81,7 +83,7 @@
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">介绍中国省市民族 — <span class="accent">China Overview</span></h1>
+    <h1 class="chinese">HSK 4 介绍中国省市民族 — <span class="accent">China Overview</span></h1>
     <p>Introduce major Chinese cities like Beijing and Yunnan, and discuss characteristics and distribution of ethnic minorities.</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">17</div><div class="stat-label">Words</div></div>
@@ -221,33 +223,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
+    <div class="tq-item" data-answer="minority; small number">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">少数 <span style="font-size:14px;color:var(--accent);font-weight:400;">shǎoshù</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">minority; small number</button><button class="q-opt" onclick="tqAnswer(this,false)">hometown; home village</button><button class="q-opt" onclick="tqAnswer(this,false)">province</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="northern part">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">北部 <span style="font-size:14px;color:var(--accent);font-weight:400;">běibù</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">minority; small number</button><button class="q-opt" onclick="tqAnswer(this,false)">ethnic group; nationality</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">northern part</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="city; town">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">城 <span style="font-size:14px;color:var(--accent);font-weight:400;">chéng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">various places; everywhere</button><button class="q-opt" onclick="tqAnswer(this,false)">hometown; home village</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">city; town</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
     <div class="tq-item" data-answer="rural area; countryside">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">农村 <span style="font-size:14px;color:var(--accent);font-weight:400;">nóngcūn</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">rural area; countryside</button><button class="q-opt" onclick="tqAnswer(this,false)">southern part</button><button class="q-opt" onclick="tqAnswer(this,false)">hometown; home village</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">ethnic group; nationality</button><button class="q-opt" onclick="tqAnswer(this,false)">city; town</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">rural area; countryside</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
     <div class="tq-item" data-answer="suburbs; outskirts">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">郊区 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiāoqū</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">suburbs; outskirts</button><button class="q-opt" onclick="tqAnswer(this,false)">western part</button><button class="q-opt" onclick="tqAnswer(this,false)">village</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="province">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">省1 <span style="font-size:14px;color:var(--accent);font-weight:400;">shěng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">ethnic group; nationality</button><button class="q-opt" onclick="tqAnswer(this,false)">suburbs; outskirts</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">province</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="urban area; city center">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">市区 <span style="font-size:14px;color:var(--accent);font-weight:400;">shìqū</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">urban area; city center</button><button class="q-opt" onclick="tqAnswer(this,false)">rural area; countryside</button><button class="q-opt" onclick="tqAnswer(this,false)">minority; small number</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="eastern part">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">东部 <span style="font-size:14px;color:var(--accent);font-weight:400;">dōngbù</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">eastern part</button><button class="q-opt" onclick="tqAnswer(this,false)">northern part</button><button class="q-opt" onclick="tqAnswer(this,false)">urban area; city center</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">minority; small number</button><button class="q-opt" onclick="tqAnswer(this,false)">northern part</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">suburbs; outskirts</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -281,13 +283,34 @@
     <a href="/words/" class="btn btn-ghost" style="margin-left:8px;">Confusable Words</a>
   </div>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This Topic</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This HSK 4 Topic</h2>
   <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Test your knowledge of china overview vocabulary in context:</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <a href="/test/01/" class="btn btn-ghost" style="font-size:13px;">Mock Test 01</a>
     <a href="/test/03/" class="btn btn-ghost" style="font-size:13px;">Mock Test 03</a>
     <a href="/test/06/" class="btn btn-ghost" style="font-size:13px;">Mock Test 06</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="font-size:13px;">Sentence Ordering</a>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Apply This HSK 4 Vocabulary on Test Day</h2>
+  <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">China Overview vocabulary appears in HSK 4 listening dialogues, reading passages, and the writing section. These resources turn the words you learned above into test points:</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin:16px 0;">
+    <a href="/strategies/listening-dialog/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 listening dialog tactics</div>
+    </a>
+    <a href="/strategies/reading-comprehension/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 reading comprehension</div>
+    </a>
+    <a href="/sentences/" style="background:var(--gold-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">📝 Patterns</div>
+      <div style="font-size:14px;font-weight:600;">100 essential HSK 4 sentences</div>
+    </a>
+    <a href="/words/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔍 Confusables</div>
+      <div style="font-size:14px;font-weight:600;">43 HSK 4 confusable pairs</div>
+    </a>
   </div>
 
   <div class="task-nav">

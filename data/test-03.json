@@ -547,7 +547,7 @@
     {
       "number": 41,
       "original_id": 987,
-      "type": "reading_comprehension",
+      "type": "listening_choice",
       "text": "41002-41题\n\n41. 他为什么觉得很好笑？",
       "options": [
         "A 比赛很乱",
@@ -562,7 +562,7 @@
       "original_id": 986,
       "type": "listening_choice",
       "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/h4100-42.mp3",
-      "text": "42. \\\"水之印象\\\"有什么作用？",
+      "text": "42. \"水之印象\"有什么作用？",
       "options": [
         "A 让人更成熟",
         "B 让皮肤湿润",
@@ -766,7 +766,7 @@
     {
       "number": 56,
       "original_id": 972,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "56. 请将下列句子正确排序：A 做事情往往需要照顾大的方面 B 而放弃掉\"森林\" C 换句话说，就是不要仅仅为了一棵\"大树\"",
       "options": [
         "A ABC",
@@ -781,7 +781,7 @@
     {
       "number": 57,
       "original_id": 971,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "57. 请将下列句子正确排序：A 于是大家都以为他是一个骄傲的人 B 他从来不主动和别人说话 C 其实他只是有点儿害羞",
       "options": [
         "A ABC",
@@ -796,7 +796,7 @@
     {
       "number": 58,
       "original_id": 970,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "58. 请将下列句子正确排序：A 语法是语言学习中很重要的一部分 B 却不是语言学习的全部 C 文化在语言学习中也很重要",
       "options": [
         "A ABC",
@@ -811,7 +811,7 @@
     {
       "number": 59,
       "original_id": 969,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "59. 请将下列句子正确排序：A 选择在电视上做广告 B 扩大我们葡萄酒的影响力 C 是因为它可以在较短的时间内",
       "options": [
         "A ABC",
@@ -826,7 +826,7 @@
     {
       "number": 60,
       "original_id": 968,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "60. 请将下列句子正确排序：A 这种树叶宽、厚的绿色植物 B 也能给我们带来一个好的心情 C 不仅可以使室内空气更新鲜",
       "options": [
         "A ABC",
@@ -841,7 +841,7 @@
     {
       "number": 61,
       "original_id": 967,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "61. 请将下列句子正确排序：A 就受到人们的普遍欢迎 B 当时的人们没想到它会给环境带来严重的污染 C 100年前，塑料一出现",
       "options": [
         "A ABC",
@@ -856,7 +856,7 @@
     {
       "number": 62,
       "original_id": 966,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "62. 请将下列句子正确排序：A 首先要学会像扔垃圾一样把烦恼扔掉 B 生活中总会有烦恼 C 要想让自己轻松、愉快",
       "options": [
         "A ABC",
@@ -871,7 +871,7 @@
     {
       "number": 63,
       "original_id": 965,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "63. 请将下列句子正确排序：A \"明\"由两个字组成 B 左边的\"日\"代表太阳，而右边的\"月\"代表月亮 C 所以\"明\"在汉语中表示有光亮的意思",
       "options": [
         "A ABC",
@@ -886,7 +886,7 @@
     {
       "number": 64,
       "original_id": 964,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "64. 请将下列句子正确排序：A 河水不深，非常清 B 我记得，以前村子的旁边有一条小河 C 清得可以看见河底的水草和成群的小鱼",
       "options": [
         "A ABC",
@@ -901,7 +901,7 @@
     {
       "number": 65,
       "original_id": 963,
-      "type": "fill_in_blank",
+      "type": "reading_ordering",
       "text": "65. 请将下列句子正确排序：A 可惜到现在仍然没有一个科学的说法 B 有些人甚至专门写过这方面的书 C 很多人都曾经试着对梦进行解释",
       "options": [
         "A ABC",
@@ -1277,9 +1277,9 @@
     {
       "number": 96,
       "original_id": 932,
-      "type": "reading_ordering",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/吃惊.png",
-      "text": "96. 看图，用\\\"吃惊\\\"造句。",
+      "text": "96. 看图，用\"吃惊\"造句。",
       "options": [
         "A 她听了以后很吃惊。",
         "B 听到这个消息，他很吃惊。",
@@ -1293,9 +1293,9 @@
     {
       "number": 97,
       "original_id": 931,
-      "type": "reading_ordering",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/汗.png",
-      "text": "97. 看图，用\\\"汗\\\"造句。",
+      "text": "97. 看图，用\"汗\"造句。",
       "options": [
         "A 她出了许多汗。",
         "B 运动后他满头大汗。",
@@ -1309,9 +1309,9 @@
     {
       "number": 98,
       "original_id": 930,
-      "type": "reading_ordering",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/挂.png",
-      "text": "98. 看图，用\\\"挂\\\"造句。",
+      "text": "98. 看图，用\"挂\"造句。",
       "options": [
         "A 他想把画挂在墙上。",
         "B 墙上挂着一幅画。",
@@ -1325,9 +1325,9 @@
     {
       "number": 99,
       "original_id": 929,
-      "type": "reading_ordering",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/香.png",
-      "text": "99. 看图，用\\\"香\\\"造句。",
+      "text": "99. 看图，用\"香\"造句。",
       "options": [
         "A 这些花闻起来很香。",
         "B 花园里的花很香。",
@@ -1341,9 +1341,9 @@
     {
       "number": 100,
       "original_id": 928,
-      "type": "reading_ordering",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/杂志.png",
-      "text": "100. 看图，用\\\"杂志\\\"造句。",
+      "text": "100. 看图，用\"杂志\"造句。",
       "options": [
         "A 他坐在沙发上看杂志。",
         "B 我每个月都买这本杂志。",

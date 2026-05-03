@@ -31,7 +31,7 @@
     {
       "number": 3,
       "original_id": 2835,
-      "type": "reading_comprehension",
+      "type": "listening_true_false",
       "text": "3. ★ 游泳比跑步效果更好。",
       "options": [
         "对",
@@ -1156,7 +1156,7 @@
     {
       "number": 86,
       "original_id": 2752,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "86. 把下列词语组成一个完整的句子：这篇文章 三部分 组成 由",
       "options": [
         "这篇文章三部分组成由。",
@@ -1169,7 +1169,7 @@
     {
       "number": 87,
       "original_id": 2751,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "87. 把下列词语组成一个完整的句子：儿童 欢迎 很 这个节目 受",
       "options": [
         "儿童欢迎很这个节目受。",
@@ -1182,7 +1182,7 @@
     {
       "number": 88,
       "original_id": 2750,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "88. 把下列词语组成一个完整的句子：离大使馆 友谊宾馆 远 吗",
       "options": [
         "离大使馆友谊宾馆远吗？",
@@ -1195,7 +1195,7 @@
     {
       "number": 89,
       "original_id": 2749,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "89. 把下列词语组成一个完整的句子：很 诚实 那个 确实 司机",
       "options": [
         "很诚实那个确实司机。",
@@ -1208,7 +1208,7 @@
     {
       "number": 90,
       "original_id": 2748,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "90. 把下列词语组成一个完整的句子：加油站 使用 手机 禁止",
       "options": [
         "加油站使用手机禁止。",
@@ -1221,7 +1221,7 @@
     {
       "number": 91,
       "original_id": 2747,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "91. 把下列词语组成一个完整的句子：去 公园 你陪姐姐 散散步 吧",
       "options": [
         "去公园你陪姐姐散散步吧。",
@@ -1234,7 +1234,7 @@
     {
       "number": 92,
       "original_id": 2746,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "92. 把下列词语组成一个完整的句子：有点儿 咸 中午的 西红柿鸡蛋汤 稍微",
       "options": [
         "有点儿咸中午的西红柿鸡蛋汤稍微。",
@@ -1247,7 +1247,7 @@
     {
       "number": 93,
       "original_id": 2745,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "93. 把下列词语组成一个完整的句子：中文 说得 你们校长 的 很流利",
       "options": [
         "中文说得你们校长的很流利。",
@@ -1260,7 +1260,7 @@
     {
       "number": 94,
       "original_id": 2744,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "94. 把下列词语组成一个完整的句子：90%的 通过了考试 同学 大约有",
       "options": [
         "90%的通过了考试同学大约有。",
@@ -1273,7 +1273,7 @@
     {
       "number": 95,
       "original_id": 2743,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "95. 把下列词语组成一个完整的句子：房间 米小姐 把 收拾好了",
       "options": [
         "房间米小姐把收拾好了。",
@@ -1286,7 +1286,7 @@
     {
       "number": 96,
       "original_id": 2742,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/袜子.png",
       "text": "96. 看图造句",
       "options": [
@@ -1300,7 +1300,7 @@
     {
       "number": 97,
       "original_id": 2741,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/害羞.png",
       "text": "97. 看图造句",
       "options": [
@@ -1314,7 +1314,7 @@
     {
       "number": 98,
       "original_id": 2740,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/醒.png",
       "text": "98. 看图造句",
       "options": [
@@ -1328,7 +1328,7 @@
     {
       "number": 99,
       "original_id": 2739,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/密码.png",
       "text": "99. 看图造句",
       "options": [
@@ -1342,7 +1342,7 @@
     {
       "number": 100,
       "original_id": 2738,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/咳嗽.png",
       "text": "100. 看图造句",
       "options": [

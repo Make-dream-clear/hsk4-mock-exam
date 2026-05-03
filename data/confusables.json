@@ -2358,5 +2358,1032 @@
         "context": "Formal expert opinion"
       }
     ]
+  },
+  {
+    "slug": "guanyu-duiyu",
+    "category": "Prepositions / 介词",
+    "wordA": "关于",
+    "pinyinA": "guānyú",
+    "wordB": "对于",
+    "pinyinB": "duìyú",
+    "subtitle": "about (topic) vs toward (attitude) — the most-tested formal preposition pair",
+    "rows": [
+      [
+        "Function",
+        "Marks the topic/subject matter",
+        "Marks the target of an attitude/action"
+      ],
+      [
+        "Position",
+        "Usually at the start of the sentence: 关于…，…",
+        "Can be sentence-start or mid-sentence"
+      ],
+      [
+        "Test",
+        "Replaceable with 'regarding/about'",
+        "Replaceable with 'toward/regarding (attitude)'"
+      ],
+      [
+        "Pairs with",
+        "Often pairs with 我有一些看法/我们讨论了…",
+        "Often pairs with 表示同意/感到…"
+      ]
+    ],
+    "exA": {
+      "cn": "关于这个问题，我有自己的看法。",
+      "py": "Guānyú zhège wèntí, wǒ yǒu zìjǐ de kànfǎ.",
+      "en": "Regarding this issue, I have my own view. (introducing a topic)"
+    },
+    "exB": {
+      "cn": "对于这个问题，我感到很失望。",
+      "py": "Duìyú zhège wèntí, wǒ gǎndào hěn shīwàng.",
+      "en": "Toward this issue, I feel very disappointed. (showing attitude)"
+    },
+    "tip": "关于 introduces what something is ABOUT — neutral, like a topic header. 对于 expresses the speaker's ATTITUDE TOWARD something — opinion, feeling, judgement. If you can replace it with 'regarding the topic of', use 关于. If with 'in my view of', use 对于.",
+    "quiz": [
+      {
+        "stem": "___HSK 考试，老师给了我们很多建议。",
+        "correct": "关于",
+        "wrong": "对于",
+        "explain": "Introducing a topic (HSK exam) → 关于."
+      },
+      {
+        "stem": "___这件事，我和父母的看法不一样。",
+        "correct": "对于",
+        "wrong": "关于",
+        "explain": "Both work here, but the focus on opinion difference favors 对于."
+      },
+      {
+        "stem": "他写了一本___中国文化的书。",
+        "correct": "关于",
+        "wrong": "对于",
+        "explain": "Topic of the book → 关于. 对于 cannot modify a noun this way."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___学习汉语，最重要的是坚持。",
+        "answer": "关于",
+        "context": "Topic introduction"
+      },
+      {
+        "sentence": "___他的离开，大家都感到很难过。",
+        "answer": "对于",
+        "context": "Attitude toward an event"
+      },
+      {
+        "sentence": "这是一篇___环境保护的文章。",
+        "answer": "关于",
+        "context": "Modifying noun = topic"
+      }
+    ]
+  },
+  {
+    "slug": "yinwei-youyu",
+    "category": "Conjunctions / 连词",
+    "wordA": "因为",
+    "pinyinA": "yīnwèi",
+    "wordB": "由于",
+    "pinyinB": "yóuyú",
+    "subtitle": "because (informal/spoken) vs due to (formal/written) — same meaning, different register",
+    "rows": [
+      [
+        "Register",
+        "Spoken and written, neutral",
+        "More formal, often in writing/news"
+      ],
+      [
+        "Pairing",
+        "Often pairs with 所以",
+        "Often pairs with 因此/因而 (NOT 所以)"
+      ],
+      [
+        "Position",
+        "Can be in either clause",
+        "Almost always in the first clause"
+      ],
+      [
+        "Special use",
+        "Can answer 'why?' as a standalone reply",
+        "Cannot stand alone as a reply"
+      ]
+    ],
+    "exA": {
+      "cn": "因为下雨，所以我没去公园。",
+      "py": "Yīnwèi xià yǔ, suǒyǐ wǒ méi qù gōngyuán.",
+      "en": "Because it was raining, I didn't go to the park."
+    },
+    "exB": {
+      "cn": "由于天气原因，今天的航班取消了。",
+      "py": "Yóuyú tiānqì yuányīn, jīntiān de hángbān qǔxiāo le.",
+      "en": "Due to the weather, today's flight has been cancelled."
+    },
+    "tip": "Both mean 'because/due to'. 因为 is the everyday word — use it in conversation. 由于 sounds more formal — use it in writing, news reports, or official notices. KEY ERROR: 由于 pairs with 因此/所以 in writing, but never use 由于…就… or 由于…才…. Also: when answering 'why', say 因为…, never 由于….",
+    "quiz": [
+      {
+        "stem": "A: 你为什么迟到？\\nB: ___堵车。",
+        "correct": "因为",
+        "wrong": "由于",
+        "explain": "由于 cannot be used as a standalone reply to a question."
+      },
+      {
+        "stem": "___交通堵塞，会议被迫推迟到明天。",
+        "correct": "由于",
+        "wrong": "因为",
+        "explain": "Formal news-style sentence → 由于 is more natural."
+      },
+      {
+        "stem": "他___生病了，所以请了假。",
+        "correct": "因为",
+        "wrong": "由于",
+        "explain": "Daily conversational tone → 因为. 由于…所以 is grammatical but stylistically clashing."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___身体不舒服，他没来上班。",
+        "answer": "由于",
+        "context": "Formal explanation"
+      },
+      {
+        "sentence": "___你的帮助，我才能完成这个项目。",
+        "answer": "因为",
+        "context": "Personal expression of thanks"
+      },
+      {
+        "sentence": "我没去看电影，___我没买到票。",
+        "answer": "因为",
+        "context": "Second-clause cause, conversational"
+      }
+    ]
+  },
+  {
+    "slug": "shihe-fuhe",
+    "category": "Verbs / 动词",
+    "wordA": "适合",
+    "pinyinA": "shìhé",
+    "wordB": "符合",
+    "pinyinB": "fúhé",
+    "subtitle": "to suit (person/preference) vs to conform (rule/standard)",
+    "rows": [
+      [
+        "Object type",
+        "People, situations, occasions",
+        "Rules, standards, requirements, expectations"
+      ],
+      [
+        "Sense",
+        "Subjective fit / suitability",
+        "Objective conformity / matching"
+      ],
+      [
+        "Common collocates",
+        "适合你 / 适合这个场合 / 适合学习",
+        "符合规定 / 符合要求 / 符合标准 / 符合条件"
+      ],
+      [
+        "Negation",
+        "不适合 = doesn't suit",
+        "不符合 = doesn't meet (formal sense)"
+      ]
+    ],
+    "exA": {
+      "cn": "这件衣服很适合你。",
+      "py": "Zhè jiàn yīfu hěn shìhé nǐ.",
+      "en": "This dress suits you well. (subjective fit)"
+    },
+    "exB": {
+      "cn": "你的回答不符合要求。",
+      "py": "Nǐ de huídá bù fúhé yāoqiú.",
+      "en": "Your answer doesn't meet the requirements. (objective standard)"
+    },
+    "tip": "适合 = is a good match for someone or some situation (taste, preference, occasion). 符合 = matches an objective standard, rule, or expectation. If you can ask 'fits whom/what occasion?' → 适合. If you can ask 'meets what standard?' → 符合. HSK 4 frequently tests this in fill-in-the-blank questions.",
+    "quiz": [
+      {
+        "stem": "这份工作很___他的兴趣。",
+        "correct": "适合",
+        "wrong": "符合",
+        "explain": "Personal interest/preference → 适合. (We don't say 符合兴趣.)"
+      },
+      {
+        "stem": "他的条件完全___公司的要求。",
+        "correct": "符合",
+        "wrong": "适合",
+        "explain": "Meeting company requirements (objective standard) → 符合."
+      },
+      {
+        "stem": "这个时间___你吗？",
+        "correct": "适合",
+        "wrong": "符合",
+        "explain": "Whether the time suits the listener (personal convenience) → 适合."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "这个礼物很___他的口味。",
+        "answer": "符合",
+        "context": "口味/品味 = standards → 符合"
+      },
+      {
+        "sentence": "夏天去海边旅游最___。",
+        "answer": "适合",
+        "context": "Suitability for season"
+      },
+      {
+        "sentence": "你的方案___大家的期望。",
+        "answer": "符合",
+        "context": "Meeting expectations"
+      }
+    ]
+  },
+  {
+    "slug": "biaoshi-biaoxian",
+    "category": "Verbs / 动词",
+    "wordA": "表示",
+    "pinyinA": "biǎoshì",
+    "wordB": "表现",
+    "pinyinB": "biǎoxiàn",
+    "subtitle": "to express/indicate vs to perform/show (behavior)",
+    "rows": [
+      [
+        "Meaning",
+        "To express verbally/symbolically; to indicate",
+        "To behave; to perform; to display through actions"
+      ],
+      [
+        "Object type",
+        "Feelings, opinions, attitudes, meanings",
+        "Ability, behavior, character (often abstract)"
+      ],
+      [
+        "Common collocates",
+        "表示同意 / 表示感谢 / 表示意见 / 表示祝贺",
+        "表现得好 / 表现能力 / 工作表现 / 表现出色"
+      ],
+      [
+        "Noun use",
+        "Symbol/sign: 红色表示停止",
+        "Performance/behavior: 他的表现很好"
+      ]
+    ],
+    "exA": {
+      "cn": "我向他表示了感谢。",
+      "py": "Wǒ xiàng tā biǎoshì le gǎnxiè.",
+      "en": "I expressed my thanks to him. (verbal expression of feeling)"
+    },
+    "exB": {
+      "cn": "他在比赛中表现得非常好。",
+      "py": "Tā zài bǐsài zhōng biǎoxiàn de fēicháng hǎo.",
+      "en": "He performed very well in the competition. (behavior/performance)"
+    },
+    "tip": "表示 = make known through words or symbols (express/indicate). 表现 = make visible through actions/behavior (show/perform). EASY TEST: if a word like 'thanks/agreement/opinion' follows, use 表示. If 'well/badly/excellently' (adverb) follows or you're describing how someone behaves, use 表现. Also note 表扬 = to praise (different word — to give praise to someone).",
+    "quiz": [
+      {
+        "stem": "他对这个决定___反对。",
+        "correct": "表示",
+        "wrong": "表现",
+        "explain": "Expressing opposition (an attitude) → 表示."
+      },
+      {
+        "stem": "她在工作中___得很出色。",
+        "correct": "表现",
+        "wrong": "表示",
+        "explain": "Performing well at work (behavior) → 表现."
+      },
+      {
+        "stem": "这个标志___禁止吸烟。",
+        "correct": "表示",
+        "wrong": "表现",
+        "explain": "A sign indicating something → 表示 (symbolic meaning)."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "请允许我向您___祝贺。",
+        "answer": "表示",
+        "context": "Expressing congratulations"
+      },
+      {
+        "sentence": "今天他___得有点儿奇怪。",
+        "answer": "表现",
+        "context": "Behaving strangely"
+      },
+      {
+        "sentence": "他的脸上___出非常激动的样子。",
+        "answer": "表现",
+        "context": "Showing emotion through facial expression"
+      }
+    ]
+  },
+  {
+    "slug": "zhongshi-zunzhong",
+    "category": "Verbs / 动词",
+    "wordA": "重视",
+    "pinyinA": "zhòngshì",
+    "wordB": "尊重",
+    "pinyinB": "zūnzhòng",
+    "subtitle": "to attach importance to vs to respect — both feel like 'respect' in English",
+    "rows": [
+      [
+        "Core meaning",
+        "To consider important / take seriously",
+        "To respect / honor / show regard for"
+      ],
+      [
+        "Object type",
+        "Things, issues, problems, work, education",
+        "People, opinions, choices, cultures, rights"
+      ],
+      [
+        "Common collocates",
+        "重视教育 / 重视健康 / 重视这个问题",
+        "尊重老师 / 尊重别人的意见 / 尊重文化"
+      ],
+      [
+        "Antonym",
+        "忽视 (to overlook/neglect)",
+        "看不起 / 不尊重 (to disrespect)"
+      ]
+    ],
+    "exA": {
+      "cn": "父母非常重视孩子的教育。",
+      "py": "Fùmǔ fēicháng zhòngshì háizi de jiàoyù.",
+      "en": "Parents attach great importance to their children's education."
+    },
+    "exB": {
+      "cn": "我们应该尊重每一个人的选择。",
+      "py": "Wǒmen yīnggāi zūnzhòng měi yí gè rén de xuǎnzé.",
+      "en": "We should respect everyone's choices."
+    },
+    "tip": "重视 = treat as important (focus, value, prioritize) — usually with abstract things, issues, or topics. 尊重 = give respect (honor, regard) — usually with people, their opinions, choices, or cultures. KEY: 重视 cannot take a person as direct object. We say 尊重老师, NOT 重视老师 (unless you mean 'value the teacher's input', which is unusual). Also note 重视 is closer to 'value' while 尊重 is closer to 'show respect to'.",
+    "quiz": [
+      {
+        "stem": "学校很___学生的健康。",
+        "correct": "重视",
+        "wrong": "尊重",
+        "explain": "Health is an issue/concern → 重视 (attach importance to)."
+      },
+      {
+        "stem": "我们要___老人。",
+        "correct": "尊重",
+        "wrong": "重视",
+        "explain": "Old people are persons → 尊重 (respect them)."
+      },
+      {
+        "stem": "他从小就___父母的意见。",
+        "correct": "尊重",
+        "wrong": "重视",
+        "explain": "Other people's opinions deserve respect → 尊重. (重视意见 is also possible but means 'take the opinion seriously', a slightly different focus.)"
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "中国文化___礼貌和谦虚。",
+        "answer": "重视",
+        "context": "Treating qualities as important"
+      },
+      {
+        "sentence": "我们应该___不同的文化。",
+        "answer": "尊重",
+        "context": "Honor cultures"
+      },
+      {
+        "sentence": "公司很___员工的意见。",
+        "answer": "重视",
+        "context": "Take opinions seriously (as input)"
+      }
+    ]
+  },
+  {
+    "slug": "chengji-chengguo-chengjiu",
+    "category": "Nouns / 名词",
+    "wordA": "成绩",
+    "pinyinA": "chéngjì",
+    "wordB": "成果",
+    "pinyinB": "chéngguǒ",
+    "subtitle": "Score (test/grade) vs result (research/work) — both 'achievement' but very different scopes",
+    "rows": [
+      [
+        "Core meaning",
+        "Test/exam score, study performance, sports result",
+        "Outcome of work/research/effort"
+      ],
+      [
+        "Typical context",
+        "Schools, exams, sports, competitions",
+        "Research projects, work, long-term effort"
+      ],
+      [
+        "Common collocates",
+        "考试成绩 / 学习成绩 / 比赛成绩 / 取得好成绩",
+        "研究成果 / 工作成果 / 取得成果 / 重大成果"
+      ],
+      [
+        "Scale",
+        "Specific, often numeric (90 分, 第三名)",
+        "Abstract, often a discovery or finished product"
+      ]
+    ],
+    "exA": {
+      "cn": "他这次考试的成绩很好。",
+      "py": "Tā zhè cì kǎoshì de chéngjì hěn hǎo.",
+      "en": "He scored well on this exam."
+    },
+    "exB": {
+      "cn": "经过几年的研究，我们终于取得了重要成果。",
+      "py": "Jīngguò jǐ nián de yánjiū, wǒmen zhōngyú qǔdé le zhòngyào chéngguǒ.",
+      "en": "After years of research, we finally achieved important results."
+    },
+    "tip": "成绩 = points/grades — what you get on tests, in competitions, in school. 成果 = the FRUIT of long effort — research findings, work results, project deliverables. KEY ERROR to avoid: never say 考试的成果 or 研究的成绩. Also note 成就 (chéngjiù) = a major life achievement (career milestone), even bigger in scope than 成果.",
+    "quiz": [
+      {
+        "stem": "她每次考试___都名列前茅。",
+        "correct": "成绩",
+        "wrong": "成果",
+        "explain": "考试 → score = 成绩. 成果 cannot describe an exam score."
+      },
+      {
+        "stem": "经过五年的努力，这个项目终于有了可喜的___。",
+        "correct": "成果",
+        "wrong": "成绩",
+        "explain": "Long-term project outcome → 成果. 成绩 is for tests/grades, not project results."
+      },
+      {
+        "stem": "她的学习___在班里一直排第一。",
+        "correct": "成绩",
+        "wrong": "成果",
+        "explain": "Study performance over time = 成绩. 成果 would imply a finished thing, not ongoing performance."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "我的中文___比上学期提高了很多。",
+        "answer": "成绩",
+        "context": "Chinese class score"
+      },
+      {
+        "sentence": "这本书是他十年研究的___。",
+        "answer": "成果",
+        "context": "Research outcome"
+      },
+      {
+        "sentence": "运动会上，他取得了优异的___。",
+        "answer": "成绩",
+        "context": "Sports result"
+      }
+    ]
+  },
+  {
+    "slug": "kan-wang-qiao",
+    "category": "Verbs / 动词",
+    "wordA": "看",
+    "pinyinA": "kàn",
+    "wordB": "望",
+    "pinyinB": "wàng",
+    "subtitle": "Look (general) vs gaze into the distance — when you can't just say 看",
+    "rows": [
+      [
+        "Core meaning",
+        "To look, see, watch (general purpose)",
+        "To look INTO THE DISTANCE; to visit (formal)"
+      ],
+      [
+        "Common use",
+        "看电影 / 看书 / 看医生 / 看电视 / 看朋友",
+        "望远 / 望天 / 探望病人 / 一望无际"
+      ],
+      [
+        "Direction",
+        "Any direction, any distance",
+        "Far, often horizontal, often outward"
+      ],
+      [
+        "Register",
+        "Spoken, everyday",
+        "Slightly literary; mostly compound or fixed"
+      ]
+    ],
+    "exA": {
+      "cn": "我喜欢看中国电影。",
+      "py": "Wǒ xǐhuān kàn Zhōngguó diànyǐng.",
+      "en": "I like to watch Chinese movies."
+    },
+    "exB": {
+      "cn": "他站在山顶上望着远方。",
+      "py": "Tā zhàn zài shāndǐng shàng wàng zhe yuǎnfāng.",
+      "en": "He stood on the mountaintop, looking far into the distance."
+    },
+    "tip": "看 is the everyday default — use it 95% of the time. 望 implies looking far away (远方/远处) or carries the formal sense of 'visiting' someone (探望/看望病人). HSK 4 uses 望 mainly in compound words: 望远镜 (binoculars), 一望无际 (boundless), 探望 (to visit a patient/elder), 失望 (disappointed). You won't use 望 alone often — but recognize it.",
+    "quiz": [
+      {
+        "stem": "我每周末都___电影。",
+        "correct": "看",
+        "wrong": "望",
+        "explain": "Watching a movie = 看. 望 cannot be used for movies/TV."
+      },
+      {
+        "stem": "他站在窗前，___着外面的雪。",
+        "correct": "望",
+        "wrong": "看",
+        "explain": "Looking out into the distance (snow falling outside) suits 望 — looking far. 看 also works but 望 fits the literary tone."
+      },
+      {
+        "stem": "明天我要去医院___爷爷。",
+        "correct": "看",
+        "wrong": "望",
+        "explain": "看 can mean 'visit'; in HSK 4 contexts, 看 is more natural for visiting a relative. 探望 is formal alternative."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "弟弟在房间里___电视。",
+        "answer": "看",
+        "context": "TV watching"
+      },
+      {
+        "sentence": "他___了一眼远处的山。",
+        "answer": "望",
+        "context": "Looking afar"
+      },
+      {
+        "sentence": "周末我们去___爷爷奶奶。",
+        "answer": "看",
+        "context": "Visiting elders"
+      }
+    ]
+  },
+  {
+    "slug": "tongguo-jingguo",
+    "category": "Verbs / Prepositions / 动词、介词",
+    "wordA": "通过",
+    "pinyinA": "tōngguò",
+    "wordB": "经过",
+    "pinyinB": "jīngguò",
+    "subtitle": "Through (means/method) vs going through (process/place)",
+    "rows": [
+      [
+        "Core meaning",
+        "By means of; pass (an exam/test)",
+        "To go through (a place/time/process)"
+      ],
+      [
+        "Object type",
+        "Methods, channels, exams: 通过努力, 通过考试, 通过电话",
+        "Places, time periods, processes: 经过医院, 经过三年, 经过努力"
+      ],
+      [
+        "Result emphasis",
+        "Emphasizes the means used",
+        "Emphasizes the duration or path taken"
+      ],
+      [
+        "Verb sense",
+        "Often suggests successful completion",
+        "Often suggests passing through"
+      ]
+    ],
+    "exA": {
+      "cn": "他通过努力学习，终于通过了HSK4考试。",
+      "py": "Tā tōngguò nǔlì xuéxí, zhōngyú tōngguò le HSK4 kǎoshì.",
+      "en": "Through hard study, he finally passed the HSK 4 exam."
+    },
+    "exB": {
+      "cn": "我每天上班都要经过那家咖啡店。",
+      "py": "Wǒ měi tiān shàngbān dōu yào jīngguò nà jiā kāfēi diàn.",
+      "en": "I pass by that coffee shop every day on my way to work."
+    },
+    "tip": "通过 + means/method ('via', 'by means of') OR + exam name ('to pass'). 经过 + place/time/process ('go through', 'after a period of'). KEY: 经过努力 (after effort) and 通过努力 (through effort) are both grammatical and slightly different in flavour — 经过 emphasizes the journey, 通过 emphasizes the method.",
+    "quiz": [
+      {
+        "stem": "我们___电子邮件保持联系。",
+        "correct": "通过",
+        "wrong": "经过",
+        "explain": "By means of email = 通过. Email is a method/channel."
+      },
+      {
+        "stem": "他___三年的努力，终于实现了梦想。",
+        "correct": "经过",
+        "wrong": "通过",
+        "explain": "After three years (a duration) → 经过. Time periods take 经过."
+      },
+      {
+        "stem": "明天我们___北京去上海。",
+        "correct": "经过",
+        "wrong": "通过",
+        "explain": "Pass through Beijing (a place) = 经过. 通过 doesn't fit travel routes."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "她___努力工作得到了奖金。",
+        "answer": "通过",
+        "context": "By means of hard work"
+      },
+      {
+        "sentence": "去公司的路上要___一座桥。",
+        "answer": "经过",
+        "context": "Pass through a place"
+      },
+      {
+        "sentence": "___这次旅行，我学到了很多。",
+        "answer": "通过",
+        "context": "By means of the trip"
+      }
+    ]
+  },
+  {
+    "slug": "putong-pingchang-richang",
+    "category": "Adjectives / 形容词",
+    "wordA": "普通",
+    "pinyinA": "pǔtōng",
+    "wordB": "平常",
+    "pinyinB": "píngcháng",
+    "subtitle": "Ordinary (vs special) vs usual (vs unusual) — both 'common' but different opposites",
+    "rows": [
+      [
+        "Core meaning",
+        "Ordinary, common, plain (vs SPECIAL/extraordinary)",
+        "Usual, normal, day-to-day (vs UNUSUAL/exceptional)"
+      ],
+      [
+        "Antonym",
+        "特别 / 特殊 / 高级 / 重要",
+        "异常 / 特别 / 不寻常"
+      ],
+      [
+        "Common collocates",
+        "普通人 / 普通话 / 普通的衣服 / 普通的生活",
+        "平常的日子 / 平常的样子 / 平常很忙 / 像往常一样"
+      ],
+      [
+        "As adverb?",
+        "Rarely used as adverb",
+        "Often as adverb: 平常 = 'usually'"
+      ]
+    ],
+    "exA": {
+      "cn": "他只是一个普通的工人。",
+      "py": "Tā zhǐshì yí gè pǔtōng de gōngrén.",
+      "en": "He is just an ordinary worker."
+    },
+    "exB": {
+      "cn": "他平常很喜欢运动。",
+      "py": "Tā píngcháng hěn xǐhuān yùndòng.",
+      "en": "He usually likes to exercise."
+    },
+    "tip": "普通 = 'ordinary' as opposed to special/extraordinary (普通人 vs 名人). 平常 = 'usual' as opposed to special occasions (平常 vs 节日). 平常 also works as an adverb meaning 'usually' (= 平时). Don't say 普通时候 — use 平常 or 平时. Also note 日常 (rìcháng) = 'daily', adjective only (日常生活).",
+    "quiz": [
+      {
+        "stem": "我只是一个___的学生，没什么特别的。",
+        "correct": "普通",
+        "wrong": "平常",
+        "explain": "Ordinary (as opposed to special) → 普通. Self-deprecating phrase."
+      },
+      {
+        "stem": "他___都是六点起床的。",
+        "correct": "平常",
+        "wrong": "普通",
+        "explain": "Usually (= 平时) → 平常 (as adverb). 普通 cannot be an adverb."
+      },
+      {
+        "stem": "今天他比___更紧张。",
+        "correct": "平常",
+        "wrong": "普通",
+        "explain": "More than usual → 比平常. 比普通 is ungrammatical."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "这是一台很___的电脑，价格不贵。",
+        "answer": "普通",
+        "context": "Ordinary computer"
+      },
+      {
+        "sentence": "她___穿得很简单。",
+        "answer": "平常",
+        "context": "Usually dresses simply"
+      },
+      {
+        "sentence": "他不是一个___的人，做了很多了不起的事。",
+        "answer": "普通",
+        "context": "Not ordinary (= special)"
+      }
+    ]
+  },
+  {
+    "slug": "like-mashang-lijike",
+    "category": "Adverbs / 副词",
+    "wordA": "立刻",
+    "pinyinA": "lìkè",
+    "wordB": "马上",
+    "pinyinB": "mǎshàng",
+    "subtitle": "At once (formal) vs right away (spoken) — both 'immediately' with different feel",
+    "rows": [
+      [
+        "Register",
+        "Formal, written, news, instructions",
+        "Spoken, everyday, informal"
+      ],
+      [
+        "Time gap",
+        "Almost simultaneously (0 seconds)",
+        "Very soon (a few seconds to minutes)"
+      ],
+      [
+        "Common use",
+        "立刻去办 / 立刻通知 / 立刻执行",
+        "马上来 / 马上回家 / 马上就好"
+      ],
+      [
+        "Spoken Chinese",
+        "Less common in casual chat",
+        "Most common 'immediately' word"
+      ]
+    ],
+    "exA": {
+      "cn": "接到通知后，警察立刻赶到了现场。",
+      "py": "Jiē dào tōngzhī hòu, jǐngchá lìkè gǎn dào le xiànchǎng.",
+      "en": "Upon receiving notification, the police immediately rushed to the scene."
+    },
+    "exB": {
+      "cn": "你等一下，我马上就来。",
+      "py": "Nǐ děng yíxià, wǒ mǎshàng jiù lái.",
+      "en": "Wait a moment, I'll be right there."
+    },
+    "tip": "立刻 = strictly 'at once', formal tone, often in news/orders/business. 马上 = 'right away', everyday spoken Chinese, slightly more flexible (can mean 'in a few minutes'). For HSK 4: use 马上 in dialogue questions and casual contexts; use 立刻 in passages about formal action. 立即 (lìjí) is even more formal — almost identical to 立刻 but less common in HSK 4.",
+    "quiz": [
+      {
+        "stem": "妈妈，饭好了，我___下楼。",
+        "correct": "马上",
+        "wrong": "立刻",
+        "explain": "Family conversation, casual = 马上. 立刻 sounds too formal in domestic dialogue."
+      },
+      {
+        "stem": "公司决定___停止这个项目。",
+        "correct": "立刻",
+        "wrong": "马上",
+        "explain": "Formal company decision = 立刻. Both technically work but 立刻 fits the formal register."
+      },
+      {
+        "stem": "你别走，___给我打电话。",
+        "correct": "马上",
+        "wrong": "立刻",
+        "explain": "Casual instruction to friend = 马上. 立刻 would sound bossy/cold."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "听到这个消息，他___给妻子打电话。",
+        "answer": "立刻",
+        "context": "Reacting to important news"
+      },
+      {
+        "sentence": "你饿了吗？我___去做饭。",
+        "answer": "马上",
+        "context": "Casual home conversation"
+      },
+      {
+        "sentence": "请大家___把手机关掉。",
+        "answer": "立刻",
+        "context": "Formal request"
+      }
+    ]
+  },
+  {
+    "slug": "yizhi-zongshi-changchang",
+    "category": "Adverbs / 副词",
+    "wordA": "一直",
+    "pinyinA": "yìzhí",
+    "wordB": "总是",
+    "pinyinB": "zǒngshì",
+    "subtitle": "Continuously (no break) vs always (recurring habit) — frequency vs continuity",
+    "rows": [
+      [
+        "Core meaning",
+        "From start to now without stopping (continuity)",
+        "Every time / habitually (recurring)"
+      ],
+      [
+        "Time sense",
+        "Spans a continuous period: 一直没回家 (hasn't gone home all this time)",
+        "Repeats over time: 总是迟到 (is always late)"
+      ],
+      [
+        "With negation",
+        "一直没/不 = never (during a period)",
+        "总是不 = always doesn't = consistently fails to"
+      ],
+      [
+        "Subject feel",
+        "Speaker observes a state going on",
+        "Speaker observes a pattern of behaviour"
+      ]
+    ],
+    "exA": {
+      "cn": "我一直在等你的电话，怎么这么久？",
+      "py": "Wǒ yìzhí zài děng nǐ de diànhuà, zěnme zhème jiǔ?",
+      "en": "I have been waiting for your call all this time — what took so long?"
+    },
+    "exB": {
+      "cn": "他总是迟到，老板已经批评他几次了。",
+      "py": "Tā zǒngshì chídào, lǎobǎn yǐjīng pīpíng tā jǐ cì le.",
+      "en": "He is always late — the boss has criticized him several times."
+    },
+    "tip": "一直 = continuous (no break), spans a single duration. 总是 = recurring, happens many times. KEY TEST: '从早上到现在我一直在工作' (continuous, single period) vs '他每天总是7点起床' (recurring habit). Don't say '我总是在等你的电话' — that would mean 'every time I'm waiting' (weird) instead of 'I've been waiting all this time'. Also note 常常/经常 = often (less than 总是, allows exceptions).",
+    "quiz": [
+      {
+        "stem": "我从早上到现在___在工作，连饭都没吃。",
+        "correct": "一直",
+        "wrong": "总是",
+        "explain": "Continuous single period (from morning until now) → 一直. 总是 implies recurring, doesn't fit a single span."
+      },
+      {
+        "stem": "她___笑着回答问题，给人很好的印象。",
+        "correct": "总是",
+        "wrong": "一直",
+        "explain": "Habitual behavior every time she answers → 总是. (一直笑着 would mean 'kept smiling' in one continuous moment.)"
+      },
+      {
+        "stem": "这件事我___没告诉过任何人。",
+        "correct": "一直",
+        "wrong": "总是",
+        "explain": "Continuously (since it happened) haven't told → 一直没. 总是没 doesn't fit a one-time event."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "他___喜欢喝咖啡，每天早上都要喝一杯。",
+        "answer": "总是",
+        "context": "Habitual daily action"
+      },
+      {
+        "sentence": "我___在想这个问题，怎么也找不到答案。",
+        "answer": "一直",
+        "context": "Ongoing thinking process"
+      },
+      {
+        "sentence": "她___对人很热情，大家都喜欢她。",
+        "answer": "总是",
+        "context": "Recurring trait"
+      }
+    ]
+  },
+  {
+    "slug": "jingchang-changchang-wangwang",
+    "category": "Adverbs / 副词",
+    "wordA": "经常",
+    "pinyinA": "jīngcháng",
+    "wordB": "常常",
+    "pinyinB": "chángcháng",
+    "subtitle": "Often (regular pattern) vs often (general frequency) — almost interchangeable, slight differences",
+    "rows": [
+      [
+        "Core meaning",
+        "On a regular basis (planned, expected)",
+        "Frequently (general, less structured)"
+      ],
+      [
+        "Negation",
+        "不经常 (less common but possible)",
+        "不常 (preferred over 不常常)"
+      ],
+      [
+        "Past tense",
+        "Used freely with 了/过",
+        "Less common with past markers"
+      ],
+      [
+        "Future",
+        "Common: 我以后会经常来",
+        "Less natural for future"
+      ]
+    ],
+    "exA": {
+      "cn": "我经常去那家咖啡店，老板都认识我了。",
+      "py": "Wǒ jīngcháng qù nà jiā kāfēi diàn, lǎobǎn dōu rènshi wǒ le.",
+      "en": "I often go to that coffee shop — even the owner knows me now."
+    },
+    "exB": {
+      "cn": "小时候，我常常和爷爷一起去公园。",
+      "py": "Xiǎoshíhòu, wǒ chángcháng hé yéye yìqǐ qù gōngyuán.",
+      "en": "When I was little, I often went to the park with grandpa."
+    },
+    "tip": "Both mean 'often' and are 90% interchangeable. Subtle differences: 经常 emphasizes a REGULAR pattern (predictable timing), 常常 emphasizes general FREQUENCY (without strict regularity). For negation, prefer 不常 over 不常常 / 不经常. 往往 (wǎngwǎng) means 'tend to/usually' and is more analytical — used to describe general tendencies in things or people, not just frequency.",
+    "quiz": [
+      {
+        "stem": "我___去图书馆学习，每周至少三次。",
+        "correct": "经常",
+        "wrong": "常常",
+        "explain": "Regular pattern with specific frequency (weekly count) fits 经常 better. 常常 is also acceptable."
+      },
+      {
+        "stem": "他___迟到，我们都习惯了。",
+        "correct": "经常",
+        "wrong": "常常",
+        "explain": "Both work; 经常 emphasizes the predictability ('he REGULARLY does this'), 常常 emphasizes frequency."
+      },
+      {
+        "stem": "天气好的时候，老人们___在公园里散步。",
+        "correct": "往往",
+        "wrong": "经常",
+        "explain": "Describing a general tendency under conditions → 往往 is most natural. 经常 is okay but less analytical."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "他工作以后___加班到深夜。",
+        "answer": "经常",
+        "context": "Regular pattern"
+      },
+      {
+        "sentence": "孩子___把玩具弄得到处都是。",
+        "answer": "常常",
+        "context": "General frequency"
+      },
+      {
+        "sentence": "成功的人___在别人休息的时候努力。",
+        "answer": "往往",
+        "context": "Tendency observation"
+      }
+    ]
+  },
+  {
+    "slug": "anjing-anjing-pingjing",
+    "category": "Adjectives / 形容词",
+    "wordA": "安静",
+    "pinyinA": "ānjìng",
+    "wordB": "平静",
+    "pinyinB": "píngjìng",
+    "subtitle": "Quiet (no sound) vs calm (no disturbance) — physical vs emotional",
+    "rows": [
+      [
+        "Core meaning",
+        "Without sound; silent (physical environment)",
+        "Without emotional turmoil; calm (mental/social state)"
+      ],
+      [
+        "Modifies",
+        "Place, room, person (asking to be quiet)",
+        "Mood, life, sea, surface, expression"
+      ],
+      [
+        "Common collocates",
+        "安静的教室 / 安静地坐着 / 请保持安静",
+        "心情平静 / 平静的生活 / 平静的湖面"
+      ],
+      [
+        "Imperative use",
+        "请安静！(Please be quiet!) — natural",
+        "Rarely used as imperative"
+      ]
+    ],
+    "exA": {
+      "cn": "图书馆里很安静，大家都在看书。",
+      "py": "Túshūguǎn lǐ hěn ānjìng, dàjiā dōu zài kàn shū.",
+      "en": "It's very quiet in the library — everyone is reading."
+    },
+    "exB": {
+      "cn": "听到这个消息后，他的心情才慢慢平静下来。",
+      "py": "Tīng dào zhège xiāoxi hòu, tā de xīnqíng cái mànmàn píngjìng xiàlái.",
+      "en": "After hearing the news, his mood slowly calmed down."
+    },
+    "tip": "安静 = quiet PHYSICAL environment (no noise). 平静 = calm INTERNAL state (no emotional disturbance) OR a peaceful surface (lake, ocean). KEY ERROR: don't say 心情很安静 — use 心情平静. Don't say 教室很平静 unless you mean the social atmosphere is calm (not just sound-free). HSK 4 candidates often confuse these because both translate as 'quiet/calm' in English.",
+    "quiz": [
+      {
+        "stem": "晚上的湖面特别___，像一面镜子。",
+        "correct": "平静",
+        "wrong": "安静",
+        "explain": "Calm lake surface (no waves) → 平静. 安静 wouldn't fit because the lake doesn't make sound issues; it's about stillness."
+      },
+      {
+        "stem": "请大家___一下，老师要讲话了。",
+        "correct": "安静",
+        "wrong": "平静",
+        "explain": "Asking for silence in a room → 安静. Imperative form is natural with 安静."
+      },
+      {
+        "stem": "经过几年的努力，他的生活终于___了。",
+        "correct": "平静",
+        "wrong": "安静",
+        "explain": "Life becoming peaceful (free from disturbance) → 平静. 安静的生活 would mean 'silent life', which sounds odd."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "孩子睡了，请___一点儿。",
+        "answer": "安静",
+        "context": "Asking to be quiet"
+      },
+      {
+        "sentence": "他听了之后心情很久都不能___。",
+        "answer": "平静",
+        "context": "Emotional state"
+      },
+      {
+        "sentence": "这个小镇非常___，没有什么噪音。",
+        "answer": "安静",
+        "context": "Quiet place"
+      }
+    ]
   }
 ]

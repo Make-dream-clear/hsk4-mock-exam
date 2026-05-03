@@ -66,9 +66,11 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -81,7 +83,7 @@
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">谈论交通出行 — <span class="accent">Transportation &amp; Travel</span></h1>
+    <h1 class="chinese">HSK 4 谈论交通出行 — <span class="accent">Transportation &amp; Travel</span></h1>
     <p>Discuss travel experiences, transportation choices, trip planning, and hotel booking. Includes sharing feelings about journeys and understanding driving/traffic situations.</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">41</div><div class="stat-label">Words</div></div>
@@ -290,7 +292,7 @@
       <tr>
         <td class="chinese" style="font-size:18px;font-weight:600;">旅行</td>
         <td style="color:var(--accent);">lǚxíng</td>
-        <td>to travel; trip Jīnnián shǔjià wǒmen qù</td>
+        <td>to travel; trip</td>
         <td class="chinese" style="font-size:13px;color:var(--stone);">今年暑假我们去欧洲旅行。</td>
       </tr>
       <tr>
@@ -366,33 +368,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="to travel by; to ride">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">乘坐 <span style="font-size:14px;color:var(--accent);font-weight:400;">chéngzuò</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to travel by; to ride</button><button class="q-opt" onclick="tqAnswer(this,false)">tour guide; to guide tourists</button><button class="q-opt" onclick="tqAnswer(this,false)">scenic spot; tourist attraction</button></div>
+    <div class="tq-item" data-answer="to ride (a vehicle)">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">乘1 <span style="font-size:14px;color:var(--accent);font-weight:400;">chéng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">high-speed train; EMU train</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to ride (a vehicle)</button><button class="q-opt" onclick="tqAnswer(this,false)">gas station; petrol station</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="hotel; inn; guesthouse">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">旅馆 <span style="font-size:14px;color:var(--accent);font-weight:400;">lǚguǎn</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">hotel; inn; guesthouse</button><button class="q-opt" onclick="tqAnswer(this,false)">traffic jam</button><button class="q-opt" onclick="tqAnswer(this,false)">seat</button></div>
+    <div class="tq-item" data-answer="high-speed">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">高速 <span style="font-size:14px;color:var(--accent);font-weight:400;">gāosù</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">backpack; rucksack</button><button class="q-opt" onclick="tqAnswer(this,false)">to go on a business trip</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">high-speed</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="backpack; rucksack">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">背包 <span style="font-size:14px;color:var(--accent);font-weight:400;">bēibāo</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to travel by; to ride</button><button class="q-opt" onclick="tqAnswer(this,false)">bridge</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">backpack; rucksack</button></div>
+    <div class="tq-item" data-answer="to travel; to go out">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">出行 <span style="font-size:14px;color:var(--accent);font-weight:400;">chūxíng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">traffic; transportati on</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to travel; to go out</button><button class="q-opt" onclick="tqAnswer(this,false)">to go on a business trip</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="traffic; transportati on">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">交通 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiāotōng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">traffic; transportati on</button><button class="q-opt" onclick="tqAnswer(this,false)">electric vehicle; e-bike</button><button class="q-opt" onclick="tqAnswer(this,false)">to travel; to go out</button></div>
+    <div class="tq-item" data-answer="to play; to have fun; to tour">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">游玩 <span style="font-size:14px;color:var(--accent);font-weight:400;">yóuwán</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">vehicle speed</button><button class="q-opt" onclick="tqAnswer(this,false)">hotel; inn; guesthouse</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to play; to have fun; to tour</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="flight; scheduled flight">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">航班 <span style="font-size:14px;color:var(--accent);font-weight:400;">hángbān</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">flight; scheduled flight</button><button class="q-opt" onclick="tqAnswer(this,false)">scenic spot; tourist attraction</button><button class="q-opt" onclick="tqAnswer(this,false)">traffic; transportati on</button></div>
+    <div class="tq-item" data-answer="to transfer (transit)">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">换乘 <span style="font-size:14px;color:var(--accent);font-weight:400;">huànchéng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to go on a business trip</button><button class="q-opt" onclick="tqAnswer(this,false)">large bus; coach</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to transfer (transit)</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -426,13 +428,34 @@
     <a href="/words/" class="btn btn-ghost" style="margin-left:8px;">Confusable Words</a>
   </div>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This Topic</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This HSK 4 Topic</h2>
   <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Test your knowledge of transportation &amp; travel vocabulary in context:</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <a href="/test/01/" class="btn btn-ghost" style="font-size:13px;">Mock Test 01</a>
     <a href="/test/03/" class="btn btn-ghost" style="font-size:13px;">Mock Test 03</a>
     <a href="/test/06/" class="btn btn-ghost" style="font-size:13px;">Mock Test 06</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="font-size:13px;">Sentence Ordering</a>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Apply This HSK 4 Vocabulary on Test Day</h2>
+  <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Transportation &amp; Travel vocabulary appears in HSK 4 listening dialogues, reading passages, and the writing section. These resources turn the words you learned above into test points:</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin:16px 0;">
+    <a href="/strategies/listening-dialog/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 listening dialog tactics</div>
+    </a>
+    <a href="/strategies/reading-comprehension/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 reading comprehension</div>
+    </a>
+    <a href="/sentences/" style="background:var(--gold-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">📝 Patterns</div>
+      <div style="font-size:14px;font-weight:600;">100 essential HSK 4 sentences</div>
+    </a>
+    <a href="/words/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔍 Confusables</div>
+      <div style="font-size:14px;font-weight:600;">43 HSK 4 confusable pairs</div>
+    </a>
   </div>
 
   <div class="task-nav">

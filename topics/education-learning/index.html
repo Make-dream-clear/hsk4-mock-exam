@@ -66,9 +66,11 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -81,7 +83,7 @@
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">谈论教学、学习 — <span class="accent">Education &amp; Learning</span></h1>
+    <h1 class="chinese">HSK 4 谈论教学、学习 — <span class="accent">Education &amp; Learning</span></h1>
     <p>Discuss courses, teaching activities, study experiences, exams, study plans, degrees, scholarships, and learning methods.</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">38</div><div class="stat-label">Words</div></div>
@@ -284,8 +286,8 @@
       <tr>
         <td class="chinese" style="font-size:18px;font-weight:600;">听力</td>
         <td style="color:var(--accent);">tīnglì</td>
-        <td>listening comprehe nsion; hearing</td>
-        <td class="chinese" style="font-size:13px;color:var(--stone);"></td>
+        <td>listening comprehension; hearing</td>
+        <td class="chinese" style="font-size:13px;color:var(--stone);">HSK 考试包括听力和阅读。</td>
       </tr>
       <tr>
         <td class="chinese" style="font-size:18px;font-weight:600;">学费</td>
@@ -348,33 +350,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="score; grade; marks">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">分数 <span style="font-size:14px;color:var(--accent);font-weight:400;">fēnshù</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">candidate; examinee</button><button class="q-opt" onclick="tqAnswer(this,false)">to teach oneself; self-study</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">score; grade; marks</button></div>
+    <div class="tq-item" data-answer="exam question; test item">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">试题 <span style="font-size:14px;color:var(--accent);font-weight:400;">shìtí</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">candidate; examinee</button><button class="q-opt" onclick="tqAnswer(this,false)">score; grade; marks</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">exam question; test item</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="teaching">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">教学 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiàoxué</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">spoken language; oral Chinese</button><button class="q-opt" onclick="tqAnswer(this,false)">grammar</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">teaching</button></div>
+    <div class="tq-item" data-answer="knowledge">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">知识 <span style="font-size:14px;color:var(--accent);font-weight:400;">zhīshi</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">score; grade; marks</button><button class="q-opt" onclick="tqAnswer(this,false)">grammar</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">knowledge</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to enroll; to start school">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">入学 <span style="font-size:14px;color:var(--accent);font-weight:400;">rùxué</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">undergraduate degree</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to enroll; to start school</button><button class="q-opt" onclick="tqAnswer(this,false)">education; to educate</button></div>
+    <div class="tq-item" data-answer="undergraduate degree">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">本科 <span style="font-size:14px;color:var(--accent);font-weight:400;">běnkē</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">undergraduate degree</button><button class="q-opt" onclick="tqAnswer(this,false)">teaching</button><button class="q-opt" onclick="tqAnswer(this,false)">composition; essay; to write</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="listening comprehe nsion; hearing">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">听力 <span style="font-size:14px;color:var(--accent);font-weight:400;">tīnglì</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">listening comprehe nsion; hearing</button><button class="q-opt" onclick="tqAnswer(this,false)">homework; schoolw ork</button><button class="q-opt" onclick="tqAnswer(this,false)">education; to educate</button></div>
+    <div class="tq-item" data-answer="to carry on back">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">背 <span style="font-size:14px;color:var(--accent);font-weight:400;">bēi</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to carry on back</button><button class="q-opt" onclick="tqAnswer(this,false)">to adapt; to adjust to</button><button class="q-opt" onclick="tqAnswer(this,false)">tuition fee; school fee</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to translate; translator">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">翻译 <span style="font-size:14px;color:var(--accent);font-weight:400;">fānyì</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">classroom</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to translate; translator</button><button class="q-opt" onclick="tqAnswer(this,false)">PhD; doctor</button></div>
+    <div class="tq-item" data-answer="homework; schoolw ork">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">功课 <span style="font-size:14px;color:var(--accent);font-weight:400;">gōngkè</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to translate; translator</button><button class="q-opt" onclick="tqAnswer(this,false)">to adapt; to adjust to</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">homework; schoolw ork</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -408,13 +410,34 @@
     <a href="/words/" class="btn btn-ghost" style="margin-left:8px;">Confusable Words</a>
   </div>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This Topic</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This HSK 4 Topic</h2>
   <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Test your knowledge of education &amp; learning vocabulary in context:</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <a href="/test/01/" class="btn btn-ghost" style="font-size:13px;">Mock Test 01</a>
     <a href="/test/03/" class="btn btn-ghost" style="font-size:13px;">Mock Test 03</a>
     <a href="/test/06/" class="btn btn-ghost" style="font-size:13px;">Mock Test 06</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="font-size:13px;">Sentence Ordering</a>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Apply This HSK 4 Vocabulary on Test Day</h2>
+  <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Education &amp; Learning vocabulary appears in HSK 4 listening dialogues, reading passages, and the writing section. These resources turn the words you learned above into test points:</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin:16px 0;">
+    <a href="/strategies/listening-dialog/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 listening dialog tactics</div>
+    </a>
+    <a href="/strategies/reading-comprehension/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 reading comprehension</div>
+    </a>
+    <a href="/sentences/" style="background:var(--gold-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">📝 Patterns</div>
+      <div style="font-size:14px;font-weight:600;">100 essential HSK 4 sentences</div>
+    </a>
+    <a href="/words/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔍 Confusables</div>
+      <div style="font-size:14px;font-weight:600;">43 HSK 4 confusable pairs</div>
+    </a>
   </div>
 
   <div class="task-nav">

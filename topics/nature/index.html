@@ -66,9 +66,11 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -81,7 +83,7 @@
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">谈论自然情况 — <span class="accent">Nature &amp; Geography</span></h1>
+    <h1 class="chinese">HSK 4 谈论自然情况 — <span class="accent">Nature &amp; Geography</span></h1>
     <p>Discuss geography, climate, animals, plants, natural landscapes, and weather phenomena. Includes topics like oceans, forests, stars, and seasons.</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">30</div><div class="stat-label">Words</div></div>
@@ -300,33 +302,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="cool; cold (slightly)">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">凉 <span style="font-size:14px;color:var(--accent);font-weight:400;">liáng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">beautiful scenery</button><button class="q-opt" onclick="tqAnswer(this,false)">bear</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cool; cold (slightly)</button></div>
+    <div class="tq-item" data-answer="nature; the natural world">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">大自然 <span style="font-size:14px;color:var(--accent);font-weight:400;">dàzìrán</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">air temperature</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">nature; the natural world</button><button class="q-opt" onclick="tqAnswer(this,false)">to plant; to grow</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="ocean; sea">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">海洋 <span style="font-size:14px;color:var(--accent);font-weight:400;">hǎiyáng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">nature; natural; naturally</button><button class="q-opt" onclick="tqAnswer(this,false)">bear</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">ocean; sea</button></div>
+    <div class="tq-item" data-answer="night; nighttime">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">夜晚 <span style="font-size:14px;color:var(--accent);font-weight:400;">yèwǎn</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">night; nighttime</button><button class="q-opt" onclick="tqAnswer(this,false)">to plant; to grow</button><button class="q-opt" onclick="tqAnswer(this,false)">cloud</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="temperature">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">温度 <span style="font-size:14px;color:var(--accent);font-weight:400;">wēndù</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">temperature</button><button class="q-opt" onclick="tqAnswer(this,false)">leaf; leaves</button><button class="q-opt" onclick="tqAnswer(this,false)">nature; natural; naturally</button></div>
+    <div class="tq-item" data-answer="beautiful scenery">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">美景 <span style="font-size:14px;color:var(--accent);font-weight:400;">měijǐng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">warm; mild</button><button class="q-opt" onclick="tqAnswer(this,false)">nature; the natural world</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">beautiful scenery</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="cold; frigid">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">寒冷 <span style="font-size:14px;color:var(--accent);font-weight:400;">hánlěng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">climate</button><button class="q-opt" onclick="tqAnswer(this,false)">grove; woods</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cold; frigid</button></div>
+    <div class="tq-item" data-answer="soil; earth; local; unsophisticated">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">土 <span style="font-size:14px;color:var(--accent);font-weight:400;">tǔ</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">soil; earth; local; unsophisticated</button><button class="q-opt" onclick="tqAnswer(this,false)">cold; frigid</button><button class="q-opt" onclick="tqAnswer(this,false)">grove; woods</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="climate">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">气候 <span style="font-size:14px;color:var(--accent);font-weight:400;">qìhòu</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">cold; frigid</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">climate</button><button class="q-opt" onclick="tqAnswer(this,false)">high temperature</button></div>
+    <div class="tq-item" data-answer="scenery; view">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">景色 <span style="font-size:14px;color:var(--accent);font-weight:400;">jǐngsè</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">scenery; view</button><button class="q-opt" onclick="tqAnswer(this,false)">nature; the natural world</button><button class="q-opt" onclick="tqAnswer(this,false)">star</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -360,13 +362,34 @@
     <a href="/words/" class="btn btn-ghost" style="margin-left:8px;">Confusable Words</a>
   </div>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This Topic</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This HSK 4 Topic</h2>
   <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Test your knowledge of nature &amp; geography vocabulary in context:</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <a href="/test/01/" class="btn btn-ghost" style="font-size:13px;">Mock Test 01</a>
     <a href="/test/03/" class="btn btn-ghost" style="font-size:13px;">Mock Test 03</a>
     <a href="/test/06/" class="btn btn-ghost" style="font-size:13px;">Mock Test 06</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="font-size:13px;">Sentence Ordering</a>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Apply This HSK 4 Vocabulary on Test Day</h2>
+  <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Nature &amp; Geography vocabulary appears in HSK 4 listening dialogues, reading passages, and the writing section. These resources turn the words you learned above into test points:</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin:16px 0;">
+    <a href="/strategies/listening-dialog/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 listening dialog tactics</div>
+    </a>
+    <a href="/strategies/reading-comprehension/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 reading comprehension</div>
+    </a>
+    <a href="/sentences/" style="background:var(--gold-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">📝 Patterns</div>
+      <div style="font-size:14px;font-weight:600;">100 essential HSK 4 sentences</div>
+    </a>
+    <a href="/words/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔍 Confusables</div>
+      <div style="font-size:14px;font-weight:600;">43 HSK 4 confusable pairs</div>
+    </a>
   </div>
 
   <div class="task-nav">

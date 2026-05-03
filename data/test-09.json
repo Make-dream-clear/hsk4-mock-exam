@@ -1157,7 +1157,7 @@
     {
       "number": 86,
       "original_id": 2652,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "86. 把下列词语组成一个完整的句子：愉快 她们俩 聊得 非常",
       "options": [
         "愉快她们俩聊得非常。",
@@ -1170,7 +1170,7 @@
     {
       "number": 87,
       "original_id": 2651,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "87. 把下列词语组成一个完整的句子：附近的森林 很熟悉 邻居 对",
       "options": [
         "附近的森林很熟悉邻居对。",
@@ -1183,7 +1183,7 @@
     {
       "number": 88,
       "original_id": 2650,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "88. 把下列词语组成一个完整的句子：儿童 被 好玩儿的游戏 接受 更容易",
       "options": [
         "儿童被好玩儿的游戏接受更容易。",
@@ -1196,7 +1196,7 @@
     {
       "number": 89,
       "original_id": 2649,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "89. 把下列词语组成一个完整的句子：那个司机 当地的 气候 不太适应",
       "options": [
         "那个司机当地的气候不太适应。",
@@ -1209,7 +1209,7 @@
     {
       "number": 90,
       "original_id": 2648,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "90. 把下列词语组成一个完整的句子：页 一共 400多 这本小说",
       "options": [
         "页一共400多这本小说。",
@@ -1222,7 +1222,7 @@
     {
       "number": 91,
       "original_id": 2647,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "91. 把下列词语组成一个完整的句子：你 收拾 把行李箱 一下",
       "options": [
         "你收拾把行李箱一下。",
@@ -1235,7 +1235,7 @@
     {
       "number": 92,
       "original_id": 2646,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "92. 把下列词语组成一个完整的句子：一个窗户旁边的 座位 我朋友 想要",
       "options": [
         "一个窗户旁边的座位我朋友想要。",
@@ -1248,7 +1248,7 @@
     {
       "number": 93,
       "original_id": 2645,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "93. 把下列词语组成一个完整的句子：很 他 可爱 刚睡醒的样子",
       "options": [
         "很他可爱刚睡醒的样子。",
@@ -1261,7 +1261,7 @@
     {
       "number": 94,
       "original_id": 2644,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "94. 把下列词语组成一个完整的句子：母亲 没 从来 去过 农村",
       "options": [
         "母亲没从来去过农村。",
@@ -1274,7 +1274,7 @@
     {
       "number": 95,
       "original_id": 2643,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "95. 把下列词语组成一个完整的句子：他 是 京剧演员 20世纪 最有名的",
       "options": [
         "他京剧演员是20世纪最有名的。",
@@ -1287,7 +1287,7 @@
     {
       "number": 96,
       "original_id": 2642,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/41009-棵-300x271.jpg",
       "text": "96. 看图造句",
       "options": [
@@ -1301,7 +1301,7 @@
     {
       "number": 97,
       "original_id": 2641,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/来不及-254x300.jpg",
       "text": "97. 看图造句",
       "options": [
@@ -1315,7 +1315,7 @@
     {
       "number": 98,
       "original_id": 2640,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/吃惊-205x300.jpg",
       "text": "98. 看图造句",
       "options": [
@@ -1329,7 +1329,7 @@
     {
       "number": 99,
       "original_id": 2639,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/联系-192x300.jpg",
       "text": "99. 看图造句",
       "options": [
@@ -1343,7 +1343,7 @@
     {
       "number": 100,
       "original_id": 2638,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/08/毛巾-284x300.jpg",
       "text": "100. 看图造句",
       "options": [

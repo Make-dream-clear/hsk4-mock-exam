@@ -1,6 +1,6 @@
 {
   "quiz_id": 8,
-  "title": "HSK 4 Oline Mock Test Series 7 Based 41007",
+  "title": "HSK 4 Mock Test Series 7 (Partial — Listening Q1-21 + Reading + Writing)",
   "source": "Mandarin Zone (mandarinzone.com)",
   "total_questions": 76,
   "questions": [
@@ -304,12 +304,12 @@
       "type": "fill_in_blank",
       "text": "她和我第一次约会的时候，就给我留下了很好的（ ）。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 详细",
+        "B 偶尔",
+        "C 印象",
+        "D 严重",
+        "E 经验",
+        "F 一共"
       ],
       "correct_answer_index": 2
     },
@@ -317,14 +317,14 @@
       "number": 23,
       "original_id": 2088,
       "type": "fill_in_blank",
-      "text": "这篇文章，（ ）介绍了国际经济的发展方向，值得阅读。",
+      "text": "这篇文章（ ）介绍了国际经济的发展方向，值得阅读。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 详细",
+        "B 偶尔",
+        "C 印象",
+        "D 严重",
+        "E 经验",
+        "F 一共"
       ],
       "correct_answer_index": 0
     },
@@ -334,12 +334,12 @@
       "type": "fill_in_blank",
       "text": "小黄经常打网球、羽毛球，（ ）也打打乒乓球。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 详细",
+        "B 偶尔",
+        "C 印象",
+        "D 严重",
+        "E 经验",
+        "F 一共"
       ],
       "correct_answer_index": 1
     },
@@ -349,12 +349,12 @@
       "type": "fill_in_blank",
       "text": "他各方面都不错，关键是缺少社会（ ）。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 详细",
+        "B 偶尔",
+        "C 印象",
+        "D 严重",
+        "E 经验",
+        "F 一共"
       ],
       "correct_answer_index": 4
     },
@@ -364,12 +364,12 @@
       "type": "fill_in_blank",
       "text": "我算了一下，（ ）来了5辆车，肯定超过100人了。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 详细",
+        "B 偶尔",
+        "C 印象",
+        "D 严重",
+        "E 经验",
+        "F 一共"
       ],
       "correct_answer_index": 5
     },
@@ -377,14 +377,14 @@
       "number": 27,
       "original_id": 2084,
       "type": "fill_in_blank",
-      "text": "A：你帮我把这些文章复印一下吧，要3（ ）。B：办公室的复印机坏了，我去楼下复印，一会儿给您送去。",
+      "text": "A：你帮我把这些文章复印一下吧，要3（ ）。\nB：办公室的复印机坏了，我去楼下复印，一会儿给您送去。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 安排",
+        "B 扔",
+        "C 同情",
+        "D 准时",
+        "E 份",
+        "F 估计"
       ],
       "correct_answer_index": 4
     },
@@ -392,14 +392,14 @@
       "number": 28,
       "original_id": 2083,
       "type": "fill_in_blank",
-      "text": "A：叔叔，方向是不是反了？我们应该往东，这是往西。B：（ ）是你弄错了吧？我们现在是往东。",
+      "text": "A：叔叔，方向是不是反了？我们应该往东，这是往西。\nB：（ ）是你弄错了吧？我们现在是往东。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 安排",
+        "B 扔",
+        "C 同情",
+        "D 准时",
+        "E 份",
+        "F 估计"
       ],
       "correct_answer_index": 5
     },
@@ -407,14 +407,14 @@
       "number": 29,
       "original_id": 2082,
       "type": "fill_in_blank",
-      "text": "A：把铅笔和词典都放书包里，收拾好，别到处乱（ ）。B：爸爸，您说话越来越像妈妈了。",
+      "text": "A：把铅笔和词典都放书包里，收拾好，别到处乱（ ）。\nB：爸爸，您说话越来越像妈妈了。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 安排",
+        "B 扔",
+        "C 同情",
+        "D 准时",
+        "E 份",
+        "F 估计"
       ],
       "correct_answer_index": 1
     },
@@ -422,14 +422,14 @@
       "number": 30,
       "original_id": 2081,
       "type": "fill_in_blank",
-      "text": "A：张小姐，我们上午9点半有个活动，请你给（ ）一个会议室。B：好的，您估计有多少人参加？",
+      "text": "A：张小姐，我们上午9点半有个活动，请你给（ ）一个会议室。\nB：好的，您估计有多少人参加？",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 安排",
+        "B 扔",
+        "C 同情",
+        "D 准时",
+        "E 份",
+        "F 估计"
       ],
       "correct_answer_index": 0
     },
@@ -437,14 +437,14 @@
       "number": 31,
       "original_id": 2080,
       "type": "fill_in_blank",
-      "text": "A：你来得真够（ ）的，正好8点。B：那就好，我还以为迟到了。",
+      "text": "A：你来得真够（ ）的，正好8点。\nB：那就好，我还以为迟到了。",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
+        "A 安排",
+        "B 扔",
+        "C 同情",
+        "D 准时",
+        "E 份",
+        "F 估计"
       ],
       "correct_answer_index": 3
     },
@@ -452,11 +452,8 @@
       "number": 32,
       "original_id": 2079,
       "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
+      "text": "请按正确顺序排列：\nA 人们普遍认为蔬菜对健康很重要\nB 其实水果同样不可缺少\nC 比如苹果、橘子等都富含维生素",
       "options": [
-        "A",
-        "B",
-        "C",
         "ABC",
         "ACB",
         "BAC",
@@ -464,35 +461,14 @@
         "CAB",
         "CBA"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 0
     },
     {
       "number": 33,
       "original_id": 2078,
       "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
+      "text": "请按正确顺序排列：\nA 为了能跟上同事们的节奏\nB 他每天都会提前一小时到办公室\nC 小李刚到公司工作不久",
       "options": [
-        "A",
-        "B",
-        "C",
-        "ABC",
-        "ACB",
-        "BAC",
-        "BCA",
-        "CAB",
-        "CBA"
-      ],
-      "correct_answer_index": 8
-    },
-    {
-      "number": 34,
-      "original_id": 2077,
-      "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
-      "options": [
-        "A",
-        "B",
-        "C",
         "ABC",
         "ACB",
         "BAC",
@@ -503,14 +479,11 @@
       "correct_answer_index": 4
     },
     {
-      "number": 35,
-      "original_id": 2076,
+      "number": 34,
+      "original_id": 2077,
       "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
+      "text": "请按正确顺序排列：\nA 我打算下次再来\nB 这家饭店的菜确实好吃\nC 而且服务态度也很好",
       "options": [
-        "A",
-        "B",
-        "C",
         "ABC",
         "ACB",
         "BAC",
@@ -519,34 +492,28 @@
         "CBA"
       ],
       "correct_answer_index": 3
+    },
+    {
+      "number": 35,
+      "original_id": 2076,
+      "type": "reading_ordering",
+      "text": "请按正确顺序排列：\nA 我们的距离也不再像以前那么近\nB 虽然现在我们都住在不同的城市\nC 但是我们的友谊一直没有改变",
+      "options": [
+        "ABC",
+        "ACB",
+        "BAC",
+        "BCA",
+        "CAB",
+        "CBA"
+      ],
+      "correct_answer_index": 2
     },
     {
       "number": 36,
       "original_id": 2075,
       "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
+      "text": "请按正确顺序排列：\nA 父母听了非常感动\nB 小张把得到的奖金全部给了父母\nC 他知道父母一直为他辛苦工作",
       "options": [
-        "A",
-        "B",
-        "C",
-        "ABC",
-        "ACB",
-        "BAC",
-        "BCA",
-        "CAB",
-        "CBA"
-      ],
-      "correct_answer_index": 3
-    },
-    {
-      "number": 37,
-      "original_id": 2074,
-      "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
-      "options": [
-        "A",
-        "B",
-        "C",
         "ABC",
         "ACB",
         "BAC",
@@ -557,14 +524,11 @@
       "correct_answer_index": 5
     },
     {
-      "number": 38,
-      "original_id": 2073,
+      "number": 37,
+      "original_id": 2074,
       "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
+      "text": "请按正确顺序排列：\nA 又下起了大雨\nB 今天的天气真奇怪\nC 上午还是晴天，下午突然刮起了大风",
       "options": [
-        "A",
-        "B",
-        "C",
         "ABC",
         "ACB",
         "BAC",
@@ -572,17 +536,29 @@
         "CAB",
         "CBA"
       ],
-      "correct_answer_index": 7
+      "correct_answer_index": 3
+    },
+    {
+      "number": 38,
+      "original_id": 2073,
+      "type": "reading_ordering",
+      "text": "请按正确顺序排列：\nA 语言学习需要长期坚持\nB 才能取得真正的进步\nC 只有每天花时间练习",
+      "options": [
+        "ABC",
+        "ACB",
+        "BAC",
+        "BCA",
+        "CAB",
+        "CBA"
+      ],
+      "correct_answer_index": 1
     },
     {
       "number": 39,
       "original_id": 2072,
       "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
+      "text": "请按正确顺序排列：\nA 空气也变得越来越清新了\nB 到处都是绿色的\nC 春天来了，花开了",
       "options": [
-        "A",
-        "B",
-        "C",
         "ABC",
         "ACB",
         "BAC",
@@ -590,17 +566,14 @@
         "CAB",
         "CBA"
       ],
-      "correct_answer_index": 8
+      "correct_answer_index": 5
     },
     {
       "number": 40,
       "original_id": 2071,
       "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
+      "text": "请按正确顺序排列：\nA 会议推迟到下午三点\nB 请大家做好准备\nC 由于经理临时有事",
       "options": [
-        "A",
-        "B",
-        "C",
         "ABC",
         "ACB",
         "BAC",
@@ -614,11 +587,8 @@
       "number": 41,
       "original_id": 2070,
       "type": "reading_ordering",
-      "text": "请按正确顺序排列句子。",
+      "text": "请按正确顺序排列：\nA 我对父母的感情\nB 随着年龄的增长\nC 变得越来越深",
       "options": [
-        "A",
-        "B",
-        "C",
         "ABC",
         "ACB",
         "BAC",
@@ -626,13 +596,13 @@
         "CAB",
         "CBA"
       ],
-      "correct_answer_index": 7
+      "correct_answer_index": 2
     },
     {
       "number": 42,
       "original_id": 2069,
-      "type": "reading_comprehension",
-      "text": "动植物改变身体颜色，是为了：",
+      "type": "listening_choice",
+      "text": "动植物为了保护自己不被发现，常常会改变身体的颜色，让自己的颜色和周围环境相似。比如，叶子上的小虫子常常是绿色的，而沙漠里的动物大多是黄色或者棕色的。这种能力对它们的生存非常重要。\n\n★ 动植物改变身体颜色，是为了：",
       "options": [
         "A 保护环境",
         "B 不被发现",
@@ -644,8 +614,8 @@
     {
       "number": 43,
       "original_id": 2068,
-      "type": "reading_comprehension",
-      "text": "做不喜欢做的工作时，应该：",
+      "type": "listening_choice",
+      "text": "在工作中，我们难免会遇到自己不喜欢的任务。这时候，重要的是要有耐心，认真地把它做完。其实，做不喜欢的工作可以锻炼我们的能力，让我们变得更加成熟。\n\n★ 做不喜欢做的工作时，应该：",
       "options": [
         "A 有耐心",
         "B 提前完成",
@@ -657,8 +627,8 @@
     {
       "number": 44,
       "original_id": 2067,
-      "type": "reading_comprehension",
-      "text": "年轻人最好穿什么样的衣服？",
+      "type": "listening_choice",
+      "text": "关于穿衣，年轻人不一定要追求名牌或者最流行的款式。最重要的是选择适合自己的衣服，能够展示自己的个性和气质。穿着得体大方，比追求时髦更重要。\n\n★ 年轻人最好穿什么样的衣服？",
       "options": [
         "A 宽大的",
         "B 正式的",
@@ -670,8 +640,8 @@
     {
       "number": 45,
       "original_id": 2066,
-      "type": "reading_comprehension",
-      "text": "根据这段话，读书应该：",
+      "type": "listening_choice",
+      "text": "读书不能只读自己感兴趣的内容，也要扩大阅读的范围，多读不同类型的书。这样可以增长知识，开阔眼界，让我们的思想更加丰富。读书的范围越广，收获就越大。\n\n★ 根据这段话，读书应该：",
       "options": [
         "A 信任作者",
         "B 经常复习",
@@ -683,8 +653,8 @@
     {
       "number": 46,
       "original_id": 2065,
-      "type": "reading_comprehension",
-      "text": "没人给他打电话，是因为：",
+      "type": "fill_in_blank",
+      "text": "前几天我去银行办了一张新的银行卡，留下了我的电话号码。可是好几天过去了，还是没有人给我打电话。后来才发现，原来是我把电话号码写错了一个数字，难怪没人能联系到我。\n\n★ 没人给他打电话，是因为：",
       "options": [
         "A 家具太破",
         "B 没写地址",
@@ -696,8 +666,8 @@
     {
       "number": 47,
       "original_id": 2064,
-      "type": "reading_comprehension",
-      "text": "那个人画画儿：",
+      "type": "fill_in_blank",
+      "text": "我有一个朋友很会画画儿。他的画儿和别人的不一样，总能让人一眼就记住。他喜欢用很特别的颜色，而且画的内容也很有创意。看他的画，让人感觉很新鲜。\n\n★ 那个人画画儿：",
       "options": [
         "A 很有特点",
         "B 没有重点",
@@ -709,8 +679,8 @@
     {
       "number": 48,
       "original_id": 2063,
-      "type": "reading_comprehension",
-      "text": "那个演员怎么样？",
+      "type": "fill_in_blank",
+      "text": "昨天我去看了一场新上映的电影。电影的故事不错，但是男主角演得很不好，表情和动作都很奇怪，完全不像一个真正的演员。整个电影院的观众都觉得失望。\n\n★ 那个演员怎么样？",
       "options": [
         "A 对人友好",
         "B 演得不好",
@@ -722,8 +692,8 @@
     {
       "number": 49,
       "original_id": 2062,
-      "type": "reading_comprehension",
-      "text": "遇到困难时首先应该：",
+      "type": "fill_in_blank",
+      "text": "生活中我们经常会遇到各种各样的困难。遇到困难时，最重要的不是急着找解决办法，而是先冷静下来，找到问题的真正原因。只有找到了原因，才能找到正确的解决方法。\n\n★ 遇到困难时首先应该：",
       "options": [
         "A 接受邀请",
         "B 表示抱歉",
@@ -735,8 +705,8 @@
     {
       "number": 50,
       "original_id": 2061,
-      "type": "reading_comprehension",
-      "text": "根据这段话，使用筷子时：",
+      "type": "fill_in_blank",
+      "text": "中国人吃饭时使用筷子。使用筷子有很多规矩：吃饭前要洗手，不能用筷子敲碗，更不能用筷子指着别人。用筷子指人是很不礼貌的行为，被认为是很没有教养的表现。\n\n★ 根据这段话，使用筷子时：",
       "options": [
         "A 要用右手",
         "B 不能用刀子",
@@ -748,8 +718,8 @@
     {
       "number": 51,
       "original_id": 2060,
-      "type": "reading_comprehension",
-      "text": "中国人喝茶：",
+      "type": "fill_in_blank",
+      "text": "茶在中国有几千年的历史，几乎每个家庭都有喝茶的习惯。无论是在家里还是在饭店里，都可以看到人们喝茶。茶不仅是一种饮料，更是中国文化的重要部分，喝茶在中国非常普遍。\n\n★ 中国人喝茶：",
       "options": [
         "A 很普遍",
         "B 有限制",
@@ -761,8 +731,8 @@
     {
       "number": 52,
       "original_id": 2059,
-      "type": "reading_comprehension",
-      "text": "这个杂志：",
+      "type": "fill_in_blank",
+      "text": "这本杂志的内容非常丰富，但是有一个明显的缺点，就是广告太多了。差不多每翻几页就有一页是广告，这影响了读者的阅读体验。如果广告能少一些就更好了。\n\n★ 这个杂志：",
       "options": [
         "A 有缺点",
         "B 很受欢迎",
@@ -774,8 +744,8 @@
     {
       "number": 53,
       "original_id": 2058,
-      "type": "reading_comprehension",
-      "text": "根据这段话，西红柿：",
+      "type": "fill_in_blank",
+      "text": "西红柿，在中国又叫\"番茄\"。\"番\"这个字在古代是指外国，所以从这个名字可以看出，西红柿不是中国本地的植物，而是从西方传入中国的。现在它已经成为中国家庭常见的蔬菜。\n\n★ 根据这段话，西红柿：",
       "options": [
         "A 是水果",
         "B 没有叶子",
@@ -787,8 +757,8 @@
     {
       "number": 54,
       "original_id": 2057,
-      "type": "reading_comprehension",
-      "text": "他怎样引起别人的注意？",
+      "type": "fill_in_blank",
+      "text": "小李很喜欢在聚会上引起别人的注意。他的方法很简单——就是说话时声音特别大。每次他一开口，整个房间的人都能听到。虽然这种方法很有效，但是有时候也会让人觉得不太礼貌。\n\n★ 他怎样引起别人的注意？",
       "options": [
         "A 讲笑话",
         "B 提高声音",
@@ -800,8 +770,8 @@
     {
       "number": 55,
       "original_id": 2056,
-      "type": "reading_comprehension",
-      "text": "十几岁就步入社会的人：",
+      "type": "fill_in_blank",
+      "text": "十几岁就步入社会的人，往往比同龄人有更多的经历。他们早早地接触到社会，了解了生活的酸甜苦辣，所以一般都比较成熟，做事也更有经验。这种经历对他们以后的发展很有帮助。\n\n★ 十几岁就步入社会的人：",
       "options": [
         "A 经历丰富",
         "B 非常可怜",
@@ -813,8 +783,8 @@
     {
       "number": 56,
       "original_id": 2055,
-      "type": "reading_comprehension",
-      "text": "北风和南风为什么吵起来？",
+      "type": "reading_ordering",
+      "text": "从前，北风和南风争吵起来，都说自己最厉害。它们决定比一比，看谁能让一个人脱掉大衣。北风用力地吹，可是那个人把大衣裹得更紧了。南风轻轻地吹，温暖的风让那个人感到很热，于是就自己脱掉了大衣。\n\n★ 北风和南风为什么吵起来？",
       "options": [
         "A 太热了",
         "B 有误会",
@@ -826,8 +796,8 @@
     {
       "number": 57,
       "original_id": 2054,
-      "type": "reading_comprehension",
-      "text": "这个故事告诉我们，做事情必须：",
+      "type": "reading_ordering",
+      "text": "这个故事告诉我们，做任何事情都要注意方法。有时候，温柔的方法比强硬的方法更有效。如果只知道用力，可能会得到相反的结果。学会选择正确的方法，才能事半功倍。\n\n★ 这个故事告诉我们，做事情必须：",
       "options": [
         "A 多商量",
         "B 注意方法",
@@ -839,8 +809,8 @@
     {
       "number": 58,
       "original_id": 2053,
-      "type": "reading_comprehension",
-      "text": "关于老李，可以知道什么？",
+      "type": "reading_ordering",
+      "text": "老李最近一直没回家，他的妻子很担心，到处打电话找他。后来才知道，老李去外地的亲戚家了，因为他想着回来时给妻子一个惊喜，所以没有提前告诉她。\n\n★ 关于老李，可以知道什么？",
       "options": [
         "A 很感动",
         "B 错过了航班",
@@ -852,8 +822,8 @@
     {
       "number": 59,
       "original_id": 2052,
-      "type": "reading_comprehension",
-      "text": "交警对老李是什么态度？",
+      "type": "reading_ordering",
+      "text": "昨天老李开车的时候，因为接电话没注意，结果撞到了路边的栏杆。交警赶到现场后，对老李进行了严厉的批评，并且开了罚单。老李很后悔自己开车时不专心。\n\n★ 交警对老李是什么态度？",
       "options": [
         "A 表扬",
         "B 批评",
@@ -865,8 +835,8 @@
     {
       "number": 60,
       "original_id": 2051,
-      "type": "reading_comprehension",
-      "text": "儿子原来有多少钱？",
+      "type": "reading_ordering",
+      "text": "儿子来跟爸爸要钱买玩具。爸爸问儿子原来有多少钱，儿子说有10元。爸爸又给了儿子10元，让儿子去买自己喜欢的玩具。\n\n★ 儿子原来有多少钱？",
       "options": [
         "A 5 元",
         "B 10 元",
@@ -878,8 +848,8 @@
     {
       "number": 61,
       "original_id": 2050,
-      "type": "reading_comprehension",
-      "text": "关于父亲，可以知道：",
+      "type": "reading_ordering",
+      "text": "我父亲是一名医生，工作非常忙。他经常加班，有时候连吃饭都顾不上。虽然他很辛苦，但是他从来不抱怨，因为他热爱自己的工作。\n\n★ 关于父亲，可以知道：",
       "options": [
         "A 力气大",
         "B 奖金少",
@@ -892,81 +862,101 @@
       "number": 62,
       "original_id": 2049,
       "type": "writing_construction",
-      "text": "他的答案完全正确。（答案 的 他 完全 正确）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：答案 的 他 完全 正确",
+      "options": [
+        "他的答案完全正确。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 63,
       "original_id": 2048,
       "type": "writing_construction",
-      "text": "他被外面的响声吵醒了。（他 外面的响声 吵醒了 被）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：他 外面的响声 吵醒了 被",
+      "options": [
+        "他被外面的响声吵醒了。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 64,
       "original_id": 2047,
       "type": "writing_construction",
-      "text": "他的工资是我的两倍。（我的 两倍 他的工资 是）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：我的 两倍 他的工资 是",
+      "options": [
+        "他的工资是我的两倍。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 65,
       "original_id": 2046,
       "type": "writing_construction",
-      "text": "奶奶做的饺子真香。（饺子 香 奶奶 做的 真）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：饺子 香 奶奶 做的 真",
+      "options": [
+        "奶奶做的饺子真香。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 66,
       "original_id": 2045,
       "type": "writing_construction",
-      "text": "你们俩的看法没什么区别。（什么 区别 你们俩的看法 没）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：什么 区别 你们俩的看法 没",
+      "options": [
+        "你们俩的看法没什么区别。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 67,
       "original_id": 2044,
       "type": "writing_construction",
-      "text": "这些食品符合国家安全标准吗？（安全标准 符合 国家 这些食品 吗）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：安全标准 符合 国家 这些食品 吗",
+      "options": [
+        "这些食品符合国家安全标准吗。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 68,
       "original_id": 2043,
       "type": "writing_construction",
-      "text": "你最好不要打扰他。（打扰 他 你最好 不要）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：打扰 他 你最好 不要",
+      "options": [
+        "你最好不要打扰他。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 69,
       "original_id": 2042,
       "type": "writing_construction",
-      "text": "她是当地儿童医院的护士。（她 儿童医院的 是 护士 当地）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：她 儿童医院的 是 护士 当地",
+      "options": [
+        "她是当地儿童医院的护士。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 70,
       "original_id": 2041,
       "type": "writing_construction",
-      "text": "我已经逐渐适应了这里的气候。（我 已经 这里的气候 逐渐 适应了）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：我 已经 这里的气候 逐渐 适应了",
+      "options": [
+        "我已经逐渐适应了这里的气候。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 71,
       "original_id": 2040,
       "type": "writing_construction",
-      "text": "导游把那份申请寄出去了。（导游 把 那份申请 寄 出去了）",
-      "options": [],
-      "correct_answer_index": null
+      "text": "完成句子：导游 把 那份申请 寄 出去了",
+      "options": [
+        "导游把那份申请寄出去了。"
+      ],
+      "correct_answer_index": 0
     },
     {
       "number": 72,
@@ -975,7 +965,10 @@
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/干杯.png",
       "text": "请看图造句，使用词语：干杯",
       "options": [
-        "这个男人很高兴要和我干杯%%朋友来了让我们举起酒杯干杯%%干杯吧朋友%%欢迎你的到来让我们干杯"
+        "这个男人很高兴要和我干杯",
+        "朋友来了让我们举起酒杯干杯",
+        "干杯吧朋友",
+        "欢迎你的到来让我们干杯"
       ],
       "correct_answer_index": 0
     },
@@ -986,7 +979,10 @@
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/流利.png",
       "text": "请看图造句，使用词语：流利",
       "options": [
-        "她可以说一口很流利的汉语%%这个女的可以很流利地说中文%%她可以在台上说很流利的中文%%她的中文很流利"
+        "她可以说一口很流利的汉语",
+        "这个女的可以很流利地说中文",
+        "她可以在台上说很流利的中文",
+        "她的中文很流利"
       ],
       "correct_answer_index": 0
     },
@@ -997,7 +993,10 @@
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/禁止.png",
       "text": "请看图造句，使用词语：禁止",
       "options": [
-        "禁止吸烟%%这是一个禁止吸烟的标志%%这个标志标志表示禁止吸烟%%这里禁止吸烟"
+        "禁止吸烟",
+        "这是一个禁止吸烟的标志",
+        "这个标志标志表示禁止吸烟",
+        "这里禁止吸烟"
       ],
       "correct_answer_index": 0
     },
@@ -1008,7 +1007,9 @@
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/激动-1.png",
       "text": "请看图造句，使用词语：激动",
       "options": [
-        "他接到电话很激动%%他听到电话里的消息非常激动%%电话里传来令人激动的消息"
+        "他接到电话很激动",
+        "他听到电话里的消息非常激动",
+        "电话里传来令人激动的消息"
       ],
       "correct_answer_index": 0
     },
@@ -1019,9 +1020,12 @@
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/洗衣机.png",
       "text": "请看图造句，使用词语：洗衣机",
       "options": [
-        "这个男人在修洗衣机%%洗衣机坏了%%他在修洗衣机"
+        "这个男人在修洗衣机",
+        "洗衣机坏了",
+        "他在修洗衣机"
       ],
       "correct_answer_index": 0
     }
-  ]
+  ],
+  "note": "本试卷听力部分仅包含第三部分（21题），缺少第一、第二部分。"
 }

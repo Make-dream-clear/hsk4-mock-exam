@@ -66,9 +66,11 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
   </div>
@@ -81,7 +83,7 @@
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">谈论生活中的环保情况 — <span class="accent">Environmental Protection</span></h1>
+    <h1 class="chinese">HSK 4 谈论生活中的环保情况 — <span class="accent">Environmental Protection</span></h1>
     <p>Discuss environmental conditions, pollution, conservation practices, environmental laws, and green living.</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">38</div><div class="stat-label">Words</div></div>
@@ -348,33 +350,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="air temperature">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">气温 <span style="font-size:14px;color:var(--accent);font-weight:400;">qìwēn</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">light; ray; only; merely</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">air temperature</button><button class="q-opt" onclick="tqAnswer(this,false)">to plant; to grow</button></div>
+    <div class="tq-item" data-answer="cool; cold (slightly)">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">凉 <span style="font-size:14px;color:var(--accent);font-weight:400;">liáng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">low temperature</button><button class="q-opt" onclick="tqAnswer(this,false)">plastic</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cool; cold (slightly)</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to waste">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">浪费 <span style="font-size:14px;color:var(--accent);font-weight:400;">làngfèi</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to waste</button><button class="q-opt" onclick="tqAnswer(this,false)">high temperature</button><button class="q-opt" onclick="tqAnswer(this,false)">garbage; trash; rubbish</button></div>
+    <div class="tq-item" data-answer="to save; to economize">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">节约 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiéyuē</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">low temperature</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to save; to economize</button><button class="q-opt" onclick="tqAnswer(this,false)">air temperature</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to pollute; pollution">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">污染 <span style="font-size:14px;color:var(--accent);font-weight:400;">wūrǎn</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">air</button><button class="q-opt" onclick="tqAnswer(this,false)">beautiful scenery</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to pollute; pollution</button></div>
+    <div class="tq-item" data-answer="scenery; landscape">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">风景 <span style="font-size:14px;color:var(--accent);font-weight:400;">fēngjǐng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">night; nighttime</button><button class="q-opt" onclick="tqAnswer(this,false)">light; ray; only; merely</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">scenery; landscape</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="garbage; trash; rubbish">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">垃圾 <span style="font-size:14px;color:var(--accent);font-weight:400;">lājī</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">garbage; trash; rubbish</button><button class="q-opt" onclick="tqAnswer(this,false)">air</button><button class="q-opt" onclick="tqAnswer(this,false)">tiger</button></div>
+    <div class="tq-item" data-answer="beautiful scenery">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">美景 <span style="font-size:14px;color:var(--accent);font-weight:400;">měijǐng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">fresh flowers</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">beautiful scenery</button><button class="q-opt" onclick="tqAnswer(this,false)">plastic</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="light; ray; only; merely">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">光 <span style="font-size:14px;color:var(--accent);font-weight:400;">guāng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">forest</button><button class="q-opt" onclick="tqAnswer(this,false)">to cool down; temperature drop</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">light; ray; only; merely</button></div>
+    <div class="tq-item" data-answer="to plant; to grow">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">种 <span style="font-size:14px;color:var(--accent);font-weight:400;">zhòng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to waste</button><button class="q-opt" onclick="tqAnswer(this,false)">low temperature</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to plant; to grow</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -408,13 +410,34 @@
     <a href="/words/" class="btn btn-ghost" style="margin-left:8px;">Confusable Words</a>
   </div>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This Topic</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Practice This HSK 4 Topic</h2>
   <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Test your knowledge of environmental protection vocabulary in context:</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <a href="/test/01/" class="btn btn-ghost" style="font-size:13px;">Mock Test 01</a>
     <a href="/test/03/" class="btn btn-ghost" style="font-size:13px;">Mock Test 03</a>
     <a href="/test/06/" class="btn btn-ghost" style="font-size:13px;">Mock Test 06</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="font-size:13px;">Sentence Ordering</a>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Apply This HSK 4 Vocabulary on Test Day</h2>
+  <p style="color:var(--stone);margin-bottom:12px;font-size:14px;">Environmental Protection vocabulary appears in HSK 4 listening dialogues, reading passages, and the writing section. These resources turn the words you learned above into test points:</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin:16px 0;">
+    <a href="/strategies/listening-dialog/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 listening dialog tactics</div>
+    </a>
+    <a href="/strategies/reading-comprehension/" style="background:var(--accent-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">⚡ Strategy</div>
+      <div style="font-size:14px;font-weight:600;">HSK 4 reading comprehension</div>
+    </a>
+    <a href="/sentences/" style="background:var(--gold-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">📝 Patterns</div>
+      <div style="font-size:14px;font-weight:600;">100 essential HSK 4 sentences</div>
+    </a>
+    <a href="/words/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔍 Confusables</div>
+      <div style="font-size:14px;font-weight:600;">43 HSK 4 confusable pairs</div>
+    </a>
   </div>
 
   <div class="task-nav">
