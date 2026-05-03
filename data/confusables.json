@@ -2358,5 +2358,400 @@
         "context": "Formal expert opinion"
       }
     ]
+  },
+  {
+    "slug": "guanyu-duiyu",
+    "category": "Prepositions / 介词",
+    "wordA": "关于",
+    "pinyinA": "guānyú",
+    "wordB": "对于",
+    "pinyinB": "duìyú",
+    "subtitle": "about (topic) vs toward (attitude) — the most-tested formal preposition pair",
+    "rows": [
+      [
+        "Function",
+        "Marks the topic/subject matter",
+        "Marks the target of an attitude/action"
+      ],
+      [
+        "Position",
+        "Usually at the start of the sentence: 关于…，…",
+        "Can be sentence-start or mid-sentence"
+      ],
+      [
+        "Test",
+        "Replaceable with 'regarding/about'",
+        "Replaceable with 'toward/regarding (attitude)'"
+      ],
+      [
+        "Pairs with",
+        "Often pairs with 我有一些看法/我们讨论了…",
+        "Often pairs with 表示同意/感到…"
+      ]
+    ],
+    "exA": {
+      "cn": "关于这个问题，我有自己的看法。",
+      "py": "Guānyú zhège wèntí, wǒ yǒu zìjǐ de kànfǎ.",
+      "en": "Regarding this issue, I have my own view. (introducing a topic)"
+    },
+    "exB": {
+      "cn": "对于这个问题，我感到很失望。",
+      "py": "Duìyú zhège wèntí, wǒ gǎndào hěn shīwàng.",
+      "en": "Toward this issue, I feel very disappointed. (showing attitude)"
+    },
+    "tip": "关于 introduces what something is ABOUT — neutral, like a topic header. 对于 expresses the speaker's ATTITUDE TOWARD something — opinion, feeling, judgement. If you can replace it with 'regarding the topic of', use 关于. If with 'in my view of', use 对于.",
+    "quiz": [
+      {
+        "stem": "___HSK 考试，老师给了我们很多建议。",
+        "correct": "关于",
+        "wrong": "对于",
+        "explain": "Introducing a topic (HSK exam) → 关于."
+      },
+      {
+        "stem": "___这件事，我和父母的看法不一样。",
+        "correct": "对于",
+        "wrong": "关于",
+        "explain": "Both work here, but the focus on opinion difference favors 对于."
+      },
+      {
+        "stem": "他写了一本___中国文化的书。",
+        "correct": "关于",
+        "wrong": "对于",
+        "explain": "Topic of the book → 关于. 对于 cannot modify a noun this way."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___学习汉语，最重要的是坚持。",
+        "answer": "关于",
+        "context": "Topic introduction"
+      },
+      {
+        "sentence": "___他的离开，大家都感到很难过。",
+        "answer": "对于",
+        "context": "Attitude toward an event"
+      },
+      {
+        "sentence": "这是一篇___环境保护的文章。",
+        "answer": "关于",
+        "context": "Modifying noun = topic"
+      }
+    ]
+  },
+  {
+    "slug": "yinwei-youyu",
+    "category": "Conjunctions / 连词",
+    "wordA": "因为",
+    "pinyinA": "yīnwèi",
+    "wordB": "由于",
+    "pinyinB": "yóuyú",
+    "subtitle": "because (informal/spoken) vs due to (formal/written) — same meaning, different register",
+    "rows": [
+      [
+        "Register",
+        "Spoken and written, neutral",
+        "More formal, often in writing/news"
+      ],
+      [
+        "Pairing",
+        "Often pairs with 所以",
+        "Often pairs with 因此/因而 (NOT 所以)"
+      ],
+      [
+        "Position",
+        "Can be in either clause",
+        "Almost always in the first clause"
+      ],
+      [
+        "Special use",
+        "Can answer 'why?' as a standalone reply",
+        "Cannot stand alone as a reply"
+      ]
+    ],
+    "exA": {
+      "cn": "因为下雨，所以我没去公园。",
+      "py": "Yīnwèi xià yǔ, suǒyǐ wǒ méi qù gōngyuán.",
+      "en": "Because it was raining, I didn't go to the park."
+    },
+    "exB": {
+      "cn": "由于天气原因，今天的航班取消了。",
+      "py": "Yóuyú tiānqì yuányīn, jīntiān de hángbān qǔxiāo le.",
+      "en": "Due to the weather, today's flight has been cancelled."
+    },
+    "tip": "Both mean 'because/due to'. 因为 is the everyday word — use it in conversation. 由于 sounds more formal — use it in writing, news reports, or official notices. KEY ERROR: 由于 pairs with 因此/所以 in writing, but never use 由于…就… or 由于…才…. Also: when answering 'why', say 因为…, never 由于….",
+    "quiz": [
+      {
+        "stem": "A: 你为什么迟到？\\nB: ___堵车。",
+        "correct": "因为",
+        "wrong": "由于",
+        "explain": "由于 cannot be used as a standalone reply to a question."
+      },
+      {
+        "stem": "___交通堵塞，会议被迫推迟到明天。",
+        "correct": "由于",
+        "wrong": "因为",
+        "explain": "Formal news-style sentence → 由于 is more natural."
+      },
+      {
+        "stem": "他___生病了，所以请了假。",
+        "correct": "因为",
+        "wrong": "由于",
+        "explain": "Daily conversational tone → 因为. 由于…所以 is grammatical but stylistically clashing."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "___身体不舒服，他没来上班。",
+        "answer": "由于",
+        "context": "Formal explanation"
+      },
+      {
+        "sentence": "___你的帮助，我才能完成这个项目。",
+        "answer": "因为",
+        "context": "Personal expression of thanks"
+      },
+      {
+        "sentence": "我没去看电影，___我没买到票。",
+        "answer": "因为",
+        "context": "Second-clause cause, conversational"
+      }
+    ]
+  },
+  {
+    "slug": "shihe-fuhe",
+    "category": "Verbs / 动词",
+    "wordA": "适合",
+    "pinyinA": "shìhé",
+    "wordB": "符合",
+    "pinyinB": "fúhé",
+    "subtitle": "to suit (person/preference) vs to conform (rule/standard)",
+    "rows": [
+      [
+        "Object type",
+        "People, situations, occasions",
+        "Rules, standards, requirements, expectations"
+      ],
+      [
+        "Sense",
+        "Subjective fit / suitability",
+        "Objective conformity / matching"
+      ],
+      [
+        "Common collocates",
+        "适合你 / 适合这个场合 / 适合学习",
+        "符合规定 / 符合要求 / 符合标准 / 符合条件"
+      ],
+      [
+        "Negation",
+        "不适合 = doesn't suit",
+        "不符合 = doesn't meet (formal sense)"
+      ]
+    ],
+    "exA": {
+      "cn": "这件衣服很适合你。",
+      "py": "Zhè jiàn yīfu hěn shìhé nǐ.",
+      "en": "This dress suits you well. (subjective fit)"
+    },
+    "exB": {
+      "cn": "你的回答不符合要求。",
+      "py": "Nǐ de huídá bù fúhé yāoqiú.",
+      "en": "Your answer doesn't meet the requirements. (objective standard)"
+    },
+    "tip": "适合 = is a good match for someone or some situation (taste, preference, occasion). 符合 = matches an objective standard, rule, or expectation. If you can ask 'fits whom/what occasion?' → 适合. If you can ask 'meets what standard?' → 符合. HSK 4 frequently tests this in fill-in-the-blank questions.",
+    "quiz": [
+      {
+        "stem": "这份工作很___他的兴趣。",
+        "correct": "适合",
+        "wrong": "符合",
+        "explain": "Personal interest/preference → 适合. (We don't say 符合兴趣.)"
+      },
+      {
+        "stem": "他的条件完全___公司的要求。",
+        "correct": "符合",
+        "wrong": "适合",
+        "explain": "Meeting company requirements (objective standard) → 符合."
+      },
+      {
+        "stem": "这个时间___你吗？",
+        "correct": "适合",
+        "wrong": "符合",
+        "explain": "Whether the time suits the listener (personal convenience) → 适合."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "这个礼物很___他的口味。",
+        "answer": "符合",
+        "context": "口味/品味 = standards → 符合"
+      },
+      {
+        "sentence": "夏天去海边旅游最___。",
+        "answer": "适合",
+        "context": "Suitability for season"
+      },
+      {
+        "sentence": "你的方案___大家的期望。",
+        "answer": "符合",
+        "context": "Meeting expectations"
+      }
+    ]
+  },
+  {
+    "slug": "biaoshi-biaoxian",
+    "category": "Verbs / 动词",
+    "wordA": "表示",
+    "pinyinA": "biǎoshì",
+    "wordB": "表现",
+    "pinyinB": "biǎoxiàn",
+    "subtitle": "to express/indicate vs to perform/show (behavior)",
+    "rows": [
+      [
+        "Meaning",
+        "To express verbally/symbolically; to indicate",
+        "To behave; to perform; to display through actions"
+      ],
+      [
+        "Object type",
+        "Feelings, opinions, attitudes, meanings",
+        "Ability, behavior, character (often abstract)"
+      ],
+      [
+        "Common collocates",
+        "表示同意 / 表示感谢 / 表示意见 / 表示祝贺",
+        "表现得好 / 表现能力 / 工作表现 / 表现出色"
+      ],
+      [
+        "Noun use",
+        "Symbol/sign: 红色表示停止",
+        "Performance/behavior: 他的表现很好"
+      ]
+    ],
+    "exA": {
+      "cn": "我向他表示了感谢。",
+      "py": "Wǒ xiàng tā biǎoshì le gǎnxiè.",
+      "en": "I expressed my thanks to him. (verbal expression of feeling)"
+    },
+    "exB": {
+      "cn": "他在比赛中表现得非常好。",
+      "py": "Tā zài bǐsài zhōng biǎoxiàn de fēicháng hǎo.",
+      "en": "He performed very well in the competition. (behavior/performance)"
+    },
+    "tip": "表示 = make known through words or symbols (express/indicate). 表现 = make visible through actions/behavior (show/perform). EASY TEST: if a word like 'thanks/agreement/opinion' follows, use 表示. If 'well/badly/excellently' (adverb) follows or you're describing how someone behaves, use 表现. Also note 表扬 = to praise (different word — to give praise to someone).",
+    "quiz": [
+      {
+        "stem": "他对这个决定___反对。",
+        "correct": "表示",
+        "wrong": "表现",
+        "explain": "Expressing opposition (an attitude) → 表示."
+      },
+      {
+        "stem": "她在工作中___得很出色。",
+        "correct": "表现",
+        "wrong": "表示",
+        "explain": "Performing well at work (behavior) → 表现."
+      },
+      {
+        "stem": "这个标志___禁止吸烟。",
+        "correct": "表示",
+        "wrong": "表现",
+        "explain": "A sign indicating something → 表示 (symbolic meaning)."
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "请允许我向您___祝贺。",
+        "answer": "表示",
+        "context": "Expressing congratulations"
+      },
+      {
+        "sentence": "今天他___得有点儿奇怪。",
+        "answer": "表现",
+        "context": "Behaving strangely"
+      },
+      {
+        "sentence": "他的脸上___出非常激动的样子。",
+        "answer": "表现",
+        "context": "Showing emotion through facial expression"
+      }
+    ]
+  },
+  {
+    "slug": "zhongshi-zunzhong",
+    "category": "Verbs / 动词",
+    "wordA": "重视",
+    "pinyinA": "zhòngshì",
+    "wordB": "尊重",
+    "pinyinB": "zūnzhòng",
+    "subtitle": "to attach importance to vs to respect — both feel like 'respect' in English",
+    "rows": [
+      [
+        "Core meaning",
+        "To consider important / take seriously",
+        "To respect / honor / show regard for"
+      ],
+      [
+        "Object type",
+        "Things, issues, problems, work, education",
+        "People, opinions, choices, cultures, rights"
+      ],
+      [
+        "Common collocates",
+        "重视教育 / 重视健康 / 重视这个问题",
+        "尊重老师 / 尊重别人的意见 / 尊重文化"
+      ],
+      [
+        "Antonym",
+        "忽视 (to overlook/neglect)",
+        "看不起 / 不尊重 (to disrespect)"
+      ]
+    ],
+    "exA": {
+      "cn": "父母非常重视孩子的教育。",
+      "py": "Fùmǔ fēicháng zhòngshì háizi de jiàoyù.",
+      "en": "Parents attach great importance to their children's education."
+    },
+    "exB": {
+      "cn": "我们应该尊重每一个人的选择。",
+      "py": "Wǒmen yīnggāi zūnzhòng měi yí gè rén de xuǎnzé.",
+      "en": "We should respect everyone's choices."
+    },
+    "tip": "重视 = treat as important (focus, value, prioritize) — usually with abstract things, issues, or topics. 尊重 = give respect (honor, regard) — usually with people, their opinions, choices, or cultures. KEY: 重视 cannot take a person as direct object. We say 尊重老师, NOT 重视老师 (unless you mean 'value the teacher's input', which is unusual). Also note 重视 is closer to 'value' while 尊重 is closer to 'show respect to'.",
+    "quiz": [
+      {
+        "stem": "学校很___学生的健康。",
+        "correct": "重视",
+        "wrong": "尊重",
+        "explain": "Health is an issue/concern → 重视 (attach importance to)."
+      },
+      {
+        "stem": "我们要___老人。",
+        "correct": "尊重",
+        "wrong": "重视",
+        "explain": "Old people are persons → 尊重 (respect them)."
+      },
+      {
+        "stem": "他从小就___父母的意见。",
+        "correct": "尊重",
+        "wrong": "重视",
+        "explain": "Other people's opinions deserve respect → 尊重. (重视意见 is also possible but means 'take the opinion seriously', a slightly different focus.)"
+      }
+    ],
+    "exercises": [
+      {
+        "sentence": "中国文化___礼貌和谦虚。",
+        "answer": "重视",
+        "context": "Treating qualities as important"
+      },
+      {
+        "sentence": "我们应该___不同的文化。",
+        "answer": "尊重",
+        "context": "Honor cultures"
+      },
+      {
+        "sentence": "公司很___员工的意见。",
+        "answer": "重视",
+        "context": "Take opinions seriously (as input)"
+      }
+    ]
   }
 ]

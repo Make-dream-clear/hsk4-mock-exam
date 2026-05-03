@@ -253,7 +253,7 @@
     {
       "number": 20,
       "original_id": 2618,
-      "type": "reading_comprehension",
+      "type": "listening_choice",
       "text": "20. 根据对话，可以知道什么？",
       "options": [
         "天晴了",
@@ -1151,7 +1151,7 @@
     {
       "number": 86,
       "original_id": 2552,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "86. 把下列词语组成一个完整的句子：质量 你的 怎么样 笔记本电脑",
       "options": [
         "质量你的怎么样笔记本电脑？",
@@ -1164,7 +1164,7 @@
     {
       "number": 87,
       "original_id": 2551,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "87. 把下列词语组成一个完整的句子：为我们 提供了 牙刷和牙膏 宾馆",
       "options": [
         "为我们提供了牙刷和牙膏宾馆。",
@@ -1177,7 +1177,7 @@
     {
       "number": 88,
       "original_id": 2550,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "88. 把下列词语组成一个完整的句子：温度 比较 室内 低",
       "options": [
         "温度比较室内低。",
@@ -1190,7 +1190,7 @@
     {
       "number": 89,
       "original_id": 2549,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "89. 把下列词语组成一个完整的句子：把 家里 母亲 整整齐齐 收拾得",
       "options": [
         "把家里母亲整整齐齐收拾得。",
@@ -1203,7 +1203,7 @@
     {
       "number": 90,
       "original_id": 2548,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "90. 把下列词语组成一个完整的句子：俩 没通过 普通话考试 她们",
       "options": [
         "俩没通过普通话考试她们。",
@@ -1216,7 +1216,7 @@
     {
       "number": 91,
       "original_id": 2547,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "91. 把下列词语组成一个完整的句子：效果 很 好 这个方法",
       "options": [
         "效果很好这个方法。",
@@ -1229,7 +1229,7 @@
     {
       "number": 92,
       "original_id": 2546,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "92. 把下列词语组成一个完整的句子：那个警察 任务 完成了 顺利地",
       "options": [
         "那个警察任务完成了顺利地。",
@@ -1242,7 +1242,7 @@
     {
       "number": 93,
       "original_id": 2545,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "93. 把下列词语组成一个完整的句子：邀请信 收到 三分之一的报名者 会",
       "options": [
         "邀请信收到三分之一的报名者会。",
@@ -1255,7 +1255,7 @@
     {
       "number": 94,
       "original_id": 2544,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "94. 把下列词语组成一个完整的句子：他 负责 技术工作 网站 的",
       "options": [
         "他技术工作负责网站的。",
@@ -1268,7 +1268,7 @@
     {
       "number": 95,
       "original_id": 2543,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "text": "95. 把下列词语组成一个完整的句子：两名售货员 招聘 楼下的商店 要",
       "options": [
         "两名售货员招聘楼下的商店要。",
@@ -1281,7 +1281,7 @@
     {
       "number": 96,
       "original_id": 2542,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/困-1.png",
       "text": "96. 看图造句",
       "options": [
@@ -1295,7 +1295,7 @@
     {
       "number": 97,
       "original_id": 2541,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/味道.png",
       "text": "97. 看图造句",
       "options": [
@@ -1309,7 +1309,7 @@
     {
       "number": 98,
       "original_id": 2540,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/怀疑.png",
       "text": "98. 看图造句",
       "options": [
@@ -1323,7 +1323,7 @@
     {
       "number": 99,
       "original_id": 2539,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/来得及.png",
       "text": "99. 看图造句",
       "options": [
@@ -1337,7 +1337,7 @@
     {
       "number": 100,
       "original_id": 2538,
-      "type": "reading_comprehension",
+      "type": "writing_construction",
       "image": "http://www.mandarinzone.com/wp-content/uploads/2025/07/肚子.png",
       "text": "100. 看图造句",
       "options": [

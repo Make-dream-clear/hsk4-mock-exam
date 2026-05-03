@@ -290,6 +290,16 @@
     "example_en": "She will graduate next June."
   },
   {
+    "id": 1030,
+    "word": "抽烟",
+    "pinyin": "chōuyān",
+    "pos": "v.",
+    "meaning": "to smoke (cigarette)",
+    "example_cn": "请不要在这里抽烟。",
+    "example_pinyin": "Qǐng bú yào zài zhèlǐ chōuyān.",
+    "example_en": "Please don't smoke here."
+  },
+  {
     "id": 1031,
     "word": "便于",
     "pinyin": "biànyú",
@@ -448,6 +458,16 @@
     "example_cn": "时间不够用了。",
     "example_pinyin": "Shíjiān búgòu yòng le.",
     "example_en": "There isn't enough time."
+  },
+  {
+    "id": 1047,
+    "word": "不过",
+    "pinyin": "búguò",
+    "pos": "conj.",
+    "meaning": "however; but",
+    "example_cn": "这件衣服很漂亮，不过有点儿贵。",
+    "example_pinyin": "Zhè jiàn yīfu hěn piàoliang, búguò yǒudiǎnr guì.",
+    "example_en": "This dress is beautiful, but a bit expensive."
   },
   {
     "id": 1048,
@@ -668,6 +688,16 @@
     "example_cn": "你可以在网上查找资料。",
     "example_pinyin": "Nǐ kěyǐ zài wǎng shàng cházhǎo zīliào.",
     "example_en": "You can search for information online."
+  },
+  {
+    "id": 1070,
+    "word": "出国",
+    "pinyin": "chūguó",
+    "pos": "v.",
+    "meaning": "to go abroad",
+    "example_cn": "他打算明年出国留学。",
+    "example_pinyin": "Tā dǎsuàn míngnián chūguó liúxué.",
+    "example_en": "He plans to go abroad to study next year."
   },
   {
     "id": 1071,
@@ -1110,6 +1140,16 @@
     "example_en": "His grades met the admission standard."
   },
   {
+    "id": 1115,
+    "word": "春节",
+    "pinyin": "Chūnjié",
+    "pos": "n.",
+    "meaning": "Spring Festival; Chinese New Year",
+    "example_cn": "春节是中国最重要的传统节日。",
+    "example_pinyin": "Chūnjié shì Zhōngguó zuì zhòngyào de chuántǒng jiérì.",
+    "example_en": "Spring Festival is the most important traditional Chinese festival."
+  },
+  {
     "id": 1116,
     "word": "打败",
     "pinyin": "dǎbài",
@@ -1420,6 +1460,16 @@
     "example_en": "Passengers are boarding the plane."
   },
   {
+    "id": 1147,
+    "word": "等",
+    "pinyin": "děng",
+    "pos": "particle/n.",
+    "meaning": "and so on; etc.; rank/grade",
+    "example_cn": "我喜欢吃苹果、香蕉、橘子等水果。",
+    "example_pinyin": "Wǒ xǐhuan chī píngguǒ, xiāngjiāo, júzi děng shuǐguǒ.",
+    "example_en": "I like to eat fruits such as apples, bananas, and oranges."
+  },
+  {
     "id": 1148,
     "word": "等到",
     "pinyin": "děngdào",
@@ -1668,6 +1718,16 @@
     "example_cn": "他给我发了一条短信。",
     "example_pinyin": "SMS Tā gěi wǒ fā le yì tiáo duǎnxìn.",
     "example_en": "He sent me a text message."
+  },
+  {
+    "id": 1173,
+    "word": "队",
+    "pinyin": "duì",
+    "pos": "n.",
+    "meaning": "team; line; queue",
+    "example_cn": "我们的足球队赢了今天的比赛。",
+    "example_pinyin": "Wǒmen de zúqiú duì yíng le jīntiān de bǐsài.",
+    "example_en": "Our football team won today's match."
   },
   {
     "id": 1174,
@@ -2088,6 +2148,16 @@
     "example_cn": "他负责公司的市场工作。",
     "example_pinyin": "Tā fùzé gōngsī de shìchǎng gōngzuò.",
     "example_en": "He is responsible for the company's marketing."
+  },
+  {
+    "id": 1216,
+    "word": "丢",
+    "pinyin": "diū",
+    "pos": "v.",
+    "meaning": "to lose; to throw away",
+    "example_cn": "我把钥匙丢在出租车上了。",
+    "example_pinyin": "Wǒ bǎ yàoshi diū zài chūzūchē shàng le.",
+    "example_en": "I left my keys in the taxi."
   },
   {
     "id": 1217,
@@ -2794,9 +2864,9 @@
     "word": "喊",
     "pinyin": "hǎn",
     "pos": "v.",
-    "meaning": "to shout; to yell Tā dàshēng hǎn le yí jù: tíng!",
+    "meaning": "to shout; to yell",
     "example_cn": "他大声喊了一句：停！",
-    "example_pinyin": "",
+    "example_pinyin": "Tā dàshēng hǎn le yí jù: tíng!",
     "example_en": "He shouted loudly: Stop!"
   },
   {
@@ -3064,10 +3134,10 @@
     "word": "火",
     "pinyin": "huǒ",
     "pos": "n./adj.",
-    "meaning": "fire; popular; trending",
-    "example_cn": "冬天大家围着火取暖。",
-    "example_pinyin": "Dōngtiān dàjiā wéi zhe huǒ qǔnuǎn.",
-    "example_en": "In winter everyone gathers around the fire to keep warm."
+    "meaning": "fire; (colloquial) hot/popular/trending",
+    "example_cn": "这部电影最近特别火，朋友圈到处都在讨论。",
+    "example_pinyin": "Zhè bù diànyǐng zuìjìn tèbié huǒ, péngyou quān dàochù dōu zài tǎolùn.",
+    "example_en": "This movie is really trending lately — everyone in WeChat Moments is talking about it."
   },
   {
     "id": 1315,
@@ -3188,6 +3258,16 @@
     "example_cn": "即使下雨，我们也要出发。",
     "example_pinyin": "Jíshǐ xià yǔ, wǒmen yě yào chūfā.",
     "example_en": "Even if it rains, we still have to set off."
+  },
+  {
+    "id": 1327,
+    "word": "减肥",
+    "pinyin": "jiǎnféi",
+    "pos": "v.",
+    "meaning": "to lose weight; to diet",
+    "example_cn": "为了减肥，她每天都坚持跑步。",
+    "example_pinyin": "Wèile jiǎnféi, tā měitiān dōu jiānchí pǎobù.",
+    "example_en": "To lose weight, she insists on running every day."
   },
   {
     "id": 1328,
@@ -3980,6 +4060,16 @@
     "example_en": "She looks in the mirror every morning."
   },
   {
+    "id": 1407,
+    "word": "究竟",
+    "pinyin": "jiūjìng",
+    "pos": "adv.",
+    "meaning": "after all; on earth; in the end",
+    "example_cn": "你究竟想去哪儿？",
+    "example_pinyin": "Nǐ jiūjìng xiǎng qù nǎr?",
+    "example_en": "Where on earth do you want to go?"
+  },
+  {
     "id": 1408,
     "word": "就是",
     "pinyin": "jiùshì",
@@ -4088,6 +4178,16 @@
     "example_cn": "今晚我们去剧院看演出。",
     "example_pinyin": "Jīnwǎn wǒmen qù jùyuàn kàn yǎnchū.",
     "example_en": "We're going to the theater to see a show tonight."
+  },
+  {
+    "id": 1419,
+    "word": "坚持",
+    "pinyin": "jiānchí",
+    "pos": "v.",
+    "meaning": "to persist; to insist on; to keep doing",
+    "example_cn": "他坚持每天学习一个小时中文。",
+    "example_pinyin": "Tā jiānchí měitiān xuéxí yí gè xiǎoshí Zhōngwén.",
+    "example_en": "He insists on studying Chinese for one hour every day."
   },
   {
     "id": 1420,
@@ -4652,8 +4752,8 @@
   {
     "id": 1476,
     "word": "零下",
-    "pinyin": "líng",
-    "pos": "",
+    "pinyin": "língxià",
+    "pos": "n./prep.",
     "meaning": "below zero; sub-zero",
     "example_cn": "今天最低温度零下十度。",
     "example_pinyin": "Jīntiān zuìdī wēndù líng xià shí dù.",
@@ -4702,12 +4802,12 @@
   {
     "id": 1481,
     "word": "另外",
-    "pinyin": "lìngwài d p",
+    "pinyin": "lìngwài",
     "pos": "conj./adv.",
-    "meaning": "r . o / n co ./ n a j in addition; 另 Lìn 外 gw ， ài, 我 wǒ 还 há 有 i y 一 ǒu 个 yí 问 gè 题 wè 想 nt 问 í xi 。 ǎng wèn. moreover; besides",
-    "example_cn": "",
-    "example_pinyin": "",
-    "example_en": "."
+    "meaning": "in addition; moreover; besides; another",
+    "example_cn": "另外，我还有一个问题想问。",
+    "example_pinyin": "Lìngwài, wǒ hái yǒu yí gè wèntí xiǎng wèn.",
+    "example_en": "In addition, I have another question to ask."
   },
   {
     "id": 1482,
@@ -4794,9 +4894,9 @@
     "word": "旅行",
     "pinyin": "lǚxíng",
     "pos": "v.",
-    "meaning": "to travel; trip Jīnnián shǔjià wǒmen qù",
+    "meaning": "to travel; trip",
     "example_cn": "今年暑假我们去欧洲旅行。",
-    "example_pinyin": "Ōuzhōu lǚxíng.",
+    "example_pinyin": "Jīnnián shǔjià wǒmen qù Ōuzhōu lǚxíng.",
     "example_en": "We're traveling to Europe this summer."
   },
   {
@@ -5202,8 +5302,8 @@
   {
     "id": 1531,
     "word": "能否",
-    "pinyin": "néng",
-    "pos": "",
+    "pinyin": "néngfǒu",
+    "pos": "aux./adv.",
     "meaning": "whether or not; can...or not",
     "example_cn": "请问能否提前入住？",
     "example_pinyin": "Qǐngwèn néng fǒu tíqián rùzhù?",
@@ -5234,9 +5334,9 @@
     "word": "嗯",
     "pinyin": "ǹg",
     "pos": "interj.",
-    "meaning": "uh-huh; mm Ǹg, wǒ tóngyì nǐ de kànfǎ. (agreement)",
+    "meaning": "uh-huh; mm (agreement)",
     "example_cn": "嗯，我同意你的看法。",
-    "example_pinyin": "",
+    "example_pinyin": "Ǹg, wǒ tóngyì nǐ de kànfǎ.",
     "example_en": "Hmm, I agree with your view."
   },
   {
@@ -5298,6 +5398,16 @@
     "example_cn": "今天比昨天暖和多了。",
     "example_pinyin": "Jīntiān bǐ zuótiān nuǎnhuo duō le.",
     "example_en": "Today is much warmer than yesterday."
+  },
+  {
+    "id": 1541,
+    "word": "陪",
+    "pinyin": "péi",
+    "pos": "v.",
+    "meaning": "to accompany; to keep company",
+    "example_cn": "周末我陪妈妈去医院看病。",
+    "example_pinyin": "Zhōumò wǒ péi māma qù yīyuàn kànbìng.",
+    "example_en": "On the weekend I went with my mom to the hospital."
   },
   {
     "id": 1542,
@@ -6154,9 +6264,9 @@
     "word": "扫码",
     "pinyin": "sǎomǎ",
     "pos": "v.",
-    "meaning": "to scan a",
+    "meaning": "to scan a QR code",
     "example_cn": "请扫码支付。",
-    "example_pinyin": "QR code Qǐng sǎomǎ zhīfù.",
+    "example_pinyin": "Qǐng sǎomǎ zhīfù.",
     "example_en": "Please scan the code to pay."
   },
   {
@@ -6350,6 +6460,16 @@
     "example_en": "My sister gave birth to a cute baby."
   },
   {
+    "id": 1647,
+    "word": "生",
+    "pinyin": "shēng",
+    "pos": "adj./v.",
+    "meaning": "raw; unripe; to give birth; to grow",
+    "example_cn": "这块肉还是生的，不能吃。",
+    "example_pinyin": "Zhè kuài ròu hái shì shēng de, bù néng chī.",
+    "example_en": "This piece of meat is still raw and cannot be eaten."
+  },
+  {
     "id": 1648,
     "word": "生命",
     "pinyin": "shēngmìng",
@@ -6518,6 +6638,16 @@
     "example_cn": "我实在太累了。",
     "example_pinyin": "Wǒ shízài tài lèi le.",
     "example_en": "I'm truly exhausted."
+  },
+  {
+    "id": 1665,
+    "word": "饺子",
+    "pinyin": "jiǎozi",
+    "pos": "n.",
+    "meaning": "dumpling",
+    "example_cn": "过年的时候，北方人喜欢吃饺子。",
+    "example_pinyin": "Guònián de shíhou, běifāng rén xǐhuan chī jiǎozi.",
+    "example_en": "During the Spring Festival, northerners like to eat dumplings."
   },
   {
     "id": 1666,
@@ -7234,8 +7364,8 @@
     "word": "听力",
     "pinyin": "tīnglì",
     "pos": "n.",
-    "meaning": "listening comprehe nsion; hearing",
-    "example_cn": "",
+    "meaning": "listening comprehension; hearing",
+    "example_cn": "HSK 考试包括听力和阅读。",
     "example_pinyin": "HSK kǎoshì bāokuò tīnglì hé yuèdú.",
     "example_en": "The HSK exam includes listening and reading."
   },
@@ -7358,6 +7488,16 @@
     "example_cn": "请帮我倒一桶水。",
     "example_pinyin": "Qǐng bāng wǒ dào yì tǒng shuǐ.",
     "example_en": "Please help me pour a bucket of water."
+  },
+  {
+    "id": 1750,
+    "word": "痛",
+    "pinyin": "tòng",
+    "pos": "adj.",
+    "meaning": "painful; sore; ache",
+    "example_cn": "昨天运动太多，今天腿很痛。",
+    "example_pinyin": "Zuótiān yùndòng tài duō, jīntiān tuǐ hěn tòng.",
+    "example_en": "I exercised too much yesterday, so my legs are very sore today."
   },
   {
     "id": 1751,
@@ -7980,6 +8120,16 @@
     "example_en": "Beijing has many special snacks."
   },
   {
+    "id": 1813,
+    "word": "消息",
+    "pinyin": "xiāoxi",
+    "pos": "n.",
+    "meaning": "news; information; message",
+    "example_cn": "我刚刚听到一个好消息。",
+    "example_pinyin": "Wǒ gānggāng tīngdào yí gè hǎo xiāoxi.",
+    "example_en": "I just heard some good news."
+  },
+  {
     "id": 1814,
     "word": "小说",
     "pinyin": "xiǎoshuō",
@@ -8308,6 +8458,16 @@
     "example_cn": "她正在研究中国古代文化。",
     "example_pinyin": "Tā zhèngzài yánjiū Zhōngguó gǔdài wénhuà.",
     "example_en": "She is researching ancient Chinese culture."
+  },
+  {
+    "id": 1847,
+    "word": "羡慕",
+    "pinyin": "xiànmù",
+    "pos": "v.",
+    "meaning": "to envy; to admire",
+    "example_cn": "我很羡慕你能去那么多地方旅游。",
+    "example_pinyin": "Wǒ hěn xiànmù nǐ néng qù nàme duō dìfang lǚyóu.",
+    "example_en": "I envy that you can travel to so many places."
   },
   {
     "id": 1848,
@@ -9100,6 +9260,16 @@
     "example_en": "Readers can comment online."
   },
   {
+    "id": 1927,
+    "word": "招聘",
+    "pinyin": "zhāopìn",
+    "pos": "v.",
+    "meaning": "to recruit; to hire",
+    "example_cn": "这家公司正在招聘新员工。",
+    "example_pinyin": "Zhè jiā gōngsī zhèngzài zhāopìn xīn yuángōng.",
+    "example_en": "This company is currently recruiting new employees."
+  },
+  {
     "id": 1928,
     "word": "整",
     "pinyin": "zhěng",
@@ -9148,6 +9318,16 @@
     "example_cn": "他的体温恢复正常了。",
     "example_pinyin": "Tā de tǐwēn huīfù zhèngcháng le.",
     "example_en": "His temperature has returned to normal."
+  },
+  {
+    "id": 1933,
+    "word": "正式",
+    "pinyin": "zhèngshì",
+    "pos": "adj.",
+    "meaning": "formal; official",
+    "example_cn": "参加面试要穿正式一点儿的衣服。",
+    "example_pinyin": "Cānjiā miànshì yào chuān zhèngshì yìdiǎnr de yīfu.",
+    "example_en": "You should dress more formally for an interview."
   },
   {
     "id": 1934,
@@ -9678,6 +9858,16 @@
     "example_cn": "他在学校附近租了一间房子。",
     "example_pinyin": "Tā zài xuéxiào fùjìn zū le yì jiān fángzi.",
     "example_en": "He rented a room near the school."
+  },
+  {
+    "id": 1987,
+    "word": "组",
+    "pinyin": "zǔ",
+    "pos": "n./mw.",
+    "meaning": "group; team; (measure word for groups)",
+    "example_cn": "老师把我们分成了四个小组。",
+    "example_pinyin": "Lǎoshī bǎ wǒmen fēnchéng le sì gè xiǎozǔ.",
+    "example_en": "The teacher divided us into four groups."
   },
   {
     "id": 1988,
