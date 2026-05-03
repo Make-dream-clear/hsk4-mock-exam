@@ -1,4 +1,33 @@
 User-agent: *
 Allow: /
+Disallow: /data/
+
+# Slow crawl down for AI-only bots that don't help with indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Primary search engines — full crawl
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+
+# Block crawlers that don't drive traffic
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
 
 Sitemap: https://hsk4.mandarinzone.com/sitemap.xml
