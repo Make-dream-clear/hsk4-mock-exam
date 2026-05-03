@@ -66,8 +66,9 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
@@ -366,33 +367,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="passenger">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">乘客 <span style="font-size:14px;color:var(--accent);font-weight:400;">chéngkè</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">passenger</button><button class="q-opt" onclick="tqAnswer(this,false)">to board a plane</button><button class="q-opt" onclick="tqAnswer(this,false)">vehicle speed</button></div>
+    <div class="tq-item" data-answer="backpack; rucksack">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">背包 <span style="font-size:14px;color:var(--accent);font-weight:400;">bēibāo</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">backpack; rucksack</button><button class="q-opt" onclick="tqAnswer(this,false)">to land; to descend</button><button class="q-opt" onclick="tqAnswer(this,false)">scenic spot; tourist attraction</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="parking lot">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">停车场 <span style="font-size:14px;color:var(--accent);font-weight:400;">tíngchēchǎng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">scenic area</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">parking lot</button><button class="q-opt" onclick="tqAnswer(this,false)">vehicle speed</button></div>
+    <div class="tq-item" data-answer="to go on a business trip">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">出差 <span style="font-size:14px;color:var(--accent);font-weight:400;">chūchāi</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to go on a business trip</button><button class="q-opt" onclick="tqAnswer(this,false)">electric vehicle; e-bike</button><button class="q-opt" onclick="tqAnswer(this,false)">gas station; petrol station</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="to transfer (transit)">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">换乘 <span style="font-size:14px;color:var(--accent);font-weight:400;">huànchéng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to ride (a vehicle)</button><button class="q-opt" onclick="tqAnswer(this,false)">scenic spot; tourist attraction</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to transfer (transit)</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="traffic; transportati on">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">交通 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiāotōng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">traffic; transportati on</button><button class="q-opt" onclick="tqAnswer(this,false)">to check in (hotel)</button><button class="q-opt" onclick="tqAnswer(this,false)">bridge</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
     <div class="tq-item" data-answer="to check in (hotel)">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">入住 <span style="font-size:14px;color:var(--accent);font-weight:400;">rùzhù</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to add oil; come on! (cheer)</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to check in (hotel)</button><button class="q-opt" onclick="tqAnswer(this,false)">to play; to have fun; to tour</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="to play; to have fun; to tour">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">游玩 <span style="font-size:14px;color:var(--accent);font-weight:400;">yóuwán</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to play; to have fun; to tour</button><button class="q-opt" onclick="tqAnswer(this,false)">traffic jam</button><button class="q-opt" onclick="tqAnswer(this,false)">ticket seller; conductor</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="to travel; to go out">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">出行 <span style="font-size:14px;color:var(--accent);font-weight:400;">chūxíng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to travel; to go out</button><button class="q-opt" onclick="tqAnswer(this,false)">to park a car; to stop</button><button class="q-opt" onclick="tqAnswer(this,false)">to go on a business trip</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to check in (hotel)</button><button class="q-opt" onclick="tqAnswer(this,false)">to go on a business trip</button><button class="q-opt" onclick="tqAnswer(this,false)">to park a car; to stop</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>

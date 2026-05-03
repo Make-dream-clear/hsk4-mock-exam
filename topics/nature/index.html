@@ -66,8 +66,9 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
@@ -300,33 +301,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="high temperature">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">高温 <span style="font-size:14px;color:var(--accent);font-weight:400;">gāowēn</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">plant</button><button class="q-opt" onclick="tqAnswer(this,false)">scenery; landscape</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">high temperature</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
     <div class="tq-item" data-answer="cold; frigid">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">寒冷 <span style="font-size:14px;color:var(--accent);font-weight:400;">hánlěng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">warm; mild</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cold; frigid</button><button class="q-opt" onclick="tqAnswer(this,false)">plant</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">low temperature</button><button class="q-opt" onclick="tqAnswer(this,false)">grove; woods</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cold; frigid</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="cloud">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">云 <span style="font-size:14px;color:var(--accent);font-weight:400;">yún</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">climate</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cloud</button><button class="q-opt" onclick="tqAnswer(this,false)">nature; the natural world</button></div>
+    <div class="tq-item" data-answer="star">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">星星 <span style="font-size:14px;color:var(--accent);font-weight:400;">xīngxing</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">star</button><button class="q-opt" onclick="tqAnswer(this,false)">nature; the natural world</button><button class="q-opt" onclick="tqAnswer(this,false)">sunshine; sunlight</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="tiger">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">老虎 <span style="font-size:14px;color:var(--accent);font-weight:400;">lǎohǔ</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">tiger</button><button class="q-opt" onclick="tqAnswer(this,false)">river</button><button class="q-opt" onclick="tqAnswer(this,false)">ocean; sea</button></div>
+    <div class="tq-item" data-answer="nature; natural; naturally">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">自然 <span style="font-size:14px;color:var(--accent);font-weight:400;">zìrán</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">nature; natural; naturally</button><button class="q-opt" onclick="tqAnswer(this,false)">climate</button><button class="q-opt" onclick="tqAnswer(this,false)">high temperature</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="temperature">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">温度 <span style="font-size:14px;color:var(--accent);font-weight:400;">wēndù</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">nature; natural; naturally</button><button class="q-opt" onclick="tqAnswer(this,false)">warm; mild</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">temperature</button></div>
+    <div class="tq-item" data-answer="nature; the natural world">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">大自然 <span style="font-size:14px;color:var(--accent);font-weight:400;">dàzìrán</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">nature; the natural world</button><button class="q-opt" onclick="tqAnswer(this,false)">nature; natural; naturally</button><button class="q-opt" onclick="tqAnswer(this,false)">river</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="cool; cold (slightly)">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">凉 <span style="font-size:14px;color:var(--accent);font-weight:400;">liáng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cool; cold (slightly)</button><button class="q-opt" onclick="tqAnswer(this,false)">leaf; leaves</button><button class="q-opt" onclick="tqAnswer(this,false)">nature; the natural world</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>

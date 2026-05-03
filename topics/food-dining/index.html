@@ -66,8 +66,9 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
@@ -384,33 +385,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="Chinese food; Chinese cuisine">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">中餐 <span style="font-size:14px;color:var(--accent);font-weight:400;">zhōngcān</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">food; food product</button><button class="q-opt" onclick="tqAnswer(this,false)">cook; chef</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">Chinese food; Chinese cuisine</button></div>
+    <div class="tq-item" data-answer="grape">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">葡萄 <span style="font-size:14px;color:var(--accent);font-weight:400;">pútao</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">fragrant; pleasant- smelling</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">grape</button><button class="q-opt" onclick="tqAnswer(this,false)">salt</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="lunch">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">午餐 <span style="font-size:14px;color:var(--accent);font-weight:400;">wǔcān</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">lunch</button><button class="q-opt" onclick="tqAnswer(this,false)">food</button><button class="q-opt" onclick="tqAnswer(this,false)">taste; flavor</button></div>
+    <div class="tq-item" data-answer="to settle a bill; to check out">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">结账 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiézhàng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to settle a bill; to check out</button><button class="q-opt" onclick="tqAnswer(this,false)">sour; tart</button><button class="q-opt" onclick="tqAnswer(this,false)">dumpling</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="cook; chef">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">厨师 <span style="font-size:14px;color:var(--accent);font-weight:400;">chúshī</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">restaurant; dining room</button><button class="q-opt" onclick="tqAnswer(this,false)">taste; flavor</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cook; chef</button></div>
+    <div class="tq-item" data-answer="dumpling">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">饺子 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiǎozi</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">dinner; supper</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">dumpling</button><button class="q-opt" onclick="tqAnswer(this,false)">cook; chef</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="snack; street food">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">小吃 <span style="font-size:14px;color:var(--accent);font-weight:400;">xiǎochī</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">delicious food; gourmet food</button><button class="q-opt" onclick="tqAnswer(this,false)">spicy; hot (taste)</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">snack; street food</button></div>
+    <div class="tq-item" data-answer="taste; flavor">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">味 <span style="font-size:14px;color:var(--accent);font-weight:400;">wèi</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">tea leaves</button><button class="q-opt" onclick="tqAnswer(this,false)">food; food product</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">taste; flavor</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="bitter">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">苦 <span style="font-size:14px;color:var(--accent);font-weight:400;">kǔ</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">food</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">bitter</button><button class="q-opt" onclick="tqAnswer(this,false)">knife</button></div>
+    <div class="tq-item" data-answer="taste; flavor">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">味道 <span style="font-size:14px;color:var(--accent);font-weight:400;">wèidào</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">taste; flavor</button><button class="q-opt" onclick="tqAnswer(this,false)">spicy; hot (taste)</button><button class="q-opt" onclick="tqAnswer(this,false)">wine; grape wine</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>

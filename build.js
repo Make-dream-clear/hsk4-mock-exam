@@ -426,8 +426,9 @@ function buildTestPages() {
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
@@ -641,10 +642,55 @@ ${testLinks}
       <p style="color:var(--stone);line-height:1.8;">
         These tests are created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>, a Chinese language school in Beijing since 2008. For personalized HSK preparation with experienced teachers, visit our website for online and in-person classes.
       </p>
+
+      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:40px;">All HSK 4 Study Resources / HSK 4 复习资源导航</h2>
+      <p style="color:var(--stone);line-height:1.8;margin-bottom:20px;">Beyond the 12 mock exams, this site offers a complete HSK 4 preparation toolkit. Each resource targets a specific score-improvement angle:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:14px;margin-top:16px;">
+        <a href="/strategies/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚡ HIGH-IMPACT</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Strategies (9 guides)</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Test-taking tips for all 7 question types + listening signal words + picture templates.</p>
+        </a>
+        <a href="/sentences/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">📝 WRITING BOOST</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">100 Essential HSK 4 Sentences</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">High-frequency sentence templates for opinion, suggestion, comparison, time — ready for the writing section.</p>
+        </a>
+        <a href="/vocabulary/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">📚 FOUNDATION</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">1000 HSK 4 Vocabulary</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Complete word list with pinyin, examples, topic categories. Aligned with 2025 syllabus.</p>
+        </a>
+        <a href="/grammar/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🔧 GRAMMAR</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Grammar Hub (14 topics)</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">把字句, 被字句, 比较句, complements, complex sentences, measure words.</p>
+        </a>
+        <a href="/words/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🔍 PRECISION</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">43 Confusable Word Pairs</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">才/就, 被/让/叫, 关于/对于, 从来/一直 and other tested distinctions.</p>
+        </a>
+        <a href="/topics/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🎯 SCENARIO</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">22 HSK 4 Topic Scenarios</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Vocabulary by communicative situation: family, work, health, food, technology, etc.</p>
+        </a>
+        <a href="/guide/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🗺 OVERVIEW</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Study Guide</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Exam structure, scoring, HSK 3 → 4 progression, study timeline.</p>
+        </a>
+        <a href="/grammar/measure-words/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
+          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚡ NEW</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Measure Words</h3>
+          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">8 new MW (打/袋/棵/台/幅/场/顿/趟) + borrowed MW + quiz.</p>
+        </a>
+      </div>
     </section>`;
 
   html = html.replace(
-    /<!-- Static SEO content for search engines -->.*?<\/section>/s,
+    /<!-- (?:Static SEO content for search engines|STATIC SEO CONTENT) -->.*?<\/section>/s,
     newSEO
   );
 
@@ -667,6 +713,17 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
     { loc: '/grammar/', priority: '0.8' },
     { loc: '/topics/', priority: '0.9' },
     { loc: '/guide/', priority: '0.8' },
+    { loc: '/sentences/', priority: '0.9' },
+    { loc: '/strategies/', priority: '0.9' },
+    { loc: '/strategies/listening-judgment/', priority: '0.8' },
+    { loc: '/strategies/listening-dialog/', priority: '0.8' },
+    { loc: '/strategies/listening-passage/', priority: '0.8' },
+    { loc: '/strategies/listening-keywords/', priority: '0.8' },
+    { loc: '/strategies/reading-fill/', priority: '0.8' },
+    { loc: '/strategies/reading-ordering/', priority: '0.8' },
+    { loc: '/strategies/reading-comprehension/', priority: '0.8' },
+    { loc: '/strategies/writing-construction/', priority: '0.8' },
+    { loc: '/strategies/picture-templates/', priority: '0.8' },
     { loc: '/grammar/ba-sentence/', priority: '0.8' },
     { loc: '/grammar/passive/', priority: '0.8' },
     { loc: '/grammar/comparison/', priority: '0.8' },
@@ -677,6 +734,7 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
     { loc: '/grammar/function-words/', priority: '0.8' },
     { loc: '/grammar/pivotal-sentences/', priority: '0.8' },
     { loc: '/grammar/fixed-patterns/', priority: '0.8' },
+    { loc: '/grammar/measure-words/', priority: '0.8' },
     { loc: '/writing/', priority: '0.9' },
     { loc: '/writing/sentence-order/', priority: '0.8' },
     { loc: '/writing/paragraph/', priority: '0.8' },
@@ -1410,8 +1468,9 @@ function buildTaskTopicPages() {
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
@@ -1633,8 +1692,9 @@ function buildConfusablePages() {
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link" style="opacity:1;">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
@@ -1884,8 +1944,9 @@ function buildGrammarPatternPages() {
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>

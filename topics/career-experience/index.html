@@ -66,8 +66,9 @@
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
-      <a href="/writing/" class="nav-link">Writing</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/guide/" class="nav-link">Guide</a>
     </nav>
@@ -324,33 +325,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="journalist; reporter">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">记者 <span style="font-size:14px;color:var(--accent);font-weight:400;">jìzhě</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">factory; plant</button><button class="q-opt" onclick="tqAnswer(this,false)">to work; to do manual labor</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">journalist; reporter</button></div>
+    <div class="tq-item" data-answer="singer">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">歌手 <span style="font-size:14px;color:var(--accent);font-weight:400;">gēshǒu</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">singer</button><button class="q-opt" onclick="tqAnswer(this,false)">traffic police</button><button class="q-opt" onclick="tqAnswer(this,false)">lawyer</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="worker">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">工人 <span style="font-size:14px;color:var(--accent);font-weight:400;">gōngrén</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">worker</button><button class="q-opt" onclick="tqAnswer(this,false)">income; revenue</button><button class="q-opt" onclick="tqAnswer(this,false)">actor; actress; performer</button></div>
+    <div class="tq-item" data-answer="profession; occupation; career">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">职业 <span style="font-size:14px;color:var(--accent);font-weight:400;">zhíyè</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">profession; occupation; career</button><button class="q-opt" onclick="tqAnswer(this,false)">traffic police</button><button class="q-opt" onclick="tqAnswer(this,false)">bonus; cash prize</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to manage; to administer">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">管理 <span style="font-size:14px;color:var(--accent);font-weight:400;">guǎnlǐ</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to manage; to administer</button><button class="q-opt" onclick="tqAnswer(this,false)">writer; author</button><button class="q-opt" onclick="tqAnswer(this,false)">singer</button></div>
+    <div class="tq-item" data-answer="to apply for a job">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">应聘 <span style="font-size:14px;color:var(--accent);font-weight:400;">yìngpìn</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">income; revenue</button><button class="q-opt" onclick="tqAnswer(this,false)">responsibility; duty</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to apply for a job</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to recruit; to hire">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">招聘 <span style="font-size:14px;color:var(--accent);font-weight:400;">zhāopìn</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">singer</button><button class="q-opt" onclick="tqAnswer(this,false)">actor; actress; performer</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to recruit; to hire</button></div>
+    <div class="tq-item" data-answer="to work part-time; to do odd jobs">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">打工 <span style="font-size:14px;color:var(--accent);font-weight:400;">dǎgōng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">factory</button><button class="q-opt" onclick="tqAnswer(this,false)">to work; to do manual labor</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to work part-time; to do odd jobs</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to experience; experience">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">经历 <span style="font-size:14px;color:var(--accent);font-weight:400;">jīnglì</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">personnel; staff</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to experience; experience</button><button class="q-opt" onclick="tqAnswer(this,false)">experience</button></div>
+    <div class="tq-item" data-answer="lawyer">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">律师 <span style="font-size:14px;color:var(--accent);font-weight:400;">lǜshī</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">singer</button><button class="q-opt" onclick="tqAnswer(this,false)">interview; to interview</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">lawyer</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
