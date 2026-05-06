@@ -419,7 +419,7 @@ function buildTestPages() {
 <header>
   <div class="header-inner">
     <a href="/" class="logo">
-      <div class="logo-mark chinese">MZ</div>
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="logo-mark" loading="eager">
       <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
     </a>
     <nav class="site-nav" aria-label="Primary">
@@ -505,12 +505,25 @@ function buildTestPages() {
     <h3 class="chinese">\u60F3\u8981\u66F4\u7CFB\u7EDF\u5730\u5B66\u4E2D\u6587\uFF1F</h3>
     <p>Mandarin Zone \u2014 Learn Chinese in Beijing & Online since 2008</p>
     <a href="https://mandarinzone.com" target="_blank" rel="noopener" class="btn btn-primary">Visit Mandarin Zone</a>
+    <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="cta-link">Have questions? Contact us &rarr;</a>
   </div>
 </main>
 
 <footer>
-  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
-  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/writing/">Writing</a> \u00B7 <a href="/guide/">Study Guide</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <div class="footer-brand">
+    <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="footer-brand-link">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
+      <div>
+        <div class="footer-brand-name">Mandarin Zone</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online \u00b7 Since 2008</div>
+      </div>
+    </a>
+    <div class="footer-cta">
+      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
+      <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/writing/">Writing</a> \u00B7 <a href="/guide/">Study Guide</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>
 
 </body>
@@ -1601,7 +1614,7 @@ ${faqJsonLd}
 <header>
   <div class="header-inner">
     <a href="/" class="logo">
-      <div class="logo-mark chinese">MZ</div>
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="logo-mark" loading="eager">
       <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
     </a>
     <nav class="site-nav" aria-label="Primary">
@@ -1710,8 +1723,20 @@ ${faqJsonLd}
 </main>
 
 <footer>
-  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
-  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/topics/">Topics</a> \u00B7 <a href="/writing/">Writing</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <div class="footer-brand">
+    <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="footer-brand-link">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
+      <div>
+        <div class="footer-brand-name">Mandarin Zone</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online \u00b7 Since 2008</div>
+      </div>
+    </a>
+    <div class="footer-cta">
+      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
+      <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/topics/">Topics</a> \u00B7 <a href="/writing/">Writing</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>
 
 </body>
@@ -1914,7 +1939,7 @@ ${pairFaqJsonLd}
 
 <header>
   <div class="header-inner">
-    <a href="/" class="logo"><div class="logo-mark chinese">MZ</div><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
+    <a href="/" class="logo"><img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="logo-mark" loading="eager"><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
@@ -2003,8 +2028,20 @@ ${pairFaqHtml}
 </main>
 
 <footer>
-  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
-  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/sentences/">Sentences</a> \u00B7 <a href="/strategies/">Strategies</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <div class="footer-brand">
+    <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="footer-brand-link">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
+      <div>
+        <div class="footer-brand-name">Mandarin Zone</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online \u00b7 Since 2008</div>
+      </div>
+    </a>
+    <div class="footer-cta">
+      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
+      <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/sentences/">Sentences</a> \u00B7 <a href="/strategies/">Strategies</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>
 
 <script>
@@ -2252,7 +2289,7 @@ ${patFaqJsonLd}
 
 <header>
   <div class="header-inner">
-    <a href="/" class="logo"><div class="logo-mark chinese">MZ</div><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
+    <a href="/" class="logo"><img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="logo-mark" loading="eager"><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
@@ -2317,8 +2354,20 @@ ${patFaqHtml}
 </main>
 
 <footer>
-  <p>Made by <a href="https://mandarinzone.com" target="_blank" rel="noopener">Mandarin Zone</a> \u2014 Learn Chinese in Beijing & Online since 2008</p>
-  <p style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <div class="footer-brand">
+    <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="footer-brand-link">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
+      <div>
+        <div class="footer-brand-name">Mandarin Zone</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online \u00b7 Since 2008</div>
+      </div>
+    </a>
+    <div class="footer-cta">
+      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
+      <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>
 
 <script>
