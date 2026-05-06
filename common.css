@@ -29,7 +29,6 @@
   --shadow-lg: 0 8px 40px rgba(26,26,46,0.12);
 
   /* Spacing scale (4px base) */
-  --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
@@ -39,15 +38,16 @@
   --space-10: 40px;
   --space-12: 48px;
 
-  /* Fluid typography — mobile -> desktop */
-  --fs-xs: clamp(11px, 0.7rem + 0.1vw, 12px);
-  --fs-sm: clamp(12px, 0.75rem + 0.15vw, 13px);
-  --fs-base: clamp(14px, 0.85rem + 0.2vw, 15px);
-  --fs-md: clamp(15px, 0.9rem + 0.3vw, 17px);
-  --fs-lg: clamp(17px, 1rem + 0.4vw, 19px);
-  --fs-xl: clamp(20px, 1.2rem + 0.5vw, 22px);
-  --fs-2xl: clamp(22px, 1.3rem + 0.7vw, 26px);
-  --fs-h1: clamp(26px, 5vw, 40px);
+  /* Fluid typography — interpolates 320px viewport -> 1440px viewport.
+     Each token genuinely flows (2-6px gain), not stuck at one bound. */
+  --fs-xs:   clamp(11px, calc(0.69rem + 0.09vw), 12px);
+  --fs-sm:   clamp(12px, calc(0.71rem + 0.18vw), 14px);
+  --fs-base: clamp(14px, calc(0.84rem + 0.18vw), 16px);
+  --fs-md:   clamp(15px, calc(0.88rem + 0.27vw), 18px);
+  --fs-lg:   clamp(17px, calc(1rem + 0.27vw), 20px);
+  --fs-xl:   clamp(20px, calc(1.18rem + 0.36vw), 24px);
+  --fs-2xl:  clamp(22px, calc(1.27rem + 0.54vw), 28px);
+  --fs-h1:   clamp(26px, calc(1.375rem + 1.25vw), 40px);
 
   /* Layout */
   --container: 900px;
@@ -148,8 +148,11 @@ header {
 }
 .logo-text span { color: var(--accent); }
 
-/* Mobile: horizontal scrolling chip nav (Pinterest/RedNote pattern).
-   Primary IA stays visible — never hide nav behind a hamburger. */
+/* Mobile: horizontal scroll nav (Pinterest/RedNote pattern).
+   Primary IA stays visible — never hide nav behind a hamburger.
+   Last visible chip half-cuts at the viewport edge, which is itself the
+   "more content" affordance — no mask, no snap (snap feels jittery for
+   free-browse chip navs). */
 .site-nav {
   display: flex;
   align-items: center;
@@ -161,11 +164,7 @@ header {
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
   padding: 4px 0;
-  /* Edge fade hint that there's more nav off-screen */
-  mask-image: linear-gradient(to right, transparent 0, #000 12px, #000 calc(100% - 12px), transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12px, #000 calc(100% - 12px), transparent 100%);
 }
 .site-nav::-webkit-scrollbar { display: none; }
 
@@ -183,7 +182,6 @@ header {
   justify-content: center;
   gap: 6px;
   padding: 8px 4px;
-  scroll-snap-align: start;
   min-height: var(--tap);
 }
 .nav-link:hover, .gh-link:hover { opacity: 1; }
@@ -212,8 +210,6 @@ header {
     overflow: visible;
     flex: 0 1 auto;
     gap: var(--space-4);
-    mask-image: none;
-    -webkit-mask-image: none;
   }
   .nav-link, .gh-link { padding: 6px 2px; }
 }
@@ -260,7 +256,6 @@ main {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--space-3);
-  word-break: keep-all;
 }
 
 .hero h1 .accent { color: var(--accent); }

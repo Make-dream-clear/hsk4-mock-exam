@@ -271,15 +271,16 @@
     font-weight: 500;
   }
 
-  /* Chinese text needs higher minimum size for stroke clarity (e.g. 己/已/巳). */
+  /* Chinese text needs higher minimum size for stroke clarity (e.g. 己/已/巳).
+     overflow-wrap: break-word only kicks in for unbreakable strings, so
+     occasional English/pinyin glosses don't break mid-character. */
   .question-text {
     font-family: 'Noto Sans SC', sans-serif;
-    font-size: clamp(17px, 1rem + 0.4vw, 19px);
+    font-size: var(--fs-lg);
     line-height: 1.8;
     margin-bottom: var(--space-6);
     white-space: pre-wrap;
-    word-break: break-word;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
   }
 
   .audio-player { margin-bottom: var(--space-6); }
@@ -320,8 +321,7 @@
     font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
     line-height: 1.5;
     width: 100%;
-    word-break: break-word;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     -webkit-tap-highlight-color: transparent;
   }
   @media (min-width: 768px) {
@@ -372,30 +372,24 @@
   .option-btn.disabled { cursor: default; opacity: 0.7; }
   .option-btn.disabled.correct, .option-btn.disabled.wrong { opacity: 1; }
 
-  /* Nav buttons: stacked & full-width on phone, side-by-side on tablet+ */
+  /* Nav buttons: stacked & full-width on phone, side-by-side on tablet+.
+     Earlier draft made these sticky-bottom on mobile, but the behavior
+     was inconsistent (only kicked in on tall pages) and the negative-
+     margin breakout collided with safe-area-inset-left on landscape.
+     Natural flow is more predictable. */
   .nav-buttons {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    /* Sticky bottom CTA on phone makes Next/Prev always reachable */
-    position: sticky;
-    bottom: env(safe-area-inset-bottom);
-    background: linear-gradient(to top, var(--paper) 70%, rgba(250,248,245,0));
-    padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom));
-    margin: 0 calc(-1 * var(--space-4));
-    padding-left: var(--space-4);
-    padding-right: var(--space-4);
-    z-index: 40;
+    margin-top: var(--space-5);
+    padding-bottom: env(safe-area-inset-bottom);
   }
   .nav-buttons .btn { width: 100%; text-align: center; }
   @media (min-width: 768px) {
     .nav-buttons {
       flex-direction: row;
       justify-content: space-between;
-      position: static;
-      background: none;
-      padding: 0;
-      margin: 0;
+      padding-bottom: 0;
     }
     .nav-buttons .btn { width: auto; }
   }
@@ -502,6 +496,25 @@
     <div class="section-title">Choose a Test</div>
     <div id="test-grid" class="test-grid">
       <div class="loading"><div class="spinner"></div>
+    <noscript>
+    <div style="margin:20px 0;">
+      <h2 style="font-size:18px;margin-bottom:12px;">Available Tests:</h2>
+      <ul style="line-height:2;padding-left:20px;">
+      <li><a href="/test/01/">HSK 4 Mock Test 01 — Sample Quiz (100 questions)</a></li>
+      <li><a href="/test/02/">HSK 4 Mock Test 02 (100 questions)</a></li>
+      <li><a href="/test/03/">HSK 4 Mock Test 03 (H41002) (100 questions)</a></li>
+      <li><a href="/test/04/">HSK 4 Mock Test 04 (100 questions)</a></li>
+      <li><a href="/test/05/">HSK 4 Mock Test 05 (100 questions)</a></li>
+      <li><a href="/test/06/">HSK 4 Mock Test 06 (H41006) (100 questions)</a></li>
+      <li><a href="/test/07/">HSK 4 Mock Test 07 (H41007 partial) (76 questions)</a></li>
+      <li><a href="/test/08/">HSK 4 Mock Test 08 (H41008) (100 questions)</a></li>
+      <li><a href="/test/09/">HSK 4 Mock Test 09 (H41009) (100 questions)</a></li>
+      <li><a href="/test/10/">HSK 4 Mock Test 10 (H41010) (100 questions)</a></li>
+      <li><a href="/test/11/">HSK 4 Mock Test 11 (H41111) (100 questions)</a></li>
+      <li><a href="/test/12/">HSK 4 Mock Test 12 (100 questions)</a></li>
+      </ul>
+    </div>
+  </noscript>
     <noscript>
     <div style="margin:20px 0;">
       <h2 style="font-size:18px;margin-bottom:12px;">Available Tests:</h2>
