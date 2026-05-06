@@ -299,7 +299,7 @@ function buildTestPages() {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${escHtml(pageTitle)}</title>
 <meta name="description" content="${escHtml(pageDesc)}">
 <link rel="canonical" href="https://hsk4.mandarinzone.com/test/${num}/">
@@ -422,7 +422,7 @@ function buildTestPages() {
       <div class="logo-mark chinese">MZ</div>
       <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
     </a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
@@ -1541,7 +1541,7 @@ function buildTaskTopicPages() {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${escHtml(pageTitle)}</title>
 <meta name="description" content="${escHtml(pageDesc)}">
 <link rel="canonical" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
@@ -1604,7 +1604,7 @@ ${faqJsonLd}
       <div class="logo-mark chinese">MZ</div>
       <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
     </a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
@@ -1833,7 +1833,7 @@ function buildConfusablePages() {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${escHtml(pageTitle)}</title>
 <meta name="description" content="${escHtml(pageDesc)}">
 <link rel="canonical" href="https://hsk4.mandarinzone.com/words/${pair.slug}/">
@@ -1915,7 +1915,7 @@ ${pairFaqJsonLd}
 <header>
   <div class="header-inner">
     <a href="/" class="logo"><div class="logo-mark chinese">MZ</div><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
@@ -2169,7 +2169,7 @@ function buildGrammarPatternPages() {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${escHtml(pageTitle)}</title>
 <meta name="description" content="${escHtml(pageDesc)}">
 <link rel="canonical" href="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
@@ -2253,7 +2253,7 @@ ${patFaqJsonLd}
 <header>
   <div class="header-inner">
     <a href="/" class="logo"><div class="logo-mark chinese">MZ</div><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
