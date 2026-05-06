@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HSK 4 Mock Exam — Free Practice Tests | Mandarin Zone</title>
 <meta name="description" content="Free HSK 4 practice tests: 12 mock exams, 1,176 questions with answer keys. Listening, reading, writing. By Mandarin Zone.">
 <link rel="canonical" href="https://hsk4.mandarinzone.com/">
@@ -102,198 +102,196 @@
   .screen.active { display: block; }
 
   /* === PAGE OVERRIDES === */
-  .hero h1 {
-    font-size: clamp(28px, 5vw, 42px);
-    letter-spacing: -0.5px;
-  }
+  .hero h1 { letter-spacing: -0.5px; }
+  .hero p { max-width: 520px; }
 
-  .hero p {
-    max-width: 520px;
-  }
-
-  .btn {
-    padding: 12px 28px;
-    font-size: 15px;
-  }
-
-  .cta-banner {
-    padding: 32px;
-    margin: 40px 0;
-  }
-
-  .cta-banner .btn-primary {
-    background: var(--accent);
-  }
-
+  .cta-banner .btn-primary { background: var(--accent); }
   .cta-link {
     color: var(--paper);
     opacity: 0.5;
-    font-size: 13px;
+    font-size: var(--fs-sm);
     display: block;
-    margin-top: 12px;
+    margin-top: var(--space-3);
   }
 
-  /* === TEST GRID === */
+  /* === TEST GRID — mobile first === */
   .test-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 12px;
-    margin-bottom: 48px;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin-bottom: var(--space-10);
+  }
+  @media (min-width: 480px) {
+    .test-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .test-grid { gap: var(--space-3); margin-bottom: var(--space-12); }
   }
 
   .test-card {
     background: white;
     border: 1px solid var(--mist);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: var(--space-5);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
     position: relative;
     overflow: hidden;
+    min-height: var(--tap);
   }
-
   .test-card:hover {
     border-color: var(--accent);
     box-shadow: var(--shadow);
     transform: translateY(-2px);
   }
-
+  .test-card:active { transform: translateY(0); }
   .test-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
     background: var(--accent);
     opacity: 0;
     transition: opacity 0.2s;
   }
-
-  .test-card:hover::before { opacity: 1; }
+  .test-card:hover::before, .test-card:focus-within::before { opacity: 1; }
 
   .test-card-num {
-    font-size: 12px;
+    font-size: var(--fs-xs);
     font-weight: 600;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 6px;
   }
-
   .test-card-title {
     font-weight: 600;
-    font-size: 15px;
-    margin-bottom: 8px;
+    font-size: var(--fs-base);
+    margin-bottom: var(--space-2);
     line-height: 1.3;
   }
-
   .test-card-meta {
-    font-size: 13px;
+    font-size: var(--fs-sm);
     color: var(--stone);
     display: flex;
-    gap: 12px;
+    gap: var(--space-3);
+    flex-wrap: wrap;
   }
 
-  /* === QUIZ === */
+  /* === QUIZ HEADER ===
+     On mobile, sticks just under the site header so progress stays visible
+     while scrolling through long questions. */
   .quiz-header {
     background: white;
     border: 1px solid var(--mist);
     border-radius: var(--radius);
-    padding: 16px 20px;
-    margin-bottom: 20px;
+    padding: var(--space-3) var(--space-4);
+    margin-bottom: var(--space-4);
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: var(--space-3);
+    position: sticky;
+    top: calc(var(--header-h) + env(safe-area-inset-top));
+    z-index: 50;
+  }
+  @media (min-width: 768px) {
+    .quiz-header { padding: var(--space-4) var(--space-5); margin-bottom: var(--space-5); }
   }
 
   .quiz-title {
     font-weight: 600;
-    font-size: 15px;
+    font-size: var(--fs-base);
   }
-
   .quiz-progress {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--space-3);
+    flex: 1 1 auto;
+    justify-content: flex-end;
   }
-
   .progress-bar {
-    width: 120px;
+    width: 100%;
+    max-width: 160px;
+    min-width: 80px;
     height: 6px;
     background: var(--mist);
     border-radius: 3px;
     overflow: hidden;
+    flex: 1 1 auto;
   }
-
   .progress-fill {
     height: 100%;
     background: var(--accent);
     border-radius: 3px;
     transition: width 0.3s ease;
   }
-
   .progress-text {
-    font-size: 13px;
+    font-size: var(--fs-sm);
     color: var(--stone);
     font-weight: 500;
-    min-width: 60px;
+    min-width: 56px;
     text-align: right;
+    flex-shrink: 0;
   }
 
+  /* === QUESTION CARD ===
+     Tighter padding on phone — every horizontal pixel matters when reading
+     long Chinese passages. */
   .question-card {
     background: white;
     border: 1px solid var(--mist);
     border-radius: var(--radius);
-    padding: 32px;
+    padding: var(--space-5);
     box-shadow: var(--shadow);
-    margin-bottom: 20px;
+    margin-bottom: var(--space-5);
   }
+  @media (min-width: 480px) { .question-card { padding: var(--space-6); } }
+  @media (min-width: 768px) { .question-card { padding: var(--space-8); } }
 
   .question-type-badge {
     display: inline-block;
-    font-size: 11px;
+    font-size: var(--fs-xs);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     padding: 4px 10px;
     border-radius: 6px;
-    margin-bottom: 16px;
+    margin-bottom: var(--space-4);
   }
-
   .badge-listening { background: var(--gold-soft); color: var(--gold); }
   .badge-reading { background: var(--jade-soft); color: var(--jade); }
   .badge-writing { background: var(--accent-soft); color: var(--accent); }
 
   .question-number {
-    font-size: 13px;
+    font-size: var(--fs-sm);
     color: var(--stone);
-    margin-bottom: 12px;
+    margin-bottom: var(--space-3);
     font-weight: 500;
   }
 
+  /* Chinese text needs higher minimum size for stroke clarity (e.g. 己/已/巳).
+     overflow-wrap: break-word only kicks in for unbreakable strings, so
+     occasional English/pinyin glosses don't break mid-character. */
   .question-text {
     font-family: 'Noto Sans SC', sans-serif;
-    font-size: 18px;
+    font-size: var(--fs-lg);
     line-height: 1.8;
-    margin-bottom: 24px;
+    margin-bottom: var(--space-6);
     white-space: pre-wrap;
+    overflow-wrap: break-word;
   }
 
-  .audio-player {
-    margin-bottom: 24px;
-  }
-
+  .audio-player { margin-bottom: var(--space-6); }
   .audio-player audio {
     width: 100%;
-    height: 44px;
-    border-radius: 8px;
+    min-height: 44px;
+    border-radius: var(--radius-sm);
+    display: block;
   }
-
   .audio-note {
-    font-size: 12px;
+    font-size: var(--fs-xs);
     color: var(--stone);
     margin-top: 6px;
     font-style: italic;
@@ -302,31 +300,37 @@
   .options-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-2);
   }
+  @media (min-width: 480px) { .options-list { gap: 10px; } }
 
+  /* Option button: minimum 44px touch target, 16px+ Chinese for clarity. */
   .option-btn {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding: 14px 18px;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    min-height: var(--tap);
     border: 2px solid var(--mist);
     border-radius: 10px;
     background: white;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: border-color 0.15s, background 0.15s;
     text-align: left;
-    font-size: 16px;
+    font-size: clamp(15px, 0.9rem + 0.3vw, 16px);
     font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
     line-height: 1.5;
     width: 100%;
+    overflow-wrap: break-word;
+    -webkit-tap-highlight-color: transparent;
   }
-
+  @media (min-width: 768px) {
+    .option-btn { padding: 14px 18px; }
+  }
   .option-btn:hover:not(.disabled) {
     border-color: var(--accent);
     background: #fdf8f7;
   }
-
   .option-btn .marker {
     width: 28px;
     height: 28px;
@@ -336,58 +340,57 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--stone);
-    transition: all 0.15s;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
     margin-top: 1px;
+    flex-shrink: 0;
   }
-
   .option-btn:hover:not(.disabled) .marker {
     border-color: var(--accent);
     color: var(--accent);
   }
-
-  .option-btn.selected {
-    border-color: var(--accent);
-    background: #fdf8f7;
-  }
-
+  .option-btn.selected { border-color: var(--accent); background: #fdf8f7; }
   .option-btn.selected .marker {
     background: var(--accent);
     border-color: var(--accent);
     color: white;
   }
-
-  .option-btn.correct {
-    border-color: var(--correct);
-    background: #f0faf4;
-  }
-
+  .option-btn.correct { border-color: var(--correct); background: #f0faf4; }
   .option-btn.correct .marker {
     background: var(--correct);
     border-color: var(--correct);
     color: white;
   }
-
-  .option-btn.wrong {
-    border-color: var(--wrong);
-    background: #fef2f0;
-  }
-
+  .option-btn.wrong { border-color: var(--wrong); background: #fef2f0; }
   .option-btn.wrong .marker {
     background: var(--wrong);
     border-color: var(--wrong);
     color: white;
   }
-
   .option-btn.disabled { cursor: default; opacity: 0.7; }
   .option-btn.disabled.correct, .option-btn.disabled.wrong { opacity: 1; }
 
+  /* Nav buttons: stacked & full-width on phone, side-by-side on tablet+.
+     Earlier draft made these sticky-bottom on mobile, but the behavior
+     was inconsistent (only kicked in on tall pages) and the negative-
+     margin breakout collided with safe-area-inset-left on landscape.
+     Natural flow is more predictable. footer handles bottom safe-area —
+     no need to double-pad here. */
   .nav-buttons {
     display: flex;
-    justify-content: space-between;
-    gap: 12px;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+  .nav-buttons .btn { width: 100%; text-align: center; }
+  @media (min-width: 768px) {
+    .nav-buttons {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .nav-buttons .btn { width: auto; }
   }
 
   /* === RESULTS === */
@@ -395,82 +398,58 @@
     background: white;
     border: 1px solid var(--mist);
     border-radius: var(--radius);
-    padding: 40px;
+    padding: var(--space-6);
     text-align: center;
     box-shadow: var(--shadow-lg);
-    margin-bottom: 24px;
+    margin-bottom: var(--space-6);
   }
+  @media (min-width: 768px) { .results-card { padding: var(--space-10); } }
 
   .score-circle {
-    width: 140px;
-    height: 140px;
+    width: clamp(120px, 30vw, 140px);
+    height: clamp(120px, 30vw, 140px);
     border-radius: 50%;
     border: 6px solid var(--mist);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 24px;
+    margin: 0 auto var(--space-6);
     position: relative;
   }
-
   .score-circle.pass { border-color: var(--correct); }
   .score-circle.fail { border-color: var(--wrong); }
 
-  .score-num {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1;
-  }
+  .score-num { font-size: clamp(30px, 7vw, 36px); font-weight: 700; line-height: 1; }
+  .score-label { font-size: var(--fs-sm); color: var(--stone); margin-top: 4px; }
 
-  .score-label {
-    font-size: 13px;
-    color: var(--stone);
-    margin-top: 4px;
-  }
-
-  .results-msg {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  .results-detail {
-    color: var(--stone);
-    font-size: 15px;
-    margin-bottom: 28px;
-  }
+  .results-msg { font-size: var(--fs-lg); font-weight: 600; margin-bottom: var(--space-2); }
+  .results-detail { color: var(--stone); font-size: var(--fs-base); margin-bottom: var(--space-6); }
 
   .results-breakdown {
     display: flex;
     justify-content: center;
-    gap: 32px;
-    margin-bottom: 32px;
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
     flex-wrap: wrap;
   }
-
-  .breakdown-item {
-    text-align: center;
-  }
-
-  .breakdown-num { font-size: 24px; font-weight: 700; }
+  @media (min-width: 768px) { .results-breakdown { gap: var(--space-8); } }
+  .breakdown-item { text-align: center; min-width: 64px; }
+  .breakdown-num { font-size: var(--fs-2xl); font-weight: 700; }
   .breakdown-num.green { color: var(--correct); }
   .breakdown-num.red { color: var(--wrong); }
-  .breakdown-label { font-size: 12px; color: var(--stone); text-transform: uppercase; letter-spacing: 0.5px; }
+  .breakdown-label { font-size: var(--fs-xs); color: var(--stone); text-transform: uppercase; letter-spacing: 0.5px; }
 
   .results-actions {
     display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: stretch;
   }
-
-  /* === RESPONSIVE === */
-  @media (max-width: 600px) {
-    .question-card { padding: 20px; }
-    .results-breakdown { gap: 20px; }
-    .nav-buttons { flex-direction: column; }
-    .nav-buttons .btn { width: 100%; text-align: center; }
+  .results-actions .btn { width: 100%; }
+  @media (min-width: 480px) {
+    .results-actions { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+    .results-actions .btn { width: auto; }
   }
 </style>
 </head>
@@ -482,7 +461,7 @@
       <div class="logo-mark chinese">MZ</div>
       <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
     </a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary">
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HSK 4 Strategies — Test-Taking Tips for All 7 Question Types | Mock Exam</title>
 <meta name="description" content="HSK 4 strategy guide: listening (T/F, dialog, passage), reading (fill-blank, ordering, comprehension), writing tips. Score-boosting tactics + practice.">
 <meta name="keywords" content="HSK 4 strategy, HSK 4 tips, HSK 4 test taking, HSK4 应试, HSK 4 listening, HSK 4 reading, HSK 4 writing">
@@ -98,17 +98,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/common.css">
 <style>
-  .strategy-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:18px; margin:24px 0; }
-  .strategy-card { background:white; border:1px solid var(--mist); border-radius:var(--radius); padding:22px 24px; text-decoration:none; color:var(--ink); transition:all 0.15s; display:block; }
-  .strategy-card:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.06); }
-  .card-section { display:inline-block; background:var(--paper); color:var(--stone); font-size:11px; font-weight:600; padding:3px 10px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; }
-  .strategy-card h3 { font-family:'Noto Serif SC',serif; font-size:18px; font-weight:700; margin-bottom:8px; color:var(--ink); }
-  .strategy-card .chinese { color:var(--accent); }
-  .card-range { font-size:12px; color:var(--stone); margin-bottom:8px; }
-  .card-subtitle { font-size:14px; color:var(--ink); line-height:1.6; margin-bottom:12px; }
-  .card-cta { font-size:13px; color:var(--accent); font-weight:600; }
-  .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
-  .breadcrumb a { color:var(--accent); text-decoration:none; }
+  /* Page-specific overrides on top of common.css .card-grid + .content-card */
+  .card-section { display:inline-block; background:var(--paper); color:var(--stone); font-size:var(--fs-xs); font-weight:600; padding:3px 10px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; }
+  .content-card h3 { font-family:'Noto Serif SC',serif; font-size:var(--fs-md); font-weight:700; margin-bottom:8px; color:var(--ink); }
+  .content-card .chinese { color:var(--accent); }
+  .card-range { font-size:var(--fs-xs); color:var(--stone); margin-bottom:8px; }
+  .card-subtitle { font-size:var(--fs-base); color:var(--ink); line-height:1.6; margin-bottom:12px; }
+  .card-cta { font-size:var(--fs-sm); color:var(--accent); font-weight:600; }
   .why-box { background:var(--gold-soft); border-radius:var(--radius); padding:20px 24px; margin:24px 0; }
 </style>
 </head>
@@ -119,7 +115,7 @@
       <div class="logo-mark chinese">MZ</div>
       <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
     </a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
@@ -154,64 +150,64 @@
 
   <h2>Browse HSK 4 Strategies by Section / 按题型浏览</h2>
 
-  <div class="strategy-grid">
-    <a href="/strategies/listening-judgment/" class="strategy-card">
+  <div class="card-grid">
+    <a href="/strategies/listening-judgment/" class="content-card">
       <div class="card-section">Listening Part 1 / 听力第一部分</div>
       <h3>True/False / <span class="chinese">判断对错</span></h3>
       <p class="card-range">Q1-10 · 10 short statements, played once</p>
       <p class="card-subtitle">Catch the keyword shift in 8 seconds — the highest-yield 10 marks of HSK 4</p>
       <span class="card-cta">Read strategy &rarr;</span>
     </a>
-    <a href="/strategies/listening-dialog/" class="strategy-card">
+    <a href="/strategies/listening-dialog/" class="content-card">
       <div class="card-section">Listening Part 2 / 听力第二部分</div>
       <h3>Short Dialogues / <span class="chinese">短对话</span></h3>
       <p class="card-range">Q11-25 · 15 two-line dialogues, played once</p>
       <p class="card-subtitle">The third line is the question — predict it from the options</p>
       <span class="card-cta">Read strategy &rarr;</span>
     </a>
-    <a href="/strategies/listening-passage/" class="strategy-card">
+    <a href="/strategies/listening-passage/" class="content-card">
       <div class="card-section">Listening Part 3 / 听力第三部分</div>
       <h3>Long Dialogues &amp; Monologues / <span class="chinese">长对话和段落</span></h3>
       <p class="card-range">Q26-45 · 20 questions on long dialogues and monologue passages</p>
       <p class="card-subtitle">Two questions per passage — main idea + detail. Manage your eyes and ears separately</p>
       <span class="card-cta">Read strategy &rarr;</span>
     </a>
-    <a href="/strategies/reading-fill/" class="strategy-card">
+    <a href="/strategies/reading-fill/" class="content-card">
       <div class="card-section">Reading Part 1 / 阅读第一部分</div>
       <h3>Word Selection / <span class="chinese">选词填空</span></h3>
       <p class="card-range">Q46-55 · 10 questions, 6 word options shared across each set of 5</p>
       <p class="card-subtitle">Three-step decision: word class → collocation → meaning context</p>
       <span class="card-cta">Read strategy &rarr;</span>
     </a>
-    <a href="/strategies/reading-ordering/" class="strategy-card">
+    <a href="/strategies/reading-ordering/" class="content-card">
       <div class="card-section">Reading Part 2 / 阅读第二部分</div>
       <h3>Sentence Ordering / <span class="chinese">排序</span></h3>
       <p class="card-range">Q56-65 · 10 questions, 3 sentences per question to be ordered as ABC</p>
       <p class="card-subtitle">Find the first sentence in 5 seconds — connectors do the rest</p>
       <span class="card-cta">Read strategy &rarr;</span>
     </a>
-    <a href="/strategies/reading-comprehension/" class="strategy-card">
+    <a href="/strategies/reading-comprehension/" class="content-card">
       <div class="card-section">Reading Part 3 / 阅读第三部分</div>
       <h3>Reading Comprehension / <span class="chinese">阅读理解</span></h3>
       <p class="card-range">Q66-85 · 20 questions on short passages (some passages have 2 questions)</p>
       <p class="card-subtitle">Read the question first, then hunt for the answer location</p>
       <span class="card-cta">Read strategy &rarr;</span>
     </a>
-    <a href="/strategies/writing-construction/" class="strategy-card">
+    <a href="/strategies/writing-construction/" class="content-card">
       <div class="card-section">Writing Part 1 / 书写第一部分</div>
       <h3>Sentence Construction / <span class="chinese">排词成句</span></h3>
       <p class="card-range">Q86-95 · 10 questions, each gives 4-6 words to arrange into a sentence</p>
       <p class="card-subtitle">Find the verb first — Chinese SVO is a fixed skeleton</p>
       <span class="card-cta">Read strategy &rarr;</span>
     </a>
-    <a href="/strategies/picture-templates/" class="strategy-card">
+    <a href="/strategies/picture-templates/" class="content-card">
       <div class="card-section">Writing Part 2 / 书写第二部分</div>
       <h3>Picture + Word Composition / <span class="chinese">看图造句</span></h3>
       <p class="card-range">Q96-100 · 5 questions, each with one picture + one HSK 4 keyword</p>
       <p class="card-subtitle">Five universal sentence templates that work for 90% of HSK 4 picture prompts</p>
       <span class="card-cta">Read strategy &rarr;</span>
     </a>
-    <a href="/strategies/listening-keywords/" class="strategy-card">
+    <a href="/strategies/listening-keywords/" class="content-card">
       <div class="card-section">All Listening Sections / 听力全部分</div>
       <h3>High-Frequency Signal Words / <span class="chinese">高频信号词</span></h3>
       <p class="card-range">Q1-45 · Strategic vocabulary that decodes meaning before you hear it</p>
@@ -231,38 +227,38 @@
 
   <h2>Strategy + Vocabulary + Grammar = HSK 4 Success</h2>
   <p>Strategies amplify what you already know. Pair these guides with:</p>
-  <div class="strategy-grid" style="grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));">
-    <a href="/sentences/" class="strategy-card">
+  <div class="card-grid" style="grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));">
+    <a href="/sentences/" class="content-card">
       <div class="card-section">Sentences</div>
       <h3>100 HSK 4 Essential Sentences</h3>
       <p class="card-subtitle">High-frequency HSK 4 patterns by 10 functions: opinion, contrast, comparison, time.</p>
       <span class="card-cta">Browse sentences &rarr;</span>
     </a>
-    <a href="/vocabulary/" class="strategy-card">
+    <a href="/vocabulary/" class="content-card">
       <div class="card-section">Vocabulary</div>
       <h3>1000 HSK 4 Words</h3>
       <p class="card-subtitle">With pinyin, examples, and topic categorization.</p>
       <span class="card-cta">Browse vocabulary &rarr;</span>
     </a>
-    <a href="/grammar/" class="strategy-card">
+    <a href="/grammar/" class="content-card">
       <div class="card-section">Grammar</div>
       <h3>HSK 4 Grammar Patterns</h3>
       <p class="card-subtitle">把字句, 被字句, 比较句, complements, complex sentences, measure words.</p>
       <span class="card-cta">Browse grammar &rarr;</span>
     </a>
-    <a href="/grammar/measure-words/" class="strategy-card">
+    <a href="/grammar/measure-words/" class="content-card">
       <div class="card-section">Measure Words</div>
       <h3>HSK 4 Measure Words (量词)</h3>
       <p class="card-subtitle">8 new MW (打/袋/棵/台/幅/场/顿/趟) frequently tested in HSK 4 fill-blank.</p>
       <span class="card-cta">Browse measure words &rarr;</span>
     </a>
-    <a href="/words/" class="strategy-card">
+    <a href="/words/" class="content-card">
       <div class="card-section">Confusables</div>
       <h3>43 HSK 4 Confusable Pairs</h3>
       <p class="card-subtitle">才/就, 被/让/叫, 关于/对于, and other distinctions HSK 4 frequently tests.</p>
       <span class="card-cta">Browse confusables &rarr;</span>
     </a>
-    <a href="/" class="strategy-card">
+    <a href="/" class="content-card">
       <div class="card-section">Practice</div>
       <h3>12 Free HSK 4 Mock Exams</h3>
       <p class="card-subtitle">1175+ questions in real HSK 4 format with answer keys.</p>
