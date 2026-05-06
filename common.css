@@ -39,15 +39,17 @@
   --space-12: 48px;
 
   /* Fluid typography — interpolates 320px viewport -> 1440px viewport.
-     Each token genuinely flows (2-6px gain), not stuck at one bound. */
-  --fs-xs:   clamp(11px, calc(0.69rem + 0.09vw), 12px);
-  --fs-sm:   clamp(12px, calc(0.71rem + 0.18vw), 14px);
-  --fs-base: clamp(14px, calc(0.84rem + 0.18vw), 16px);
-  --fs-md:   clamp(15px, calc(0.88rem + 0.27vw), 18px);
-  --fs-lg:   clamp(17px, calc(1rem + 0.27vw), 20px);
-  --fs-xl:   clamp(20px, calc(1.18rem + 0.36vw), 24px);
-  --fs-2xl:  clamp(22px, calc(1.27rem + 0.54vw), 28px);
-  --fs-h1:   clamp(26px, calc(1.375rem + 1.25vw), 40px);
+     Each token genuinely flows (2-6px gain), not stuck at one bound.
+     All bounds in rem so users with non-default browser font-size get
+     scaled values (WCAG 1.4.4 / SC Resize text). */
+  --fs-xs:   clamp(0.6875rem, calc(0.69rem + 0.09vw), 0.75rem);
+  --fs-sm:   clamp(0.75rem,   calc(0.71rem + 0.18vw), 0.875rem);
+  --fs-base: clamp(0.875rem,  calc(0.84rem + 0.18vw), 1rem);
+  --fs-md:   clamp(0.9375rem, calc(0.88rem + 0.27vw), 1.125rem);
+  --fs-lg:   clamp(1.0625rem, calc(1rem + 0.27vw),    1.25rem);
+  --fs-xl:   clamp(1.25rem,   calc(1.18rem + 0.36vw), 1.5rem);
+  --fs-2xl:  clamp(1.375rem,  calc(1.27rem + 0.54vw), 1.75rem);
+  --fs-h1:   clamp(1.625rem,  calc(1.375rem + 1.25vw), 2.5rem);
 
   /* Layout */
   --container: 900px;
@@ -87,10 +89,13 @@ img, svg, video { max-width: 100%; height: auto; }
   outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
-/* Solid red ring is invisible on red buttons and on the dark ink header.
-   Switch to a paper-coloured ring against those backgrounds. */
+/* Red buttons sit on the paper page background. A red ring on a red
+   button is invisible; a paper ring would melt into the page. Use ink. */
 .btn-primary:focus-visible,
-.btn-jade:focus-visible,
+.btn-jade:focus-visible {
+  outline-color: var(--ink);
+}
+/* Dark ink header needs a light ring to contrast. */
 header :focus-visible {
   outline-color: var(--paper);
 }
@@ -164,7 +169,9 @@ header {
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
-  padding: 4px 0;
+  /* 6px vertical padding gives clearance for the 3+2px focus outline
+     on .nav-link, which would otherwise be clipped by overflow-y: hidden. */
+  padding: 6px 0;
 }
 .site-nav::-webkit-scrollbar { display: none; }
 
@@ -423,6 +430,8 @@ footer a:hover { text-decoration: underline; }
   text-decoration: none;
   color: var(--ink);
   display: block;
+  /* If a future variant animates color or background, add them here —
+     the explicit list (vs `transition: all`) avoids animating layout. */
   transition: transform 0.15s, border-color 0.15s, box-shadow 0.2s;
 }
 .content-card:hover {

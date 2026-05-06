@@ -376,20 +376,19 @@
      Earlier draft made these sticky-bottom on mobile, but the behavior
      was inconsistent (only kicked in on tall pages) and the negative-
      margin breakout collided with safe-area-inset-left on landscape.
-     Natural flow is more predictable. */
+     Natural flow is more predictable. footer handles bottom safe-area —
+     no need to double-pad here. */
   .nav-buttons {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
     margin-top: var(--space-5);
-    padding-bottom: env(safe-area-inset-bottom);
   }
   .nav-buttons .btn { width: 100%; text-align: center; }
   @media (min-width: 768px) {
     .nav-buttons {
       flex-direction: row;
       justify-content: space-between;
-      padding-bottom: 0;
     }
     .nav-buttons .btn { width: auto; }
   }
