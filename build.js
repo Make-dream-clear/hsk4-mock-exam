@@ -274,9 +274,13 @@ function buildTestPages() {
     // Standardized HSK 4 mock test title across all 12 tests
     const shortTitle = `HSK 4 Mock Test ${num}`;
     const pageTitle = `${shortTitle} \u2014 ${meta.questions} Free Questions | HSK4 \u6A21\u62DF\u8BD5\u5377 ${num}`;
+    // CTR-oriented copy: action verb ("Take") up front, "free" prominent,
+    // concrete numbers, trust closer ("Mandarin Zone Beijing"). Targets
+    // 130-155 chars to fill the SERP snippet without being clipped.
+    const totalQ = listeningCount + readingCount + writingCount;
     const pageDesc = truncDesc(isComplete
-      ? `Free HSK 4 practice test #${num}: ${listeningCount} listening, ${readingCount} reading, ${writingCount} writing questions with answer keys.`
-      : `Free HSK 4 practice test #${num}: ${listeningCount} listening + ${readingCount} reading questions. Auto-scored with answer keys.`);
+      ? `Take HSK 4 mock test #${num} free — ${totalQ} questions (${listeningCount} listening + ${readingCount} reading + ${writingCount} writing), auto-scored with full answer keys. 2026 syllabus, by Mandarin Zone.`
+      : `Take HSK 4 mock test #${num} free — ${totalQ} questions (${listeningCount} listening + ${readingCount} reading), auto-scored with full answer keys. 2026 syllabus, by Mandarin Zone Beijing.`);
 
     // Extract sample reading passages for this test (unique content per page)
     const readingQs = test.questions.filter(q => q.text && q.text.length > 50);
@@ -1924,7 +1928,11 @@ function buildConfusablePages() {
     const nextPair = pi < pairs.length - 1 ? pairs[pi + 1] : null;
 
     const pageTitle = `${pair.wordA} vs ${pair.wordB} \u2014 HSK 4 Confusable Words | ${pair.wordA}\u548C${pair.wordB}\u7684\u533A\u522B`;
-    const pageDesc = truncDesc(`${pair.wordA} vs ${pair.wordB}: ${pair.subtitle}. Comparison, examples, and quiz for HSK 4.`);
+    // CTR-oriented copy: action verb "Master" up front, named pain point
+    // ("real mock exams", "common mistakes to avoid"), concrete payoff
+    // ("interactive quiz"). Subtitle length varies so truncDesc clips the
+    // long-tail cases without losing the headline.
+    const pageDesc = truncDesc(`Master ${pair.wordA} vs ${pair.wordB} on HSK 4 — ${pair.subtitle}. Side-by-side examples from real mock exams, common mistakes to avoid, and an interactive quiz.`);
 
     const pageHtml = `<!DOCTYPE html>
 <html lang="en">
