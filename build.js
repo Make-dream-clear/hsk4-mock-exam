@@ -429,6 +429,7 @@ function buildTestPages() {
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
@@ -812,7 +813,7 @@ ${testLinks}
 // 4. UPDATE SITEMAP with test pages
 // ============================================================
 
-function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
+function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList) {
   console.log('[sitemap] Updating sitemap.xml...');
   const index = readJSON('index.json');
   const today = new Date().toISOString().split('T')[0];
@@ -820,6 +821,7 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
   const existingPages = [
     { loc: '/', priority: '1.0' },
     { loc: '/vocabulary/', priority: '0.9' },
+    { loc: '/characters/', priority: '0.9' },
     { loc: '/grammar/', priority: '0.8' },
     { loc: '/topics/', priority: '0.9' },
     { loc: '/guide/', priority: '0.8' },
@@ -878,7 +880,13 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs) {
     priority: '0.7',
   }));
 
-  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages];
+  // Add character writing pages
+  const characterPages = (characterList || []).map(ch => ({
+    loc: `/characters/${encodeURIComponent(ch)}/`,
+    priority: '0.7',
+  }));
+
+  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages, ...characterPages];
 
   const urls = allPages.map(p => `  <url>
     <loc>https://hsk4.mandarinzone.com${p.loc}</loc>
@@ -1696,6 +1704,7 @@ ${faqJsonLd}
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
@@ -2023,6 +2032,7 @@ ${pairFaqJsonLd}
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
@@ -2373,6 +2383,7 @@ ${patFaqJsonLd}
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
       <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
@@ -2541,6 +2552,392 @@ function addTestLinksToHubs() {
 }
 
 // ============================================================
+// 14. CHARACTER WRITING PRACTICE (/characters/ + /characters/{字}/)
+// ============================================================
+
+function buildCharacterPages() {
+  console.log('[characters] Generating HSK 4 character writing pages...');
+  const chars = readJSON('hsk4-characters.json');
+  const vocab = readJSON('vocabulary.json');
+
+  // Reverse index: each hanzi -> words from vocabulary.json that contain it
+  const charToWords = {};
+  vocab.forEach(w => {
+    if (!w.word) return;
+    const seen = new Set();
+    for (const ch of w.word) {
+      if (seen.has(ch)) continue;
+      seen.add(ch);
+      if (!charToWords[ch]) charToWords[ch] = [];
+      charToWords[ch].push(w);
+    }
+  });
+
+  const charsDir = path.join(ROOT, 'characters');
+  ensureDir(charsDir);
+
+  // Shared header/footer renderer (avoids duplicating nav across pages)
+  const renderNav = (active) => `
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="logo-mark" loading="eager">
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/" class="nav-link${active==='home'?' is-active':''}">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link${active==='vocab'?' is-active':''}">Vocabulary</a>
+      <a href="/characters/" class="nav-link${active==='characters'?' is-active':''}">Characters</a>
+      <a href="/grammar/" class="nav-link${active==='grammar'?' is-active':''}">Grammar</a>
+      <a href="/sentences/" class="nav-link${active==='sentences'?' is-active':''}">Sentences</a>
+      <a href="/topics/" class="nav-link${active==='topics'?' is-active':''}">Topics</a>
+      <a href="/writing/" class="nav-link${active==='writing'?' is-active':''}">Writing</a>
+      <a href="/words/" class="nav-link${active==='words'?' is-active':''}">Words</a>
+      <a href="/guide/" class="nav-link${active==='guide'?' is-active':''}">Guide</a>
+    </nav>
+  </div>
+</header>`;
+
+  const renderFooter = () => `
+<footer>
+  <div class="footer-brand">
+    <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="footer-brand-link">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
+      <div>
+        <div class="footer-brand-name">Mandarin Zone</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online · Since 2008</div>
+      </div>
+    </a>
+    <div class="footer-cta">
+      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
+      <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/characters/">Characters</a> · <a href="/grammar/">Grammar</a> · <a href="/writing/">Writing</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</footer>`;
+
+  // ---- Hub page: /characters/index.html ----
+  const gridHtml = chars.map((c, i) => `
+    <a class="char-card" href="/characters/${encodeURIComponent(c.char)}/" data-char="${escHtml(c.char)}" data-pinyin="${escHtml(c.pinyin)}" data-idx="${i}">
+      <span class="char-glyph chinese">${escHtml(c.char)}</span>
+      <span class="char-pinyin">${escHtml(c.pinyin)}</span>
+    </a>`).join('');
+
+  const hubTitle = `HSK 4 Required Characters — Stroke Order & Writing Practice | HSK 4 必写汉字`;
+  const hubDesc = `Learn to write all ${chars.length} HSK 4 required characters with animated stroke order and interactive handwriting practice. Free, by Mandarin Zone Beijing.`;
+
+  const hubHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${escHtml(hubTitle)}</title>
+<meta name="description" content="${escHtml(hubDesc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/characters/">
+<meta property="og:title" content="${escHtml(hubTitle)}">
+<meta property="og:description" content="${escHtml(hubDesc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/characters/">
+<meta property="og:site_name" content="Mandarin Zone">
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/characters/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/characters/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "HSK 4 Required Characters",
+  "description": "${escHtml(hubDesc)}",
+  "url": "https://hsk4.mandarinzone.com/characters/",
+  "inLanguage": ["en", "zh-CN"],
+  "isAccessibleForFree": true,
+  "about": { "@type": "Thing", "name": "HSK 4 Chinese characters writing" },
+  "numberOfItems": ${chars.length}
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+</head>
+<body>
+${renderNav('characters')}
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; Characters
+  </nav>
+
+  <section style="margin:24px 0 8px;">
+    <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(24px,4vw,34px);margin-bottom:8px;">HSK 4 Required Characters / HSK 4 必写汉字</h1>
+    <p style="color:var(--stone);line-height:1.7;max-width:680px;">
+      All <strong>${chars.length} characters</strong> the HSK 4 syllabus expects you to be able to handwrite. Tap any character to see its stroke order animation and try the interactive handwriting practice — your strokes are checked one by one.
+    </p>
+  </section>
+
+  <div class="char-toolbar" role="search">
+    <input type="search" id="char-search" placeholder="Search by character or pinyin (e.g. ai, 爱)" aria-label="Search characters">
+    <select id="char-sort" aria-label="Sort characters">
+      <option value="default">Default order</option>
+      <option value="pinyin">Sort: Pinyin A→Z</option>
+    </select>
+    <span id="char-count" style="color:var(--stone);font-size:var(--fs-sm);">${chars.length} characters</span>
+  </div>
+
+  <div class="char-grid" id="char-grid">${gridHtml}
+  </div>
+  <div class="char-empty" id="char-empty" style="display:none;">No characters match your search.</div>
+
+  <section style="margin-top:48px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">How to Practice HSK 4 Character Writing</h2>
+    <p style="color:var(--stone);line-height:1.8;margin-bottom:12px;">
+      The HSK 4 writing section (书写) tests your ability to physically write Chinese characters from memory. Unlike multiple-choice questions, there is no shortcut — only spaced, deliberate practice builds the muscle memory you need on test day. Each character page on this site offers two modes:
+    </p>
+    <ul style="color:var(--stone);line-height:1.9;padding-left:20px;margin-bottom:12px;">
+      <li><strong>Animate</strong> — Watch the correct stroke order play out one stroke at a time. The order matters: incorrect stroke order is the #1 reason characters look "wrong" even when all the strokes are present.</li>
+      <li><strong>Practice</strong> — Trace the character with your mouse or finger. Each stroke is checked; mistakes are highlighted and you can retry. Aim to complete each character three times in a row without mistakes before moving on.</li>
+    </ul>
+    <p style="color:var(--stone);line-height:1.8;">
+      Combine this with our <a href="/vocabulary/" style="color:var(--accent);">HSK 4 vocabulary list</a> and <a href="/writing/" style="color:var(--accent);">writing practice exercises</a> for a full study routine.
+    </p>
+  </section>
+
+  <section style="margin-top:40px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">FAQ</h2>
+    <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+      <summary style="cursor:pointer;font-weight:600;">How many characters does HSK 4 require you to write?</summary>
+      <p style="color:var(--stone);line-height:1.7;margin-top:10px;">The HSK 4 syllabus expects active handwriting of approximately ${chars.length} characters that go beyond the HSK 1–3 basics. The list on this page reflects the most commonly tested set used by Mandarin Zone in classroom prep.</p>
+    </details>
+    <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+      <summary style="cursor:pointer;font-weight:600;">Does the HSK 4 exam still test handwriting?</summary>
+      <p style="color:var(--stone);line-height:1.7;margin-top:10px;">The paper-based HSK 4 includes a writing section (书写) where you compose sentences using given vocabulary. Even if you take the computer-based version, the ability to handwrite characters fluently is essential for everyday use of Chinese.</p>
+    </details>
+    <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;">
+      <summary style="cursor:pointer;font-weight:600;">Why does stroke order matter?</summary>
+      <p style="color:var(--stone);line-height:1.7;margin-top:10px;">Correct stroke order produces balanced, recognizable characters and makes handwriting much faster. It also helps you correctly identify and write characters you have only seen briefly — a major advantage during the timed writing section.</p>
+    </details>
+  </section>
+</main>
+${renderFooter()}
+<script>
+(function(){
+  var input = document.getElementById('char-search');
+  var sortSel = document.getElementById('char-sort');
+  var grid = document.getElementById('char-grid');
+  var empty = document.getElementById('char-empty');
+  var count = document.getElementById('char-count');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.char-card'));
+
+  function norm(s){ return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,''); }
+
+  function applyFilter(){
+    var q = norm(input.value.trim());
+    var visible = 0;
+    cards.forEach(function(card){
+      var ch = card.dataset.char;
+      var py = norm(card.dataset.pinyin);
+      var match = !q || ch.indexOf(q) !== -1 || py.indexOf(q) !== -1;
+      card.classList.toggle('is-hidden', !match);
+      if (match) visible++;
+    });
+    count.textContent = visible + ' / ' + cards.length + ' characters';
+    empty.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function applySort(){
+    var mode = sortSel.value;
+    var ordered = cards.slice();
+    if (mode === 'pinyin') {
+      ordered.sort(function(a,b){
+        return norm(a.dataset.pinyin).localeCompare(norm(b.dataset.pinyin));
+      });
+    } else {
+      ordered.sort(function(a,b){ return (+a.dataset.idx) - (+b.dataset.idx); });
+    }
+    var frag = document.createDocumentFragment();
+    ordered.forEach(function(c){ frag.appendChild(c); });
+    grid.appendChild(frag);
+  }
+
+  input.addEventListener('input', applyFilter);
+  sortSel.addEventListener('change', function(){ applySort(); applyFilter(); });
+})();
+</script>
+</body>
+</html>`;
+
+  fs.writeFileSync(path.join(charsDir, 'index.html'), hubHtml, 'utf8');
+
+  // ---- Per-character detail pages ----
+  chars.forEach((c, i) => {
+    const prev = chars[(i - 1 + chars.length) % chars.length];
+    const next = chars[(i + 1) % chars.length];
+    const wordsForChar = (charToWords[c.char] || []).slice(0, 8);
+
+    const wordsHtml = wordsForChar.length === 0
+      ? `<p style="color:var(--stone);font-size:var(--fs-sm);">No HSK 4 words containing this character are listed in our vocabulary.</p>`
+      : wordsForChar.map(w => {
+          const highlighted = escHtml(w.word).split('').map(ch =>
+            ch === c.char ? `<span class="hl">${ch}</span>` : ch
+          ).join('');
+          return `<div class="char-vocab-item">
+        <div class="vw-row">
+          <span class="vw-word chinese">${highlighted}</span>
+          <span class="vw-pinyin">${escHtml(w.pinyin || '')}</span>
+          <span class="vw-meaning">${escHtml(w.meaning || '')}</span>
+        </div>
+        ${w.example_cn ? `<div class="vw-example">
+          <div class="ex-cn chinese">${escHtml(w.example_cn)}</div>
+          <div>${escHtml(w.example_pinyin || '')}</div>
+          <div>${escHtml(w.example_en || '')}</div>
+        </div>` : ''}
+      </div>`;
+        }).join('\n');
+
+    const detailTitle = `${c.char} (${c.pinyin}) — Stroke Order & Writing Practice | HSK 4 汉字 ${c.char}`;
+    const detailDesc = truncDesc(`Learn how to write the HSK 4 character ${c.char} (${c.pinyin}, ${c.meaning}) with animated stroke order and interactive handwriting practice. Free practice tool by Mandarin Zone.`);
+
+    const detailHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${escHtml(detailTitle)}</title>
+<meta name="description" content="${escHtml(detailDesc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<meta property="og:title" content="${escHtml(detailTitle)}">
+<meta property="og:description" content="${escHtml(detailDesc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<meta property="og:site_name" content="Mandarin Zone">
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "How to write ${escHtml(c.char)}",
+  "description": "${escHtml(detailDesc)}",
+  "url": "https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/",
+  "inLanguage": ["en", "zh-CN"],
+  "isAccessibleForFree": true,
+  "learningResourceType": "Interactive practice",
+  "educationalLevel": "Intermediate",
+  "about": { "@type": "Thing", "name": "Chinese character ${escHtml(c.char)} (${escHtml(c.pinyin)})" }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js" defer></script>
+</head>
+<body>
+${renderNav('characters')}
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/characters/">Characters</a> &rsaquo; <span class="chinese">${escHtml(c.char)}</span>
+  </nav>
+
+  <section class="char-header">
+    <span class="char-hero-glyph chinese">${escHtml(c.char)}</span>
+    <div class="char-meta">
+      <span class="char-pinyin-big">${escHtml(c.pinyin)}</span>
+      <span class="char-meaning">${escHtml(c.meaning)}</span>
+      <span class="char-stats">HSK 4 required writing character · ${i + 1} of ${chars.length}</span>
+    </div>
+  </section>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 8px;">Stroke Order & Practice</h2>
+  <p style="color:var(--stone);font-size:var(--fs-sm);margin-bottom:8px;">
+    Click <strong>Animate</strong> to see the correct stroke order, then <strong>Practice</strong> to trace it yourself.
+  </p>
+  <div class="writer-stage">
+    <div id="writer-target" class="writer-target" role="img" aria-label="Stroke order practice for ${escHtml(c.char)}"></div>
+    <div class="writer-controls">
+      <button id="btn-animate" class="btn btn-primary" type="button">▶ Animate</button>
+      <button id="btn-quiz" class="btn btn-secondary" type="button">✎ Practice</button>
+      <button id="btn-reset" class="btn btn-ghost" type="button">↺ Reset</button>
+    </div>
+    <div id="writer-status" class="writer-status" aria-live="polite"></div>
+  </div>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">HSK 4 Words Containing ${escHtml(c.char)}</h2>
+  <div class="char-vocab-list">
+    ${wordsHtml}
+  </div>
+
+  <div class="char-pager">
+    <a href="/characters/${encodeURIComponent(prev.char)}/" class="btn btn-ghost">&larr; <span class="chinese">${escHtml(prev.char)}</span> ${escHtml(prev.pinyin)}</a>
+    <a href="/characters/" class="btn btn-secondary">All Characters</a>
+    <a href="/characters/${encodeURIComponent(next.char)}/" class="btn btn-ghost"><span class="chinese">${escHtml(next.char)}</span> ${escHtml(next.pinyin)} &rarr;</a>
+  </div>
+
+  <section style="margin-top:40px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">About the character ${escHtml(c.char)}</h2>
+    <p style="color:var(--stone);line-height:1.8;">
+      <span class="chinese" style="font-weight:600;">${escHtml(c.char)}</span> (<span style="color:var(--accent);">${escHtml(c.pinyin)}</span>) means <em>${escHtml(c.meaning)}</em>. It is one of the ${chars.length} characters HSK 4 expects you to write from memory. Practice the stroke order until it feels automatic — most learners need 5–10 successful traces before a character "sticks".
+    </p>
+  </section>
+</main>
+${renderFooter()}
+<script>
+window.addEventListener('load', function(){
+  if (typeof HanziWriter === 'undefined') {
+    document.getElementById('writer-status').textContent = 'Stroke data could not load — please refresh.';
+    return;
+  }
+  var status = document.getElementById('writer-status');
+  var writer = HanziWriter.create('writer-target', ${JSON.stringify(c.char)}, {
+    width: 360, height: 360, padding: 8,
+    showOutline: true, showCharacter: false,
+    strokeAnimationSpeed: 1, delayBetweenStrokes: 180,
+    strokeColor: '#1a1a2e', outlineColor: '#c9c4be', highlightColor: '#c23b22'
+  });
+  function setStatus(msg, cls){
+    status.className = 'writer-status' + (cls ? ' ' + cls : '');
+    status.textContent = msg || '';
+  }
+  document.getElementById('btn-animate').addEventListener('click', function(){
+    setStatus('Watching stroke order…');
+    writer.animateCharacter({ onComplete: function(){ setStatus('Stroke order complete. Try Practice ↓'); } });
+  });
+  document.getElementById('btn-quiz').addEventListener('click', function(){
+    setStatus('Practice mode — trace each stroke.');
+    var mistakes = 0;
+    writer.quiz({
+      showHintAfterMisses: 2,
+      onMistake: function(s){
+        mistakes++;
+        setStatus('Stroke ' + (s.strokeNum + 1) + ' — try again (mistakes: ' + mistakes + ')', 'is-mistake');
+      },
+      onCorrectStroke: function(s){
+        var done = s.strokeNum + 1;
+        var total = done + (s.strokesRemaining || 0);
+        setStatus('Stroke ' + done + ' / ' + total + ' ✓');
+      },
+      onComplete: function(s){
+        setStatus('Done! ' + s.totalMistakes + ' mistakes total.', 'is-success');
+      }
+    });
+  });
+  document.getElementById('btn-reset').addEventListener('click', function(){
+    writer.cancelQuiz();
+    writer.hideCharacter();
+    writer.showOutline();
+    setStatus('');
+  });
+});
+</script>
+</body>
+</html>`;
+
+    const charDir = path.join(charsDir, c.char);
+    ensureDir(charDir);
+    fs.writeFileSync(path.join(charDir, 'index.html'), detailHtml, 'utf8');
+  });
+
+  console.log(`[characters] Generated hub + ${chars.length} per-character pages`);
+  return chars.map(c => c.char);
+}
+
+// ============================================================
 // RUN ALL
 // ============================================================
 
@@ -2556,6 +2953,7 @@ buildWritingGuide();
 const taskSlugs = buildTaskTopicPages();
 const confusableSlugs = buildConfusablePages();
 const grammarPatternSlugs = buildGrammarPatternPages();
+const characterList = buildCharacterPages();
 addTestLinksToHubs();
-buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs);
+buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList);
 console.log('\nDone! All static content pre-rendered.');
