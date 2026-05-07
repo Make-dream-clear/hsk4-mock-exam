@@ -960,7 +960,17 @@ function buildTopics() {
   .static-topic-word .pinyin { color: var(--stone); font-size: 12px; }
   </style>`;
 
-  // Insert static content before the empty #categories div
+  // Strip any previously-injected noscript blocks that immediately precede
+  // <div id="categories">. Earlier rebuilds left these in place and we
+  // simply prepended another, growing the file by ~95 KB per build (28
+  // accumulated noscripts in the worst case observed). Now we always
+  // re-emit exactly one.
+  html = html.replace(
+    /(?:\s*<noscript>[\s\S]*?<\/noscript>)+\s*<div id="categories"><\/div>/,
+    '<div id="categories"></div>'
+  );
+
+  // Insert one fresh noscript before the empty #categories div
   html = html.replace(
     /<div id="categories"><\/div>/,
     `<noscript>${staticCSS}
