@@ -97,6 +97,7 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
@@ -302,33 +303,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="internet; the Internet">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">互联网 <span style="font-size:14px;color:var(--accent);font-weight:400;">hùliánwǎng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to research; to study</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">internet; the Internet</button><button class="q-opt" onclick="tqAnswer(this,false)">to forward; to repost</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
     <div class="tq-item" data-answer="to reply; to respond">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">回复 <span style="font-size:14px;color:var(--accent);font-weight:400;">huífù</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">express delivery; courier</button><button class="q-opt" onclick="tqAnswer(this,false)">online friend; netizen</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to reply; to respond</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to reply; to respond</button><button class="q-opt" onclick="tqAnswer(this,false)">online friend; netizen</button><button class="q-opt" onclick="tqAnswer(this,false)">science and technology; tech</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="offline">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">线下 <span style="font-size:14px;color:var(--accent);font-weight:400;">xiànxià</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">offline</button><button class="q-opt" onclick="tqAnswer(this,false)">news; information; message</button><button class="q-opt" onclick="tqAnswer(this,false)">science and technology; tech</button></div>
+    <div class="tq-item" data-answer="technology; technique; skill">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">技术 <span style="font-size:14px;color:var(--accent);font-weight:400;">jìshù</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">number; digit; figure</button><button class="q-opt" onclick="tqAnswer(this,false)">password; PIN; code</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">technology; technique; skill</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="video">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">视频 <span style="font-size:14px;color:var(--accent);font-weight:400;">shìpín</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">video</button><button class="q-opt" onclick="tqAnswer(this,false)">information; message; data</button><button class="q-opt" onclick="tqAnswer(this,false)">internet; the Internet</button></div>
+    <div class="tq-item" data-answer="science and technology; tech">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">科技 <span style="font-size:14px;color:var(--accent);font-weight:400;">kējì</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">science and technology; tech</button><button class="q-opt" onclick="tqAnswer(this,false)">to scan a QR code</button><button class="q-opt" onclick="tqAnswer(this,false)">password; PIN; code</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
     <div class="tq-item" data-answer="news; information; message">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">消息 <span style="font-size:14px;color:var(--accent);font-weight:400;">xiāoxi</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">online</button><button class="q-opt" onclick="tqAnswer(this,false)">science and technology; tech</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">news; information; message</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">news; information; message</button><button class="q-opt" onclick="tqAnswer(this,false)">offline</button><button class="q-opt" onclick="tqAnswer(this,false)">to forward; to repost</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="online">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">线上 <span style="font-size:14px;color:var(--accent);font-weight:400;">xiànshàng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">online</button><button class="q-opt" onclick="tqAnswer(this,false)">text message;</button><button class="q-opt" onclick="tqAnswer(this,false)">the Earth; the globe</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -421,7 +422,7 @@
       <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
       <div>
         <div class="footer-brand-name">Mandarin Zone</div>
-        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online &middot; Since 2008</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online · Since 2008</div>
       </div>
     </a>
     <div class="footer-cta">

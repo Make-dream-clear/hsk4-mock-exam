@@ -97,6 +97,7 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
@@ -339,33 +340,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="sign; brand; card">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">牌 <span style="font-size:14px;color:var(--accent);font-weight:400;">pái</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">sign; brand; card</button><button class="q-opt" onclick="tqAnswer(this,false)">to book; to order</button><button class="q-opt" onclick="tqAnswer(this,false)">to settle a bill; to check out</button></div>
+    <div class="tq-item" data-answer="advertisement; commercial">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">广告 <span style="font-size:14px;color:var(--accent);font-weight:400;">guǎnggào</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">high price</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">advertisement; commercial</button><button class="q-opt" onclick="tqAnswer(this,false)">cost; expense; fee</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="small change; loose coins">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">零钱 <span style="font-size:14px;color:var(--accent);font-weight:400;">língqián</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">small change; loose coins</button><button class="q-opt" onclick="tqAnswer(this,false)">to save; to store; to deposit</button><button class="q-opt" onclick="tqAnswer(this,false)">pocket money; allowance</button></div>
+    <div class="tq-item" data-answer="to pay">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">付 <span style="font-size:14px;color:var(--accent);font-weight:400;">fù</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to pay</button><button class="q-opt" onclick="tqAnswer(this,false)">to purchase; to buy</button><button class="q-opt" onclick="tqAnswer(this,false)">cash</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to book; to order">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">订 <span style="font-size:14px;color:var(--accent);font-weight:400;">dìng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">small change; loose coins</button><button class="q-opt" onclick="tqAnswer(this,false)">fee; charge; expense</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to book; to order</button></div>
+    <div class="tq-item" data-answer="to reduce price; price drop">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">降价 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiàngjià</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">high price</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to reduce price; price drop</button><button class="q-opt" onclick="tqAnswer(this,false)">advertisement; commercial</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="cash">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">现金 <span style="font-size:14px;color:var(--accent);font-weight:400;">xiànjīn</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to save; to store; to deposit</button><button class="q-opt" onclick="tqAnswer(this,false)">goods; commodity; product</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">cash</button></div>
+    <div class="tq-item" data-answer="low price">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">低价 <span style="font-size:14px;color:var(--accent);font-weight:400;">dījià</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">low price</button><button class="q-opt" onclick="tqAnswer(this,false)">fee; charge; expense</button><button class="q-opt" onclick="tqAnswer(this,false)">free of charge; for free</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="fee; charge; expense">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">费 <span style="font-size:14px;color:var(--accent);font-weight:400;">fèi</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">pocket money; allowance</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">fee; charge; expense</button><button class="q-opt" onclick="tqAnswer(this,false)">low price</button></div>
+    <div class="tq-item" data-answer="to discount; to give a discount">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">打折 <span style="font-size:14px;color:var(--accent);font-weight:400;">dǎzhé</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to discount; to give a discount</button><button class="q-opt" onclick="tqAnswer(this,false)">brand; sign; label</button><button class="q-opt" onclick="tqAnswer(this,false)">goods; commodity; product</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -484,7 +485,7 @@
       <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
       <div>
         <div class="footer-brand-name">Mandarin Zone</div>
-        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online &middot; Since 2008</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online · Since 2008</div>
       </div>
     </a>
     <div class="footer-cta">

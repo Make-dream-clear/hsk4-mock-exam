@@ -97,6 +97,7 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
@@ -405,33 +406,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="flight; scheduled flight">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">航班 <span style="font-size:14px;color:var(--accent);font-weight:400;">hángbān</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">flight; scheduled flight</button><button class="q-opt" onclick="tqAnswer(this,false)">backpack; rucksack</button><button class="q-opt" onclick="tqAnswer(this,false)">electric vehicle; e-bike</button></div>
+    <div class="tq-item" data-answer="backpack; rucksack">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">背包 <span style="font-size:14px;color:var(--accent);font-weight:400;">bēibāo</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to ride (a vehicle)</button><button class="q-opt" onclick="tqAnswer(this,false)">ticket seller; conductor</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">backpack; rucksack</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="destination">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">目的地 <span style="font-size:14px;color:var(--accent);font-weight:400;">mùdìdì</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">backpack; rucksack</button><button class="q-opt" onclick="tqAnswer(this,false)">seat</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">destination</button></div>
+    <div class="tq-item" data-answer="large bus; coach">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">大巴 <span style="font-size:14px;color:var(--accent);font-weight:400;">dàbā</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">passenger</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">large bus; coach</button><button class="q-opt" onclick="tqAnswer(this,false)">scenic spot; tourist attraction</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to travel by; to ride">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">乘坐 <span style="font-size:14px;color:var(--accent);font-weight:400;">chéngzuò</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">tour guide; to guide tourists</button><button class="q-opt" onclick="tqAnswer(this,false)">traffic jam</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to travel by; to ride</button></div>
+    <div class="tq-item" data-answer="vehicle speed">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">车速 <span style="font-size:14px;color:var(--accent);font-weight:400;">chēsù</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">vehicle speed</button><button class="q-opt" onclick="tqAnswer(this,false)">high-speed train; EMU train</button><button class="q-opt" onclick="tqAnswer(this,false)">street; road</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="electric vehicle; e-bike">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">电动车 <span style="font-size:14px;color:var(--accent);font-weight:400;">diàndòngchē</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to board a plane</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">electric vehicle; e-bike</button><button class="q-opt" onclick="tqAnswer(this,false)">high-speed</button></div>
+    <div class="tq-item" data-answer="to park a car; to stop">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">停车 <span style="font-size:14px;color:var(--accent);font-weight:400;">tíngchē</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">scenic spot; tourist attraction</button><button class="q-opt" onclick="tqAnswer(this,false)">bridge</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to park a car; to stop</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to go out; to venture out">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">外出 <span style="font-size:14px;color:var(--accent);font-weight:400;">wàichū</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to go out; to venture out</button><button class="q-opt" onclick="tqAnswer(this,false)">traffic jam</button><button class="q-opt" onclick="tqAnswer(this,false)">to land; to descend</button></div>
+    <div class="tq-item" data-answer="bridge">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">桥 <span style="font-size:14px;color:var(--accent);font-weight:400;">qiáo</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">entrance; entry</button><button class="q-opt" onclick="tqAnswer(this,false)">scenic area</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">bridge</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -534,7 +535,7 @@
       <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
       <div>
         <div class="footer-brand-name">Mandarin Zone</div>
-        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online &middot; Since 2008</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online · Since 2008</div>
       </div>
     </a>
     <div class="footer-cta">

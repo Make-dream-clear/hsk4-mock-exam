@@ -97,6 +97,7 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/" class="nav-link">Mock Exams</a>
       <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
@@ -285,33 +286,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
+    <div class="tq-item" data-answer="to relax; to loosen">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">放松 <span style="font-size:14px;color:var(--accent);font-weight:400;">fàngsōng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to play (a musical instrument)</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to relax; to loosen</button><button class="q-opt" onclick="tqAnswer(this,false)">TV series; TV drama</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="to get together; gathering; party">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">聚会 <span style="font-size:14px;color:var(--accent);font-weight:400;">jùhuì</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to get together; gathering; party</button><button class="q-opt" onclick="tqAnswer(this,false)">singing voice; sound of singing</button><button class="q-opt" onclick="tqAnswer(this,false)">to watch; to view</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
     <div class="tq-item" data-answer="to broadcast; to play (media)">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">播放 <span style="font-size:14px;color:var(--accent);font-weight:400;">bōfàng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to broadcast; to play (media)</button><button class="q-opt" onclick="tqAnswer(this,false)">to visit (a place)</button><button class="q-opt" onclick="tqAnswer(this,false)">to broadcast; broadcast</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to broadcast; to play (media)</button><button class="q-opt" onclick="tqAnswer(this,false)">to get together; gathering; party</button><button class="q-opt" onclick="tqAnswer(this,false)">to stroll; to wander around</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to visit (a place)">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">参观 <span style="font-size:14px;color:var(--accent);font-weight:400;">cānguān</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to visit (a place)</button><button class="q-opt" onclick="tqAnswer(this,false)">to dream</button><button class="q-opt" onclick="tqAnswer(this,false)">singing voice; sound of singing</button></div>
+    <div class="tq-item" data-answer="singing voice; sound of singing">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">歌声 <span style="font-size:14px;color:var(--accent);font-weight:400;">gēshēng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">singing voice; sound of singing</button><button class="q-opt" onclick="tqAnswer(this,false)">to listen to (radio)</button><button class="q-opt" onclick="tqAnswer(this,false)">novel (fiction)</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to stroll; to wander around">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">逛 <span style="font-size:14px;color:var(--accent);font-weight:400;">guàng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to take a walk; to stroll</button><button class="q-opt" onclick="tqAnswer(this,false)">to watch; to view</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to stroll; to wander around</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="interesting; fun; amusing">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">有趣 <span style="font-size:14px;color:var(--accent);font-weight:400;">yǒuqù</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to go on holiday; to vacation</button><button class="q-opt" onclick="tqAnswer(this,false)">singing voice; sound of singing</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">interesting; fun; amusing</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="to sing (in a performance)">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">演唱 <span style="font-size:14px;color:var(--accent);font-weight:400;">yǎnchàng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">novel (fiction)</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to sing (in a performance)</button><button class="q-opt" onclick="tqAnswer(this,false)">to watch; to view</button></div>
+    <div class="tq-item" data-answer="novel (fiction)">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">小说 <span style="font-size:14px;color:var(--accent);font-weight:400;">xiǎoshuō</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">TV series; TV drama</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">novel (fiction)</button><button class="q-opt" onclick="tqAnswer(this,false)">to visit (a place)</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>
@@ -404,7 +405,7 @@
       <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
       <div>
         <div class="footer-brand-name">Mandarin Zone</div>
-        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online &middot; Since 2008</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online · Since 2008</div>
       </div>
     </a>
     <div class="footer-cta">
