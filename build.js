@@ -578,8 +578,8 @@ ${testLinks}
   // -> tips -> plan) using the home-screen CSS classes defined in
   // index.html, not inline styles.
   const newSEO = `<!-- STATIC SEO CONTENT -->
-    <section id="toolkit">
-      <div class="section-title">Complete HSK 4 Toolkit</div>
+    <section id="toolkit" aria-labelledby="toolkit-heading">
+      <h2 class="section-title" id="toolkit-heading">Complete HSK 4 Toolkit</h2>
       <p class="section-intro">Mock exams alone won't get you to 180/300 — you need to build the underlying language. Here's everything we offer, grouped by what it does for your score.</p>
 
       <div class="toolkit-group toolkit-group--foundation">
@@ -658,7 +658,7 @@ ${testLinks}
         </div>
       </div>
 
-      <div class="section-title">HSK 4 Exam Format</div>
+      <h2 class="section-title">HSK 4 Exam Format</h2>
       <p class="section-intro">100 questions, 105 minutes total. The pass mark is 180/300 (60%) — but real-world programs and visa applications often look for 240+ (80%).</p>
       <div class="format-table-wrap">
         <table class="format-table">
@@ -679,7 +679,7 @@ ${testLinks}
         </table>
       </div>
 
-      <div class="section-title">What the 2026 Syllabus Demands</div>
+      <h2 class="section-title">What the 2026 Syllabus Demands</h2>
       <p class="section-intro">The new HSK syllabus (《新版HSK考试大纲》, effective July 2026) raises the bar at Level 4. Unlike HSK 3 which focuses on basic daily needs, HSK 4 requires handling "有一定复杂度" (a certain level of complexity) across 25 communicative tasks, grouped here into four themes:</p>
 
       <h3 class="subsection-title">25 Communicative Tasks</h3>
@@ -745,7 +745,7 @@ ${testLinks}
         <a href="/grammar/" class="learn-more">Practice each pattern in our grammar guide →</a>
       </div>
 
-      <div class="section-title">Section-by-Section Tips</div>
+      <h2 class="section-title">Section-by-Section Tips</h2>
       <p class="section-intro">Strategy advice from the question types most often missed. Combine these with the strategy guides in the toolkit above.</p>
       <div class="tips-grid">
         <div class="tip-card tip-card--listening">
@@ -768,7 +768,7 @@ ${testLinks}
         </div>
       </div>
 
-      <div class="section-title">8-Week Study Plan</div>
+      <h2 class="section-title">8-Week Study Plan</h2>
       <p class="section-intro">Most learners pass HSK 4 in 8 weeks of focused work, given a solid HSK 3 foundation. Here's the proven sequence — and what to do in each phase.</p>
       <div class="plan-timeline">
         <div class="plan-phase">

@@ -360,6 +360,7 @@ main {
   .cta-banner { padding: var(--space-10); margin: var(--space-12) 0; }
 }
 
+.cta-banner h2,
 .cta-banner h3 {
   font-family: 'Noto Serif SC', serif;
   font-size: var(--fs-xl);
