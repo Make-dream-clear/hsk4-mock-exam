@@ -2859,7 +2859,7 @@ ${renderFooter()}
     if (strokes) quickBits.push(`is written in <strong>${strokes} strokes</strong>`);
     if (radical) quickBits.push(`with the radical <strong class="chinese">${escHtml(radical)}</strong>${radDef ? ` (${escHtml(radDef)})` : ''}`);
     quickBits.push(`and is one of the 150 HSK 4 required writing characters (rank #${i + 1} by appearance in HSK 4 vocabulary)`);
-    const quickAnswer = quickBits.join(', ').replace(/, and/, ', and') + '.';
+    const quickAnswer = quickBits.join(', ') + '.';
 
     // Pinyin & meanings section
     const meaningsHtml = meanings.length > 1
@@ -2919,11 +2919,12 @@ ${renderFooter()}
   <p style="color:var(--stone);line-height:1.7;">${ety}</p>`
       : '';
 
-    // FAQ block (FAQPage schema)
+    // FAQ block (FAQPage schema). f.a is raw text — escaped at HTML render
+    // site below; passed unescaped to JSON-LD where plain text is expected.
     const faqs = [
       {
         q: `What does ${c.char} mean in Chinese?`,
-        a: `${c.char} (${pinyinList.join(' / ')}) means ${escHtml(e.definition || c.meaning)}. It is one of the 150 characters required for the HSK 4 writing section.`
+        a: `${c.char} (${pinyinList.join(' / ')}) means ${e.definition || c.meaning}. It is one of the 150 characters required for the HSK 4 writing section.`
       },
       {
         q: `How many strokes does ${c.char} have?`,
@@ -2942,7 +2943,7 @@ ${renderFooter()}
       {
         q: `What HSK 4 words use ${c.char}?`,
         a: wordsForChar.length > 0
-          ? `In our HSK 4 vocabulary, ${c.char} appears in ${wordsForChar.length} word${wordsForChar.length > 1 ? 's' : ''}, including ${wordsForChar.slice(0, 4).map(w => `${w.word} (${w.pinyin})`).join(', ')}. See the full list above.`
+          ? `In our HSK 4 vocabulary, ${c.char} appears in ${wordsForChar.length} word${wordsForChar.length > 1 ? 's' : ''}, including ${wordsForChar.slice(0, 4).map(w => `${w.word} (${w.pinyin || ''})`).join(', ')}. See the full list above.`
           : `${c.char} is required for HSK 4 handwriting but does not appear as a headword in our HSK 4 vocabulary list.`
       }
     ];
@@ -2950,7 +2951,7 @@ ${renderFooter()}
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">FAQ</h2>
   ${faqs.map(f => `<details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
     <summary style="cursor:pointer;font-weight:600;">${escHtml(f.q)}</summary>
-    <p style="color:var(--stone);line-height:1.7;margin-top:10px;">${f.a}</p>
+    <p style="color:var(--stone);line-height:1.7;margin-top:10px;">${escHtml(f.a)}</p>
   </details>`).join('')}`;
     const faqJsonLd = {
       "@context": "https://schema.org",
@@ -2958,7 +2959,7 @@ ${renderFooter()}
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
-        "acceptedAnswer": { "@type": "Answer", "text": f.a.replace(/<[^>]+>/g, '') }
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
       }))
     };
 
@@ -3034,7 +3035,7 @@ ${renderNav('characters')}
     Click <strong>Animate</strong> to see the correct stroke order, then <strong>Practice</strong> to trace it yourself.
   </p>
   <div class="writer-stage">
-    <div id="writer-target" class="writer-target" role="img" aria-label="Stroke order practice for ${escHtml(c.char)}"></div>
+    <div id="writer-target" class="writer-target" role="application" aria-label="Interactive stroke-order practice for ${escHtml(c.char)} — use the buttons below to animate or trace the character"></div>
     <div class="writer-controls">
       <button id="btn-animate" class="btn btn-primary" type="button">▶ Animate</button>
       <button id="btn-quiz" class="btn btn-secondary" type="button">✎ Practice</button>
@@ -3208,7 +3209,7 @@ ${renderNav('characters')}
     Click <strong>Animate</strong> to see the correct stroke order, then <strong>Practice</strong> to trace it yourself.
   </p>
   <div class="writer-stage">
-    <div id="writer-target" class="writer-target" role="img" aria-label="Stroke order practice for ${escHtml(c.char)}"></div>
+    <div id="writer-target" class="writer-target" role="application" aria-label="Interactive stroke-order practice for ${escHtml(c.char)} — use the buttons below to animate or trace the character"></div>
     <div class="writer-controls">
       <button id="btn-animate" class="btn btn-primary" type="button">▶ Animate</button>
       <button id="btn-quiz" class="btn btn-secondary" type="button">✎ Practice</button>
