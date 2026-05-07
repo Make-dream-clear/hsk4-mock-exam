@@ -320,10 +320,6 @@ function buildTestPages() {
 <meta name="twitter:title" content="${escHtml(meta.title)}">
 <meta name="twitter:description" content="${escHtml(pageDesc)}">
 
-<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/test/${num}/">
-<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/test/${num}/">
-<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/test/${num}/">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1641,10 +1637,6 @@ function buildTaskTopicPages() {
 <meta property="og:url" content="https://hsk4.mandarinzone.com/topics/${task.slug}/">
 <meta property="og:site_name" content="Mandarin Zone">
 
-<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
-<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
-<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1948,10 +1940,6 @@ function buildConfusablePages() {
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://hsk4.mandarinzone.com/words/${pair.slug}/">
 <meta property="og:site_name" content="Mandarin Zone">
-
-<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/words/${pair.slug}/">
-<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/words/${pair.slug}/">
-<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/words/${pair.slug}/">
 
 <script type="application/ld+json">
 {
@@ -2296,10 +2284,6 @@ function buildGrammarPatternPages() {
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
 <meta property="og:site_name" content="Mandarin Zone">
-
-<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
-<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
-<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/">
 
 <script type="application/ld+json">
 {
