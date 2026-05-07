@@ -2765,6 +2765,356 @@ ${renderFooter()}
 
   fs.writeFileSync(path.join(charsDir, 'index.html'), hubHtml, 'utf8');
 
+  // ---- v2 enhanced template support ----
+  // Compute top 30 chars by HSK 4 vocab density
+  const densityRank = chars
+    .map(c => ({ char: c.char, hits: (charToWords[c.char] || []).length }))
+    .sort((a, b) => b.hits - a.hits || chars.findIndex(x => x.char === a.char) - chars.findIndex(x => x.char === b.char));
+  const TOP_N = 30;
+  const top30Set = new Set(densityRank.slice(0, TOP_N).map(r => r.char));
+
+  // Load Make Me a Hanzi structured data subset
+  const mmah = fs.existsSync(path.join(DATA, 'character-data.json'))
+    ? readJSON('character-data.json')
+    : {};
+
+  // Same-radical cross-reference within all 150
+  const radicalToChars = {};
+  chars.forEach(c => {
+    const e = mmah[c.char];
+    if (!e || !e.radical) return;
+    if (!radicalToChars[e.radical]) radicalToChars[e.radical] = [];
+    radicalToChars[e.radical].push(c);
+  });
+
+  // IDS operator descriptions for decomposition
+  const IDS_DESC = {
+    '⿰': { label: 'Left + Right', positions: ['left', 'right'] },
+    '⿱': { label: 'Top + Bottom', positions: ['top', 'bottom'] },
+    '⿲': { label: 'Left + Middle + Right', positions: ['left', 'middle', 'right'] },
+    '⿳': { label: 'Top + Middle + Bottom', positions: ['top', 'middle', 'bottom'] },
+    '⿴': { label: 'Outer surrounds Inner', positions: ['outer', 'inner'] },
+    '⿵': { label: 'Outer (open below) + Inner', positions: ['outer', 'inner'] },
+    '⿶': { label: 'Outer (open above) + Inner', positions: ['outer', 'inner'] },
+    '⿷': { label: 'Outer (open right) + Inner', positions: ['outer', 'inner'] },
+    '⿸': { label: 'Upper-left envelops Inner', positions: ['outer', 'inner'] },
+    '⿹': { label: 'Upper-right envelops Inner', positions: ['outer', 'inner'] },
+    '⿺': { label: 'Lower-left envelops Inner', positions: ['outer', 'inner'] },
+    '⿻': { label: 'Overlap', positions: ['back', 'front'] },
+  };
+  function parseDecomp(ids) {
+    if (!ids || ids === '？') return null;
+    const op = ids[0];
+    if (!IDS_DESC[op]) return null;
+    const comps = [];
+    for (let k = 1; k < ids.length; k++) {
+      const ch = ids[k];
+      if (IDS_DESC[ch] || ch === '？') continue;
+      comps.push(ch);
+    }
+    return { op, label: IDS_DESC[op].label, comps };
+  }
+
+  function splitMeanings(def) {
+    if (!def) return [];
+    return def.split(/[;,]/).map(s => s.trim()).filter(Boolean);
+  }
+
+  function etymologySentence(c, e) {
+    if (!e || !e.etymology) return '';
+    const ety = e.etymology;
+    if (ety.type === 'pictophonetic' && ety.semantic && ety.phonetic) {
+      const hint = ety.hint ? ` (${escHtml(ety.hint)})` : '';
+      return `<span class="chinese">${escHtml(c.char)}</span> is a phono-semantic compound. The semantic component <strong class="chinese">${escHtml(ety.semantic)}</strong>${hint} carries the meaning, while the phonetic component <strong class="chinese">${escHtml(ety.phonetic)}</strong> originally indicated the sound.`;
+    }
+    if (ety.type === 'ideographic') {
+      const hint = ety.hint ? ` ${escHtml(ety.hint)}.` : '';
+      return `<span class="chinese">${escHtml(c.char)}</span> is an ideographic compound — its meaning is suggested by the combination of its parts rather than by sound.${hint}`;
+    }
+    if (ety.type === 'pictographic') {
+      const hint = ety.hint ? ` It originally depicted ${escHtml(ety.hint)}.` : '';
+      return `<span class="chinese">${escHtml(c.char)}</span> is a pictograph — a stylized image of the thing it names.${hint}`;
+    }
+    return '';
+  }
+
+  function renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar) {
+    const e = mmah[c.char] || {};
+    const strokes = e.matches ? e.matches.length : null;
+    const radical = e.radical || null;
+    const radDef = radical && mmah[radical] ? (mmah[radical].definition || '').split(/[;,]/)[0].trim() : '';
+    const meanings = splitMeanings(e.definition).slice(0, 6);
+    const pinyinList = (e.pinyin && e.pinyin.length) ? e.pinyin : [c.pinyin];
+    const decomp = parseDecomp(e.decomposition);
+    const ety = etymologySentence(c, e);
+
+    const sameRadicalOthers = radical
+      ? (radicalToChars[radical] || []).filter(x => x.char !== c.char)
+      : [];
+
+    // Quick Answer block
+    const quickBits = [];
+    quickBits.push(`<strong class="chinese">${escHtml(c.char)}</strong> (${pinyinList.map(escHtml).join(' / ')})`);
+    quickBits.push(`means <em>${escHtml(e.definition || c.meaning)}</em>`);
+    if (strokes) quickBits.push(`is written in <strong>${strokes} strokes</strong>`);
+    if (radical) quickBits.push(`with the radical <strong class="chinese">${escHtml(radical)}</strong>${radDef ? ` (${escHtml(radDef)})` : ''}`);
+    quickBits.push(`and is one of the 150 HSK 4 required writing characters (rank #${i + 1} by appearance in HSK 4 vocabulary)`);
+    const quickAnswer = quickBits.join(', ').replace(/, and/, ', and') + '.';
+
+    // Pinyin & meanings section
+    const meaningsHtml = meanings.length > 1
+      ? `<ul style="margin:6px 0 0 20px;color:var(--ink);line-height:1.7;">${meanings.map(m => `<li>${escHtml(m)}</li>`).join('')}</ul>`
+      : `<p style="color:var(--ink);">${escHtml(meanings[0] || c.meaning)}</p>`;
+
+    const pinyinHtml = pinyinList.length > 1
+      ? `<p style="color:var(--stone);">This character has <strong>${pinyinList.length} readings</strong>: ${pinyinList.map(p => `<span class="vw-pinyin" style="font-size:var(--fs-md);margin-right:8px;">${escHtml(p)}</span>`).join('')}. The reading depends on which word the character appears in.</p>`
+      : `<p style="color:var(--stone);">Pronounced <span class="vw-pinyin" style="font-size:var(--fs-md);">${escHtml(pinyinList[0])}</span>.</p>`;
+
+    // Decomposition
+    let decompHtml = '';
+    if (decomp && decomp.comps.length > 0) {
+      const compCards = decomp.comps.map((ch, idx) => {
+        const compEntry = mmah[ch];
+        const compDef = compEntry ? (compEntry.definition || '').split(/[;,]/)[0].trim() : '';
+        const inOurSet = chars.some(x => x.char === ch);
+        const inner = `
+          <span class="char-glyph chinese" style="font-size:32px;">${escHtml(ch)}</span>
+          <span class="char-pinyin" style="color:var(--stone);font-size:var(--fs-xs);">${IDS_DESC[decomp.op].positions[idx] || 'part'}</span>
+          ${compDef ? `<span style="font-size:var(--fs-xs);color:var(--stone);text-align:center;">${escHtml(compDef)}</span>` : ''}`;
+        return inOurSet
+          ? `<a class="char-card" href="/characters/${encodeURIComponent(ch)}/" style="min-width:90px;">${inner}</a>`
+          : `<div class="char-card" style="min-width:90px;cursor:default;">${inner}</div>`;
+      }).join('');
+      decompHtml = `
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Decomposition</h2>
+  <p style="color:var(--stone);line-height:1.7;margin-bottom:12px;">
+    <span class="chinese" style="font-weight:600;">${escHtml(c.char)}</span> breaks down into ${decomp.comps.length} component${decomp.comps.length > 1 ? 's' : ''} arranged as <strong>${escHtml(decomp.label)}</strong>. Recognizing the components makes the character easier to remember and write.
+  </p>
+  <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin:8px 0;">
+    <span class="chinese" style="font-size:48px;font-weight:700;">${escHtml(c.char)}</span>
+    <span style="font-size:24px;color:var(--stone);">=</span>
+    ${compCards}
+  </div>`;
+    }
+
+    // Radical info
+    let radicalHtml = '';
+    if (radical) {
+      const sameRadHtml = sameRadicalOthers.length > 0
+        ? `<p style="color:var(--stone);line-height:1.7;margin-top:8px;">Other HSK 4 characters that share this radical: ${sameRadicalOthers.map(x =>
+            `<a href="/characters/${encodeURIComponent(x.char)}/" class="chinese" style="color:var(--accent);font-weight:600;margin:0 4px;">${escHtml(x.char)}</a>`
+          ).join('')}.</p>`
+        : '';
+      radicalHtml = `
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Radical</h2>
+  <p style="color:var(--stone);line-height:1.7;">
+    The radical of <span class="chinese" style="font-weight:600;">${escHtml(c.char)}</span> is <strong class="chinese" style="font-size:24px;color:var(--accent);">${escHtml(radical)}</strong>${radDef ? ` — meaning <em>${escHtml(radDef)}</em>` : ''}. Radicals are the indexing components used in Chinese dictionaries; they often hint at a character's broad meaning category.
+  </p>${sameRadHtml}`;
+    }
+
+    // Etymology
+    const etymologyHtml = ety
+      ? `
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">How the character is built</h2>
+  <p style="color:var(--stone);line-height:1.7;">${ety}</p>`
+      : '';
+
+    // FAQ block (FAQPage schema)
+    const faqs = [
+      {
+        q: `What does ${c.char} mean in Chinese?`,
+        a: `${c.char} (${pinyinList.join(' / ')}) means ${escHtml(e.definition || c.meaning)}. It is one of the 150 characters required for the HSK 4 writing section.`
+      },
+      {
+        q: `How many strokes does ${c.char} have?`,
+        a: strokes ? `${c.char} is written in ${strokes} strokes. Use the practice tool above to see the correct stroke order and trace it yourself.` : `Use the practice tool above to see the stroke order and stroke count for ${c.char}.`
+      },
+      {
+        q: `What is the radical of ${c.char}?`,
+        a: radical ? `The radical of ${c.char} is ${radical}${radDef ? ` (${radDef})` : ''}. ${sameRadicalOthers.length > 0 ? `Other HSK 4 characters with the same radical include ${sameRadicalOthers.slice(0, 5).map(x => x.char).join(', ')}.` : ''}` : `See the practice tool above for structural details about ${c.char}.`
+      },
+      {
+        q: `What is the pinyin for ${c.char}?`,
+        a: pinyinList.length > 1
+          ? `${c.char} has ${pinyinList.length} readings: ${pinyinList.join(', ')}. Which reading applies depends on the word the character appears in.`
+          : `${c.char} is pronounced ${pinyinList[0]}.`
+      },
+      {
+        q: `What HSK 4 words use ${c.char}?`,
+        a: wordsForChar.length > 0
+          ? `In our HSK 4 vocabulary, ${c.char} appears in ${wordsForChar.length} word${wordsForChar.length > 1 ? 's' : ''}, including ${wordsForChar.slice(0, 4).map(w => `${w.word} (${w.pinyin})`).join(', ')}. See the full list above.`
+          : `${c.char} is required for HSK 4 handwriting but does not appear as a headword in our HSK 4 vocabulary list.`
+      }
+    ];
+    const faqHtml = `
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">FAQ</h2>
+  ${faqs.map(f => `<details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+    <summary style="cursor:pointer;font-weight:600;">${escHtml(f.q)}</summary>
+    <p style="color:var(--stone);line-height:1.7;margin-top:10px;">${f.a}</p>
+  </details>`).join('')}`;
+    const faqJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a.replace(/<[^>]+>/g, '') }
+      }))
+    };
+
+    const detailTitle = `${c.char} (${pinyinList.join('/')}) — Stroke Order, Radical & Practice | HSK 4 汉字 ${c.char}`;
+    const detailDesc = truncDesc(`Learn the HSK 4 character ${c.char} (${pinyinList.join('/')}, ${meanings.slice(0, 2).join(', ') || c.meaning}): ${strokes ? strokes + ' strokes, ' : ''}${radical ? 'radical ' + radical + ', ' : ''}decomposition, common words and animated practice. Free, by Mandarin Zone.`);
+
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${escHtml(detailTitle)}</title>
+<meta name="description" content="${escHtml(detailDesc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<meta property="og:title" content="${escHtml(detailTitle)}">
+<meta property="og:description" content="${escHtml(detailDesc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<meta property="og:site_name" content="Mandarin Zone">
+<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "How to write ${escHtml(c.char)}",
+  "description": "${escHtml(detailDesc)}",
+  "url": "https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/",
+  "inLanguage": ["en", "zh-CN"],
+  "isAccessibleForFree": true,
+  "learningResourceType": "Interactive practice",
+  "educationalLevel": "Intermediate",
+  "about": { "@type": "Thing", "name": "Chinese character ${escHtml(c.char)} (${escHtml(pinyinList.join('/'))})" }
+}
+</script>
+<script type="application/ld+json">
+${JSON.stringify(faqJsonLd, null, 2)}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js" defer></script>
+</head>
+<body>
+${renderNav('characters')}
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/characters/">Characters</a> &rsaquo; <span class="chinese">${escHtml(c.char)}</span>
+  </nav>
+
+  <section class="char-header">
+    <span class="char-hero-glyph chinese">${escHtml(c.char)}</span>
+    <div class="char-meta">
+      <span class="char-pinyin-big">${pinyinList.map(escHtml).join(' / ')}</span>
+      <span class="char-meaning">${escHtml(e.definition || c.meaning)}</span>
+      <span class="char-stats">
+        ${strokes ? `<strong>${strokes} strokes</strong> · ` : ''}${radical ? `Radical <span class="chinese" style="color:var(--accent);font-weight:600;">${escHtml(radical)}</span>${radDef ? ` (${escHtml(radDef)})` : ''} · ` : ''}HSK 4 required writing character
+      </span>
+    </div>
+  </section>
+
+  <aside style="background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:14px 18px;margin:16px 0;">
+    <strong style="display:block;margin-bottom:4px;color:var(--gold);">Quick Answer</strong>
+    <p style="color:var(--ink);line-height:1.7;margin:0;">${quickAnswer}</p>
+  </aside>
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 8px;">Pronunciation & meaning</h2>
+  ${pinyinHtml}
+  ${meaningsHtml}
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Stroke Order & Practice</h2>
+  <p style="color:var(--stone);font-size:var(--fs-sm);margin-bottom:8px;">
+    Click <strong>Animate</strong> to see the correct stroke order, then <strong>Practice</strong> to trace it yourself.
+  </p>
+  <div class="writer-stage">
+    <div id="writer-target" class="writer-target" role="img" aria-label="Stroke order practice for ${escHtml(c.char)}"></div>
+    <div class="writer-controls">
+      <button id="btn-animate" class="btn btn-primary" type="button">▶ Animate</button>
+      <button id="btn-quiz" class="btn btn-secondary" type="button">✎ Practice</button>
+      <button id="btn-reset" class="btn btn-ghost" type="button">↺ Reset</button>
+    </div>
+    <div id="writer-status" class="writer-status" aria-live="polite"></div>
+  </div>
+
+  ${decompHtml}
+
+  ${radicalHtml}
+
+  ${etymologyHtml}
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">HSK 4 Words Containing ${escHtml(c.char)}</h2>
+  <div class="char-vocab-list">
+    ${wordsHtml}
+  </div>
+
+  ${faqHtml}
+
+  <div class="char-pager">
+    <a href="/characters/${encodeURIComponent(prev.char)}/" class="btn btn-ghost">&larr; <span class="chinese">${escHtml(prev.char)}</span> ${escHtml(prev.pinyin)}</a>
+    <a href="/characters/" class="btn btn-secondary">All Characters</a>
+    <a href="/characters/${encodeURIComponent(next.char)}/" class="btn btn-ghost"><span class="chinese">${escHtml(next.char)}</span> ${escHtml(next.pinyin)} &rarr;</a>
+  </div>
+</main>
+${renderFooter()}
+<script>
+window.addEventListener('load', function(){
+  if (typeof HanziWriter === 'undefined') {
+    document.getElementById('writer-status').textContent = 'Stroke data could not load — please refresh.';
+    return;
+  }
+  var status = document.getElementById('writer-status');
+  var writer = HanziWriter.create('writer-target', ${JSON.stringify(c.char)}, {
+    width: 360, height: 360, padding: 8,
+    showOutline: true, showCharacter: false,
+    strokeAnimationSpeed: 1, delayBetweenStrokes: 180,
+    strokeColor: '#1a1a2e', outlineColor: '#c9c4be', highlightColor: '#c23b22'
+  });
+  function setStatus(msg, cls){
+    status.className = 'writer-status' + (cls ? ' ' + cls : '');
+    status.textContent = msg || '';
+  }
+  document.getElementById('btn-animate').addEventListener('click', function(){
+    setStatus('Watching stroke order…');
+    writer.animateCharacter({ onComplete: function(){ setStatus('Stroke order complete. Try Practice ↓'); } });
+  });
+  document.getElementById('btn-quiz').addEventListener('click', function(){
+    setStatus('Practice mode — trace each stroke.');
+    var mistakes = 0;
+    writer.quiz({
+      showHintAfterMisses: 2,
+      onMistake: function(s){
+        mistakes++;
+        setStatus('Stroke ' + (s.strokeNum + 1) + ' — try again (mistakes: ' + mistakes + ')', 'is-mistake');
+      },
+      onCorrectStroke: function(s){
+        var done = s.strokeNum + 1;
+        var total = done + (s.strokesRemaining || 0);
+        setStatus('Stroke ' + done + ' / ' + total + ' ✓');
+      },
+      onComplete: function(s){
+        setStatus('Done! ' + s.totalMistakes + ' mistakes total.', 'is-success');
+      }
+    });
+  });
+  document.getElementById('btn-reset').addEventListener('click', function(){
+    writer.cancelQuiz();
+    writer.hideCharacter();
+    writer.showOutline();
+    setStatus('');
+  });
+});
+</script>
+</body>
+</html>`;
+  }
+
   // ---- Per-character detail pages ----
   chars.forEach((c, i) => {
     const prev = chars[(i - 1 + chars.length) % chars.length];
@@ -2790,6 +3140,15 @@ ${renderFooter()}
         </div>` : ''}
       </div>`;
         }).join('\n');
+
+    // Route top-30 high-density chars to enhanced template
+    if (top30Set.has(c.char)) {
+      const enhancedHtml = renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar);
+      const charDir = path.join(charsDir, c.char);
+      ensureDir(charDir);
+      fs.writeFileSync(path.join(charDir, 'index.html'), enhancedHtml, 'utf8');
+      return;
+    }
 
     const detailTitle = `${c.char} (${c.pinyin}) — Stroke Order & Writing Practice | HSK 4 汉字 ${c.char}`;
     const detailDesc = truncDesc(`Learn how to write the HSK 4 character ${c.char} (${c.pinyin}, ${c.meaning}) with animated stroke order and interactive handwriting practice. Free practice tool by Mandarin Zone.`);
@@ -2933,7 +3292,9 @@ window.addEventListener('load', function(){
     fs.writeFileSync(path.join(charDir, 'index.html'), detailHtml, 'utf8');
   });
 
-  console.log(`[characters] Generated hub + ${chars.length} per-character pages`);
+  const enhancedCount = top30Set.size;
+  const simpleCount = chars.length - enhancedCount;
+  console.log(`[characters] Generated hub + ${enhancedCount} enhanced (top-30) + ${simpleCount} basic per-character pages`);
   return chars.map(c => c.char);
 }
 
