@@ -563,178 +563,240 @@ ${testLinks}
     </div>
   </noscript>`;
 
-  // Insert noscript after test-grid div
+  // Remove any previously-injected noscripts that live between the spinner
+  // and "Loading tests..." text, then insert exactly one fresh block.
+  // (Earlier versions appended on every rebuild, accumulating duplicates.)
   html = html.replace(
-    /(<div id="test-grid" class="test-grid">.*?<\/div>)/s,
-    `$1\n    ${noscriptBlock}`
+    /(<div id="test-grid" class="test-grid">[\s\S]*?<div class="spinner"><\/div>)\s*(?:<noscript>[\s\S]*?<\/noscript>\s*)*/,
+    `$1\n    ${noscriptBlock}\n    `
   );
 
-  // Replace generic SEO section with unique, valuable content
+  // Replace the static SEO section with the redesigned content. Keeps the
+  // 2026 syllabus claim, the format table, the 25 task topics, the grammar
+  // callout, the section-by-section tips, and the 8-week study plan — but
+  // reorganized into a single coherent section (toolkit -> format -> syllabus
+  // -> tips -> plan) using the home-screen CSS classes defined in
+  // index.html, not inline styles.
   const newSEO = `<!-- STATIC SEO CONTENT -->
-    <section style="margin-top:48px;">
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">Free HSK 4 Mock Exams (HSK4 \u6a21\u62df\u8bd5\u9898) \u2014 Aligned with the 2026 Official Syllabus</h2>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        These 12 HSK 4 practice tests (HSK4 \u6a21\u62df\u8003\u8bd5) follow the <strong>2025 official HSK syllabus</strong> (\u300a\u65b0\u7248HSK\u8003\u8bd5\u5927\u7eb2\u300b, published by the Center for Language Education and Cooperation, effective July 2026). 5 tests include all three sections (\u542c\u529b listening, \u9605\u8bfb reading, and \u4e66\u5199 writing); the other 7 cover listening and reading only, as the writing section (\u4e66\u5199) requires manual scoring that cannot be automated online. All tests are auto-scored with instant results, supporting both English-language HSK 4 prep and \u4e2d\u6587 HSK4 \u5907\u8003 needs.
-      </p>
+    <section id="toolkit">
+      <div class="section-title">Complete HSK 4 Toolkit</div>
+      <p class="section-intro">Mock exams alone won't get you to 180/300 — you need to build the underlying language. Here's everything we offer, grouped by what it does for your score.</p>
 
-      <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">Section-by-Section Tips</h3>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        <strong>Listening (\u542C\u529B):</strong> The HSK 4 listening section plays each audio clip only once. The true/false section (\u5224\u65AD\u5BF9\u9519) tests inference \u2014 not just what was said, but what it implies. Tip: practice deciding \u201cwhat does the speaker really mean?\u201d rather than just recognizing individual words.
-      </p>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        <strong>Sentence ordering (\u8BED\u53E5\u6392\u5E8F):</strong> These questions follow structural templates: time/place setup \u2192 subject \u2192 action \u2192 result/comment. Recognizing these patterns makes the section much more manageable. See our <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering practice</a> for targeted drills.
-      </p>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        <strong>Fill-in-the-blank (\u9009\u8BCD\u586B\u7A7A):</strong> This section rewards collocations, not just vocabulary. For example, knowing \u201c\u5F71\u54CD\u201d means \u201cinfluence\u201d is not enough \u2014 you need to know it pairs with \u201c\u5BF9\u2026\u4EA7\u751F\u5F71\u54CD\u201d. Our <a href="/vocabulary/" style="color:var(--accent);">vocabulary list</a> includes example sentences showing these collocations in context.
-      </p>
+      <div class="toolkit-group toolkit-group--foundation">
+        <h3 class="toolkit-group-title">📚 Foundation — Words, patterns, and topics</h3>
+        <p class="toolkit-group-sub">The raw material. Without these, no strategy will save you.</p>
+        <div class="toolkit-cards">
+          <a href="/vocabulary/" class="toolkit-card">
+            <div class="toolkit-card-tag">Vocab</div>
+            <h4>1,000 HSK 4 Words</h4>
+            <p>Complete word list with pinyin, examples, and topic tags. Aligned with the 2026 syllabus.</p>
+          </a>
+          <a href="/grammar/" class="toolkit-card">
+            <div class="toolkit-card-tag">Grammar</div>
+            <h4>14 Grammar Topics</h4>
+            <p>把字句, 被字句, 比较句, complements, complex sentences, measure words and more.</p>
+          </a>
+          <a href="/sentences/" class="toolkit-card">
+            <div class="toolkit-card-tag">Sentences</div>
+            <h4>100 Essential Sentences</h4>
+            <p>High-frequency templates for opinion, suggestion, comparison, and time — ready for the writing section.</p>
+          </a>
+          <a href="/topics/" class="toolkit-card">
+            <div class="toolkit-card-tag">Scenarios</div>
+            <h4>22 Topic Scenarios</h4>
+            <p>Vocabulary by communicative situation: family, work, health, food, technology…</p>
+          </a>
+        </div>
+      </div>
 
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:32px;">HSK 4 Exam Format at a Glance</h2>
-      <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:15px;">
-        <thead>
-          <tr style="border-bottom:2px solid var(--mist);text-align:left;">
-            <th style="padding:10px 12px;">Section</th>
-            <th style="padding:10px 12px;">Questions</th>
-            <th style="padding:10px 12px;">Time</th>
-            <th style="padding:10px 12px;">What It Tests</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--mist);">
-            <td style="padding:10px 12px;">\u542C\u529B Listening</td>
-            <td style="padding:10px 12px;">45</td>
-            <td style="padding:10px 12px;">~30 min</td>
-            <td style="padding:10px 12px;">True/false judgments, multiple choice from audio clips</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--mist);">
-            <td style="padding:10px 12px;">\u9605\u8BFB Reading</td>
-            <td style="padding:10px 12px;">40</td>
-            <td style="padding:10px 12px;">40 min</td>
-            <td style="padding:10px 12px;">Vocabulary fill-in, sentence ordering, passage comprehension</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--mist);">
-            <td style="padding:10px 12px;">\u4E66\u5199 Writing</td>
-            <td style="padding:10px 12px;">15</td>
-            <td style="padding:10px 12px;">25 min</td>
-            <td style="padding:10px 12px;">Construct sentences from given words</td>
-          </tr>
-          <tr style="background:var(--paper);">
-            <td style="padding:10px 12px;font-weight:600;">Total</td>
-            <td style="padding:10px 12px;font-weight:600;">100</td>
-            <td style="padding:10px 12px;font-weight:600;">~105 min</td>
-            <td style="padding:10px 12px;">Pass mark: 180/300 (60%)</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="toolkit-group toolkit-group--precision">
+        <h3 class="toolkit-group-title">🔍 Precision — The details that win marks</h3>
+        <p class="toolkit-group-sub">Hand-picked traps and distinctions HSK loves to test.</p>
+        <div class="toolkit-cards">
+          <a href="/words/" class="toolkit-card">
+            <div class="toolkit-card-tag">Confusables</div>
+            <h4>43 Confusable Word Pairs</h4>
+            <p>才/就, 被/让/叫, 关于/对于, 从来/一直 and other tested distinctions.</p>
+          </a>
+          <a href="/grammar/measure-words/" class="toolkit-card">
+            <div class="toolkit-card-tag">Measure Words</div>
+            <h4>HSK 4 Measure Words</h4>
+            <p>8 new MW (打/袋/棵/台/幅/场/顿/趟) plus borrowed measure words and a quiz.</p>
+          </a>
+          <a href="/writing/sentence-order/" class="toolkit-card">
+            <div class="toolkit-card-tag">Writing Drill</div>
+            <h4>Sentence Ordering</h4>
+            <p>Targeted drills for the trickiest reading question type. Templates + answer keys.</p>
+          </a>
+        </div>
+      </div>
 
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:32px;">The 25 HSK 4 Task Topics (2026 Syllabus)</h2>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        Unlike HSK 3 which focuses on basic daily needs, the new HSK 4 syllabus requires handling \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain level of complexity) across 25 communicative tasks:
-      </p>
-      <ol style="color:var(--stone);line-height:2.2;margin-bottom:16px;padding-left:20px;columns:2;column-gap:32px;font-size:14px;">
-        <li>\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269 \u2014 Discuss a person</li>
-        <li>\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1 \u2014 Handle daily affairs</li>
-        <li>\u65E5\u5E38\u8A00\u8BED\u4EA4\u5F80 \u2014 Daily verbal interactions</li>
-        <li>\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898 \u2014 Discuss emotions</li>
-        <li>\u4ECB\u7ECD\u996E\u98DF\u60C5\u51B5 \u2014 Describe food & dining</li>
-        <li>\u8C08\u8BBA\u4EA4\u901A\u51FA\u884C \u2014 Discuss transportation</li>
-        <li>\u4EA4\u6D41\u8D2D\u7269\u4F53\u9A8C \u2014 Share shopping experiences</li>
-        <li>\u8C08\u8BBA\u5C31\u533B\u3001\u5065\u5EB7\u751F\u6D3B \u2014 Health & medical</li>
-        <li>\u4EA4\u6D41\u4E1A\u4F59\u7231\u597D \u2014 Hobbies & leisure</li>
-        <li>\u4EA4\u6D41\u5C45\u4F4F\u3001\u793E\u533A\u60C5\u51B5 \u2014 Housing & community</li>
-        <li>\u4EA4\u6D41\u5BB6\u5EAD\u751F\u6D3B \u2014 Family life</li>
-        <li>\u8C08\u8BBA\u6559\u5B66\u3001\u5B66\u4E60 \u2014 Education & learning</li>
-        <li>\u4EA4\u6D41\u6821\u56ED\u751F\u6D3B \u2014 Campus life</li>
-        <li>\u8C08\u8BBA\u6559\u80B2\u73B0\u8C61 \u2014 Education phenomena</li>
-        <li>\u8C08\u8BBA\u5DE5\u4F5C\u60C5\u51B5 \u2014 Work situations</li>
-        <li>\u4ECB\u7ECD\u804C\u4E1A\u7ECF\u5386 \u2014 Career experiences</li>
-        <li>\u8C08\u8BBA\u81EA\u7136\u60C5\u51B5 \u2014 Nature & geography</li>
-        <li>\u8C08\u8BBA\u73AF\u4FDD\u60C5\u51B5 \u2014 Environmental protection</li>
-        <li>\u4ECB\u7ECD\u65B0\u6280\u672F\u5E94\u7528 \u2014 Technology</li>
-        <li>\u4ECB\u7ECD\u4E2D\u56FD\u7701\u5E02\u3001\u6C11\u65CF \u2014 Chinese provinces & ethnicities</li>
-        <li>\u8C08\u8BBA\u7ECF\u6D4E\u73B0\u8C61 \u2014 Economic phenomena</li>
-        <li>\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61 \u2014 Social phenomena</li>
-        <li>\u4ECB\u7ECD\u6587\u827A\u5F62\u5F0F \u2014 Arts & entertainment</li>
-        <li>\u8C08\u8BBA\u4F53\u80B2\u6BD4\u8D5B \u2014 Sports</li>
-        <li>\u8BB2\u8FF0\u4E2D\u5916\u53CB\u597D\u6545\u4E8B \u2014 China-world friendship</li>
-      </ol>
+      <div class="toolkit-group toolkit-group--strategy">
+        <h3 class="toolkit-group-title">⚡ Strategy — How to actually pass</h3>
+        <p class="toolkit-group-sub">Test-day tactics. Worth +15–30 points at the same vocabulary level.</p>
+        <div class="toolkit-cards">
+          <a href="/strategies/" class="toolkit-card">
+            <div class="toolkit-card-tag">Strategy</div>
+            <h4>9 Strategy Guides</h4>
+            <p>Test-taking tips for all 7 question types + listening signal words + picture templates.</p>
+          </a>
+          <a href="/guide/" class="toolkit-card">
+            <div class="toolkit-card-tag">Guide</div>
+            <h4>HSK 4 Study Guide 2026</h4>
+            <p>Exam structure, scoring, study timeline, self-assessment checklist.</p>
+          </a>
+          <a href="/compare/hsk4-vs-hsk3/" class="toolkit-card">
+            <div class="toolkit-card-tag">Compare</div>
+            <h4>HSK 4 vs HSK 3</h4>
+            <p>What changes from HSK 3 to HSK 4: vocabulary, grammar, exam time, study weeks.</p>
+          </a>
+          <a href="/compare/hsk4-vs-hsk5/" class="toolkit-card">
+            <div class="toolkit-card-tag">Compare</div>
+            <h4>HSK 4 vs HSK 5</h4>
+            <p>After HSK 4: 1,300 new words, advanced grammar, full essay writing.</p>
+          </a>
+        </div>
+      </div>
 
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:32px;">HSK 4 Grammar: What the 2026 Syllabus Adds</h2>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        The official grammar syllabus adds significant complexity at Level 4. Key new patterns include: <strong>\u628A\u5B57\u53E52</strong> with four new structures (tentative, completed, quantified, and modified forms); <strong>\u88AB\u52A8\u53E52</strong> using \u53EB/\u8BA9 instead of just \u88AB; <strong>\u517C\u8BED\u53E52</strong> for causative and evaluative sentences; <strong>\u6BD4\u8F83\u53E53</strong> with \u201cA\u4E0D\u5982B\u201d and \u201c\u8DDF\u2026\u76F8\u6BD4\u201d; <strong>\u53CC\u91CD\u5426\u5B9A\u53E5</strong> for emphasis; plus many new complex sentence types (\u590D\u53E5) including concessive (\u5C3D\u7BA1\u2026\u4F46\u662F), conditional (\u4E0D\u7BA1\u2026\u90FD, \u65E0\u8BBA\u2026\u90FD), and hypothetical (\u8981\u662F\u2026\u5426\u5219) patterns. See our <a href="/grammar/" style="color:var(--accent);">grammar guide</a> for interactive practice on each pattern.
-      </p>
+      <div class="section-title">HSK 4 Exam Format</div>
+      <p class="section-intro">100 questions, 105 minutes total. The pass mark is 180/300 (60%) — but real-world programs and visa applications often look for 240+ (80%).</p>
+      <div class="format-table-wrap">
+        <table class="format-table">
+          <thead>
+            <tr>
+              <th>Section</th>
+              <th>Questions</th>
+              <th>Time</th>
+              <th>What it tests</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="badge-pill badge-listening">听力 Listening</span></td><td>45</td><td>~30 min</td><td>True/false judgments, multiple choice from audio clips played once</td></tr>
+            <tr><td><span class="badge-pill badge-reading">阅读 Reading</span></td><td>40</td><td>40 min</td><td>Vocabulary fill-in, sentence ordering, passage comprehension</td></tr>
+            <tr><td><span class="badge-pill badge-writing">书写 Writing</span></td><td>15</td><td>25 min</td><td>Construct sentences from given words</td></tr>
+            <tr class="format-table-total"><td>Total</td><td>100</td><td>~105 min</td><td>Pass mark: 180/300 (60%)</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:32px;">How to Use These Mock Exams Effectively</h2>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        <strong>Week 1\u20134:</strong> Take one test per week under timed conditions. After each test, spend twice as long reviewing your wrong answers as you spent taking the test. For every wrong answer, find the grammar pattern or vocabulary word you missed and add it to your study list.
-      </p>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        <strong>Week 5\u20138:</strong> Focus on your weakest section. If listening is your weakest, replay the audio questions from completed tests and practice shadowing the dialogues. If reading is weakest, use our <a href="/grammar/" style="color:var(--accent);">grammar guide</a> to fill gaps in sentence patterns. If writing is weakest, practice the <a href="/writing/" style="color:var(--accent);">sentence ordering drills</a>.
-      </p>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-        <strong>Final 2 weeks:</strong> Take 2\u20133 full tests back-to-back to build exam stamina. By this point, aim for 70%+ consistently \u2014 that gives you a comfortable margin above the 60% pass line.
-      </p>
-      <p style="color:var(--stone);line-height:1.8;">
-        These tests are created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>, a Chinese language school in Beijing since 2008. For personalized HSK preparation with experienced teachers, visit our website for online and in-person classes.
-      </p>
+      <div class="section-title">What the 2026 Syllabus Demands</div>
+      <p class="section-intro">The new HSK syllabus (《新版HSK考试大纲》, effective July 2026) raises the bar at Level 4. Unlike HSK 3 which focuses on basic daily needs, HSK 4 requires handling "有一定复杂度" (a certain level of complexity) across 25 communicative tasks, grouped here into four themes:</p>
 
-      <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;margin-top:40px;">All HSK 4 Study Resources / HSK 4 复习资源导航</h2>
-      <p style="color:var(--stone);line-height:1.8;margin-bottom:20px;">Beyond the 12 mock exams, this site offers a complete HSK 4 preparation toolkit. Each resource targets a specific score-improvement angle:</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:14px;margin-top:16px;">
-        <a href="/strategies/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚡ HIGH-IMPACT</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Strategies (9 guides)</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Test-taking tips for all 7 question types + listening signal words + picture templates.</p>
-        </a>
-        <a href="/sentences/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">📝 WRITING BOOST</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">100 Essential HSK 4 Sentences</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">High-frequency sentence templates for opinion, suggestion, comparison, time — ready for the writing section.</p>
-        </a>
-        <a href="/vocabulary/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">📚 FOUNDATION</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">1000 HSK 4 Vocabulary</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Complete word list with pinyin, examples, topic categories. Aligned with 2025 syllabus.</p>
-        </a>
-        <a href="/grammar/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🔧 GRAMMAR</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Grammar Hub (14 topics)</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">把字句, 被字句, 比较句, complements, complex sentences, measure words.</p>
-        </a>
-        <a href="/words/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🔍 PRECISION</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">43 Confusable Word Pairs</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">才/就, 被/让/叫, 关于/对于, 从来/一直 and other tested distinctions.</p>
-        </a>
-        <a href="/topics/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🎯 SCENARIO</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">22 HSK 4 Topic Scenarios</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Vocabulary by communicative situation: family, work, health, food, technology, etc.</p>
-        </a>
-        <a href="/guide/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">🗺 OVERVIEW</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Study Guide</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">Exam structure, scoring, HSK 3 → 4 progression, study timeline.</p>
-        </a>
-        <a href="/grammar/measure-words/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚡ NEW</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 Measure Words</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">8 new MW (打/袋/棵/台/幅/场/顿/趟) + borrowed MW + quiz.</p>
-        </a>
-        <a href="/compare/hsk4-vs-hsk3/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚖ COMPARE</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 vs HSK 3</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">What changes from HSK 3 to HSK 4: vocabulary, grammar, exam time, study weeks.</p>
-        </a>
-        <a href="/compare/hsk4-vs-hsk5/" style="background:white;border:1px solid var(--mist);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;">
-          <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px;">⚖ COMPARE</div>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">HSK 4 vs HSK 5</h3>
-          <p style="font-size:13px;color:var(--stone);line-height:1.5;margin:0;">After HSK 4: 1300 new words, advanced grammar, full essay writing.</p>
-        </a>
+      <h3 class="subsection-title">25 Communicative Tasks</h3>
+      <div class="topics-grid">
+        <div class="topics-cluster">
+          <h4>👤 Personal &amp; Social</h4>
+          <ul>
+            <li>谈论某个人物 — Discuss a person</li>
+            <li>日常言语交往 — Daily verbal interactions</li>
+            <li>谈论情感话题 — Discuss emotions</li>
+            <li>交流业余爱好 — Hobbies &amp; leisure</li>
+            <li>交流家庭生活 — Family life</li>
+            <li>交流居住、社区情况 — Housing &amp; community</li>
+          </ul>
+        </div>
+        <div class="topics-cluster">
+          <h4>🏃 Daily Life</h4>
+          <ul>
+            <li>交流、处理日常事务 — Handle daily affairs</li>
+            <li>介绍饮食情况 — Food &amp; dining</li>
+            <li>谈论交通出行 — Transportation</li>
+            <li>交流购物体验 — Shopping experiences</li>
+            <li>谈论就医、健康生活 — Health &amp; medical</li>
+            <li>谈论体育比赛 — Sports</li>
+          </ul>
+        </div>
+        <div class="topics-cluster">
+          <h4>🎓 Education &amp; Work</h4>
+          <ul>
+            <li>谈论教学、学习 — Education &amp; learning</li>
+            <li>交流校园生活 — Campus life</li>
+            <li>谈论教育现象 — Education phenomena</li>
+            <li>谈论工作情况 — Work situations</li>
+            <li>介绍职业经历 — Career experiences</li>
+          </ul>
+        </div>
+        <div class="topics-cluster">
+          <h4>🌏 Society &amp; World</h4>
+          <ul>
+            <li>谈论自然情况 — Nature &amp; geography</li>
+            <li>谈论环保情况 — Environmental protection</li>
+            <li>介绍新技术应用 — Technology</li>
+            <li>介绍中国省市、民族 — Chinese provinces &amp; ethnicities</li>
+            <li>谈论经济现象 — Economic phenomena</li>
+            <li>谈论社会现象 — Social phenomena</li>
+            <li>介绍文艺形式 — Arts &amp; entertainment</li>
+            <li>讲述中外友好故事 — China-world friendship</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">New Grammar Patterns at Level 4</h3>
+      <div class="grammar-callout">
+        <p>The official grammar syllabus adds significant complexity at Level 4. The patterns below are the highest-leverage ones to master before sitting the test:</p>
+        <ul class="grammar-points">
+          <li><strong>把字句2</strong> — four new structures (tentative, completed, quantified, modified)</li>
+          <li><strong>被动句2</strong> — using 叫/让 instead of just 被</li>
+          <li><strong>兼语句2</strong> — causative and evaluative sentences</li>
+          <li><strong>比较句3</strong> — "A不如B" and "跟…相比"</li>
+          <li><strong>双重否定句</strong> — for emphasis</li>
+          <li><strong>复句</strong> — concessive (尽管…但是), conditional (不管…都, 无论…都), hypothetical (要是…否则)</li>
+        </ul>
+        <a href="/grammar/" class="learn-more">Practice each pattern in our grammar guide →</a>
+      </div>
+
+      <div class="section-title">Section-by-Section Tips</div>
+      <p class="section-intro">Strategy advice from the question types most often missed. Combine these with the strategy guides in the toolkit above.</p>
+      <div class="tips-grid">
+        <div class="tip-card tip-card--listening">
+          <div class="tip-card-section">听力 Listening</div>
+          <h3>Listen for meaning, not just words</h3>
+          <p>The HSK 4 listening section plays each clip <strong>only once</strong>. The 判断对错 section tests inference — what the speaker really means, not what they literally said. Train yourself to ask "what does this imply?" rather than "what did I hear?"</p>
+          <a href="/strategies/listening-judgment/" class="tip-link">Listening strategies →</a>
+        </div>
+        <div class="tip-card tip-card--reading">
+          <div class="tip-card-section">阅读 Reading</div>
+          <h3>Learn collocations, not just words</h3>
+          <p>Fill-in-the-blank rewards collocations. Knowing 影响 means "influence" isn't enough — you need 对…产生影响. Sentence ordering follows structural templates: time/place → subject → action → result/comment.</p>
+          <a href="/vocabulary/" class="tip-link">Vocab with collocations →</a>
+        </div>
+        <div class="tip-card tip-card--writing">
+          <div class="tip-card-section">书写 Writing</div>
+          <h3>Memorize sentence templates</h3>
+          <p>The writing section asks you to build sentences from given words. Recognising common patterns (S+V+O+Result, Time-Place-Subject-Action) makes this section much faster. Drill the 100 essential sentences.</p>
+          <a href="/sentences/" class="tip-link">Essential sentences →</a>
+        </div>
+      </div>
+
+      <div class="section-title">8-Week Study Plan</div>
+      <p class="section-intro">Most learners pass HSK 4 in 8 weeks of focused work, given a solid HSK 3 foundation. Here's the proven sequence — and what to do in each phase.</p>
+      <div class="plan-timeline">
+        <div class="plan-phase">
+          <div class="plan-phase-head">
+            <span class="plan-week">Weeks 1–4</span>
+            <span class="plan-phase-name">Build &amp; Diagnose</span>
+          </div>
+          <p>Take one full mock per week under timed conditions. Spend <strong>twice as long</strong> reviewing wrong answers as you spent on the test — that's where learning happens. Build vocabulary on the side using flashcards.</p>
+        </div>
+        <div class="plan-phase">
+          <div class="plan-phase-head">
+            <span class="plan-week">Weeks 5–8</span>
+            <span class="plan-phase-name">Target weak section</span>
+          </div>
+          <p>Focus on your weakest section. Listening weak? Replay audio and shadow dialogues. Reading weak? Drill grammar patterns. Writing weak? Memorize sentence templates and ordering patterns.</p>
+        </div>
+        <div class="plan-phase">
+          <div class="plan-phase-head">
+            <span class="plan-week">Final 2 weeks</span>
+            <span class="plan-phase-name">Build exam stamina</span>
+          </div>
+          <p>Take 2–3 full tests back-to-back to simulate exam conditions. Aim for 70%+ consistently — that gives you a 10-point cushion above the 60% pass line on test day.</p>
+        </div>
       </div>
     </section>`;
 
   html = html.replace(
-    /<!-- (?:Static SEO content for search engines|STATIC SEO CONTENT) -->.*?<\/section>/s,
+    /<!-- (?:Static SEO content for search engines|STATIC SEO CONTENT) -->[\s\S]*?<\/section>/,
     newSEO
   );
 
