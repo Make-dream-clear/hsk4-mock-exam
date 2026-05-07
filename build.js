@@ -880,10 +880,13 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, character
     priority: '0.7',
   }));
 
-  // Add character writing pages
-  const characterPages = (characterList || []).map(ch => ({
+  // Add character writing pages — top-30 enhanced pages get higher priority
+  // than the 120 basic pages to signal Google which pages to crawl deeper.
+  const enhancedSet = new Set((characterList && characterList.enhanced) || []);
+  const allChars = (characterList && characterList.all) || characterList || [];
+  const characterPages = allChars.map(ch => ({
     loc: `/characters/${encodeURIComponent(ch)}/`,
-    priority: '0.7',
+    priority: enhancedSet.has(ch) ? '0.8' : '0.6',
   }));
 
   const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages, ...characterPages];
@@ -2639,8 +2642,10 @@ function buildCharacterPages() {
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hsk4.mandarinzone.com/characters/">
 <meta property="og:site_name" content="Mandarin Zone">
-<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/characters/">
-<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/characters/">
+<meta property="og:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
+<meta property="og:image:alt" content="Mandarin Zone — HSK 4 character writing practice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
 <link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/">
 <script type="application/ld+json">
 {
@@ -2766,10 +2771,14 @@ ${renderFooter()}
   fs.writeFileSync(path.join(charsDir, 'index.html'), hubHtml, 'utf8');
 
   // ---- v2 enhanced template support ----
-  // Compute top 30 chars by HSK 4 vocab density
+  // Compute density rank: chars sorted by HSK 4 vocab appearance frequency.
+  // Used both to pick the top 30 (which get the enhanced template) and to
+  // surface a "rank #N by HSK 4 vocab density" stat in the Quick Answer.
+  const charListIndex = new Map(chars.map((c, idx) => [c.char, idx]));
   const densityRank = chars
     .map(c => ({ char: c.char, hits: (charToWords[c.char] || []).length }))
-    .sort((a, b) => b.hits - a.hits || chars.findIndex(x => x.char === a.char) - chars.findIndex(x => x.char === b.char));
+    .sort((a, b) => b.hits - a.hits || charListIndex.get(a.char) - charListIndex.get(b.char));
+  const charToRank = new Map(densityRank.map((r, idx) => [r.char, idx + 1]));
   const TOP_N = 30;
   const top30Set = new Set(densityRank.slice(0, TOP_N).map(r => r.char));
 
@@ -2852,14 +2861,14 @@ ${renderFooter()}
       ? (radicalToChars[radical] || []).filter(x => x.char !== c.char)
       : [];
 
-    // Quick Answer block
-    const quickBits = [];
-    quickBits.push(`<strong class="chinese">${escHtml(c.char)}</strong> (${pinyinList.map(escHtml).join(' / ')})`);
-    quickBits.push(`means <em>${escHtml(e.definition || c.meaning)}</em>`);
-    if (strokes) quickBits.push(`is written in <strong>${strokes} strokes</strong>`);
-    if (radical) quickBits.push(`with the radical <strong class="chinese">${escHtml(radical)}</strong>${radDef ? ` (${escHtml(radDef)})` : ''}`);
-    quickBits.push(`and is one of the 150 HSK 4 required writing characters (rank #${i + 1} by appearance in HSK 4 vocabulary)`);
-    const quickAnswer = quickBits.join(', ') + '.';
+    // Quick Answer block. The first segment ("X (pinyin) means Y") reads as
+    // one clause and shouldn't be comma-joined to the rest.
+    const head = `<strong class="chinese">${escHtml(c.char)}</strong> (${pinyinList.map(escHtml).join(' / ')}) means <em>${escHtml(e.definition || c.meaning)}</em>`;
+    const tail = [];
+    if (strokes) tail.push(`is written in <strong>${strokes} strokes</strong>`);
+    if (radical) tail.push(`with the radical <strong class="chinese">${escHtml(radical)}</strong>${radDef ? ` (${escHtml(radDef)})` : ''}`);
+    tail.push(`and is one of the 150 HSK 4 required writing characters (rank #${charToRank.get(c.char)} by appearance in HSK 4 vocabulary)`);
+    const quickAnswer = `${head}. It ${tail.join(', ')}.`;
 
     // Pinyin & meanings section
     const meaningsHtml = meanings.length > 1
@@ -2979,8 +2988,10 @@ ${renderFooter()}
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
 <meta property="og:site_name" content="Mandarin Zone">
-<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
-<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<meta property="og:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
+<meta property="og:image:alt" content="Mandarin Zone — HSK 4 character writing practice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
 <link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
 <script type="application/ld+json">
 {
@@ -3010,8 +3021,12 @@ ${renderNav('characters')}
     <a href="/">Home</a> &rsaquo; <a href="/characters/">Characters</a> &rsaquo; <span class="chinese">${escHtml(c.char)}</span>
   </nav>
 
-  <section class="char-header">
-    <span class="char-hero-glyph chinese">${escHtml(c.char)}</span>
+  <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(22px,4vw,30px);margin:16px 0 12px;line-height:1.3;">
+    How to write <span class="chinese">${escHtml(c.char)}</span> (${pinyinList.map(escHtml).join(' / ')}) — Stroke Order, Radical &amp; Practice
+  </h1>
+
+  <section class="char-header" aria-label="Character overview">
+    <span class="char-hero-glyph chinese" aria-hidden="true">${escHtml(c.char)}</span>
     <div class="char-meta">
       <span class="char-pinyin-big">${pinyinList.map(escHtml).join(' / ')}</span>
       <span class="char-meaning">${escHtml(e.definition || c.meaning)}</span>
@@ -3167,8 +3182,10 @@ window.addEventListener('load', function(){
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
 <meta property="og:site_name" content="Mandarin Zone">
-<link rel="alternate" hreflang="en" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
-<link rel="alternate" hreflang="zh" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
+<meta property="og:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
+<meta property="og:image:alt" content="Mandarin Zone — HSK 4 character writing practice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
 <link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
 <script type="application/ld+json">
 {
@@ -3195,8 +3212,12 @@ ${renderNav('characters')}
     <a href="/">Home</a> &rsaquo; <a href="/characters/">Characters</a> &rsaquo; <span class="chinese">${escHtml(c.char)}</span>
   </nav>
 
-  <section class="char-header">
-    <span class="char-hero-glyph chinese">${escHtml(c.char)}</span>
+  <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(22px,4vw,30px);margin:16px 0 12px;line-height:1.3;">
+    How to write <span class="chinese">${escHtml(c.char)}</span> (${escHtml(c.pinyin)}) — HSK 4 Stroke Order &amp; Practice
+  </h1>
+
+  <section class="char-header" aria-label="Character overview">
+    <span class="char-hero-glyph chinese" aria-hidden="true">${escHtml(c.char)}</span>
     <div class="char-meta">
       <span class="char-pinyin-big">${escHtml(c.pinyin)}</span>
       <span class="char-meaning">${escHtml(c.meaning)}</span>
@@ -3296,7 +3317,10 @@ window.addEventListener('load', function(){
   const enhancedCount = top30Set.size;
   const simpleCount = chars.length - enhancedCount;
   console.log(`[characters] Generated hub + ${enhancedCount} enhanced (top-30) + ${simpleCount} basic per-character pages`);
-  return chars.map(c => c.char);
+  return {
+    all: chars.map(c => c.char),
+    enhanced: Array.from(top30Set),
+  };
 }
 
 // ============================================================
