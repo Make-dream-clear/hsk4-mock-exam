@@ -1,0 +1,892 @@
+/* ===================================================
+   HSK4 Mandarin Zone — Homepage CSS
+   homepage.css
+
+   Loaded only by the homepage (index.html). Layered on top of
+   common.css. Contains:
+     - Three "screens" (home / quiz / results) and their state CSS
+     - Quiz UI (question card, options, progress bar, audio)
+     - Results UI (score circle, breakdown)
+     - Redesigned home-screen sections (hero CTA, path cards,
+       toolkit groups, format table, syllabus topics, grammar
+       callout, tips, study plan, about)
+     - Anchor scroll offset, smooth scroll, focus-visible parity
+
+   This was extracted from an inline <style> block in index.html so
+   the rules can be cached across visits and not re-shipped on every
+   page load.
+   =================================================== */
+
+/* === SCREENS === */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* === PAGE OVERRIDES === */
+.hero h1 { letter-spacing: -0.5px; }
+.hero p { max-width: 520px; }
+
+.cta-banner .btn-primary { background: var(--accent); }
+.cta-link {
+  color: var(--paper);
+  opacity: 0.5;
+  font-size: var(--fs-sm);
+  display: block;
+  margin-top: var(--space-3);
+}
+
+/* === TEST GRID — mobile first === */
+.test-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-10);
+}
+@media (min-width: 480px) {
+  .test-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+}
+@media (min-width: 768px) {
+  .test-grid { gap: var(--space-3); margin-bottom: var(--space-12); }
+}
+
+.test-card {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  position: relative;
+  overflow: hidden;
+  min-height: var(--tap);
+}
+.test-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.test-card:active { transform: translateY(0); }
+.test-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.test-card:hover::before, .test-card:focus-within::before { opacity: 1; }
+
+.test-card-num {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.test-card-title {
+  font-weight: 600;
+  font-size: var(--fs-base);
+  margin-bottom: var(--space-2);
+  line-height: 1.3;
+}
+.test-card-meta {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* === QUIZ HEADER ===
+   On mobile, sticks just under the site header so progress stays visible
+   while scrolling through long questions. */
+.quiz-header {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  position: sticky;
+  top: calc(var(--header-h) + env(safe-area-inset-top));
+  z-index: 50;
+}
+@media (min-width: 768px) {
+  .quiz-header { padding: var(--space-4) var(--space-5); margin-bottom: var(--space-5); }
+}
+
+.quiz-title {
+  font-weight: 600;
+  font-size: var(--fs-base);
+}
+.quiz-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1 1 auto;
+  justify-content: flex-end;
+}
+.progress-bar {
+  width: 100%;
+  max-width: 160px;
+  min-width: 80px;
+  height: 6px;
+  background: var(--mist);
+  border-radius: 3px;
+  overflow: hidden;
+  flex: 1 1 auto;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.progress-text {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  font-weight: 500;
+  min-width: 56px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* === QUESTION CARD ===
+   Tighter padding on phone — every horizontal pixel matters when reading
+   long Chinese passages. */
+.question-card {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  box-shadow: var(--shadow);
+  margin-bottom: var(--space-5);
+}
+@media (min-width: 480px) { .question-card { padding: var(--space-6); } }
+@media (min-width: 768px) { .question-card { padding: var(--space-8); } }
+
+.question-type-badge {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: var(--space-4);
+}
+.badge-listening { background: var(--gold-soft); color: var(--gold); }
+.badge-reading { background: var(--jade-soft); color: var(--jade); }
+.badge-writing { background: var(--accent-soft); color: var(--accent); }
+
+.question-number {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  margin-bottom: var(--space-3);
+  font-weight: 500;
+}
+
+/* Chinese text needs higher minimum size for stroke clarity (e.g. 己/已/巳).
+   overflow-wrap: break-word only kicks in for unbreakable strings, so
+   occasional English/pinyin glosses don't break mid-character. */
+.question-text {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: var(--fs-lg);
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.audio-player { margin-bottom: var(--space-6); }
+.audio-player audio {
+  width: 100%;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+.audio-note {
+  font-size: var(--fs-xs);
+  color: var(--stone);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+@media (min-width: 480px) { .options-list { gap: 10px; } }
+
+/* Option button: minimum 44px touch target, 16px+ Chinese for clarity. */
+.option-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  min-height: var(--tap);
+  border: 2px solid var(--mist);
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: left;
+  font-size: clamp(15px, 0.9rem + 0.3vw, 16px);
+  font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  overflow-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (min-width: 768px) {
+  .option-btn { padding: 14px 18px; }
+}
+.option-btn:hover:not(.disabled) {
+  border-color: var(--accent);
+  background: #fdf8f7;
+}
+.option-btn .marker {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--stone);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+.option-btn:hover:not(.disabled) .marker {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.option-btn.selected { border-color: var(--accent); background: #fdf8f7; }
+.option-btn.selected .marker {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.option-btn.correct { border-color: var(--correct); background: #f0faf4; }
+.option-btn.correct .marker {
+  background: var(--correct);
+  border-color: var(--correct);
+  color: white;
+}
+.option-btn.wrong { border-color: var(--wrong); background: #fef2f0; }
+.option-btn.wrong .marker {
+  background: var(--wrong);
+  border-color: var(--wrong);
+  color: white;
+}
+.option-btn.disabled { cursor: default; opacity: 0.7; }
+.option-btn.disabled.correct, .option-btn.disabled.wrong { opacity: 1; }
+
+/* Nav buttons: stacked & full-width on phone, side-by-side on tablet+.
+   Earlier draft made these sticky-bottom on mobile, but the behavior
+   was inconsistent (only kicked in on tall pages) and the negative-
+   margin breakout collided with safe-area-inset-left on landscape.
+   Natural flow is more predictable. footer handles bottom safe-area —
+   no need to double-pad here. */
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.nav-buttons .btn { width: 100%; text-align: center; }
+@media (min-width: 768px) {
+  .nav-buttons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .nav-buttons .btn { width: auto; }
+}
+
+/* === RESULTS === */
+.results-card {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: var(--space-6);
+}
+@media (min-width: 768px) { .results-card { padding: var(--space-10); } }
+
+.score-circle {
+  width: clamp(120px, 30vw, 140px);
+  height: clamp(120px, 30vw, 140px);
+  border-radius: 50%;
+  border: 6px solid var(--mist);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+  position: relative;
+}
+.score-circle.pass { border-color: var(--correct); }
+.score-circle.fail { border-color: var(--wrong); }
+
+.score-num { font-size: clamp(30px, 7vw, 36px); font-weight: 700; line-height: 1; }
+.score-label { font-size: var(--fs-sm); color: var(--stone); margin-top: 4px; }
+
+.results-msg { font-size: var(--fs-lg); font-weight: 600; margin-bottom: var(--space-2); }
+.results-detail { color: var(--stone); font-size: var(--fs-base); margin-bottom: var(--space-6); }
+
+.results-breakdown {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+@media (min-width: 768px) { .results-breakdown { gap: var(--space-8); } }
+.breakdown-item { text-align: center; min-width: 64px; }
+.breakdown-num { font-size: var(--fs-2xl); font-weight: 700; }
+.breakdown-num.green { color: var(--correct); }
+.breakdown-num.red { color: var(--wrong); }
+.breakdown-label { font-size: var(--fs-xs); color: var(--stone); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.results-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: stretch;
+}
+.results-actions .btn { width: 100%; }
+@media (min-width: 480px) {
+  .results-actions { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+  .results-actions .btn { width: auto; }
+}
+
+/* ===================================================
+   HOME SCREEN — REDESIGNED LAYOUT
+   =================================================== */
+
+/* Hero CTA + trust line.
+   Stats row gets 5 numbers now, so allow wrapping on mobile. */
+.hero-cta {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-5);
+}
+.hero .trust-line {
+  font-size: var(--fs-xs);
+  color: var(--stone);
+  margin: var(--space-5) auto 0;
+  max-width: 520px;
+  letter-spacing: 0.2px;
+}
+/* 4 stats fit at the default 2xl size — earlier override scaled down for
+   5-stat density, no longer needed. */
+.hero .stats-row .stat { min-width: 72px; }
+
+/* === PATH SECTION ===
+   Three-card "where to start" pivot. Sequential steps share a single
+   accent — earlier draft used red/jade/gold per card, but those colors
+   already mean listening/reading/writing in the question-type badges
+   and tip cards, which made the same green carry two unrelated meanings
+   on the same page. Order is conveyed by the visible "Step N" eyebrow,
+   not by hue. */
+.path-section { margin: var(--space-8) 0 var(--space-10); }
+.path-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+@media (min-width: 768px) {
+  .path-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+}
+.path-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  background: white;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.path-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+}
+/* Same lift on keyboard focus as on hover, so keyboard users get the
+   same visual confirmation. The global :focus-visible outline still
+   applies on top. */
+.path-card:hover,
+.path-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+.path-icon { font-size: 28px; line-height: 1; margin-bottom: var(--space-3); }
+.path-stage {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: var(--space-2);
+}
+.path-card h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+  line-height: 1.3;
+}
+.path-card p {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+  flex: 1;
+}
+.path-cta {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* === SECTION INTRO ===
+   One-paragraph lede that follows a section-title, explaining what's
+   in the section before the user has to scan it. */
+.section-intro {
+  color: var(--stone);
+  line-height: 1.8;
+  margin-bottom: var(--space-5);
+  max-width: 720px;
+  font-size: var(--fs-base);
+}
+
+/* === TOOLKIT GROUPS ===
+   Three semantic groups (Foundation / Precision / Strategy), each tinted
+   a different brand color so the IA is visible at a glance. */
+.toolkit-group {
+  margin-top: var(--space-5);
+  padding: var(--space-5);
+  border-radius: var(--radius);
+  border: 1px solid var(--mist);
+}
+@media (min-width: 768px) {
+  .toolkit-group { padding: var(--space-6); }
+}
+.toolkit-group--foundation { background: rgba(216, 243, 220, 0.35); border-color: rgba(45, 106, 79, 0.15); }
+.toolkit-group--precision  { background: rgba(254, 243, 205, 0.45); border-color: rgba(139, 102, 16, 0.18); }
+.toolkit-group--strategy   { background: rgba(232, 213, 208, 0.4);  border-color: rgba(194, 59, 34, 0.18); }
+.toolkit-group-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+.toolkit-group-sub {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  margin-bottom: var(--space-4);
+}
+.toolkit-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+@media (min-width: 480px) {
+  .toolkit-cards { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+/* Flex-column so cards in the same row align bottoms even when their
+   descriptions are different lengths. The <p> has flex: 1 below to push
+   itself to fill the gap. */
+.toolkit-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.2s;
+  height: 100%;
+}
+.toolkit-card:hover,
+.toolkit-card:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.toolkit-card-tag {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.toolkit-group--foundation .toolkit-card-tag { color: var(--jade); }
+.toolkit-group--precision  .toolkit-card-tag { color: var(--gold); }
+.toolkit-group--strategy   .toolkit-card-tag { color: var(--accent); }
+.toolkit-card h4 {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.toolkit-card p {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+/* === FORMAT TABLE ===
+   Replaces the previous inline-styled table. Rounded corners + drop
+   shadow, plus colored section pills (matching the question-type-badge
+   palette used in the quiz screen). */
+.format-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: var(--space-4) 0 var(--space-6);
+  border-radius: var(--radius);
+  border: 1px solid var(--mist);
+}
+.format-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+  background: white;
+  min-width: 540px;
+}
+.format-table th, .format-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--mist);
+}
+.format-table th {
+  background: var(--paper);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--stone);
+}
+.format-table .format-table-total td {
+  background: var(--paper);
+  font-weight: 700;
+  border-bottom: none;
+}
+.badge-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge-pill.badge-listening { background: var(--gold-soft); color: var(--gold); }
+.badge-pill.badge-reading   { background: var(--jade-soft); color: var(--jade); }
+.badge-pill.badge-writing   { background: var(--accent-soft); color: var(--accent); }
+
+/* === SUBSECTION TITLE ===
+   Smaller heading inside a section (between h2-style section-title and
+   the section's content). */
+.subsection-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+/* === TOPICS GRID ===
+   The 25 communicative tasks are broken into 4 thematic clusters
+   (Personal & Social / Daily Life / Education & Work / Society & World)
+   so the list scans rather than reads as a wall. */
+.topics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+@media (min-width: 600px) {
+  .topics-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+}
+.topics-cluster {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-5);
+}
+.topics-cluster h4 {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--mist);
+}
+.topics-cluster ul { list-style: none; padding: 0; margin: 0; }
+.topics-cluster li {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  line-height: 1.9;
+}
+
+/* === GRAMMAR CALLOUT ===
+   Dark inverse panel for the new-grammar-points list. Inverse contrast
+   pulls the eye and signals "important syllabus update". */
+.grammar-callout {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--radius);
+  padding: var(--space-5) var(--space-6);
+  margin-top: var(--space-4);
+}
+.grammar-callout > p {
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-sm);
+}
+.grammar-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-4);
+}
+.grammar-points li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  opacity: 0.9;
+}
+.grammar-points li:last-child { border-bottom: none; }
+.grammar-points strong {
+  color: white;
+  opacity: 1;
+  font-family: 'Noto Sans SC', sans-serif;
+  margin-right: 6px;
+}
+.grammar-callout .learn-more {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  display: inline-block;
+}
+.grammar-callout .learn-more:hover { text-decoration: underline; }
+
+/* === SECTION TIPS ===
+   Three pillar cards mapped to listening/reading/writing, color-coded
+   with a top-border accent so users can visually find the section
+   they care about. */
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+@media (min-width: 768px) {
+  .tips-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.tip-card {
+  padding: var(--space-5);
+  border-radius: var(--radius);
+  border: 1px solid var(--mist);
+  background: white;
+  border-top-width: 3px;
+  display: flex;
+  flex-direction: column;
+}
+.tip-card-section {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: var(--space-3);
+}
+.tip-card--listening { border-top-color: var(--gold); }
+.tip-card--listening .tip-card-section { background: var(--gold-soft); color: var(--gold); }
+.tip-card--reading { border-top-color: var(--jade); }
+.tip-card--reading .tip-card-section { background: var(--jade-soft); color: var(--jade); }
+.tip-card--writing { border-top-color: var(--accent); }
+.tip-card--writing .tip-card-section { background: var(--accent-soft); color: var(--accent); }
+.tip-card h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  line-height: 1.4;
+}
+.tip-card p {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+  flex: 1;
+}
+.tip-link {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  align-self: flex-start;
+}
+.tip-link:hover { text-decoration: underline; }
+
+/* === STUDY PLAN TIMELINE ===
+   Three phase cards — visually similar to tip-cards but timeline-flavored
+   with a numbered "Weeks X–Y" eyebrow. */
+.plan-timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+@media (min-width: 768px) {
+  .plan-timeline { grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+}
+.plan-phase {
+  padding: var(--space-5);
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  background: white;
+}
+.plan-phase-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--mist);
+}
+.plan-week {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.plan-phase-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+.plan-phase p {
+  font-size: var(--fs-sm);
+  color: var(--stone);
+  line-height: 1.7;
+}
+
+/* === ABOUT MANDARIN ZONE ===
+   Trust block. Slightly more prominent than the previous version —
+   larger logo, clearer hierarchy, two-button row. */
+.about-section { margin: var(--space-10) 0; }
+.about-card {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: var(--space-6);
+  background: var(--paper);
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+}
+.about-logo {
+  height: 64px;
+  width: auto;
+  max-width: 180px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.about-body { flex: 1; min-width: 240px; }
+.about-body h2,
+.about-body h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-2);
+}
+.about-since {
+  color: var(--stone);
+  font-weight: 400;
+  font-size: var(--fs-sm);
+}
+.about-body p {
+  color: var(--stone);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+}
+.about-body a { color: var(--accent); text-decoration: none; }
+.about-body a:hover { text-decoration: underline; }
+.about-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* Tighter section spacing inside the redesigned home screen.
+   The default .section-title margin-top is 40px which compounds when
+   we have many sections. Keep the rhythm but slightly reduce. */
+#home-screen .section-title { margin-top: var(--space-10); }
+#home-screen > .hero + section .section-title,
+#home-screen > .hero + .path-section .section-title { margin-top: var(--space-6); }
+
+/* === ANCHOR JUMP OFFSET ===
+   The header is sticky at 56px. Without scroll-margin-top, clicking a
+   #toolkit / #mock-exams link parks the heading directly under the
+   header and the user can't see what they jumped to. Apply broadly
+   to anchored sections inside home-screen. */
+#home-screen [id] {
+  scroll-margin-top: calc(var(--header-h) + var(--space-4) + env(safe-area-inset-top));
+}
+
+/* Smooth scroll for the in-page anchor jumps, but respect the user's
+   reduced-motion preference. (common.css already handles a global
+   reduced-motion override for animations/transitions, but
+   scroll-behavior is a separate property.) */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* === KEYBOARD FOCUS PARITY ===
+   The original .test-card hover gave a translateY lift, but
+   :focus-within only added the side accent bar — keyboard users
+   didn't see the elevation. Mirror the hover treatment on focus so
+   mouse and keyboard reach the same visual state. */
+.test-card:focus-visible,
+.test-card:focus-within {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.tip-card-section,
+.toolkit-card-tag,
+.plan-week {
+  /* Already var(--fs-xs); listed here as the canonical "small caps
+     eyebrow" set so future contributors keep them aligned. */
+}
