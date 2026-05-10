@@ -28,6 +28,18 @@
         "py": "Jǐnguǎn tā jiěshì le hěn duō biàn, dàjiā háishi bù lǐjiě.",
         "en": "Despite his many explanations, no one understood.",
         "note": "还是不 = still don't (negative persistence)"
+      },
+      {
+        "cn": "尽管这次考试比较难，但是大部分同学都通过了。",
+        "py": "Jǐnguǎn zhè cì kǎoshì bǐjiào nán, dànshì dà bùfen tóngxué dōu tōngguò le.",
+        "en": "Despite this exam being relatively hard, most students still passed.",
+        "note": "Common HSK 4 exam-context sentence; 大部分…都 widens the contrast"
+      },
+      {
+        "cn": "尽管他来中国才两年，但是汉语已经说得很流利了。",
+        "py": "Jǐnguǎn tā lái Zhōngguó cái liǎng nián, dànshì Hànyǔ yǐjīng shuō de hěn liúlì le.",
+        "en": "Despite only being in China for two years, his Chinese is already very fluent.",
+        "note": "才 + 已经 highlights surprising progress — classic HSK 4 reading topic"
       }
     ],
     "wrong_examples": [
@@ -109,6 +121,18 @@
         "py": "Bùguǎn duō máng, tā dōu huì gěi fùmǔ dǎ diànhuà.",
         "en": "No matter how busy, she always calls her parents.",
         "note": "多+adj covers all degrees"
+      },
+      {
+        "cn": "不管谁问起这件事，我都不会告诉别人。",
+        "py": "Bùguǎn shéi wèn qǐ zhè jiàn shì, wǒ dōu bú huì gàosu biérén.",
+        "en": "No matter who asks about this, I won't tell anyone.",
+        "note": "谁 covers all possible askers; 都不 covers all possible recipients — common HSK 4 conversation frame"
+      },
+      {
+        "cn": "不管什么时候出发，路上总会堵车。",
+        "py": "Bùguǎn shénme shíhou chūfā, lù shang zǒng huì dǔchē.",
+        "en": "No matter when you set out, you'll always run into traffic.",
+        "note": "什么时候 + 总 reinforces the universal claim — HSK 4 commute topic"
       }
     ],
     "wrong_examples": [
@@ -190,6 +214,18 @@
         "py": "Jíshǐ nǐ bù tóngyì, wǒ yě yào zhèyàng zuò.",
         "en": "Even if you disagree, I'll still do it this way.",
         "note": "Your disagreement is hypothetical / anticipated"
+      },
+      {
+        "cn": "即使遇到再大的困难，我们也要保持冷静。",
+        "py": "Jíshǐ yùdào zài dà de kùnnán, wǒmen yě yào bǎochí lěngjìng.",
+        "en": "Even if we run into bigger difficulties, we still have to stay calm.",
+        "note": "再 + adj raises the hypothetical extreme. 保持冷静 is the HSK 4 collocation tested in 阅读 problem-solving passages"
+      },
+      {
+        "cn": "即使老板答应给我更高的工资，我也不愿意继续做这份工作。",
+        "py": "Jíshǐ lǎobǎn dāyìng gěi wǒ gèng gāo de gōngzī, wǒ yě bú yuànyì jìxù zuò zhè fèn gōngzuò.",
+        "en": "Even if my boss promises me a higher salary, I'm still unwilling to keep this job.",
+        "note": "Hypothetical incentive + unchanged decision — workplace HSK 4 context"
       }
     ],
     "wrong_examples": [
@@ -271,6 +307,18 @@
         "py": "Zhǐyǒu dàjiā yìqǐ nǔlì, cái néng wánchéng zhège xiàngmù.",
         "en": "Only if everyone works together can we finish this project.",
         "note": "Collective effort is necessary"
+      },
+      {
+        "cn": "只有认真复习，才能在考试中取得好成绩。",
+        "py": "Zhǐyǒu rènzhēn fùxí, cái néng zài kǎoshì zhōng qǔdé hǎo chéngjì.",
+        "en": "Only by reviewing seriously can you get good grades on the exam.",
+        "note": "认真 + 复习 + 取得 + 成绩 — all HSK 4. Classic study-advice frame in HSK 4 阅读"
+      },
+      {
+        "cn": "只有打好基础，将来才能学会更难的内容。",
+        "py": "Zhǐyǒu dǎ hǎo jīchǔ, jiānglái cái néng xuéhuì gèng nán de nèiróng.",
+        "en": "Only by laying a solid foundation can you later learn more difficult material.",
+        "note": "将来 + 才能 = future result depends on present foundation; classic HSK 4 study advice"
       }
     ],
     "wrong_examples": [
@@ -352,6 +400,18 @@
         "py": "Kuài diǎn xiě zuòyè, bùrán lái bù jí le.",
         "en": "Do your homework quickly, or you won't make it.",
         "note": "不然 = otherwise (casual)"
+      },
+      {
+        "cn": "你最好按时吃药，否则病可能会更严重。",
+        "py": "Nǐ zuìhǎo ànshí chī yào, fǒuzé bìng kěnéng huì gèng yánzhòng.",
+        "en": "You'd better take your medicine on time, otherwise your illness may become more serious.",
+        "note": "最好 + 否则 + 可能会 = polite warning of a bad outcome — HSK 4 health context"
+      },
+      {
+        "cn": "我们得提前预订房间，不然到时候就没地方住了。",
+        "py": "Wǒmen děi tíqián yùdìng fángjiān, bùrán dào shíhou jiù méi dìfang zhù le.",
+        "en": "We have to book a room in advance, or there'll be no place to stay when we arrive.",
+        "note": "不然 + 到时候 = casual contingency warning — HSK 4 travel-planning topic"
       }
     ],
     "wrong_examples": [
@@ -433,6 +493,18 @@
         "py": "Tā máng de lián chīfàn de shíjiān dōu méiyǒu.",
         "en": "She's so busy she doesn't even have time to eat.",
         "note": "Eating = basic necessity, emphasizing extreme busyness"
+      },
+      {
+        "cn": "这个城市发展太快了，连住了很多年的人都常常找不到回家的路。",
+        "py": "Zhège chéngshì fāzhǎn tài kuài le, lián zhù le hěn duō nián de rén dōu chángcháng zhǎo bú dào huí jiā de lù.",
+        "en": "This city is developing so fast that even people who've lived here for many years often can't find their way home.",
+        "note": "住了很多年的人 = those most familiar — emphasizes the scale of change. Common HSK 4 reading topic"
+      },
+      {
+        "cn": "他对那段历史很熟悉，连小细节也记得清清楚楚。",
+        "py": "Tā duì nà duàn lìshǐ hěn shúxī, lián xiǎo xìjié yě jìde qīngqīngchǔchǔ.",
+        "en": "He knows that period of history so well that even small details are crystal clear in his memory.",
+        "note": "小细节 = least notable, showcasing mastery — HSK 4 描述人物 frame"
       }
     ],
     "wrong_examples": [
@@ -514,6 +586,18 @@
         "py": "Wǒ búshì shēngqì, érshì yǒudiǎnr shīwàng.",
         "en": "I'm not angry, just a bit disappointed.",
         "note": "Clarifying the real emotion"
+      },
+      {
+        "cn": "这次比赛重要的不是输赢，而是参加的过程。",
+        "py": "Zhè cì bǐsài zhòngyào de búshì shū yíng, érshì cānjiā de guòchéng.",
+        "en": "What matters in this competition isn't winning or losing, but the experience of taking part.",
+        "note": "Reframes priorities — common HSK 4 essay/reading-passage thesis"
+      },
+      {
+        "cn": "学好一门外语，难的不是发音，而是坚持。",
+        "py": "Xué hǎo yì mén wàiyǔ, nán de búshì fāyīn, érshì jiānchí.",
+        "en": "When learning a foreign language, the hard part isn't pronunciation — it's persistence.",
+        "note": "Corrects a common assumption — HSK 4 language-learning topic"
       }
     ],
     "wrong_examples": [
@@ -595,6 +679,18 @@
         "py": "Yì fāngmiàn yào bǎohù huánjìng, lìng yì fāngmiàn yě yào fāzhǎn jīngjì.",
         "en": "On one hand we must protect the environment; on the other, develop the economy.",
         "note": "Two equally important goals"
+      },
+      {
+        "cn": "锻炼身体一方面能让人更健康，另一方面也能减轻压力。",
+        "py": "Duànliàn shēntǐ yì fāngmiàn néng ràng rén gèng jiànkāng, lìng yì fāngmiàn yě néng jiǎnqīng yālì.",
+        "en": "Exercising can on one hand make you healthier, and on the other relieve stress.",
+        "note": "Two parallel benefits — frequent HSK 4 reading-passage structure"
+      },
+      {
+        "cn": "上网一方面给我们的生活带来了方便，另一方面也带来了一些新的问题。",
+        "py": "Shàng wǎng yì fāngmiàn gěi wǒmen de shēnghuó dàilái le fāngbiàn, lìng yì fāngmiàn yě dàilái le yìxiē xīn de wèntí.",
+        "en": "Going online has on one hand made our lives more convenient, and on the other brought some new problems.",
+        "note": "Frames a balanced 利弊 (pros/cons) discussion — very HSK 4 essay-style"
       }
     ],
     "wrong_examples": [
