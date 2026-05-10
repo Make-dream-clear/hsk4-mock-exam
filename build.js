@@ -429,6 +429,7 @@ function buildTestPages() {
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
+      <a href="/traps/" class="nav-link">Traps</a>
       <a href="/topics/" class="nav-link">Topics</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/compare/" class="nav-link">Compare</a>
@@ -823,6 +824,7 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, character
     { loc: '/guide/', priority: '0.8' },
     { loc: '/sentences/', priority: '0.9' },
     { loc: '/strategies/', priority: '0.9' },
+    { loc: '/traps/', priority: '0.9' },
     { loc: '/strategies/listening-judgment/', priority: '0.8' },
     { loc: '/strategies/listening-dialog/', priority: '0.8' },
     { loc: '/strategies/listening-passage/', priority: '0.8' },
@@ -1703,6 +1705,7 @@ ${faqJsonLd}
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
+      <a href="/traps/" class="nav-link">Traps</a>
       <a href="/topics/" class="nav-link" style="opacity:1;">Topics</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/compare/" class="nav-link">Compare</a>
@@ -2027,6 +2030,7 @@ ${pairFaqJsonLd}
       <a href="/grammar/" class="nav-link">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
+      <a href="/traps/" class="nav-link">Traps</a>
       <a href="/topics/" class="nav-link">Topics</a>
       <a href="/words/" class="nav-link" style="opacity:1;">Words</a>
       <a href="/compare/" class="nav-link">Compare</a>
@@ -2374,6 +2378,7 @@ ${patFaqJsonLd}
       <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
       <a href="/sentences/" class="nav-link">Sentences</a>
       <a href="/strategies/" class="nav-link">Strategies</a>
+      <a href="/traps/" class="nav-link">Traps</a>
       <a href="/topics/" class="nav-link">Topics</a>
       <a href="/words/" class="nav-link">Words</a>
       <a href="/compare/" class="nav-link">Compare</a>
