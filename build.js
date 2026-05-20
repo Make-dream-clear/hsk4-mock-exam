@@ -1244,7 +1244,7 @@ function addGrammarCrossLinks() {
 // ============================================================
 
 function buildWritingGuide() {
-  console.log('[writing] Enriching writing entry page...');
+  console.log('[writing] Pre-rendering HSK 4 word bank into writing page...');
   const htmlPath = path.join(ROOT, 'writing', 'index.html');
   if (!fs.existsSync(htmlPath)) {
     console.log('[writing] writing/index.html not found, skipping');
@@ -1252,47 +1252,46 @@ function buildWritingGuide() {
   }
   let html = fs.readFileSync(htmlPath, 'utf8');
 
-  // Skip if already enriched
-  if (html.includes('writing-seo-content')) return;
+  // The 2026 HSK 4 \u5199\u4F5C Part 1 (\u770B\u56FE\u9020\u53E5) asks the candidate to write a
+  // sentence around a given word. The 1000-word HSK 4 vocabulary list \u2014 each
+  // word paired with a model sentence \u2014 is the cleanest source for that
+  // drill. A spread of up to LIMIT words is sampled across the whole list.
+  const words = readJSON('vocabulary.json').filter(w => w && w.word && w.example_cn);
+  const LIMIT = 400;
+  const step = Math.max(1, Math.floor(words.length / LIMIT));
+  const bank = [];
+  for (let i = 0; i < words.length && bank.length < LIMIT; i += step) {
+    const w = words[i];
+    bank.push({
+      w: w.word,
+      py: (w.pinyin || '').trim(),
+      m: (w.meaning || '').trim(),
+      s: w.example_cn.trim()
+    });
+  }
+  if (bank.length === 0) {
+    console.log('[writing] no vocabulary words found, skipping');
+    return;
+  }
 
-  const writingContent = `
-  <!-- writing-seo-content -->
-  <section style="margin-top:40px;">
-    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:14px;">HSK 4 Writing Section: What the Exam Actually Tests</h2>
-    <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">
-      The HSK 4 writing section (\u4E66\u5199) has <strong>15 questions in 25 minutes</strong>, worth 100 points. It consists of two parts:
-    </p>
-    <ul style="color:var(--stone);line-height:2;margin-bottom:16px;padding-left:20px;">
-      <li><strong>Part 1 \u2014 Sentence ordering (\u8BED\u53E5\u6392\u5E8F):</strong> You are given 4\u20136 sentence fragments and must arrange them into a grammatically correct sentence. This tests your understanding of Chinese word order rules: time before place, adverbs before verbs, \u628A/\u88AB placement, complement positions. <a href="/writing/sentence-order/" style="color:var(--accent);">Practice sentence ordering \u2192</a></li>
-      <li><strong>Part 2 \u2014 Sentence construction (\u770B\u56FE\u9020\u53E5):</strong> Given a set of words (usually 3\u20135) and sometimes a picture, you must write a complete, grammatically correct sentence using all the given words. This tests productive grammar \u2014 you cannot just recognize patterns, you must generate them.</li>
-    </ul>
+  // 1) JSON data block consumed by the Part 1 trainer JS
+  const bankBlock = '<!-- kt-bank:start -->\n  <script id="kt-bank" type="application/json">'
+    + JSON.stringify(bank) + '</script>\n  <!-- kt-bank:end -->';
+  html = html.replace(/<!-- kt-bank:start -->[\s\S]*?<!-- kt-bank:end -->/, () => bankBlock);
 
-    <h3 style="font-family:'Noto Serif SC',serif;font-size:18px;margin-bottom:12px;margin-top:24px;">Common Mistakes in HSK 4 Writing (and How to Avoid Them)</h3>
-    <ol style="color:var(--stone);line-height:2;margin-bottom:16px;padding-left:20px;">
-      <li><strong>\u628A\u5B57\u53E5 word order errors:</strong> Putting the complement before \u628A instead of after the verb. Correct: \u4ED6<em>\u628A</em>\u4E66<em>\u653E\u5728</em>\u684C\u5B50\u4E0A\u3002 <a href="/grammar/ba-sentence/" style="color:var(--accent);">Review \u628A\u5B57\u53E5 \u2192</a></li>
-      <li><strong>Adverb misplacement:</strong> Adverbs like \u5DF2\u7ECF, \u90FD, \u53C8 must go <em>before</em> the verb, not at the end. Correct: \u4ED6<em>\u5DF2\u7ECF</em>\u5230\u4E86\u3002</li>
-      <li><strong>Missing \u4E86/\u8FC7/\u7740:</strong> Forgetting aspect markers changes the meaning entirely. \u4ED6\u5403\u996D = He eats. \u4ED6\u5403<em>\u4E86</em>\u996D = He ate.</li>
-      <li><strong>Comparison structure errors:</strong> Mixing up A\u6BD4B+adj. vs. A\u6CA1\u6709B+adj. The negative form uses \u6CA1\u6709, never \u4E0D\u6BD4. <a href="/grammar/comparison/" style="color:var(--accent);">Review comparisons \u2192</a></li>
-      <li><strong>Complex sentence connector pairing:</strong> Using \u867D\u7136 without \u4F46\u662F, or putting \u56E0\u4E3A/\u6240\u4EE5 in the wrong clause. <a href="/grammar/complex-sentences/" style="color:var(--accent);">Review \u590D\u53E5 \u2192</a></li>
-    </ol>
-
-    <h3 style="font-family:'Noto Serif SC',serif;font-size:18px;margin-bottom:12px;margin-top:24px;">Writing Section Strategy</h3>
-    <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">
-      <strong>For sentence ordering:</strong> First identify the time/place word (it usually goes first), then find paired connectors (\u5C3D\u7BA1\u2026\u4F46\u662F, \u4E0D\u4F46\u2026\u800C\u4E14), then slot in the subject and verb. Check your answer by reading the complete sentence aloud \u2014 if it sounds unnatural, something is likely out of order.
-    </p>
-    <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">
-      <strong>For sentence construction:</strong> Before writing, decide the sentence pattern first (\u628A\u5B57\u53E5? \u88AB\u5B57\u53E5? \u6BD4\u8F83\u53E5?). Then place each given word into its correct slot in the pattern. Make sure every given word is used exactly once.
-    </p>
-    <p style="color:var(--stone);line-height:1.8;">
-      The official syllabus requires HSK 4 students to \u201c\u5199\u51FA\u4E00\u6BB5\u8BDD\u7B80\u5355\u4ECB\u7ECD\u201d (write a paragraph to briefly describe) topics. Practice with our <a href="/writing/paragraph/" style="color:var(--accent);">paragraph writing exercises</a> to build this skill.
-    </p>
-  </section>`;
-
-  // Insert before closing </main>
-  html = html.replace(/<\/main>/, `${writingContent}\n</main>`);
+  // 2) Static, crawlable sample (first 18 words) for SEO and no-JS users
+  const seo = bank.slice(0, 18).map(item => {
+    return '      <div class="kt-seo-item">\n'
+      + '        <div class="kt-seo-word"><strong class="chinese">' + escHtml(item.w) + '</strong>'
+      + ' <span class="kt-seo-py">' + escHtml(item.py) + '</span> \u2014 ' + escHtml(item.m) + '</div>\n'
+      + '        <div class="kt-seo-eg chinese">' + escHtml(item.s) + '</div>\n'
+      + '      </div>';
+  }).join('\n');
+  const seoBlock = '<!-- kt-seo:start -->\n' + seo + '\n      <!-- kt-seo:end -->';
+  html = html.replace(/<!-- kt-seo:start -->[\s\S]*?<!-- kt-seo:end -->/, () => seoBlock);
 
   fs.writeFileSync(htmlPath, html, 'utf8');
-  console.log('[writing] Added writing section guide content');
+  console.log('[writing] Pre-rendered ' + bank.length + ' HSK 4 words into writing/index.html');
 }
 
 // ============================================================
