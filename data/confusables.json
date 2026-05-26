@@ -635,6 +635,26 @@
         "sentence": "她本来只是抱着试试的态度，没想到___得了第一名。",
         "answer": "竟然",
         "context": "Direct from Test 05 Q57 — 没想到 + 竟然 is the classic HSK 4 collocation."
+      },
+      {
+        "sentence": "研究结果___和我们最初的预测完全相反。",
+        "answer": "竟然",
+        "context": "Written/academic context — neutral report of an unexpected finding. 竟然 is the unmarked formal choice."
+      },
+      {
+        "sentence": "我等了他两个小时，他___连个电话都没打！",
+        "answer": "居然",
+        "context": "Complaint with strong emotional charge → 居然 fits the irritation."
+      },
+      {
+        "sentence": "这个孩子才五岁，___能认识这么多汉字。",
+        "answer": "竟然",
+        "context": "Positive surprise at a small child's ability — neutral marvelling, no judgment."
+      },
+      {
+        "sentence": "这么明显的错误，老板___没发现，真是奇怪。",
+        "answer": "居然",
+        "context": "Result violates what should obviously have happened → 居然 layers in disbelief."
       }
     ]
   },
