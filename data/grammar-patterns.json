@@ -183,7 +183,8 @@
         "answer": "不管",
         "hint": "Whether weekend or weekday..."
       }
-    ]
+    ],
+    "customHtml": true
   },
   {
     "slug": "jishi-ye",

@@ -395,7 +395,8 @@
         "answer": "不管",
         "context": "Spoken advice"
       }
-    ]
+    ],
+    "customHtml": true
   },
   {
     "slug": "budan-bujin-buguang",

@@ -2201,6 +2201,13 @@ function buildGrammarPatternPages() {
     const dir = path.join(ROOT, 'grammar', 'patterns', pat.slug);
     ensureDir(dir);
 
+    // Patterns flagged customHtml have hand-enriched pages. Skip regeneration
+    // to preserve the edits (same mechanism as confusables).
+    if (pat.customHtml) {
+      console.log(`[grammar-patterns] Skipping ${pat.slug} (customHtml)`);
+      return;
+    }
+
     // Find real HSK 4 questions using this pattern
     const patMatchQs = [];
     const patternKey = pat.pattern_cn.split('…')[0].trim() || pat.pattern_cn.split('/')[0].trim();
