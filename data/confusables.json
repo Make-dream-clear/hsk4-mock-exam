@@ -2441,6 +2441,7 @@
   },
   {
     "slug": "yinwei-youyu",
+    "customHtml": true,
     "category": "Conjunctions / 连词",
     "wordA": "因为",
     "pinyinA": "yīnwèi",
