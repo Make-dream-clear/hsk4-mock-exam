@@ -80,6 +80,7 @@
   },
   {
     "slug": "you-zai",
+    "customHtml": true,
     "category": "Adverbs / 副词",
     "wordA": "又",
     "pinyinA": "yòu",

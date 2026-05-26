@@ -1845,6 +1845,14 @@ function buildConfusablePages() {
     const dir = path.join(ROOT, 'words', pair.slug);
     ensureDir(dir);
 
+    // Pairs flagged customHtml have hand-enriched pages (extra patterns,
+    // curated real-question selections, longer FAQ). The generator template
+    // can't represent them, so skip regeneration to preserve the edits.
+    if (pair.customHtml) {
+      console.log(`[confusables] Skipping ${pair.slug} (customHtml)`);
+      return;
+    }
+
     // Find real HSK 4 mock exam questions where these confusable words appear
     const matchingQs = [];
     const wordsToFind = [pair.wordA, pair.wordB];
