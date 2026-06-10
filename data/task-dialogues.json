@@ -1,0 +1,1106 @@
+{
+ "describe-a-person": {
+  "scene_en": "Two classmates talk about their new Chinese teacher.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "你觉得新来的王老师怎么样？",
+    "py": "Nǐ juéde xīn lái de Wáng lǎoshī zěnmeyàng?",
+    "en": "What do you think of our new teacher, Ms. Wang?"
+   },
+   {
+    "s": "B",
+    "cn": "她很有经验，对学生也特别耐心。",
+    "py": "Tā hěn yǒu jīngyàn, duì xuésheng yě tèbié nàixīn.",
+    "en": "She is very experienced and especially patient with students."
+   },
+   {
+    "s": "A",
+    "cn": "听说她在国外教过五年中文，难怪发音讲得那么清楚。",
+    "py": "Tīngshuō tā zài guówài jiāo guo wǔ nián Zhōngwén, nánguài fāyīn jiǎng de nàme qīngchu.",
+    "en": "I heard she taught Chinese abroad for five years — no wonder she explains pronunciation so clearly."
+   },
+   {
+    "s": "B",
+    "cn": "对，她性格幽默，上课的时候大家都很活跃。",
+    "py": "Duì, tā xìnggé yōumò, shàngkè de shíhou dàjiā dōu hěn huóyuè.",
+    "en": "Right, she has a humorous personality; everyone is very active in her class."
+   },
+   {
+    "s": "A",
+    "cn": "有这样的老师，我们的汉语水平一定会提高得很快。",
+    "py": "Yǒu zhèyàng de lǎoshī, wǒmen de Hànyǔ shuǐpíng yídìng huì tígāo de hěn kuài.",
+    "en": "With a teacher like her, our Chinese will definitely improve quickly."
+   }
+  ]
+ },
+ "daily-affairs": {
+  "scene_en": "A student asks a courier clerk about sending a package.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "您好，我想把这个包裹寄到上海，大概需要几天？",
+    "py": "Nín hǎo, wǒ xiǎng bǎ zhège bāoguǒ jì dào Shànghǎi, dàgài xūyào jǐ tiān?",
+    "en": "Hello, I would like to send this package to Shanghai. About how many days will it take?"
+   },
+   {
+    "s": "B",
+    "cn": "普通快递三天左右，加急的明天就能到，不过要多付十五块。",
+    "py": "Pǔtōng kuàidì sān tiān zuǒyòu, jiājí de míngtiān jiù néng dào, búguò yào duō fù shíwǔ kuài.",
+    "en": "Standard delivery takes about three days; express arrives tomorrow, but costs fifteen yuan extra."
+   },
+   {
+    "s": "A",
+    "cn": "里面是一些易碎的盒子，麻烦您帮我包好一点儿。",
+    "py": "Lǐmiàn shì yìxiē yìsuì de hézi, máfan nín bāng wǒ bāo hǎo yìdiǎnr.",
+    "en": "There are some fragile boxes inside — could you please wrap it carefully?"
+   },
+   {
+    "s": "B",
+    "cn": "没问题。请您先填一下这张快递单，写清楚收件人的地址和电话。",
+    "py": "Méi wèntí. Qǐng nín xiān tián yíxià zhè zhāng kuàidì dān, xiě qīngchu shōujiànrén de dìzhǐ hé diànhuà.",
+    "en": "No problem. Please fill in this delivery form first — write the recipient's address and phone number clearly."
+   },
+   {
+    "s": "A",
+    "cn": "好的，填完了。一共多少钱？",
+    "py": "Hǎo de, tián wán le. Yígòng duōshao qián?",
+    "en": "OK, done. How much altogether?"
+   },
+   {
+    "s": "B",
+    "cn": "普通的二十二块。这是您的单号，可以随时查快递到哪儿了。",
+    "py": "Pǔtōng de èrshí'èr kuài. Zhè shì nín de dānhào, kěyǐ suíshí chá kuàidì dào nǎr le.",
+    "en": "Twenty-two yuan for standard. Here is your tracking number — you can check where the package is at any time."
+   }
+  ]
+ },
+ "social-expressions": {
+  "scene_en": "Congratulating a friend who just got promoted.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "听说你升职了，祝贺你！这是你应得的。",
+    "py": "Tīngshuō nǐ shēngzhí le, zhùhè nǐ! Zhè shì nǐ yīng dé de.",
+    "en": "I heard you got promoted — congratulations! You deserve it."
+   },
+   {
+    "s": "B",
+    "cn": "谢谢！其实我心里还有点儿紧张，怕做不好。",
+    "py": "Xièxie! Qíshí wǒ xīnli hái yǒudiǎnr jǐnzhāng, pà zuò bu hǎo.",
+    "en": "Thanks! Actually I am still a bit nervous — afraid I might not do well."
+   },
+   {
+    "s": "A",
+    "cn": "别担心，你能力那么强，肯定没问题。",
+    "py": "Bié dānxīn, nǐ nénglì nàme qiáng, kěndìng méi wèntí.",
+    "en": "Don't worry — you are so capable, it will definitely be fine."
+   },
+   {
+    "s": "B",
+    "cn": "多亏大家一直支持我。改天我请你们吃饭，好好庆祝一下。",
+    "py": "Duōkuī dàjiā yìzhí zhīchí wǒ. Gǎitiān wǒ qǐng nǐmen chīfàn, hǎohǎo qìngzhù yíxià.",
+    "en": "It is thanks to everyone's constant support. Let me treat you all to dinner some day to celebrate properly."
+   },
+   {
+    "s": "A",
+    "cn": "那我就不客气啦！祝你工作顺利！",
+    "py": "Nà wǒ jiù bú kèqi la! Zhù nǐ gōngzuò shùnlì!",
+    "en": "Then I won't be polite! Wishing you smooth sailing at work!"
+   }
+  ]
+ },
+ "emotions": {
+  "scene_en": "Two friends talk about friendship and ideals.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "我们认识十年了，真正的友谊经得起时间的考验。",
+    "py": "Wǒmen rènshi shí nián le, zhēnzhèng de yǒuyì jīng de qǐ shíjiān de kǎoyàn.",
+    "en": "We have known each other for ten years — true friendship stands the test of time."
+   },
+   {
+    "s": "B",
+    "cn": "是啊，遇到困难的时候，第一个想到的就是你。",
+    "py": "Shì a, yùdào kùnnan de shíhou, dì yī gè xiǎngdào de jiùshì nǐ.",
+    "en": "Yes — whenever I run into difficulties, you are the first person I think of."
+   },
+   {
+    "s": "A",
+    "cn": "对了，你小时候的理想是什么？",
+    "py": "Duì le, nǐ xiǎoshíhou de lǐxiǎng shì shénme?",
+    "en": "By the way, what was your dream when you were little?"
+   },
+   {
+    "s": "B",
+    "cn": "我一直想当医生，帮助更多的人。虽然过程很辛苦，但我从来没放弃过。",
+    "py": "Wǒ yìzhí xiǎng dāng yīshēng, bāngzhù gèng duō de rén. Suīrán guòchéng hěn xīnkǔ, dàn wǒ cónglái méi fàngqì guo.",
+    "en": "I always wanted to be a doctor and help more people. The process is hard, but I have never given up."
+   },
+   {
+    "s": "A",
+    "cn": "有理想就要坚持，我相信你一定能实现。",
+    "py": "Yǒu lǐxiǎng jiù yào jiānchí, wǒ xiāngxìn nǐ yídìng néng shíxiàn.",
+    "en": "If you have a dream, stick to it — I believe you will make it come true."
+   }
+  ]
+ },
+ "food-dining": {
+  "scene_en": "Ordering at a restaurant and asking about the dishes.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "服务员，你们店有什么特色菜？",
+    "py": "Fúwùyuán, nǐmen diàn yǒu shénme tèsè cài?",
+    "en": "Waiter, what are your restaurant's special dishes?"
+   },
+   {
+    "s": "B",
+    "cn": "我们的烤鸭最有名，皮脆肉嫩，很多客人专门为它来的。",
+    "py": "Wǒmen de kǎoyā zuì yǒumíng, pí cuì ròu nèn, hěn duō kèrén zhuānmén wèi tā lái de.",
+    "en": "Our roast duck is the most famous — crispy skin, tender meat. Many guests come especially for it."
+   },
+   {
+    "s": "A",
+    "cn": "好，来半只烤鸭。这个汤辣不辣？我不太能吃辣。",
+    "py": "Hǎo, lái bàn zhī kǎoyā. Zhège tāng là bu là? Wǒ bú tài néng chī là.",
+    "en": "Great, half a roast duck please. Is this soup spicy? I can't really eat spicy food."
+   },
+   {
+    "s": "B",
+    "cn": "这个是西红柿鸡蛋汤，一点儿都不辣，味道很清淡。",
+    "py": "Zhège shì xīhóngshì jīdàn tāng, yìdiǎnr dōu bú là, wèidao hěn qīngdàn.",
+    "en": "That is tomato and egg soup — not spicy at all, very light."
+   },
+   {
+    "s": "A",
+    "cn": "那再来一份这个汤。对了，能开发票吗？",
+    "py": "Nà zài lái yí fèn zhège tāng. Duì le, néng kāi fāpiào ma?",
+    "en": "Then one of those soups too. Oh — can you issue a receipt?"
+   },
+   {
+    "s": "B",
+    "cn": "可以，吃完后凭小票到前台开就行。",
+    "py": "Kěyǐ, chī wán hòu píng xiǎopiào dào qiántái kāi jiù xíng.",
+    "en": "Yes — after your meal just bring the slip to the front desk."
+   }
+  ]
+ },
+ "transportation": {
+  "scene_en": "Discussing how to get to the airport during rush hour.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "我明天早上八点的飞机，坐出租车去机场来得及吗？",
+    "py": "Wǒ míngtiān zǎoshang bā diǎn de fēijī, zuò chūzūchē qù jīchǎng lái de jí ma?",
+    "en": "My flight is at eight tomorrow morning — is taking a taxi to the airport fast enough?"
+   },
+   {
+    "s": "B",
+    "cn": "早高峰路上特别堵，我建议你坐地铁，时间更有保证。",
+    "py": "Zǎogāofēng lùshang tèbié dǔ, wǒ jiànyì nǐ zuò dìtiě, shíjiān gèng yǒu bǎozhèng.",
+    "en": "Traffic is really congested during morning rush hour. I suggest the subway — the timing is more reliable."
+   },
+   {
+    "s": "A",
+    "cn": "地铁要换几次车？我的行李箱挺大的。",
+    "py": "Dìtiě yào huàn jǐ cì chē? Wǒ de xínglixiāng tǐng dà de.",
+    "en": "How many transfers on the subway? My suitcase is pretty big."
+   },
+   {
+    "s": "B",
+    "cn": "只换一次，而且机场线有放行李的地方，很方便。",
+    "py": "Zhǐ huàn yí cì, érqiě jīchǎng xiàn yǒu fàng xíngli de dìfang, hěn fāngbiàn.",
+    "en": "Just one transfer, and the airport line has luggage racks — very convenient."
+   },
+   {
+    "s": "A",
+    "cn": "那我六点出发，应该来得及。谢谢你的建议！",
+    "py": "Nà wǒ liù diǎn chūfā, yīnggāi lái de jí. Xièxie nǐ de jiànyì!",
+    "en": "Then I will leave at six — that should be enough time. Thanks for the advice!"
+   }
+  ]
+ },
+ "shopping": {
+  "scene_en": "Comparing online and in-store purchases with a friend.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "你这双鞋真好看，在哪儿买的？",
+    "py": "Nǐ zhè shuāng xié zhēn hǎokàn, zài nǎr mǎi de?",
+    "en": "Your shoes look great — where did you buy them?"
+   },
+   {
+    "s": "B",
+    "cn": "网上买的，正好赶上打折，比商场便宜两百多块。",
+    "py": "Wǎngshàng mǎi de, zhènghǎo gǎnshàng dǎzhé, bǐ shāngchǎng piányi liǎngbǎi duō kuài.",
+    "en": "Online — there happened to be a sale, over two hundred yuan cheaper than the mall."
+   },
+   {
+    "s": "A",
+    "cn": "网购是便宜，可是我总担心质量没有保证。",
+    "py": "Wǎnggòu shì piányi, kěshì wǒ zǒng dānxīn zhìliàng méiyǒu bǎozhèng.",
+    "en": "Online shopping is cheap, but I always worry the quality isn't guaranteed."
+   },
+   {
+    "s": "B",
+    "cn": "选信用好的店就行。不合适还可以七天无理由退货，挺方便的。",
+    "py": "Xuǎn xìnyòng hǎo de diàn jiù xíng. Bù héshì hái kěyǐ qī tiān wú lǐyóu tuìhuò, tǐng fāngbiàn de.",
+    "en": "Just pick shops with good ratings. If it doesn't fit you can return it within seven days, no questions asked — quite convenient."
+   },
+   {
+    "s": "A",
+    "cn": "那你把店铺链接发给我，我也去看看。",
+    "py": "Nà nǐ bǎ diànpù liànjiē fā gěi wǒ, wǒ yě qù kànkan.",
+    "en": "Then send me the shop's link — I'll take a look too."
+   }
+  ]
+ },
+ "health-medical": {
+  "scene_en": "Seeing a doctor about a cold.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "大夫，我从昨天开始咳嗽，还有点儿发烧。",
+    "py": "Dàifu, wǒ cóng zuótiān kāishǐ késou, hái yǒudiǎnr fāshāo.",
+    "en": "Doctor, I have been coughing since yesterday and have a slight fever."
+   },
+   {
+    "s": "B",
+    "cn": "我先给你量一下体温。三十八度二，是有点儿发烧。嗓子疼吗？",
+    "py": "Wǒ xiān gěi nǐ liáng yíxià tǐwēn. Sānshíbā dù èr, shì yǒudiǎnr fāshāo. Sǎngzi téng ma?",
+    "en": "Let me take your temperature first. 38.2 — yes, a slight fever. Does your throat hurt?"
+   },
+   {
+    "s": "A",
+    "cn": "疼，咽东西的时候特别明显。",
+    "py": "Téng, yàn dōngxi de shíhou tèbié míngxiǎn.",
+    "en": "Yes, especially when I swallow."
+   },
+   {
+    "s": "B",
+    "cn": "是感冒引起的。我给你开点儿药，按时吃，多喝水，注意休息。",
+    "py": "Shì gǎnmào yǐnqǐ de. Wǒ gěi nǐ kāi diǎnr yào, ànshí chī, duō hē shuǐ, zhùyì xiūxi.",
+    "en": "It is caused by a cold. I will prescribe some medicine — take it on time, drink plenty of water, and rest well."
+   },
+   {
+    "s": "A",
+    "cn": "好的。需要打针吗？",
+    "py": "Hǎo de. Xūyào dǎzhēn ma?",
+    "en": "OK. Do I need an injection?"
+   },
+   {
+    "s": "B",
+    "cn": "不用，吃三天药应该就好了。要是还发烧，再来医院检查。",
+    "py": "Búyòng, chī sān tiān yào yīnggāi jiù hǎo le. Yàoshi hái fāshāo, zài lái yīyuàn jiǎnchá.",
+    "en": "No need — three days of medicine should do it. If the fever continues, come back for a check-up."
+   }
+  ]
+ },
+ "hobbies-leisure": {
+  "scene_en": "Talking about hobbies and planning a weekend trip.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "周末你一般做什么？",
+    "py": "Zhōumò nǐ yìbān zuò shénme?",
+    "en": "What do you usually do on weekends?"
+   },
+   {
+    "s": "B",
+    "cn": "我喜欢爬山和照相，大自然能让人放松。你呢？",
+    "py": "Wǒ xǐhuan páshān hé zhàoxiàng, dàzìrán néng ràng rén fàngsōng. Nǐ ne?",
+    "en": "I like hiking and photography — nature helps you relax. And you?"
+   },
+   {
+    "s": "A",
+    "cn": "我对弹钢琴感兴趣，已经坚持练了三年了。",
+    "py": "Wǒ duì tán gāngqín gǎn xìngqù, yǐjīng jiānchí liàn le sān nián le.",
+    "en": "I am interested in playing piano — I have kept at it for three years now."
+   },
+   {
+    "s": "B",
+    "cn": "厉害！对了，这个周末天气不错，一起去郊区爬山怎么样？",
+    "py": "Lìhai! Duì le, zhège zhōumò tiānqì búcuò, yìqǐ qù jiāoqū páshān zěnmeyàng?",
+    "en": "Impressive! By the way, the weather this weekend looks good — how about hiking in the suburbs together?"
+   },
+   {
+    "s": "A",
+    "cn": "好主意！正好放松一下，我把照相机也带上。",
+    "py": "Hǎo zhǔyi! Zhènghǎo fàngsōng yíxià, wǒ bǎ zhàoxiàngjī yě dài shang.",
+    "en": "Great idea! A perfect chance to relax — I will bring my camera too."
+   }
+  ]
+ },
+ "housing-community": {
+  "scene_en": "Asking a real estate agent about renting an apartment.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "您好，我想租一套两室一厅的房子，最好离地铁站近一点儿。",
+    "py": "Nín hǎo, wǒ xiǎng zū yí tào liǎng shì yì tīng de fángzi, zuìhǎo lí dìtiězhàn jìn yìdiǎnr.",
+    "en": "Hello, I am looking to rent a two-bedroom apartment, ideally close to a subway station."
+   },
+   {
+    "s": "B",
+    "cn": "有一套正合适，走到地铁站只要五分钟，家具家电都是全的。",
+    "py": "Yǒu yí tào zhèng héshì, zǒu dào dìtiězhàn zhǐ yào wǔ fēnzhōng, jiājù jiādiàn dōu shì quán de.",
+    "en": "There is one that fits perfectly — five minutes' walk to the subway, fully furnished with appliances."
+   },
+   {
+    "s": "A",
+    "cn": "房租多少？小区环境怎么样？",
+    "py": "Fángzū duōshao? Xiǎoqū huánjìng zěnmeyàng?",
+    "en": "What is the rent? How is the neighborhood?"
+   },
+   {
+    "s": "B",
+    "cn": "一个月四千五。小区很安静，楼下就有超市，对面还有一个公园。",
+    "py": "Yí gè yuè sìqiān wǔ. Xiǎoqū hěn ānjìng, lóu xià jiù yǒu chāoshì, duìmiàn hái yǒu yí gè gōngyuán.",
+    "en": "4,500 a month. The community is quiet, there is a supermarket downstairs and a park across the street."
+   },
+   {
+    "s": "A",
+    "cn": "听起来不错，今天下午可以看房吗？",
+    "py": "Tīng qǐlái búcuò, jīntiān xiàwǔ kěyǐ kàn fáng ma?",
+    "en": "Sounds good — can I view it this afternoon?"
+   },
+   {
+    "s": "B",
+    "cn": "可以，三点我在小区门口等您。",
+    "py": "Kěyǐ, sān diǎn wǒ zài xiǎoqū ménkǒu děng nín.",
+    "en": "Sure, I will wait for you at the community gate at three."
+   }
+  ]
+ },
+ "family-life": {
+  "scene_en": "A couple divides up the housework.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "今天家里要大扫除，咱们分一下工吧。",
+    "py": "Jīntiān jiāli yào dàsǎochú, zánmen fēn yíxià gōng ba.",
+    "en": "We are doing a big clean-up today — let's divide the chores."
+   },
+   {
+    "s": "B",
+    "cn": "行，我负责擦窗户和拖地，你来收拾厨房怎么样？",
+    "py": "Xíng, wǒ fùzé cā chuānghu hé tuō dì, nǐ lái shōushi chúfáng zěnmeyàng?",
+    "en": "OK, I will do the windows and mop the floor; how about you tidy the kitchen?"
+   },
+   {
+    "s": "A",
+    "cn": "没问题。对了，妈妈周末要来，得把客房的床单换了。",
+    "py": "Méi wèntí. Duì le, māma zhōumò yào lái, děi bǎ kèfáng de chuángdān huàn le.",
+    "en": "No problem. Oh, Mom is coming this weekend — we need to change the sheets in the guest room."
+   },
+   {
+    "s": "B",
+    "cn": "我来换。晚上想吃什么？我去买菜。",
+    "py": "Wǒ lái huàn. Wǎnshang xiǎng chī shénme? Wǒ qù mǎi cài.",
+    "en": "I will change them. What do you want for dinner? I will go grocery shopping."
+   },
+   {
+    "s": "A",
+    "cn": "做个鱼吧，妈妈爱吃。家务做完我们早点儿休息。",
+    "py": "Zuò ge yú ba, māma ài chī. Jiāwù zuò wán wǒmen zǎodiǎnr xiūxi.",
+    "en": "Let's make fish — Mom loves it. Once the chores are done we can rest early."
+   }
+  ]
+ },
+ "education-learning": {
+  "scene_en": "A student asks the teacher how to prepare for the exam.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "老师，下个月就要考试了，我听力部分总是错得很多，怎么办？",
+    "py": "Lǎoshī, xià gè yuè jiù yào kǎoshì le, wǒ tīnglì bùfen zǒngshì cuò de hěn duō, zěnme bàn?",
+    "en": "Teacher, the exam is next month and I keep making mistakes in the listening section. What should I do?"
+   },
+   {
+    "s": "B",
+    "cn": "听力要靠平时积累。建议你每天听半个小时的录音，先听大意，再注意细节。",
+    "py": "Tīnglì yào kào píngshí jīlěi. Jiànyì nǐ měitiān tīng bàn gè xiǎoshí de lùyīn, xiān tīng dàyì, zài zhùyì xìjié.",
+    "en": "Listening depends on daily accumulation. Listen to recordings for half an hour every day — first for the main idea, then for details."
+   },
+   {
+    "s": "A",
+    "cn": "生词太多影响理解，要不要先背单词？",
+    "py": "Shēngcí tài duō yǐngxiǎng lǐjiě, yào bu yào xiān bèi dāncí?",
+    "en": "Too many new words affect my understanding — should I memorize vocabulary first?"
+   },
+   {
+    "s": "B",
+    "cn": "背单词和做练习要同时进行，光背不用很快就忘了。",
+    "py": "Bèi dāncí hé zuò liànxí yào tóngshí jìnxíng, guāng bèi bú yòng hěn kuài jiù wàng le.",
+    "en": "Do both at the same time — if you only memorize without using them, you forget quickly."
+   },
+   {
+    "s": "A",
+    "cn": "明白了，我按您说的方法试试。谢谢老师！",
+    "py": "Míngbai le, wǒ àn nín shuō de fāngfǎ shìshi. Xièxie lǎoshī!",
+    "en": "Got it — I will try the method you suggested. Thank you!"
+   }
+  ]
+ },
+ "campus-life": {
+  "scene_en": "Two students discuss joining campus clubs.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "学校的社团开始招新了，你想参加哪个？",
+    "py": "Xuéxiào de shètuán kāishǐ zhāo xīn le, nǐ xiǎng cānjiā nǎge?",
+    "en": "The campus clubs have started recruiting — which one do you want to join?"
+   },
+   {
+    "s": "B",
+    "cn": "我想报名篮球队，每周训练两次，还能代表学校比赛。",
+    "py": "Wǒ xiǎng bàomíng lánqiú duì, měi zhōu xùnliàn liǎng cì, hái néng dàibiǎo xuéxiào bǐsài.",
+    "en": "I want to sign up for the basketball team — training twice a week, and you can compete for the school."
+   },
+   {
+    "s": "A",
+    "cn": "我在考虑摄影社和汉语角，两个时间正好不冲突。",
+    "py": "Wǒ zài kǎolǜ shèyǐng shè hé Hànyǔ jiǎo, liǎng gè shíjiān zhènghǎo bù chōngtū.",
+    "en": "I am considering the photography club and Chinese corner — luckily their schedules don't clash."
+   },
+   {
+    "s": "B",
+    "cn": "那就都参加吧！大学生活不能只是上课和写作业。",
+    "py": "Nà jiù dōu cānjiā ba! Dàxué shēnghuó bù néng zhǐshì shàngkè hé xiě zuòyè.",
+    "en": "Then join both! University life shouldn't just be classes and homework."
+   },
+   {
+    "s": "A",
+    "cn": "说得对，多参加活动还能认识新朋友。",
+    "py": "Shuō de duì, duō cānjiā huódòng hái néng rènshi xīn péngyou.",
+    "en": "True — joining more activities is also a way to make new friends."
+   }
+  ]
+ },
+ "education-issues": {
+  "scene_en": "Two parents exchange views on children's education.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "你们家孩子周末上几个补习班？",
+    "py": "Nǐmen jiā háizi zhōumò shàng jǐ gè bǔxíbān?",
+    "en": "How many extra classes does your child take on weekends?"
+   },
+   {
+    "s": "B",
+    "cn": "一个都没有。我觉得孩子需要时间玩儿，兴趣比分数更重要。",
+    "py": "Yí gè dōu méiyǒu. Wǒ juéde háizi xūyào shíjiān wánr, xìngqù bǐ fēnshù gèng zhòngyào.",
+    "en": "None at all. I think kids need time to play — interest matters more than scores."
+   },
+   {
+    "s": "A",
+    "cn": "可是别的孩子都在学，我担心他以后跟不上。",
+    "py": "Kěshì bié de háizi dōu zài xué, wǒ dānxīn tā yǐhòu gēn bu shàng.",
+    "en": "But all the other kids are studying — I worry mine will fall behind."
+   },
+   {
+    "s": "B",
+    "cn": "与其让孩子被动地学，不如培养他自己学习的习惯。",
+    "py": "Yǔqí ràng háizi bèidòng de xué, bùrú péiyǎng tā zìjǐ xuéxí de xíguàn.",
+    "en": "Rather than making them study passively, it is better to develop their habit of learning on their own."
+   },
+   {
+    "s": "A",
+    "cn": "你说的也有道理，教育确实不能只看成绩。",
+    "py": "Nǐ shuō de yě yǒu dàolǐ, jiàoyù quèshí bù néng zhǐ kàn chéngjì.",
+    "en": "You have a point — education really shouldn't be only about grades."
+   }
+  ]
+ },
+ "work-performance": {
+  "scene_en": "A manager gives feedback on an employee's project.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "小李，这次的项目报告做得很详细，客户非常满意。",
+    "py": "Xiǎo Lǐ, zhè cì de xiàngmù bàogào zuò de hěn xiángxì, kèhù fēicháng mǎnyì.",
+    "en": "Xiao Li, this project report was very thorough — the client is very satisfied."
+   },
+   {
+    "s": "B",
+    "cn": "谢谢经理！不过中间出了一个小错误，耽误了两天，真不好意思。",
+    "py": "Xièxie jīnglǐ! Búguò zhōngjiān chū le yí gè xiǎo cuòwù, dānwu le liǎng tiān, zhēn bù hǎoyìsi.",
+    "en": "Thank you! Though I made a small mistake midway that delayed us two days — I am sorry about that."
+   },
+   {
+    "s": "A",
+    "cn": "发现问题及时改正就好。你平时加班太多，也要注意身体。",
+    "py": "Fāxiàn wèntí jíshí gǎizhèng jiù hǎo. Nǐ píngshí jiābān tài duō, yě yào zhùyì shēntǐ.",
+    "en": "What matters is you caught and fixed it promptly. You work overtime a lot — take care of your health too."
+   },
+   {
+    "s": "B",
+    "cn": "好的。下个季度我想试着负责一个新项目，您看可以吗？",
+    "py": "Hǎo de. Xià gè jìdù wǒ xiǎng shìzhe fùzé yí gè xīn xiàngmù, nín kàn kěyǐ ma?",
+    "en": "I will. Next quarter I would like to try leading a new project — would that be all right?"
+   },
+   {
+    "s": "A",
+    "cn": "当然可以，我相信你的能力。",
+    "py": "Dāngrán kěyǐ, wǒ xiāngxìn nǐ de nénglì.",
+    "en": "Of course — I have confidence in your ability."
+   }
+  ]
+ },
+ "career-experience": {
+  "scene_en": "A job interview: introducing professional experience.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "请简单介绍一下您的工作经历。",
+    "py": "Qǐng jiǎndān jièshào yíxià nín de gōngzuò jīnglì.",
+    "en": "Please briefly introduce your work experience."
+   },
+   {
+    "s": "B",
+    "cn": "我毕业后在一家广告公司做了三年设计，去年开始负责整个团队。",
+    "py": "Wǒ bìyè hòu zài yì jiā guǎnggào gōngsī zuò le sān nián shèjì, qùnián kāishǐ fùzé zhěnggè tuánduì.",
+    "en": "After graduating I worked three years as a designer at an ad company, and since last year I have led the whole team."
+   },
+   {
+    "s": "A",
+    "cn": "您为什么想换工作呢？",
+    "py": "Nín wèishénme xiǎng huàn gōngzuò ne?",
+    "en": "Why do you want to change jobs?"
+   },
+   {
+    "s": "B",
+    "cn": "贵公司的发展方向和我的职业计划更符合，我希望有更大的发展空间。",
+    "py": "Guì gōngsī de fāzhǎn fāngxiàng hé wǒ de zhíyè jìhuà gèng fúhé, wǒ xīwàng yǒu gèng dà de fāzhǎn kōngjiān.",
+    "en": "Your company's direction fits my career plan better — I am looking for more room to grow."
+   },
+   {
+    "s": "A",
+    "cn": "我们提供五险一金，试用期三个月。您最快什么时候能入职？",
+    "py": "Wǒmen tígōng wǔ xiǎn yì jīn, shìyòngqī sān gè yuè. Nín zuì kuài shénme shíhou néng rùzhí?",
+    "en": "We offer full insurance and benefits, with a three-month probation. How soon could you start?"
+   },
+   {
+    "s": "B",
+    "cn": "下个月一号就可以。",
+    "py": "Xià gè yuè yī hào jiù kěyǐ.",
+    "en": "The first of next month."
+   }
+  ]
+ },
+ "nature": {
+  "scene_en": "Talking about weather differences between north and south.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "你老家在南方，冬天冷吗？",
+    "py": "Nǐ lǎojiā zài nánfāng, dōngtiān lěng ma?",
+    "en": "Your hometown is in the south — is winter cold there?"
+   },
+   {
+    "s": "B",
+    "cn": "温度不算低，但是湿度大，感觉比北方还难受。",
+    "py": "Wēndù bú suàn dī, dànshì shīdù dà, gǎnjué bǐ běifāng hái nánshòu.",
+    "en": "The temperature isn't that low, but it is humid — it actually feels worse than the north."
+   },
+   {
+    "s": "A",
+    "cn": "北方虽然零下十几度，可是屋里有暖气，挺舒服的。",
+    "py": "Běifāng suīrán língxià shí jǐ dù, kěshì wū li yǒu nuǎnqì, tǐng shūfu de.",
+    "en": "In the north it is minus ten-something, but indoors there is heating — quite comfortable."
+   },
+   {
+    "s": "B",
+    "cn": "对了，听说你们那儿春天经常刮大风？",
+    "py": "Duì le, tīngshuō nǐmen nàr chūntiān jīngcháng guā dàfēng?",
+    "en": "By the way, I heard it is often very windy there in spring?"
+   },
+   {
+    "s": "A",
+    "cn": "是的，有时候还有沙尘。不过秋天特别美，天高云淡。",
+    "py": "Shì de, yǒushíhou hái yǒu shāchén. Búguò qiūtiān tèbié měi, tiān gāo yún dàn.",
+    "en": "Yes, sometimes with dust. But autumn is gorgeous — clear skies and light clouds."
+   }
+  ]
+ },
+ "environment": {
+  "scene_en": "Roommates discuss garbage sorting and saving energy.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "咱们小区开始垃圾分类了，你知道怎么分吗？",
+    "py": "Zánmen xiǎoqū kāishǐ lājī fēnlèi le, nǐ zhīdào zěnme fēn ma?",
+    "en": "Our community has started garbage sorting — do you know how to sort?"
+   },
+   {
+    "s": "B",
+    "cn": "厨房的剩菜是厨余垃圾，塑料瓶和纸盒可以回收。",
+    "py": "Chúfáng de shèngcài shì chúyú lājī, sùliào píng hé zhǐhé kěyǐ huíshōu.",
+    "en": "Kitchen leftovers are food waste; plastic bottles and paper boxes are recyclable."
+   },
+   {
+    "s": "A",
+    "cn": "明白了。其实保护环境还可以从小事做起，比如随手关灯。",
+    "py": "Míngbai le. Qíshí bǎohù huánjìng hái kěyǐ cóng xiǎoshì zuò qǐ, bǐrú suíshǒu guān dēng.",
+    "en": "Got it. Actually protecting the environment starts with small things — like turning off lights."
+   },
+   {
+    "s": "B",
+    "cn": "对，我现在出门都自己带购物袋，少用塑料袋。",
+    "py": "Duì, wǒ xiànzài chūmén dōu zìjǐ dài gòuwùdài, shǎo yòng sùliàodài.",
+    "en": "Right — I bring my own shopping bag now and use fewer plastic ones."
+   },
+   {
+    "s": "A",
+    "cn": "要是每个人都这样做，环境一定会越来越好。",
+    "py": "Yàoshi měi gè rén dōu zhèyàng zuò, huánjìng yídìng huì yuè lái yuè hǎo.",
+    "en": "If everyone did this, the environment would definitely get better and better."
+   }
+  ]
+ },
+ "technology": {
+  "scene_en": "Helping a parent use mobile payment.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "妈，您装个手机支付吧，买东西扫一下二维码就行。",
+    "py": "Mā, nín zhuāng ge shǒujī zhīfù ba, mǎi dōngxi sǎo yíxià èrwéimǎ jiù xíng.",
+    "en": "Mom, install mobile payment — when shopping you just scan a QR code."
+   },
+   {
+    "s": "B",
+    "cn": "安全吗？我担心把钱弄丢了。",
+    "py": "Ānquán ma? Wǒ dānxīn bǎ qián nòng diū le.",
+    "en": "Is it safe? I am afraid of losing my money."
+   },
+   {
+    "s": "A",
+    "cn": "设置好密码就很安全，比带现金方便多了，还能交水电费。",
+    "py": "Shèzhì hǎo mìmǎ jiù hěn ānquán, bǐ dài xiànjīn fāngbiàn duō le, hái néng jiāo shuǐdiànfèi.",
+    "en": "With a password set, it is very safe — much more convenient than cash, and you can pay utility bills too."
+   },
+   {
+    "s": "B",
+    "cn": "真的吗？那打车也能用吗？",
+    "py": "Zhēn de ma? Nà dǎchē yě néng yòng ma?",
+    "en": "Really? Can I use it for taxis too?"
+   },
+   {
+    "s": "A",
+    "cn": "能，用手机叫车，到了直接付款。来，我一步一步教您。",
+    "py": "Néng, yòng shǒujī jiào chē, dào le zhíjiē fùkuǎn. Lái, wǒ yí bù yí bù jiāo nín.",
+    "en": "Yes — call a cab on your phone and pay automatically when you arrive. Here, I will teach you step by step."
+   },
+   {
+    "s": "B",
+    "cn": "好，科技发展得真快，我也得跟上时代。",
+    "py": "Hǎo, kējì fāzhǎn de zhēn kuài, wǒ yě děi gēnshàng shídài.",
+    "en": "OK. Technology develops so fast — I need to keep up with the times."
+   }
+  ]
+ },
+ "china-provinces": {
+  "scene_en": "Planning which Chinese cities to visit.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "我放假想在中国旅行，你推荐去哪儿？",
+    "py": "Wǒ fàngjià xiǎng zài Zhōngguó lǚxíng, nǐ tuījiàn qù nǎr?",
+    "en": "I want to travel in China during the holiday — where do you recommend?"
+   },
+   {
+    "s": "B",
+    "cn": "看你喜欢什么。喜欢历史就去北京、西安，喜欢现代城市就去上海、深圳。",
+    "py": "Kàn nǐ xǐhuan shénme. Xǐhuan lìshǐ jiù qù Běijīng, Xī'ān, xǐhuan xiàndài chéngshì jiù qù Shànghǎi, Shēnzhèn.",
+    "en": "Depends what you like. For history go to Beijing or Xi'an; for modern cities, Shanghai or Shenzhen."
+   },
+   {
+    "s": "A",
+    "cn": "听说云南的少数民族文化很有特色？",
+    "py": "Tīngshuō Yúnnán de shǎoshù mínzú wénhuà hěn yǒu tèsè?",
+    "en": "I heard Yunnan's ethnic minority cultures are very distinctive?"
+   },
+   {
+    "s": "B",
+    "cn": "对，云南有二十多个民族，节日、服装、饮食都不一样，风景也美。",
+    "py": "Duì, Yúnnán yǒu èrshí duō gè mínzú, jiérì, fúzhuāng, yǐnshí dōu bù yíyàng, fēngjǐng yě měi.",
+    "en": "Yes — Yunnan has over twenty ethnic groups with different festivals, clothing and food, and beautiful scenery."
+   },
+   {
+    "s": "A",
+    "cn": "那就先去云南！再顺便去四川看大熊猫。",
+    "py": "Nà jiù xiān qù Yúnnán! Zài shùnbiàn qù Sìchuān kàn dàxióngmāo.",
+    "en": "Yunnan first then! And Sichuan on the way to see the pandas."
+   }
+  ]
+ },
+ "economy": {
+  "scene_en": "Chatting about live-stream shopping and prices.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "现在直播带货特别火，你买过吗？",
+    "py": "Xiànzài zhíbō dàihuò tèbié huǒ, nǐ mǎi guo ma?",
+    "en": "Live-stream shopping is really popular now — have you bought anything that way?"
+   },
+   {
+    "s": "B",
+    "cn": "买过几次，价格确实比平时便宜，但也容易买一堆用不上的东西。",
+    "py": "Mǎi guo jǐ cì, jiàgé quèshí bǐ píngshí piányi, dàn yě róngyì mǎi yì duī yòng bu shàng de dōngxi.",
+    "en": "A few times. Prices really are lower, but it is easy to end up with a pile of things you never use."
+   },
+   {
+    "s": "A",
+    "cn": "是啊，促销的时候大家都冲动消费。",
+    "py": "Shì a, cùxiāo de shíhou dàjiā dōu chōngdòng xiāofèi.",
+    "en": "Yes — everyone shops impulsively during promotions."
+   },
+   {
+    "s": "B",
+    "cn": "我现在列好购物单再买，需要什么买什么，节约不少钱。",
+    "py": "Wǒ xiànzài liè hǎo gòuwùdān zài mǎi, xūyào shénme mǎi shénme, jiéyuē bù shǎo qián.",
+    "en": "Now I make a shopping list first and only buy what I need — it saves quite a bit."
+   },
+   {
+    "s": "A",
+    "cn": "这个习惯好，理性消费才是真省钱。",
+    "py": "Zhège xíguàn hǎo, lǐxìng xiāofèi cái shì zhēn shěng qián.",
+    "en": "Good habit — rational spending is the real way to save money."
+   }
+  ]
+ },
+ "social-phenomena": {
+  "scene_en": "Discussing how phones change daily life.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "你发现没有，现在地铁里几乎人人都在看手机。",
+    "py": "Nǐ fāxiàn méiyǒu, xiànzài dìtiě li jīhū rénrén dōu zài kàn shǒujī.",
+    "en": "Have you noticed? On the subway now almost everyone is looking at their phone."
+   },
+   {
+    "s": "B",
+    "cn": "是啊，网络改变了我们的生活方式，连点菜、挂号都在手机上。",
+    "py": "Shì a, wǎngluò gǎibiàn le wǒmen de shēnghuó fāngshì, lián diǎn cài, guàhào dōu zài shǒujī shang.",
+    "en": "Yes — the internet has changed how we live; even ordering food and booking doctor visits happen on the phone."
+   },
+   {
+    "s": "A",
+    "cn": "方便是方便，不过人和人之间的交流好像变少了。",
+    "py": "Fāngbiàn shì fāngbiàn, búguò rén hé rén zhījiān de jiāoliú hǎoxiàng biàn shǎo le.",
+    "en": "Convenient, sure — but face-to-face communication seems to have decreased."
+   },
+   {
+    "s": "B",
+    "cn": "所以我们家规定，吃饭的时候谁都不许玩儿手机。",
+    "py": "Suǒyǐ wǒmen jiā guīdìng, chīfàn de shíhou shéi dōu bù xǔ wánr shǒujī.",
+    "en": "That is why my family has a rule: no phones at the dinner table."
+   },
+   {
+    "s": "A",
+    "cn": "这个办法不错，科技应该让生活更好，而不是让人更远。",
+    "py": "Zhège bànfǎ búcuò, kējì yīnggāi ràng shēnghuó gèng hǎo, ér búshì ràng rén gèng yuǎn.",
+    "en": "Good approach — technology should make life better, not push people apart."
+   }
+  ]
+ },
+ "arts-entertainment": {
+  "scene_en": "Inviting a friend to a concert.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "周五晚上有一场音乐会，我有两张票，一起去吧？",
+    "py": "Zhōuwǔ wǎnshang yǒu yì chǎng yīnyuèhuì, wǒ yǒu liǎng zhāng piào, yìqǐ qù ba?",
+    "en": "There is a concert Friday evening — I have two tickets. Want to come?"
+   },
+   {
+    "s": "B",
+    "cn": "太好了！是什么类型的演出？",
+    "py": "Tài hǎo le! Shì shénme lèixíng de yǎnchū?",
+    "en": "Great! What kind of performance is it?"
+   },
+   {
+    "s": "A",
+    "cn": "民族音乐，有二胡和古筝，听说演员水平很高。",
+    "py": "Mínzú yīnyuè, yǒu èrhú hé gǔzhēng, tīngshuō yǎnyuán shuǐpíng hěn gāo.",
+    "en": "Traditional Chinese music with erhu and guzheng — the performers are supposed to be excellent."
+   },
+   {
+    "s": "B",
+    "cn": "我一直想现场听一次古筝！演出几点开始？",
+    "py": "Wǒ yìzhí xiǎng xiànchǎng tīng yí cì gǔzhēng! Yǎnchū jǐ diǎn kāishǐ?",
+    "en": "I have always wanted to hear the guzheng live! What time does it start?"
+   },
+   {
+    "s": "A",
+    "cn": "七点半。我们提前一点儿到，演出开始后就不让进了。",
+    "py": "Qī diǎn bàn. Wǒmen tíqián yìdiǎnr dào, yǎnchū kāishǐ hòu jiù bú ràng jìn le.",
+    "en": "7:30. Let's arrive early — no entry after the performance begins."
+   }
+  ]
+ },
+ "sports": {
+  "scene_en": "Talking about a basketball match and exercise habits.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "昨天晚上的篮球比赛你看了吗？",
+    "py": "Zuótiān wǎnshang de lánqiú bǐsài nǐ kàn le ma?",
+    "en": "Did you watch the basketball game last night?"
+   },
+   {
+    "s": "B",
+    "cn": "看了！最后三秒才决定胜负，太精彩了！",
+    "py": "Kàn le! Zuìhòu sān miǎo cái juédìng shèngfù, tài jīngcǎi le!",
+    "en": "I did! It was decided in the final three seconds — so exciting!"
+   },
+   {
+    "s": "A",
+    "cn": "你平时也打篮球吗？",
+    "py": "Nǐ píngshí yě dǎ lánqiú ma?",
+    "en": "Do you play basketball yourself?"
+   },
+   {
+    "s": "B",
+    "cn": "每周打两次，再加上跑步。坚持锻炼以后，感冒都少了。",
+    "py": "Měi zhōu dǎ liǎng cì, zài jiāshang pǎobù. Jiānchí duànliàn yǐhòu, gǎnmào dōu shǎo le.",
+    "en": "Twice a week, plus running. Since I started exercising regularly I rarely catch colds."
+   },
+   {
+    "s": "A",
+    "cn": "我也得动起来，要不周末跟你一起打？",
+    "py": "Wǒ yě děi dòng qǐlái, yàobù zhōumò gēn nǐ yìqǐ dǎ?",
+    "en": "I should get moving too — how about I join you this weekend?"
+   },
+   {
+    "s": "B",
+    "cn": "欢迎欢迎，运动贵在坚持！",
+    "py": "Huānyíng huānyíng, yùndòng guì zài jiānchí!",
+    "en": "Welcome! With sports, consistency is what counts!"
+   }
+  ]
+ },
+ "international-friendship": {
+  "scene_en": "An exchange student talks about studying in China.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "你来中国留学两年了，最大的收获是什么？",
+    "py": "Nǐ lái Zhōngguó liúxué liǎng nián le, zuì dà de shōuhuò shì shénme?",
+    "en": "You have studied in China for two years — what is your biggest gain?"
+   },
+   {
+    "s": "B",
+    "cn": "除了汉语，还交了很多中国朋友。去年春节我是在同学家过的。",
+    "py": "Chúle Hànyǔ, hái jiāo le hěn duō Zhōngguó péngyou. Qùnián Chūnjié wǒ shì zài tóngxué jiā guò de.",
+    "en": "Besides Chinese, I made many Chinese friends. Last Spring Festival I celebrated at a classmate's home."
+   },
+   {
+    "s": "A",
+    "cn": "真好！你们国家和中国的交流多吗？",
+    "py": "Zhēn hǎo! Nǐmen guójiā hé Zhōngguó de jiāoliú duō ma?",
+    "en": "How nice! Is there much exchange between your country and China?"
+   },
+   {
+    "s": "B",
+    "cn": "越来越多了，两国大学每年都互相派留学生，还有文化节。",
+    "py": "Yuè lái yuè duō le, liǎng guó dàxué měi nián dōu hùxiāng pài liúxuéshēng, hái yǒu wénhuàjié.",
+    "en": "More and more — our universities exchange students every year, and there are culture festivals."
+   },
+   {
+    "s": "A",
+    "cn": "交流让两国人民的友谊越来越深。",
+    "py": "Jiāoliú ràng liǎng guó rénmín de yǒuyì yuè lái yuè shēn.",
+    "en": "Exchange keeps deepening the friendship between our two peoples."
+   }
+  ]
+ },
+ "proverbs-sayings": {
+  "scene_en": "A student asks about a common Chinese saying.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "老师常说\"熟能生巧\"，这是什么意思？",
+    "py": "Lǎoshī cháng shuō \"shú néng shēng qiǎo\", zhè shì shénme yìsi?",
+    "en": "The teacher often says \"shú néng shēng qiǎo\" — what does it mean?"
+   },
+   {
+    "s": "B",
+    "cn": "意思是做的次数多了，自然就掌握了技巧，跟英语的 practice makes perfect 一样。",
+    "py": "Yìsi shì zuò de cìshù duō le, zìrán jiù zhǎngwò le jìqiǎo, gēn Yīngyǔ de practice makes perfect yíyàng.",
+    "en": "It means doing something many times naturally makes you skilled — like \"practice makes perfect\" in English."
+   },
+   {
+    "s": "A",
+    "cn": "原来如此！那\"万事开头难\"呢？",
+    "py": "Yuánlái rúcǐ! Nà \"wànshì kāitóu nán\" ne?",
+    "en": "I see! And what about \"wànshì kāitóu nán\"?"
+   },
+   {
+    "s": "B",
+    "cn": "就是说任何事情开始的时候最难，坚持下去就会容易起来。",
+    "py": "Jiùshì shuō rènhé shìqing kāishǐ de shíhou zuì nán, jiānchí xiàqù jiù huì róngyì qǐlái.",
+    "en": "It means the beginning of anything is the hardest part — keep going and it gets easier."
+   },
+   {
+    "s": "A",
+    "cn": "汉语的俗语真有意思，一句话就能讲清楚一个道理。",
+    "py": "Hànyǔ de súyǔ zhēn yǒu yìsi, yí jù huà jiù néng jiǎng qīngchu yí gè dàolǐ.",
+    "en": "Chinese sayings are fascinating — one sentence can capture a whole truth."
+   }
+  ]
+ },
+ "food-culture": {
+  "scene_en": "Explaining dumplings and food customs to a foreign friend.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "为什么过年一定要吃饺子呢？",
+    "py": "Wèishénme guònián yídìng yào chī jiǎozi ne?",
+    "en": "Why must people eat dumplings at Chinese New Year?"
+   },
+   {
+    "s": "B",
+    "cn": "饺子的样子像古代的钱，代表新的一年发财，全家一起包更热闹。",
+    "py": "Jiǎozi de yàngzi xiàng gǔdài de qián, dàibiǎo xīn de yì nián fācái, quánjiā yìqǐ bāo gèng rènao.",
+    "en": "Dumplings look like ancient money, symbolizing wealth for the new year — and making them together is part of the fun."
+   },
+   {
+    "s": "A",
+    "cn": "我听说不同地方的口味差别很大？",
+    "py": "Wǒ tīngshuō bùtóng dìfang de kǒuwèi chābié hěn dà?",
+    "en": "I heard flavors differ a lot from region to region?"
+   },
+   {
+    "s": "B",
+    "cn": "对，南方人爱吃甜的，四川人无辣不欢，北方菜偏咸。",
+    "py": "Duì, nánfāng rén ài chī tián de, Sìchuān rén wú là bù huān, běifāng cài piān xián.",
+    "en": "Yes — southerners like sweet, Sichuan people can't live without spice, and northern food tends salty."
+   },
+   {
+    "s": "A",
+    "cn": "\"民以食为天\"，中国的饮食文化真是博大精深。",
+    "py": "\"Mín yǐ shí wéi tiān\", Zhōngguó de yǐnshí wénhuà zhēnshi bódà-jīngshēn.",
+    "en": "\"Food is heaven to the people\" — Chinese food culture is truly broad and profound."
+   }
+  ]
+ },
+ "customs-traditions": {
+  "scene_en": "Talking about Mid-Autumn Festival customs.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "快到中秋节了，你们家有什么习俗？",
+    "py": "Kuài dào Zhōngqiūjié le, nǐmen jiā yǒu shénme xísú?",
+    "en": "Mid-Autumn Festival is coming — what customs does your family have?"
+   },
+   {
+    "s": "B",
+    "cn": "全家一起吃月饼、赏月。中秋讲究的就是团圆。",
+    "py": "Quánjiā yìqǐ chī yuèbǐng, shǎng yuè. Zhōngqiū jiǎngjiu de jiùshì tuányuán.",
+    "en": "The whole family eats mooncakes and admires the moon together. Mid-Autumn is all about reunion."
+   },
+   {
+    "s": "A",
+    "cn": "要是家人在外地回不来呢？",
+    "py": "Yàoshi jiārén zài wàidì huí bu lái ne?",
+    "en": "What if family members are away and can't come back?"
+   },
+   {
+    "s": "B",
+    "cn": "那就打视频电话，\"千里共婵娟\"嘛，看的是同一个月亮。",
+    "py": "Nà jiù dǎ shìpín diànhuà, \"qiānlǐ gòng chánjuān\" ma, kàn de shì tóng yí gè yuèliang.",
+    "en": "Then we video call — as the poem says, though a thousand miles apart, we share the same moon."
+   },
+   {
+    "s": "A",
+    "cn": "真浪漫。送月饼有什么讲究吗？",
+    "py": "Zhēn làngmàn. Sòng yuèbǐng yǒu shénme jiǎngjiu ma?",
+    "en": "How romantic. Are there customs about giving mooncakes?"
+   },
+   {
+    "s": "B",
+    "cn": "给长辈送双数的，表示祝福。下周我带你去尝尝我家乡的鲜肉月饼。",
+    "py": "Gěi zhǎngbèi sòng shuāngshù de, biǎoshì zhùfú. Xià zhōu wǒ dài nǐ qù chángchang wǒ jiāxiāng de xiānròu yuèbǐng.",
+    "en": "Give elders an even number, as a blessing. Next week I will take you to try my hometown's fresh-meat mooncakes."
+   }
+  ]
+ },
+ "scenic-spots": {
+  "scene_en": "Planning a visit to the Great Wall.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "这周六我们去爬长城吧！都说\"不到长城非好汉\"。",
+    "py": "Zhè zhōuliù wǒmen qù pá Chángchéng ba! Dōu shuō \"bú dào Chángchéng fēi hǎohàn\".",
+    "en": "Let's climb the Great Wall this Saturday! As they say, \"You're not a true hero until you've been to the Great Wall.\""
+   },
+   {
+    "s": "B",
+    "cn": "好啊！去八达岭还是慕田峪？",
+    "py": "Hǎo a! Qù Bādálǐng háishi Mùtiányù?",
+    "en": "Sure! Badaling or Mutianyu?"
+   },
+   {
+    "s": "A",
+    "cn": "慕田峪人少一些，风景也美，就是远一点儿。",
+    "py": "Mùtiányù rén shǎo yìxiē, fēngjǐng yě měi, jiùshì yuǎn yìdiǎnr.",
+    "en": "Mutianyu is less crowded and beautiful — just a bit farther."
+   },
+   {
+    "s": "B",
+    "cn": "没关系，我们早点儿出发。门票要提前在网上订吗？",
+    "py": "Méi guānxi, wǒmen zǎodiǎnr chūfā. Ménpiào yào tíqián zài wǎngshàng dìng ma?",
+    "en": "No problem, we will leave early. Should we book tickets online in advance?"
+   },
+   {
+    "s": "A",
+    "cn": "要，周末游客多，提前订还能便宜十块钱。",
+    "py": "Yào, zhōumò yóukè duō, tíqián dìng hái néng piányi shí kuài qián.",
+    "en": "Yes — weekends are busy, and booking ahead saves ten yuan."
+   },
+   {
+    "s": "B",
+    "cn": "那就这么定了，我顺便查查天气预报。",
+    "py": "Nà jiù zhème dìng le, wǒ shùnbiàn chácha tiānqì yùbào.",
+    "en": "Settled then — I will check the weather forecast while I am at it."
+   }
+  ]
+ },
+ "historical-figures": {
+  "scene_en": "After visiting a museum, two friends talk about Confucius.",
+  "lines": [
+   {
+    "s": "A",
+    "cn": "今天博物馆里介绍的孔子，到底是个什么样的人？",
+    "py": "Jīntiān bówùguǎn li jièshào de Kǒngzǐ, dàodǐ shì ge shénmeyàng de rén?",
+    "en": "The museum today introduced Confucius — what kind of person was he exactly?"
+   },
+   {
+    "s": "B",
+    "cn": "他是两千多年前的教育家和思想家，最早提出\"因材施教\"。",
+    "py": "Tā shì liǎngqiān duō nián qián de jiàoyùjiā hé sīxiǎngjiā, zuì zǎo tíchū \"yīn cái shī jiào\".",
+    "en": "He was an educator and thinker from over two thousand years ago — the first to propose teaching students according to their aptitude."
+   },
+   {
+    "s": "A",
+    "cn": "难怪有那么多人尊重他。他的学生很多吗？",
+    "py": "Nánguài yǒu nàme duō rén zūnzhòng tā. Tā de xuésheng hěn duō ma?",
+    "en": "No wonder so many people respect him. Did he have many students?"
+   },
+   {
+    "s": "B",
+    "cn": "传说有三千弟子。他的思想记录在《论语》里，到今天还影响着中国人。",
+    "py": "Chuánshuō yǒu sānqiān dìzǐ. Tā de sīxiǎng jìlù zài \"Lúnyǔ\" li, dào jīntiān hái yǐngxiǎng zhe Zhōngguórén.",
+    "en": "Three thousand, legend says. His ideas are recorded in the Analects and still influence Chinese people today."
+   },
+   {
+    "s": "A",
+    "cn": "\"三人行，必有我师\"就是他说的吧？我特别喜欢这句话。",
+    "py": "\"Sān rén xíng, bì yǒu wǒ shī\" jiùshì tā shuō de ba? Wǒ tèbié xǐhuan zhè jù huà.",
+    "en": "\"Among any three people walking, one can be my teacher\" — that was him, right? I love that line."
+   }
+  ]
+ }
+}

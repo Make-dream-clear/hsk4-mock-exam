@@ -147,7 +147,7 @@
             "家庭教育",
             "社会教育"
           ],
-          "word_count": 6
+          "word_count": 33
         }
       ]
     },
@@ -161,16 +161,10 @@
           "name_en": "Office & Work",
           "sub_topics": [
             "办公事务",
-            "工作表现"
+            "工作表现",
+            "职场交往"
           ],
-          "word_count": 16
-        },
-        {
-          "id": "workplace-social",
-          "name": "职场交往",
-          "name_en": "Workplace Relations",
-          "sub_topics": [],
-          "word_count": 10
+          "word_count": 26
         },
         {
           "id": "career",
@@ -271,7 +265,7 @@
             "新商业形态",
             "经济状况"
           ],
-          "word_count": 7
+          "word_count": 42
         },
         {
           "id": "social-phenomena",
@@ -314,7 +308,7 @@
           "sub_topics": [
             "友好往来"
           ],
-          "word_count": 6
+          "word_count": 21
         }
       ]
     },
@@ -329,7 +323,7 @@
           "sub_topics": [
             "俗语、名言等"
           ],
-          "word_count": 9
+          "word_count": 21
         },
         {
           "id": "food-culture",
@@ -339,7 +333,7 @@
             "传统饮食观念",
             "各地饮食、传统店铺、品牌等"
           ],
-          "word_count": 6
+          "word_count": 26
         },
         {
           "id": "customs",
@@ -348,26 +342,28 @@
           "sub_topics": [
             "传统节日与习俗",
             "国粹",
-            "各地传统"
+            "各地传统",
+            "人际交往礼仪"
           ],
-          "word_count": 8
-        },
-        {
-          "id": "etiquette",
-          "name": "人际交往礼仪",
-          "name_en": "Social Etiquette",
-          "sub_topics": [],
-          "word_count": 3
+          "word_count": 18
         },
         {
           "id": "landmarks",
           "name": "人文景观",
           "name_en": "Landmarks & History",
           "sub_topics": [
-            "名胜古迹等",
+            "名胜古迹等"
+          ],
+          "word_count": 23
+        },
+        {
+          "id": "history",
+          "name": "历史",
+          "name_en": "History",
+          "sub_topics": [
             "历史人物、历史事件"
           ],
-          "word_count": 4
+          "word_count": 21
         }
       ]
     }
@@ -773,12 +769,39 @@
       1987
     ],
     "edu-issues": [
+      1017,
+      1024,
+      1029,
+      1030,
+      1037,
+      1042,
+      1184,
+      1192,
+      1237,
+      1265,
       1329,
+      1344,
+      1361,
       1377,
+      1394,
       1463,
       1517,
       1533,
-      1840
+      1550,
+      1587,
+      1624,
+      1638,
+      1702,
+      1746,
+      1837,
+      1840,
+      1845,
+      1847,
+      1856,
+      1912,
+      1939,
+      1944,
+      1962
     ],
     "office": [
       1005,
@@ -796,7 +819,17 @@
       1745,
       1777,
       1978,
-      1987
+      1987,
+      1177,
+      1178,
+      1192,
+      1354,
+      1370,
+      1416,
+      1629,
+      1723,
+      1868,
+      1939
     ],
     "workplace-social": [
       1177,
@@ -940,12 +973,47 @@
     ],
     "economy": [
       1089,
+      1121,
+      1150,
+      1200,
+      1236,
+      1250,
+      1257,
+      1261,
+      1262,
+      1266,
+      1276,
+      1315,
+      1346,
+      1347,
+      1351,
+      1360,
+      1363,
       1364,
       1396,
+      1405,
       1443,
+      1486,
+      1508,
+      1547,
+      1601,
+      1627,
+      1630,
+      1632,
       1649,
       1669,
-      1922
+      1677,
+      1678,
+      1757,
+      1765,
+      1797,
+      1799,
+      1800,
+      1921,
+      1922,
+      1940,
+      1955,
+      1973
     ],
     "social-phenomena": [
       1004,
@@ -1000,41 +1068,98 @@
       1173
     ],
     "exchange": [
+      1063,
+      1127,
+      1189,
+      1279,
       1280,
+      1301,
+      1317,
       1370,
+      1380,
+      1398,
+      1470,
+      1526,
       1601,
       1667,
+      1805,
       1842,
-      1889
+      1858,
+      1873,
+      1889,
+      1890,
+      1893
     ],
     "language": [
       1035,
       1098,
       1189,
+      1386,
+      1399,
+      1411,
+      1420,
       1440,
+      1461,
+      1466,
+      1467,
+      1529,
       1563,
       1699,
       1778,
       1779,
-      1898
+      1809,
+      1868,
+      1898,
+      1944,
+      1976
     ],
     "food-culture": [
       1009,
       1068,
+      1094,
+      1204,
+      1221,
+      1384,
+      1414,
+      1421,
+      1441,
+      1449,
+      1495,
+      1504,
+      1560,
+      1665,
+      1706,
+      1725,
+      1772,
+      1773,
+      1794,
+      1796,
+      1802,
       1812,
       1908,
       1957,
-      1665
+      1967,
+      1992
     ],
     "customs": [
+      1115,
+      1245,
       1251,
       1295,
       1348,
       1383,
       1397,
+      1415,
+      1432,
+      1462,
+      1512,
       1590,
       1609,
-      1115
+      1858,
+      1937,
+      1965,
+      1966,
+      1989
     ],
     "etiquette": [
       1432,
@@ -1042,10 +1167,52 @@
       1989
     ],
     "landmarks": [
+      1062,
+      1138,
+      1205,
+      1254,
       1401,
       1402,
+      1403,
+      1487,
+      1488,
+      1489,
+      1490,
+      1502,
+      1503,
+      1542,
+      1545,
+      1581,
       1672,
+      1682,
+      1790,
+      1873,
+      1887,
+      1947,
       1967
+    ],
+    "history": [
+      1079,
+      1090,
+      1102,
+      1136,
+      1219,
+      1251,
+      1282,
+      1397,
+      1398,
+      1610,
+      1652,
+      1672,
+      1869,
+      1870,
+      1877,
+      1883,
+      1967,
+      1988,
+      1989,
+      1993,
+      1995
     ]
   },
   "word_topics": {
@@ -1081,7 +1248,8 @@
       "social"
     ],
     "1017": [
-      "study"
+      "study",
+      "edu-issues"
     ],
     "1018": [
       "daily-affairs"
@@ -1099,7 +1267,8 @@
       "overview"
     ],
     "1024": [
-      "study"
+      "study",
+      "edu-issues"
     ],
     "1026": [
       "personal"
@@ -1111,7 +1280,8 @@
       "study"
     ],
     "1029": [
-      "study"
+      "study",
+      "edu-issues"
     ],
     "1035": [
       "language"
@@ -1120,7 +1290,8 @@
       "office"
     ],
     "1037": [
-      "social"
+      "social",
+      "edu-issues"
     ],
     "1038": [
       "food"
@@ -1129,7 +1300,8 @@
       "leisure"
     ],
     "1042": [
-      "study"
+      "study",
+      "edu-issues"
     ],
     "1056": [
       "social"
@@ -1141,10 +1313,12 @@
       "office"
     ],
     "1062": [
-      "leisure"
+      "leisure",
+      "landmarks"
     ],
     "1063": [
-      "campus"
+      "campus",
+      "exchange"
     ],
     "1064": [
       "food"
@@ -1200,7 +1374,8 @@
       "food"
     ],
     "1094": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1095": [
       "community"
@@ -1236,7 +1411,8 @@
       "office"
     ],
     "1121": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1122": [
       "health"
@@ -1248,7 +1424,8 @@
       "health"
     ],
     "1127": [
-      "campus"
+      "campus",
+      "exchange"
     ],
     "1128": [
       "community"
@@ -1269,7 +1446,8 @@
       "food"
     ],
     "1138": [
-      "transport"
+      "transport",
+      "landmarks"
     ],
     "1143": [
       "transport"
@@ -1284,7 +1462,8 @@
       "transport"
     ],
     "1150": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1151": [
       "nature"
@@ -1341,7 +1520,8 @@
       "workplace-social"
     ],
     "1184": [
-      "family"
+      "family",
+      "edu-issues"
     ],
     "1186": [
       "tech"
@@ -1354,7 +1534,8 @@
     ],
     "1189": [
       "study",
-      "language"
+      "language",
+      "exchange"
     ],
     "1190": [
       "social"
@@ -1363,7 +1544,8 @@
       "social"
     ],
     "1192": [
-      "workplace-social"
+      "workplace-social",
+      "edu-issues"
     ],
     "1195": [
       "community"
@@ -1378,13 +1560,15 @@
       "shopping"
     ],
     "1200": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1201": [
       "study"
     ],
     "1205": [
-      "nature"
+      "nature",
+      "landmarks"
     ],
     "1209": [
       "shopping"
@@ -1408,10 +1592,12 @@
       "family"
     ],
     "1219": [
-      "social-phenomena"
+      "social-phenomena",
+      "history"
     ],
     "1221": [
-      "social"
+      "social",
+      "food-culture"
     ],
     "1225": [
       "social"
@@ -1438,10 +1624,12 @@
       "arts"
     ],
     "1236": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1237": [
-      "study"
+      "study",
+      "edu-issues"
     ],
     "1238": [
       "transport"
@@ -1461,14 +1649,17 @@
       "arts"
     ],
     "1245": [
-      "overview"
+      "overview",
+      "customs"
     ],
     "1250": [
-      "company"
+      "company",
+      "economy"
     ],
     "1251": [
       "sports",
-      "customs"
+      "customs",
+      "history"
     ],
     "1252": [
       "social-phenomena"
@@ -1483,22 +1674,27 @@
       "career"
     ],
     "1257": [
-      "company"
+      "company",
+      "economy"
     ],
     "1261": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1262": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1264": [
       "personal"
     ],
     "1265": [
-      "social"
+      "social",
+      "edu-issues"
     ],
     "1266": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1268": [
       "community"
@@ -1519,7 +1715,8 @@
       "leisure"
     ],
     "1276": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1277": [
       "leisure"
@@ -1528,7 +1725,8 @@
       "company"
     ],
     "1279": [
-      "personal"
+      "personal",
+      "exchange"
     ],
     "1280": [
       "exchange"
@@ -1595,7 +1793,8 @@
       "social-phenomena"
     ],
     "1315": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1322": [
       "social"
@@ -1632,13 +1831,16 @@
       "transport"
     ],
     "1344": [
-      "family"
+      "family",
+      "edu-issues"
     ],
     "1346": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1347": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1348": [
       "customs"
@@ -1656,10 +1858,12 @@
       "nature"
     ],
     "1360": [
-      "company"
+      "company",
+      "economy"
     ],
     "1361": [
-      "campus"
+      "campus",
+      "edu-issues"
     ],
     "1364": [
       "shopping",
@@ -1710,14 +1914,16 @@
       "customs"
     ],
     "1384": [
-      "environment"
+      "environment",
+      "food-culture"
     ],
     "1385": [
       "food",
       "shopping"
     ],
     "1386": [
-      "study"
+      "study",
+      "language"
     ],
     "1391": [
       "social"
@@ -1730,13 +1936,17 @@
     ],
     "1397": [
       "arts",
-      "customs"
+      "customs",
+      "history"
     ],
     "1398": [
-      "career"
+      "career",
+      "exchange",
+      "history"
     ],
     "1399": [
-      "career"
+      "career",
+      "language"
     ],
     "1400": [
       "career"
@@ -1750,19 +1960,23 @@
       "transport"
     ],
     "1403": [
-      "nature"
+      "nature",
+      "landmarks"
     ],
     "1405": [
-      "campus"
+      "campus",
+      "economy"
     ],
     "1406": [
       "community"
     ],
     "1414": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1415": [
-      "leisure"
+      "leisure",
+      "customs"
     ],
     "1416": [
       "workplace-social"
@@ -1771,7 +1985,8 @@
       "arts"
     ],
     "1421": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1423": [
       "study"
@@ -1797,7 +2012,8 @@
     ],
     "1432": [
       "social",
-      "etiquette"
+      "etiquette",
+      "customs"
     ],
     "1433": [
       "study"
@@ -1813,7 +2029,8 @@
       "language"
     ],
     "1441": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1442": [
       "food"
@@ -1829,7 +2046,8 @@
       "environment"
     ],
     "1449": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1452": [
       "personal"
@@ -1857,11 +2075,13 @@
       "personal"
     ],
     "1461": [
-      "study"
+      "study",
+      "language"
     ],
     "1462": [
       "social",
-      "etiquette"
+      "etiquette",
+      "customs"
     ],
     "1463": [
       "edu-issues"
@@ -1882,19 +2102,24 @@
       "food"
     ],
     "1486": [
-      "social-phenomena"
+      "social-phenomena",
+      "economy"
     ],
     "1487": [
-      "transport"
+      "transport",
+      "landmarks"
     ],
     "1488": [
-      "transport"
+      "transport",
+      "landmarks"
     ],
     "1489": [
-      "transport"
+      "transport",
+      "landmarks"
     ],
     "1490": [
-      "transport"
+      "transport",
+      "landmarks"
     ],
     "1491": [
       "career"
@@ -1903,7 +2128,8 @@
       "daily-affairs"
     ],
     "1495": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1497": [
       "community"
@@ -1921,13 +2147,16 @@
       "social"
     ],
     "1502": [
-      "nature"
+      "nature",
+      "landmarks"
     ],
     "1503": [
-      "personal"
+      "personal",
+      "landmarks"
     ],
     "1504": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1505": [
       "social"
@@ -1939,13 +2168,15 @@
       "tech"
     ],
     "1508": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1510": [
       "career"
     ],
     "1512": [
-      "overview"
+      "overview",
+      "customs"
     ],
     "1514": [
       "family"
@@ -1996,25 +2227,29 @@
       "nature"
     ],
     "1542": [
-      "leisure"
+      "leisure",
+      "landmarks"
     ],
     "1544": [
       "shopping"
     ],
     "1545": [
-      "daily-affairs"
+      "daily-affairs",
+      "landmarks"
     ],
     "1546": [
       "sports"
     ],
     "1547": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1549": [
       "social"
     ],
     "1550": [
-      "social"
+      "social",
+      "edu-issues"
     ],
     "1551": [
       "personal"
@@ -2032,7 +2267,8 @@
       "food"
     ],
     "1560": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1563": [
       "language"
@@ -2056,7 +2292,8 @@
       "daily-affairs"
     ],
     "1581": [
-      "transport"
+      "transport",
+      "landmarks"
     ],
     "1583": [
       "food"
@@ -2068,7 +2305,8 @@
       "arts"
     ],
     "1587": [
-      "personal"
+      "personal",
+      "edu-issues"
     ],
     "1590": [
       "social",
@@ -2084,7 +2322,8 @@
       "overview"
     ],
     "1601": [
-      "exchange"
+      "exchange",
+      "economy"
     ],
     "1602": [
       "health"
@@ -2093,7 +2332,8 @@
       "customs"
     ],
     "1610": [
-      "social"
+      "social",
+      "history"
     ],
     "1612": [
       "career"
@@ -2111,7 +2351,8 @@
       "transport"
     ],
     "1624": [
-      "study"
+      "study",
+      "edu-issues"
     ],
     "1625": [
       "transport",
@@ -2121,7 +2362,8 @@
       "leisure"
     ],
     "1627": [
-      "tech"
+      "tech",
+      "economy"
     ],
     "1628": [
       "nature"
@@ -2130,7 +2372,8 @@
       "workplace-social"
     ],
     "1630": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1631": [
       "social"
@@ -2139,7 +2382,8 @@
       "overview"
     ],
     "1638": [
-      "personal"
+      "personal",
+      "edu-issues"
     ],
     "1639": [
       "social-phenomena"
@@ -2192,7 +2436,8 @@
       "economy"
     ],
     "1672": [
-      "landmarks"
+      "landmarks",
+      "history"
     ],
     "1673": [
       "tech"
@@ -2207,16 +2452,19 @@
       "study"
     ],
     "1677": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1678": [
-      "company"
+      "company",
+      "economy"
     ],
     "1680": [
       "leisure"
     ],
     "1682": [
-      "overview"
+      "overview",
+      "landmarks"
     ],
     "1685": [
       "transport"
@@ -2249,13 +2497,15 @@
       "study"
     ],
     "1702": [
-      "study"
+      "study",
+      "edu-issues"
     ],
     "1705": [
       "environment"
     ],
     "1706": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1707": [
       "food"
@@ -2313,7 +2563,8 @@
       "office"
     ],
     "1746": [
-      "family"
+      "family",
+      "edu-issues"
     ],
     "1749": [
       "community"
@@ -2343,7 +2594,8 @@
       "food"
     ],
     "1765": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1767": [
       "tech"
@@ -2358,10 +2610,12 @@
       "social-phenomena"
     ],
     "1772": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1773": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1774": [
       "health"
@@ -2400,28 +2654,34 @@
       "personal"
     ],
     "1794": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1795": [
       "nature"
     ],
     "1796": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1797": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1798": [
       "social"
     ],
     "1799": [
-      "tech"
+      "tech",
+      "economy"
     ],
     "1800": [
-      "tech"
+      "tech",
+      "economy"
     ],
     "1802": [
-      "food"
+      "food",
+      "food-culture"
     ],
     "1811": [
       "social-phenomena"
@@ -2483,7 +2743,8 @@
       "community"
     ],
     "1837": [
-      "study"
+      "study",
+      "edu-issues"
     ],
     "1838": [
       "campus"
@@ -2525,13 +2786,16 @@
       "nature"
     ],
     "1856": [
-      "family"
+      "family",
+      "edu-issues"
     ],
     "1857": [
       "personal"
     ],
     "1858": [
-      "social"
+      "social",
+      "exchange",
+      "customs"
     ],
     "1860": [
       "community"
@@ -2543,10 +2807,12 @@
       "nature"
     ],
     "1868": [
-      "workplace-social"
+      "workplace-social",
+      "language"
     ],
     "1870": [
-      "arts"
+      "arts",
+      "history"
     ],
     "1874": [
       "sports"
@@ -2558,32 +2824,37 @@
       "career"
     ],
     "1877": [
-      "personal"
+      "personal",
+      "history"
     ],
     "1882": [
       "personal"
     ],
     "1883": [
-      "personal"
+      "personal",
+      "history"
     ],
     "1885": [
       "food"
     ],
     "1887": [
-      "transport"
+      "transport",
+      "landmarks"
     ],
     "1889": [
       "social",
       "exchange"
     ],
     "1890": [
-      "social"
+      "social",
+      "exchange"
     ],
     "1891": [
       "leisure"
     ],
     "1893": [
-      "social"
+      "social",
+      "exchange"
     ],
     "1895": [
       "social"
@@ -2645,14 +2916,18 @@
       "daily-affairs"
     ],
     "1939": [
-      "workplace-social"
+      "workplace-social",
+      "edu-issues"
     ],
     "1940": [
       "shopping",
-      "tech"
+      "tech",
+      "economy"
     ],
     "1944": [
-      "study"
+      "study",
+      "edu-issues",
+      "language"
     ],
     "1949": [
       "nature"
@@ -2664,7 +2939,8 @@
       "community"
     ],
     "1955": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1957": [
       "food",
@@ -2677,10 +2953,13 @@
       "nature"
     ],
     "1966": [
-      "social"
+      "social",
+      "customs"
     ],
     "1967": [
-      "landmarks"
+      "landmarks",
+      "food-culture",
+      "history"
     ],
     "1969": [
       "study"
@@ -2692,7 +2971,8 @@
       "transport"
     ],
     "1973": [
-      "shopping"
+      "shopping",
+      "economy"
     ],
     "1978": [
       "office"
@@ -2714,17 +2994,21 @@
     ],
     "1989": [
       "social",
-      "etiquette"
+      "etiquette",
+      "customs",
+      "history"
     ],
     "1993": [
       "career",
-      "arts"
+      "arts",
+      "history"
     ],
     "1994": [
       "leisure"
     ],
     "1995": [
-      "arts"
+      "arts",
+      "history"
     ],
     "1997": [
       "transport"
@@ -2737,7 +3021,8 @@
       "arts"
     ],
     "1030": [
-      "health"
+      "health",
+      "edu-issues"
     ],
     "1047": [
       "social"
@@ -2781,7 +3066,8 @@
       "tech"
     ],
     "1847": [
-      "social"
+      "social",
+      "edu-issues"
     ],
     "1927": [
       "career"
@@ -2792,12 +3078,130 @@
     "1987": [
       "campus",
       "office"
+    ],
+    "1845": [
+      "edu-issues"
+    ],
+    "1962": [
+      "edu-issues"
+    ],
+    "1912": [
+      "edu-issues"
+    ],
+    "1394": [
+      "edu-issues"
+    ],
+    "1363": [
+      "economy"
+    ],
+    "1632": [
+      "economy"
+    ],
+    "1757": [
+      "economy"
+    ],
+    "1921": [
+      "economy"
+    ],
+    "1351": [
+      "economy"
+    ],
+    "1317": [
+      "exchange"
+    ],
+    "1873": [
+      "exchange",
+      "landmarks"
+    ],
+    "1526": [
+      "exchange"
+    ],
+    "1380": [
+      "exchange"
+    ],
+    "1301": [
+      "exchange"
+    ],
+    "1805": [
+      "exchange"
+    ],
+    "1470": [
+      "exchange"
+    ],
+    "1529": [
+      "language"
+    ],
+    "1466": [
+      "language"
+    ],
+    "1467": [
+      "language"
+    ],
+    "1411": [
+      "language"
+    ],
+    "1420": [
+      "language"
+    ],
+    "1809": [
+      "language"
+    ],
+    "1976": [
+      "language"
+    ],
+    "1992": [
+      "food-culture"
+    ],
+    "1725": [
+      "food-culture"
+    ],
+    "1204": [
+      "food-culture"
+    ],
+    "1965": [
+      "customs"
+    ],
+    "1937": [
+      "customs"
+    ],
+    "1254": [
+      "landmarks"
+    ],
+    "1790": [
+      "landmarks"
+    ],
+    "1947": [
+      "landmarks"
+    ],
+    "1136": [
+      "history"
+    ],
+    "1102": [
+      "history"
+    ],
+    "1988": [
+      "history"
+    ],
+    "1869": [
+      "history"
+    ],
+    "1079": [
+      "history"
+    ],
+    "1652": [
+      "history"
+    ],
+    "1090": [
+      "history"
+    ],
+    "1282": [
+      "history"
     ]
   },
   "stats": {
     "total_words": 1000,
-    "classified": 566,
-    "unclassified": 434,
-    "coverage_pct": 56.6
+    "classified": 605,
+    "unclassified": 395,
+    "coverage_pct": 60.5
   }
 }
