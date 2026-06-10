@@ -92,6 +92,7 @@
       "number": 8,
       "original_id": 1673,
       "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-09.wav",
       "text": "8. 好书越来越少。",
       "options": [
         "对",
@@ -141,6 +142,7 @@
       "number": 12,
       "original_id": 1669,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-14.wav",
       "text": "12. 男的觉得哪种女孩子比较好？",
       "options": [
         "A 聪明",
@@ -196,6 +198,7 @@
       "number": 16,
       "original_id": 1665,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-18.wav",
       "text": "16. 关于女的，可以知道什么？",
       "options": [
         "A 很不满意",
@@ -209,6 +212,7 @@
       "number": 17,
       "original_id": 1664,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-19.wav",
       "text": "17. 男的为什么不去购物了？",
       "options": [
         "A 要请客",
@@ -250,6 +254,7 @@
       "number": 20,
       "original_id": 1661,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-22.wav",
       "text": "20. 男的是什么意思？",
       "options": [
         "A 散散步",
@@ -263,6 +268,7 @@
       "number": 21,
       "original_id": 1660,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-23.wav",
       "text": "21. 根据对话，可以知道什么？",
       "options": [
         "A 他们在理发",
@@ -290,6 +296,7 @@
       "number": 23,
       "original_id": 1658,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-25.wav",
       "text": "23. 男的在帮女的做什么？",
       "options": [
         "A 擦桌子",
@@ -317,6 +324,7 @@
       "number": 25,
       "original_id": 1656,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-27.wav",
       "text": "25. 男的哪里不舒服？",
       "options": [
         "A 嘴",
@@ -456,6 +464,7 @@
       "number": 35,
       "original_id": 1646,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-38.wav",
       "text": "35. 男的认为应该怎么复习？",
       "options": [
         "A 要仔细",
@@ -497,6 +506,7 @@
       "number": 38,
       "original_id": 1643,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-41.wav",
       "text": "38. 那个孩子为什么哭？",
       "options": [
         "A 钱丢了",
@@ -510,6 +520,7 @@
       "number": 39,
       "original_id": 1642,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-42.wav",
       "text": "39. 那个孩子现在有多少钱？",
       "options": [
         "A 10块",
@@ -537,6 +548,7 @@
       "number": 41,
       "original_id": 1640,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-44.wav",
       "text": "41. 幽默的人为什么受欢迎？",
       "options": [
         "A 使人快乐",
@@ -550,6 +562,7 @@
       "number": 42,
       "original_id": 1639,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-45.wav",
       "text": "42. 许多人都有过怎样的经历？",
       "options": [
         "A 后悔",
@@ -577,6 +590,7 @@
       "number": 44,
       "original_id": 1637,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-47.wav",
       "text": "44. 说话人最可能是谁？",
       "options": [
         "A 导游",
@@ -590,6 +604,7 @@
       "number": 45,
       "original_id": 1636,
       "type": "listening_choice",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41005-48.wav",
       "text": "45. 这段话最可能是在什么时候说的？",
       "options": [
         "A 访问",

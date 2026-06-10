@@ -141,23 +141,39 @@ function buildVocabulary() {
 </div>`;
   }).join('\n');
 
-  // Replace the loading spinner inside #vocab-list with pre-rendered content
-  html = html.replace(
-    /<div class="vocab-list" id="vocab-list">\s*<div class="loading">.*?<\/div>\s*<\/div>/s,
-    `<div class="vocab-list" id="vocab-list">\n${staticRows}\n</div>`
-  );
+  // Replace the #vocab-list container with freshly pre-rendered content.
+  // Walk div depth instead of regexing, so this works whether the container
+  // currently holds the loading spinner (pristine source) or the cards from
+  // a previous build — the old spinner-only regex silently no-opped on
+  // rebuilds, which is how the page got stuck at 981 words.
+  const listMarker = '<div class="vocab-list" id="vocab-list">';
+  const listStart = html.indexOf(listMarker);
+  if (listStart !== -1) {
+    const divRe = /<div\b|<\/div>/g;
+    divRe.lastIndex = listStart + listMarker.length;
+    let depth = 1, listEnd = -1, m;
+    while ((m = divRe.exec(html)) !== null) {
+      depth += m[0] === '</div>' ? -1 : 1;
+      if (depth === 0) { listEnd = m.index + '</div>'.length; break; }
+    }
+    if (listEnd !== -1) {
+      html = html.slice(0, listStart)
+        + `${listMarker}\n${staticRows}\n</div>`
+        + html.slice(listEnd);
+    }
+  }
 
   // Move SEO content BEFORE the vocab list so it's near the top of the page
   // We do this by replacing the existing SEO section AND injecting new content before the filter bar
   const newVocabSEO = `<section class="seo-content" style="margin-top:48px;">
     <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">HSK 4 Vocabulary (2026 New Syllabus)</h2>
     <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-      This word list follows the <strong>2025 official HSK syllabus</strong> (published by the Center for Language Education and Cooperation, effective July 2026). The new syllabus organizes HSK 4 around 25 communicative tasks \u2014 from discussing people (\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269) and emotions (\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898), to handling daily affairs (\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1), to discussing social phenomena (\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61).
+      This word list follows the <strong>2025 official HSK syllabus</strong> (published by the Center for Language Education and Cooperation, effective July 2026). The new syllabus organizes HSK 4 around 30 communicative tasks \u2014 from <a href="/topics/describe-a-person/" style="color:var(--accent);">discussing people (\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269)</a> and <a href="/topics/emotions/" style="color:var(--accent);">emotions (\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898)</a>, to <a href="/topics/daily-affairs/" style="color:var(--accent);">handling daily affairs (\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1)</a>, to <a href="/topics/social-phenomena/" style="color:var(--accent);">discussing social phenomena (\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61)</a>. Browse vocabulary for <a href="/topics/" style="color:var(--accent);">all 30 task scenarios</a>.
     </p>
 
     <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">How HSK 4 Vocabulary Differs from HSK 3</h3>
     <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-      HSK 3 covers about 600 words for daily survival \u2014 ordering food, asking directions, describing your family. HSK 4 adds roughly 600 new words that shift toward <strong>abstract thinking and opinion expression</strong>. The official syllabus explicitly requires you to handle \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain level of complexity) in conversations. This means words like \u201c\u5374\u201d (qu\u00E8, however), \u201c\u5C3D\u7BA1\u201d (j\u01D0ngu\u01CEn, despite), \u201c\u7ADF\u7136\u201d (j\u00ECngr\u00E1n, unexpectedly), and \u201c\u65E2\u7136\u201d (j\u00ECr\u00E1n, since) become essential for building the complex sentences the exam tests.
+      Under the new standard, Levels 1\u20133 cover the first 1,000 words for daily survival \u2014 ordering food, asking directions, describing your family. HSK 4 adds 1,000 new words (numbers 1001\u20132000 in the official list, for a 2,000-word cumulative vocabulary) that shift toward <strong>abstract thinking and opinion expression</strong>. The official syllabus explicitly requires you to handle \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain level of complexity) in conversations. This means words like \u201c\u5374\u201d (qu\u00E8, however), \u201c\u5C3D\u7BA1\u201d (j\u01D0ngu\u01CEn, despite), \u201c\u7ADF\u7136\u201d (j\u00ECngr\u00E1n, unexpectedly), and \u201c\u65E2\u7136\u201d (j\u00ECr\u00E1n, since) become essential for building the complex sentences the exam tests.
     </p>
 
     <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">Key Word Categories Added at HSK 4 (from the Official Grammar Syllabus)</h3>
@@ -181,16 +197,37 @@ function buildVocabulary() {
     </p>
   </section>`;
 
-  // Remove old SEO section (after the word list)
-  html = html.replace(
-    /<!-- STATIC SEO CONTENT -->.*?<\/section>/s,
-    `<!-- SEO content moved above word list -->`
-  );
+  // Remove the previously injected SEO section and any marker comments that
+  // earlier builds accumulated (one per rebuild at one point — 42 observed).
+  html = html.replace(/<!-- STATIC SEO CONTENT -->.*?<\/section>/s, '');
+  html = html.replace(/[ \t]*<!-- SEO content moved above word list -->\n?/g, '');
 
   // Inject SEO content BEFORE the search/filter bar so it's near the top
   html = html.replace(
     /<!-- SEARCH & FILTER -->/,
     `<!-- STATIC SEO CONTENT -->\n  ${newVocabSEO}\n\n  <!-- SEARCH & FILTER -->`
+  );
+
+  // Keep hardcoded word counts (meta description, ItemList, stat bar) in sync
+  html = html.replace(
+    /Master all \d{3,4} HSK 4 vocabulary words/g,
+    `Master all ${words.length} HSK 4 vocabulary words`
+  );
+  html = html.replace(
+    /"numberOfItems": \d{3,4}/g,
+    `"numberOfItems": ${words.length}`
+  );
+  html = html.replace(
+    /(id="stat-total">)\d{3,4}(<)/,
+    `$1${words.length}$2`
+  );
+  html = html.replace(
+    /(id="stat-remaining">)\d{3,4}(<)/,
+    `$1${words.length}$2`
+  );
+  html = html.replace(
+    /(id="progress-mastered">0<\/strong> \/ <strong>)\d{3,4}(<\/strong>)/,
+    `$1${words.length}$2`
   );
 
   fs.writeFileSync(htmlPath, html, 'utf8');
@@ -270,6 +307,13 @@ function buildTestPages() {
       : `<div style="background:var(--gold-soft);border:1px solid #e8d5a0;border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:14px;line-height:1.6;color:var(--gold);">
       <strong>Note:</strong> This test covers listening and reading sections only. The writing section (sentence construction) cannot be auto-scored in our online format. For writing practice, see our <a href="/writing/sentence-order/" style="color:var(--gold);font-weight:600;">sentence ordering exercises</a> and <a href="/writing/paragraph/" style="color:var(--gold);font-weight:600;">paragraph writing practice</a>.
     </div>`;
+
+    // Honest label for tests that ship fewer than the standard 100 questions
+    const partialNote = (isComplete && test.questions.length < 100)
+      ? `<div style="background:var(--gold-soft);border:1px solid #e8d5a0;border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:14px;line-height:1.6;color:var(--gold);">
+      <strong>Note:</strong> This is a partial test with ${test.questions.length} questions (the standard HSK 4 paper has 100: 45 listening + 40 reading + 15 writing). It still auto-scores and is great for extra practice — for a full-length simulation, start with <a href="/test/01/" style="color:var(--gold);font-weight:600;">Test 01</a>.
+    </div>`
+      : '';
 
     // Standardized HSK 4 mock test title across all 12 tests
     const shortTitle = `HSK 4 Mock Test ${num}`;
@@ -453,6 +497,7 @@ function buildTestPages() {
       <span class="test-meta-item">~50 min</span>
     </div>
     ${coverageNote}
+    ${partialNote}
     <p style="color:var(--stone);max-width:560px;margin:0 auto 24px;">
       Take this HSK 4 practice test interactively with instant scoring, or scroll down to review all ${meta.questions} questions.
     </p>
@@ -574,7 +619,7 @@ ${testLinks}
   );
 
   // Replace the static SEO section with the redesigned content. Keeps the
-  // 2026 syllabus claim, the format table, the 25 task topics, the grammar
+  // 2026 syllabus claim, the format table, the 30 task topics, the grammar
   // callout, the section-by-section tips, and the 8-week study plan — but
   // reorganized into a single coherent section (toolkit -> format -> syllabus
   // -> tips -> plan) using the home-screen CSS classes defined in
@@ -605,7 +650,7 @@ ${testLinks}
           </a>
           <a href="/topics/" class="toolkit-card">
             <div class="toolkit-card-tag">Scenarios</div>
-            <h4>22 Topic Scenarios</h4>
+            <h4>30 Topic Scenarios</h4>
             <p>Vocabulary by communicative situation: family, work, health, food, technology…</p>
           </a>
         </div>
@@ -657,11 +702,16 @@ ${testLinks}
             <h4>HSK 4 vs HSK 5</h4>
             <p>After HSK 4: 1,300 new words, advanced grammar, full essay writing.</p>
           </a>
+          <a href="/compare/new-vs-old-hsk4/" class="toolkit-card">
+            <div class="toolkit-card-tag">2026 Change</div>
+            <h4>New vs Old HSK 4</h4>
+            <p>What the July 2026 syllabus changes: 2,000 words, 150 handwriting characters, 30 tasks.</p>
+          </a>
         </div>
       </div>
 
       <h2 class="section-title">HSK 4 Exam Format</h2>
-      <p class="section-intro">100 questions, 105 minutes total. The pass mark is 180/300 (60%) — but real-world programs and visa applications often look for 240+ (80%).</p>
+      <p class="section-intro">100 questions, 105 minutes total. The pass mark is 180/300 (60%) — but real-world programs and visa applications often look for 240+ (80%). This is the current format, administered through June 2026; from July 2026 the revised HSK 3.0 syllabus takes effect (our mock exams follow the current format).</p>
       <div class="format-table-wrap">
         <table class="format-table">
           <thead>
@@ -682,53 +732,63 @@ ${testLinks}
       </div>
 
       <h2 class="section-title">What the 2026 Syllabus Demands</h2>
-      <p class="section-intro">The new HSK syllabus (《新版HSK考试大纲》, effective July 2026) raises the bar at Level 4. Unlike HSK 3 which focuses on basic daily needs, HSK 4 requires handling "有一定复杂度" (a certain level of complexity) across 25 communicative tasks, grouped here into four themes:</p>
+      <p class="section-intro">The new HSK syllabus (《新版HSK考试大纲》, published November 2025, effective July 2026) raises the bar at Level 4. Unlike HSK 3 which focuses on basic daily needs, HSK 4 requires handling "有一定复杂度" (a certain level of complexity) across 30 communicative tasks, grouped here into five themes:</p>
 
-      <h3 class="subsection-title">25 Communicative Tasks</h3>
+      <h3 class="subsection-title">30 Communicative Tasks</h3>
       <div class="topics-grid">
         <div class="topics-cluster">
           <h4>👤 Personal &amp; Social</h4>
           <ul>
-            <li>谈论某个人物 — Discuss a person</li>
-            <li>日常言语交往 — Daily verbal interactions</li>
-            <li>谈论情感话题 — Discuss emotions</li>
-            <li>交流业余爱好 — Hobbies &amp; leisure</li>
-            <li>交流家庭生活 — Family life</li>
-            <li>交流居住、社区情况 — Housing &amp; community</li>
+            <li><a href="/topics/describe-a-person/">谈论某个人物 — Discuss a person</a></li>
+            <li><a href="/topics/social-expressions/">日常言语交往 — Daily verbal interactions</a></li>
+            <li><a href="/topics/emotions/">谈论情感话题 — Discuss emotions</a></li>
+            <li><a href="/topics/hobbies-leisure/">交流业余爱好 — Hobbies &amp; leisure</a></li>
+            <li><a href="/topics/family-life/">交流家庭生活 — Family life</a></li>
+            <li><a href="/topics/housing-community/">交流居住、社区情况 — Housing &amp; community</a></li>
           </ul>
         </div>
         <div class="topics-cluster">
           <h4>🏃 Daily Life</h4>
           <ul>
-            <li>交流、处理日常事务 — Handle daily affairs</li>
-            <li>介绍饮食情况 — Food &amp; dining</li>
-            <li>谈论交通出行 — Transportation</li>
-            <li>交流购物体验 — Shopping experiences</li>
-            <li>谈论就医、健康生活 — Health &amp; medical</li>
-            <li>谈论体育比赛 — Sports</li>
+            <li><a href="/topics/daily-affairs/">交流、处理日常事务 — Handle daily affairs</a></li>
+            <li><a href="/topics/food-dining/">介绍饮食情况 — Food &amp; dining</a></li>
+            <li><a href="/topics/transportation/">谈论交通出行 — Transportation</a></li>
+            <li><a href="/topics/shopping/">交流购物体验 — Shopping experiences</a></li>
+            <li><a href="/topics/health-medical/">谈论就医、健康生活 — Health &amp; medical</a></li>
+            <li><a href="/topics/sports/">谈论体育比赛 — Sports</a></li>
           </ul>
         </div>
         <div class="topics-cluster">
           <h4>🎓 Education &amp; Work</h4>
           <ul>
-            <li>谈论教学、学习 — Education &amp; learning</li>
-            <li>交流校园生活 — Campus life</li>
-            <li>谈论教育现象 — Education phenomena</li>
-            <li>谈论工作情况 — Work situations</li>
-            <li>介绍职业经历 — Career experiences</li>
+            <li><a href="/topics/education-learning/">谈论教学、学习 — Education &amp; learning</a></li>
+            <li><a href="/topics/campus-life/">交流校园生活 — Campus life</a></li>
+            <li><a href="/topics/education-issues/">谈论教育现象 — Education phenomena</a></li>
+            <li><a href="/topics/work-performance/">谈论工作情况 — Work situations</a></li>
+            <li><a href="/topics/career-experience/">介绍职业经历 — Career experiences</a></li>
           </ul>
         </div>
         <div class="topics-cluster">
           <h4>🌏 Society &amp; World</h4>
           <ul>
-            <li>谈论自然情况 — Nature &amp; geography</li>
-            <li>谈论环保情况 — Environmental protection</li>
-            <li>介绍新技术应用 — Technology</li>
-            <li>介绍中国省市、民族 — Chinese provinces &amp; ethnicities</li>
-            <li>谈论经济现象 — Economic phenomena</li>
-            <li>谈论社会现象 — Social phenomena</li>
-            <li>介绍文艺形式 — Arts &amp; entertainment</li>
-            <li>讲述中外友好故事 — China-world friendship</li>
+            <li><a href="/topics/nature/">谈论自然情况 — Nature &amp; geography</a></li>
+            <li><a href="/topics/environment/">谈论环保情况 — Environmental protection</a></li>
+            <li><a href="/topics/technology/">介绍新技术应用 — Technology</a></li>
+            <li><a href="/topics/china-provinces/">介绍中国省市、民族 — Chinese provinces &amp; ethnicities</a></li>
+            <li><a href="/topics/economy/">谈论经济现象 — Economic phenomena</a></li>
+            <li><a href="/topics/social-phenomena/">谈论社会现象 — Social phenomena</a></li>
+            <li><a href="/topics/arts-entertainment/">介绍文艺形式 — Arts &amp; entertainment</a></li>
+            <li><a href="/topics/international-friendship/">讲述中外友好故事 — China-world friendship</a></li>
+          </ul>
+        </div>
+        <div class="topics-cluster">
+          <h4>🏮 Culture &amp; Tradition</h4>
+          <ul>
+            <li><a href="/topics/proverbs-sayings/">介绍常见俗语、名言 — Proverbs &amp; sayings</a></li>
+            <li><a href="/topics/food-culture/">介绍传统饮食文化 — Traditional food culture</a></li>
+            <li><a href="/topics/customs-traditions/">介绍风俗传统 — Customs &amp; traditions</a></li>
+            <li><a href="/topics/scenic-spots/">介绍名胜古迹 — Scenic spots &amp; historic sites</a></li>
+            <li><a href="/topics/historical-figures/">介绍历史人物、历史事件 — Historical figures &amp; events</a></li>
           </ul>
         </div>
       </div>
@@ -845,9 +905,11 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, character
     { loc: '/grammar/pivotal-sentences/', priority: '0.8' },
     { loc: '/grammar/fixed-patterns/', priority: '0.8' },
     { loc: '/grammar/measure-words/', priority: '0.8' },
+    { loc: '/grammar/patterns/', priority: '0.7' },
     { loc: '/compare/', priority: '0.8' },
     { loc: '/compare/hsk4-vs-hsk3/', priority: '0.8' },
     { loc: '/compare/hsk4-vs-hsk5/', priority: '0.8' },
+    { loc: '/compare/new-vs-old-hsk4/', priority: '0.9' },
     { loc: '/writing/', priority: '0.9' },
     { loc: '/writing/sentence-order/', priority: '0.8' },
     { loc: '/writing/paragraph/', priority: '0.8' },
@@ -1041,50 +1103,69 @@ function buildTopics() {
 }
 
 // ============================================================
-// 6. FIX GUIDE PAGE: 30 tasks → 25 tasks + 5 cultural topics
+// 6. NORMALIZE GUIDE PAGE to the official 30-task wording
 // ============================================================
+// The official syllabus (《新版HSK考试大纲》, Nov 2025) lists tasks 1-30 in a
+// single 任务大纲; items 26-30 (proverbs, food culture, customs, scenic spots,
+// historical figures) are tasks too, not 话题大纲 entries. An earlier build
+// rewrote the guide to "25 tasks + 5 cultural topics" -- these replacements
+// undo that and are no-ops once the page is correct.
 
 function fixGuide() {
-  console.log('[guide] Fixing task count consistency (30 → 25+5)...');
+  console.log('[guide] Normalizing task count to the official 30 tasks...');
   const htmlPath = path.join(ROOT, 'guide', 'index.html');
   let html = fs.readFileSync(htmlPath, 'utf8');
 
-  // Fix the section title
+  // Section title
   html = html.replace(
-    /30 Task Scenarios \/ 30个交际任务/g,
-    '25 Communicative Tasks + 5 Cultural Topics / 25\u4E2A\u4EA4\u9645\u4EFB\u52A1 + 5\u4E2A\u6587\u5316\u8BDD\u9898'
+    /25 Communicative Tasks \+ 5 Cultural Topics \/ 25个交际任务 \+ 5个文化话题/g,
+    '30 Task Scenarios / 30个交际任务'
   );
 
-  // Fix the description paragraph
+  // Description paragraph
   html = html.replace(
-    /defines exactly 30 communicative tasks/,
-    'defines 25 communicative tasks and 5 cultural knowledge topics'
+    /defines 25 communicative tasks and 5 cultural knowledge topics/g,
+    'defines exactly 30 communicative tasks'
   );
 
-  // Fix the info card that says "30 Task Scenarios"
+  // Intro/FAQ text about the new syllabus
   html = html.replace(
-    /<div class="info-card-num" style="color:var\(--jade\);font-size:24px;">30<\/div>\s*<div class="info-card-label">Task Scenarios<\/div>\s*<div class="info-card-detail">Covering 7 topic categories<\/div>/,
-    `<div class="info-card-num" style="color:var(--jade);font-size:24px;">25+5</div>
-      <div class="info-card-label">Tasks & Topics</div>
-      <div class="info-card-detail">25 tasks + 5 cultural topics</div>`
+    /updated vocabulary \(~1000 words\), 25 communicative tasks and 5 cultural knowledge topics/g,
+    'updated vocabulary (1,000 new Level 4 words; 2,000 cumulative), 30 communicative tasks'
   );
 
-  // Add a note before the Culture category to distinguish tasks from topics
+  // Info card
   html = html.replace(
-    /<div class="task-category">\s*<div class="task-category-header"><div class="task-dot" style="background:var\(--ink\)"><\/div> Culture \/ 文化<\/div>/,
-    `<p style="color:var(--stone);font-size:14px;margin:16px 0 8px;font-style:italic;">The following 5 items are cultural knowledge topics (\u8BDD\u9898\u5927\u7EB2), not communicative tasks (\u4EFB\u52A1\u5927\u7EB2). They define background knowledge the exam may reference.</p>
-    <div class="task-category">
-      <div class="task-category-header"><div class="task-dot" style="background:var(--ink)"></div> Cultural Knowledge / \u6587\u5316\u77E5\u8BC6 <span style="font-size:12px;color:var(--stone);font-weight:400;margin-left:4px;">(\u8BDD\u9898\u5927\u7EB2)</span></div>`
+    /<div class="info-card-num" style="color:var\(--jade\);font-size:24px;">25\+5<\/div>\s*<div class="info-card-label">Tasks & Topics<\/div>\s*<div class="info-card-detail">25 tasks \+ 5 cultural topics<\/div>/,
+    `<div class="info-card-num" style="color:var(--jade);font-size:24px;">30</div>
+      <div class="info-card-label">Task Scenarios</div>
+      <div class="info-card-detail">Covering 7 topic categories</div>`
   );
 
-  // Fix FAQ structured data if it mentions 30
+  // Replace the misleading "not communicative tasks" note with an accurate one
   html = html.replace(
-    /30 defined task scenarios/g,
-    '25 communicative tasks and 5 cultural knowledge topics'
+    /<p style="color:var\(--stone\);font-size:14px;margin:16px 0 8px;font-style:italic;">The following 5 items are cultural knowledge topics \(话题大纲\), not communicative tasks \(任务大纲\)\. They define background knowledge the exam may reference\.<\/p>\s*/,
+    `<p style="color:var(--stone);font-size:14px;margin:16px 0 8px;font-style:italic;">Tasks 26-30 are culture-focused: the syllabus emphasizes listening, speaking and reading for them, and two (proverbs; historical figures) have no writing requirement.</p>
+    `
   );
+
+  // Restore the category header
+  html = html.replace(
+    /Cultural Knowledge \/ 文化知识 <span style="font-size:12px;color:var\(--stone\);font-weight:400;margin-left:4px;">\(话题大纲\)<\/span>/g,
+    'Culture / 文化'
+  );
+
+  // Catch any leftover 25+5 phrasing (e.g. FAQ structured data)
+  html = html.replace(
+    /25 communicative tasks and 5 cultural knowledge topics/g,
+    '30 communicative tasks'
+  );
+
+  // Vocabulary link count (data file has the full 1,000-word official list)
+  html = html.replace(/Vocabulary \(981 words\)/g, 'Vocabulary (1,000 words)');
 
   fs.writeFileSync(htmlPath, html, 'utf8');
-  console.log('[guide] Fixed: 25 tasks + 5 cultural topics, with clear distinction');
+  console.log('[guide] Normalized to 30 official task scenarios');
 }
 
 // ============================================================
@@ -1507,10 +1588,52 @@ function buildTaskTopicPages() {
       grammar: ['/grammar/complex-sentences/', '/grammar/fixed-patterns/'],
       skills: ['listening', 'speaking', 'reading', 'writing'],
     },
+    {
+      slug: 'proverbs-sayings', task_cn: '介绍常见俗语、名言', task_en: 'Proverbs & Sayings',
+      topic_ids: ['language'],
+      desc: 'Understand and roughly explain common Chinese sayings and famous quotes. The syllabus tests this receptively — recognizing what a saying means when you hear it in conversation or meet it in a short reading passage.',
+      syllabus_cn: '能听懂日常交谈中别人介绍的某些中文常见俗语、名言；能大致介绍一些中文常见俗语、名言及其主要含义；能看懂介绍、解读某些中文常见俗语、名言的小短文。',
+      grammar: ['/grammar/fixed-patterns/', '/grammar/rhetorical/'],
+      skills: ['listening', 'speaking', 'reading'],
+    },
+    {
+      slug: 'food-culture', task_cn: '介绍传统饮食文化', task_en: 'Traditional Food Culture',
+      topic_ids: ['food-culture'],
+      desc: 'Understand introductions to traditional Chinese food culture — table manners, the meaning behind certain dishes, regional flavors, and time-honored shops and brands — and write a short paragraph introducing a food tradition.',
+      syllabus_cn: '能听懂朋友、同学、老师等对中国传统饮食观念、中国各地饮食特点、传统店铺、品牌等中国传统饮食文化相关情况的有一定复杂度的介绍。如中国人的餐桌礼仪、某种食物的内涵，各地饮食的风味等。',
+      grammar: ['/grammar/comparison/', '/grammar/measure-words/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'customs-traditions', task_cn: '介绍风俗传统', task_en: 'Customs & Traditions',
+      topic_ids: ['customs', 'etiquette'],
+      desc: 'Understand and introduce Chinese folk traditions: festival customs like Spring Festival and Mid-Autumn, national arts like kung fu and Peking opera, regional traditions, and the etiquette of interacting with friends, teachers and elders.',
+      syllabus_cn: '能听懂朋友、同学、老师等对中国传统节日习俗、国粹、各地传统、人际交往礼仪等中国民俗传统相关情况的有一定复杂度的介绍。如春节、中秋节等节日习俗；中国功夫、京剧等国粹；民间喜好与禁忌等。',
+      grammar: ['/grammar/fixed-patterns/', '/grammar/function-words/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'scenic-spots', task_cn: '介绍名胜古迹', task_en: 'Scenic Spots & Historic Sites',
+      topic_ids: ['landmarks'],
+      desc: 'Understand general introductions to famous Chinese sights such as Tian’anmen and the Great Wall, introduce a sight you know, and write a short paragraph about it. A frequent theme in HSK 4 reading passages.',
+      syllabus_cn: '能听懂朋友、同学、老师等对中国某个名胜古迹的一般性介绍。如天安门、长城等。能看懂介绍中国某个名胜古迹的一般性短文；能写出一段话简单介绍中国某个名胜古迹。',
+      grammar: ['/grammar/comparison/', '/grammar/measure-words/'],
+      skills: ['listening', 'speaking', 'reading', 'writing'],
+    },
+    {
+      slug: 'historical-figures', task_cn: '介绍历史人物、历史事件', task_en: 'Historical Figures & Events',
+      topic_ids: ['history'],
+      desc: 'Understand general introductions to major Chinese historical figures and events, such as Confucius (孔子) and Laozi (老子). Tested through listening and short reading passages — no writing requirement for this task.',
+      syllabus_cn: '能听懂朋友、同学、老师等对某位中国历史人物或某个中国历史事件的一般性介绍。如孔子、老子等。能看懂介绍某位中国历史人物或者某个中国历史事件的一般性短文。',
+      grammar: ['/grammar/complex-sentences/', '/grammar/function-words/'],
+      skills: ['listening', 'speaking', 'reading'],
+    },
   ];
 
-  // Skip thin pages (< 10 words) — content merged into related pages
-  const skipSlugs = new Set(['economy', 'education-issues', 'international-friendship']);
+  // Skip thin pages (< 10 words). Previously economy / education-issues /
+  // international-friendship were skipped; their topics have since been
+  // enriched in topics.json, so all 30 official tasks now generate.
+  const skipSlugs = new Set();
 
   tasks.forEach(task => {
     if (skipSlugs.has(task.slug)) return;
@@ -1829,6 +1952,39 @@ ${faqJsonLd}
 
   // Add to sitemap
   const generated = tasks.filter(t => !skipSlugs.has(t.slug));
+
+  // Link every task page from the /topics/ hub so they aren't sitemap-only
+  // orphans. Re-emitted on each build (old block stripped first).
+  const hubPath = path.join(ROOT, 'topics', 'index.html');
+  let hubHtml = fs.readFileSync(hubPath, 'utf8');
+  const taskNavCards = generated.map(t =>
+    `      <a class="task-nav-card" href="/topics/${t.slug}/"><span class="chinese">${escHtml(t.task_cn)}</span><span class="task-nav-en">${escHtml(t.task_en)}</span></a>`
+  ).join('\n');
+  const taskNavBlock = `<!-- TASK PAGES NAV -->
+  <section class="task-pages-nav" aria-label="Vocabulary by task">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 6px;">Vocabulary by Task Scenario <span class="chinese" style="color:var(--accent);">${generated.length}个任务</span></h2>
+    <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">The official 2026 syllabus defines ${generated.length} communicative tasks. Each page below collects the HSK 4 words for one task, with examples and related grammar.</p>
+    <style>
+      .task-nav-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin-bottom:32px; }
+      .task-nav-card { display:flex; flex-direction:column; gap:2px; background:white; border:1px solid var(--mist); border-radius:8px; padding:12px 14px; text-decoration:none; color:var(--ink); font-size:14px; transition:all .15s; }
+      .task-nav-card:hover { border-color:var(--accent); transform:translateY(-1px); }
+      .task-nav-en { font-size:12px; color:var(--stone); }
+    </style>
+    <div class="task-nav-grid">
+${taskNavCards}
+    </div>
+  </section>
+  <!-- /TASK PAGES NAV -->
+`;
+  hubHtml = hubHtml.replace(/<!-- TASK PAGES NAV -->[\s\S]*?<!-- \/TASK PAGES NAV -->\n?/g, '');
+  if (hubHtml.includes('<div id="categories"')) {
+    hubHtml = hubHtml.replace(/(\s*)(<div id="categories")/, `\n  ${taskNavBlock}$1$2`);
+  } else {
+    hubHtml = hubHtml.replace('</main>', `${taskNavBlock}\n</main>`);
+  }
+  fs.writeFileSync(hubPath, hubHtml, 'utf8');
+  console.log(`[task-topics] Injected ${generated.length}-task nav into topics/index.html`);
+
   console.log(`[task-topics] Generated ${generated.length} task topic pages (skipped ${skipSlugs.size} thin pages)`);
   return generated.map(t => t.slug);
 }
@@ -2523,6 +2679,141 @@ document.querySelectorAll('.fill-input').forEach(function(inp) {
 }
 
 // ============================================================
+// 8b. GRAMMAR PATTERNS HUB: /grammar/patterns/index.html
+// ============================================================
+// The eight pattern pages used to live under a directory with no index,
+// so breadcrumbs and hand-typed URLs hit a 404. This hub lists them all.
+
+function buildGrammarPatternsHub() {
+  console.log('[grammar-patterns] Generating patterns hub page...');
+  const patterns = readJSON('grammar-patterns.json');
+
+  const cards = patterns.map(pat => `
+    <a class="pattern-card" href="/grammar/patterns/${pat.slug}/">
+      <div class="pattern-card-type">${escHtml(pat.type_cn || '')}</div>
+      <div class="pattern-card-cn chinese">${escHtml(pat.pattern_cn)}</div>
+      <div class="pattern-card-en">${escHtml(pat.pattern_en || '')}</div>
+      <p class="pattern-card-summary">${escHtml((pat.summary || '').split('.')[0])}.</p>
+    </a>`).join('\n');
+
+  const itemListJsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': 'HSK 4 Sentence Patterns — 复句与固定格式',
+    'description': 'All HSK 4 complex-sentence patterns from the official grammar syllabus, each with examples, common errors, and a quiz.',
+    'url': 'https://hsk4.mandarinzone.com/grammar/patterns/',
+    'inLanguage': ['en', 'zh-CN'],
+    'isAccessibleForFree': true,
+    'hasPart': patterns.map(pat => ({
+      '@type': 'Article',
+      'name': `${pat.pattern_cn} (${pat.pattern_en || ''})`,
+      'url': `https://hsk4.mandarinzone.com/grammar/patterns/${pat.slug}/`,
+    })),
+  }, null, 2);
+
+  const pageHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HSK 4 Sentence Patterns — ${patterns.length} Complex Patterns | 复句句型</title>
+<meta name="description" content="All ${patterns.length} HSK 4 complex-sentence patterns (尽管…但是, 不管…都, 即使…也, 连…都/也 and more) with examples, common errors, and quizzes. From the official syllabus.">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/grammar/patterns/">
+
+<meta property="og:title" content="HSK 4 Sentence Patterns — Complex Patterns with Exercises">
+<meta property="og:description" content="All ${patterns.length} HSK 4 complex-sentence patterns with examples, common errors, and quizzes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/grammar/patterns/">
+<meta property="og:site_name" content="Mandarin Zone">
+
+<script type="application/ld+json">
+${itemListJsonLd}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .hero { text-align:center; padding:40px 0 24px; }
+  .hero h1 { font-family:'Noto Serif SC',serif; font-size:clamp(24px,4vw,34px); margin-bottom:10px; }
+  .hero p { color:var(--stone); max-width:640px; margin:0 auto; line-height:1.7; }
+  .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+  .pattern-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; margin:28px 0 40px; }
+  .pattern-card { display:block; background:white; border:1px solid var(--mist); border-radius:var(--radius); padding:18px 20px; text-decoration:none; color:var(--ink); transition:all .15s; }
+  .pattern-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.06); }
+  .pattern-card-type { font-size:11px; color:var(--accent); font-weight:700; text-transform:uppercase; margin-bottom:6px; }
+  .pattern-card-cn { font-family:'Noto Serif SC',serif; font-size:20px; margin-bottom:2px; }
+  .pattern-card-en { font-size:13px; color:var(--stone); margin-bottom:8px; }
+  .pattern-card-summary { font-size:13px; color:var(--stone); line-height:1.6; margin:0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo"><img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="logo-mark" loading="eager"><div class="logo-text">HSK 4 <span>Mock Exam</span></div></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
+      <a href="/grammar/" class="nav-link" style="opacity:1;">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
+      <a href="/traps/" class="nav-link">Traps</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/grammar/">Grammar</a> &rsaquo; Sentence Patterns
+  </nav>
+
+  <div class="hero">
+    <h1>HSK 4 Sentence Patterns <span class="chinese" style="color:var(--accent);">复句句型</span></h1>
+    <p>The complex-sentence patterns the official HSK 4 grammar syllabus adds at this level — concessive, conditional, hypothetical and emphatic structures. Each page has examples, common errors, fill-in exercises and a quiz.</p>
+  </div>
+
+  <div class="pattern-grid">
+${cards}
+  </div>
+
+  <p style="color:var(--stone);line-height:1.8;margin-bottom:40px;">
+    Looking for broader grammar coverage? Browse the <a href="/grammar/" style="color:var(--accent);">full HSK 4 grammar guide</a> (把字句, 被动句, 比较句, complements, measure words and more), drill <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering</a>, or test yourself with the <a href="/" style="color:var(--accent);">12 free mock exams</a>.
+  </p>
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="footer-brand-link">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
+      <div>
+        <div class="footer-brand-name">Mandarin Zone</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online · Since 2008</div>
+      </div>
+    </a>
+    <div class="footer-cta">
+      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
+      <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/writing/">Writing</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</footer>
+
+</body>
+</html>`;
+
+  const hubDir = path.join(ROOT, 'grammar', 'patterns');
+  ensureDir(hubDir);
+  fs.writeFileSync(path.join(hubDir, 'index.html'), pageHtml, 'utf8');
+  console.log('[grammar-patterns] Generated grammar/patterns/index.html hub');
+}
+
+// ============================================================
 // 13. ADD MOCK EXAM LINKS TO HUB PAGES
 // ============================================================
 
@@ -2649,7 +2940,6 @@ function buildCharacterPages() {
 <meta property="og:image:alt" content="Mandarin Zone — HSK 4 character writing practice">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
-<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -2995,7 +3285,6 @@ ${renderFooter()}
 <meta property="og:image:alt" content="Mandarin Zone — HSK 4 character writing practice">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
-<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -3189,7 +3478,6 @@ window.addEventListener('load', function(){
 <meta property="og:image:alt" content="Mandarin Zone — HSK 4 character writing practice">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
-<link rel="alternate" hreflang="x-default" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -3342,6 +3630,7 @@ buildWritingGuide();
 const taskSlugs = buildTaskTopicPages();
 const confusableSlugs = buildConfusablePages();
 const grammarPatternSlugs = buildGrammarPatternPages();
+buildGrammarPatternsHub();
 const characterList = buildCharacterPages();
 addTestLinksToHubs();
 buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList);

@@ -68,6 +68,7 @@
       "number": 6,
       "original_id": 2029,
       "type": "listening_true_false",
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41006-06.wav",
       "text": "6. ★ 现在的房租很贵。",
       "options": [
         "对",
@@ -379,7 +380,7 @@
       "number": 29,
       "original_id": 2006,
       "type": "listening_choice",
-      "audio": null,
+      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk41006-31.wav",
       "text": "29. 根据对话，可以知道什么？",
       "options": [
         "A 男的不着急",

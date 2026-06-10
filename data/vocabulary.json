@@ -291,13 +291,13 @@
   },
   {
     "id": 1030,
-    "word": "抽烟",
-    "pinyin": "chōuyān",
-    "pos": "v.",
-    "meaning": "to smoke (cigarette)",
-    "example_cn": "请不要在这里抽烟。",
-    "example_pinyin": "Qǐng bú yào zài zhèlǐ chōuyān.",
-    "example_en": "Please don't smoke here."
+    "word": "毕业生",
+    "pinyin": "bìyèshēng",
+    "pos": "n.",
+    "meaning": "graduate; graduating student",
+    "example_cn": "今年有很多毕业生在找工作。",
+    "example_pinyin": "Jīnnián yǒu hěn duō bìyèshēng zài zhǎo gōngzuò.",
+    "example_en": "Many graduates are looking for jobs this year."
   },
   {
     "id": 1031,
@@ -691,13 +691,13 @@
   },
   {
     "id": 1070,
-    "word": "出国",
-    "pinyin": "chūguó",
-    "pos": "v.",
-    "meaning": "to go abroad",
-    "example_cn": "他打算明年出国留学。",
-    "example_pinyin": "Tā dǎsuàn míngnián chūguó liúxué.",
-    "example_en": "He plans to go abroad to study next year."
+    "word": "差点儿",
+    "pinyin": "chàdiǎnr",
+    "pos": "adj./adv.",
+    "meaning": "almost; nearly; not quite",
+    "example_cn": "我今天差点儿迟到了。",
+    "example_pinyin": "Wǒ jīntiān chàdiǎnr chídào le.",
+    "example_en": "I was almost late today."
   },
   {
     "id": 1071,
@@ -992,7 +992,7 @@
   {
     "id": 1100,
     "word": "此次",
-    "pinyin": "cǐ",
+    "pinyin": "cǐcì",
     "pos": "pron.",
     "meaning": "this time; this occasion",
     "example_cn": "此次活动共有五百人参加。",
@@ -1141,13 +1141,13 @@
   },
   {
     "id": 1115,
-    "word": "春节",
-    "pinyin": "Chūnjié",
-    "pos": "n.",
-    "meaning": "Spring Festival; Chinese New Year",
-    "example_cn": "春节是中国最重要的传统节日。",
-    "example_pinyin": "Chūnjié shì Zhōngguó zuì zhòngyào de chuántǒng jiérì.",
-    "example_en": "Spring Festival is the most important traditional Chinese festival."
+    "word": "打招呼",
+    "pinyin": "dǎ zhāohu",
+    "pos": "v.",
+    "meaning": "to greet; to say hello",
+    "example_cn": "他笑着跟我打招呼。",
+    "example_pinyin": "Tā xiàozhe gēn wǒ dǎ zhāohu.",
+    "example_en": "He greeted me with a smile."
   },
   {
     "id": 1116,
@@ -2151,13 +2151,13 @@
   },
   {
     "id": 1216,
-    "word": "丢",
-    "pinyin": "diū",
-    "pos": "v.",
-    "meaning": "to lose; to throw away",
-    "example_cn": "我把钥匙丢在出租车上了。",
-    "example_pinyin": "Wǒ bǎ yàoshi diū zài chūzūchē shàng le.",
-    "example_en": "I left my keys in the taxi."
+    "word": "负责人",
+    "pinyin": "fùzérén",
+    "pos": "n.",
+    "meaning": "person in charge; head; director",
+    "example_cn": "请问谁是这个项目的负责人？",
+    "example_pinyin": "Qǐngwèn shéi shì zhège xiàngmù de fùzérén?",
+    "example_en": "May I ask who is the person in charge of this project?"
   },
   {
     "id": 1217,
@@ -3261,13 +3261,13 @@
   },
   {
     "id": 1327,
-    "word": "减肥",
-    "pinyin": "jiǎnféi",
-    "pos": "v.",
-    "meaning": "to lose weight; to diet",
-    "example_cn": "为了减肥，她每天都坚持跑步。",
-    "example_pinyin": "Wèile jiǎnféi, tā měitiān dōu jiānchí pǎobù.",
-    "example_en": "To lose weight, she insists on running every day."
+    "word": "既",
+    "pinyin": "jì",
+    "pos": "adv./conj.",
+    "meaning": "both... (and...); since; already",
+    "example_cn": "这家餐厅的菜既好吃又便宜。",
+    "example_pinyin": "Zhè jiā cāntīng de cài jì hǎochī yòu piányi.",
+    "example_en": "The food at this restaurant is both delicious and cheap."
   },
   {
     "id": 1328,
@@ -4181,13 +4181,13 @@
   },
   {
     "id": 1419,
-    "word": "坚持",
-    "pinyin": "jiānchí",
+    "word": "开玩笑",
+    "pinyin": "kāi wánxiào",
     "pos": "v.",
-    "meaning": "to persist; to insist on; to keep doing",
-    "example_cn": "他坚持每天学习一个小时中文。",
-    "example_pinyin": "Tā jiānchí měitiān xuéxí yí gè xiǎoshí Zhōngwén.",
-    "example_en": "He insists on studying Chinese for one hour every day."
+    "meaning": "to joke; to make fun of",
+    "example_cn": "别生气，我只是开个玩笑。",
+    "example_pinyin": "Bié shēngqì, wǒ zhǐshì kāi ge wánxiào.",
+    "example_en": "Don't be angry — I was just joking."
   },
   {
     "id": 1420,
@@ -5401,13 +5401,13 @@
   },
   {
     "id": 1541,
-    "word": "陪",
-    "pinyin": "péi",
-    "pos": "v.",
-    "meaning": "to accompany; to keep company",
-    "example_cn": "周末我陪妈妈去医院看病。",
-    "example_pinyin": "Zhōumò wǒ péi māma qù yīyuàn kànbìng.",
-    "example_en": "On the weekend I went with my mom to the hospital."
+    "word": "偶尔",
+    "pinyin": "ǒu'ěr",
+    "pos": "adv./adj.",
+    "meaning": "occasionally; once in a while",
+    "example_cn": "我偶尔会去公园跑步。",
+    "example_pinyin": "Wǒ ǒu'ěr huì qù gōngyuán pǎobù.",
+    "example_en": "I occasionally go running in the park."
   },
   {
     "id": 1542,
@@ -6463,8 +6463,8 @@
     "id": 1647,
     "word": "生",
     "pinyin": "shēng",
-    "pos": "adj./v.",
-    "meaning": "raw; unripe; to give birth; to grow",
+    "pos": "adj./(adv.)",
+    "meaning": "raw; uncooked; unripe; unfamiliar",
     "example_cn": "这块肉还是生的，不能吃。",
     "example_pinyin": "Zhè kuài ròu hái shì shēng de, bù néng chī.",
     "example_en": "This piece of meat is still raw and cannot be eaten."
@@ -6641,13 +6641,13 @@
   },
   {
     "id": 1665,
-    "word": "饺子",
-    "pinyin": "jiǎozi",
+    "word": "十字路口",
+    "pinyin": "shízì lùkǒu",
     "pos": "n.",
-    "meaning": "dumpling",
-    "example_cn": "过年的时候，北方人喜欢吃饺子。",
-    "example_pinyin": "Guònián de shíhou, běifāng rén xǐhuan chī jiǎozi.",
-    "example_en": "During the Spring Festival, northerners like to eat dumplings."
+    "meaning": "crossroads; intersection",
+    "example_cn": "到十字路口往左拐就是银行。",
+    "example_pinyin": "Dào shízì lùkǒu wǎng zuǒ guǎi jiùshì yínháng.",
+    "example_en": "Turn left at the crossroads and you'll see the bank."
   },
   {
     "id": 1666,
@@ -8121,13 +8121,13 @@
   },
   {
     "id": 1813,
-    "word": "消息",
-    "pinyin": "xiāoxi",
+    "word": "小伙子",
+    "pinyin": "xiǎohuǒzi",
     "pos": "n.",
-    "meaning": "news; information; message",
-    "example_cn": "我刚刚听到一个好消息。",
-    "example_pinyin": "Wǒ gānggāng tīngdào yí gè hǎo xiāoxi.",
-    "example_en": "I just heard some good news."
+    "meaning": "young man; young fellow; lad",
+    "example_cn": "这个小伙子工作很努力。",
+    "example_pinyin": "Zhège xiǎohuǒzi gōngzuò hěn nǔlì.",
+    "example_en": "This young man works very hard."
   },
   {
     "id": 1814,
@@ -8461,13 +8461,13 @@
   },
   {
     "id": 1847,
-    "word": "羡慕",
-    "pinyin": "xiànmù",
-    "pos": "v.",
-    "meaning": "to envy; to admire",
-    "example_cn": "我很羡慕你能去那么多地方旅游。",
-    "example_pinyin": "Wǒ hěn xiànmù nǐ néng qù nàme duō dìfang lǚyóu.",
-    "example_en": "I envy that you can travel to so many places."
+    "word": "研究生",
+    "pinyin": "yánjiūshēng",
+    "pos": "n.",
+    "meaning": "graduate student; postgraduate",
+    "example_cn": "她正在读研究生。",
+    "example_pinyin": "Tā zhèngzài dú yánjiūshēng.",
+    "example_en": "She is studying for a graduate degree."
   },
   {
     "id": 1848,
@@ -9261,13 +9261,13 @@
   },
   {
     "id": 1927,
-    "word": "招聘",
-    "pinyin": "zhāopìn",
-    "pos": "v.",
-    "meaning": "to recruit; to hire",
-    "example_cn": "这家公司正在招聘新员工。",
-    "example_pinyin": "Zhè jiā gōngsī zhèngzài zhāopìn xīn yuángōng.",
-    "example_en": "This company is currently recruiting new employees."
+    "word": "真正",
+    "pinyin": "zhēnzhèng",
+    "pos": "adj./adv.",
+    "meaning": "real; true; genuine; truly",
+    "example_cn": "他是我真正的好朋友。",
+    "example_pinyin": "Tā shì wǒ zhēnzhèng de hǎo péngyou.",
+    "example_en": "He is my true good friend."
   },
   {
     "id": 1928,
@@ -9321,13 +9321,13 @@
   },
   {
     "id": 1933,
-    "word": "正式",
-    "pinyin": "zhèngshì",
-    "pos": "adj.",
-    "meaning": "formal; official",
-    "example_cn": "参加面试要穿正式一点儿的衣服。",
-    "example_pinyin": "Cānjiā miànshì yào chuān zhèngshì yìdiǎnr de yīfu.",
-    "example_en": "You should dress more formally for an interview."
+    "word": "正好",
+    "pinyin": "zhènghǎo",
+    "pos": "adj./adv.",
+    "meaning": "just right; just in time; happen to",
+    "example_cn": "你来得正好，我们正要出发。",
+    "example_pinyin": "Nǐ lái de zhènghǎo, wǒmen zhèng yào chūfā.",
+    "example_en": "You came just in time — we were about to leave."
   },
   {
     "id": 1934,
