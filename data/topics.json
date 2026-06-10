@@ -161,16 +161,10 @@
           "name_en": "Office & Work",
           "sub_topics": [
             "办公事务",
-            "工作表现"
+            "工作表现",
+            "职场交往"
           ],
-          "word_count": 16
-        },
-        {
-          "id": "workplace-social",
-          "name": "职场交往",
-          "name_en": "Workplace Relations",
-          "sub_topics": [],
-          "word_count": 10
+          "word_count": 26
         },
         {
           "id": "career",
@@ -348,24 +342,17 @@
           "sub_topics": [
             "传统节日与习俗",
             "国粹",
-            "各地传统"
+            "各地传统",
+            "人际交往礼仪"
           ],
           "word_count": 18
-        },
-        {
-          "id": "etiquette",
-          "name": "人际交往礼仪",
-          "name_en": "Social Etiquette",
-          "sub_topics": [],
-          "word_count": 3
         },
         {
           "id": "landmarks",
           "name": "人文景观",
           "name_en": "Landmarks & History",
           "sub_topics": [
-            "名胜古迹等",
-            "历史人物、历史事件"
+            "名胜古迹等"
           ],
           "word_count": 23
         },
@@ -374,8 +361,7 @@
           "name": "历史",
           "name_en": "History",
           "sub_topics": [
-            "历史人物",
-            "历史事件"
+            "历史人物、历史事件"
           ],
           "word_count": 21
         }
@@ -833,7 +819,17 @@
       1745,
       1777,
       1978,
-      1987
+      1987,
+      1177,
+      1178,
+      1192,
+      1354,
+      1370,
+      1416,
+      1629,
+      1723,
+      1868,
+      1939
     ],
     "workplace-social": [
       1177,

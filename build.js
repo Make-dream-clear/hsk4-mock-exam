@@ -58,14 +58,31 @@ function generateFillExercises(exercises, instruction) {
   <div class="fill-exercises">${items}</div>`;
 }
 
-function generateTopicQuiz(words) {
-  // Pick 5 random words for a vocabulary matching quiz
-  const shuffled = [...words].sort(() => Math.random() - 0.5);
+// Deterministic PRNG (mulberry32) so consecutive builds produce identical
+// output — quiz selections only change when the underlying word data does.
+function seededRandom(seedStr) {
+  let h = 1779033703;
+  for (let i = 0; i < seedStr.length; i++) {
+    h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353);
+    h = (h << 13) | (h >>> 19);
+  }
+  return function () {
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    h = (h ^= h >>> 16) >>> 0;
+    return h / 4294967296;
+  };
+}
+
+function generateTopicQuiz(words, seed) {
+  const rand = seededRandom(seed || 'topic-quiz');
+  // Pick 5 words for a vocabulary matching quiz
+  const shuffled = [...words].sort(() => rand() - 0.5);
   const quizWords = shuffled.slice(0, Math.min(5, words.length));
 
   const quizItems = quizWords.map((w, qi) => {
-    const others = words.filter(x => x.id !== w.id).sort(() => Math.random() - 0.5).slice(0, 2);
-    const allOpts = [w, ...others].sort(() => Math.random() - 0.5);
+    const others = words.filter(x => x.id !== w.id).sort(() => rand() - 0.5).slice(0, 2);
+    const allOpts = [w, ...others].sort(() => rand() - 0.5);
     const optsHtml = allOpts.map(o => {
       if (o.id === w.id) {
         return '<button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">' + escHtml(o.meaning) + '</button>';
@@ -199,7 +216,10 @@ function buildVocabulary() {
 
   // Remove the previously injected SEO section and any marker comments that
   // earlier builds accumulated (one per rebuild at one point — 42 observed).
-  html = html.replace(/<!-- STATIC SEO CONTENT -->.*?<\/section>/s, '');
+  // Consume surrounding whitespace too: leaving it behind added one blank
+  // line per rebuild.
+  html = html.replace(/\s*<!-- STATIC SEO CONTENT -->[\s\S]*?<\/section>\s*(?=<!-- SEARCH & FILTER -->)/, '\n\n  ');
+  html = html.replace(/<!-- STATIC SEO CONTENT -->[\s\S]*?<\/section>/, '');
   html = html.replace(/[ \t]*<!-- SEO content moved above word list -->\n?/g, '');
 
   // Inject SEO content BEFORE the search/filter bar so it's near the top
@@ -742,9 +762,9 @@ ${testLinks}
             <li><a href="/topics/describe-a-person/">谈论某个人物 — Discuss a person</a></li>
             <li><a href="/topics/social-expressions/">日常言语交往 — Daily verbal interactions</a></li>
             <li><a href="/topics/emotions/">谈论情感话题 — Discuss emotions</a></li>
-            <li><a href="/topics/hobbies-leisure/">交流业余爱好 — Hobbies &amp; leisure</a></li>
-            <li><a href="/topics/family-life/">交流家庭生活 — Family life</a></li>
-            <li><a href="/topics/housing-community/">交流居住、社区情况 — Housing &amp; community</a></li>
+            <li><a href="/topics/hobbies-leisure/">交流业余爱好、休闲度假 — Hobbies &amp; leisure</a></li>
+            <li><a href="/topics/family-life/">交流家庭生活情况 — Family life</a></li>
+            <li><a href="/topics/housing-community/">交流居住情况、社区情况 — Housing &amp; community</a></li>
           </ul>
         </div>
         <div class="topics-cluster">
@@ -753,31 +773,31 @@ ${testLinks}
             <li><a href="/topics/daily-affairs/">交流、处理日常事务 — Handle daily affairs</a></li>
             <li><a href="/topics/food-dining/">介绍饮食情况 — Food &amp; dining</a></li>
             <li><a href="/topics/transportation/">谈论交通出行 — Transportation</a></li>
-            <li><a href="/topics/shopping/">交流购物体验 — Shopping experiences</a></li>
-            <li><a href="/topics/health-medical/">谈论就医、健康生活 — Health &amp; medical</a></li>
-            <li><a href="/topics/sports/">谈论体育比赛 — Sports</a></li>
+            <li><a href="/topics/shopping/">交流购物体验、商业活动内容 — Shopping experiences</a></li>
+            <li><a href="/topics/health-medical/">谈论就医情况、健康生活 — Health &amp; medical</a></li>
+            <li><a href="/topics/sports/">谈论体育项目及比赛 — Sports</a></li>
           </ul>
         </div>
         <div class="topics-cluster">
           <h4>🎓 Education &amp; Work</h4>
           <ul>
-            <li><a href="/topics/education-learning/">谈论教学、学习 — Education &amp; learning</a></li>
+            <li><a href="/topics/education-learning/">谈论教学、学习情况 — Education &amp; learning</a></li>
             <li><a href="/topics/campus-life/">交流校园生活 — Campus life</a></li>
-            <li><a href="/topics/education-issues/">谈论教育现象 — Education phenomena</a></li>
-            <li><a href="/topics/work-performance/">谈论工作情况 — Work situations</a></li>
-            <li><a href="/topics/career-experience/">介绍职业经历 — Career experiences</a></li>
+            <li><a href="/topics/education-issues/">谈论教育现象、观念 — Education phenomena</a></li>
+            <li><a href="/topics/work-performance/">谈论工作情况与表现 — Work situations</a></li>
+            <li><a href="/topics/career-experience/">介绍职业经历与单位情况 — Career experiences</a></li>
           </ul>
         </div>
         <div class="topics-cluster">
           <h4>🌏 Society &amp; World</h4>
           <ul>
             <li><a href="/topics/nature/">谈论自然情况 — Nature &amp; geography</a></li>
-            <li><a href="/topics/environment/">谈论环保情况 — Environmental protection</a></li>
-            <li><a href="/topics/technology/">介绍新技术应用 — Technology</a></li>
-            <li><a href="/topics/china-provinces/">介绍中国省市、民族 — Chinese provinces &amp; ethnicities</a></li>
+            <li><a href="/topics/environment/">谈论生活中的环保情况 — Environmental protection</a></li>
+            <li><a href="/topics/technology/">介绍新技术应用及科技成果 — Technology</a></li>
+            <li><a href="/topics/china-provinces/">介绍中国的主要省市、民族 — Chinese provinces &amp; ethnicities</a></li>
             <li><a href="/topics/economy/">谈论经济现象 — Economic phenomena</a></li>
             <li><a href="/topics/social-phenomena/">谈论社会现象 — Social phenomena</a></li>
-            <li><a href="/topics/arts-entertainment/">介绍文艺形式 — Arts &amp; entertainment</a></li>
+            <li><a href="/topics/arts-entertainment/">介绍文艺形式、活动、作品 — Arts &amp; entertainment</a></li>
             <li><a href="/topics/international-friendship/">讲述中外友好故事 — China-world friendship</a></li>
           </ul>
         </div>
@@ -1035,14 +1055,16 @@ function buildTopics() {
   .static-topic-word .pinyin { color: var(--stone); font-size: 12px; }
   </style>`;
 
-  // Strip any previously-injected noscript blocks that immediately precede
-  // <div id="categories">. Earlier rebuilds left these in place and we
-  // simply prepended another, growing the file by ~95 KB per build (28
-  // accumulated noscripts in the worst case observed). Now we always
-  // re-emit exactly one.
+  // Strip every previously-injected noscript block, wherever it sits. The
+  // old strip only matched blocks immediately before <div id="categories">,
+  // but buildTaskTopicPages later inserts its nav section in between, so
+  // each rebuild appended another copy (~115 KB/build; 15 accumulated
+  // blocks observed). Match on the static-topic-content marker class so
+  // unrelated noscript blocks are left alone, and use a tempered pattern so
+  // a match never spans past the close of the noscript it started in.
   html = html.replace(
-    /(?:\s*<noscript>[\s\S]*?<\/noscript>)+\s*<div id="categories"><\/div>/,
-    '<div id="categories"></div>'
+    /\s*<noscript>(?:(?!<\/noscript>)[\s\S])*?static-topic-content[\s\S]*?<\/noscript>/g,
+    ''
   );
 
   // Insert one fresh noscript before the empty #categories div
@@ -1376,17 +1398,17 @@ function buildWritingGuide() {
 }
 
 // ============================================================
-// 10. GENERATE 25 TASK TOPIC PAGES
+// 10. GENERATE 30 TASK TOPIC PAGES
 // ============================================================
 
 function buildTaskTopicPages() {
-  console.log('[task-topics] Generating 25 task topic pages...');
+  console.log('[task-topics] Generating 30 task topic pages...');
   const topics = readJSON('topics.json');
   const vocab = readJSON('vocabulary.json');
   const wordMap = {};
   vocab.forEach(w => { wordMap[w.id] = w; });
 
-  // 25 official tasks mapped to topic IDs, descriptions, grammar links
+  // 30 official tasks mapped to topic IDs, descriptions, grammar links
   const tasks = [
     {
       slug: 'describe-a-person', task_cn: '\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269', task_en: 'Describe a Person',
@@ -1437,7 +1459,7 @@ function buildTaskTopicPages() {
       skills: ['listening', 'speaking', 'reading', 'writing'],
     },
     {
-      slug: 'shopping', task_cn: '\u4EA4\u6D41\u8D2D\u7269\u4F53\u9A8C', task_en: 'Shopping Experiences',
+      slug: 'shopping', task_cn: '\u4EA4\u6D41\u8D2D\u7269\u4F53\u9A8C\u3001\u5546\u4E1A\u6D3B\u52A8\u5185\u5BB9', task_en: 'Shopping Experiences',
       topic_ids: ['shopping'],
       desc: 'Discuss product selection, online shopping, brand choices, spending, payment methods, and sales promotions. HSK 4 goes beyond price negotiation to evaluating shopping experiences.',
       syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5546\u54C1\u9009\u8D2D\u3001\u8D2D\u7269\u4F53\u9A8C\u3001\u5546\u4E1A\u6D3B\u52A8\u7B49\u65B9\u9762\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u7F51\u8D2D\u4E0E\u54C1\u724C\u9009\u62E9\u3001\u652F\u4ED8\u65B9\u5F0F\u3001\u6253\u6298\u4FC3\u9500\u7B49\u3002',
@@ -1445,7 +1467,7 @@ function buildTaskTopicPages() {
       skills: ['listening', 'speaking', 'reading', 'writing'],
     },
     {
-      slug: 'health-medical', task_cn: '\u8C08\u8BBA\u5C31\u533B\u3001\u5065\u5EB7\u751F\u6D3B', task_en: 'Health & Medical',
+      slug: 'health-medical', task_cn: '\u8C08\u8BBA\u5C31\u533B\u60C5\u51B5\u3001\u5065\u5EB7\u751F\u6D3B', task_en: 'Health & Medical',
       topic_ids: ['health'],
       desc: 'Discuss symptoms, medical visits, health conditions, and healthy lifestyle concepts. At HSK 4 you need to describe illness experiences in detail and discuss health opinions.',
       syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C31\u533B\u60C5\u51B5\u3001\u5065\u5EB7\u751F\u6D3B\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u751F\u75C5\u75C7\u72B6\u3001\u53D7\u4F24\u60C5\u51B5\u3001\u5065\u5EB7\u89C2\u5FF5\u548C\u5E38\u8BC6\u7B49\u3002',
@@ -1461,7 +1483,7 @@ function buildTaskTopicPages() {
       skills: ['listening', 'speaking', 'reading', 'writing'],
     },
     {
-      slug: 'housing-community', task_cn: '\u4EA4\u6D41\u5C45\u4F4F\u3001\u793E\u533A\u60C5\u51B5', task_en: 'Housing & Community',
+      slug: 'housing-community', task_cn: '\u4EA4\u6D41\u5C45\u4F4F\u60C5\u51B5\u3001\u793E\u533A\u60C5\u51B5', task_en: 'Housing & Community',
       topic_ids: ['community'],
       desc: 'Discuss living conditions, neighborhood relationships, community services, and house renting/buying. Includes understanding rental listings and community notices.',
       syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C45\u4F4F\u60C5\u51B5\u3001\u793E\u533A\u751F\u6D3B\u3001\u623F\u5C4B\u79DF\u8D41\u4E0E\u4E70\u5356\u7B49\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5C0F\u533A\u73AF\u5883\u3001\u90BB\u91CC\u76F8\u5904\u3001\u79DF\u623F\u6761\u4EF6\u7B49\u3002',
@@ -1469,7 +1491,7 @@ function buildTaskTopicPages() {
       skills: ['listening', 'speaking', 'reading', 'writing'],
     },
     {
-      slug: 'family-life', task_cn: '\u4EA4\u6D41\u5BB6\u5EAD\u751F\u6D3B', task_en: 'Family Life',
+      slug: 'family-life', task_cn: '\u4EA4\u6D41\u5BB6\u5EAD\u751F\u6D3B\u60C5\u51B5', task_en: 'Family Life',
       topic_ids: ['family'],
       desc: 'Discuss home life, family relationships, growing up, habits, and household affairs. Includes topics like parent-child relationships and hometown memories.',
       syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C45\u5BB6\u751F\u6D3B\u3001\u5BB6\u5EAD\u5173\u7CFB\u3001\u6210\u957F\u8FC7\u7A0B\u3001\u751F\u6D3B\u4E60\u60EF\u3001\u5BB6\u5EAD\u4E8B\u52A1\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002',
@@ -1477,7 +1499,7 @@ function buildTaskTopicPages() {
       skills: ['listening', 'speaking', 'reading', 'writing'],
     },
     {
-      slug: 'education-learning', task_cn: '\u8C08\u8BBA\u6559\u5B66\u3001\u5B66\u4E60', task_en: 'Education & Learning',
+      slug: 'education-learning', task_cn: '\u8C08\u8BBA\u6559\u5B66\u3001\u5B66\u4E60\u60C5\u51B5', task_en: 'Education & Learning',
       topic_ids: ['study'],
       desc: 'Discuss courses, teaching activities, study experiences, exams, study plans, degrees, scholarships, and learning methods.',
       syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u8BFE\u7A0B\u60C5\u51B5\u3001\u6559\u5B66\u60C5\u51B5\u3001\u5B66\u4E60\u7ECF\u5386\u4E0E\u5FC3\u5F97\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u8BFE\u7A0B\u3001\u4E13\u4E1A\u3001\u8003\u8BD5\u3001\u5B66\u4E1A\u89C4\u5212\u3001\u5B66\u4F4D\u5B66\u5386\u3001\u5956\u5B66\u91D1\u3001\u5B66\u4E60\u65B9\u6CD5\u7B49\u3002',
@@ -1493,7 +1515,7 @@ function buildTaskTopicPages() {
       skills: ['listening', 'speaking', 'reading', 'writing'],
     },
     {
-      slug: 'education-issues', task_cn: '\u8C08\u8BBA\u6559\u80B2\u73B0\u8C61', task_en: 'Education Phenomena',
+      slug: 'education-issues', task_cn: '\u8C08\u8BBA\u6559\u80B2\u73B0\u8C61\u3001\u89C2\u5FF5', task_en: 'Education Phenomena',
       topic_ids: ['edu-issues'],
       desc: 'Discuss family education, social education concepts, college entrance exam choices, vocational education, and trending education topics.',
       syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5BB6\u5EAD\u6559\u80B2\u3001\u793E\u4F1A\u6559\u80B2\u7B49\u6559\u80B2\u95EE\u9898\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u6559\u80B2\u76EE\u6807\u3001\u6559\u80B2\u65B9\u5F0F\u3001\u5347\u5B66\u62A5\u8003\u3001\u804C\u4E1A\u6559\u80B2\u7B49\u3002',
@@ -1541,7 +1563,7 @@ function buildTaskTopicPages() {
       skills: ['listening', 'speaking', 'reading'],
     },
     {
-      slug: 'china-provinces', task_cn: '\u4ECB\u7ECD\u4E2D\u56FD\u7701\u5E02\u6C11\u65CF', task_en: 'China Overview',
+      slug: 'china-provinces', task_cn: '\u4ECB\u7ECD\u4E2D\u56FD\u7684\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF', task_en: 'China Overview',
       topic_ids: ['overview'],
       desc: 'Introduce major Chinese cities like Beijing and Yunnan, and discuss characteristics and distribution of ethnic minorities.',
       syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4E2D\u56FD\u67D0\u4E2A\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF\u7684\u4E00\u822C\u6027\u8BE2\u95EE\u6216\u4ECB\u7ECD\u3002\u5982\u4E2D\u56FD\u9996\u90FD\u3001\u5404\u7701\u4E3B\u8981\u57CE\u5E02\u3001\u5C11\u6570\u6C11\u65CF\u7279\u70B9\u3001\u5206\u5E03\u7B49\u3002',
@@ -1878,7 +1900,7 @@ ${faqJsonLd}
     </tbody>
   </table>
 
-  ${words.length >= 8 ? generateTopicQuiz(words) : ''}
+  ${words.length >= 8 ? generateTopicQuiz(words, task.slug) : ''}
 
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
@@ -3001,7 +3023,7 @@ ${renderNav('characters')}
     <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">FAQ</h2>
     <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
       <summary style="cursor:pointer;font-weight:600;">How many characters does HSK 4 require you to write?</summary>
-      <p style="color:var(--stone);line-height:1.7;margin-top:10px;">The HSK 4 syllabus expects active handwriting of approximately ${chars.length} characters that go beyond the HSK 1–3 basics. The list on this page reflects the most commonly tested set used by Mandarin Zone in classroom prep.</p>
+      <p style="color:var(--stone);line-height:1.7;margin-top:10px;">The official HSK 4 syllabus (《HSK考试大纲》) lists exactly <strong>${chars.length} handwriting characters (书写字)</strong> you must be able to write, plus 441 reading-recognition characters (认读字) you only need to recognize. This page covers the complete official handwriting list — verified character-by-character against the syllabus.</p>
     </details>
     <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
       <summary style="cursor:pointer;font-weight:600;">Does the HSK 4 exam still test handwriting?</summary>
