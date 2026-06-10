@@ -137,6 +137,25 @@ function buildVocabulary() {
   const htmlPath = path.join(ROOT, 'vocabulary', 'index.html');
   let html = fs.readFileSync(htmlPath, 'utf8');
 
+  // Word -> task page mapping: topic_words assigns words to topics, TASKS
+  // assigns topics to task pages. First task to claim a topic wins.
+  const topicsData = readJSON('topics.json');
+  const topicToTask = {};
+  TASKS.forEach(t => (t.topic_ids || []).forEach(tid => {
+    if (!topicToTask[tid]) topicToTask[tid] = t;
+  }));
+  const wordTask = {};
+  Object.entries(topicsData.topic_words).forEach(([tid, ids]) => {
+    const task = topicToTask[tid];
+    if (!task) return;
+    ids.forEach(id => { if (!wordTask[id]) wordTask[id] = task; });
+  });
+  const taskChip = w => {
+    const t = wordTask[w.id];
+    if (!t) return '';
+    return `\n      <a class="vocab-task-link" href="/topics/${t.slug}/">\u{1F4DA} ${escHtml(t.task_cn)} \u2192</a>`;
+  };
+
   // Build a static word list that crawlers can index
   // The JS will replace this on load, but crawlers see the full list
   const staticRows = words.map(w => {
@@ -152,11 +171,18 @@ function buildVocabulary() {
     <div class="example-block">
       <div class="example-cn chinese">${escHtml(w.example_cn || '')}</div>
       <div class="example-pinyin">${escHtml(w.example_pinyin || '')}</div>
-      <div class="example-en">${escHtml(w.example_en || '')}</div>
+      <div class="example-en">${escHtml(w.example_en || '')}</div>${taskChip(w)}
     </div>
   </div>
 </div>`;
   }).join('\n');
+
+  // Expose the mapping to the page's interactive renderer (compact form).
+  const wordTasksJson = JSON.stringify(Object.fromEntries(
+    Object.entries(wordTask).map(([id, t]) => [id, [t.slug, t.task_cn]])
+  ));
+  html = html.replace(/\s*<!-- WORD TASKS MAP -->[\s\S]*?<!-- \/WORD TASKS MAP -->/g, '');
+  html = html.replace(/<script>\s*\/\/ === STATE ===/, `<!-- WORD TASKS MAP -->\n<script>window.WORD_TASKS = ${wordTasksJson};</script>\n<!-- /WORD TASKS MAP -->\n<script>\n// === STATE ===`);
 
   // Replace the #vocab-list container with freshly pre-rendered content.
   // Walk div depth instead of regexing, so this works whether the container
@@ -293,13 +319,23 @@ function buildTestPages() {
           `<div class="static-option"><span class="static-marker">${markers[oi] || oi + 1}</span> <span class="chinese">${escHtml(opt)}</span></div>`
         ).join('\n            ');
 
+        const hasAnswer = typeof q.correct_answer_index === 'number' && q.options[q.correct_answer_index] !== undefined;
+        const answerHtml = hasAnswer ? `
+            <details class="static-answer">
+              <summary>Show answer${q.explanation ? ' & explanation' : ''} / \u67E5\u770B\u7B54\u6848${q.explanation ? '\u4E0E\u89E3\u6790' : ''}</summary>
+              <div class="static-answer-body">
+                <div class="static-answer-line">\u2713 <strong>${markers[q.correct_answer_index] || q.correct_answer_index + 1}. <span class="chinese">${escHtml(q.options[q.correct_answer_index])}</span></strong></div>
+                ${q.explanation ? `<div class="static-explanation">${escHtml(q.explanation)}</div>` : ''}
+              </div>
+            </details>` : '';
+
         return `
           <div class="static-question">
             <div class="static-q-num">Question ${q.number}</div>
             ${q.text ? `<div class="static-q-text chinese">${escHtml(q.text)}</div>` : ''}
             <div class="static-options">
             ${optionsHtml}
-            </div>
+            </div>${answerHtml}
           </div>`;
       }).join('\n');
 
@@ -441,6 +477,11 @@ function buildTestPages() {
     margin-bottom: 20px;
     color: var(--ink);
   }
+  .static-answer { margin-top: 10px; }
+  .static-answer summary { cursor: pointer; font-size: 13px; color: var(--accent); font-weight: 600; }
+  .static-answer-body { margin-top: 8px; padding: 10px 14px; background: var(--paper); border-left: 3px solid var(--jade, #38a169); border-radius: 6px; }
+  .static-answer-line { font-size: 14px; }
+  .static-explanation { margin-top: 6px; font-size: 13px; color: var(--stone); line-height: 1.7; }
   .static-question {
     background: white;
     border: 1px solid var(--mist);
@@ -890,7 +931,7 @@ ${testLinks}
 // 4. UPDATE SITEMAP with test pages
 // ============================================================
 
-function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList) {
+function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, extraPages) {
   console.log('[sitemap] Updating sitemap.xml...');
   const index = readJSON('index.json');
   const today = new Date().toISOString().split('T')[0];
@@ -968,8 +1009,13 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, character
     loc: `/characters/${encodeURIComponent(ch)}/`,
     priority: enhancedSet.has(ch) ? '0.8' : '0.6',
   }));
+  // Recognition-character pages: lower priority than the writing set
+  const recognitionPages = ((characterList && characterList.recognition) || []).map(ch => ({
+    loc: `/characters/${encodeURIComponent(ch)}/`,
+    priority: '0.5',
+  }));
 
-  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages, ...characterPages];
+  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages, ...characterPages, ...recognitionPages, ...(extraPages || [])];
 
   const urls = allPages.map(p => `  <url>
     <loc>https://hsk4.mandarinzone.com${p.loc}</loc>
@@ -1401,256 +1447,262 @@ function buildWritingGuide() {
 // 10. GENERATE 30 TASK TOPIC PAGES
 // ============================================================
 
+// 30 official tasks mapped to topic IDs, descriptions, grammar links.
+// Module scope: buildVocabulary also uses this to map words to task pages.
+const TASKS = [
+  {
+    slug: 'describe-a-person', task_cn: '\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269', task_en: 'Describe a Person',
+    topic_ids: ['personal', 'social'],
+    desc: 'Discuss someone\u2019s background, appearance, personality, and influence. The syllabus requires handling \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain complexity) \u2014 not just \u201che is tall\u201d but describing someone\u2019s career background, character traits, and impact.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u4ED6\u4EBA\u5173\u4E8E\u67D0\u4E2A\u719F\u4EBA\u6216\u516C\u4F17\u4EBA\u7269\u4E2A\u4EBA\u4FE1\u606F\u3001\u4E2A\u4EBA\u7279\u5F81\u65B9\u9762\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u5C65\u5386\u3001\u5BB6\u5EAD\u80CC\u666F\u3001\u804C\u4E1A\u80CC\u666F\u3001\u5916\u8C8C\u3001\u88C5\u626E\u3001\u6027\u683C\u3001\u5F71\u54CD\u529B\u7B49\u3002',
+    grammar: ['/grammar/ba-sentence/', '/grammar/complement/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'daily-affairs', task_cn: '\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1', task_en: 'Handle Daily Affairs',
+    topic_ids: ['daily-affairs'],
+    desc: 'Handle practical situations: mailing packages, processing documents, requesting help from police or translators. This task tests your ability to explain your situation and ask for assistance in real-world scenarios.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u65E5\u5E38\u751F\u6D3B\u4E2D\u6709\u5173\u4E1A\u52A1\u5904\u7406\u3001\u56F0\u96BE\u6C42\u52A9\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BDD\u8BED\u3002\u5982\u529E\u7406\u5FEB\u9012\u6536\u53D1\u3001\u8BC1\u4EF6\u529E\u7406\u3001\u7533\u8BF7\u4F1A\u5458\u3001\u6CD5\u5F8B\u54A8\u8BE2\u3001\u8B66\u52A1\u6C42\u52A9\u7B49\u3002',
+    grammar: ['/grammar/ba-sentence/', '/grammar/passive/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'social-expressions', task_cn: '\u65E5\u5E38\u8A00\u8BED\u4EA4\u5F80', task_en: 'Daily Social Expressions',
+    topic_ids: ['social', 'etiquette'],
+    desc: 'Express politeness, praise, congratulations, encouragement, and apologies with appropriate complexity. At HSK 4, simple \u201c\u8C22\u8C22\u201d is not enough \u2014 you need expressions like \u201c\u8BA9\u60A8\u8D39\u5FC3\u4E86\u201d or \u201c\u592A\u611F\u8C22\u60A8\u7684\u5E2E\u52A9\u4E86\u201d.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u65E5\u5E38\u4EA4\u5F80\u4E2D\u5BF9\u65B9\u8868\u8FBE\u5BA2\u6C14\u3001\u8D5E\u7F8E\u3001\u795D\u8D3A\u3001\u9F13\u52B1\u3001\u6B49\u610F\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8A00\u8BED\u3002',
+    grammar: ['/grammar/complement/', '/grammar/rhetorical/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'emotions', task_cn: '\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898', task_en: 'Discuss Emotions',
+    topic_ids: ['social', 'family'],
+    desc: 'Discuss love, friendship, family bonds, and ideals. HSK 4 requires not just naming emotions but sharing experiences and opinions about them \u2014 \u201cWhat does friendship mean to you?\u201d rather than \u201cI am happy.\u201d',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u60C5\u611F\u53CA\u611F\u609F\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u7231\u60C5\u3001\u53CB\u60C5\u3001\u4EB2\u60C5\u3001\u7406\u60F3\u7B49\u3002',
+    grammar: ['/grammar/complex-sentences/', '/grammar/adverbs/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'food-dining', task_cn: '\u4ECB\u7ECD\u996E\u98DF\u60C5\u51B5', task_en: 'Food & Dining',
+    topic_ids: ['food', 'food-culture'],
+    desc: 'Describe food flavors, restaurant experiences, and cooking processes. Goes beyond ordering food (HSK 3) to discussing taste, food culture, and sharing dining experiences.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u98DF\u7269\u996E\u54C1\u3001\u5C31\u9910\u60C5\u51B5\u3001\u83DC\u54C1\u5236\u4F5C\u60C5\u51B5\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u6216\u4ECB\u7ECD\u3002\u5982\u996E\u98DF\u5473\u9053\u3001\u79CD\u7C7B\u3001\u7279\u70B9\u3001\u9910\u5385\u73AF\u5883\u3001\u670D\u52A1\u3001\u5236\u4F5C\u8FC7\u7A0B\u7B49\u3002',
+    grammar: ['/grammar/complement/', '/grammar/ba-sentence/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'transportation', task_cn: '\u8C08\u8BBA\u4EA4\u901A\u51FA\u884C', task_en: 'Transportation & Travel',
+    topic_ids: ['transport'],
+    desc: 'Discuss travel experiences, transportation choices, trip planning, and hotel booking. Includes sharing feelings about journeys and understanding driving/traffic situations.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4EA4\u901A\u51FA\u884C\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u51FA\u884C\u7ECF\u5386\u611F\u53D7\u3001\u4EA4\u901A\u5BA2\u8FD0\u60C5\u51B5\u3001\u884C\u7A0B\u8BA1\u5212\u3001\u9152\u5E97\u9884\u8BA2\u7B49\u3002',
+    grammar: ['/grammar/comparison/', '/grammar/complement/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'shopping', task_cn: '\u4EA4\u6D41\u8D2D\u7269\u4F53\u9A8C\u3001\u5546\u4E1A\u6D3B\u52A8\u5185\u5BB9', task_en: 'Shopping Experiences',
+    topic_ids: ['shopping'],
+    desc: 'Discuss product selection, online shopping, brand choices, spending, payment methods, and sales promotions. HSK 4 goes beyond price negotiation to evaluating shopping experiences.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5546\u54C1\u9009\u8D2D\u3001\u8D2D\u7269\u4F53\u9A8C\u3001\u5546\u4E1A\u6D3B\u52A8\u7B49\u65B9\u9762\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u7F51\u8D2D\u4E0E\u54C1\u724C\u9009\u62E9\u3001\u652F\u4ED8\u65B9\u5F0F\u3001\u6253\u6298\u4FC3\u9500\u7B49\u3002',
+    grammar: ['/grammar/comparison/', '/grammar/adverbs/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'health-medical', task_cn: '\u8C08\u8BBA\u5C31\u533B\u60C5\u51B5\u3001\u5065\u5EB7\u751F\u6D3B', task_en: 'Health & Medical',
+    topic_ids: ['health'],
+    desc: 'Discuss symptoms, medical visits, health conditions, and healthy lifestyle concepts. At HSK 4 you need to describe illness experiences in detail and discuss health opinions.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C31\u533B\u60C5\u51B5\u3001\u5065\u5EB7\u751F\u6D3B\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u751F\u75C5\u75C7\u72B6\u3001\u53D7\u4F24\u60C5\u51B5\u3001\u5065\u5EB7\u89C2\u5FF5\u548C\u5E38\u8BC6\u7B49\u3002',
+    grammar: ['/grammar/ba-sentence/', '/grammar/complement/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'hobbies-leisure', task_cn: '\u4EA4\u6D41\u4E1A\u4F59\u7231\u597D\u3001\u4F11\u95F2\u5EA6\u5047', task_en: 'Hobbies & Leisure',
+    topic_ids: ['leisure'],
+    desc: 'Discuss leisure activities, reading, internet activities, sports, fitness, travel, and parties. Share feelings and opinions about these activities.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4F11\u95F2\u6D3B\u52A8\u60C5\u51B5\u53CA\u611F\u53D7\u3001\u770B\u6CD5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u9605\u8BFB\u3001\u7F51\u7EDC\u6D3B\u52A8\u3001\u8FD0\u52A8\u3001\u5065\u8EAB\u3001\u65C5\u884C\u3001\u805A\u4F1A\u7B49\u3002',
+    grammar: ['/grammar/adverbs/', '/grammar/complex-sentences/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'housing-community', task_cn: '\u4EA4\u6D41\u5C45\u4F4F\u60C5\u51B5\u3001\u793E\u533A\u60C5\u51B5', task_en: 'Housing & Community',
+    topic_ids: ['community'],
+    desc: 'Discuss living conditions, neighborhood relationships, community services, and house renting/buying. Includes understanding rental listings and community notices.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C45\u4F4F\u60C5\u51B5\u3001\u793E\u533A\u751F\u6D3B\u3001\u623F\u5C4B\u79DF\u8D41\u4E0E\u4E70\u5356\u7B49\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5C0F\u533A\u73AF\u5883\u3001\u90BB\u91CC\u76F8\u5904\u3001\u79DF\u623F\u6761\u4EF6\u7B49\u3002',
+    grammar: ['/grammar/comparison/', '/grammar/passive/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'family-life', task_cn: '\u4EA4\u6D41\u5BB6\u5EAD\u751F\u6D3B\u60C5\u51B5', task_en: 'Family Life',
+    topic_ids: ['family'],
+    desc: 'Discuss home life, family relationships, growing up, habits, and household affairs. Includes topics like parent-child relationships and hometown memories.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C45\u5BB6\u751F\u6D3B\u3001\u5BB6\u5EAD\u5173\u7CFB\u3001\u6210\u957F\u8FC7\u7A0B\u3001\u751F\u6D3B\u4E60\u60EF\u3001\u5BB6\u5EAD\u4E8B\u52A1\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002',
+    grammar: ['/grammar/complex-sentences/', '/grammar/pivotal-sentences/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'education-learning', task_cn: '\u8C08\u8BBA\u6559\u5B66\u3001\u5B66\u4E60\u60C5\u51B5', task_en: 'Education & Learning',
+    topic_ids: ['study'],
+    desc: 'Discuss courses, teaching activities, study experiences, exams, study plans, degrees, scholarships, and learning methods.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u8BFE\u7A0B\u60C5\u51B5\u3001\u6559\u5B66\u60C5\u51B5\u3001\u5B66\u4E60\u7ECF\u5386\u4E0E\u5FC3\u5F97\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u8BFE\u7A0B\u3001\u4E13\u4E1A\u3001\u8003\u8BD5\u3001\u5B66\u4E1A\u89C4\u5212\u3001\u5B66\u4F4D\u5B66\u5386\u3001\u5956\u5B66\u91D1\u3001\u5B66\u4E60\u65B9\u6CD5\u7B49\u3002',
+    grammar: ['/grammar/adverbs/', '/grammar/complement/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'campus-life', task_cn: '\u4EA4\u6D41\u6821\u56ED\u751F\u6D3B', task_en: 'Campus Life',
+    topic_ids: ['campus', 'study'],
+    desc: 'Discuss campus activities, school facilities satisfaction, graduation events, campus environment, tuition, and majors.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u6821\u56ED\u6D3B\u52A8\u3001\u5B66\u6821\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u98DF\u5802\u3001\u56FE\u4E66\u9986\u3001\u6BD5\u4E1A\u665A\u4F1A\u3001\u6821\u56ED\u73AF\u5883\u3001\u8D39\u7528\u3001\u4E13\u4E1A\u7B49\u3002',
+    grammar: ['/grammar/comparison/', '/grammar/adverbs/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'education-issues', task_cn: '\u8C08\u8BBA\u6559\u80B2\u73B0\u8C61\u3001\u89C2\u5FF5', task_en: 'Education Phenomena',
+    topic_ids: ['edu-issues'],
+    desc: 'Discuss family education, social education concepts, college entrance exam choices, vocational education, and trending education topics.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5BB6\u5EAD\u6559\u80B2\u3001\u793E\u4F1A\u6559\u80B2\u7B49\u6559\u80B2\u95EE\u9898\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u6559\u80B2\u76EE\u6807\u3001\u6559\u80B2\u65B9\u5F0F\u3001\u5347\u5B66\u62A5\u8003\u3001\u804C\u4E1A\u6559\u80B2\u7B49\u3002',
+    grammar: ['/grammar/complex-sentences/', '/grammar/rhetorical/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'work-performance', task_cn: '\u8C08\u8BBA\u5DE5\u4F5C\u60C5\u51B5\u4E0E\u8868\u73B0', task_en: 'Work & Performance',
+    topic_ids: ['office', 'workplace-social'],
+    desc: 'Discuss office tasks, work performance, workplace relationships, and team activities in a professional setting.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u529E\u516C\u4E8B\u52A1\u3001\u5DE5\u4F5C\u8868\u73B0\u3001\u804C\u573A\u4EA4\u5F80\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5DE5\u4F5C\u5B89\u6392\u3001\u5DE5\u4F5C\u6001\u5EA6\u80FD\u529B\u3001\u540C\u4E8B\u76F8\u5904\u3001\u56E2\u5EFA\u6D3B\u52A8\u7B49\u3002',
+    grammar: ['/grammar/pivotal-sentences/', '/grammar/passive/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'career-experience', task_cn: '\u4ECB\u7ECD\u804C\u4E1A\u7ECF\u5386\u4E0E\u5355\u4F4D\u60C5\u51B5', task_en: 'Career & Company',
+    topic_ids: ['career', 'company'],
+    desc: 'Discuss job seeking, work experiences, career changes, recruitment, interviews, work environment, and salary/benefits.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u804C\u4E1A\u4E0E\u5DE5\u4F5C\u7ECF\u5386\u3001\u5355\u4F4D\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u6C42\u804C\u3001\u6253\u5DE5\u3001\u804C\u4F4D\u53D8\u52A8\u3001\u62DB\u8058\u5E94\u8058\u3001\u8003\u6838\u9762\u8BD5\u3001\u5DE5\u4F5C\u73AF\u5883\u4E0E\u5F85\u9047\u7B49\u3002',
+    grammar: ['/grammar/passive/', '/grammar/pivotal-sentences/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'nature', task_cn: '\u8C08\u8BBA\u81EA\u7136\u60C5\u51B5', task_en: 'Nature & Geography',
+    topic_ids: ['nature'],
+    desc: 'Discuss geography, climate, animals, plants, natural landscapes, and weather phenomena. Includes topics like oceans, forests, stars, and seasons.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u81EA\u7136\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5730\u7403\u3001\u6D77\u6D0B\u3001\u68EE\u6797\u3001\u6C14\u5019\u3001\u52A8\u690D\u7269\u3001\u81EA\u7136\u666F\u89C2\u3001\u5929\u6C14\u73B0\u8C61\u7B49\u3002',
+    grammar: ['/grammar/complement/', '/grammar/comparison/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'environment', task_cn: '\u8C08\u8BBA\u751F\u6D3B\u4E2D\u7684\u73AF\u4FDD\u60C5\u51B5', task_en: 'Environmental Protection',
+    topic_ids: ['environment', 'nature'],
+    desc: 'Discuss environmental conditions, pollution, conservation practices, environmental laws, and green living.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u73AF\u5883\u72B6\u51B5\u3001\u73AF\u4FDD\u60C5\u51B5\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u73AF\u5883\u7684\u4E00\u822C\u60C5\u51B5\u3001\u6C61\u67D3\u60C5\u51B5\u3001\u73AF\u4FDD\u505A\u6CD5\u3001\u89C2\u5FF5\u3001\u76F8\u5173\u6CD5\u89C4\u7B49\u3002',
+    grammar: ['/grammar/complex-sentences/', '/grammar/passive/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'technology', task_cn: '\u4ECB\u7ECD\u65B0\u6280\u672F\u5E94\u7528\u53CA\u79D1\u6280\u6210\u679C', task_en: 'Technology',
+    topic_ids: ['tech', 'science'],
+    desc: 'Discuss new technology applications like mobile payment and drones, practical science knowledge, and simple research findings.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u65B0\u6280\u672F\u8FD0\u7528\u3001\u79D1\u666E\u77E5\u8BC6\u3001\u79D1\u6280\u6210\u679C\u7B49\u76F8\u5173\u60C5\u51B5\u7684\u4E00\u822C\u6027\u8BE2\u95EE\u3002\u5982\u626B\u7801\u652F\u4ED8\u3001\u65E0\u4EBA\u673A\u7B49\u65B0\u6280\u672F\u3001\u5B9E\u7528\u79D1\u666E\u77E5\u8BC6\u3001\u7B80\u5355\u7684\u7814\u7A76\u53D1\u73B0\u7B49\u3002',
+    grammar: ['/grammar/passive/', '/grammar/complement/'],
+    skills: ['listening', 'speaking', 'reading'],
+  },
+  {
+    slug: 'china-provinces', task_cn: '\u4ECB\u7ECD\u4E2D\u56FD\u7684\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF', task_en: 'China Overview',
+    topic_ids: ['overview'],
+    desc: 'Introduce major Chinese cities like Beijing and Yunnan, and discuss characteristics and distribution of ethnic minorities.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4E2D\u56FD\u67D0\u4E2A\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF\u7684\u4E00\u822C\u6027\u8BE2\u95EE\u6216\u4ECB\u7ECD\u3002\u5982\u4E2D\u56FD\u9996\u90FD\u3001\u5404\u7701\u4E3B\u8981\u57CE\u5E02\u3001\u5C11\u6570\u6C11\u65CF\u7279\u70B9\u3001\u5206\u5E03\u7B49\u3002',
+    grammar: ['/grammar/adverbs/', '/grammar/fixed-patterns/'],
+    skills: ['listening', 'speaking', 'reading'],
+  },
+  {
+    slug: 'economy', task_cn: '\u8C08\u8BBA\u7ECF\u6D4E\u73B0\u8C61', task_en: 'Economic Phenomena',
+    topic_ids: ['economy'],
+    desc: 'Discuss trending products, new business models (online stores, short videos, delivery economy), and economic conditions.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u6D41\u884C\u4EA7\u54C1\u3001\u65B0\u5546\u4E1A\u5F62\u6001\u3001\u7ECF\u6D4E\u72B6\u51B5\u7B49\u7ECF\u6D4E\u73B0\u8C61\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u7F51\u5E97\u3001\u77ED\u89C6\u9891\u3001\u4E0A\u95E8\u7ECF\u6D4E\u7B49\u3002',
+    grammar: ['/grammar/complex-sentences/', '/grammar/adverbs/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'social-phenomena', task_cn: '\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61', task_en: 'Social Phenomena',
+    topic_ids: ['social-phenomena'],
+    desc: 'Discuss life attitudes (marriage, consumption), internet life and its impact, and trending social phenomena.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u751F\u6D3B\u89C2\u5FF5\u3001\u7F51\u7EDC\u751F\u6D3B\u3001\u6D41\u884C\u4E8B\u7269\u7B49\u793E\u4F1A\u73B0\u8C61\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5A5A\u604B\u89C2\u3001\u6D88\u8D39\u89C2\u3001\u7F51\u7EDC\u751F\u6D3B\u7684\u65B9\u5F0F\u548C\u5F71\u54CD\u7B49\u3002',
+    grammar: ['/grammar/complex-sentences/', '/grammar/rhetorical/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'arts-entertainment', task_cn: '\u4ECB\u7ECD\u6587\u827A\u5F62\u5F0F\u3001\u6D3B\u52A8\u3001\u4F5C\u54C1', task_en: 'Arts & Entertainment',
+    topic_ids: ['arts'],
+    desc: 'Discuss novels, movies, theater, performances, competitions, and introduce artists and their works.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u67D0\u79CD\u6587\u827A\u5F62\u5F0F\u3001\u6587\u827A\u6D3B\u52A8\u3001\u6587\u827A\u4F5C\u54C1\u521B\u4F5C\u8005\u53CA\u5176\u4F5C\u54C1\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u67D0\u90E8\u5C0F\u8BF4\u3001\u7535\u5F71\u3001\u8BDD\u5267\u7684\u5927\u81F4\u5185\u5BB9\u3001\u67D0\u573A\u6587\u827A\u8868\u6F14\u3001\u67D0\u4F4D\u6B4C\u624B\u3001\u4F5C\u5BB6\u7B49\u3002',
+    grammar: ['/grammar/complement/', '/grammar/fixed-patterns/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'sports', task_cn: '\u8C08\u8BBA\u4F53\u80B2\u9879\u76EE\u53CA\u6BD4\u8D5B', task_en: 'Sports',
+    topic_ids: ['sports'],
+    desc: 'Discuss sports like table tennis, volleyball, and badminton; competition results, player performances, and sports stories.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4E52\u4E53\u7403\u3001\u6392\u7403\u7B49\u9879\u76EE\u60C5\u51B5\u3001\u6BD4\u8D5B\u60C5\u51B5\u3001\u4F53\u80B2\u540D\u4EBA\u53CA\u6545\u4E8B\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002',
+    grammar: ['/grammar/comparison/', '/grammar/complement/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'international-friendship', task_cn: '\u8BB2\u8FF0\u4E2D\u5916\u53CB\u597D\u6545\u4E8B', task_en: 'China-World Friendship',
+    topic_ids: ['exchange'],
+    desc: 'Tell stories of international friendship: sister cities, cross-border friendships, study abroad experiences, and Chinese language competitions.',
+    syllabus_cn: '\u80FD\u542C\u61C2\u5BF9\u65B9\u8BB2\u8FF0\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u4E2D\u5916\u53CB\u597D\u5F80\u6765\u7684\u6545\u4E8B\u53CA\u5176\u4EA7\u751F\u7684\u5F71\u54CD\u3002\u5982\u53CB\u597D\u57CE\u5E02\u3001\u53CB\u597D\u5B66\u6821\u3001\u8DE8\u56FD\u53CB\u8C0A\u3001\u7559\u5B66\u7ECF\u5386\u3001\u4E2D\u6587\u6BD4\u8D5B\u7ECF\u5386\u7B49\u3002',
+    grammar: ['/grammar/complex-sentences/', '/grammar/fixed-patterns/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'proverbs-sayings', task_cn: '介绍常见俗语、名言', task_en: 'Proverbs & Sayings',
+    topic_ids: ['language'],
+    desc: 'Understand and roughly explain common Chinese sayings and famous quotes. The syllabus tests this receptively — recognizing what a saying means when you hear it in conversation or meet it in a short reading passage.',
+    syllabus_cn: '能听懂日常交谈中别人介绍的某些中文常见俗语、名言；能大致介绍一些中文常见俗语、名言及其主要含义；能看懂介绍、解读某些中文常见俗语、名言的小短文。',
+    grammar: ['/grammar/fixed-patterns/', '/grammar/rhetorical/'],
+    skills: ['listening', 'speaking', 'reading'],
+  },
+  {
+    slug: 'food-culture', task_cn: '介绍传统饮食文化', task_en: 'Traditional Food Culture',
+    topic_ids: ['food-culture'],
+    desc: 'Understand introductions to traditional Chinese food culture — table manners, the meaning behind certain dishes, regional flavors, and time-honored shops and brands — and write a short paragraph introducing a food tradition.',
+    syllabus_cn: '能听懂朋友、同学、老师等对中国传统饮食观念、中国各地饮食特点、传统店铺、品牌等中国传统饮食文化相关情况的有一定复杂度的介绍。如中国人的餐桌礼仪、某种食物的内涵，各地饮食的风味等。',
+    grammar: ['/grammar/comparison/', '/grammar/measure-words/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'customs-traditions', task_cn: '介绍风俗传统', task_en: 'Customs & Traditions',
+    topic_ids: ['customs', 'etiquette'],
+    desc: 'Understand and introduce Chinese folk traditions: festival customs like Spring Festival and Mid-Autumn, national arts like kung fu and Peking opera, regional traditions, and the etiquette of interacting with friends, teachers and elders.',
+    syllabus_cn: '能听懂朋友、同学、老师等对中国传统节日习俗、国粹、各地传统、人际交往礼仪等中国民俗传统相关情况的有一定复杂度的介绍。如春节、中秋节等节日习俗；中国功夫、京剧等国粹；民间喜好与禁忌等。',
+    grammar: ['/grammar/fixed-patterns/', '/grammar/function-words/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'scenic-spots', task_cn: '介绍名胜古迹', task_en: 'Scenic Spots & Historic Sites',
+    topic_ids: ['landmarks'],
+    desc: 'Understand general introductions to famous Chinese sights such as Tian’anmen and the Great Wall, introduce a sight you know, and write a short paragraph about it. A frequent theme in HSK 4 reading passages.',
+    syllabus_cn: '能听懂朋友、同学、老师等对中国某个名胜古迹的一般性介绍。如天安门、长城等。能看懂介绍中国某个名胜古迹的一般性短文；能写出一段话简单介绍中国某个名胜古迹。',
+    grammar: ['/grammar/comparison/', '/grammar/measure-words/'],
+    skills: ['listening', 'speaking', 'reading', 'writing'],
+  },
+  {
+    slug: 'historical-figures', task_cn: '介绍历史人物、历史事件', task_en: 'Historical Figures & Events',
+    topic_ids: ['history'],
+    desc: 'Understand general introductions to major Chinese historical figures and events, such as Confucius (孔子) and Laozi (老子). Tested through listening and short reading passages — no writing requirement for this task.',
+    syllabus_cn: '能听懂朋友、同学、老师等对某位中国历史人物或某个中国历史事件的一般性介绍。如孔子、老子等。能看懂介绍某位中国历史人物或者某个中国历史事件的一般性短文。',
+    grammar: ['/grammar/complex-sentences/', '/grammar/function-words/'],
+    skills: ['listening', 'speaking', 'reading'],
+  },
+];
+
 function buildTaskTopicPages() {
   console.log('[task-topics] Generating 30 task topic pages...');
   const topics = readJSON('topics.json');
   const vocab = readJSON('vocabulary.json');
+  const dialogues = fs.existsSync(path.join(DATA, 'task-dialogues.json'))
+    ? readJSON('task-dialogues.json')
+    : {};
   const wordMap = {};
   vocab.forEach(w => { wordMap[w.id] = w; });
 
-  // 30 official tasks mapped to topic IDs, descriptions, grammar links
-  const tasks = [
-    {
-      slug: 'describe-a-person', task_cn: '\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269', task_en: 'Describe a Person',
-      topic_ids: ['personal', 'social'],
-      desc: 'Discuss someone\u2019s background, appearance, personality, and influence. The syllabus requires handling \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain complexity) \u2014 not just \u201che is tall\u201d but describing someone\u2019s career background, character traits, and impact.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u4ED6\u4EBA\u5173\u4E8E\u67D0\u4E2A\u719F\u4EBA\u6216\u516C\u4F17\u4EBA\u7269\u4E2A\u4EBA\u4FE1\u606F\u3001\u4E2A\u4EBA\u7279\u5F81\u65B9\u9762\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u5C65\u5386\u3001\u5BB6\u5EAD\u80CC\u666F\u3001\u804C\u4E1A\u80CC\u666F\u3001\u5916\u8C8C\u3001\u88C5\u626E\u3001\u6027\u683C\u3001\u5F71\u54CD\u529B\u7B49\u3002',
-      grammar: ['/grammar/ba-sentence/', '/grammar/complement/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'daily-affairs', task_cn: '\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1', task_en: 'Handle Daily Affairs',
-      topic_ids: ['daily-affairs'],
-      desc: 'Handle practical situations: mailing packages, processing documents, requesting help from police or translators. This task tests your ability to explain your situation and ask for assistance in real-world scenarios.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u65E5\u5E38\u751F\u6D3B\u4E2D\u6709\u5173\u4E1A\u52A1\u5904\u7406\u3001\u56F0\u96BE\u6C42\u52A9\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BDD\u8BED\u3002\u5982\u529E\u7406\u5FEB\u9012\u6536\u53D1\u3001\u8BC1\u4EF6\u529E\u7406\u3001\u7533\u8BF7\u4F1A\u5458\u3001\u6CD5\u5F8B\u54A8\u8BE2\u3001\u8B66\u52A1\u6C42\u52A9\u7B49\u3002',
-      grammar: ['/grammar/ba-sentence/', '/grammar/passive/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'social-expressions', task_cn: '\u65E5\u5E38\u8A00\u8BED\u4EA4\u5F80', task_en: 'Daily Social Expressions',
-      topic_ids: ['social', 'etiquette'],
-      desc: 'Express politeness, praise, congratulations, encouragement, and apologies with appropriate complexity. At HSK 4, simple \u201c\u8C22\u8C22\u201d is not enough \u2014 you need expressions like \u201c\u8BA9\u60A8\u8D39\u5FC3\u4E86\u201d or \u201c\u592A\u611F\u8C22\u60A8\u7684\u5E2E\u52A9\u4E86\u201d.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u65E5\u5E38\u4EA4\u5F80\u4E2D\u5BF9\u65B9\u8868\u8FBE\u5BA2\u6C14\u3001\u8D5E\u7F8E\u3001\u795D\u8D3A\u3001\u9F13\u52B1\u3001\u6B49\u610F\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8A00\u8BED\u3002',
-      grammar: ['/grammar/complement/', '/grammar/rhetorical/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'emotions', task_cn: '\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898', task_en: 'Discuss Emotions',
-      topic_ids: ['social', 'family'],
-      desc: 'Discuss love, friendship, family bonds, and ideals. HSK 4 requires not just naming emotions but sharing experiences and opinions about them \u2014 \u201cWhat does friendship mean to you?\u201d rather than \u201cI am happy.\u201d',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u60C5\u611F\u53CA\u611F\u609F\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u7231\u60C5\u3001\u53CB\u60C5\u3001\u4EB2\u60C5\u3001\u7406\u60F3\u7B49\u3002',
-      grammar: ['/grammar/complex-sentences/', '/grammar/adverbs/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'food-dining', task_cn: '\u4ECB\u7ECD\u996E\u98DF\u60C5\u51B5', task_en: 'Food & Dining',
-      topic_ids: ['food', 'food-culture'],
-      desc: 'Describe food flavors, restaurant experiences, and cooking processes. Goes beyond ordering food (HSK 3) to discussing taste, food culture, and sharing dining experiences.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u98DF\u7269\u996E\u54C1\u3001\u5C31\u9910\u60C5\u51B5\u3001\u83DC\u54C1\u5236\u4F5C\u60C5\u51B5\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u6216\u4ECB\u7ECD\u3002\u5982\u996E\u98DF\u5473\u9053\u3001\u79CD\u7C7B\u3001\u7279\u70B9\u3001\u9910\u5385\u73AF\u5883\u3001\u670D\u52A1\u3001\u5236\u4F5C\u8FC7\u7A0B\u7B49\u3002',
-      grammar: ['/grammar/complement/', '/grammar/ba-sentence/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'transportation', task_cn: '\u8C08\u8BBA\u4EA4\u901A\u51FA\u884C', task_en: 'Transportation & Travel',
-      topic_ids: ['transport'],
-      desc: 'Discuss travel experiences, transportation choices, trip planning, and hotel booking. Includes sharing feelings about journeys and understanding driving/traffic situations.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4EA4\u901A\u51FA\u884C\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u51FA\u884C\u7ECF\u5386\u611F\u53D7\u3001\u4EA4\u901A\u5BA2\u8FD0\u60C5\u51B5\u3001\u884C\u7A0B\u8BA1\u5212\u3001\u9152\u5E97\u9884\u8BA2\u7B49\u3002',
-      grammar: ['/grammar/comparison/', '/grammar/complement/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'shopping', task_cn: '\u4EA4\u6D41\u8D2D\u7269\u4F53\u9A8C\u3001\u5546\u4E1A\u6D3B\u52A8\u5185\u5BB9', task_en: 'Shopping Experiences',
-      topic_ids: ['shopping'],
-      desc: 'Discuss product selection, online shopping, brand choices, spending, payment methods, and sales promotions. HSK 4 goes beyond price negotiation to evaluating shopping experiences.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5546\u54C1\u9009\u8D2D\u3001\u8D2D\u7269\u4F53\u9A8C\u3001\u5546\u4E1A\u6D3B\u52A8\u7B49\u65B9\u9762\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u7F51\u8D2D\u4E0E\u54C1\u724C\u9009\u62E9\u3001\u652F\u4ED8\u65B9\u5F0F\u3001\u6253\u6298\u4FC3\u9500\u7B49\u3002',
-      grammar: ['/grammar/comparison/', '/grammar/adverbs/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'health-medical', task_cn: '\u8C08\u8BBA\u5C31\u533B\u60C5\u51B5\u3001\u5065\u5EB7\u751F\u6D3B', task_en: 'Health & Medical',
-      topic_ids: ['health'],
-      desc: 'Discuss symptoms, medical visits, health conditions, and healthy lifestyle concepts. At HSK 4 you need to describe illness experiences in detail and discuss health opinions.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C31\u533B\u60C5\u51B5\u3001\u5065\u5EB7\u751F\u6D3B\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u751F\u75C5\u75C7\u72B6\u3001\u53D7\u4F24\u60C5\u51B5\u3001\u5065\u5EB7\u89C2\u5FF5\u548C\u5E38\u8BC6\u7B49\u3002',
-      grammar: ['/grammar/ba-sentence/', '/grammar/complement/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'hobbies-leisure', task_cn: '\u4EA4\u6D41\u4E1A\u4F59\u7231\u597D\u3001\u4F11\u95F2\u5EA6\u5047', task_en: 'Hobbies & Leisure',
-      topic_ids: ['leisure'],
-      desc: 'Discuss leisure activities, reading, internet activities, sports, fitness, travel, and parties. Share feelings and opinions about these activities.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4F11\u95F2\u6D3B\u52A8\u60C5\u51B5\u53CA\u611F\u53D7\u3001\u770B\u6CD5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u9605\u8BFB\u3001\u7F51\u7EDC\u6D3B\u52A8\u3001\u8FD0\u52A8\u3001\u5065\u8EAB\u3001\u65C5\u884C\u3001\u805A\u4F1A\u7B49\u3002',
-      grammar: ['/grammar/adverbs/', '/grammar/complex-sentences/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'housing-community', task_cn: '\u4EA4\u6D41\u5C45\u4F4F\u60C5\u51B5\u3001\u793E\u533A\u60C5\u51B5', task_en: 'Housing & Community',
-      topic_ids: ['community'],
-      desc: 'Discuss living conditions, neighborhood relationships, community services, and house renting/buying. Includes understanding rental listings and community notices.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C45\u4F4F\u60C5\u51B5\u3001\u793E\u533A\u751F\u6D3B\u3001\u623F\u5C4B\u79DF\u8D41\u4E0E\u4E70\u5356\u7B49\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5C0F\u533A\u73AF\u5883\u3001\u90BB\u91CC\u76F8\u5904\u3001\u79DF\u623F\u6761\u4EF6\u7B49\u3002',
-      grammar: ['/grammar/comparison/', '/grammar/passive/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'family-life', task_cn: '\u4EA4\u6D41\u5BB6\u5EAD\u751F\u6D3B\u60C5\u51B5', task_en: 'Family Life',
-      topic_ids: ['family'],
-      desc: 'Discuss home life, family relationships, growing up, habits, and household affairs. Includes topics like parent-child relationships and hometown memories.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5C45\u5BB6\u751F\u6D3B\u3001\u5BB6\u5EAD\u5173\u7CFB\u3001\u6210\u957F\u8FC7\u7A0B\u3001\u751F\u6D3B\u4E60\u60EF\u3001\u5BB6\u5EAD\u4E8B\u52A1\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002',
-      grammar: ['/grammar/complex-sentences/', '/grammar/pivotal-sentences/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'education-learning', task_cn: '\u8C08\u8BBA\u6559\u5B66\u3001\u5B66\u4E60\u60C5\u51B5', task_en: 'Education & Learning',
-      topic_ids: ['study'],
-      desc: 'Discuss courses, teaching activities, study experiences, exams, study plans, degrees, scholarships, and learning methods.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u8BFE\u7A0B\u60C5\u51B5\u3001\u6559\u5B66\u60C5\u51B5\u3001\u5B66\u4E60\u7ECF\u5386\u4E0E\u5FC3\u5F97\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u8BFE\u7A0B\u3001\u4E13\u4E1A\u3001\u8003\u8BD5\u3001\u5B66\u4E1A\u89C4\u5212\u3001\u5B66\u4F4D\u5B66\u5386\u3001\u5956\u5B66\u91D1\u3001\u5B66\u4E60\u65B9\u6CD5\u7B49\u3002',
-      grammar: ['/grammar/adverbs/', '/grammar/complement/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'campus-life', task_cn: '\u4EA4\u6D41\u6821\u56ED\u751F\u6D3B', task_en: 'Campus Life',
-      topic_ids: ['campus', 'study'],
-      desc: 'Discuss campus activities, school facilities satisfaction, graduation events, campus environment, tuition, and majors.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u6821\u56ED\u6D3B\u52A8\u3001\u5B66\u6821\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u98DF\u5802\u3001\u56FE\u4E66\u9986\u3001\u6BD5\u4E1A\u665A\u4F1A\u3001\u6821\u56ED\u73AF\u5883\u3001\u8D39\u7528\u3001\u4E13\u4E1A\u7B49\u3002',
-      grammar: ['/grammar/comparison/', '/grammar/adverbs/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'education-issues', task_cn: '\u8C08\u8BBA\u6559\u80B2\u73B0\u8C61\u3001\u89C2\u5FF5', task_en: 'Education Phenomena',
-      topic_ids: ['edu-issues'],
-      desc: 'Discuss family education, social education concepts, college entrance exam choices, vocational education, and trending education topics.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u5BB6\u5EAD\u6559\u80B2\u3001\u793E\u4F1A\u6559\u80B2\u7B49\u6559\u80B2\u95EE\u9898\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u6559\u80B2\u76EE\u6807\u3001\u6559\u80B2\u65B9\u5F0F\u3001\u5347\u5B66\u62A5\u8003\u3001\u804C\u4E1A\u6559\u80B2\u7B49\u3002',
-      grammar: ['/grammar/complex-sentences/', '/grammar/rhetorical/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'work-performance', task_cn: '\u8C08\u8BBA\u5DE5\u4F5C\u60C5\u51B5\u4E0E\u8868\u73B0', task_en: 'Work & Performance',
-      topic_ids: ['office', 'workplace-social'],
-      desc: 'Discuss office tasks, work performance, workplace relationships, and team activities in a professional setting.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u529E\u516C\u4E8B\u52A1\u3001\u5DE5\u4F5C\u8868\u73B0\u3001\u804C\u573A\u4EA4\u5F80\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5DE5\u4F5C\u5B89\u6392\u3001\u5DE5\u4F5C\u6001\u5EA6\u80FD\u529B\u3001\u540C\u4E8B\u76F8\u5904\u3001\u56E2\u5EFA\u6D3B\u52A8\u7B49\u3002',
-      grammar: ['/grammar/pivotal-sentences/', '/grammar/passive/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'career-experience', task_cn: '\u4ECB\u7ECD\u804C\u4E1A\u7ECF\u5386\u4E0E\u5355\u4F4D\u60C5\u51B5', task_en: 'Career & Company',
-      topic_ids: ['career', 'company'],
-      desc: 'Discuss job seeking, work experiences, career changes, recruitment, interviews, work environment, and salary/benefits.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u804C\u4E1A\u4E0E\u5DE5\u4F5C\u7ECF\u5386\u3001\u5355\u4F4D\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u6C42\u804C\u3001\u6253\u5DE5\u3001\u804C\u4F4D\u53D8\u52A8\u3001\u62DB\u8058\u5E94\u8058\u3001\u8003\u6838\u9762\u8BD5\u3001\u5DE5\u4F5C\u73AF\u5883\u4E0E\u5F85\u9047\u7B49\u3002',
-      grammar: ['/grammar/passive/', '/grammar/pivotal-sentences/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'nature', task_cn: '\u8C08\u8BBA\u81EA\u7136\u60C5\u51B5', task_en: 'Nature & Geography',
-      topic_ids: ['nature'],
-      desc: 'Discuss geography, climate, animals, plants, natural landscapes, and weather phenomena. Includes topics like oceans, forests, stars, and seasons.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u81EA\u7136\u60C5\u51B5\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5730\u7403\u3001\u6D77\u6D0B\u3001\u68EE\u6797\u3001\u6C14\u5019\u3001\u52A8\u690D\u7269\u3001\u81EA\u7136\u666F\u89C2\u3001\u5929\u6C14\u73B0\u8C61\u7B49\u3002',
-      grammar: ['/grammar/complement/', '/grammar/comparison/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'environment', task_cn: '\u8C08\u8BBA\u751F\u6D3B\u4E2D\u7684\u73AF\u4FDD\u60C5\u51B5', task_en: 'Environmental Protection',
-      topic_ids: ['environment', 'nature'],
-      desc: 'Discuss environmental conditions, pollution, conservation practices, environmental laws, and green living.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u73AF\u5883\u72B6\u51B5\u3001\u73AF\u4FDD\u60C5\u51B5\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002\u5982\u73AF\u5883\u7684\u4E00\u822C\u60C5\u51B5\u3001\u6C61\u67D3\u60C5\u51B5\u3001\u73AF\u4FDD\u505A\u6CD5\u3001\u89C2\u5FF5\u3001\u76F8\u5173\u6CD5\u89C4\u7B49\u3002',
-      grammar: ['/grammar/complex-sentences/', '/grammar/passive/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'technology', task_cn: '\u4ECB\u7ECD\u65B0\u6280\u672F\u5E94\u7528\u53CA\u79D1\u6280\u6210\u679C', task_en: 'Technology',
-      topic_ids: ['tech', 'science'],
-      desc: 'Discuss new technology applications like mobile payment and drones, practical science knowledge, and simple research findings.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u65B0\u6280\u672F\u8FD0\u7528\u3001\u79D1\u666E\u77E5\u8BC6\u3001\u79D1\u6280\u6210\u679C\u7B49\u76F8\u5173\u60C5\u51B5\u7684\u4E00\u822C\u6027\u8BE2\u95EE\u3002\u5982\u626B\u7801\u652F\u4ED8\u3001\u65E0\u4EBA\u673A\u7B49\u65B0\u6280\u672F\u3001\u5B9E\u7528\u79D1\u666E\u77E5\u8BC6\u3001\u7B80\u5355\u7684\u7814\u7A76\u53D1\u73B0\u7B49\u3002',
-      grammar: ['/grammar/passive/', '/grammar/complement/'],
-      skills: ['listening', 'speaking', 'reading'],
-    },
-    {
-      slug: 'china-provinces', task_cn: '\u4ECB\u7ECD\u4E2D\u56FD\u7684\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF', task_en: 'China Overview',
-      topic_ids: ['overview'],
-      desc: 'Introduce major Chinese cities like Beijing and Yunnan, and discuss characteristics and distribution of ethnic minorities.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4E2D\u56FD\u67D0\u4E2A\u4E3B\u8981\u7701\u5E02\u3001\u6C11\u65CF\u7684\u4E00\u822C\u6027\u8BE2\u95EE\u6216\u4ECB\u7ECD\u3002\u5982\u4E2D\u56FD\u9996\u90FD\u3001\u5404\u7701\u4E3B\u8981\u57CE\u5E02\u3001\u5C11\u6570\u6C11\u65CF\u7279\u70B9\u3001\u5206\u5E03\u7B49\u3002',
-      grammar: ['/grammar/adverbs/', '/grammar/fixed-patterns/'],
-      skills: ['listening', 'speaking', 'reading'],
-    },
-    {
-      slug: 'economy', task_cn: '\u8C08\u8BBA\u7ECF\u6D4E\u73B0\u8C61', task_en: 'Economic Phenomena',
-      topic_ids: ['economy'],
-      desc: 'Discuss trending products, new business models (online stores, short videos, delivery economy), and economic conditions.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u6D41\u884C\u4EA7\u54C1\u3001\u65B0\u5546\u4E1A\u5F62\u6001\u3001\u7ECF\u6D4E\u72B6\u51B5\u7B49\u7ECF\u6D4E\u73B0\u8C61\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u7F51\u5E97\u3001\u77ED\u89C6\u9891\u3001\u4E0A\u95E8\u7ECF\u6D4E\u7B49\u3002',
-      grammar: ['/grammar/complex-sentences/', '/grammar/adverbs/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'social-phenomena', task_cn: '\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61', task_en: 'Social Phenomena',
-      topic_ids: ['social-phenomena'],
-      desc: 'Discuss life attitudes (marriage, consumption), internet life and its impact, and trending social phenomena.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u751F\u6D3B\u89C2\u5FF5\u3001\u7F51\u7EDC\u751F\u6D3B\u3001\u6D41\u884C\u4E8B\u7269\u7B49\u793E\u4F1A\u73B0\u8C61\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u5A5A\u604B\u89C2\u3001\u6D88\u8D39\u89C2\u3001\u7F51\u7EDC\u751F\u6D3B\u7684\u65B9\u5F0F\u548C\u5F71\u54CD\u7B49\u3002',
-      grammar: ['/grammar/complex-sentences/', '/grammar/rhetorical/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'arts-entertainment', task_cn: '\u4ECB\u7ECD\u6587\u827A\u5F62\u5F0F\u3001\u6D3B\u52A8\u3001\u4F5C\u54C1', task_en: 'Arts & Entertainment',
-      topic_ids: ['arts'],
-      desc: 'Discuss novels, movies, theater, performances, competitions, and introduce artists and their works.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u67D0\u79CD\u6587\u827A\u5F62\u5F0F\u3001\u6587\u827A\u6D3B\u52A8\u3001\u6587\u827A\u4F5C\u54C1\u521B\u4F5C\u8005\u53CA\u5176\u4F5C\u54C1\u7B49\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u8BE2\u95EE\u3002\u5982\u67D0\u90E8\u5C0F\u8BF4\u3001\u7535\u5F71\u3001\u8BDD\u5267\u7684\u5927\u81F4\u5185\u5BB9\u3001\u67D0\u573A\u6587\u827A\u8868\u6F14\u3001\u67D0\u4F4D\u6B4C\u624B\u3001\u4F5C\u5BB6\u7B49\u3002',
-      grammar: ['/grammar/complement/', '/grammar/fixed-patterns/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'sports', task_cn: '\u8C08\u8BBA\u4F53\u80B2\u9879\u76EE\u53CA\u6BD4\u8D5B', task_en: 'Sports',
-      topic_ids: ['sports'],
-      desc: 'Discuss sports like table tennis, volleyball, and badminton; competition results, player performances, and sports stories.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5173\u4E8E\u4E52\u4E53\u7403\u3001\u6392\u7403\u7B49\u9879\u76EE\u60C5\u51B5\u3001\u6BD4\u8D5B\u60C5\u51B5\u3001\u4F53\u80B2\u540D\u4EBA\u53CA\u6545\u4E8B\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u95EE\u9898\u3002',
-      grammar: ['/grammar/comparison/', '/grammar/complement/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'international-friendship', task_cn: '\u8BB2\u8FF0\u4E2D\u5916\u53CB\u597D\u6545\u4E8B', task_en: 'China-World Friendship',
-      topic_ids: ['exchange'],
-      desc: 'Tell stories of international friendship: sister cities, cross-border friendships, study abroad experiences, and Chinese language competitions.',
-      syllabus_cn: '\u80FD\u542C\u61C2\u5BF9\u65B9\u8BB2\u8FF0\u7684\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u7684\u4E2D\u5916\u53CB\u597D\u5F80\u6765\u7684\u6545\u4E8B\u53CA\u5176\u4EA7\u751F\u7684\u5F71\u54CD\u3002\u5982\u53CB\u597D\u57CE\u5E02\u3001\u53CB\u597D\u5B66\u6821\u3001\u8DE8\u56FD\u53CB\u8C0A\u3001\u7559\u5B66\u7ECF\u5386\u3001\u4E2D\u6587\u6BD4\u8D5B\u7ECF\u5386\u7B49\u3002',
-      grammar: ['/grammar/complex-sentences/', '/grammar/fixed-patterns/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'proverbs-sayings', task_cn: '介绍常见俗语、名言', task_en: 'Proverbs & Sayings',
-      topic_ids: ['language'],
-      desc: 'Understand and roughly explain common Chinese sayings and famous quotes. The syllabus tests this receptively — recognizing what a saying means when you hear it in conversation or meet it in a short reading passage.',
-      syllabus_cn: '能听懂日常交谈中别人介绍的某些中文常见俗语、名言；能大致介绍一些中文常见俗语、名言及其主要含义；能看懂介绍、解读某些中文常见俗语、名言的小短文。',
-      grammar: ['/grammar/fixed-patterns/', '/grammar/rhetorical/'],
-      skills: ['listening', 'speaking', 'reading'],
-    },
-    {
-      slug: 'food-culture', task_cn: '介绍传统饮食文化', task_en: 'Traditional Food Culture',
-      topic_ids: ['food-culture'],
-      desc: 'Understand introductions to traditional Chinese food culture — table manners, the meaning behind certain dishes, regional flavors, and time-honored shops and brands — and write a short paragraph introducing a food tradition.',
-      syllabus_cn: '能听懂朋友、同学、老师等对中国传统饮食观念、中国各地饮食特点、传统店铺、品牌等中国传统饮食文化相关情况的有一定复杂度的介绍。如中国人的餐桌礼仪、某种食物的内涵，各地饮食的风味等。',
-      grammar: ['/grammar/comparison/', '/grammar/measure-words/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'customs-traditions', task_cn: '介绍风俗传统', task_en: 'Customs & Traditions',
-      topic_ids: ['customs', 'etiquette'],
-      desc: 'Understand and introduce Chinese folk traditions: festival customs like Spring Festival and Mid-Autumn, national arts like kung fu and Peking opera, regional traditions, and the etiquette of interacting with friends, teachers and elders.',
-      syllabus_cn: '能听懂朋友、同学、老师等对中国传统节日习俗、国粹、各地传统、人际交往礼仪等中国民俗传统相关情况的有一定复杂度的介绍。如春节、中秋节等节日习俗；中国功夫、京剧等国粹；民间喜好与禁忌等。',
-      grammar: ['/grammar/fixed-patterns/', '/grammar/function-words/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'scenic-spots', task_cn: '介绍名胜古迹', task_en: 'Scenic Spots & Historic Sites',
-      topic_ids: ['landmarks'],
-      desc: 'Understand general introductions to famous Chinese sights such as Tian’anmen and the Great Wall, introduce a sight you know, and write a short paragraph about it. A frequent theme in HSK 4 reading passages.',
-      syllabus_cn: '能听懂朋友、同学、老师等对中国某个名胜古迹的一般性介绍。如天安门、长城等。能看懂介绍中国某个名胜古迹的一般性短文；能写出一段话简单介绍中国某个名胜古迹。',
-      grammar: ['/grammar/comparison/', '/grammar/measure-words/'],
-      skills: ['listening', 'speaking', 'reading', 'writing'],
-    },
-    {
-      slug: 'historical-figures', task_cn: '介绍历史人物、历史事件', task_en: 'Historical Figures & Events',
-      topic_ids: ['history'],
-      desc: 'Understand general introductions to major Chinese historical figures and events, such as Confucius (孔子) and Laozi (老子). Tested through listening and short reading passages — no writing requirement for this task.',
-      syllabus_cn: '能听懂朋友、同学、老师等对某位中国历史人物或某个中国历史事件的一般性介绍。如孔子、老子等。能看懂介绍某位中国历史人物或者某个中国历史事件的一般性短文。',
-      grammar: ['/grammar/complex-sentences/', '/grammar/function-words/'],
-      skills: ['listening', 'speaking', 'reading'],
-    },
-  ];
+  const tasks = TASKS;
 
   // Skip thin pages (< 10 words). Previously economy / education-issues /
   // international-friendship were skipped; their topics have since been
@@ -1678,6 +1730,23 @@ function buildTaskTopicPages() {
         <td class="chinese" style="font-size:13px;color:var(--stone);">${escHtml(w.example_cn || '')}</td>
       </tr>`
     ).join('\n      ');
+
+    // Scenario dialogue (情景对话) — authored per task in data/task-dialogues.json
+    const dlg = dialogues[task.slug];
+    const dialogueHtml = dlg ? `
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Scenario Dialogue / \u60C5\u666F\u5BF9\u8BDD</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:14px;">${escHtml(dlg.scene_en)} Read it aloud twice: once for meaning, once for fluency \u2014 the syllabus tests this task across listening and speaking.</p>
+  <div style="background:white;border:1px solid var(--mist);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;">
+    ${dlg.lines.map(l => `
+    <div style="display:flex;gap:12px;margin-bottom:14px;">
+      <div style="flex:0 0 26px;height:26px;border-radius:50%;background:${l.s === 'A' ? 'var(--accent-soft)' : 'var(--jade-soft)'};color:${l.s === 'A' ? 'var(--accent)' : 'var(--jade)'};font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;">${l.s}</div>
+      <div>
+        <div class="chinese" style="font-size:16px;font-weight:600;line-height:1.7;">${escHtml(l.cn)}</div>
+        <div style="font-size:12px;color:var(--accent);margin-top:1px;">${escHtml(l.py)}</div>
+        <div style="font-size:13px;color:var(--stone);margin-top:2px;line-height:1.5;">${escHtml(l.en)}</div>
+      </div>
+    </div>`).join('')}
+  </div>` : '';
 
     // Grammar links
     const grammarLinksHtml = task.grammar.map(g => {
@@ -1882,6 +1951,8 @@ ${faqJsonLd}
     <p>${escHtml(task.syllabus_cn)}</p>
   </div>
 
+  ${dialogueHtml}
+
   ${challengeHtml}
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Related Grammar Patterns / \u76F8\u5173\u8BED\u6CD5</h2>
@@ -2019,15 +2090,59 @@ function buildConfusablePages() {
   console.log('[confusables] Generating confusable word pair pages...');
   const pairs = readJSON('confusables.json');
 
+  // "Related confusable pairs" — rank by shared characters (same phonetic/
+  // semantic family, e.g. 竟然/居然 vs 既然/竟然), then same category.
+  const pairWords = p => [p.wordA, p.wordB, p.wordC].filter(Boolean);
+  function relatedPairsFor(pair) {
+    const chars = new Set(pairWords(pair).join('').split(''));
+    return pairs
+      .filter(p => p.slug !== pair.slug)
+      .map(p => {
+        const shared = new Set(pairWords(p).join('').split('').filter(c => chars.has(c))).size;
+        const sameCat = p.category && p.category === pair.category ? 1 : 0;
+        return { p, score: shared * 10 + sameCat };
+      })
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score || a.p.slug.localeCompare(b.p.slug))
+      .slice(0, 4)
+      .map(x => x.p);
+  }
+
+  function relatedSectionHtml(pair) {
+    const rel = relatedPairsFor(pair);
+    if (rel.length === 0) return '';
+    const cards = rel.map(p => `
+      <a href="/words/${p.slug}/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div class="chinese" style="font-size:16px;font-weight:700;">${escHtml(pairWords(p).join(' vs '))}</div>
+        <div style="font-size:12px;color:var(--stone);margin-top:4px;">${escHtml((p.subtitle || '').split(' — ')[0])}</div>
+        <div style="font-size:11px;color:var(--accent);margin-top:6px;">${escHtml(p.category || '')}</div>
+      </a>`).join('');
+    return `<!-- RELATED CONFUSABLES -->
+  <section style="margin-top:32px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;">Related Confusable Words / 相关易混词</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;">${cards}
+    </div>
+  </section>
+  <!-- /RELATED CONFUSABLES -->`;
+  }
+
   pairs.forEach((pair, pi) => {
     const dir = path.join(ROOT, 'words', pair.slug);
     ensureDir(dir);
 
     // Pairs flagged customHtml have hand-enriched pages (extra patterns,
     // curated real-question selections, longer FAQ). The generator template
-    // can't represent them, so skip regeneration to preserve the edits.
+    // can't represent them, so only inject the related-pairs block (between
+    // markers, idempotently) and leave the rest of the page untouched.
     if (pair.customHtml) {
-      console.log(`[confusables] Skipping ${pair.slug} (customHtml)`);
+      const customPath = path.join(dir, 'index.html');
+      if (fs.existsSync(customPath)) {
+        let customHtml = fs.readFileSync(customPath, 'utf8');
+        customHtml = customHtml.replace(/\s*<!-- RELATED CONFUSABLES -->[\s\S]*?<!-- \/RELATED CONFUSABLES -->/g, '');
+        customHtml = customHtml.replace(/<\/main>/, `\n  ${relatedSectionHtml(pair)}\n</main>`);
+        fs.writeFileSync(customPath, customHtml, 'utf8');
+      }
+      console.log(`[confusables] ${pair.slug}: customHtml — injected related block only`);
       return;
     }
 
@@ -2273,6 +2388,8 @@ ${pairFaqHtml}
     <a href="/words/" class="btn btn-secondary">All Confusable Words</a>
     ${nextPair ? `<a href="/words/${nextPair.slug}/" class="btn btn-ghost">${escHtml(nextPair.wordA)} vs ${escHtml(nextPair.wordB)} &rarr;</a>` : '<span></span>'}
   </div>
+
+  ${relatedSectionHtml(pair)}
 
   <section style="margin-top:32px;padding-top:24px;border-top:1px solid var(--mist);">
     <h3 style="font-size:16px;margin-bottom:12px;color:var(--stone);">Use this HSK 4 distinction in real test conditions</h3>
@@ -2877,6 +2994,13 @@ function addTestLinksToHubs() {
 function buildCharacterPages() {
   console.log('[characters] Generating HSK 4 character writing pages...');
   const chars = readJSON('hsk4-characters.json');
+  // Recognition-only characters (认读字): the official syllabus lists 441
+  // characters to recognize; the 150 above must also be handwritten. The
+  // remaining 291 get recognition pages (reading-focused, stroke animation
+  // still available, no handwriting requirement).
+  const renduChars = fs.existsSync(path.join(DATA, 'hsk4-rendu-characters.json'))
+    ? readJSON('hsk4-rendu-characters.json').map(c => ({ ...c, tier: 'recognition' }))
+    : [];
   const vocab = readJSON('vocabulary.json');
 
   // Reverse index: each hanzi -> words from vocabulary.json that contain it
@@ -3004,6 +3128,19 @@ ${renderNav('characters')}
   <div class="char-grid" id="char-grid">${gridHtml}
   </div>
   <div class="char-empty" id="char-empty" style="display:none;">No characters match your search.</div>
+
+  ${renduChars.length ? `<section style="margin-top:48px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:8px;">Recognition Characters / 认读字 (${renduChars.length})</h2>
+    <p style="color:var(--stone);line-height:1.7;margin-bottom:16px;max-width:680px;">
+      Beyond the ${chars.length} writing characters above, the official syllabus lists ${renduChars.length} more characters you must <strong>recognize when reading</strong> — handwriting them is not required. Tap any character for its meaning, pinyin, stroke order, and the HSK 4 words that use it.
+    </p>
+    <div class="char-grid">
+      ${renduChars.map(rc => `<a class="char-card" href="/characters/${encodeURIComponent(rc.char)}/" data-char="${escHtml(rc.char)}" data-pinyin="${escHtml(rc.pinyin)}">
+      <span class="char-glyph chinese">${escHtml(rc.char)}</span>
+      <span class="char-pinyin">${escHtml(rc.pinyin)}</span>
+    </a>`).join('\n    ')}
+    </div>
+  </section>` : ''}
 
   <section style="margin-top:48px;">
     <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">How to Practice HSK 4 Character Writing</h2>
@@ -3445,10 +3582,14 @@ window.addEventListener('load', function(){
 </html>`;
   }
 
-  // ---- Per-character detail pages ----
-  chars.forEach((c, i) => {
-    const prev = chars[(i - 1 + chars.length) % chars.length];
-    const next = chars[(i + 1) % chars.length];
+  // ---- Per-character detail pages (150 writing + 291 recognition) ----
+  const pageChars = [...chars, ...renduChars];
+  pageChars.forEach((c, pi) => {
+    const isRecognition = c.tier === 'recognition';
+    const ownList = isRecognition ? renduChars : chars;
+    const i = isRecognition ? pi - chars.length : pi;
+    const prev = ownList[(i - 1 + ownList.length) % ownList.length];
+    const next = ownList[(i + 1) % ownList.length];
     const wordsForChar = (charToWords[c.char] || []).slice(0, 8);
 
     const wordsHtml = wordsForChar.length === 0
@@ -3471,8 +3612,8 @@ window.addEventListener('load', function(){
       </div>`;
         }).join('\n');
 
-    // Route top-30 high-density chars to enhanced template
-    if (top30Set.has(c.char)) {
+    // Route top-30 high-density chars to enhanced template (writing tier only)
+    if (!isRecognition && top30Set.has(c.char)) {
       const enhancedHtml = renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar);
       const charDir = path.join(charsDir, c.char);
       ensureDir(charDir);
@@ -3480,8 +3621,12 @@ window.addEventListener('load', function(){
       return;
     }
 
-    const detailTitle = `${c.char} (${c.pinyin}) — Stroke Order & Writing Practice | HSK 4 汉字 ${c.char}`;
-    const detailDesc = truncDesc(`Learn how to write the HSK 4 character ${c.char} (${c.pinyin}, ${c.meaning}) with animated stroke order and interactive handwriting practice. Free practice tool by Mandarin Zone.`);
+    const detailTitle = isRecognition
+      ? `${c.char} (${c.pinyin}) — Meaning, Pinyin & Stroke Order | HSK 4 认读字 ${c.char}`
+      : `${c.char} (${c.pinyin}) — Stroke Order & Writing Practice | HSK 4 汉字 ${c.char}`;
+    const detailDesc = truncDesc(isRecognition
+      ? `${c.char} (${c.pinyin}) means "${c.meaning}" — an HSK 4 recognition character (认读字). See its meaning, pinyin, stroke order animation, and the HSK 4 words that use it. By Mandarin Zone.`
+      : `Learn how to write the HSK 4 character ${c.char} (${c.pinyin}, ${c.meaning}) with animated stroke order and interactive handwriting practice. Free practice tool by Mandarin Zone.`);
 
     const detailHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -3526,7 +3671,9 @@ ${renderNav('characters')}
   </nav>
 
   <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(22px,4vw,30px);margin:16px 0 12px;line-height:1.3;">
-    How to write <span class="chinese">${escHtml(c.char)}</span> (${escHtml(c.pinyin)}) — HSK 4 Stroke Order &amp; Practice
+    ${isRecognition
+      ? `<span class="chinese">${escHtml(c.char)}</span> (${escHtml(c.pinyin)}) — HSK 4 Recognition Character: Meaning &amp; Stroke Order`
+      : `How to write <span class="chinese">${escHtml(c.char)}</span> (${escHtml(c.pinyin)}) — HSK 4 Stroke Order &amp; Practice`}
   </h1>
 
   <section class="char-header" aria-label="Character overview">
@@ -3534,9 +3681,15 @@ ${renderNav('characters')}
     <div class="char-meta">
       <span class="char-pinyin-big">${escHtml(c.pinyin)}</span>
       <span class="char-meaning">${escHtml(c.meaning)}</span>
-      <span class="char-stats">HSK 4 required writing character · ${i + 1} of ${chars.length}</span>
+      <span class="char-stats">${isRecognition
+        ? `HSK 4 recognition character (认读字) · ${i + 1} of ${renduChars.length}`
+        : `HSK 4 required writing character · ${i + 1} of ${chars.length}`}</span>
     </div>
   </section>
+
+  ${isRecognition ? `<div style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px;line-height:1.6;">
+    \u{1F441} <strong>Recognition only:</strong> the official HSK 4 syllabus asks you to <em>recognize</em> ${escHtml(c.char)} when reading — handwriting it is not required (that applies to the <a href="/characters/" style="color:var(--jade);font-weight:600;">150 writing characters</a>). The stroke animation below is optional but helps memory.
+  </div>` : ''}
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 8px;">Stroke Order & Practice</h2>
   <p style="color:var(--stone);font-size:var(--fs-sm);margin-bottom:8px;">
@@ -3629,10 +3782,11 @@ window.addEventListener('load', function(){
 
   const enhancedCount = top30Set.size;
   const simpleCount = chars.length - enhancedCount;
-  console.log(`[characters] Generated hub + ${enhancedCount} enhanced (top-30) + ${simpleCount} basic per-character pages`);
+  console.log(`[characters] Generated hub + ${enhancedCount} enhanced (top-30) + ${simpleCount} basic + ${renduChars.length} recognition per-character pages`);
   return {
     all: chars.map(c => c.char),
     enhanced: Array.from(top30Set),
+    recognition: renduChars.map(c => c.char),
   };
 }
 
@@ -3641,6 +3795,442 @@ window.addEventListener('load', function(){
 // ============================================================
 
 console.log('=== HSK4 SEO Build ===\n');
+// ============================================================
+// 14. SENTENCES & TRAPS DRILL-DOWN PAGES
+// ============================================================
+// Hub pages stay the canonical "all in one place" view; these category
+// pages add depth per cluster (recall practice, per-category quiz,
+// cross-links) and give each category its own indexable URL.
+
+const DRILL_HEADER = (active) => `<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="logo-mark" loading="eager">
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link${active==='vocabulary'?' is-active':''}">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link${active==='sentences'?' is-active':''}">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
+      <a href="/traps/" class="nav-link${active==='traps'?' is-active':''}">Traps</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>`;
+
+const DRILL_FOOTER = `<footer>
+  <div class="footer-brand">
+    <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="footer-brand-link">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="footer-logo" loading="lazy">
+      <div>
+        <div class="footer-brand-name">Mandarin Zone</div>
+        <div class="footer-tagline">Learn Chinese in Beijing &amp; Online · Since 2008</div>
+      </div>
+    </a>
+    <div class="footer-cta">
+      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener">Study Chinese with our teachers →</a>
+    </div>
+  </div>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/sentences/">Sentences</a> · <a href="/strategies/">Strategies</a> · <a href="/words/">Confusable Words</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</footer>`;
+
+const MOCK_CTA = `
+  <section style="margin-top:40px;background:var(--accent-soft);border-radius:var(--radius);padding:24px 28px;text-align:center;">
+    <h3 class="chinese" style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:8px;">用模拟考试检验掌握情况</h3>
+    <p style="color:var(--stone);font-size:14px;margin-bottom:16px;">Apply what you just reviewed under real test conditions — 12 free HSK 4 mock exams, instant scoring.</p>
+    <a href="/" class="btn btn-primary">Start a mock exam →</a>
+  </section>`;
+
+// --- Connector lexicon: detect which grammar patterns appear in a sentence
+// set, and link each to its deep-dive page. Data-driven so the chips stay
+// accurate if sentences change.
+const SENTENCE_PATTERN_LINKS = [
+  { label: '因为…所以 (because…so)', re: /因为|所以/, href: '/grammar/complex-sentences/' },
+  { label: '由于 / 因此 (due to / therefore)', re: /由于|因此/, href: '/words/yinwei-youyu/' },
+  { label: '于是 (thereupon)', re: /于是/, href: '/words/yushi-yinci/' },
+  { label: '虽然…但是 (although)', re: /虽然|但是/, href: '/grammar/complex-sentences/' },
+  { label: '尽管 (even though)', re: /尽管/, href: '/grammar/patterns/jinguan-danshi/' },
+  { label: '即使…也 (even if)', re: /即使/, href: '/grammar/patterns/jishi-ye/' },
+  { label: '不过 / 然而 (however)', re: /不过|然而/, href: '/grammar/function-words/' },
+  { label: '却 (yet)', re: /却/, href: '/grammar/adverbs/' },
+  { label: '越来越 (more and more)', re: /越来越|越…越/, href: '/grammar/complement/' },
+  { label: '比 comparison', re: /比/, href: '/grammar/comparison/' },
+  { label: '不如 (not as good as)', re: /不如/, href: '/grammar/comparison/' },
+  { label: '跟…相比 (compared with)', re: /相比/, href: '/grammar/comparison/' },
+  { label: '已经 / 曾经 (already / once)', re: /已经|曾经/, href: '/words/yijing-cengjing/' },
+  { label: '才 / 就 (timing)', re: /[才就]/, href: '/words/cai-jiu/' },
+  { label: '不仅…而且 (not only…but also)', re: /不仅|而且/, href: '/grammar/complex-sentences/' },
+  { label: '只要 / 只有 (conditions)', re: /只要|只有/, href: '/grammar/patterns/zhiyou-cai/' },
+  { label: '无论 / 不管 (no matter)', re: /无论|不管/, href: '/grammar/patterns/buguan-dou/' },
+  { label: '要是 (if)', re: /要是|如果/, href: '/grammar/patterns/yaoshi-fouze/' },
+  { label: '首先…其次 (first…second)', re: /首先|其次/, href: '/grammar/complex-sentences/' },
+  { label: '总之 (in summary)', re: /总之|总的来说/, href: '/strategies/writing-construction/' },
+  { label: '随着 (along with)', re: /随着/, href: '/grammar/function-words/' },
+];
+
+// Per-category related links (cross-cluster, max 3) + writing tie-in.
+const SENTENCE_CAT_RELATED = {
+  'express-opinion':     [['/words/tingshuo-juede-renwei/', '听说 vs 觉得 vs 认为 — opinion verbs'], ['/strategies/writing-construction/', 'Writing Q86-95 strategy']],
+  'make-suggestions':    [['/grammar/fixed-patterns/', '固定格式 — fixed patterns'], ['/topics/social-expressions/', '日常言语交往 task words']],
+  'cause-effect':        [['/grammar/complex-sentences/', '复句 — complex sentences'], ['/words/yinwei-youyu/', '因为 vs 由于'], ['/words/yushi-yinci/', '于是 vs 因此']],
+  'contrast-concession': [['/grammar/patterns/jinguan-danshi/', '尽管…但是 pattern'], ['/words/jishi-jinguan/', '即使 vs 尽管'], ['/traps/connectors/', 'Connector traps']],
+  'describe-change':     [['/grammar/complement/', '补语 — complements'], ['/topics/social-phenomena/', '社会现象 task words']],
+  'comparison':          [['/grammar/comparison/', '比较句 — comparison grammar'], ['/words/bijiao-bi/', '比较 vs 比'], ['/traps/comparison/', 'Comparison traps']],
+  'describe-people':     [['/topics/describe-a-person/', '谈论某个人物 — task words'], ['/grammar/pivotal-sentences/', '兼语句 (praise/criticism)']],
+  'time-expressions':    [['/words/cai-jiu/', '才 vs 就'], ['/words/yihou-zhihou/', '以后 vs 之后'], ['/traps/time-adverbs/', 'Time adverb traps']],
+  'express-feelings':    [['/topics/emotions/', '谈论情感话题 — task words'], ['/grammar/complement/', '死了/坏了 degree complements']],
+  'summary-conclusion':  [['/strategies/writing-construction/', 'Writing strategy'], ['/writing/paragraph/', 'Paragraph writing practice']],
+};
+
+function buildSentenceCategoryPages() {
+  console.log('[sentence-cats] Generating sentence category drill-down pages...');
+  const cats = readJSON('sentences.json');
+
+  cats.forEach((cat, ci) => {
+    const prev = cats[(ci + cats.length - 1) % cats.length];
+    const next = cats[(ci + 1) % cats.length];
+    const allText = cat.sentences.map(s => s.cn).join(' ');
+    const seen = new Set();
+    const patternChips = SENTENCE_PATTERN_LINKS
+      .filter(p => p.re.test(allText) && !seen.has(p.href + p.label) && seen.add(p.href + p.label))
+      .slice(0, 6)
+      .map(p => `<a href="${p.href}" style="display:inline-block;background:white;border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">${p.label} →</a>`)
+      .join('');
+
+    const sentencesHtml = cat.sentences.map((s, i) => `
+    <div class="sentence-row" id="s${i + 1}">
+      <div class="sent-num">${i + 1}</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">${escHtml(s.cn)}</div>
+        <div class="sent-py">${escHtml(s.py)}</div>
+        <div class="sent-en">${escHtml(s.en)}</div>
+        ${s.use ? `<div class="sent-use">\u{1F4CB} ${escHtml(s.use)}</div>` : ''}
+      </div>
+    </div>`).join('');
+
+    const recallCards = cat.sentences.map((s, i) => `
+      <div class="recall-card" data-i="${i}">
+        <div class="recall-en">${escHtml(s.en)}</div>
+        <div class="recall-cn chinese" style="display:none;">${escHtml(s.cn)}<div class="recall-py">${escHtml(s.py)}</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>`).join('');
+
+    const related = (SENTENCE_CAT_RELATED[cat.slug] || []).map(([href, label]) =>
+      `<a href="${href}" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">${label}</div></a>`
+    ).join('');
+
+    const title = `${cat.name_en} in Chinese — 10 HSK 4 ${cat.name_cn} Sentences`;
+    const desc = `10 ready-to-use HSK 4 sentences for ${cat.name_en.toLowerCase()} (${cat.name_cn}) with pinyin, English, usage notes, and active-recall practice. ${cat.desc}`;
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${escHtml(title)} | HSK 4 Sentences</title>
+<meta name="description" content="${escHtml(desc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/sentences/${cat.slug}/">
+<meta property="og:title" content="${escHtml(title)}">
+<meta property="og:description" content="${escHtml(desc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/sentences/${cat.slug}/">
+<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: title,
+  description: desc,
+  inLanguage: ['en', 'zh-CN'], isAccessibleForFree: true,
+  url: `https://hsk4.mandarinzone.com/sentences/${cat.slug}/`,
+}, null, 1)}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .sentence-row { display:flex; gap:14px; background:white; border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
+  .sent-num { flex:0 0 28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  .sent-cn { font-size:17px; font-weight:600; line-height:1.7; }
+  .sent-py { color:var(--accent); font-size:13px; margin-top:2px; }
+  .sent-en { color:var(--stone); font-size:14px; margin-top:4px; line-height:1.6; }
+  .sent-use { color:var(--stone); font-size:12px; margin-top:6px; background:var(--paper); display:inline-block; padding:3px 8px; border-radius:4px; }
+  .recall-card { background:white; border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
+  .recall-en { font-size:15px; line-height:1.6; margin-bottom:10px; }
+  .recall-cn { font-size:17px; font-weight:600; line-height:1.7; margin-bottom:10px; color:var(--ink); }
+  .recall-py { font-size:13px; color:var(--accent); font-weight:400; margin-top:2px; }
+  .cat-nav { display:flex; justify-content:space-between; margin:40px 0 0; flex-wrap:wrap; gap:12px; }
+  .breadcrumb { font-size:13px; color:var(--stone); margin:16px 0 8px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+${DRILL_HEADER('sentences')}
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/sentences/">Sentences</a> &rsaquo; ${escHtml(cat.name_en)}</nav>
+
+  <section style="margin:8px 0 24px;">
+    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;font-size:clamp(24px,4vw,32px);margin-bottom:8px;">${cat.icon} ${escHtml(cat.name_en)} — <span style="color:var(--accent);">${escHtml(cat.name_cn)}</span></h1>
+    <p style="color:var(--stone);line-height:1.7;max-width:680px;">${escHtml(cat.desc)} These 10 sentences are battle-tested HSK 4 building blocks — memorize them as whole chunks, then swap in your own vocabulary. Part of the <a href="/sentences/" style="color:var(--accent);">100 essential HSK 4 sentences</a> collection.</p>
+  </section>
+
+  ${patternChips ? `<section style="margin-bottom:24px;">
+    <h2 style="font-size:15px;color:var(--stone);margin-bottom:10px;">Grammar patterns used in this set / 本组句子用到的语法</h2>
+    ${patternChips}
+  </section>` : ''}
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 14px;">The 10 sentences / 句子清单</h2>
+  ${sentencesHtml}
+
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:36px 0 8px;">Active Recall Practice / 回忆练习</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:14px;">Read the English, say the Chinese out loud, then reveal to check yourself. Recall practice is 3× more effective than re-reading.</p>
+  <div style="margin-bottom:12px;"><button class="btn btn-secondary" onclick="recallAll(true)">Reveal all</button> <button class="btn btn-ghost" onclick="recallAll(false)">Hide all</button></div>
+  ${recallCards}
+
+  ${related ? `<section style="margin-top:36px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;">Related / 相关内容</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;">${related}</div>
+  </section>` : ''}
+
+  <div class="cat-nav">
+    <a href="/sentences/${prev.slug}/" class="btn btn-ghost">← ${escHtml(prev.name_en)}</a>
+    <a href="/sentences/" class="btn btn-secondary">All 100 Sentences</a>
+    <a href="/sentences/${next.slug}/" class="btn btn-ghost">${escHtml(next.name_en)} →</a>
+  </div>
+${MOCK_CTA}
+</main>
+${DRILL_FOOTER}
+<script>
+function recallToggle(btn) {
+  var card = btn.closest('.recall-card');
+  var cn = card.querySelector('.recall-cn');
+  var show = cn.style.display === 'none';
+  cn.style.display = show ? 'block' : 'none';
+  btn.textContent = show ? 'Hide 中文' : 'Show 中文';
+}
+function recallAll(show) {
+  document.querySelectorAll('.recall-card').forEach(function(card) {
+    card.querySelector('.recall-cn').style.display = show ? 'block' : 'none';
+    card.querySelector('.recall-btn').textContent = show ? 'Hide 中文' : 'Show 中文';
+  });
+}
+</script>
+</body>
+</html>`;
+
+    const dir = path.join(ROOT, 'sentences', cat.slug);
+    ensureDir(dir);
+    fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+  });
+
+  // Inject the category nav into the hub (idempotent markers).
+  const hubPath = path.join(ROOT, 'sentences', 'index.html');
+  let hub = fs.readFileSync(hubPath, 'utf8');
+  hub = hub.replace(/\s*<!-- SENTENCE CATEGORY NAV -->[\s\S]*?<!-- \/SENTENCE CATEGORY NAV -->/g, '');
+  const navCards = cats.map(c => `
+      <a href="/sentences/${c.slug}/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:14px;font-weight:600;">${c.icon} ${escHtml(c.name_en)} <span class="chinese" style="color:var(--stone);font-weight:400;">${escHtml(c.name_cn)}</span></div>
+        <div style="font-size:12px;color:var(--accent);margin-top:4px;">10 sentences + recall practice →</div>
+      </a>`).join('');
+  const navBlock = `\n  <!-- SENTENCE CATEGORY NAV -->
+  <section style="margin:24px 0 32px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;">Deep-dive by category / 分类精学</h2>
+    <p style="color:var(--stone);font-size:14px;margin-bottom:14px;">Each category has its own page with grammar-pattern links and active-recall practice.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));gap:12px;">${navCards}
+    </div>
+  </section>
+  <!-- /SENTENCE CATEGORY NAV -->\n`;
+  hub = hub.replace(/(<h2><span class="cat-icon">)/, navBlock + '$1');
+  fs.writeFileSync(hubPath, hub, 'utf8');
+
+  console.log(`[sentence-cats] Generated ${cats.length} category pages + hub nav`);
+  return cats.map(c => ({ loc: `/sentences/${c.slug}/`, priority: '0.7' }));
+}
+
+// Per-category intros for trap drill-down pages.
+const TRAP_CAT_META = {
+  'adverb-polarity': {
+    grammar: ['/grammar/adverbs/'],
+    intro: 'Mood adverbs are tiny words with outsized exam weight. These two traps — 差点儿 polarity and 千万’s mandatory imperative partner — appear in listening comprehension and 排词成句 every single session.',
+    related: [['/words/cai-jiu/', '才 vs 就'], ['/sentences/time-expressions/', 'Time expression sentences']],
+  },
+  'passive': {
+    grammar: ['/grammar/passive/'],
+    intro: '被/让/叫 passives look interchangeable but follow different rules about subjects, agents, and complements. HSK 4 tests exactly the differences.',
+    related: [['/words/shi-rang-jiao-bei/', '使 vs 让 vs 叫 vs 被'], ['/grammar/pivotal-sentences/', '兼语句 — pivotal sentences']],
+  },
+  'ba-sentence': {
+    grammar: ['/grammar/ba-sentence/'],
+    intro: 'The 把 construction is mandatory in specific structures — not optional stylistic flair. These three traps cover the cases 排词成句 (Q86-95) tests most.',
+    related: [['/grammar/patterns/', '8 sentence patterns'], ['/strategies/writing-construction/', 'Writing Q86-95 strategy']],
+  },
+  'comparison': {
+    grammar: ['/grammar/comparison/'],
+    intro: '比 sentences have one iron rule (no 很/非常/真 before the adjective) and one common illegal hybrid (不如 + 比). Both are free points if you know them.',
+    related: [['/words/bijiao-bi/', '比较 vs 比'], ['/sentences/comparison/', 'Comparison sentences']],
+  },
+  'connectors': {
+    grammar: ['/grammar/complex-sentences/'],
+    intro: 'Connector pairs like 即使/尽管 and 不管/无论 differ by hypothetical-vs-factual and register — distinctions reading Part 1 (选词填空) loves.',
+    related: [['/words/jishi-jinguan/', '即使 vs 尽管'], ['/words/buguan-wulun/', '不管 vs 无论'], ['/sentences/contrast-concession/', 'Contrast sentences']],
+  },
+  'rhetorical': {
+    grammar: ['/grammar/rhetorical/'],
+    intro: 'A rhetorical question states the opposite of its literal form. Listening loves asking what the speaker actually means — flip the polarity and you have the answer.',
+    related: [['/grammar/adverbs/', '难道 and mood adverbs'], ['/strategies/listening-dialog/', 'Listening dialog strategy']],
+  },
+  'time-adverbs': {
+    grammar: ['/grammar/adverbs/'],
+    intro: '才 vs 就 and 已经 vs 曾经 encode whether something happened earlier or later than expected, and whether it still matters now. Both pairs are top-10 HSK 4 confusables.',
+    related: [['/words/cai-jiu/', '才 vs 就'], ['/words/yijing-cengjing/', '已经 vs 曾经'], ['/sentences/time-expressions/', 'Time expression sentences']],
+  },
+};
+
+function buildTrapCategoryPages() {
+  console.log('[trap-cats] Generating trap category drill-down pages...');
+  const cats = readJSON('traps.json');
+
+  cats.forEach((cat, ci) => {
+    const prev = cats[(ci + cats.length - 1) % cats.length];
+    const next = cats[(ci + 1) % cats.length];
+    const meta = TRAP_CAT_META[cat.slug] || { grammar: [], intro: '', related: [] };
+
+    const cardsHtml = cat.traps.map(t => t.html).join('\n\n');
+    const quizHtml = cat.traps.map(t => t.quiz_html).filter(Boolean).join('\n\n');
+    const relatedHtml = (meta.related || []).map(([href, label]) =>
+      `<a href="${href}" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">${label}</div></a>`
+    ).join('');
+
+    const trapWord = cat.traps.length === 1 ? 'Trap' : 'Traps';
+    const title = `HSK 4 ${cat.name_en} — ${cat.traps.length} ${trapWord} + Quiz`;
+    const desc = `${cat.name_cn}：${meta.intro.slice(0, 120)}`;
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${escHtml(title)} | HSK 4 Traps</title>
+<meta name="description" content="${escHtml(desc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/traps/${cat.slug}/">
+<meta property="og:title" content="${escHtml(title)}">
+<meta property="og:description" content="${escHtml(desc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/traps/${cat.slug}/">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .trap-card { background:white; border:1px solid var(--mist); border-left:4px solid var(--accent); border-radius:var(--radius); padding:22px 26px; margin-bottom:18px; }
+  .trap-card h3 { font-family:'Noto Serif SC',serif; font-size:20px; font-weight:700; margin-bottom:6px; color:var(--ink); }
+  .trap-tag { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px; margin-right:6px; vertical-align:middle; }
+  .trap-tag.high { background:#ffe0e0; color:#c53030; }
+  .trap-summary { color:var(--stone); font-size:14px; line-height:1.7; margin-bottom:12px; }
+  .ex-wrong { background:#fff5f5; border-left:3px solid #c53030; padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
+  .ex-wrong strong { color:#c53030; }
+  .ex-right { background:#e8f5e9; border-left:3px solid var(--correct,#38a169); padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
+  .ex-right strong { color:var(--correct,#38a169); }
+  .trap-rule { background:var(--gold-soft); padding:10px 14px; border-radius:6px; font-size:13px; line-height:1.6; margin-top:10px; }
+  .trap-link { display:inline-block; margin-top:12px; font-size:13px; color:var(--accent); font-weight:600; text-decoration:none; }
+  .trap-link:hover { text-decoration:underline; }
+  .trap-quiz-item { background:white; border:1px solid var(--mist); border-radius:var(--radius); padding:18px 22px; margin-bottom:14px; }
+  .tq-num { font-size:11px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+  .tq-num a { color:var(--accent); }
+  .tq-stem { font-size:15px; line-height:1.7; margin-bottom:12px; color:var(--ink); font-family:'Noto Sans SC',sans-serif; }
+  .tq-stem strong { font-weight:600; }
+  .tq-opts { display:flex; flex-direction:column; gap:8px; }
+  .tq-opt { padding:10px 14px; border:1px solid var(--mist); border-radius:6px; background:white; font-family:'Noto Sans SC',sans-serif; font-size:14px; line-height:1.6; cursor:pointer; transition:all 0.15s; text-align:left; color:var(--ink); }
+  .tq-opt:hover:not(.disabled) { border-color:var(--accent); background:var(--accent-soft); }
+  .tq-opt.correct { background:#e8f5e9; border-color:#38a169; color:#2f855a; font-weight:600; }
+  .tq-opt.wrong { background:#fff5f5; border-color:#c53030; color:#c53030; }
+  .tq-opt.disabled { pointer-events:none; opacity:0.6; }
+  .tq-opt.disabled.correct { opacity:1; }
+  .tq-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.7; padding:10px 14px; background:var(--paper); border-radius:6px; border-left:3px solid var(--accent); }
+  .cat-nav { display:flex; justify-content:space-between; margin:40px 0 0; flex-wrap:wrap; gap:12px; }
+  .breadcrumb { font-size:13px; color:var(--stone); margin:16px 0 8px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+${DRILL_HEADER('traps')}
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/traps/">Traps</a> &rsaquo; ${escHtml(cat.name_en)}</nav>
+
+  <section style="margin:8px 0 24px;">
+    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;font-size:clamp(24px,4vw,32px);margin-bottom:8px;">HSK 4 ${escHtml(cat.name_en)} <span style="color:var(--accent);">/ ${escHtml(cat.name_cn)}</span></h1>
+    <p style="color:var(--stone);line-height:1.7;max-width:680px;">${meta.intro} Part of the <a href="/traps/" style="color:var(--accent);">15 high-frequency HSK 4 traps</a> collection.</p>
+  </section>
+
+  ${cardsHtml}
+
+  ${quizHtml ? `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:36px 0 8px;">Test yourself / 自测</h2>
+  <p style="color:var(--stone);font-size:14px;margin-bottom:14px;">One question per trap. Click an option to check your answer. Want all 15 in one sitting? Take the <a href="/traps/#quiz" style="color:var(--accent);">full trap quiz on the hub page</a>.</p>
+  ${quizHtml}` : ''}
+
+  ${meta.grammar.length ? `<div style="margin-top:24px;padding:14px 18px;background:var(--jade-soft);border-radius:8px;font-size:14px;">
+    \u{1F527} Full grammar treatment: ${meta.grammar.map(g => `<a href="${g}" style="color:var(--jade);font-weight:600;">${g}</a>`).join(' · ')}
+  </div>` : ''}
+
+  ${relatedHtml ? `<section style="margin-top:32px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;">Related / 相关内容</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;">${relatedHtml}</div>
+  </section>` : ''}
+
+  <div class="cat-nav">
+    <a href="/traps/${prev.slug}/" class="btn btn-ghost">← ${escHtml(prev.name_en)}</a>
+    <a href="/traps/" class="btn btn-secondary">All 15 Traps</a>
+    <a href="/traps/${next.slug}/" class="btn btn-ghost">${escHtml(next.name_en)} →</a>
+  </div>
+${MOCK_CTA}
+</main>
+${DRILL_FOOTER}
+<script>
+window.trapAnswer = function(btn, isCorrect, qNum) {
+  var item = btn.closest('.trap-quiz-item');
+  if (item.dataset.done) return;
+  item.dataset.done = '1';
+  item.querySelectorAll('.tq-opt').forEach(function(o) {
+    o.classList.add('disabled');
+    if (o.dataset.correct === '1') o.classList.add('correct');
+  });
+  if (!isCorrect) btn.classList.add('wrong');
+  item.querySelector('.tq-explain').style.display = 'block';
+};
+</script>
+</body>
+</html>`;
+
+    const dir = path.join(ROOT, 'traps', cat.slug);
+    ensureDir(dir);
+    fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+  });
+
+  // Inject category nav into the hub (idempotent markers).
+  const hubPath = path.join(ROOT, 'traps', 'index.html');
+  let hub = fs.readFileSync(hubPath, 'utf8');
+  hub = hub.replace(/\s*<!-- TRAP CATEGORY NAV -->[\s\S]*?<!-- \/TRAP CATEGORY NAV -->/g, '');
+  const navCards = cats.map(c => `
+      <a href="/traps/${c.slug}/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+        <div style="font-size:14px;font-weight:600;">${c.letter}. ${escHtml(c.name_en)} <span class="chinese" style="color:var(--stone);font-weight:400;">${escHtml(c.name_cn)}</span></div>
+        <div style="font-size:12px;color:var(--accent);margin-top:4px;">${c.traps.length} ${c.traps.length === 1 ? 'trap' : 'traps'} + focused quiz →</div>
+      </a>`).join('');
+  const navBlock = `\n  <!-- TRAP CATEGORY NAV -->
+  <section style="margin:24px 0 32px;">
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;">Deep-dive by category / 分类精学</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));gap:12px;">${navCards}
+    </div>
+  </section>
+  <!-- /TRAP CATEGORY NAV -->\n`;
+  hub = hub.replace(/(<h2 class="category-h2">A\.)/, navBlock + '$1');
+  fs.writeFileSync(hubPath, hub, 'utf8');
+
+  console.log(`[trap-cats] Generated ${cats.length} category pages + hub nav`);
+  return cats.map(c => ({ loc: `/traps/${c.slug}/`, priority: '0.7' }));
+}
+
+
 buildVocabulary();
 buildTestPages();
 buildHomepage();
@@ -3654,6 +4244,8 @@ const confusableSlugs = buildConfusablePages();
 const grammarPatternSlugs = buildGrammarPatternPages();
 buildGrammarPatternsHub();
 const characterList = buildCharacterPages();
+const sentenceCatPages = buildSentenceCategoryPages();
+const trapCatPages = buildTrapCategoryPages();
 addTestLinksToHubs();
-buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList);
+buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages]);
 console.log('\nDone! All static content pre-rendered.');

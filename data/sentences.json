@@ -1,0 +1,692 @@
+[
+  {
+    "slug": "express-opinion",
+    "icon": "💭",
+    "name_en": "Express Opinion",
+    "name_cn": "表达观点",
+    "desc": "How to share your view, agree, or disagree politely.",
+    "sentences": [
+      {
+        "cn": "我觉得这件事很有道理。",
+        "py": "Wǒ juéde zhè jiàn shì hěn yǒu dàolǐ.",
+        "en": "I think this matter makes a lot of sense.",
+        "use": "stating personal opinion · variants: 这种做法很有道理 / 这个观点很有道理"
+      },
+      {
+        "cn": "在我看来，最重要的是健康。",
+        "py": "Zài wǒ kàn lái, zuì zhòngyào de shì jiànkāng.",
+        "en": "In my view, the most important thing is health.",
+        "use": "stating priority"
+      },
+      {
+        "cn": "我认为我们应该先解决这个问题。",
+        "py": "Wǒ rènwéi wǒmen yīnggāi xiān jiějué zhège wèntí.",
+        "en": "I believe we should solve this problem first.",
+        "use": "formal opinion"
+      },
+      {
+        "cn": "对我来说，学中文虽然难，但是很有意思。",
+        "py": "Duì wǒ lái shuō, xué Zhōngwén suīrán nán, dànshì hěn yǒu yìsi.",
+        "en": "For me, learning Chinese is hard but very interesting.",
+        "use": "personal experience"
+      },
+      {
+        "cn": "我同意你的看法，不过有一点我有不同的意见。",
+        "py": "Wǒ tóngyì nǐ de kànfǎ, búguò yǒu yì diǎn wǒ yǒu bù tóng de yìjiàn.",
+        "en": "I agree with your view, but I have a different opinion on one point.",
+        "use": "polite disagreement"
+      },
+      {
+        "cn": "其实，每个人都有自己的优点和缺点。",
+        "py": "Qíshí, měi gè rén dōu yǒu zìjǐ de yōudiǎn hé quēdiǎn.",
+        "en": "Actually, everyone has their own strengths and weaknesses.",
+        "use": "general truth"
+      },
+      {
+        "cn": "我相信只要努力就一定会成功。",
+        "py": "Wǒ xiāngxìn zhǐyào nǔlì jiù yídìng huì chénggōng.",
+        "en": "I believe as long as you work hard, you will succeed.",
+        "use": "expressing belief"
+      },
+      {
+        "cn": "从我的经验来看，最好提前做好准备。",
+        "py": "Cóng wǒ de jīngyàn lái kàn, zuìhǎo tíqián zuò hǎo zhǔnbèi.",
+        "en": "From my experience, it is best to prepare in advance.",
+        "use": "advice from experience"
+      },
+      {
+        "cn": "我的看法是，做事情要有耐心。",
+        "py": "Wǒ de kànfǎ shì, zuò shìqíng yào yǒu nàixīn.",
+        "en": "My view is, you need patience to do things.",
+        "use": "stating principle"
+      },
+      {
+        "cn": "说实话，我还没考虑好这个问题。",
+        "py": "Shuō shíhuà, wǒ hái méi kǎolǜ hǎo zhège wèntí.",
+        "en": "Honestly, I haven&#x27;t fully thought through this question yet.",
+        "use": "honest answer"
+      }
+    ]
+  },
+  {
+    "slug": "make-suggestions",
+    "icon": "💡",
+    "name_en": "Make Suggestions",
+    "name_cn": "提出建议",
+    "desc": "Polite recommendations and warnings tested in HSK 4 writing.",
+    "sentences": [
+      {
+        "cn": "我建议你先听听老师的意见，再做决定。",
+        "py": "Wǒ jiànyì nǐ xiān tīng tīng lǎoshī de yìjiàn, zài zuò juédìng.",
+        "en": "I suggest you listen to the teacher first before deciding.",
+        "use": "making a suggestion"
+      },
+      {
+        "cn": "你最好提前告诉他，免得他着急。",
+        "py": "Nǐ zuì hǎo tíqián gàosu tā, miǎnde tā zháojí.",
+        "en": "You&#x27;d better tell him in advance, so he doesn&#x27;t worry.",
+        "use": "preventive advice"
+      },
+      {
+        "cn": "为了身体健康，我们应该多锻炼。",
+        "py": "Wèile shēntǐ jiànkāng, wǒmen yīnggāi duō duànliàn.",
+        "en": "For our health, we should exercise more.",
+        "use": "general health advice"
+      },
+      {
+        "cn": "你不如先休息一下，再继续工作吧。",
+        "py": "Nǐ bùrú xiān xiūxi yíxià, zài jìxù gōngzuò ba.",
+        "en": "You&#x27;d better rest first before continuing to work.",
+        "use": "softer suggestion"
+      },
+      {
+        "cn": "千万不要熬夜，对身体不好。",
+        "py": "Qiānwàn bú yào áoyè, duì shēntǐ bù hǎo.",
+        "en": "Whatever you do, don&#x27;t stay up late — it&#x27;s bad for your health.",
+        "use": "strong warning"
+      },
+      {
+        "cn": "如果有问题，可以随时联系我。",
+        "py": "Rúguǒ yǒu wèntí, kěyǐ suíshí liánxì wǒ.",
+        "en": "If you have questions, you can contact me anytime.",
+        "use": "offering help"
+      },
+      {
+        "cn": "我觉得你应该试试这种方法，效果可能会更好。",
+        "py": "Wǒ juéde nǐ yīnggāi shì shi zhè zhǒng fāngfǎ, xiàoguǒ kěnéng huì gèng hǎo.",
+        "en": "I think you should try this method — the result might be better.",
+        "use": "recommending alternative"
+      },
+      {
+        "cn": "建议大家平时多积累一些经验。",
+        "py": "Jiànyì dàjiā píngshí duō jīlěi yìxiē jīngyàn.",
+        "en": "I suggest everyone accumulate more experience in daily life.",
+        "use": "general advice"
+      },
+      {
+        "cn": "你可以问问别人，也许他们有更好的办法。",
+        "py": "Nǐ kěyǐ wèn wèn biérén, yěxǔ tāmen yǒu gèng hǎo de bànfǎ.",
+        "en": "You can ask others — they may have better ideas.",
+        "use": "consulting others"
+      },
+      {
+        "cn": "最重要的是不要放弃，坚持下去就会有结果。",
+        "py": "Zuì zhòngyào de shì bú yào fàngqì, jiānchí xiàqù jiù huì yǒu jiéguǒ.",
+        "en": "The most important thing is not to give up — keep going and you will see results.",
+        "use": "encouragement"
+      }
+    ]
+  },
+  {
+    "slug": "cause-effect",
+    "icon": "🔗",
+    "name_en": "Cause & Effect",
+    "name_cn": "因果关系",
+    "desc": "因为/由于/所以/因此 patterns for explanations.",
+    "sentences": [
+      {
+        "cn": "因为下大雨，所以我们决定不去公园了。",
+        "py": "Yīnwèi xià dà yǔ, suǒyǐ wǒmen juédìng bú qù gōngyuán le.",
+        "en": "Because it was raining heavily, we decided not to go to the park.",
+        "use": "explaining decision"
+      },
+      {
+        "cn": "由于天气原因，今天的活动取消了。",
+        "py": "Yóuyú tiānqì yuányīn, jīntiān de huódòng qǔxiāo le.",
+        "en": "Due to the weather, today&#x27;s activity has been cancelled.",
+        "use": "formal explanation"
+      },
+      {
+        "cn": "之所以失败，是因为我们准备得不够充分。",
+        "py": "Zhī suǒyǐ shībài, shì yīnwèi wǒmen zhǔnbèi de bú gòu chōngfèn.",
+        "en": "The reason we failed is that we didn&#x27;t prepare adequately.",
+        "use": "advanced explanation"
+      },
+      {
+        "cn": "既然你已经决定了，我就不再说什么了。",
+        "py": "Jìrán nǐ yǐjīng juédìng le, wǒ jiù bú zài shuō shénme le.",
+        "en": "Since you&#x27;ve already decided, I won&#x27;t say more.",
+        "use": "given/since pattern"
+      },
+      {
+        "cn": "这件事的结果让所有人都很满意。",
+        "py": "Zhè jiàn shì de jiéguǒ ràng suǒyǒu rén dōu hěn mǎnyì.",
+        "en": "The outcome of this matter has made everyone very satisfied.",
+        "use": "describing result"
+      },
+      {
+        "cn": "为了准备考试，他每天学习到很晚。",
+        "py": "Wèile zhǔnbèi kǎoshì, tā měi tiān xuéxí dào hěn wǎn.",
+        "en": "In order to prepare for the exam, he studies until very late every day.",
+        "use": "purpose"
+      },
+      {
+        "cn": "因此，我们应该更加重视这个问题。",
+        "py": "Yīncǐ, wǒmen yīnggāi gèng jiā zhòngshì zhège wèntí.",
+        "en": "Therefore, we should pay more attention to this issue.",
+        "use": "drawing conclusion"
+      },
+      {
+        "cn": "他说话很有道理，所以大家都听他的。",
+        "py": "Tā shuō huà hěn yǒu dàolǐ, suǒyǐ dàjiā dōu tīng tā de.",
+        "en": "What he says makes sense, so everyone listens to him.",
+        "use": "explaining behavior"
+      },
+      {
+        "cn": "由于他的努力，公司的效率提高了很多。",
+        "py": "Yóuyú tā de nǔlì, gōngsī de xiàolǜ tígāo le hěn duō.",
+        "en": "Thanks to his efforts, the company&#x27;s efficiency has improved a lot.",
+        "use": "attributing result"
+      },
+      {
+        "cn": "我们之所以选择这家公司，是因为它的服务好。",
+        "py": "Wǒmen zhī suǒyǐ xuǎnzé zhè jiā gōngsī, shì yīnwèi tā de fúwù hǎo.",
+        "en": "The reason we chose this company is its good service.",
+        "use": "explaining choice"
+      }
+    ]
+  },
+  {
+    "slug": "contrast-concession",
+    "icon": "↔",
+    "name_en": "Contrast & Concession",
+    "name_cn": "转折让步",
+    "desc": "虽然/尽管/即使/不过 — show two sides.",
+    "sentences": [
+      {
+        "cn": "虽然他很累，但是还在坚持工作。",
+        "py": "Suīrán tā hěn lèi, dànshì hái zài jiānchí gōngzuò.",
+        "en": "Although he is tired, he is still working hard.",
+        "use": "concession"
+      },
+      {
+        "cn": "尽管下着大雨，他还是按时来上班了。",
+        "py": "Jǐnguǎn xià zhe dà yǔ, tā háishi ànshí lái shàngbān le.",
+        "en": "Despite the heavy rain, he still came to work on time.",
+        "use": "stronger concession"
+      },
+      {
+        "cn": "即使遇到困难，我也不会放弃。",
+        "py": "Jíshǐ yùdào kùnnán, wǒ yě bú huì fàngqì.",
+        "en": "Even if I encounter difficulties, I will not give up.",
+        "use": "hypothetical concession"
+      },
+      {
+        "cn": "他的中文虽然不太流利，但是发音很标准。",
+        "py": "Tā de Zhōngwén suīrán bú tài liúlì, dànshì fāyīn hěn biāozhǔn.",
+        "en": "Although his Chinese is not very fluent, his pronunciation is very standard.",
+        "use": "balanced contrast"
+      },
+      {
+        "cn": "其实事情没有想象的那么严重。",
+        "py": "Qíshí shìqíng méiyǒu xiǎngxiàng de nàme yánzhòng.",
+        "en": "Actually, the matter is not as serious as imagined.",
+        "use": "softening reality"
+      },
+      {
+        "cn": "不过，这个办法也有一些缺点。",
+        "py": "Búguò, zhège bànfǎ yě yǒu yìxiē quēdiǎn.",
+        "en": "However, this method also has some shortcomings.",
+        "use": "noting drawback"
+      },
+      {
+        "cn": "无论遇到什么困难，我们都要坚持到底。",
+        "py": "Wúlùn yùdào shénme kùnnán, wǒmen dōu yào jiānchí dàodǐ.",
+        "en": "No matter what difficulties we encounter, we must persist to the end.",
+        "use": "regardless statement"
+      },
+      {
+        "cn": "不管多忙，他每天都会陪孩子玩一会儿。",
+        "py": "Bùguǎn duō máng, tā měi tiān dōu huì péi háizi wán yíhuìr.",
+        "en": "No matter how busy he is, he plays with his child every day.",
+        "use": "regardless habit"
+      },
+      {
+        "cn": "可是我没想到结果会这样。",
+        "py": "Kěshì wǒ méi xiǎngdào jiéguǒ huì zhèyàng.",
+        "en": "But I didn&#x27;t expect the outcome would be like this.",
+        "use": "expressing surprise"
+      },
+      {
+        "cn": "然而，事实并不像他说的那么简单。",
+        "py": "Rán&#x27;ér, shìshí bìng bú xiàng tā shuō de nàme jiǎndān.",
+        "en": "However, the fact is not as simple as he said.",
+        "use": "formal contrast"
+      }
+    ]
+  },
+  {
+    "slug": "describe-change",
+    "icon": "📈",
+    "name_en": "Describe Change",
+    "name_cn": "描述变化",
+    "desc": "随着/越来越/比以前 patterns for time-based change.",
+    "sentences": [
+      {
+        "cn": "随着时间的变化，他变得越来越成熟了。",
+        "py": "Suízhe shíjiān de biànhuà, tā biàn de yuè lái yuè chéngshú le.",
+        "en": "Over time, he has become more and more mature.",
+        "use": "gradual change"
+      },
+      {
+        "cn": "近几年，中国的发展非常快。",
+        "py": "Jìn jǐ nián, Zhōngguó de fāzhǎn fēicháng kuài.",
+        "en": "In recent years, China&#x27;s development has been very fast.",
+        "use": "recent trend"
+      },
+      {
+        "cn": "现在的年轻人和以前不太一样了。",
+        "py": "Xiànzài de niánqīngrén hé yǐqián bú tài yíyàng le.",
+        "en": "Today&#x27;s young people are different from before.",
+        "use": "generational change"
+      },
+      {
+        "cn": "天气越来越冷，注意多穿点衣服。",
+        "py": "Tiānqì yuè lái yuè lěng, zhùyì duō chuān diǎn yīfu.",
+        "en": "The weather is getting colder — make sure to dress warmly.",
+        "use": "weather change"
+      },
+      {
+        "cn": "他的汉语水平比以前提高了很多。",
+        "py": "Tā de Hànyǔ shuǐpíng bǐ yǐqián tígāo le hěn duō.",
+        "en": "His Chinese level has improved a lot compared to before.",
+        "use": "improvement"
+      },
+      {
+        "cn": "这座城市的样子比十年前完全不同了。",
+        "py": "Zhè zuò chéngshì de yàngzi bǐ shí nián qián wánquán bùtóng le.",
+        "en": "This city looks completely different from ten years ago.",
+        "use": "long-term change"
+      },
+      {
+        "cn": "随着科技的发展，人们的生活越来越方便。",
+        "py": "Suízhe kējì de fāzhǎn, rénmen de shēnghuó yuè lái yuè fāngbiàn.",
+        "en": "With the development of technology, life becomes more convenient.",
+        "use": "tech impact"
+      },
+      {
+        "cn": "她的脾气最近变好了很多。",
+        "py": "Tā de píqì zuìjìn biàn hǎo le hěn duō.",
+        "en": "Her temper has gotten much better recently.",
+        "use": "personal change"
+      },
+      {
+        "cn": "公司的政策最近做了一些调整。",
+        "py": "Gōngsī de zhèngcè zuìjìn zuò le yìxiē tiáozhěng.",
+        "en": "The company&#x27;s policy has been adjusted recently.",
+        "use": "organizational change"
+      },
+      {
+        "cn": "经过这次失败，他变得更加坚强了。",
+        "py": "Jīngguò zhè cì shībài, tā biàn de gèng jiā jiānqiáng le.",
+        "en": "After this failure, he has become even stronger.",
+        "use": "experience-driven change"
+      }
+    ]
+  },
+  {
+    "slug": "comparison",
+    "icon": "⚖",
+    "name_en": "Comparison",
+    "name_cn": "比较",
+    "desc": "比/不如/跟…一样 patterns. Heavy on HSK 4 reading.",
+    "sentences": [
+      {
+        "cn": "和他相比，我还有很多需要学习的地方。",
+        "py": "Hé tā xiāng bǐ, wǒ hái yǒu hěn duō xūyào xuéxí de dìfang.",
+        "en": "Compared to him, I still have a lot to learn.",
+        "use": "humble comparison"
+      },
+      {
+        "cn": "这个方法比那个方法效果好得多。",
+        "py": "Zhège fāngfǎ bǐ nàge fāngfǎ xiàoguǒ hǎo de duō.",
+        "en": "This method is much more effective than that one.",
+        "use": "method comparison"
+      },
+      {
+        "cn": "今年的天气没有去年那么冷。",
+        "py": "Jīnnián de tiānqì méiyǒu qùnián nàme lěng.",
+        "en": "This year&#x27;s weather is not as cold as last year.",
+        "use": "negative comparison"
+      },
+      {
+        "cn": "他的中文跟中国人一样流利。",
+        "py": "Tā de Zhōngwén gēn Zhōngguórén yíyàng liúlì.",
+        "en": "His Chinese is as fluent as a native speaker&#x27;s.",
+        "use": "equality comparison"
+      },
+      {
+        "cn": "我的工资不如他高，但是工作比较轻松。",
+        "py": "Wǒ de gōngzī bùrú tā gāo, dànshì gōngzuò bǐjiào qīngsōng.",
+        "en": "My salary is not as high as his, but the work is relatively easy.",
+        "use": "balanced comparison"
+      },
+      {
+        "cn": "比起去年，今年的销售额增加了百分之三十。",
+        "py": "Bǐ qǐ qùnián, jīnnián de xiāoshòu&#x27;é zēngjiā le bǎi fēn zhī sānshí.",
+        "en": "Compared to last year, sales have increased by 30% this year.",
+        "use": "data comparison"
+      },
+      {
+        "cn": "和城市相比，农村的生活更安静。",
+        "py": "Hé chéngshì xiāng bǐ, nóngcūn de shēnghuó gèng ānjìng.",
+        "en": "Compared with the city, life in the countryside is quieter.",
+        "use": "lifestyle comparison"
+      },
+      {
+        "cn": "这次考试比上次难一些。",
+        "py": "Zhè cì kǎoshì bǐ shàng cì nán yìxiē.",
+        "en": "This exam is a bit harder than the last one.",
+        "use": "test comparison"
+      },
+      {
+        "cn": "他比我大三岁。",
+        "py": "Tā bǐ wǒ dà sān suì.",
+        "en": "He is three years older than me.",
+        "use": "age comparison"
+      },
+      {
+        "cn": "我觉得这本书没有那本书有意思。",
+        "py": "Wǒ juéde zhè běn shū méiyǒu nà běn shū yǒu yìsi.",
+        "en": "I think this book is not as interesting as that one.",
+        "use": "preference"
+      }
+    ]
+  },
+  {
+    "slug": "describe-people",
+    "icon": "👤",
+    "name_en": "Describe People",
+    "name_cn": "描述人物",
+    "desc": "Profession, character, appearance — for the writing section.",
+    "sentences": [
+      {
+        "cn": "他是一个非常有责任感的人。",
+        "py": "Tā shì yí gè fēicháng yǒu zérèngǎn de rén.",
+        "en": "He is a very responsible person.",
+        "use": "character description"
+      },
+      {
+        "cn": "她长得很漂亮，性格也很开朗。",
+        "py": "Tā zhǎng de hěn piàoliang, xìnggé yě hěn kāilǎng.",
+        "en": "She is pretty and has a cheerful personality.",
+        "use": "appearance + personality"
+      },
+      {
+        "cn": "他对工作很认真，从来不马虎。",
+        "py": "Tā duì gōngzuò hěn rènzhēn, cónglái bù mǎhu.",
+        "en": "He is very serious about his work and never careless.",
+        "use": "work attitude"
+      },
+      {
+        "cn": "我父亲是一名医生，已经工作了三十年了。",
+        "py": "Wǒ fùqīn shì yì míng yīshēng, yǐjīng gōngzuò le sānshí nián le.",
+        "en": "My father is a doctor and has been working for thirty years.",
+        "use": "profession + duration"
+      },
+      {
+        "cn": "她不仅聪明，而且很善良。",
+        "py": "Tā bùjǐn cōngmíng, érqiě hěn shànliáng.",
+        "en": "She is not only smart but also kind.",
+        "use": "double virtue"
+      },
+      {
+        "cn": "他这个人很幽默，跟他在一起总是很开心。",
+        "py": "Tā zhège rén hěn yōumò, gēn tā zài yìqǐ zǒngshì hěn kāixīn.",
+        "en": "He has a great sense of humor — being with him is always fun.",
+        "use": "humorous person"
+      },
+      {
+        "cn": "他对人很热情，谁有困难他都愿意帮忙。",
+        "py": "Tā duì rén hěn rèqíng, shéi yǒu kùnnán tā dōu yuànyì bāngmáng.",
+        "en": "He is warm to people and willing to help anyone in trouble.",
+        "use": "kind person"
+      },
+      {
+        "cn": "李教授是一位很有名的语言学家。",
+        "py": "Lǐ jiàoshòu shì yí wèi hěn yǒumíng de yǔyán xué jiā.",
+        "en": "Professor Li is a very famous linguist.",
+        "use": "introducing professional"
+      },
+      {
+        "cn": "我哥哥比我高，性格也比我活泼。",
+        "py": "Wǒ gēge bǐ wǒ gāo, xìnggé yě bǐ wǒ huópō.",
+        "en": "My older brother is taller and more lively than me.",
+        "use": "comparing siblings"
+      },
+      {
+        "cn": "他给我留下了非常深的印象。",
+        "py": "Tā gěi wǒ liú xià le fēicháng shēn de yìnxiàng.",
+        "en": "He left a very deep impression on me.",
+        "use": "first impression"
+      }
+    ]
+  },
+  {
+    "slug": "time-expressions",
+    "icon": "⏰",
+    "name_en": "Time Expressions",
+    "name_cn": "时间表达",
+    "desc": "Duration, sequence, frequency — common in listening.",
+    "sentences": [
+      {
+        "cn": "我刚到家就接到了她的电话。",
+        "py": "Wǒ gāng dào jiā jiù jiē dào le tā de diànhuà.",
+        "en": "I had just gotten home when I got her call.",
+        "use": "right after"
+      },
+      {
+        "cn": "再过一个星期就是中秋节了。",
+        "py": "Zài guò yí gè xīngqī jiùshì Zhōngqiū Jié le.",
+        "en": "In another week it will be Mid-Autumn Festival.",
+        "use": "future event"
+      },
+      {
+        "cn": "等我做完作业，我们就出去玩。",
+        "py": "Děng wǒ zuò wán zuòyè, wǒmen jiù chū qù wán.",
+        "en": "Once I finish my homework, we will go out to play.",
+        "use": "after completion"
+      },
+      {
+        "cn": "我已经在这里工作了五年了。",
+        "py": "Wǒ yǐjīng zài zhèlǐ gōngzuò le wǔ nián le.",
+        "en": "I have already been working here for five years.",
+        "use": "duration"
+      },
+      {
+        "cn": "他从来没有迟到过。",
+        "py": "Tā cónglái méiyǒu chídào guò.",
+        "en": "He has never been late.",
+        "use": "never (past)"
+      },
+      {
+        "cn": "明天早上8点准时出发，请大家不要迟到。",
+        "py": "Míngtiān zǎoshang bā diǎn zhǔnshí chūfā, qǐng dàjiā bú yào chídào.",
+        "en": "We will depart at 8 AM tomorrow morning sharp — please don&#x27;t be late.",
+        "use": "scheduled time"
+      },
+      {
+        "cn": "他在中国住了三年多了。",
+        "py": "Tā zài Zhōngguó zhù le sān nián duō le.",
+        "en": "He has lived in China for over three years.",
+        "use": "more than"
+      },
+      {
+        "cn": "我每天早上六点起床，七点出门。",
+        "py": "Wǒ měi tiān zǎoshang liù diǎn qǐchuáng, qī diǎn chūmén.",
+        "en": "I get up at 6 AM and leave home at 7 every day.",
+        "use": "daily routine"
+      },
+      {
+        "cn": "经过半年的努力，他终于通过了考试。",
+        "py": "Jīngguò bàn nián de nǔlì, tā zhōngyú tōngguò le kǎoshì.",
+        "en": "After half a year of hard work, he finally passed the exam.",
+        "use": "after effort"
+      },
+      {
+        "cn": "时间过得真快，转眼就到春天了。",
+        "py": "Shíjiān guò de zhēn kuài, zhuǎnyǎn jiù dào chūntiān le.",
+        "en": "Time flies — in the blink of an eye it&#x27;s spring.",
+        "use": "time flies"
+      }
+    ]
+  },
+  {
+    "slug": "express-feelings",
+    "icon": "❤",
+    "name_en": "Express Feelings",
+    "name_cn": "表达感受",
+    "desc": "感到/觉得/让 — emotions tested in attitude questions.",
+    "sentences": [
+      {
+        "cn": "听到这个消息，我感到非常高兴。",
+        "py": "Tīng dào zhège xiāoxi, wǒ gǎndào fēicháng gāoxìng.",
+        "en": "I felt very happy to hear this news.",
+        "use": "happiness"
+      },
+      {
+        "cn": "看到他难过的样子，我也很心疼。",
+        "py": "Kàn dào tā nánguò de yàngzi, wǒ yě hěn xīnténg.",
+        "en": "Seeing him sad, I also feel sorry for him.",
+        "use": "sympathy"
+      },
+      {
+        "cn": "这件事让我很感动。",
+        "py": "Zhè jiàn shì ràng wǒ hěn gǎndòng.",
+        "en": "This matter really touched me.",
+        "use": "moved"
+      },
+      {
+        "cn": "考试前他非常紧张，几乎睡不着觉。",
+        "py": "Kǎoshì qián tā fēicháng jǐnzhāng, jīhū shuì bù zháo jiào.",
+        "en": "Before the exam he was very nervous, almost couldn&#x27;t sleep.",
+        "use": "nervousness"
+      },
+      {
+        "cn": "对于这次的成绩，我感到很满意。",
+        "py": "Duìyú zhè cì de chéngjì, wǒ gǎndào hěn mǎnyì.",
+        "en": "I feel very satisfied with the result this time.",
+        "use": "satisfaction"
+      },
+      {
+        "cn": "我真的很羡慕你能去那么多地方旅游。",
+        "py": "Wǒ zhēn de hěn xiànmù nǐ néng qù nàme duō dìfang lǚyóu.",
+        "en": "I really envy that you can travel to so many places.",
+        "use": "envy"
+      },
+      {
+        "cn": "失败了不要难过，下次努力就好了。",
+        "py": "Shībài le bú yào nánguò, xià cì nǔlì jiù hǎo le.",
+        "en": "Don&#x27;t be sad about failure — just try harder next time.",
+        "use": "comforting"
+      },
+      {
+        "cn": "他的成功让大家都感到骄傲。",
+        "py": "Tā de chénggōng ràng dàjiā dōu gǎndào jiāo&#x27;ào.",
+        "en": "His success makes everyone feel proud.",
+        "use": "pride"
+      },
+      {
+        "cn": "听到他要离开公司，大家都很意外。",
+        "py": "Tīng dào tā yào líkāi gōngsī, dàjiā dōu hěn yìwài.",
+        "en": "Everyone was very surprised to hear he was leaving the company.",
+        "use": "surprise"
+      },
+      {
+        "cn": "我对自己当时的决定感到后悔。",
+        "py": "Wǒ duì zìjǐ dāngshí de juédìng gǎndào hòuhuǐ.",
+        "en": "I regret the decision I made at that time.",
+        "use": "regret"
+      }
+    ]
+  },
+  {
+    "slug": "summary-conclusion",
+    "icon": "✓",
+    "name_en": "Summary & Conclusion",
+    "name_cn": "总结",
+    "desc": "总之/总的来说/通过 — close any speech or essay.",
+    "sentences": [
+      {
+        "cn": "总之，做事要有计划，不能太着急。",
+        "py": "Zǒngzhī, zuò shì yào yǒu jìhuà, bù néng tài zháojí.",
+        "en": "In short, you need a plan when doing things — you can&#x27;t rush.",
+        "use": "general conclusion"
+      },
+      {
+        "cn": "总的来说，这次旅行还是很愉快的。",
+        "py": "Zǒng de lái shuō, zhè cì lǚxíng háishi hěn yúkuài de.",
+        "en": "Overall, this trip was very pleasant.",
+        "use": "overall summary"
+      },
+      {
+        "cn": "通过这次经历，我学到了很多东西。",
+        "py": "Tōngguò zhè cì jīnglì, wǒ xué dào le hěn duō dōngxi.",
+        "en": "Through this experience, I learned a lot.",
+        "use": "lesson learned"
+      },
+      {
+        "cn": "由此可见，努力是成功的关键。",
+        "py": "Yóu cǐ kě jiàn, nǔlì shì chénggōng de guānjiàn.",
+        "en": "From this we can see that effort is the key to success.",
+        "use": "drawing conclusion"
+      },
+      {
+        "cn": "总而言之，我们应该重视环境保护。",
+        "py": "Zǒng ér yán zhī, wǒmen yīnggāi zhòngshì huánjìng bǎohù.",
+        "en": "All in all, we should attach importance to environmental protection.",
+        "use": "formal summary"
+      },
+      {
+        "cn": "这就是我对这个问题的看法。",
+        "py": "Zhè jiùshì wǒ duì zhège wèntí de kànfǎ.",
+        "en": "This is my view on this question.",
+        "use": "ending opinion"
+      },
+      {
+        "cn": "希望大家能够从中学到一些经验。",
+        "py": "Xīwàng dàjiā nénggòu cóng zhōng xué dào yìxiē jīngyàn.",
+        "en": "I hope everyone can learn some experience from this.",
+        "use": "expressing hope"
+      },
+      {
+        "cn": "最后，我想感谢所有帮助过我的人。",
+        "py": "Zuìhòu, wǒ xiǎng gǎnxiè suǒyǒu bāngzhù guò wǒ de rén.",
+        "en": "Finally, I want to thank everyone who has helped me.",
+        "use": "ending speech"
+      },
+      {
+        "cn": "这个故事告诉我们，做事要坚持到底。",
+        "py": "Zhège gùshi gàosu wǒmen, zuò shì yào jiānchí dàodǐ.",
+        "en": "This story tells us that we should persist to the end in doing things.",
+        "use": "moral of story"
+      },
+      {
+        "cn": "总之，这件事给了我们很大的启发。",
+        "py": "Zǒngzhī, zhè jiàn shì gěi le wǒmen hěn dà de qǐfā.",
+        "en": "In short, this matter gave us a great inspiration.",
+        "use": "ending with inspiration"
+      }
+    ]
+  }
+]

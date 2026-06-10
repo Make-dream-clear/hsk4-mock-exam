@@ -1,0 +1,1457 @@
+[
+ {
+  "char": "按",
+  "pinyin": "àn",
+  "meaning": "to press; according to"
+ },
+ {
+  "char": "案",
+  "pinyin": "àn",
+  "meaning": "file; record; legal case"
+ },
+ {
+  "char": "傲",
+  "pinyin": "ào",
+  "meaning": "proud; arrogant"
+ },
+ {
+  "char": "败",
+  "pinyin": "bài",
+  "meaning": "to be defeated; to fail"
+ },
+ {
+  "char": "棒",
+  "pinyin": "bàng",
+  "meaning": "great; excellent; awesome"
+ },
+ {
+  "char": "倍",
+  "pinyin": "bèi",
+  "meaning": "times; -fold (multiplier)"
+ },
+ {
+  "char": "笨",
+  "pinyin": "bèn",
+  "meaning": "stupid; dull"
+ },
+ {
+  "char": "鼻",
+  "pinyin": "bí",
+  "meaning": "nose"
+ },
+ {
+  "char": "毕",
+  "pinyin": "bì",
+  "meaning": "to finish; to complete"
+ },
+ {
+  "char": "饼",
+  "pinyin": "bǐng",
+  "meaning": "flat cake; biscuit"
+ },
+ {
+  "char": "播",
+  "pinyin": "bō",
+  "meaning": "to broadcast; to sow"
+ },
+ {
+  "char": "博",
+  "pinyin": "bó",
+  "meaning": "extensive; rich; broad"
+ },
+ {
+  "char": "膊",
+  "pinyin": "bó",
+  "meaning": "arm (as in 胳膊)"
+ },
+ {
+  "char": "擦",
+  "pinyin": "cā",
+  "meaning": "to wipe; to rub"
+ },
+ {
+  "char": "猜",
+  "pinyin": "cāi",
+  "meaning": "to guess"
+ },
+ {
+  "char": "材",
+  "pinyin": "cái",
+  "meaning": "material; timber"
+ },
+ {
+  "char": "彩",
+  "pinyin": "cǎi",
+  "meaning": "color; splendor"
+ },
+ {
+  "char": "操",
+  "pinyin": "cāo",
+  "meaning": "to hold; to drill; exercise"
+ },
+ {
+  "char": "厕",
+  "pinyin": "cè",
+  "meaning": "toilet; lavatory"
+ },
+ {
+  "char": "察",
+  "pinyin": "chá",
+  "meaning": "to observe; to examine"
+ },
+ {
+  "char": "诚",
+  "pinyin": "chéng",
+  "meaning": "sincere; honest"
+ },
+ {
+  "char": "乘",
+  "pinyin": "chéng",
+  "meaning": "to ride; to take (transport); to multiply"
+ },
+ {
+  "char": "厨",
+  "pinyin": "chú",
+  "meaning": "kitchen"
+ },
+ {
+  "char": "础",
+  "pinyin": "chǔ",
+  "meaning": "foundation; base"
+ },
+ {
+  "char": "窗",
+  "pinyin": "chuāng",
+  "meaning": "window"
+ },
+ {
+  "char": "粗",
+  "pinyin": "cū",
+  "meaning": "thick; coarse; rough"
+ },
+ {
+  "char": "存",
+  "pinyin": "cún",
+  "meaning": "to save; to store; to deposit"
+ },
+ {
+  "char": "待",
+  "pinyin": "dāi",
+  "meaning": "to stay; to remain"
+ },
+ {
+  "char": "袋",
+  "pinyin": "dài",
+  "meaning": "bag; sack; pouch"
+ },
+ {
+  "char": "戴",
+  "pinyin": "dài",
+  "meaning": "to wear (accessorie s); to put on"
+ },
+ {
+  "char": "弹",
+  "pinyin": "tán",
+  "meaning": "to play (a musical instrument)"
+ },
+ {
+  "char": "登",
+  "pinyin": "dēng",
+  "meaning": "to climb; to board; to register"
+ },
+ {
+  "char": "底",
+  "pinyin": "dǐ",
+  "meaning": "bottom; base; end of a period"
+ },
+ {
+  "char": "递",
+  "pinyin": "dì",
+  "meaning": "to hand over; to deliver"
+ },
+ {
+  "char": "订",
+  "pinyin": "dìng",
+  "meaning": "to book; to order"
+ },
+ {
+  "char": "堵",
+  "pinyin": "dǔ",
+  "meaning": "to block; congested"
+ },
+ {
+  "char": "肚",
+  "pinyin": "dù",
+  "meaning": "belly; stomach"
+ },
+ {
+  "char": "顿",
+  "pinyin": "dùn",
+  "meaning": "(measure word: meals); to pause"
+ },
+ {
+  "char": "尔",
+  "pinyin": "ěr",
+  "meaning": "you (literary); so; like that"
+ },
+ {
+  "char": "翻",
+  "pinyin": "fān",
+  "meaning": "to turn over; to translate"
+ },
+ {
+  "char": "费",
+  "pinyin": "fèi",
+  "meaning": "fee; charge; expense"
+ },
+ {
+  "char": "奋",
+  "pinyin": "fèn",
+  "meaning": "to strive; to exert oneself"
+ },
+ {
+  "char": "丰",
+  "pinyin": "fēng",
+  "meaning": "abundant; plentiful"
+ },
+ {
+  "char": "肤",
+  "pinyin": "fū",
+  "meaning": "skin"
+ },
+ {
+  "char": "符",
+  "pinyin": "fú",
+  "meaning": "symbol; to accord with"
+ },
+ {
+  "char": "幅",
+  "pinyin": "fú",
+  "meaning": "(measure word: paintings, cloth)"
+ },
+ {
+  "char": "福",
+  "pinyin": "fú",
+  "meaning": "blessing; good fortune"
+ },
+ {
+  "char": "付",
+  "pinyin": "fù",
+  "meaning": "to pay"
+ },
+ {
+  "char": "负",
+  "pinyin": "fù",
+  "meaning": "to bear; to be responsible; negative"
+ },
+ {
+  "char": "傅",
+  "pinyin": "fù",
+  "meaning": "master; teacher (as in 师傅)"
+ },
+ {
+  "char": "富",
+  "pinyin": "fù",
+  "meaning": "rich; wealthy; abundant"
+ },
+ {
+  "char": "赶",
+  "pinyin": "gǎn",
+  "meaning": "to rush; to chase; to catch up"
+ },
+ {
+  "char": "钢",
+  "pinyin": "gāng",
+  "meaning": "steel"
+ },
+ {
+  "char": "膏",
+  "pinyin": "gāo",
+  "meaning": "paste; cream; ointment"
+ },
+ {
+  "char": "胳",
+  "pinyin": "gē",
+  "meaning": "arm (as in 胳膊)"
+ },
+ {
+  "char": "格",
+  "pinyin": "gé",
+  "meaning": "pattern; standard; character (as in 性格)"
+ },
+ {
+  "char": "功",
+  "pinyin": "gōng",
+  "meaning": "merit; achievement; skill"
+ },
+ {
+  "char": "供",
+  "pinyin": "gōng",
+  "meaning": "to supply; to provide"
+ },
+ {
+  "char": "购",
+  "pinyin": "gòu",
+  "meaning": "to purchase; to buy"
+ },
+ {
+  "char": "估",
+  "pinyin": "gū",
+  "meaning": "to estimate; to assess"
+ },
+ {
+  "char": "姑",
+  "pinyin": "gū",
+  "meaning": "aunt; girl (as in 姑娘)"
+ },
+ {
+  "char": "鼓",
+  "pinyin": "gǔ",
+  "meaning": "drum; to encourage"
+ },
+ {
+  "char": "光",
+  "pinyin": "guāng",
+  "meaning": "light; ray; only; merely"
+ },
+ {
+  "char": "逛",
+  "pinyin": "guàng",
+  "meaning": "to stroll; to wander around"
+ },
+ {
+  "char": "规",
+  "pinyin": "guī",
+  "meaning": "rule; regulation"
+ },
+ {
+  "char": "咳",
+  "pinyin": "ké",
+  "meaning": "to cough"
+ },
+ {
+  "char": "寒",
+  "pinyin": "hán",
+  "meaning": "cold; chilly"
+ },
+ {
+  "char": "汗",
+  "pinyin": "hàn",
+  "meaning": "sweat; perspiration"
+ },
+ {
+  "char": "航",
+  "pinyin": "háng",
+  "meaning": "to navigate; aviation; flight"
+ },
+ {
+  "char": "何",
+  "pinyin": "hé",
+  "meaning": "what; how; why (literary)"
+ },
+ {
+  "char": "盒",
+  "pinyin": "hé",
+  "meaning": "box; case"
+ },
+ {
+  "char": "贺",
+  "pinyin": "hè",
+  "meaning": "to congratulate"
+ },
+ {
+  "char": "厚",
+  "pinyin": "hòu",
+  "meaning": "thick"
+ },
+ {
+  "char": "呼",
+  "pinyin": "hū",
+  "meaning": "to call; to exhale; to shout"
+ },
+ {
+  "char": "互",
+  "pinyin": "hù",
+  "meaning": "mutual; each other"
+ },
+ {
+  "char": "户",
+  "pinyin": "hù",
+  "meaning": "door; household; account"
+ },
+ {
+  "char": "怀",
+  "pinyin": "huái",
+  "meaning": "bosom; to cherish; to doubt (as in 怀疑)"
+ },
+ {
+  "char": "悔",
+  "pinyin": "huǐ",
+  "meaning": "to regret"
+ },
+ {
+  "char": "伙",
+  "pinyin": "huǒ",
+  "meaning": "partner; group (as in 小伙子)"
+ },
+ {
+  "char": "货",
+  "pinyin": "huò",
+  "meaning": "goods; cargo; merchandise"
+ },
+ {
+  "char": "获",
+  "pinyin": "huò",
+  "meaning": "to obtain; to win; to harvest"
+ },
+ {
+  "char": "圾",
+  "pinyin": "jī",
+  "meaning": "garbage (as in 垃圾)"
+ },
+ {
+  "char": "积",
+  "pinyin": "jī",
+  "meaning": "to accumulate; to amass"
+ },
+ {
+  "char": "即",
+  "pinyin": "jí",
+  "meaning": "namely; immediately; even if"
+ },
+ {
+  "char": "籍",
+  "pinyin": "jí",
+  "meaning": "registry; nationality (as in 国籍)"
+ },
+ {
+  "char": "纪",
+  "pinyin": "jì",
+  "meaning": "discipline; era; to record"
+ },
+ {
+  "char": "既",
+  "pinyin": "jì",
+  "meaning": "both... (and...); since; already"
+ },
+ {
+  "char": "继",
+  "pinyin": "jì",
+  "meaning": "to continue; to follow after"
+ },
+ {
+  "char": "价",
+  "pinyin": "jià",
+  "meaning": "price; value"
+ },
+ {
+  "char": "减",
+  "pinyin": "jiǎn",
+  "meaning": "to reduce; to subtract"
+ },
+ {
+  "char": "键",
+  "pinyin": "jiàn",
+  "meaning": "key (on keyboard); crucial (as in 关键)"
+ },
+ {
+  "char": "奖",
+  "pinyin": "jiǎng",
+  "meaning": "award; prize"
+ },
+ {
+  "char": "降",
+  "pinyin": "jiàng",
+  "meaning": "to fall; to drop; to land"
+ },
+ {
+  "char": "郊",
+  "pinyin": "jiāo",
+  "meaning": "suburbs; outskirts"
+ },
+ {
+  "char": "骄",
+  "pinyin": "jiāo",
+  "meaning": "proud; arrogant (as in 骄傲)"
+ },
+ {
+  "char": "巾",
+  "pinyin": "jīn",
+  "meaning": "towel; cloth (as in 毛巾)"
+ },
+ {
+  "char": "仅",
+  "pinyin": "jǐn",
+  "meaning": "only; merely"
+ },
+ {
+  "char": "尽",
+  "pinyin": "jǐn / jìn",
+  "meaning": "to the utmost (尽量); to exhaust (尽力)"
+ },
+ {
+  "char": "紧",
+  "pinyin": "jǐn",
+  "meaning": "tight; urgent; nervous"
+ },
+ {
+  "char": "禁",
+  "pinyin": "jìn",
+  "meaning": "to prohibit; to forbid"
+ },
+ {
+  "char": "惊",
+  "pinyin": "jīng",
+  "meaning": "to startle; to surprise"
+ },
+ {
+  "char": "精",
+  "pinyin": "jīng",
+  "meaning": "essence; refined; spirit"
+ },
+ {
+  "char": "景",
+  "pinyin": "jǐng",
+  "meaning": "scenery; view; situation"
+ },
+ {
+  "char": "警",
+  "pinyin": "jǐng",
+  "meaning": "to warn; police (as in 警察)"
+ },
+ {
+  "char": "竞",
+  "pinyin": "jìng",
+  "meaning": "to compete (as in 竞争)"
+ },
+ {
+  "char": "竟",
+  "pinyin": "jìng",
+  "meaning": "unexpectedly; actually (as in 竟然)"
+ },
+ {
+  "char": "镜",
+  "pinyin": "jìng",
+  "meaning": "mirror; lens (as in 镜子)"
+ },
+ {
+  "char": "拒",
+  "pinyin": "jù",
+  "meaning": "to refuse; to reject"
+ },
+ {
+  "char": "具",
+  "pinyin": "jù",
+  "meaning": "tool; to possess; concrete (as in 具体)"
+ },
+ {
+  "char": "剧",
+  "pinyin": "jù",
+  "meaning": "drama; play; severe"
+ },
+ {
+  "char": "距",
+  "pinyin": "jù",
+  "meaning": "distance; to be apart"
+ },
+ {
+  "char": "聚",
+  "pinyin": "jù",
+  "meaning": "to gather; to congregate"
+ },
+ {
+  "char": "绝",
+  "pinyin": "jué",
+  "meaning": "to cut off; absolutely; extreme"
+ },
+ {
+  "char": "烤",
+  "pinyin": "kǎo",
+  "meaning": "to grill; to roast; to bake"
+ },
+ {
+  "char": "棵",
+  "pinyin": "kē",
+  "meaning": "(measure word: trees, plants)"
+ },
+ {
+  "char": "肯",
+  "pinyin": "kěn",
+  "meaning": "to be willing; to consent"
+ },
+ {
+  "char": "恐",
+  "pinyin": "kǒng",
+  "meaning": "to fear; afraid (as in 恐怕)"
+ },
+ {
+  "char": "苦",
+  "pinyin": "kǔ",
+  "meaning": "bitter"
+ },
+ {
+  "char": "垃",
+  "pinyin": "lā",
+  "meaning": "garbage (as in 垃圾)"
+ },
+ {
+  "char": "辣",
+  "pinyin": "là",
+  "meaning": "spicy; hot (taste)"
+ },
+ {
+  "char": "懒",
+  "pinyin": "lǎn",
+  "meaning": "lazy"
+ },
+ {
+  "char": "浪",
+  "pinyin": "làng",
+  "meaning": "wave; unrestrained (as in 浪费/浪漫)"
+ },
+ {
+  "char": "厉",
+  "pinyin": "lì",
+  "meaning": "severe; strict (as in 厉害)"
+ },
+ {
+  "char": "丽",
+  "pinyin": "lì",
+  "meaning": "beautiful (as in 美丽)"
+ },
+ {
+  "char": "励",
+  "pinyin": "lì",
+  "meaning": "to encourage (as in 鼓励)"
+ },
+ {
+  "char": "谅",
+  "pinyin": "liàng",
+  "meaning": "to forgive (as in 原谅)"
+ },
+ {
+  "char": "列",
+  "pinyin": "liè",
+  "meaning": "(measure word:"
+ },
+ {
+  "char": "林",
+  "pinyin": "lín",
+  "meaning": "forest; woods"
+ },
+ {
+  "char": "龄",
+  "pinyin": "líng",
+  "meaning": "age; years (as in 年龄)"
+ },
+ {
+  "char": "乱",
+  "pinyin": "luàn",
+  "meaning": "messy; chaotic; disorderly"
+ },
+ {
+  "char": "落",
+  "pinyin": "luò",
+  "meaning": "to fall; to drop; to lag behind"
+ },
+ {
+  "char": "律",
+  "pinyin": "lǜ",
+  "meaning": "law; rule (as in 法律)"
+ },
+ {
+  "char": "虑",
+  "pinyin": "lǜ",
+  "meaning": "to consider; anxiety (as in 考虑)"
+ },
+ {
+  "char": "馒",
+  "pinyin": "mán",
+  "meaning": "steamed bun (as in 馒头)"
+ },
+ {
+  "char": "漫",
+  "pinyin": "màn",
+  "meaning": "overflowing; free (as in 浪漫)"
+ },
+ {
+  "char": "帽",
+  "pinyin": "mào",
+  "meaning": "hat; cap"
+ },
+ {
+  "char": "貌",
+  "pinyin": "mào",
+  "meaning": "appearance; looks (as in 礼貌/外貌)"
+ },
+ {
+  "char": "梦",
+  "pinyin": "mèng",
+  "meaning": "dream"
+ },
+ {
+  "char": "迷",
+  "pinyin": "mí",
+  "meaning": "to be lost; fan; to fascinate"
+ },
+ {
+  "char": "密",
+  "pinyin": "mì",
+  "meaning": "dense; secret (as in 密码)"
+ },
+ {
+  "char": "免",
+  "pinyin": "miǎn",
+  "meaning": "to exempt; to avoid; free of"
+ },
+ {
+  "char": "秒",
+  "pinyin": "miǎo",
+  "meaning": "second (unit of time)"
+ },
+ {
+  "char": "命",
+  "pinyin": "mìng",
+  "meaning": "life; fate; order"
+ },
+ {
+  "char": "默",
+  "pinyin": "mò",
+  "meaning": "silent; quiet (as in 幽默/默默)"
+ },
+ {
+  "char": "母",
+  "pinyin": "mǔ",
+  "meaning": "mother; female"
+ },
+ {
+  "char": "慕",
+  "pinyin": "mù",
+  "meaning": "to admire; to yearn (as in 羡慕)"
+ },
+ {
+  "char": "耐",
+  "pinyin": "nài",
+  "meaning": "to endure; patient (as in 耐心)"
+ },
+ {
+  "char": "恼",
+  "pinyin": "nǎo",
+  "meaning": "annoyed; vexed (as in 烦恼)"
+ },
+ {
+  "char": "闹",
+  "pinyin": "nào",
+  "meaning": "noisy; to stir up (as in 热闹/闹钟)"
+ },
+ {
+  "char": "嗯",
+  "pinyin": "ǹg",
+  "meaning": "uh-huh; mm (agreement)"
+ },
+ {
+  "char": "娘",
+  "pinyin": "niáng",
+  "meaning": "girl; young woman; mother (as in 姑娘)"
+ },
+ {
+  "char": "暖",
+  "pinyin": "nuǎn",
+  "meaning": "warm (as in 暖和)"
+ },
+ {
+  "char": "偶",
+  "pinyin": "ǒu",
+  "meaning": "by chance (as in 偶尔); even number; idol"
+ },
+ {
+  "char": "判",
+  "pinyin": "pàn",
+  "meaning": "to judge; to decide (as in 判断)"
+ },
+ {
+  "char": "乓",
+  "pinyin": "pāng",
+  "meaning": "pong (as in 乒乓球)"
+ },
+ {
+  "char": "陪",
+  "pinyin": "péi",
+  "meaning": "to accompany; to keep company"
+ },
+ {
+  "char": "批",
+  "pinyin": "pī",
+  "meaning": "to criticize; batch (as in 批评)"
+ },
+ {
+  "char": "皮",
+  "pinyin": "pí",
+  "meaning": "skin; leather; naughty"
+ },
+ {
+  "char": "脾",
+  "pinyin": "pí",
+  "meaning": "spleen; temperament (as in 脾气)"
+ },
+ {
+  "char": "频",
+  "pinyin": "pín",
+  "meaning": "frequency; repeatedly (as in 视频/频道)"
+ },
+ {
+  "char": "聘",
+  "pinyin": "pìn",
+  "meaning": "to hire; to employ (as in 应聘/招聘)"
+ },
+ {
+  "char": "乒",
+  "pinyin": "pīng",
+  "meaning": "ping (as in 乒乓球)"
+ },
+ {
+  "char": "评",
+  "pinyin": "píng",
+  "meaning": "to evaluate; to comment (as in 评价/批评)"
+ },
+ {
+  "char": "泼",
+  "pinyin": "pō",
+  "meaning": "to splash; lively (as in 活泼)"
+ },
+ {
+  "char": "破",
+  "pinyin": "pò",
+  "meaning": "to break; broken; worn out"
+ },
+ {
+  "char": "葡",
+  "pinyin": "pú",
+  "meaning": "grape (as in 葡萄)"
+ },
+ {
+  "char": "戚",
+  "pinyin": "qī",
+  "meaning": "relative (as in 亲戚)"
+ },
+ {
+  "char": "弃",
+  "pinyin": "qì",
+  "meaning": "to abandon; to give up (as in 放弃)"
+ },
+ {
+  "char": "签",
+  "pinyin": "qiān",
+  "meaning": "to sign; label (as in 签证/签字)"
+ },
+ {
+  "char": "歉",
+  "pinyin": "qiàn",
+  "meaning": "apology; regret (as in 抱歉/道歉)"
+ },
+ {
+  "char": "敲",
+  "pinyin": "qiāo",
+  "meaning": "to knock; to tap"
+ },
+ {
+  "char": "桥",
+  "pinyin": "qiáo",
+  "meaning": "bridge"
+ },
+ {
+  "char": "巧",
+  "pinyin": "qiǎo",
+  "meaning": "clever; skillful; coincidental"
+ },
+ {
+  "char": "切",
+  "pinyin": "qiè / qiē",
+  "meaning": "all (一切); to cut (切菜)"
+ },
+ {
+  "char": "亲",
+  "pinyin": "qīn",
+  "meaning": "relative; close; to kiss (as in 亲戚/母亲)"
+ },
+ {
+  "char": "琴",
+  "pinyin": "qín",
+  "meaning": "stringed instrumen t; lute"
+ },
+ {
+  "char": "庆",
+  "pinyin": "qìng",
+  "meaning": "to celebrate (as in 庆祝)"
+ },
+ {
+  "char": "缺",
+  "pinyin": "quē",
+  "meaning": "to lack; to be short of"
+ },
+ {
+  "char": "却",
+  "pinyin": "què",
+  "meaning": "but; yet; however"
+ },
+ {
+  "char": "染",
+  "pinyin": "rǎn",
+  "meaning": "to dye; to pollute (as in 污染)"
+ },
+ {
+  "char": "扰",
+  "pinyin": "rǎo",
+  "meaning": "to disturb (as in 打扰)"
+ },
+ {
+  "char": "仍",
+  "pinyin": "réng",
+  "meaning": "still; yet; as before"
+ },
+ {
+  "char": "散",
+  "pinyin": "sàn",
+  "meaning": "to scatter; to take (a walk, 散步)"
+ },
+ {
+  "char": "森",
+  "pinyin": "sēn",
+  "meaning": "forest; full of trees (as in 森林)"
+ },
+ {
+  "char": "伤",
+  "pinyin": "shāng",
+  "meaning": "wound; to injure; to hurt"
+ },
+ {
+  "char": "稍",
+  "pinyin": "shāo",
+  "meaning": "slightly; a little"
+ },
+ {
+  "char": "摄",
+  "pinyin": "shè",
+  "meaning": "to take in; Celsius (as in 摄氏度); to photograph"
+ },
+ {
+  "char": "申",
+  "pinyin": "shēn",
+  "meaning": "to state; to apply (as in 申请)"
+ },
+ {
+  "char": "甚",
+  "pinyin": "shèn",
+  "meaning": "very; even (as in 甚至)"
+ },
+ {
+  "char": "剩",
+  "pinyin": "shèng",
+  "meaning": "to remain; to be left over"
+ },
+ {
+  "char": "失",
+  "pinyin": "shī",
+  "meaning": "to lose; to fail (as in 失败/失望)"
+ },
+ {
+  "char": "拾",
+  "pinyin": "shí",
+  "meaning": "to pick up; to tidy (as in 收拾)"
+ },
+ {
+  "char": "氏",
+  "pinyin": "shì",
+  "meaning": "clan; family name (as in 摄氏度)"
+ },
+ {
+  "char": "柿",
+  "pinyin": "shì",
+  "meaning": "persimmon (as in 西红柿)"
+ },
+ {
+  "char": "释",
+  "pinyin": "shì",
+  "meaning": "to explain; to release (as in 解释)"
+ },
+ {
+  "char": "匙",
+  "pinyin": "shi / chí",
+  "meaning": "key (钥匙); spoon"
+ },
+ {
+  "char": "首",
+  "pinyin": "shǒu",
+  "meaning": "(measure word: songs, poems)"
+ },
+ {
+  "char": "授",
+  "pinyin": "shòu",
+  "meaning": "to confer; to teach (as in 教授)"
+ },
+ {
+  "char": "售",
+  "pinyin": "shòu",
+  "meaning": "to sell (as in 售货员)"
+ },
+ {
+  "char": "暑",
+  "pinyin": "shǔ",
+  "meaning": "summer heat (as in 暑假)"
+ },
+ {
+  "char": "帅",
+  "pinyin": "shuài",
+  "meaning": "handsome"
+ },
+ {
+  "char": "硕",
+  "pinyin": "shuò",
+  "meaning": "large; master's degree (as in 硕士)"
+ },
+ {
+  "char": "死",
+  "pinyin": "sǐ",
+  "meaning": "to die; dead; extremely (informal)"
+ },
+ {
+  "char": "松",
+  "pinyin": "sōng",
+  "meaning": "pine tree; loose; relaxed (as in 轻松/放松)"
+ },
+ {
+  "char": "嗽",
+  "pinyin": "sòu",
+  "meaning": "to cough (as in 咳嗽)"
+ },
+ {
+  "char": "速",
+  "pinyin": "sù",
+  "meaning": "speed; rapid (as in 速度)"
+ },
+ {
+  "char": "塑",
+  "pinyin": "sù",
+  "meaning": "to mold; plastic (as in 塑料)"
+ },
+ {
+  "char": "酸",
+  "pinyin": "suān",
+  "meaning": "sour; tart"
+ },
+ {
+  "char": "孙",
+  "pinyin": "sūn",
+  "meaning": "grandchild (as in 孙子)"
+ },
+ {
+  "char": "抬",
+  "pinyin": "tái",
+  "meaning": "to lift; to raise"
+ },
+ {
+  "char": "躺",
+  "pinyin": "tǎng",
+  "meaning": "to lie down"
+ },
+ {
+  "char": "趟",
+  "pinyin": "tàng",
+  "meaning": "(measure word: trips, journeys)"
+ },
+ {
+  "char": "萄",
+  "pinyin": "táo",
+  "meaning": "grape (as in 葡萄)"
+ },
+ {
+  "char": "填",
+  "pinyin": "tián",
+  "meaning": "to fill in (as in 填写/填空)"
+ },
+ {
+  "char": "厅",
+  "pinyin": "tīng",
+  "meaning": "hall (as in 餐厅/客厅)"
+ },
+ {
+  "char": "童",
+  "pinyin": "tóng",
+  "meaning": "child (as in 儿童)"
+ },
+ {
+  "char": "桶",
+  "pinyin": "tǒng",
+  "meaning": "barrel; bucket; tub"
+ },
+ {
+  "char": "脱",
+  "pinyin": "tuō",
+  "meaning": "(clothing); to"
+ },
+ {
+  "char": "袜",
+  "pinyin": "wà",
+  "meaning": "sock; stocking (as in 袜子)"
+ },
+ {
+  "char": "危",
+  "pinyin": "wēi",
+  "meaning": "danger; perilous (as in 危险)"
+ },
+ {
+  "char": "微",
+  "pinyin": "wēi",
+  "meaning": "tiny; micro- (as in 微笑/微信)"
+ },
+ {
+  "char": "围",
+  "pinyin": "wéi",
+  "meaning": "to surround; around (as in 周围/围巾)"
+ },
+ {
+  "char": "污",
+  "pinyin": "wū",
+  "meaning": "dirt; filth; pollution (as in 污染)"
+ },
+ {
+  "char": "吸",
+  "pinyin": "xī",
+  "meaning": "to suck; to inhale; to absorb"
+ },
+ {
+  "char": "悉",
+  "pinyin": "xī",
+  "meaning": "to know; to learn of (as in 熟悉)"
+ },
+ {
+  "char": "惜",
+  "pinyin": "xī",
+  "meaning": "to cherish; to pity (as in 可惜)"
+ },
+ {
+  "char": "细",
+  "pinyin": "xì",
+  "meaning": "thin; fine; detailed"
+ },
+ {
+  "char": "咸",
+  "pinyin": "xián",
+  "meaning": "salty"
+ },
+ {
+  "char": "险",
+  "pinyin": "xiǎn",
+  "meaning": "danger; risk (as in 危险/保险)"
+ },
+ {
+  "char": "羡",
+  "pinyin": "xiàn",
+  "meaning": "to envy; to admire (as in 羡慕)"
+ },
+ {
+  "char": "乡",
+  "pinyin": "xiāng",
+  "meaning": "countryside; hometown (as in 家乡)"
+ },
+ {
+  "char": "详",
+  "pinyin": "xiáng",
+  "meaning": "detailed (as in 详细)"
+ },
+ {
+  "char": "项",
+  "pinyin": "xiàng",
+  "meaning": "(measure word: items, matters)"
+ },
+ {
+  "char": "消",
+  "pinyin": "xiāo",
+  "meaning": "to disappear; to eliminate (as in 消息/消失)"
+ },
+ {
+  "char": "效",
+  "pinyin": "xiào",
+  "meaning": "effect; result (as in 效果)"
+ },
+ {
+  "char": "辛",
+  "pinyin": "xīn",
+  "meaning": "hard; laborious; bitter (as in 辛苦)"
+ },
+ {
+  "char": "醒",
+  "pinyin": "xǐng",
+  "meaning": "regain consciousne"
+ },
+ {
+  "char": "幸",
+  "pinyin": "xìng",
+  "meaning": "fortunate; lucky (as in 幸福/幸运)"
+ },
+ {
+  "char": "修",
+  "pinyin": "xiū",
+  "meaning": "to repair; to fix; to build"
+ },
+ {
+  "char": "羞",
+  "pinyin": "xiū",
+  "meaning": "shy; bashful (as in 害羞)"
+ },
+ {
+  "char": "秀",
+  "pinyin": "xiù",
+  "meaning": "elegant; outstanding (as in 优秀)"
+ },
+ {
+  "char": "序",
+  "pinyin": "xù",
+  "meaning": "order; sequence (as in 顺序)"
+ },
+ {
+  "char": "续",
+  "pinyin": "xù",
+  "meaning": "to continue (as in 继续/手续)"
+ },
+ {
+  "char": "烟",
+  "pinyin": "yān",
+  "meaning": "cigarette; smoke"
+ },
+ {
+  "char": "严",
+  "pinyin": "yán",
+  "meaning": "strict; severe (as in 严格/严重)"
+ },
+ {
+  "char": "盐",
+  "pinyin": "yán",
+  "meaning": "salt"
+ },
+ {
+  "char": "厌",
+  "pinyin": "yàn",
+  "meaning": "to loathe; tired of (as in 讨厌)"
+ },
+ {
+  "char": "扬",
+  "pinyin": "yáng",
+  "meaning": "to raise; to praise (as in 表扬)"
+ },
+ {
+  "char": "洋",
+  "pinyin": "yáng",
+  "meaning": "ocean; foreign (as in 海洋)"
+ },
+ {
+  "char": "邀",
+  "pinyin": "yāo",
+  "meaning": "to invite (as in 邀请)"
+ },
+ {
+  "char": "钥",
+  "pinyin": "yào",
+  "meaning": "key (as in 钥匙)"
+ },
+ {
+  "char": "叶",
+  "pinyin": "yè",
+  "meaning": "leaf (as in 叶子/树叶)"
+ },
+ {
+  "char": "疑",
+  "pinyin": "yí",
+  "meaning": "to doubt; to suspect (as in 怀疑)"
+ },
+ {
+  "char": "艺",
+  "pinyin": "yì",
+  "meaning": "art; skill (as in 艺术)"
+ },
+ {
+  "char": "忆",
+  "pinyin": "yì",
+  "meaning": "to remember; to recall (as in 回忆/记忆)"
+ },
+ {
+  "char": "译",
+  "pinyin": "yì",
+  "meaning": "to translate (as in 翻译)"
+ },
+ {
+  "char": "谊",
+  "pinyin": "yì",
+  "meaning": "friendship (as in 友谊)"
+ },
+ {
+  "char": "引",
+  "pinyin": "yǐn",
+  "meaning": "to draw; to attract (as in 吸引/引起)"
+ },
+ {
+  "char": "赢",
+  "pinyin": "yíng",
+  "meaning": "to win; to beat"
+ },
+ {
+  "char": "勇",
+  "pinyin": "yǒng",
+  "meaning": "brave; courageous (as in 勇敢)"
+ },
+ {
+  "char": "优",
+  "pinyin": "yōu",
+  "meaning": "excellent; superior (as in 优秀/优点)"
+ },
+ {
+  "char": "幽",
+  "pinyin": "yōu",
+  "meaning": "quiet; secluded (as in 幽默)"
+ },
+ {
+  "char": "尤",
+  "pinyin": "yóu",
+  "meaning": "especially; particularly (as in 尤其)"
+ },
+ {
+  "char": "愉",
+  "pinyin": "yú",
+  "meaning": "pleased; happy (as in 愉快)"
+ },
+ {
+  "char": "预",
+  "pinyin": "yù",
+  "meaning": "in advance; beforehand (as in 预习/预报)"
+ },
+ {
+  "char": "阅",
+  "pinyin": "yuè",
+  "meaning": "to read; to review (as in 阅读)"
+ },
+ {
+  "char": "允",
+  "pinyin": "yǔn",
+  "meaning": "to permit; to allow (as in 允许)"
+ },
+ {
+  "char": "杂",
+  "pinyin": "zá",
+  "meaning": "mixed; miscellaneous (as in 复杂/杂志)"
+ },
+ {
+  "char": "仔",
+  "pinyin": "zǐ",
+  "meaning": "careful; meticulous (as in 仔细)"
+ },
+ {
+  "char": "暂",
+  "pinyin": "zàn",
+  "meaning": "temporary; for the moment (as in 暂时)"
+ },
+ {
+  "char": "则",
+  "pinyin": "zé",
+  "meaning": "rule; then; in that case (as in 规则/否则)"
+ },
+ {
+  "char": "责",
+  "pinyin": "zé",
+  "meaning": "duty; to blame (as in 责任/负责)"
+ },
+ {
+  "char": "账",
+  "pinyin": "zhàng",
+  "meaning": "account; bill (as in 账户)"
+ },
+ {
+  "char": "招",
+  "pinyin": "zhāo",
+  "meaning": "to beckon; to recruit (as in 招聘)"
+ },
+ {
+  "char": "折",
+  "pinyin": "zhé",
+  "meaning": "to fold; discount (as in 打折)"
+ },
+ {
+  "char": "针",
+  "pinyin": "zhēn",
+  "meaning": "needle; injection (as in 打针)"
+ },
+ {
+  "char": "争",
+  "pinyin": "zhēng",
+  "meaning": "to contend; to strive (as in 竞争/争论)"
+ },
+ {
+  "char": "整",
+  "pinyin": "zhěng",
+  "meaning": "whole; entire; complete"
+ },
+ {
+  "char": "证",
+  "pinyin": "zhèng",
+  "meaning": "certificate; document"
+ },
+ {
+  "char": "汁",
+  "pinyin": "zhī",
+  "meaning": "juice (as in 果汁)"
+ },
+ {
+  "char": "值",
+  "pinyin": "zhí",
+  "meaning": "to be worth; value"
+ },
+ {
+  "char": "职",
+  "pinyin": "zhí",
+  "meaning": "duty; profession (as in 职业)"
+ },
+ {
+  "char": "植",
+  "pinyin": "zhí",
+  "meaning": "to plant (as in 植物)"
+ },
+ {
+  "char": "址",
+  "pinyin": "zhǐ",
+  "meaning": "location; address (as in 地址)"
+ },
+ {
+  "char": "质",
+  "pinyin": "zhì",
+  "meaning": "quality; nature (as in 质量)"
+ },
+ {
+  "char": "洲",
+  "pinyin": "zhōu",
+  "meaning": "continent (as in 亚洲)"
+ },
+ {
+  "char": "祝",
+  "pinyin": "zhù",
+  "meaning": "to wish; to express good wishes"
+ },
+ {
+  "char": "著",
+  "pinyin": "zhù",
+  "meaning": "to write; famous (as in 著名)"
+ },
+ {
+  "char": "赚",
+  "pinyin": "zhuàn",
+  "meaning": "to earn (money)"
+ },
+ {
+  "char": "族",
+  "pinyin": "zú",
+  "meaning": "clan; ethnic group (as in 民族)"
+ },
+ {
+  "char": "尊",
+  "pinyin": "zūn",
+  "meaning": "to respect; senior (as in 尊重)"
+ }
+]

@@ -24,11 +24,12 @@ L0  首页 /                                  ←  全站权重入口
 L1  10个 Hub: /vocabulary/ /characters/ /grammar/ /sentences/
      /strategies/ /topics/ /words/ /compare/ /traps/ /guide/
      │
-L2  详情页（5 大集群）:
-     · 考试集群:   /test/01..12/
-     · 词汇集群:   /topics/{30个任务}/ · /words/{43对易混词}/
-     · 汉字集群:   /characters/{150书写字}/
+L2  详情页（6 大集群）:
+     · 考试集群:   /test/01..12/（每题带答案折叠块；test-01 笔试题含解析）
+     · 词汇集群:   /topics/{30个任务}/ · /words/{44对易混词}/
+     · 汉字集群:   /characters/{150书写字 + 291认读字}/
      · 语法集群:   /grammar/{14专题}/ · /grammar/patterns/{8句型}/
+     · 句子集群:   /sentences/{10分类}/ · /traps/{7分类}/
      · 策略集群:   /strategies/{9篇}/ · /writing/{2}/ · /compare/{3}/
 ```
 
@@ -72,10 +73,15 @@ L2  详情页（5 大集群）:
 
 ## 6. 已知待办（后续迭代）
 
-- [ ] 词汇卡片（1000 个）→ 对应任务页/语法页的逐词链接（需控制页面体积，建议随分页改造一起做）
+- [x] 词汇卡片（1000 个）→ 对应任务页的逐词链接（605 个已分类词带 📚 任务链接；
+      静态卡与交互卡均有，映射由 build.js 从 topics.json + TASKS 生成）
 - [ ] 字符页 → 所属任务页（通过 word_topics 反查）
-- [ ] sentences/traps 两个 hub 的下钻内容与互链
-- [ ] 为 43 个易混词页补"相关易混词"侧栏（同声旁/同语义场）
+- [x] sentences/traps 两个 hub 的下钻内容与互链（10 + 7 个分类页，
+      数据源 data/sentences.json / data/traps.json，hub 注入分类导航）
+- [x] 为 44 个易混词页补"相关易混词"模块（共享汉字×10 + 同类别×1 评分，
+      取前 4；customHtml 页用幂等标记注入）
+- [ ] 听力题解析（需要音频文字稿数据；笔试 55 题解析已在 test-01 试点）
+- [ ] 试题解析推广到 Test 02-12（按 test-01 的 explanation 字段模式）
 
 ---
 
