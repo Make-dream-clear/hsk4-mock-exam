@@ -204,35 +204,102 @@ header {
 .gh-link { min-width: var(--tap); }
 .gh-link svg { width: 18px; height: 18px; fill: currentColor; }
 
-/* Mobile (<768px): upgrade the scroll nav to visible pill chips.
-   Three fixes for the cramped 11-link row:
-   1. Chips get a visible background — a half-cut pill at the viewport edge
-      is an unmistakable "more content this way" affordance.
-   2. The current page's chip jumps to the front (order: -1), so the active
-      state is always visible instead of scrolled off-screen.
-   3. A right-edge fade signals the overflow; trailing padding ensures the
-      last chip scrolls fully clear of the fade. */
+/* Mobile (<768px): hamburger menu. With 11 links plus a wide logo, a
+   horizontal scroll row shows only one chip on a 400px screen — worse
+   discoverability than one tap into a full vertical panel. CSS-only
+   (checkbox hack): no JS dependency, links stay in the DOM for crawlers.
+   The checkbox is visually hidden but focusable, so keyboard users can
+   toggle the panel with Space/Enter. */
+.nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.nav-burger { display: none; }
+
 @media (max-width: 767px) {
-  .site-nav {
-    gap: 8px;
-    padding-right: 36px;
-    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
-    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  .header-inner { position: relative; }
+
+  .nav-burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--tap);
+    height: var(--tap);
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 8px;
   }
+  .nav-burger-bar {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--paper);
+    border-radius: 1px;
+    transition: background 0.2s;
+  }
+  .nav-burger-bar::before,
+  .nav-burger-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--paper);
+    border-radius: 1px;
+    transition: transform 0.2s;
+  }
+  .nav-burger-bar::before { top: -6px; }
+  .nav-burger-bar::after { top: 6px; }
+  .nav-toggle:checked ~ .nav-burger .nav-burger-bar { background: transparent; }
+  .nav-toggle:checked ~ .nav-burger .nav-burger-bar::before { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle:checked ~ .nav-burger .nav-burger-bar::after { transform: translateY(-6px) rotate(-45deg); }
+  .nav-toggle:focus-visible ~ .nav-burger { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  /* Dropdown panel anchored under the sticky header */
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 4px 0 10px;
+    background: var(--ink);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+  .nav-toggle:checked ~ .site-nav { display: flex; }
+
   .nav-link, .gh-link {
-    background: rgba(255, 255, 255, 0.10);
-    border-radius: 999px;
-    padding: 7px 13px;
-    opacity: 0.88;
-    font-size: 14px;
-    min-height: 36px;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 13px 20px;
+    min-height: 48px;
+    font-size: 15px;
+    opacity: 0.85;
   }
   .nav-link[aria-current="page"], .nav-link.is-active {
-    order: -1;
-    background: var(--accent);
     opacity: 1;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 3px 0 0 var(--accent);
   }
   .nav-link[aria-current="page"]::after, .nav-link.is-active::after { display: none; }
+}
+
+/* Very narrow screens: keep the logo clear of the burger */
+@media (max-width: 374px) {
+  .logo-mark { height: 26px; }
+  .logo-text { font-size: 13px; }
 }
 
 /* Mobile: any table wider than the viewport scrolls instead of breaking
