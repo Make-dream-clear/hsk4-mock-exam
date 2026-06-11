@@ -618,6 +618,7 @@ function buildTestPages() {
     <div class="footer-cta">
       <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
       <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/writing/">Writing</a> \u00B7 <a href="/guide/">Study Guide</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
@@ -1904,7 +1905,7 @@ ${faqJsonLd}
   .breadcrumb a { color:var(--accent); text-decoration:none; }
   .breadcrumb a:hover { text-decoration:underline; }
   .task-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
-  @media (max-width:600px) { .word-table { font-size:13px; } .word-table th,.word-table td { padding:6px 8px; } }
+  @media (max-width:600px) { .word-table { font-size:13px; min-width:560px; } .word-table th,.word-table td { padding:6px 8px; } }
 </style>
 </head>
 <body>
@@ -2036,6 +2037,7 @@ ${faqJsonLd}
     <div class="footer-cta">
       <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
       <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/topics/">Topics</a> \u00B7 <a href="/writing/">Writing</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
@@ -2430,6 +2432,7 @@ ${pairFaqHtml}
     <div class="footer-cta">
       <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
       <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/sentences/">Sentences</a> \u00B7 <a href="/strategies/">Strategies</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
@@ -2761,6 +2764,7 @@ ${patFaqHtml}
     <div class="footer-cta">
       <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
       <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> \u00B7 <a href="/vocabulary/">Vocabulary</a> \u00B7 <a href="/grammar/">Grammar</a> \u00B7 <a href="/words/">Confusable Words</a> \u00B7 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
@@ -2942,6 +2946,7 @@ ${cards}
     <div class="footer-cta">
       <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
       <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/writing/">Writing</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
@@ -3085,6 +3090,7 @@ function buildCharacterPages() {
     <div class="footer-cta">
       <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
       <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/characters/">Characters</a> · <a href="/grammar/">Grammar</a> · <a href="/writing/">Writing</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
@@ -3869,7 +3875,10 @@ const DRILL_FOOTER = `<footer>
       </div>
     </a>
     <div class="footer-cta">
-      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener">Study Chinese with our teachers →</a>
+      <a href="https://www.mandarinzone.com/" target="_blank" rel="noopener" class="btn btn-ghost">Visit Website</a>
+      <a href="https://www.mandarinzone.com/contact-us/" target="_blank" rel="noopener" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
+      <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/sentences/">Sentences</a> · <a href="/strategies/">Strategies</a> · <a href="/words/">Confusable Words</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>

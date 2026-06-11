@@ -73,6 +73,7 @@ body {
 }
 
 img, svg, video { max-width: 100%; height: auto; }
+audio { width: 100%; max-width: 480px; }
 
 .chinese { font-family: 'Noto Sans SC', 'Noto Serif SC', sans-serif; }
 .serif-cn { font-family: 'Noto Serif SC', serif; }
@@ -202,6 +203,48 @@ header {
 /* Icon-only link needs a 44px hit area on its own */
 .gh-link { min-width: var(--tap); }
 .gh-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Mobile (<768px): upgrade the scroll nav to visible pill chips.
+   Three fixes for the cramped 11-link row:
+   1. Chips get a visible background — a half-cut pill at the viewport edge
+      is an unmistakable "more content this way" affordance.
+   2. The current page's chip jumps to the front (order: -1), so the active
+      state is always visible instead of scrolled off-screen.
+   3. A right-edge fade signals the overflow; trailing padding ensures the
+      last chip scrolls fully clear of the fade. */
+@media (max-width: 767px) {
+  .site-nav {
+    gap: 8px;
+    padding-right: 36px;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  }
+  .nav-link, .gh-link {
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 999px;
+    padding: 7px 13px;
+    opacity: 0.88;
+    font-size: 14px;
+    min-height: 36px;
+  }
+  .nav-link[aria-current="page"], .nav-link.is-active {
+    order: -1;
+    background: var(--accent);
+    opacity: 1;
+  }
+  .nav-link[aria-current="page"]::after, .nav-link.is-active::after { display: none; }
+}
+
+/* Mobile: any table wider than the viewport scrolls instead of breaking
+   the page layout (word tables, comparison tables, answer grids). */
+@media (max-width: 640px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+}
 
 /* Tablet & up: relax scroll, allow wrap if needed */
 @media (min-width: 768px) {
