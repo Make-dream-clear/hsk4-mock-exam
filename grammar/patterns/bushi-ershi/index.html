@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('hsk4_theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>不是…而是… — HSK 4 Grammar | Not A, but rather B</title>
@@ -61,7 +62,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/common.css">
 <style>
-  .pattern-box { background:var(--ink); color:var(--paper); border-radius:var(--radius); padding:24px 28px; margin:20px 0; text-align:center; }
+  .pattern-box { background:var(--invert-bg); color:var(--invert-fg); border-radius:var(--radius); padding:24px 28px; margin:20px 0; text-align:center; }
   .pattern-formula { font-family:'Noto Sans SC',sans-serif; font-size:22px; font-weight:600; letter-spacing:1px; }
   .pattern-type { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
   .ex-card { background:var(--paper); border:1px solid var(--mist); border-radius:8px; padding:16px 20px; margin:10px 0; }
@@ -69,39 +70,39 @@
   .ex-py { font-size:13px; color:var(--stone); font-style:italic; }
   .ex-en { font-size:14px; color:var(--stone); margin-top:4px; }
   .ex-note { font-size:12px; color:var(--accent); margin-top:6px; padding-top:6px; border-top:1px solid var(--mist); }
-  .wrong-card { background:#fff8f7; border:1px solid var(--accent-soft); border-radius:8px; padding:16px 20px; margin:10px 0; }
+  .wrong-card { background:var(--accent-tint); border:1px solid var(--accent-soft); border-radius:8px; padding:16px 20px; margin:10px 0; }
   .wrong-line { font-family:'Noto Sans SC',sans-serif; font-size:15px; margin-bottom:6px; }
   .wrong-mark { color:var(--accent); font-weight:700; font-size:16px; }
   .right-line { font-family:'Noto Sans SC',sans-serif; font-size:15px; margin-bottom:6px; }
   .right-mark { color:var(--jade); font-weight:700; font-size:16px; }
   .wrong-explain { font-size:13px; color:var(--stone); line-height:1.6; margin-top:8px; padding-top:8px; border-top:1px solid var(--accent-soft); }
-  .compare-box { background:var(--gold-soft); border:1px solid #e8d5a0; border-radius:8px; padding:14px 18px; margin:20px 0; font-size:14px; line-height:1.6; }
+  .compare-box { background:var(--gold-soft); border:1px solid var(--gold-border); border-radius:8px; padding:14px 18px; margin:20px 0; font-size:14px; line-height:1.6; }
   .compare-box strong { color:var(--gold); }
-  .q-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .q-item { background:var(--surface); border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
   .q-stem { font-size:16px; font-family:'Noto Sans SC',sans-serif; margin-bottom:12px; line-height:1.5; }
   .q-opts { display:flex; gap:8px; flex-wrap:wrap; }
-  .q-opt { padding:10px 20px; border:1px solid var(--mist); border-radius:8px; background:white; font-size:14px; cursor:pointer; transition:all 0.15s; font-family:'DM Sans',sans-serif; }
+  .q-opt { padding:10px 20px; border:1px solid var(--mist); border-radius:8px; background:var(--surface); font-size:14px; cursor:pointer; transition:all 0.15s; font-family:'DM Sans',sans-serif; }
   .q-opt:hover { border-color:var(--accent); background:var(--accent-soft); }
   .q-opt.correct { background:var(--jade-soft); border-color:var(--jade); color:var(--jade); font-weight:600; }
-  .q-opt.wrong { background:#ffe0e0; border-color:var(--accent); color:var(--accent); }
+  .q-opt.wrong { background:var(--bad-bg); border-color:var(--accent); color:var(--accent); }
   .q-opt.disabled { pointer-events:none; opacity:0.7; }
   .q-opt.disabled.correct { opacity:1; }
   .q-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.6; padding:10px 14px; background:var(--paper); border-radius:6px; }
   .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
   .breadcrumb a { color:var(--accent); text-decoration:none; }
-  .fill-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .fill-item { background:var(--surface); border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
   .fill-sentence { font-size:17px; line-height:1.8; margin-bottom:10px; }
   .fill-input { width:80px; border:none; border-bottom:2px solid var(--accent); background:transparent; font-size:17px; font-family:'Noto Sans SC',sans-serif; text-align:center; outline:none; padding:2px 4px; }
   .fill-input:focus { border-bottom-color:var(--jade); }
   .fill-input.correct { border-bottom-color:var(--jade); color:var(--jade); font-weight:600; }
   .fill-input.wrong { border-bottom-color:var(--accent); color:var(--accent); }
-  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:white; font-size:13px; font-weight:600; cursor:pointer; }
+  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:var(--surface); font-size:13px; font-weight:600; cursor:pointer; }
   .fill-check-btn:hover { border-color:var(--accent); background:var(--accent-soft); }
   .fill-check-btn.done { pointer-events:none; opacity:0.5; }
   .fill-feedback { margin-top:8px; font-size:13px; display:none; padding:8px 12px; border-radius:6px; }
   .fill-feedback.show { display:block; }
   .fill-feedback.pass { background:var(--jade-soft); color:var(--jade); }
-  .fill-feedback.fail { background:#ffe0e0; color:var(--accent); }
+  .fill-feedback.fail { background:var(--bad-bg); color:var(--accent); }
   .pat-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
   @media (max-width:600px) { .pattern-formula { font-size:18px; } .q-opts { flex-direction:column; } .fill-input { width:60px; } }
 </style>
@@ -255,11 +256,11 @@
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">HSK 4 Mock Test Questions Using 不是…而是… / 真题示例</h2>
   <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">2 real HSK 4 questions from our mock exams that test this pattern:</p>
-  <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
+  <div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/03/" style="color:var(--accent);">HSK 4 Mock Test 03</a> · Q58</div>
     <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">58. 请将下列句子正确排序：A 语法是语言学习中很重要的一部分 B 却不是语言学习的全部 C 文化在语言学习中也很重要</div>
     <div style="display:flex;gap:6px;flex-wrap:wrap;"><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--correct-soft);color:var(--correct);">A ABC ✓</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">B ACB</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">C BAC</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">D BCA</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">E CAB</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">F CBA</span></div>
-  </div><div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
+  </div><div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/03/" style="color:var(--accent);">HSK 4 Mock Test 03</a> · Q74</div>
     <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">74. 同情是最美好的情感之一，然而同情并不是高高在上的关心，它应该是对别人经历的情感的理解、尊重和支持。这段话认为，同情：</div>
     <div style="display:flex;gap:6px;flex-wrap:wrap;"><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">A 很无聊</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">B 让人难受</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--correct-soft);color:var(--correct);">C 不是可怜 ✓</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">D 是暂时的</span></div>
@@ -350,5 +351,6 @@ document.querySelectorAll('.fill-input').forEach(function(inp) {
 });
 </script>
 
+<button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(d){var k=d.getAttribute('data-theme')==='dark';if(k){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','dark')}try{localStorage.setItem('hsk4_theme',k?'light':'dark')}catch(e){}})(document.documentElement)"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
 </body>
 </html>

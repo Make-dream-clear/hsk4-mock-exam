@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('hsk4_theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>温 (wēn) Stroke Order, Radical &amp; Practice — HSK 4 汉字 | Mandarin Zone</title>
@@ -254,11 +255,11 @@
     <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Tasks Featuring 温 / 相关任务</h2>
     <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Words containing <span class="chinese">温</span> appear in these official HSK 4 task scenarios — study the character in context:</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));gap:12px;">
-    <a href="/topics/nature/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+    <a href="/topics/nature/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
       <div class="chinese" style="font-size:14px;font-weight:600;">📚 谈论自然情况</div>
       <div style="font-size:12px;color:var(--stone);margin-top:3px;">Nature &amp; Geography · <span class="chinese">低温、高温、降温</span></div>
     </a>
-    <a href="/topics/health-medical/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+    <a href="/topics/health-medical/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
       <div class="chinese" style="font-size:14px;font-weight:600;">📚 谈论就医情况、健康生活</div>
       <div style="font-size:12px;color:var(--stone);margin-top:3px;">Health &amp; Medical · <span class="chinese">体温</span></div>
     </a>
@@ -267,19 +268,19 @@
 
   
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">FAQ</h2>
-  <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+  <details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
     <summary style="cursor:pointer;font-weight:600;">What does 温 mean in Chinese?</summary>
     <p style="color:var(--stone);line-height:1.7;margin-top:10px;">温 (wēn) means warm, lukewarm. It is one of the 150 characters required for the HSK 4 writing section.</p>
-  </details><details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+  </details><details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
     <summary style="cursor:pointer;font-weight:600;">How many strokes does 温 have?</summary>
     <p style="color:var(--stone);line-height:1.7;margin-top:10px;">温 is written in 12 strokes. Use the practice tool above to see the correct stroke order and trace it yourself.</p>
-  </details><details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+  </details><details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
     <summary style="cursor:pointer;font-weight:600;">What is the radical of 温?</summary>
     <p style="color:var(--stone);line-height:1.7;margin-top:10px;">The radical of 温 is 氵 (water). Other HSK 4 characters with the same radical include 济, 江, 深, 油, 汤.</p>
-  </details><details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+  </details><details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
     <summary style="cursor:pointer;font-weight:600;">What is the pinyin for 温?</summary>
     <p style="color:var(--stone);line-height:1.7;margin-top:10px;">温 is pronounced wēn.</p>
-  </details><details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+  </details><details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
     <summary style="cursor:pointer;font-weight:600;">What HSK 4 words use 温?</summary>
     <p style="color:var(--stone);line-height:1.7;margin-top:10px;">In our HSK 4 vocabulary, 温 appears in 6 words, including 低温 (dīwēn), 高温 (gāowēn), 降温 (jiàngwēn), 气温 (qìwēn). See the full list above.</p>
   </details>
@@ -315,11 +316,12 @@ window.addEventListener('load', function(){
     return;
   }
   var status = document.getElementById('writer-status');
+  function themeColor(n, f){ try { return getComputedStyle(document.documentElement).getPropertyValue(n).trim() || f; } catch(e){ return f; } }
   var writer = HanziWriter.create('writer-target', "温", {
     width: 360, height: 360, padding: 8,
     showOutline: true, showCharacter: false,
     strokeAnimationSpeed: 1, delayBetweenStrokes: 180,
-    strokeColor: '#1a1a2e', outlineColor: '#c9c4be', highlightColor: '#c23b22'
+    strokeColor: themeColor('--ink', '#1a1a2e'), outlineColor: themeColor('--mist', '#c9c4be'), highlightColor: themeColor('--accent', '#c23b22')
   });
   function setStatus(msg, cls){
     status.className = 'writer-status' + (cls ? ' ' + cls : '');
@@ -356,5 +358,6 @@ window.addEventListener('load', function(){
   });
 });
 </script>
+<button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(d){var k=d.getAttribute('data-theme')==='dark';if(k){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','dark')}try{localStorage.setItem('hsk4_theme',k?'light':'dark')}catch(e){}})(document.documentElement)"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
 </body>
 </html>

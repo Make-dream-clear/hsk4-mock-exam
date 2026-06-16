@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('hsk4_theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HSK 4 Mock Exam 2026 — 12 Free Practice Tests | Mandarin Zone</title>
@@ -530,30 +531,65 @@
   <div id="quiz-screen" class="screen">
     <div class="quiz-header">
       <div class="quiz-title" id="quiz-title"></div>
-      <div class="quiz-progress">
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-        <div class="progress-text" id="progress-text"></div>
+      <div class="quiz-header-right">
+        <button class="quiz-timer" id="quiz-timer" type="button" onclick="toggleTimer()" title="Tap to pause / resume" aria-label="Elapsed time, tap to pause or resume">
+          <span class="timer-icon" aria-hidden="true">⏱</span><span id="timer-text">0:00</span>
+        </button>
+        <div class="quiz-progress">
+          <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+          <div class="progress-text" id="progress-text"></div>
+        </div>
       </div>
     </div>
 
+    <!-- Question navigator (jump to any question, see what's answered/flagged) -->
+    <div class="quiz-toolbar">
+      <button class="qnav-toggle" id="qnav-toggle" type="button" onclick="toggleNavigator()" aria-expanded="false" aria-controls="qnav-panel">
+        <span class="qnav-toggle-icon" aria-hidden="true">▦</span>
+        <span class="qnav-toggle-label">All questions</span>
+        <span class="qnav-stats" id="qnav-stats"></span>
+        <span class="qnav-caret" aria-hidden="true">▾</span>
+      </button>
+      <div class="qnav-panel" id="qnav-panel" hidden>
+        <div class="qnav-legend">
+          <span class="qnav-legend-item"><span class="qnav-swatch is-answered"></span>Answered</span>
+          <span class="qnav-legend-item"><span class="qnav-swatch is-flagged"></span>Flagged</span>
+          <span class="qnav-legend-item"><span class="qnav-swatch is-current"></span>Current</span>
+          <span class="qnav-legend-item"><span class="qnav-swatch"></span>Unanswered</span>
+        </div>
+        <div class="qnav-grid" id="qnav-grid"></div>
+      </div>
+    </div>
+
+    <div class="review-banner" id="review-banner" hidden></div>
+
     <div class="question-card">
-      <div id="question-type-badge" class="question-type-badge"></div>
+      <div class="question-card-top">
+        <div id="question-type-badge" class="question-type-badge"></div>
+        <button class="flag-btn" id="flag-btn" type="button" onclick="toggleFlag()" aria-pressed="false">
+          <span class="flag-btn-icon" aria-hidden="true">🚩</span><span id="flag-label">Flag for review</span>
+        </button>
+      </div>
       <div class="question-number" id="question-number"></div>
       <div id="audio-container" class="audio-player" style="display:none">
         <audio id="audio-el" controls preload="none"></audio>
-        <div class="audio-note">Audio hosted by Mandarin Zone CDN</div>
+        <div class="audio-note">Audio hosted by Mandarin Zone CDN · the real exam plays each clip once</div>
       </div>
       <div class="question-text chinese" id="question-text"></div>
       <div class="options-list" id="options-list"></div>
+      <div class="explanation-box" id="explanation-box" hidden></div>
     </div>
 
     <div class="nav-buttons">
       <button class="btn btn-ghost" id="btn-quit" onclick="goHome()">← Back to Tests</button>
-      <div style="display:flex;gap:8px;">
+      <div class="nav-buttons-group">
         <button class="btn btn-secondary" id="btn-prev" onclick="prevQuestion()">Previous</button>
         <button class="btn btn-primary" id="btn-next" onclick="nextQuestion()">Next →</button>
       </div>
     </div>
+    <p class="kbd-hint" id="kbd-hint">
+      <span class="kbd-hint-keys"><kbd>A</kbd>–<kbd>F</kbd> answer · <kbd>←</kbd><kbd>→</kbd> navigate · <kbd>F</kbd> flag</span>
+    </p>
   </div>
 
   <!-- RESULTS SCREEN -->
@@ -569,13 +605,21 @@
         <div class="breakdown-item"><div class="breakdown-num green" id="res-correct"></div><div class="breakdown-label">Correct</div></div>
         <div class="breakdown-item"><div class="breakdown-num red" id="res-wrong"></div><div class="breakdown-label">Wrong</div></div>
         <div class="breakdown-item"><div class="breakdown-num" id="res-unanswered"></div><div class="breakdown-label">Skipped</div></div>
+        <div class="breakdown-item"><div class="breakdown-num" id="res-time"></div><div class="breakdown-label">Time</div></div>
       </div>
+
+      <!-- Per-section accuracy: tells the learner which skill to drill next -->
+      <div class="section-scores" id="section-scores"></div>
+
       <div class="results-actions">
-        <button class="btn btn-ghost" onclick="goHome()">← All Tests</button>
-        <button class="btn btn-secondary" onclick="reviewAnswers()">Review Answers</button>
-        <button class="btn btn-primary" onclick="retakeTest()">Retake Test</button>
+        <button class="btn btn-secondary" id="btn-review-wrong" onclick="reviewWrongOnly()">Review wrong answers</button>
+        <button class="btn btn-secondary" onclick="reviewAnswers()">Review all</button>
+        <button class="btn btn-primary" onclick="retakeTest()">Retake test</button>
       </div>
     </div>
+
+    <!-- Smart next step: weak-section study links + next test -->
+    <div class="next-steps" id="next-steps"></div>
 
     <div class="cta-banner">
       <h3 class="chinese">准备好通过 HSK 4 了吗？</h3>
@@ -604,29 +648,96 @@
   <p class="footer-links" style="margin-top:4px;"><a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/writing/">Writing</a> · <a href="/words/">Confusable Words</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · <a href="https://github.com/Make-dream-clear/hsk4-mock-exam" target="_blank" rel="noopener">View on GitHub</a></p>
 </footer>
 
+<button id="to-top" class="to-top" type="button" aria-label="Back to top" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 5l-7 7 1.41 1.41L11 8.83V19h2V8.83l4.59 4.58L19 12z" fill="currentColor"/></svg>
+</button>
+
 <script>
 // === STATE ===
 let allTests = [];
 let currentTest = null;
-let currentQ = 0;
-let userAnswers = {};
+let currentTestIndex = null;
+let currentQ = 0;            // absolute question index (0-based)
+let userAnswers = {};        // qIndex -> selected option index
+let flags = {};              // qIndex -> true (marked for review)
 let reviewMode = false;
+let reviewList = null;       // null = walk all questions; array = subset (wrong-only)
+let elapsed = 0;             // seconds spent on the current attempt
+let timerId = null;
+let timerPaused = false;
+let lastResult = null;       // cached result for review/next-steps
+
+const STORE = 'hsk4_progress_';        // in-progress attempt, per test
+const STORE_RESULT = 'hsk4_result_';   // last completed score, per test
+
+// === SECTIONS ===
+// Map each question type to an exam section so we can score by skill.
+const SECTION_OF = {
+  listening_true_false: 'Listening',
+  listening_choice: 'Listening',
+  fill_in_blank: 'Reading',
+  reading_ordering: 'Reading',
+  reading_comprehension: 'Reading',
+  choice: 'Writing',
+  writing_construction: 'Writing',
+};
+const SECTION_META = {
+  Listening: { zh: '听力', cls: 'badge-listening', href: '/strategies/listening-judgment/', resource: 'Listening strategies' },
+  Reading:   { zh: '阅读', cls: 'badge-reading',   href: '/strategies/reading-comprehension/', resource: 'Reading strategies' },
+  Writing:   { zh: '书写', cls: 'badge-writing',   href: '/sentences/', resource: '100 essential sentences' },
+};
+function sectionOf(q) { return SECTION_OF[q.type] || 'Reading'; }
+
+const TYPE_MAP = {
+  listening_true_false: ['Listening · 听力判断', 'badge-listening'],
+  listening_choice: ['Listening · 听力选择', 'badge-listening'],
+  fill_in_blank: ['Reading · 选词填空', 'badge-reading'],
+  reading_ordering: ['Reading · 语句排序', 'badge-reading'],
+  reading_comprehension: ['Reading · 阅读理解', 'badge-reading'],
+  choice: ['Writing · 书写', 'badge-writing'],
+  writing_construction: ['Writing · 看图造句', 'badge-writing'],
+};
+const MARKERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 // === UTILS ===
 function escHtml(str) {
   const d = document.createElement('div');
-  d.textContent = str;
+  d.textContent = str == null ? '' : str;
   return d.innerHTML;
 }
+function pad2(n) { return String(n).padStart(2, '0'); }
+function fmtTime(s) {
+  s = Math.max(0, Math.floor(s));
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+  return (h > 0 ? h + ':' + pad2(m) : m) + ':' + pad2(sec);
+}
+function $(id) { return document.getElementById(id); }
+
+// === PERSISTENCE (localStorage; degrades silently in private mode) ===
+function progKey(i) { return STORE + i; }
+function resultKey(i) { return STORE_RESULT + i; }
+function saveProgress() {
+  if (currentTestIndex == null || reviewMode) return;
+  try {
+    localStorage.setItem(progKey(currentTestIndex), JSON.stringify({
+      answers: userAnswers, flags: flags, currentQ: currentQ, elapsed: elapsed, ts: Date.now(),
+    }));
+  } catch (e) {}
+}
+function loadProgress(i) {
+  try { const raw = localStorage.getItem(progKey(i)); return raw ? JSON.parse(raw) : null; }
+  catch (e) { return null; }
+}
+function clearProgress(i) { try { localStorage.removeItem(progKey(i)); } catch (e) {} }
+function saveResult(i, r) { try { localStorage.setItem(resultKey(i), JSON.stringify(r)); } catch (e) {} }
+function loadResult(i) {
+  try { const raw = localStorage.getItem(resultKey(i)); return raw ? JSON.parse(raw) : null; }
+  catch (e) { return null; }
+}
+function answeredCount(answers) { return answers ? Object.keys(answers).length : 0; }
 
 // === DATA LOADING ===
-const BASE = (() => {
-  const loc = window.location;
-  if (loc.hostname === 'localhost' || loc.hostname === '127.0.0.1' || loc.protocol === 'file:') {
-    return './data/';
-  }
-  return './data/';
-})();
+const BASE = './data/';
 
 async function loadIndex() {
   try {
@@ -634,200 +745,519 @@ async function loadIndex() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     allTests = await res.json();
     renderTestGrid();
-  } catch(e) {
-    document.getElementById('test-grid').innerHTML = '<p style="color:var(--stone);padding:20px;">Failed to load tests. Make sure you\'re serving this from a web server or GitHub Pages.</p>';
+    handleDeepLink();
+  } catch (e) {
+    $('test-grid').innerHTML = '<p style="color:var(--stone);padding:20px;">Failed to load tests. Make sure you\'re serving this from a web server or GitHub Pages.</p>';
   }
 }
 
+// Auto-start a test from /?start=N (used by every static test page's
+// "Start Interactive Test" button). Clean the URL afterwards so a refresh
+// doesn't relaunch the quiz unexpectedly.
+function handleDeepLink() {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.has('start')) return;
+  const n = parseInt(params.get('start'), 10);
+  try { history.replaceState(null, '', window.location.pathname + window.location.hash); } catch (e) {}
+  if (!isNaN(n) && n >= 0 && n < allTests.length) startTest(n);
+}
+
 function renderTestGrid() {
-  const grid = document.getElementById('test-grid');
-  grid.innerHTML = allTests.map((t, i) => `
+  const grid = $('test-grid');
+  grid.innerHTML = allTests.map((t, i) => {
+    const prog = loadProgress(i);
+    const done = answeredCount(prog && prog.answers);
+    const result = loadResult(i);
+    let status = '';
+    if (done > 0) {
+      status = `<span class="test-card-status is-progress">In progress · ${done}/${t.questions}</span>`;
+    } else if (result) {
+      status = `<span class="test-card-status ${result.pct >= 60 ? 'is-pass' : 'is-fail'}">Last score ${result.pct}%</span>`;
+    }
+    return `
     <div class="test-card" tabindex="0" role="button" onclick="startTest(${i})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();startTest(${i})}">
-      <div class="test-card-num">Test ${String(i + 1).padStart(2, '0')}</div>
+      <div class="test-card-num">Test ${pad2(i + 1)}</div>
       <div class="test-card-title">${escHtml(t.title)}</div>
       <div class="test-card-meta">
         <span>${t.questions} questions</span>
         <span>~50 min</span>
       </div>
-    </div>
-  `).join('');
+      ${status}
+    </div>`;
+  }).join('');
 }
 
-// === NAVIGATION ===
+// === SCREENS ===
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  $(id).classList.add('active');
   window.scrollTo(0, 0);
 }
 
 function goHome() {
+  stopTimer();
+  saveProgress();
   currentTest = null;
+  currentTestIndex = null;
   currentQ = 0;
   userAnswers = {};
+  flags = {};
   reviewMode = false;
+  reviewList = null;
+  closeNavigator();
+  renderTestGrid();
   showScreen('home-screen');
 }
 
-// === QUIZ ===
+// === QUIZ LIFECYCLE ===
 async function startTest(index) {
   const meta = allTests[index];
+  if (!meta) return;
   try {
     const res = await fetch(BASE + meta.file);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     currentTest = await res.json();
-    currentQ = 0;
-    userAnswers = {};
-    reviewMode = false;
-    showScreen('quiz-screen');
-    renderQuestion();
-  } catch(e) {
+    currentTestIndex = index;
+  } catch (e) {
     alert('Failed to load test data.');
+    return;
   }
+  const saved = loadProgress(index);
+  if (saved && answeredCount(saved.answers) > 0) {
+    showResumePrompt(index, saved);
+  } else {
+    beginAttempt(null);
+  }
+}
+
+function beginAttempt(saved) {
+  reviewMode = false;
+  reviewList = null;
+  if (saved) {
+    userAnswers = saved.answers || {};
+    flags = saved.flags || {};
+    currentQ = saved.currentQ || 0;
+    elapsed = saved.elapsed || 0;
+  } else {
+    userAnswers = {};
+    flags = {};
+    currentQ = 0;
+    elapsed = 0;
+    if (currentTestIndex != null) clearProgress(currentTestIndex);
+  }
+  $('review-banner').hidden = true;
+  $('kbd-hint').style.display = '';
+  closeNavigator();
+  showScreen('quiz-screen');
+  startTimer();
+  renderQuestion();
+}
+
+// Lightweight resume dialog, built on the fly so the static markup stays clean.
+function showResumePrompt(index, saved) {
+  const total = currentTest.questions.length;
+  const done = answeredCount(saved.answers);
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resume-title">
+      <h3 id="resume-title">Resume Test ${pad2(index + 1)}?</h3>
+      <p>You answered <strong>${done}/${total}</strong> questions last time (${fmtTime(saved.elapsed || 0)} on the clock). Pick up where you left off, or start over?</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" data-act="restart">Start over</button>
+        <button class="btn btn-primary" data-act="resume">Resume</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  const close = (resume) => { overlay.remove(); beginAttempt(resume ? saved : null); };
+  overlay.addEventListener('click', (e) => {
+    const act = e.target.getAttribute && e.target.getAttribute('data-act');
+    if (act === 'resume') close(true);
+    else if (act === 'restart') close(false);
+  });
+  const resumeBtn = overlay.querySelector('[data-act="resume"]');
+  if (resumeBtn) resumeBtn.focus();
+}
+
+// Questions to walk for prev/next (all, or the wrong-only subset in review).
+function navList() {
+  if (reviewMode && reviewList) return reviewList;
+  return currentTest.questions.map((_, i) => i);
 }
 
 function renderQuestion() {
   const q = currentTest.questions[currentQ];
-  const total = currentTest.questions.length;
+  const list = navList();
+  const pos = list.indexOf(currentQ);
 
-  document.getElementById('quiz-title').textContent = currentTest.title;
-  document.getElementById('progress-fill').style.width = ((currentQ + 1) / total * 100) + '%';
-  document.getElementById('progress-text').textContent = `${currentQ + 1} / ${total}`;
-  document.getElementById('question-number').textContent = `Question ${q.number}`;
+  $('quiz-title').textContent = currentTest.title;
+  $('progress-fill').style.width = ((pos + 1) / list.length * 100) + '%';
+  $('progress-text').textContent = `${pos + 1} / ${list.length}`;
+  $('question-number').textContent = `Question ${q.number}`;
 
   // Type badge
-  const badge = document.getElementById('question-type-badge');
-  const typeMap = {
-    listening_true_false: ['Listening · 听力判断', 'badge-listening'],
-    listening_choice: ['Listening · 听力选择', 'badge-listening'],
-    fill_in_blank: ['Reading · 选词填空', 'badge-reading'],
-    reading_ordering: ['Reading · 语句排序', 'badge-reading'],
-    reading_comprehension: ['Reading · 阅读理解', 'badge-reading'],
-    choice: ['Writing · 书写', 'badge-writing'],
-  };
-  const [label, cls] = typeMap[q.type] || ['Question', 'badge-reading'];
+  const badge = $('question-type-badge');
+  const [label, cls] = TYPE_MAP[q.type] || ['Question', 'badge-reading'];
   badge.textContent = label;
   badge.className = 'question-type-badge ' + cls;
 
+  // Flag button (hidden in review)
+  const flagBtn = $('flag-btn');
+  const flagged = !!flags[currentQ];
+  flagBtn.style.display = reviewMode ? 'none' : '';
+  flagBtn.classList.toggle('is-flagged', flagged);
+  flagBtn.setAttribute('aria-pressed', flagged ? 'true' : 'false');
+  $('flag-label').textContent = flagged ? 'Flagged' : 'Flag for review';
+
   // Audio
-  const ac = document.getElementById('audio-container');
-  const ae = document.getElementById('audio-el');
-  if (q.audio) {
-    ac.style.display = 'block';
-    ae.src = q.audio;
-  } else {
-    ac.style.display = 'none';
-    ae.src = '';
-  }
+  const ac = $('audio-container');
+  const ae = $('audio-el');
+  if (q.audio) { ac.style.display = 'block'; ae.src = q.audio; }
+  else { ac.style.display = 'none'; ae.src = ''; }
 
   // Text
-  document.getElementById('question-text').textContent = q.text || '';
+  $('question-text').textContent = q.text || '';
 
   // Options
-  const ol = document.getElementById('options-list');
-  const markers = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const ol = $('options-list');
   const selected = userAnswers[currentQ];
-
   ol.innerHTML = q.options.map((opt, i) => {
-    let cls = 'option-btn';
+    let oc = 'option-btn';
     if (reviewMode) {
-      cls += ' disabled';
-      if (i === q.correct_answer_index) cls += ' correct';
-      else if (i === selected && i !== q.correct_answer_index) cls += ' wrong';
-    } else {
-      if (i === selected) cls += ' selected';
+      oc += ' disabled';
+      if (i === q.correct_answer_index) oc += ' correct';
+      else if (i === selected && i !== q.correct_answer_index) oc += ' wrong';
+    } else if (i === selected) {
+      oc += ' selected';
     }
-    return `<button class="${cls}" onclick="selectOption(${i})">
-      <span class="marker">${markers[i] || i + 1}</span>
+    return `<button class="${oc}" onclick="selectOption(${i})">
+      <span class="marker">${MARKERS[i] || i + 1}</span>
       <span class="chinese">${escHtml(opt)}</span>
     </button>`;
   }).join('');
 
-  // Nav buttons
-  document.getElementById('btn-prev').style.display = currentQ > 0 ? 'inline-flex' : 'none';
-  const nextBtn = document.getElementById('btn-next');
-  if (currentQ === total - 1) {
-    nextBtn.textContent = reviewMode ? 'Back to Results' : 'Finish Test';
+  // Explanation (review only — surfaces the answer key + any explanation note)
+  const exBox = $('explanation-box');
+  if (reviewMode) {
+    const cm = MARKERS[q.correct_answer_index] || (q.correct_answer_index + 1);
+    const ua = userAnswers[currentQ];
+    let you;
+    if (ua === undefined) you = `<div class="ex-you ex-skip">You skipped this question.</div>`;
+    else if (ua === q.correct_answer_index) you = `<div class="ex-you ex-correct">✓ You answered correctly.</div>`;
+    else you = `<div class="ex-you ex-wrong">✗ You chose ${MARKERS[ua] || ua + 1}. ${escHtml(q.options[ua])}</div>`;
+    exBox.innerHTML =
+      `<div class="ex-answer">Correct answer: <strong>${cm}. <span class="chinese">${escHtml(q.options[q.correct_answer_index])}</span></strong></div>` +
+      you +
+      (q.explanation ? `<div class="ex-explain"><span class="ex-explain-label">解析 · Explanation</span>${escHtml(q.explanation)}</div>` : '');
+    exBox.hidden = false;
   } else {
-    nextBtn.textContent = 'Next →';
+    exBox.hidden = true;
+    exBox.innerHTML = '';
   }
+
+  // Nav buttons
+  $('btn-prev').style.display = pos > 0 ? '' : 'none';
+  const nextBtn = $('btn-next');
+  nextBtn.textContent = (pos >= list.length - 1)
+    ? (reviewMode ? 'Back to results' : 'Finish test')
+    : 'Next →';
+
+  renderNavigator();
+  updateNavStats();
+  saveProgress();
 }
 
 function selectOption(i) {
   if (reviewMode) return;
   userAnswers[currentQ] = i;
+  saveProgress();
+  renderQuestion();
+}
+
+function toggleFlag() {
+  if (reviewMode) return;
+  if (flags[currentQ]) delete flags[currentQ]; else flags[currentQ] = true;
+  saveProgress();
   renderQuestion();
 }
 
 function nextQuestion() {
-  const total = currentTest.questions.length;
-  if (currentQ < total - 1) {
-    currentQ++;
+  const list = navList();
+  const pos = list.indexOf(currentQ);
+  if (pos < list.length - 1) {
+    currentQ = list[pos + 1];
     renderQuestion();
     window.scrollTo(0, 0);
+  } else if (reviewMode) {
+    showScreen('results-screen');
   } else {
-    if (reviewMode) {
-      showScreen('results-screen');
-    } else {
-      showResults();
-    }
+    finishTest();
   }
 }
 
 function prevQuestion() {
-  if (currentQ > 0) {
-    currentQ--;
+  const list = navList();
+  const pos = list.indexOf(currentQ);
+  if (pos > 0) {
+    currentQ = list[pos - 1];
     renderQuestion();
     window.scrollTo(0, 0);
   }
 }
 
+function gotoQuestion(i) {
+  currentQ = i;
+  closeNavigator();
+  renderQuestion();
+  window.scrollTo(0, 0);
+}
+
+function finishTest() {
+  const total = currentTest.questions.length;
+  const unanswered = total - answeredCount(userAnswers);
+  if (unanswered > 0 && !confirm(`You have ${unanswered} unanswered question${unanswered > 1 ? 's' : ''}. Finish and see your score anyway?`)) return;
+  showResults();
+}
+
+// === QUESTION NAVIGATOR ===
+function toggleNavigator() {
+  const panel = $('qnav-panel');
+  const open = panel.hidden;
+  panel.hidden = !open;
+  $('qnav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) renderNavigator();
+}
+function closeNavigator() {
+  const panel = $('qnav-panel');
+  if (!panel) return;
+  panel.hidden = true;
+  $('qnav-toggle').setAttribute('aria-expanded', 'false');
+}
+function renderNavigator() {
+  const grid = $('qnav-grid');
+  if (!grid || (grid.parentElement && grid.parentElement.hidden)) return;
+  grid.innerHTML = currentTest.questions.map((q, i) => {
+    let c = 'qnav-cell';
+    if (i === currentQ) c += ' is-current';
+    if (reviewMode) {
+      const ua = userAnswers[i];
+      if (ua === undefined) c += ' is-skip';
+      else if (ua === q.correct_answer_index) c += ' is-correct';
+      else c += ' is-wrong';
+    } else {
+      if (userAnswers[i] !== undefined) c += ' is-answered';
+      if (flags[i]) c += ' is-flagged';
+    }
+    return `<button class="${c}" type="button" onclick="gotoQuestion(${i})" title="Question ${q.number}">${i + 1}</button>`;
+  }).join('');
+}
+function updateNavStats() {
+  const el = $('qnav-stats');
+  if (!el) return;
+  if (reviewMode) { el.textContent = ''; return; }
+  const total = currentTest.questions.length;
+  const done = answeredCount(userAnswers);
+  const flagged = Object.keys(flags).length;
+  el.textContent = `${done}/${total} answered` + (flagged ? ` · ${flagged} flagged` : '');
+}
+
+// === TIMER (counts up; tap to pause) ===
+function startTimer() {
+  stopTimer();
+  timerPaused = false;
+  renderTimer();
+  updateTimerUI();
+  timerId = setInterval(() => {
+    if (timerPaused) return;
+    elapsed++;
+    renderTimer();
+    if (elapsed % 10 === 0) saveProgress();
+  }, 1000);
+}
+function stopTimer() { if (timerId) { clearInterval(timerId); timerId = null; } }
+function toggleTimer() { timerPaused = !timerPaused; updateTimerUI(); }
+function renderTimer() { const el = $('timer-text'); if (el) el.textContent = fmtTime(elapsed); }
+function updateTimerUI() {
+  const t = $('quiz-timer');
+  if (t) { t.classList.toggle('is-paused', timerPaused); t.title = timerPaused ? 'Paused — tap to resume' : 'Tap to pause / resume'; }
+}
+
 // === RESULTS ===
 function showResults() {
-  const total = currentTest.questions.length;
-  let correct = 0;
-  let answered = 0;
-
-  currentTest.questions.forEach((q, i) => {
-    if (userAnswers[i] !== undefined) {
+  stopTimer();
+  const qs = currentTest.questions;
+  const total = qs.length;
+  let correct = 0, answered = 0;
+  const wrongIdx = [];
+  const sections = {};
+  qs.forEach((q, i) => {
+    const sec = sectionOf(q);
+    (sections[sec] = sections[sec] || { correct: 0, total: 0 }).total++;
+    const ua = userAnswers[i];
+    if (ua !== undefined) {
       answered++;
-      if (userAnswers[i] === q.correct_answer_index) correct++;
+      if (ua === q.correct_answer_index) { correct++; sections[sec].correct++; }
+      else wrongIdx.push(i);
+    } else {
+      wrongIdx.push(i);
     }
   });
-
   const wrong = answered - correct;
   const unanswered = total - answered;
   const pct = Math.round(correct / total * 100);
 
-  const circle = document.getElementById('score-circle');
-  circle.className = 'score-circle ' + (pct >= 60 ? 'pass' : 'fail');
-  document.getElementById('score-num').textContent = pct + '%';
-  document.getElementById('results-msg').textContent = pct >= 60 ? '恭喜通过！Congratulations!' : '继续加油！Keep Practicing!';
-  document.getElementById('results-detail').textContent = `You got ${correct} out of ${total} questions correct.`;
-  document.getElementById('res-correct').textContent = correct;
-  document.getElementById('res-wrong').textContent = wrong;
-  document.getElementById('res-unanswered').textContent = unanswered;
+  lastResult = { correct, total, pct, wrong, unanswered, wrongIdx, sections, elapsed };
+  if (currentTestIndex != null) {
+    saveResult(currentTestIndex, { pct, correct, total, ts: Date.now() });
+    clearProgress(currentTestIndex);
+  }
 
+  const circle = $('score-circle');
+  circle.className = 'score-circle ' + (pct >= 60 ? 'pass' : 'fail');
+  $('score-num').textContent = pct + '%';
+  $('results-msg').textContent = pct >= 60 ? '恭喜通过！Congratulations!' : '继续加油！Keep Practicing!';
+  $('results-detail').textContent = `You got ${correct} out of ${total} correct` +
+    (pct >= 60 ? ' — above the 60% pass line.' : ' — the pass line is 60%.');
+  $('res-correct').textContent = correct;
+  $('res-wrong').textContent = wrong;
+  $('res-unanswered').textContent = unanswered;
+  $('res-time').textContent = fmtTime(elapsed);
+
+  renderSectionScores(sections);
+  renderNextSteps(lastResult);
+  $('btn-review-wrong').style.display = wrongIdx.length > 0 ? '' : 'none';
+
+  closeNavigator();
   showScreen('results-screen');
 }
 
-function reviewAnswers() {
-  reviewMode = true;
-  currentQ = 0;
-  showScreen('quiz-screen');
-  renderQuestion();
+function renderSectionScores(sections) {
+  const wrap = $('section-scores');
+  const order = ['Listening', 'Reading', 'Writing'];
+  const present = order.filter(s => sections[s] && sections[s].total > 0);
+  if (present.length <= 1) { wrap.innerHTML = ''; return; }
+  wrap.innerHTML = `<div class="section-scores-title">How you did by section</div>` + present.map(s => {
+    const { correct, total } = sections[s];
+    const p = Math.round(correct / total * 100);
+    const meta = SECTION_META[s];
+    return `
+      <div class="section-score-row">
+        <div class="section-score-head">
+          <span class="section-score-name">${s} <span class="section-score-zh">${meta.zh}</span></span>
+          <span class="section-score-val">${correct}/${total} · ${p}%</span>
+        </div>
+        <div class="section-score-bar"><div class="section-score-fill ${meta.cls}" style="width:${p}%"></div></div>
+      </div>`;
+  }).join('');
 }
 
-function retakeTest() {
-  userAnswers = {};
-  currentQ = 0;
-  reviewMode = false;
+function renderNextSteps(result) {
+  const wrap = $('next-steps');
+  const order = ['Listening', 'Reading', 'Writing'];
+  let weakest = null, weakestPct = 101;
+  order.forEach(s => {
+    const sec = result.sections[s];
+    if (sec && sec.total > 0) {
+      const p = sec.correct / sec.total * 100;
+      if (p < weakestPct) { weakestPct = p; weakest = s; }
+    }
+  });
+  const cards = [];
+  if (weakest && weakestPct < 80) {
+    const meta = SECTION_META[weakest];
+    cards.push(`<a class="next-step-card" href="${meta.href}">
+      <div class="next-step-tag">Weakest section · ${weakest} ${meta.zh}</div>
+      <h4>Drill your ${weakest.toLowerCase()} (${Math.round(weakestPct)}%)</h4>
+      <p>This was your lowest section. Close the gap before your next mock exam.</p>
+      <span class="next-step-cta">${meta.resource} →</span>
+    </a>`);
+  }
+  cards.push(`<a class="next-step-card" href="/vocabulary/">
+    <div class="next-step-tag">Foundation</div>
+    <h4>Review HSK 4 vocabulary</h4>
+    <p>1,000 words with pinyin, examples, and topic tags — the raw material for every section.</p>
+    <span class="next-step-cta">Open the vocabulary list →</span>
+  </a>`);
+  const nextIdx = (currentTestIndex != null && currentTestIndex < allTests.length - 1) ? currentTestIndex + 1 : null;
+  if (nextIdx != null) {
+    const t = allTests[nextIdx];
+    cards.push(`<a class="next-step-card" href="/?start=${nextIdx}">
+      <div class="next-step-tag">Keep practicing</div>
+      <h4>Take Test ${pad2(nextIdx + 1)}</h4>
+      <p>${escHtml(t.title)} · ${t.questions} questions. Aim for 70%+ consistently before test day.</p>
+      <span class="next-step-cta">Start the next test →</span>
+    </a>`);
+  }
+  wrap.innerHTML = `<h3 class="next-steps-title">Your next step</h3><div class="next-steps-cards">${cards.join('')}</div>`;
+}
+
+// === REVIEW ===
+function enterReview() {
+  stopTimer();
+  $('kbd-hint').style.display = 'none';
+  const banner = $('review-banner');
+  banner.hidden = false;
+  banner.innerHTML = (reviewMode && reviewList)
+    ? `Reviewing the <strong>${reviewList.length}</strong> question${reviewList.length > 1 ? 's' : ''} you missed — correct answers and explanations shown. <button class="link-btn" type="button" onclick="showScreen('results-screen')">← Back to results</button>`
+    : `Reviewing all answers — correct answers and explanations shown. <button class="link-btn" type="button" onclick="showScreen('results-screen')">← Back to results</button>`;
   showScreen('quiz-screen');
   renderQuestion();
 }
+function reviewAnswers() {
+  reviewMode = true;
+  reviewList = null;
+  currentQ = 0;
+  enterReview();
+}
+function reviewWrongOnly() {
+  if (!lastResult || !lastResult.wrongIdx.length) return;
+  reviewMode = true;
+  reviewList = lastResult.wrongIdx.slice();
+  currentQ = reviewList[0];
+  enterReview();
+}
+function retakeTest() { beginAttempt(null); }
+
+// === KEYBOARD SHORTCUTS (quiz screen only) ===
+document.addEventListener('keydown', (e) => {
+  if (!$('quiz-screen').classList.contains('active')) return;
+  if (document.querySelector('.modal-overlay')) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const tag = (e.target.tagName || '').toLowerCase();
+  if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+
+  const key = e.key.toLowerCase();
+  if (key === 'arrowright') { e.preventDefault(); nextQuestion(); return; }
+  if (key === 'arrowleft') { e.preventDefault(); prevQuestion(); return; }
+  if (reviewMode) return;
+  if (key === 'f') { e.preventDefault(); toggleFlag(); return; }
+  let idx = -1;
+  if (key >= '1' && key <= '9') idx = parseInt(key, 10) - 1;
+  else if (key >= 'a' && key <= 'e') idx = key.charCodeAt(0) - 97;
+  if (idx >= 0 && idx < currentTest.questions[currentQ].options.length) {
+    e.preventDefault();
+    selectOption(idx);
+  }
+});
+
+// Persist progress if the user closes the tab mid-test.
+window.addEventListener('beforeunload', saveProgress);
+
+// === SCROLL-TO-TOP ===
+(function () {
+  const btn = $('to-top');
+  if (!btn) return;
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const onScroll = () => { btn.hidden = (window.pageYOffset || document.documentElement.scrollTop) < 500; };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo(reduce ? { top: 0 } : { top: 0, behavior: 'smooth' }));
+  onScroll();
+})();
 
 // === INIT ===
 loadIndex();
 </script>
 
+<button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(d){var k=d.getAttribute('data-theme')==='dark';if(k){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','dark')}try{localStorage.setItem('hsk4_theme',k?'light':'dark')}catch(e){}})(document.documentElement)"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
 </body>
 </html>

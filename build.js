@@ -119,7 +119,7 @@ function generateTopicQuiz(words, seed) {
       fb.textContent = '\\u2713 Correct!';
     } else {
       btn.classList.add('wrong');
-      fb.style.background = '#ffe0e0';
+      fb.style.background = 'var(--bad-bg)';
       fb.style.color = 'var(--accent)';
       fb.textContent = '\\u2717 The answer is: ' + item.dataset.answer;
     }
@@ -349,13 +349,13 @@ function buildTestPages() {
       : `<span style="display:inline-block;background:var(--gold-soft);color:var(--gold);font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px;margin-left:8px;">Listening + Reading</span>`;
     const coverageNote = isComplete
       ? ''
-      : `<div style="background:var(--gold-soft);border:1px solid #e8d5a0;border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:14px;line-height:1.6;color:var(--gold);">
+      : `<div style="background:var(--gold-soft);border:1px solid var(--gold-border);border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:14px;line-height:1.6;color:var(--gold);">
       <strong>Note:</strong> This test covers listening and reading sections only. The writing section (sentence construction) cannot be auto-scored in our online format. For writing practice, see our <a href="/writing/sentence-order/" style="color:var(--gold);font-weight:600;">sentence ordering exercises</a> and <a href="/writing/paragraph/" style="color:var(--gold);font-weight:600;">paragraph writing practice</a>.
     </div>`;
 
     // Honest label for tests that ship fewer than the standard 100 questions
     const partialNote = (isComplete && test.questions.length < 100)
-      ? `<div style="background:var(--gold-soft);border:1px solid #e8d5a0;border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:14px;line-height:1.6;color:var(--gold);">
+      ? `<div style="background:var(--gold-soft);border:1px solid var(--gold-border);border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:14px;line-height:1.6;color:var(--gold);">
       <strong>Note:</strong> This is a partial test with ${test.questions.length} questions (the standard HSK 4 paper has 100: 45 listening + 40 reading + 15 writing). It still auto-scores and is great for extra practice — for a full-length simulation, start with <a href="/test/01/" style="color:var(--gold);font-weight:600;">Test 01</a>.
     </div>`
       : '';
@@ -472,7 +472,7 @@ function buildTestPages() {
   .static-answer-line { font-size: 14px; }
   .static-explanation { margin-top: 6px; font-size: 13px; color: var(--stone); line-height: 1.7; }
   .static-question {
-    background: white;
+    background: var(--surface);
     border: 1px solid var(--mist);
     border-radius: var(--radius);
     padding: 20px 24px;
@@ -586,14 +586,14 @@ function buildTestPages() {
       Read the relevant strategy guide first to gain 15-30 score points on this mock exam:
     </p>
     <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));gap:10px;">
-      <a href="/strategies/listening-judgment/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力判断 (Q1-10) →</a>
-      <a href="/strategies/listening-dialog/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力短对话 (Q11-25) →</a>
-      <a href="/strategies/listening-passage/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力长对话 (Q26-45) →</a>
-      <a href="/strategies/listening-keywords/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力信号词 →</a>
-      <a href="/strategies/reading-fill/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读选词填空 (Q46-55) →</a>
-      <a href="/strategies/reading-ordering/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读排序 (Q56-65) →</a>
-      <a href="/strategies/reading-comprehension/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读理解 (Q66-85) →</a>
-      ${isComplete ? '<a href="/strategies/writing-construction/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">书写排词 (Q86-95) →</a><a href="/strategies/picture-templates/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">看图造句 (Q96-100) →</a>' : ''}
+      <a href="/strategies/listening-judgment/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力判断 (Q1-10) →</a>
+      <a href="/strategies/listening-dialog/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力短对话 (Q11-25) →</a>
+      <a href="/strategies/listening-passage/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力长对话 (Q26-45) →</a>
+      <a href="/strategies/listening-keywords/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">听力信号词 →</a>
+      <a href="/strategies/reading-fill/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读选词填空 (Q46-55) →</a>
+      <a href="/strategies/reading-ordering/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读排序 (Q56-65) →</a>
+      <a href="/strategies/reading-comprehension/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">阅读理解 (Q66-85) →</a>
+      ${isComplete ? '<a href="/strategies/writing-construction/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">书写排词 (Q86-95) →</a><a href="/strategies/picture-templates/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">看图造句 (Q96-100) →</a>' : ''}
     </div>
     <p style="margin-top:14px;color:var(--stone);font-size:13px;">
       Or jump to the <a href="/strategies/" style="color:var(--accent);font-weight:600;">complete HSK 4 strategy hub</a> &middot; <a href="/sentences/" style="color:var(--accent);font-weight:600;">100 essential sentences</a> &middot; <a href="/grammar/measure-words/" style="color:var(--accent);font-weight:600;">HSK 4 measure words (量词)</a> &middot; <a href="/words/" style="color:var(--accent);font-weight:600;">43 confusable pairs</a>.
@@ -1088,7 +1088,7 @@ function buildTopics() {
   .static-topic-words { display: flex; flex-wrap: wrap; gap: 6px; }
   .static-topic-word {
     display: inline-block; padding: 4px 10px; border: 1px solid var(--mist);
-    border-radius: 6px; font-size: 13px; line-height: 1.5; background: white;
+    border-radius: 6px; font-size: 13px; line-height: 1.5; background: var(--surface);
   }
   .static-topic-word .pinyin { color: var(--stone); font-size: 12px; }
   </style>`;
@@ -1277,7 +1277,7 @@ function buildSentenceOrder() {
 
   const noscriptBlock = `<noscript>
   <style>
-    .static-exercise { background:white; border:1px solid var(--mist); border-radius:var(--radius); padding:20px; margin-bottom:12px; }
+    .static-exercise { background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius); padding:20px; margin-bottom:12px; }
     .static-ex-num { font-size:13px; font-weight:600; color:var(--stone); margin-bottom:10px; }
     .static-ex-grammar { color:var(--accent); margin-left:8px; }
     .static-ex-frags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
@@ -1746,7 +1746,7 @@ function buildTaskTopicPages() {
     const dialogueHtml = dlg ? `
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Scenario Dialogue / \u60C5\u666F\u5BF9\u8BDD</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:14px;">${escHtml(dlg.scene_en)} Read it aloud twice: once for meaning, once for fluency \u2014 the syllabus tests this task across listening and speaking.</p>
-  <div style="background:white;border:1px solid var(--mist);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;">
+  <div style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;">
     ${dlg.lines.map(l => `
     <div style="display:flex;gap:12px;margin-bottom:14px;">
       <div style="flex:0 0 26px;height:26px;border-radius:50%;background:${l.s === 'A' ? 'var(--accent-soft)' : 'var(--jade-soft)'};color:${l.s === 'A' ? 'var(--accent)' : 'var(--jade)'};font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;">${l.s}</div>
@@ -1798,7 +1798,7 @@ function buildTaskTopicPages() {
       ? `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Real HSK 4 Questions on ${escHtml(task.task_en)} / 真题示例</h2>
   <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">Below are 1-${matchingQuestions.length} actual HSK 4 ${escHtml(task.task_en).toLowerCase()} questions from our 12 mock exams. Each was solved using the vocabulary above:</p>
   ${matchingQuestions.map(mq => `
-  <div style="background:white;border:1px solid var(--mist);border-radius:var(--radius);padding:18px 22px;margin:14px 0;">
+  <div style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius);padding:18px 22px;margin:14px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num} · ${mq.type === 'listening_choice' ? '听力 Listening' : '阅读 Reading'}</div>
     <div style="font-family:'Noto Sans SC',sans-serif;font-size:15px;line-height:1.6;margin-bottom:10px;">${escHtml(mq.text).replace(/\n/g, '<br>')}</div>
     <div style="display:flex;gap:6px;flex-wrap:wrap;">
@@ -1896,7 +1896,7 @@ ${faqJsonLd}
   .word-table { width:100%; border-collapse:collapse; margin:20px 0; font-size:14px; }
   .word-table th { padding:10px 12px; text-align:left; border-bottom:2px solid var(--mist); font-size:13px; text-transform:uppercase; letter-spacing:0.5px; color:var(--stone); }
   .word-table td { padding:8px 12px; border-bottom:1px solid var(--mist); vertical-align:top; }
-  .word-table tr:hover td { background:white; }
+  .word-table tr:hover td { background:var(--surface); }
   .skills-row { display:flex; gap:8px; margin:16px 0; flex-wrap:wrap; }
   .skill-tag { padding:6px 14px; border-radius:6px; font-size:13px; font-weight:600; }
   .skill-tag.listening { background:var(--gold-soft); color:var(--gold); }
@@ -2069,7 +2069,7 @@ ${faqJsonLd}
     <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">The official 2026 syllabus defines ${generated.length} communicative tasks. Each page below collects the HSK 4 words for one task, with examples and related grammar.</p>
     <style>
       .task-nav-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin-bottom:32px; }
-      .task-nav-card { display:flex; flex-direction:column; gap:2px; background:white; border:1px solid var(--mist); border-radius:8px; padding:12px 14px; text-decoration:none; color:var(--ink); font-size:14px; transition:all .15s; }
+      .task-nav-card { display:flex; flex-direction:column; gap:2px; background:var(--surface); border:1px solid var(--mist); border-radius:8px; padding:12px 14px; text-decoration:none; color:var(--ink); font-size:14px; transition:all .15s; }
       .task-nav-card:hover { border-color:var(--accent); transform:translateY(-1px); }
       .task-nav-en { font-size:12px; color:var(--stone); }
     </style>
@@ -2122,7 +2122,7 @@ function buildConfusablePages() {
     const rel = relatedPairsFor(pair);
     if (rel.length === 0) return '';
     const cards = rel.map(p => `
-      <a href="/words/${p.slug}/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <a href="/words/${p.slug}/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
         <div class="chinese" style="font-size:16px;font-weight:700;">${escHtml(pairWords(p).join(' vs '))}</div>
         <div style="font-size:12px;color:var(--stone);margin-top:4px;">${escHtml((p.subtitle || '').split(' — ')[0])}</div>
         <div style="font-size:11px;color:var(--accent);margin-top:6px;">${escHtml(p.category || '')}</div>
@@ -2174,7 +2174,7 @@ function buildConfusablePages() {
     const realQHtml = matchingQs.length > 0
       ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Real HSK 4 Test Questions Using ${escHtml(pair.wordA)} or ${escHtml(pair.wordB)} / 真题示例</h2>
   <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">${matchingQs.length} actual HSK 4 questions from our mock exams that test the ${escHtml(pair.wordA)} vs ${escHtml(pair.wordB)} distinction:</p>
-  ${matchingQs.map(mq => `<div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
+  ${matchingQs.map(mq => `<div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num}</div>
     <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">${escHtml(mq.text).replace(/\n/g, '<br>')}</div>
     ${mq.options.length > 0 ? `<div style="display:flex;gap:6px;flex-wrap:wrap;">${mq.options.map((o, oi) => `<span style="font-size:12px;padding:3px 9px;border-radius:5px;background:${oi === mq.answer ? 'var(--correct-soft)' : 'var(--paper)'};color:${oi === mq.answer ? 'var(--correct)' : 'var(--stone)'};">${escHtml(o)}${oi === mq.answer ? ' ✓' : ''}</span>`).join('')}</div>` : ''}
@@ -2296,34 +2296,34 @@ ${pairFaqJsonLd}
   .ex-pinyin { font-size:13px; color:var(--stone); font-style:italic; }
   .ex-en { font-size:13px; color:var(--stone); }
   .ex-highlight { color:var(--accent); font-weight:600; }
-  .tip-box { background:var(--gold-soft); border:1px solid #e8d5a0; border-radius:8px; padding:14px 18px; margin:20px 0; font-size:14px; line-height:1.6; }
+  .tip-box { background:var(--gold-soft); border:1px solid var(--gold-border); border-radius:8px; padding:14px 18px; margin:20px 0; font-size:14px; line-height:1.6; }
   .tip-box strong { color:var(--gold); }
-  .q-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .q-item { background:var(--surface); border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
   .q-stem { font-size:15px; font-family:'Noto Sans SC',sans-serif; margin-bottom:10px; line-height:1.5; }
   .q-stem .blank { display:inline-block; min-width:50px; border-bottom:2px solid var(--accent); margin:0 4px; text-align:center; }
   .q-opts { display:flex; gap:8px; flex-wrap:wrap; }
-  .q-opt { padding:8px 18px; border:1px solid var(--mist); border-radius:8px; background:white; font-size:15px; font-family:'Noto Sans SC','DM Sans',sans-serif; cursor:pointer; transition:all 0.15s; }
+  .q-opt { padding:8px 18px; border:1px solid var(--mist); border-radius:8px; background:var(--surface); font-size:15px; font-family:'Noto Sans SC','DM Sans',sans-serif; cursor:pointer; transition:all 0.15s; }
   .q-opt:hover { border-color:var(--accent); background:var(--accent-soft); }
   .q-opt.correct { background:var(--jade-soft); border-color:var(--jade); color:var(--jade); font-weight:600; }
-  .q-opt.wrong { background:#ffe0e0; border-color:var(--accent); color:var(--accent); }
+  .q-opt.wrong { background:var(--bad-bg); border-color:var(--accent); color:var(--accent); }
   .q-opt.disabled { pointer-events:none; opacity:0.7; }
   .q-opt.disabled.correct { opacity:1; }
   .q-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.6; padding:10px 14px; background:var(--paper); border-radius:6px; }
   .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
   .breadcrumb a { color:var(--accent); text-decoration:none; }
-  .fill-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .fill-item { background:var(--surface); border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
   .fill-sentence { font-size:17px; line-height:1.8; margin-bottom:10px; }
   .fill-input { width:60px; border:none; border-bottom:2px solid var(--accent); background:transparent; font-size:17px; font-family:'Noto Sans SC',sans-serif; text-align:center; outline:none; padding:2px 4px; }
   .fill-input:focus { border-bottom-color:var(--jade); }
   .fill-input.correct { border-bottom-color:var(--jade); color:var(--jade); font-weight:600; }
   .fill-input.wrong { border-bottom-color:var(--accent); color:var(--accent); }
-  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:white; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.15s; }
+  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:var(--surface); font-size:13px; font-weight:600; cursor:pointer; transition:all 0.15s; }
   .fill-check-btn:hover { border-color:var(--accent); background:var(--accent-soft); }
   .fill-check-btn.done { pointer-events:none; opacity:0.5; }
   .fill-feedback { margin-top:8px; font-size:13px; line-height:1.5; display:none; padding:8px 12px; border-radius:6px; }
   .fill-feedback.show { display:block; }
   .fill-feedback.pass { background:var(--jade-soft); color:var(--jade); }
-  .fill-feedback.fail { background:#ffe0e0; color:var(--accent); }
+  .fill-feedback.fail { background:var(--bad-bg); color:var(--accent); }
   .pair-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
   @media (max-width:600px) { .cmp-table th,.cmp-table td { padding:6px 8px; font-size:13px; } .q-opts { flex-direction:column; } .fill-input { width:50px; } }
 </style>
@@ -2534,7 +2534,7 @@ function buildGrammarPatternPages() {
     const patRealQHtml = patMatchQs.length > 0
       ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">HSK 4 Mock Test Questions Using ${escHtml(pat.pattern_cn)} / 真题示例</h2>
   <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">${patMatchQs.length} real HSK 4 questions from our mock exams that test this pattern:</p>
-  ${patMatchQs.map(mq => `<div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
+  ${patMatchQs.map(mq => `<div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num}</div>
     <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">${escHtml(mq.text).replace(/\n/g, '<br>')}</div>
     ${mq.options.length > 0 ? `<div style="display:flex;gap:6px;flex-wrap:wrap;">${mq.options.map((o, oi) => `<span style="font-size:12px;padding:3px 9px;border-radius:5px;background:${oi === mq.answer ? 'var(--correct-soft)' : 'var(--paper)'};color:${oi === mq.answer ? 'var(--correct)' : 'var(--stone)'};">${escHtml(o)}${oi === mq.answer ? ' ✓' : ''}</span>`).join('')}</div>` : ''}
@@ -2643,7 +2643,7 @@ ${patFaqJsonLd}
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/common.css">
 <style>
-  .pattern-box { background:var(--ink); color:var(--paper); border-radius:var(--radius); padding:24px 28px; margin:20px 0; text-align:center; }
+  .pattern-box { background:var(--invert-bg); color:var(--invert-fg); border-radius:var(--radius); padding:24px 28px; margin:20px 0; text-align:center; }
   .pattern-formula { font-family:'Noto Sans SC',sans-serif; font-size:22px; font-weight:600; letter-spacing:1px; }
   .pattern-type { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
   .ex-card { background:var(--paper); border:1px solid var(--mist); border-radius:8px; padding:16px 20px; margin:10px 0; }
@@ -2651,39 +2651,39 @@ ${patFaqJsonLd}
   .ex-py { font-size:13px; color:var(--stone); font-style:italic; }
   .ex-en { font-size:14px; color:var(--stone); margin-top:4px; }
   .ex-note { font-size:12px; color:var(--accent); margin-top:6px; padding-top:6px; border-top:1px solid var(--mist); }
-  .wrong-card { background:#fff8f7; border:1px solid var(--accent-soft); border-radius:8px; padding:16px 20px; margin:10px 0; }
+  .wrong-card { background:var(--accent-tint); border:1px solid var(--accent-soft); border-radius:8px; padding:16px 20px; margin:10px 0; }
   .wrong-line { font-family:'Noto Sans SC',sans-serif; font-size:15px; margin-bottom:6px; }
   .wrong-mark { color:var(--accent); font-weight:700; font-size:16px; }
   .right-line { font-family:'Noto Sans SC',sans-serif; font-size:15px; margin-bottom:6px; }
   .right-mark { color:var(--jade); font-weight:700; font-size:16px; }
   .wrong-explain { font-size:13px; color:var(--stone); line-height:1.6; margin-top:8px; padding-top:8px; border-top:1px solid var(--accent-soft); }
-  .compare-box { background:var(--gold-soft); border:1px solid #e8d5a0; border-radius:8px; padding:14px 18px; margin:20px 0; font-size:14px; line-height:1.6; }
+  .compare-box { background:var(--gold-soft); border:1px solid var(--gold-border); border-radius:8px; padding:14px 18px; margin:20px 0; font-size:14px; line-height:1.6; }
   .compare-box strong { color:var(--gold); }
-  .q-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .q-item { background:var(--surface); border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
   .q-stem { font-size:16px; font-family:'Noto Sans SC',sans-serif; margin-bottom:12px; line-height:1.5; }
   .q-opts { display:flex; gap:8px; flex-wrap:wrap; }
-  .q-opt { padding:10px 20px; border:1px solid var(--mist); border-radius:8px; background:white; font-size:14px; cursor:pointer; transition:all 0.15s; font-family:'DM Sans',sans-serif; }
+  .q-opt { padding:10px 20px; border:1px solid var(--mist); border-radius:8px; background:var(--surface); font-size:14px; cursor:pointer; transition:all 0.15s; font-family:'DM Sans',sans-serif; }
   .q-opt:hover { border-color:var(--accent); background:var(--accent-soft); }
   .q-opt.correct { background:var(--jade-soft); border-color:var(--jade); color:var(--jade); font-weight:600; }
-  .q-opt.wrong { background:#ffe0e0; border-color:var(--accent); color:var(--accent); }
+  .q-opt.wrong { background:var(--bad-bg); border-color:var(--accent); color:var(--accent); }
   .q-opt.disabled { pointer-events:none; opacity:0.7; }
   .q-opt.disabled.correct { opacity:1; }
   .q-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.6; padding:10px 14px; background:var(--paper); border-radius:6px; }
   .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
   .breadcrumb a { color:var(--accent); text-decoration:none; }
-  .fill-item { background:white; border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
+  .fill-item { background:var(--surface); border:1px solid var(--mist); border-radius:8px; padding:16px; margin-bottom:10px; }
   .fill-sentence { font-size:17px; line-height:1.8; margin-bottom:10px; }
   .fill-input { width:80px; border:none; border-bottom:2px solid var(--accent); background:transparent; font-size:17px; font-family:'Noto Sans SC',sans-serif; text-align:center; outline:none; padding:2px 4px; }
   .fill-input:focus { border-bottom-color:var(--jade); }
   .fill-input.correct { border-bottom-color:var(--jade); color:var(--jade); font-weight:600; }
   .fill-input.wrong { border-bottom-color:var(--accent); color:var(--accent); }
-  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:white; font-size:13px; font-weight:600; cursor:pointer; }
+  .fill-check-btn { padding:6px 16px; border:1px solid var(--mist); border-radius:6px; background:var(--surface); font-size:13px; font-weight:600; cursor:pointer; }
   .fill-check-btn:hover { border-color:var(--accent); background:var(--accent-soft); }
   .fill-check-btn.done { pointer-events:none; opacity:0.5; }
   .fill-feedback { margin-top:8px; font-size:13px; display:none; padding:8px 12px; border-radius:6px; }
   .fill-feedback.show { display:block; }
   .fill-feedback.pass { background:var(--jade-soft); color:var(--jade); }
-  .fill-feedback.fail { background:#ffe0e0; color:var(--accent); }
+  .fill-feedback.fail { background:var(--bad-bg); color:var(--accent); }
   .pat-nav { display:flex; justify-content:space-between; margin:40px 0; flex-wrap:wrap; gap:12px; }
   @media (max-width:600px) { .pattern-formula { font-size:18px; } .q-opts { flex-direction:column; } .fill-input { width:60px; } }
 </style>
@@ -2894,7 +2894,7 @@ ${itemListJsonLd}
   .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
   .breadcrumb a { color:var(--accent); text-decoration:none; }
   .pattern-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; margin:28px 0 40px; }
-  .pattern-card { display:block; background:white; border:1px solid var(--mist); border-radius:var(--radius); padding:18px 20px; text-decoration:none; color:var(--ink); transition:all .15s; }
+  .pattern-card { display:block; background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius); padding:18px 20px; text-decoration:none; color:var(--ink); transition:all .15s; }
   .pattern-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.06); }
   .pattern-card-type { font-size:11px; color:var(--accent); font-weight:700; text-transform:uppercase; margin-bottom:6px; }
   .pattern-card-cn { font-family:'Noto Serif SC',serif; font-size:20px; margin-bottom:2px; }
@@ -2987,7 +2987,7 @@ function addTestLinksToHubs() {
   ];
 
   const testLinkBlock = `\n  <!-- hub-test-link -->
-  <div style="background:white;border:1px solid var(--mist);border-radius:var(--radius);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+  <div style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
     <span style="font-size:14px;color:var(--stone);">Practice what you learned with our free mock exams</span>
     <a href="/" class="btn btn-primary" style="font-size:13px;padding:8px 18px;">Take a Mock Exam \u2192</a>
   </div>`;
@@ -3053,7 +3053,7 @@ function buildCharacterPages() {
       .slice(0, 4);
     if (ranked.length === 0) return '';
     const chips = ranked.map(({ task, words }) => `
-    <a href="/topics/${task.slug}/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+    <a href="/topics/${task.slug}/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
       <div class="chinese" style="font-size:14px;font-weight:600;">\u{1F4DA} ${escHtml(task.task_cn)}</div>
       <div style="font-size:12px;color:var(--stone);margin-top:3px;">${escHtml(task.task_en)} \u00B7 <span class="chinese">${escHtml(words.slice(0, 3).join('\u3001'))}</span></div>
     </a>`).join('');
@@ -3207,15 +3207,15 @@ ${renderNav('characters')}
 
   <section style="margin-top:40px;">
     <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">FAQ</h2>
-    <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+    <details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
       <summary style="cursor:pointer;font-weight:600;">How many characters does HSK 4 require you to write?</summary>
       <p style="color:var(--stone);line-height:1.7;margin-top:10px;">The official HSK 4 syllabus (《HSK考试大纲》) lists exactly <strong>${chars.length} handwriting characters (书写字)</strong> you must be able to write, plus 441 reading-recognition characters (认读字) you only need to recognize. This page covers the complete official handwriting list — verified character-by-character against the syllabus.</p>
     </details>
-    <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+    <details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
       <summary style="cursor:pointer;font-weight:600;">Does the HSK 4 exam still test handwriting?</summary>
       <p style="color:var(--stone);line-height:1.7;margin-top:10px;">The paper-based HSK 4 includes a writing section (书写) where you compose sentences using given vocabulary. Even if you take the computer-based version, the ability to handwrite characters fluently is essential for everyday use of Chinese.</p>
     </details>
-    <details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;">
+    <details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;">
       <summary style="cursor:pointer;font-weight:600;">Why does stroke order matter?</summary>
       <p style="color:var(--stone);line-height:1.7;margin-top:10px;">Correct stroke order produces balanced, recognizable characters and makes handwriting much faster. It also helps you correctly identify and write characters you have only seen briefly — a major advantage during the timed writing section.</p>
     </details>
@@ -3459,7 +3459,7 @@ ${renderFooter()}
     ];
     const faqHtml = `
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">FAQ</h2>
-  ${faqs.map(f => `<details style="background:white;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
+  ${faqs.map(f => `<details style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:8px;">
     <summary style="cursor:pointer;font-weight:600;">${escHtml(f.q)}</summary>
     <p style="color:var(--stone);line-height:1.7;margin-top:10px;">${escHtml(f.a)}</p>
   </details>`).join('')}`;
@@ -3588,11 +3588,12 @@ window.addEventListener('load', function(){
     return;
   }
   var status = document.getElementById('writer-status');
+  function themeColor(n, f){ try { return getComputedStyle(document.documentElement).getPropertyValue(n).trim() || f; } catch(e){ return f; } }
   var writer = HanziWriter.create('writer-target', ${JSON.stringify(c.char)}, {
     width: 360, height: 360, padding: 8,
     showOutline: true, showCharacter: false,
     strokeAnimationSpeed: 1, delayBetweenStrokes: 180,
-    strokeColor: '#1a1a2e', outlineColor: '#c9c4be', highlightColor: '#c23b22'
+    strokeColor: themeColor('--ink', '#1a1a2e'), outlineColor: themeColor('--mist', '#c9c4be'), highlightColor: themeColor('--accent', '#c23b22')
   });
   function setStatus(msg, cls){
     status.className = 'writer-status' + (cls ? ' ' + cls : '');
@@ -3784,11 +3785,12 @@ window.addEventListener('load', function(){
     return;
   }
   var status = document.getElementById('writer-status');
+  function themeColor(n, f){ try { return getComputedStyle(document.documentElement).getPropertyValue(n).trim() || f; } catch(e){ return f; } }
   var writer = HanziWriter.create('writer-target', ${JSON.stringify(c.char)}, {
     width: 360, height: 360, padding: 8,
     showOutline: true, showCharacter: false,
     strokeAnimationSpeed: 1, delayBetweenStrokes: 180,
-    strokeColor: '#1a1a2e', outlineColor: '#c9c4be', highlightColor: '#c23b22'
+    strokeColor: themeColor('--ink', '#1a1a2e'), outlineColor: themeColor('--mist', '#c9c4be'), highlightColor: themeColor('--accent', '#c23b22')
   });
   function setStatus(msg, cls){
     status.className = 'writer-status' + (cls ? ' ' + cls : '');
@@ -3958,7 +3960,7 @@ function buildSentenceCategoryPages() {
     const patternChips = SENTENCE_PATTERN_LINKS
       .filter(p => p.re.test(allText) && !seen.has(p.href + p.label) && seen.add(p.href + p.label))
       .slice(0, 6)
-      .map(p => `<a href="${p.href}" style="display:inline-block;background:white;border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">${p.label} →</a>`)
+      .map(p => `<a href="${p.href}" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">${p.label} →</a>`)
       .join('');
 
     const sentencesHtml = cat.sentences.map((s, i) => `
@@ -3980,7 +3982,7 @@ function buildSentenceCategoryPages() {
       </div>`).join('');
 
     const related = (SENTENCE_CAT_RELATED[cat.slug] || []).map(([href, label]) =>
-      `<a href="${href}" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">${label}</div></a>`
+      `<a href="${href}" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">${label}</div></a>`
     ).join('');
 
     const title = `${cat.name_en} in Chinese — 10 HSK 4 ${cat.name_cn} Sentences`;
@@ -4010,13 +4012,13 @@ ${JSON.stringify({
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/common.css">
 <style>
-  .sentence-row { display:flex; gap:14px; background:white; border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
+  .sentence-row { display:flex; gap:14px; background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
   .sent-num { flex:0 0 28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
   .sent-cn { font-size:17px; font-weight:600; line-height:1.7; }
   .sent-py { color:var(--accent); font-size:13px; margin-top:2px; }
   .sent-en { color:var(--stone); font-size:14px; margin-top:4px; line-height:1.6; }
   .sent-use { color:var(--stone); font-size:12px; margin-top:6px; background:var(--paper); display:inline-block; padding:3px 8px; border-radius:4px; }
-  .recall-card { background:white; border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
+  .recall-card { background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
   .recall-en { font-size:15px; line-height:1.6; margin-bottom:10px; }
   .recall-cn { font-size:17px; font-weight:600; line-height:1.7; margin-bottom:10px; color:var(--ink); }
   .recall-py { font-size:13px; color:var(--accent); font-weight:400; margin-top:2px; }
@@ -4089,7 +4091,7 @@ function recallAll(show) {
   let hub = fs.readFileSync(hubPath, 'utf8');
   hub = hub.replace(/\s*<!-- SENTENCE CATEGORY NAV -->[\s\S]*?<!-- \/SENTENCE CATEGORY NAV -->/g, '');
   const navCards = cats.map(c => `
-      <a href="/sentences/${c.slug}/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <a href="/sentences/${c.slug}/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
         <div style="font-size:14px;font-weight:600;">${c.icon} ${escHtml(c.name_en)} <span class="chinese" style="color:var(--stone);font-weight:400;">${escHtml(c.name_cn)}</span></div>
         <div style="font-size:12px;color:var(--accent);margin-top:4px;">10 sentences + recall practice →</div>
       </a>`).join('');
@@ -4173,7 +4175,7 @@ function buildTrapCategoryPages() {
     const cardsHtml = cat.traps.map(t => t.html).join('\n\n');
     const quizHtml = cat.traps.map(t => t.quiz_html).filter(Boolean).join('\n\n');
     const relatedHtml = (meta.related || []).map(([href, label]) =>
-      `<a href="${href}" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">${label}</div></a>`
+      `<a href="${href}" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">${label}</div></a>`
     ).join('');
 
     const title = meta.seo_title || `HSK 4 ${cat.name_en} \u2014 ${cat.traps.length} Traps + Quiz`;
@@ -4194,28 +4196,28 @@ function buildTrapCategoryPages() {
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/common.css">
 <style>
-  .trap-card { background:white; border:1px solid var(--mist); border-left:4px solid var(--accent); border-radius:var(--radius); padding:22px 26px; margin-bottom:18px; }
+  .trap-card { background:var(--surface); border:1px solid var(--mist); border-left:4px solid var(--accent); border-radius:var(--radius); padding:22px 26px; margin-bottom:18px; }
   .trap-card h3 { font-family:'Noto Serif SC',serif; font-size:20px; font-weight:700; margin-bottom:6px; color:var(--ink); }
   .trap-tag { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px; margin-right:6px; vertical-align:middle; }
-  .trap-tag.high { background:#ffe0e0; color:#c53030; }
+  .trap-tag.high { background:var(--bad-bg); color:var(--bad-ink); }
   .trap-summary { color:var(--stone); font-size:14px; line-height:1.7; margin-bottom:12px; }
-  .ex-wrong { background:#fff5f5; border-left:3px solid #c53030; padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
-  .ex-wrong strong { color:#c53030; }
-  .ex-right { background:#e8f5e9; border-left:3px solid var(--correct,#38a169); padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
+  .ex-wrong { background:var(--bad-bg-2); border-left:3px solid var(--bad-ink); padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
+  .ex-wrong strong { color:var(--bad-ink); }
+  .ex-right { background:var(--ok-bg); border-left:3px solid var(--correct,#38a169); padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
   .ex-right strong { color:var(--correct,#38a169); }
   .trap-rule { background:var(--gold-soft); padding:10px 14px; border-radius:6px; font-size:13px; line-height:1.6; margin-top:10px; }
   .trap-link { display:inline-block; margin-top:12px; font-size:13px; color:var(--accent); font-weight:600; text-decoration:none; }
   .trap-link:hover { text-decoration:underline; }
-  .trap-quiz-item { background:white; border:1px solid var(--mist); border-radius:var(--radius); padding:18px 22px; margin-bottom:14px; }
+  .trap-quiz-item { background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius); padding:18px 22px; margin-bottom:14px; }
   .tq-num { font-size:11px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
   .tq-num a { color:var(--accent); }
   .tq-stem { font-size:15px; line-height:1.7; margin-bottom:12px; color:var(--ink); font-family:'Noto Sans SC',sans-serif; }
   .tq-stem strong { font-weight:600; }
   .tq-opts { display:flex; flex-direction:column; gap:8px; }
-  .tq-opt { padding:10px 14px; border:1px solid var(--mist); border-radius:6px; background:white; font-family:'Noto Sans SC',sans-serif; font-size:14px; line-height:1.6; cursor:pointer; transition:all 0.15s; text-align:left; color:var(--ink); }
+  .tq-opt { padding:10px 14px; border:1px solid var(--mist); border-radius:6px; background:var(--surface); font-family:'Noto Sans SC',sans-serif; font-size:14px; line-height:1.6; cursor:pointer; transition:all 0.15s; text-align:left; color:var(--ink); }
   .tq-opt:hover:not(.disabled) { border-color:var(--accent); background:var(--accent-soft); }
-  .tq-opt.correct { background:#e8f5e9; border-color:#38a169; color:#2f855a; font-weight:600; }
-  .tq-opt.wrong { background:#fff5f5; border-color:#c53030; color:#c53030; }
+  .tq-opt.correct { background:var(--ok-bg); border-color:var(--ok-border); color:var(--ok-ink); font-weight:600; }
+  .tq-opt.wrong { background:var(--bad-bg-2); border-color:var(--bad-ink); color:var(--bad-ink); }
   .tq-opt.disabled { pointer-events:none; opacity:0.6; }
   .tq-opt.disabled.correct { opacity:1; }
   .tq-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.7; padding:10px 14px; background:var(--paper); border-radius:6px; border-left:3px solid var(--accent); }
@@ -4283,7 +4285,7 @@ window.trapAnswer = function(btn, isCorrect, qNum) {
   let hub = fs.readFileSync(hubPath, 'utf8');
   hub = hub.replace(/\s*<!-- TRAP CATEGORY NAV -->[\s\S]*?<!-- \/TRAP CATEGORY NAV -->/g, '');
   const navCards = cats.map(c => `
-      <a href="/traps/${c.slug}/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
+      <a href="/traps/${c.slug}/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
         <div style="font-size:14px;font-weight:600;">${c.letter}. ${escHtml(c.name_en)} <span class="chinese" style="color:var(--stone);font-weight:400;">${escHtml(c.name_cn)}</span></div>
         <div style="font-size:12px;color:var(--accent);margin-top:4px;">${c.traps.length} ${c.traps.length === 1 ? 'trap' : 'traps'} + focused quiz →</div>
       </a>`).join('');
@@ -4299,6 +4301,48 @@ window.trapAnswer = function(btn, isCorrect, qNum) {
 
   console.log(`[trap-cats] Generated ${cats.length} category pages + hub nav`);
   return cats.map(c => ({ loc: `/traps/${c.slug}/`, priority: '0.7' }));
+}
+
+// ============================================================
+// DARK MODE — inject the no-flash theme loader + floating toggle
+// into every generated page. Runs last so it covers all pages.
+// Idempotent: re-running the build won't duplicate the snippets.
+// ============================================================
+function injectTheme() {
+  console.log('[theme] Injecting dark-mode loader + toggle into all pages...');
+  // No-flash loader: sets data-theme before first paint, honouring a saved
+  // choice, otherwise the OS preference. Placed at the very top of <head>.
+  const loader = `<script>(function(){try{var t=localStorage.getItem('hsk4_theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();<\/script>`;
+  // Floating toggle (bottom-left). Inline handler keeps it dependency-free
+  // on content pages that ship no JavaScript of their own.
+  const toggle = `<button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(d){var k=d.getAttribute('data-theme')==='dark';if(k){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','dark')}try{localStorage.setItem('hsk4_theme',k?'light':'dark')}catch(e){}})(document.documentElement)"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>`;
+
+  const SKIP = new Set(['.git', 'node_modules', 'data', 'scripts']);
+  function walk(dir, out) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (SKIP.has(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(full, out);
+      else if (entry.name.endsWith('.html')) out.push(full);
+    }
+    return out;
+  }
+
+  let count = 0;
+  walk(ROOT, []).forEach(f => {
+    let html = fs.readFileSync(f, 'utf8');
+    let changed = false;
+    if (html.indexOf('hsk4_theme') === -1 && html.indexOf('<head>') !== -1) {
+      html = html.replace('<head>', '<head>\n' + loader);
+      changed = true;
+    }
+    if (html.indexOf('class="theme-toggle"') === -1 && html.indexOf('</body>') !== -1) {
+      html = html.replace('</body>', toggle + '\n</body>');
+      changed = true;
+    }
+    if (changed) { fs.writeFileSync(f, html, 'utf8'); count++; }
+  });
+  console.log(`[theme] Injected into ${count} pages`);
 }
 
 
@@ -4319,4 +4363,5 @@ const sentenceCatPages = buildSentenceCategoryPages();
 const trapCatPages = buildTrapCategoryPages();
 addTestLinksToHubs();
 buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages]);
+injectTheme();
 console.log('\nDone! All static content pre-rendered.');
