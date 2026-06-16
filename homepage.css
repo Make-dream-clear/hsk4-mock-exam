@@ -27,7 +27,7 @@
 
 .cta-banner .btn-primary { background: var(--accent); }
 .cta-link {
-  color: var(--paper);
+  color: var(--invert-fg);
   opacity: 0.5;
   font-size: var(--fs-sm);
   display: block;
@@ -49,7 +49,7 @@
 }
 
 .test-card {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   padding: var(--space-5);
@@ -102,7 +102,7 @@
    On mobile, sticks just under the site header so progress stays visible
    while scrolling through long questions. */
 .quiz-header {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   padding: var(--space-3) var(--space-4);
@@ -160,7 +160,7 @@
    Tighter padding on phone — every horizontal pixel matters when reading
    long Chinese passages. */
 .question-card {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   padding: var(--space-5);
@@ -233,7 +233,7 @@
   min-height: var(--tap);
   border: 2px solid var(--mist);
   border-radius: 10px;
-  background: white;
+  background: var(--surface);
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
   text-align: left;
@@ -249,7 +249,7 @@
 }
 .option-btn:hover:not(.disabled) {
   border-color: var(--accent);
-  background: #fdf8f7;
+  background: var(--accent-tint);
 }
 .option-btn .marker {
   width: 28px;
@@ -271,19 +271,19 @@
   border-color: var(--accent);
   color: var(--accent);
 }
-.option-btn.selected { border-color: var(--accent); background: #fdf8f7; }
+.option-btn.selected { border-color: var(--accent); background: var(--accent-tint); }
 .option-btn.selected .marker {
   background: var(--accent);
   border-color: var(--accent);
   color: white;
 }
-.option-btn.correct { border-color: var(--correct); background: #f0faf4; }
+.option-btn.correct { border-color: var(--correct); background: var(--ok-bg); }
 .option-btn.correct .marker {
   background: var(--correct);
   border-color: var(--correct);
   color: white;
 }
-.option-btn.wrong { border-color: var(--wrong); background: #fef2f0; }
+.option-btn.wrong { border-color: var(--wrong); background: var(--bad-bg-2); }
 .option-btn.wrong .marker {
   background: var(--wrong);
   border-color: var(--wrong);
@@ -315,7 +315,7 @@
 
 /* === RESULTS === */
 .results-card {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   padding: var(--space-6);
@@ -430,7 +430,7 @@
   align-items: center;
   gap: var(--space-2);
   width: 100%;
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius-sm);
   padding: 10px var(--space-4);
@@ -450,7 +450,7 @@
 .qnav-toggle[aria-expanded="true"] .qnav-caret { transform: rotate(180deg); }
 
 .qnav-panel {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-top: none;
   border-radius: 0 0 var(--radius-sm) var(--radius-sm);
@@ -470,7 +470,7 @@
   width: 14px; height: 14px;
   border-radius: 4px;
   border: 1.5px solid var(--mist);
-  background: white;
+  background: var(--surface);
   display: inline-block;
 }
 .qnav-swatch.is-answered { background: var(--accent); border-color: var(--accent); }
@@ -487,7 +487,7 @@
   min-height: 34px;
   border: 1.5px solid var(--mist);
   border-radius: 6px;
-  background: white;
+  background: var(--surface);
   color: var(--stone);
   font-size: var(--fs-sm);
   font-weight: 600;
@@ -501,7 +501,7 @@
 .qnav-cell.is-answered.is-flagged { box-shadow: inset 0 0 0 2px var(--gold); }
 .qnav-cell.is-current { border-color: var(--ink); box-shadow: 0 0 0 2px var(--ink); }
 .qnav-cell.is-correct { background: var(--jade-soft); border-color: var(--correct); color: var(--correct); }
-.qnav-cell.is-wrong { background: #fef2f0; border-color: var(--wrong); color: var(--wrong); }
+.qnav-cell.is-wrong { background: var(--bad-bg-2); border-color: var(--wrong); color: var(--wrong); }
 .qnav-cell.is-skip { background: var(--paper); }
 
 /* Review banner */
@@ -538,7 +538,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: 999px;
   padding: 5px 12px;
@@ -604,7 +604,7 @@
 .kbd-hint kbd {
   font-family: 'DM Sans', monospace;
   font-size: 0.85em;
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-bottom-width: 2px;
   border-radius: 4px;
@@ -671,7 +671,7 @@
 .next-step-card {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   padding: var(--space-5);
@@ -710,7 +710,7 @@
 }
 @keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
 .modal-card {
-  background: white;
+  background: var(--surface);
   border-radius: var(--radius);
   padding: var(--space-6);
   max-width: 420px;
@@ -730,7 +730,7 @@
   height: 44px;
   border-radius: 50%;
   border: 1px solid var(--mist);
-  background: white;
+  background: var(--surface);
   color: var(--accent);
   box-shadow: var(--shadow);
   cursor: pointer;
@@ -796,7 +796,7 @@
   padding: var(--space-5);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
-  background: white;
+  background: var(--surface);
   text-decoration: none;
   color: var(--ink);
   transition: transform 0.15s, border-color 0.15s, box-shadow 0.2s;
@@ -900,7 +900,7 @@
   display: flex;
   flex-direction: column;
   padding: var(--space-4);
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius-sm);
   text-decoration: none;
@@ -954,7 +954,7 @@
   width: 100%;
   border-collapse: collapse;
   font-size: var(--fs-sm);
-  background: white;
+  background: var(--surface);
   min-width: 540px;
 }
 .format-table th, .format-table td {
@@ -1011,7 +1011,7 @@
   .topics-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
 }
 .topics-cluster {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   padding: var(--space-4) var(--space-5);
@@ -1034,8 +1034,8 @@
    Dark inverse panel for the new-grammar-points list. Inverse contrast
    pulls the eye and signals "important syllabus update". */
 .grammar-callout {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--invert-bg);
+  color: var(--invert-fg);
   border-radius: var(--radius);
   padding: var(--space-5) var(--space-6);
   margin-top: var(--space-4);
@@ -1091,7 +1091,7 @@
   padding: var(--space-5);
   border-radius: var(--radius);
   border: 1px solid var(--mist);
-  background: white;
+  background: var(--surface);
   border-top-width: 3px;
   display: flex;
   flex-direction: column;
@@ -1152,7 +1152,7 @@
   padding: var(--space-5);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
-  background: white;
+  background: var(--surface);
 }
 .plan-phase-head {
   display: flex;
@@ -1267,3 +1267,10 @@
   /* Already var(--fs-xs); listed here as the canonical "small caps
      eyebrow" set so future contributors keep them aligned. */
 }
+
+/* === DARK THEME — homepage-only fixups ===
+   The toolkit group panels use literal translucent light tints that can't
+   adapt through a variable, so re-tint them for dark mode here. */
+[data-theme="dark"] .toolkit-group--foundation { background: rgba(92, 201, 149, 0.07); border-color: rgba(92, 201, 149, 0.18); }
+[data-theme="dark"] .toolkit-group--precision  { background: rgba(217, 178, 78, 0.07); border-color: rgba(217, 178, 78, 0.18); }
+[data-theme="dark"] .toolkit-group--strategy   { background: rgba(239, 113, 85, 0.07); border-color: rgba(239, 113, 85, 0.18); }

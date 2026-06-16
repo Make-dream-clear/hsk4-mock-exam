@@ -22,6 +22,26 @@
   --correct: #2d6a4f;
   --wrong: #c23b22;
 
+  /* Semantic surfaces — let dark mode (below) re-theme without touching
+     every rule. Light values keep the existing look pixel-for-pixel.
+     --surface  = raised cards/panels (was hardcoded `white`)
+     --invert-* = intentionally dark chrome (header, nav menu, CTA banner)
+                  that should NOT flip in dark mode.
+     --ok/--bad = success/error feedback widgets that pair a tinted
+                  background with matching text. */
+  --surface: #ffffff;
+  --surface-sunken: var(--paper);
+  --invert-bg: var(--ink);
+  --invert-fg: var(--paper);
+  --ok-bg: #e8f5e9;
+  --ok-border: #38a169;
+  --ok-ink: #2f855a;
+  --bad-bg: #ffe0e0;
+  --bad-bg-2: #fff5f5;
+  --bad-ink: #c53030;
+  --accent-tint: #fdf8f7;
+  --gold-border: #e8d5a0;
+
   /* Radius & elevation */
   --radius: 12px;
   --radius-sm: 8px;
@@ -56,6 +76,73 @@
   --header-h: 56px;
   --tap: 44px; /* min touch target */
 }
+
+/* === DARK THEME ===
+   Applied when <html data-theme="dark"> is set (by the no-flash loader in
+   each page's <head>, honouring a saved choice or the OS preference).
+   Only re-maps the color tokens above — every component inherits the new
+   palette through the variables, so light mode stays byte-identical. */
+[data-theme="dark"] {
+  --ink: #e9e7f0;
+  --paper: #15151e;
+  --accent: #e36347;
+  --accent-soft: #3a241f;
+  --jade: #5cc995;
+  --jade-soft: #182f24;
+  --gold: #d9b24e;
+  --gold-soft: #322a13;
+  --mist: #34343f;
+  --stone: #a6a6b4;
+  --correct: #5cc995;
+  --wrong: #e36347;
+
+  --surface: #23232f;
+  --surface-sunken: #1a1a24;
+  --invert-bg: #1d1d28;
+  --invert-fg: #ececf2;
+  --ok-bg: #182f24;
+  --ok-border: #2f6a4a;
+  --ok-ink: #5cc995;
+  --bad-bg: #3a241f;
+  --bad-bg-2: #2e1c18;
+  --bad-ink: #ef8a72;
+  --accent-tint: #2a1d1a;
+  --gold-border: #4a3d1c;
+
+  --shadow: 0 2px 20px rgba(0,0,0,0.45);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.55);
+  color-scheme: dark;
+}
+
+/* Floating dark-mode toggle (injected on every page before </body>).
+   Sits bottom-left so it never collides with the back-to-top button. */
+.theme-toggle {
+  position: fixed;
+  left: max(16px, env(safe-area-inset-left));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--mist);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 95;
+  opacity: 0.85;
+  transition: opacity 0.15s, transform 0.15s, border-color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.theme-toggle:hover { opacity: 1; transform: translateY(-2px); border-color: var(--accent); }
+.theme-toggle svg { width: 20px; height: 20px; }
+.theme-toggle .ic-sun { display: none; }
+.theme-toggle .ic-moon { display: block; }
+[data-theme="dark"] .theme-toggle .ic-sun { display: block; }
+[data-theme="dark"] .theme-toggle .ic-moon { display: none; }
+@media (prefers-reduced-motion: reduce) { .theme-toggle { transition: none; } }
 
 /* === RESET & BASE === */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -98,13 +185,13 @@ audio { width: 100%; max-width: 480px; }
 }
 /* Dark ink header needs a light ring to contrast. */
 header :focus-visible {
-  outline-color: var(--paper);
+  outline-color: var(--invert-fg);
 }
 
 /* === HEADER === */
 header {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--invert-bg);
+  color: var(--invert-fg);
   padding: 0;
   position: sticky;
   top: 0;
@@ -127,7 +214,7 @@ header {
   align-items: center;
   gap: var(--space-2);
   text-decoration: none;
-  color: var(--paper);
+  color: var(--invert-fg);
   flex-shrink: 0;
   min-height: var(--tap);
 }
@@ -173,7 +260,7 @@ header {
 
 .nav-link, .gh-link {
   position: relative;
-  color: var(--paper);
+  color: var(--invert-fg);
   opacity: 0.72;
   text-decoration: none;
   font-size: var(--fs-base);
@@ -239,7 +326,7 @@ header {
     display: block;
     width: 20px;
     height: 2px;
-    background: var(--paper);
+    background: var(--invert-fg);
     border-radius: 1px;
     transition: background 0.2s;
   }
@@ -250,7 +337,7 @@ header {
     left: 0;
     width: 20px;
     height: 2px;
-    background: var(--paper);
+    background: var(--invert-fg);
     border-radius: 1px;
     transition: transform 0.2s;
   }
@@ -272,7 +359,7 @@ header {
     align-items: stretch;
     gap: 0;
     padding: 4px 0 10px;
-    background: var(--ink);
+    background: var(--invert-bg);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
     max-height: calc(100vh - 64px);
@@ -458,8 +545,8 @@ main {
 
 /* === CTA BANNER === */
 .cta-banner {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--invert-bg);
+  color: var(--invert-fg);
   border-radius: var(--radius);
   padding: var(--space-6) var(--space-5);
   text-align: center;
@@ -481,7 +568,7 @@ main {
   opacity: 0.7;
   font-size: var(--fs-base);
   margin-bottom: var(--space-5);
-  color: var(--paper);
+  color: var(--invert-fg);
 }
 
 /* === FOOTER === */
@@ -567,7 +654,7 @@ footer a:hover { text-decoration: underline; }
 /* Promoted from index.html: tertiary link beneath a primary CTA button. */
 .cta-link {
   display: inline-block;
-  color: var(--paper);
+  color: var(--invert-fg);
   opacity: 0.7;
   font-size: var(--fs-sm);
   margin-top: var(--space-3);
@@ -607,7 +694,7 @@ footer a:hover { text-decoration: underline; }
 }
 
 .content-card {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   padding: var(--space-5);
@@ -670,7 +757,7 @@ footer a:hover { text-decoration: underline; }
   border: 1px solid var(--mist);
   border-radius: var(--radius-sm);
   font-size: var(--fs-base);
-  background: white;
+  background: var(--surface);
 }
 .char-toolbar input[type="search"]:focus {
   outline: 2px solid var(--accent);
@@ -682,7 +769,7 @@ footer a:hover { text-decoration: underline; }
   border: 1px solid var(--mist);
   border-radius: var(--radius-sm);
   font-size: var(--fs-base);
-  background: white;
+  background: var(--surface);
 }
 .char-grid {
   display: grid;
@@ -691,7 +778,7 @@ footer a:hover { text-decoration: underline; }
   margin: var(--space-5) 0;
 }
 .char-card {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius-sm);
   padding: var(--space-3) var(--space-2);
@@ -735,7 +822,7 @@ footer a:hover { text-decoration: underline; }
   flex-wrap: wrap;
   gap: var(--space-6);
   align-items: center;
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   padding: var(--space-6);
@@ -811,7 +898,7 @@ footer a:hover { text-decoration: underline; }
   margin: var(--space-4) 0;
 }
 .char-vocab-item {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--mist);
   border-radius: var(--radius-sm);
   padding: var(--space-4);

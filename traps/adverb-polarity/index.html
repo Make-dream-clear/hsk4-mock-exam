@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('hsk4_theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HSK 4 Adverb Traps: 差点儿(没) Polarity &amp; 千万 Rules | Mandarin Zone</title>
@@ -13,28 +14,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/common.css">
 <style>
-  .trap-card { background:white; border:1px solid var(--mist); border-left:4px solid var(--accent); border-radius:var(--radius); padding:22px 26px; margin-bottom:18px; }
+  .trap-card { background:var(--surface); border:1px solid var(--mist); border-left:4px solid var(--accent); border-radius:var(--radius); padding:22px 26px; margin-bottom:18px; }
   .trap-card h3 { font-family:'Noto Serif SC',serif; font-size:20px; font-weight:700; margin-bottom:6px; color:var(--ink); }
   .trap-tag { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px; margin-right:6px; vertical-align:middle; }
-  .trap-tag.high { background:#ffe0e0; color:#c53030; }
+  .trap-tag.high { background:var(--bad-bg); color:var(--bad-ink); }
   .trap-summary { color:var(--stone); font-size:14px; line-height:1.7; margin-bottom:12px; }
-  .ex-wrong { background:#fff5f5; border-left:3px solid #c53030; padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
-  .ex-wrong strong { color:#c53030; }
-  .ex-right { background:#e8f5e9; border-left:3px solid var(--correct,#38a169); padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
+  .ex-wrong { background:var(--bad-bg-2); border-left:3px solid var(--bad-ink); padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
+  .ex-wrong strong { color:var(--bad-ink); }
+  .ex-right { background:var(--ok-bg); border-left:3px solid var(--correct,#38a169); padding:10px 14px; border-radius:6px; margin-bottom:8px; font-size:14px; line-height:1.7; }
   .ex-right strong { color:var(--correct,#38a169); }
   .trap-rule { background:var(--gold-soft); padding:10px 14px; border-radius:6px; font-size:13px; line-height:1.6; margin-top:10px; }
   .trap-link { display:inline-block; margin-top:12px; font-size:13px; color:var(--accent); font-weight:600; text-decoration:none; }
   .trap-link:hover { text-decoration:underline; }
-  .trap-quiz-item { background:white; border:1px solid var(--mist); border-radius:var(--radius); padding:18px 22px; margin-bottom:14px; }
+  .trap-quiz-item { background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius); padding:18px 22px; margin-bottom:14px; }
   .tq-num { font-size:11px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
   .tq-num a { color:var(--accent); }
   .tq-stem { font-size:15px; line-height:1.7; margin-bottom:12px; color:var(--ink); font-family:'Noto Sans SC',sans-serif; }
   .tq-stem strong { font-weight:600; }
   .tq-opts { display:flex; flex-direction:column; gap:8px; }
-  .tq-opt { padding:10px 14px; border:1px solid var(--mist); border-radius:6px; background:white; font-family:'Noto Sans SC',sans-serif; font-size:14px; line-height:1.6; cursor:pointer; transition:all 0.15s; text-align:left; color:var(--ink); }
+  .tq-opt { padding:10px 14px; border:1px solid var(--mist); border-radius:6px; background:var(--surface); font-family:'Noto Sans SC',sans-serif; font-size:14px; line-height:1.6; cursor:pointer; transition:all 0.15s; text-align:left; color:var(--ink); }
   .tq-opt:hover:not(.disabled) { border-color:var(--accent); background:var(--accent-soft); }
-  .tq-opt.correct { background:#e8f5e9; border-color:#38a169; color:#2f855a; font-weight:600; }
-  .tq-opt.wrong { background:#fff5f5; border-color:#c53030; color:#c53030; }
+  .tq-opt.correct { background:var(--ok-bg); border-color:var(--ok-border); color:var(--ok-ink); font-weight:600; }
+  .tq-opt.wrong { background:var(--bad-bg-2); border-color:var(--bad-ink); color:var(--bad-ink); }
   .tq-opt.disabled { pointer-events:none; opacity:0.6; }
   .tq-opt.disabled.correct { opacity:1; }
   .tq-explain { display:none; margin-top:10px; font-size:13px; color:var(--stone); line-height:1.7; padding:10px 14px; background:var(--paper); border-radius:6px; border-left:3px solid var(--accent); }
@@ -141,7 +142,7 @@
 
   <section style="margin-top:32px;">
     <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;">Related / 相关内容</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;"><a href="/words/cai-jiu/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">才 vs 就</div></a><a href="/sentences/time-expressions/" style="background:white;border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">Time expression sentences</div></a></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;"><a href="/words/cai-jiu/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">才 vs 就</div></a><a href="/sentences/time-expressions/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;"><div style="font-size:14px;font-weight:600;">Time expression sentences</div></a></div>
   </section>
 
   <div class="cat-nav">
@@ -187,5 +188,6 @@ window.trapAnswer = function(btn, isCorrect, qNum) {
   item.querySelector('.tq-explain').style.display = 'block';
 };
 </script>
+<button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(d){var k=d.getAttribute('data-theme')==='dark';if(k){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','dark')}try{localStorage.setItem('hsk4_theme',k?'light':'dark')}catch(e){}})(document.documentElement)"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
 </body>
 </html>
