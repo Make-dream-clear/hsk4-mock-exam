@@ -105,7 +105,7 @@
   }
 
   .info-card {
-    background: white;
+    background: var(--surface);
     border: 1px solid var(--mist);
     border-radius: var(--radius);
     padding: 24px;
@@ -136,8 +136,8 @@
   }
 
   .exam-table th {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--invert-bg);
+    color: var(--invert-fg);
     padding: 12px 16px;
     text-align: left;
     font-weight: 600;
@@ -149,7 +149,7 @@
     vertical-align: top;
   }
 
-  .exam-table tr:nth-child(even) td { background: white; }
+  .exam-table tr:nth-child(even) td { background: var(--surface); }
 
   .exam-table .section-listening { border-left: 3px solid var(--accent); }
   .exam-table .section-reading { border-left: 3px solid var(--jade); }
@@ -193,7 +193,7 @@
   }
 
   .task-category {
-    background: white;
+    background: var(--surface);
     border: 1px solid var(--mist);
     border-radius: var(--radius);
     overflow: hidden;
@@ -235,7 +235,7 @@
 
   /* === CHECKLIST === */
   .checklist {
-    background: white;
+    background: var(--surface);
     border: 1px solid var(--mist);
     border-radius: var(--radius);
     padding: 24px;
@@ -298,6 +298,40 @@
     transition: width 0.3s;
   }
 
+  /* === PERSONALISED FOCUS BOX === */
+  .focus-box {
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin: 16px 0 8px;
+  }
+  .focus-box-title { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .focus-box-sub { font-size: 13px; color: var(--stone); margin-bottom: 12px; line-height: 1.5; }
+  .focus-list { display: grid; grid-template-columns: 1fr; gap: 8px; }
+  @media (min-width: 560px) { .focus-list { grid-template-columns: 1fr 1fr; } }
+  .focus-item {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .focus-item:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .focus-item-title { display: block; font-weight: 600; font-size: 14px; }
+  .focus-item-note { display: block; font-size: 12px; color: var(--stone); margin-top: 2px; }
+
+  /* === LEARNING-PATH PROGRESS === */
+  .path-progress { margin: 4px 0 8px; }
+  .path-progress-head { font-size: 14px; font-weight: 600; color: var(--stone); margin-bottom: 6px; }
+  .progression-table td.step-done { text-align: center; vertical-align: middle; width: 40px; }
+  .progression-table td.step-done input { width: 18px; height: 18px; cursor: pointer; accent-color: var(--jade); }
+  .progression-table tr.step-complete td { opacity: 0.6; }
+  .progression-table tr.step-complete td:nth-child(2) strong { text-decoration: line-through; }
+
   /* === STUDY PLAN === */
   .timeline {
     margin: 20px 0;
@@ -354,7 +388,7 @@
   }
 
   .cta-links a {
-    color: var(--paper);
+    color: var(--invert-fg);
     opacity: 0.6;
     font-size: 14px;
     text-decoration: none;
@@ -666,58 +700,70 @@
     <div class="checklist-bar"><div class="checklist-fill" id="checklist-fill" style="width:0%"></div></div>
   </div>
 
+  <!-- Personalised "study these next" — generated from the unchecked items above -->
+  <div class="focus-box" id="focus-box" hidden>
+    <div class="focus-box-title">📌 Your focus areas — start here</div>
+    <p class="focus-box-sub">Based on what you left unchecked, these are the highest-priority resources for you right now:</p>
+    <div class="focus-list" id="focus-list"></div>
+  </div>
+
   <!-- LEARNING ORDER -->
   <h2 id="learning-order">Recommended Learning Order / 推荐学习顺序</h2>
 
-  <p>Not sure where to start? Follow this order — each step builds on the previous one:</p>
+  <p>Not sure where to start? Follow this order — each step builds on the previous one. <strong>Tick a step as you finish it</strong> and your progress is saved in this browser.</p>
 
-  <table class="progression-table" style="margin:20px 0;">
-    <thead><tr><th>Step</th><th>What to Study</th><th>Tool</th><th>Why This Order</th></tr></thead>
+  <div class="path-progress">
+    <div class="path-progress-head"><span id="path-count">0</span> / 8 steps done</div>
+    <div class="checklist-bar"><div class="checklist-fill" id="path-fill" style="width:0%"></div></div>
+  </div>
+
+  <table class="progression-table" id="learning-path" style="margin:20px 0;">
+    <thead><tr><th>Done</th><th>Step</th><th>What to Study</th><th>Tool</th><th>Why This Order</th></tr></thead>
     <tbody>
       <tr>
-        <td><strong>1</strong></td>
+        <td class="step-done"><input type="checkbox" data-step="1" onchange="updatePath()" aria-label="Mark step 1 done"></td><td><strong>1</strong></td>
         <td>Take one mock exam (don't study first)</td>
         <td><a href="/" style="color:var(--accent)">Mock Exam 01</a></td>
         <td>Find your baseline score and weak areas</td>
       </tr>
       <tr>
-        <td><strong>2</strong></td>
+        <td class="step-done"><input type="checkbox" data-step="2" onchange="updatePath()" aria-label="Mark step 2 done"></td><td><strong>2</strong></td>
         <td class="chinese">把字句 + 被字句 + 比较句</td>
         <td><a href="/grammar/ba-sentence/" style="color:var(--accent)">Grammar</a></td>
         <td>These 3 patterns appear in every HSK 4 exam</td>
       </tr>
       <tr>
-        <td><strong>3</strong></td>
+        <td class="step-done"><input type="checkbox" data-step="3" onchange="updatePath()" aria-label="Mark step 3 done"></td><td><strong>3</strong></td>
         <td class="chinese">才/就, 又/再, 的/得/地</td>
         <td><a href="/words/cai-jiu/" style="color:var(--accent)">Confusable Words</a></td>
         <td>Most commonly tested word distinctions</td>
       </tr>
       <tr>
-        <td><strong>4</strong></td>
+        <td class="step-done"><input type="checkbox" data-step="4" onchange="updatePath()" aria-label="Mark step 4 done"></td><td><strong>4</strong></td>
         <td>Daily Life + Food + Transport vocabulary</td>
         <td><a href="/topics/describe-a-person/" style="color:var(--accent)">Topic Vocabulary</a></td>
         <td>Highest frequency topics in listening & reading</td>
       </tr>
       <tr>
-        <td><strong>5</strong></td>
+        <td class="step-done"><input type="checkbox" data-step="5" onchange="updatePath()" aria-label="Mark step 5 done"></td><td><strong>5</strong></td>
         <td class="chinese">复句 connectors (尽管…但是, 不管…都, etc.)</td>
         <td><a href="/grammar/patterns/jinguan-danshi/" style="color:var(--accent)">Grammar Patterns</a></td>
         <td>Required for reading comprehension & sentence ordering</td>
       </tr>
       <tr>
-        <td><strong>6</strong></td>
+        <td class="step-done"><input type="checkbox" data-step="6" onchange="updatePath()" aria-label="Mark step 6 done"></td><td><strong>6</strong></td>
         <td>Sentence ordering + Paragraph writing</td>
         <td><a href="/writing/sentence-order/" style="color:var(--accent)">Writing</a></td>
         <td>Apply grammar knowledge to writing section</td>
       </tr>
       <tr>
-        <td><strong>7</strong></td>
+        <td class="step-done"><input type="checkbox" data-step="7" onchange="updatePath()" aria-label="Mark step 7 done"></td><td><strong>7</strong></td>
         <td>Remaining vocabulary + all confusable words</td>
         <td><a href="/vocabulary/" style="color:var(--accent)">Vocabulary</a></td>
         <td>Fill remaining gaps</td>
       </tr>
       <tr>
-        <td><strong>8</strong></td>
+        <td class="step-done"><input type="checkbox" data-step="8" onchange="updatePath()" aria-label="Mark step 8 done"></td><td><strong>8</strong></td>
         <td>Mock exams under timed conditions</td>
         <td><a href="/" style="color:var(--accent)">All Tests</a></td>
         <td>Build exam stamina, aim for 70%+</td>
@@ -777,7 +823,7 @@
   </div>
 
   <!-- hub-test-link -->
-  <div style="background:white;border:1px solid var(--mist);border-radius:var(--radius);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+  <div style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
     <span style="font-size:14px;color:var(--stone);">Practice what you learned with our free mock exams</span>
     <a href="/" class="btn btn-primary" style="font-size:13px;padding:8px 18px;">Take a Mock Exam →</a>
   </div>
@@ -888,6 +934,69 @@ function updateChecklist() {
     verdict.textContent = 'Keep studying! Use our tools below.';
     verdict.style.color = 'var(--accent)';
   }
+
+  renderFocus(state);
+}
+
+// Map each self-assessment item to its highest-leverage resource, so an
+// unchecked box turns straight into a "study this next" link.
+const RECS = {
+  'vocab': ['Build core vocabulary', '/vocabulary/', '1,000 words — sort by “Most tested first”'],
+  'grammar-ba': ['把字句 (the 把 construction)', '/grammar/ba-sentence/', 'Four tested 把 patterns'],
+  'grammar-bei': ['被 / 叫 / 让 passive', '/grammar/passive/', 'Passive constructions'],
+  'grammar-complex': ['复句 connectors', '/grammar/patterns/', '尽管…但是, 即使…也, 不管…都…'],
+  'grammar-compare': ['Comparison patterns', '/grammar/comparison/', '不如, 跟…相比'],
+  'listening': ['Listening strategy', '/strategies/listening-judgment/', 'Train natural-speed comprehension'],
+  'reading': ['Reading strategy', '/strategies/reading-comprehension/', 'Short-text comprehension'],
+  'writing': ['Paragraph writing', '/writing/paragraph/', 'Write a coherent 80-character paragraph'],
+  'opinion': ['Express opinions & feelings', '/sentences/', '100 sentence templates for 感受 & 看法'],
+  'mockexam': ['Take timed mock exams', '/', '12 free auto-scored papers'],
+};
+
+function renderFocus(state) {
+  const box = document.getElementById('focus-box');
+  const list = document.getElementById('focus-list');
+  if (!box || !list) return;
+  const todo = Object.keys(RECS).filter(k => !state[k]);
+  if (todo.length === 0) {
+    box.hidden = true;
+    return;
+  }
+  list.innerHTML = todo.map(k => {
+    const [title, url, note] = RECS[k];
+    return `<a class="focus-item" href="${url}">
+      <span class="focus-item-title">${title}</span>
+      <span class="focus-item-note">${note}</span>
+    </a>`;
+  }).join('');
+  box.hidden = false;
+}
+
+// === LEARNING-PATH PROGRESS (the 8-step order) ===
+const PATH_KEY = 'hsk4-guide-path';
+function loadPath() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(PATH_KEY) || '{}'); } catch(e) {}
+  document.querySelectorAll('#learning-path input[data-step]').forEach(cb => {
+    if (saved[cb.dataset.step]) cb.checked = true;
+  });
+  updatePath();
+}
+function updatePath() {
+  const boxes = document.querySelectorAll('#learning-path input[data-step]');
+  const state = {};
+  let done = 0;
+  boxes.forEach(cb => {
+    const row = cb.closest('tr');
+    if (cb.checked) { done++; state[cb.dataset.step] = true; if (row) row.classList.add('step-complete'); }
+    else if (row) row.classList.remove('step-complete');
+  });
+  try { localStorage.setItem(PATH_KEY, JSON.stringify(state)); } catch(e) {}
+  const total = boxes.length;
+  const countEl = document.getElementById('path-count');
+  const fillEl = document.getElementById('path-fill');
+  if (countEl) countEl.textContent = done;
+  if (fillEl) fillEl.style.width = (total ? Math.round(done / total * 100) : 0) + '%';
 }
 
 // Make labels clickable
@@ -900,6 +1009,7 @@ document.querySelectorAll('.checklist-label').forEach(label => {
 });
 
 loadChecklist();
+loadPath();
 </script>
 
 <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(d){var k=d.getAttribute('data-theme')==='dark';if(k){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','dark')}try{localStorage.setItem('hsk4_theme',k?'light':'dark')}catch(e){}})(document.documentElement)"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
