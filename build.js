@@ -202,6 +202,23 @@ function extractExamSentences(words) {
   return byId;
 }
 
+// How often each character appears across the 12 mock papers, minus the
+// exam-instruction characters (列排序阅读…) that would otherwise dominate.
+// Lets the character hub surface the highest-exposure characters first.
+const CHAR_BOILERPLATE = new Set('列排序阅读选择确答案顺词语题问根据短文部分听力录音对话例如完成填空表示意思正'.split(''));
+function computeCharFrequency() {
+  const index = readJSON('index.json');
+  let corpus = '';
+  index.forEach(meta => readJSON(meta.file).questions.forEach(q => {
+    if (q.text) corpus += q.text;
+    if (q.options) q.options.forEach(o => corpus += String(o).replace(/^[A-F]\s+/, ''));
+    if (q.explanation) corpus += q.explanation;
+  }));
+  const cf = {};
+  for (const ch of corpus) if (ch >= '一' && ch <= '鿿' && !CHAR_BOILERPLATE.has(ch)) cf[ch] = (cf[ch] || 0) + 1;
+  return cf;
+}
+
 function buildVocabulary() {
   console.log('[vocab] Pre-rendering vocabulary...');
   const words = readJSON('vocabulary.json');
@@ -3148,6 +3165,8 @@ function addTestLinksToHubs() {
 function buildCharacterPages() {
   console.log('[characters] Generating HSK 4 character writing pages...');
   const chars = readJSON('hsk4-characters.json');
+  const charFreq = computeCharFrequency();
+  const cfAttr = ch => { const n = charFreq[ch] || 0; return ` data-freq="${n}"${n ? ` title="Appears ${n} times across the 12 mock exams"` : ''}`; };
   // Recognition-only characters (认读字): the official syllabus lists 441
   // characters to recognize; the 150 above must also be handwritten. The
   // remaining 291 get recognition pages (reading-focused, stroke animation
@@ -3245,7 +3264,7 @@ function buildCharacterPages() {
 
   // ---- Hub page: /characters/index.html ----
   const gridHtml = chars.map((c, i) => `
-    <a class="char-card" href="/characters/${encodeURIComponent(c.char)}/" data-char="${escHtml(c.char)}" data-pinyin="${escHtml(c.pinyin)}" data-idx="${i}">
+    <a class="char-card" href="/characters/${encodeURIComponent(c.char)}/" data-char="${escHtml(c.char)}" data-pinyin="${escHtml(c.pinyin)}" data-idx="${i}"${cfAttr(c.char)}>
       <span class="char-glyph chinese">${escHtml(c.char)}</span>
       <span class="char-pinyin">${escHtml(c.pinyin)}</span>
     </a>`).join('');
@@ -3305,6 +3324,7 @@ ${renderNav('characters')}
     <select id="char-sort" aria-label="Sort characters">
       <option value="default">Default order</option>
       <option value="pinyin">Sort: Pinyin A→Z</option>
+      <option value="freq">Sort: Most seen in exams 🔥</option>
     </select>
     <span id="char-count" style="color:var(--stone);font-size:var(--fs-sm);">${chars.length} characters</span>
   </div>
@@ -3319,7 +3339,7 @@ ${renderNav('characters')}
       Beyond the ${chars.length} writing characters above, the official syllabus lists ${renduChars.length} more characters you must <strong>recognize when reading</strong> — handwriting them is not required. Tap any character for its meaning, pinyin, stroke order, and the HSK 4 words that use it.
     </p>
     <div class="char-grid">
-      ${renduChars.map(rc => `<a class="char-card" href="/characters/${encodeURIComponent(rc.char)}/" data-char="${escHtml(rc.char)}" data-pinyin="${escHtml(rc.pinyin)}">
+      ${renduChars.map(rc => `<a class="char-card" href="/characters/${encodeURIComponent(rc.char)}/" data-char="${escHtml(rc.char)}" data-pinyin="${escHtml(rc.pinyin)}"${cfAttr(rc.char)}>
       <span class="char-glyph chinese">${escHtml(rc.char)}</span>
       <span class="char-pinyin">${escHtml(rc.pinyin)}</span>
     </a>`).join('\n    ')}
@@ -3389,6 +3409,8 @@ ${renderFooter()}
       ordered.sort(function(a,b){
         return norm(a.dataset.pinyin).localeCompare(norm(b.dataset.pinyin));
       });
+    } else if (mode === 'freq') {
+      ordered.sort(function(a,b){ return (+b.dataset.freq||0) - (+a.dataset.freq||0); });
     } else {
       ordered.sort(function(a,b){ return (+a.dataset.idx) - (+b.dataset.idx); });
     }
