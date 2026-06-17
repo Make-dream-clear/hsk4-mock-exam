@@ -131,9 +131,49 @@ function generateTopicQuiz(words, seed) {
 // 1. PRE-RENDER VOCABULARY INTO vocabulary/index.html
 // ============================================================
 
+// Count how often each multi-character HSK 4 word appears across the 12 real
+// mock-test papers, so learners can prioritise high-yield vocabulary. Single
+// characters are excluded — substring counts overcount them inside compounds
+// — and a stoplist removes exam-instruction boilerplate (阅读/顺序/正确…) that
+// repeats in every paper and would otherwise dominate the ranking.
+const EXAM_BOILERPLATE = new Set('阅读 理解 选择 选词 填空 正确 答案 顺序 排列 词语 完成 句子 根据 短文 问题 例如 部分 听力 录音 对话 说话 下面 关于 内容 表示 意思'.split(/\s+/));
+function computeExamFrequency(words) {
+  const index = readJSON('index.json');
+  let corpus = '';
+  index.forEach(meta => {
+    const test = readJSON(meta.file);
+    test.questions.forEach(q => {
+      if (q.text) corpus += ' ' + q.text;
+      if (q.options) q.options.forEach(o => { corpus += ' ' + String(o).replace(/^[A-F]\s+/, ''); });
+      if (q.explanation) corpus += ' ' + q.explanation;
+    });
+  });
+  const clean = corpus.replace(/[^一-鿿]/g, ' ');
+  const wordSet = new Set(words.filter(w => w.word && w.word.length >= 2).map(w => w.word));
+  const maxLen = Math.max(2, ...[...wordSet].map(w => w.length));
+  const byWord = {};
+  for (const seg of clean.split(/\s+/)) {
+    let i = 0;
+    while (i < seg.length) {
+      let match = null;
+      for (let L = Math.min(maxLen, seg.length - i); L >= 2; L--) {
+        const cand = seg.substr(i, L);
+        if (wordSet.has(cand)) { match = cand; break; }
+      }
+      if (match) { if (!EXAM_BOILERPLATE.has(match)) byWord[match] = (byWord[match] || 0) + 1; i += match.length; }
+      else i++;
+    }
+  }
+  // Map id -> count, keeping only words tested at least twice (signal, not noise)
+  const byId = {};
+  words.forEach(w => { const n = byWord[w.word]; if (n >= 2) byId[w.id] = n; });
+  return byId;
+}
+
 function buildVocabulary() {
   console.log('[vocab] Pre-rendering vocabulary...');
   const words = readJSON('vocabulary.json');
+  const examFreq = computeExamFrequency(words);
   const htmlPath = path.join(ROOT, 'vocabulary', 'index.html');
   let html = fs.readFileSync(htmlPath, 'utf8');
 
@@ -144,6 +184,14 @@ function buildVocabulary() {
     if (!t) return '';
     return `\n      <a class="vocab-task-link" href="/topics/${t.slug}/">\u{1F4DA} ${escHtml(t.task_cn)} \u2192</a>`;
   };
+  // "Frequently tested" badge, driven by real mock-exam appearances.
+  const freqBadge = w => {
+    const n = examFreq[w.id];
+    if (!n || n < 6) return '';
+    const tier = n >= 20 ? 'high' : 'mid';
+    const label = n >= 20 ? '\u9ad8\u9891' : '\u5e38\u8003';
+    return `<span class="freq-badge freq-${tier}" title="Appears ${n} times across the 12 mock exams">${label} ${n}\u00d7</span>`;
+  };
 
   // Build a static word list that crawlers can index
   // The JS will replace this on load, but crawlers see the full list
@@ -153,7 +201,7 @@ function buildVocabulary() {
   <div class="vocab-collapsed">
     <span class="vocab-word chinese">${escHtml(w.word)}</span>
     <span class="vocab-pinyin">${escHtml(w.pinyin)}</span>
-    <span class="pos-badge">${escHtml(w.pos || '')}</span>
+    <span class="pos-badge">${escHtml(w.pos || '')}</span>${freqBadge(w)}
     <span class="vocab-meaning">${escHtml(w.meaning || '')}</span>
   </div>
   <div class="vocab-expanded">
@@ -171,7 +219,7 @@ function buildVocabulary() {
     Object.entries(wordTask).map(([id, t]) => [id, [t.slug, t.task_cn]])
   ));
   html = html.replace(/\s*<!-- WORD TASKS MAP -->[\s\S]*?<!-- \/WORD TASKS MAP -->/g, '');
-  html = html.replace(/<script>\s*\/\/ === STATE ===/, `<!-- WORD TASKS MAP -->\n<script>window.WORD_TASKS = ${wordTasksJson};</script>\n<!-- /WORD TASKS MAP -->\n<script>\n// === STATE ===`);
+  html = html.replace(/<script>\s*\/\/ === STATE ===/, `<!-- WORD TASKS MAP -->\n<script>window.WORD_TASKS = ${wordTasksJson};\nwindow.WORD_FREQ = ${JSON.stringify(examFreq)};</script>\n<!-- /WORD TASKS MAP -->\n<script>\n// === STATE ===`);
 
   // Replace the #vocab-list container with freshly pre-rendered content.
   // Walk div depth instead of regexing, so this works whether the container
@@ -221,7 +269,7 @@ function buildVocabulary() {
     </ul>
 
     <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-      All ${words.length} words below include pinyin, English translations, and example sentences in context. Use the flashcard and quiz modes above to practice active recall. Your progress is saved locally so you can pick up where you left off.
+      All ${words.length} words below include pinyin, English translations, and example sentences in context. Words that recur in our 12 mock exams are tagged <span class="freq-badge freq-high">高频</span> (appears 20+ times) or <span class="freq-badge freq-mid">常考</span> (6+ times) — switch the sort to <strong>Most tested first</strong> to study the highest-yield vocabulary before exam day. Use the flashcard and quiz modes above to practice active recall; your progress is saved locally so you can pick up where you left off.
     </p>
 
     <p style="color:var(--stone);line-height:1.8;">
