@@ -644,7 +644,7 @@ function buildTestPages() {
       ${isComplete ? '<a href="/strategies/writing-construction/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">书写排词 (Q86-95) →</a><a href="/strategies/picture-templates/" style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px;">看图造句 (Q96-100) →</a>' : ''}
     </div>
     <p style="margin-top:14px;color:var(--stone);font-size:13px;">
-      Or jump to the <a href="/strategies/" style="color:var(--accent);font-weight:600;">complete HSK 4 strategy hub</a> &middot; <a href="/sentences/" style="color:var(--accent);font-weight:600;">100 essential sentences</a> &middot; <a href="/grammar/measure-words/" style="color:var(--accent);font-weight:600;">HSK 4 measure words (量词)</a> &middot; <a href="/words/" style="color:var(--accent);font-weight:600;">43 confusable pairs</a>.
+      Or jump to the <a href="/strategies/" style="color:var(--accent);font-weight:600;">complete HSK 4 strategy hub</a> &middot; <a href="/practice/" style="color:var(--accent);font-weight:600;">选词填空 mixed practice</a> &middot; <a href="/sentences/" style="color:var(--accent);font-weight:600;">100 essential sentences</a> &middot; <a href="/writing/complete-sentence/" style="color:var(--accent);font-weight:600;">完成句子 writing drill</a> &middot; <a href="/grammar/measure-words/" style="color:var(--accent);font-weight:600;">HSK 4 measure words (量词)</a> &middot; <a href="/words/" style="color:var(--accent);font-weight:600;">43 confusable pairs</a>.
     </p>
   </section>
 
@@ -3158,7 +3158,7 @@ function buildCharacterPages() {
       <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
-  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/characters/">Characters</a> · <a href="/grammar/">Grammar</a> · <a href="/writing/">Writing</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/characters/">Characters</a> · <a href="/grammar/">Grammar</a> · <a href="/strategies/">Strategies</a> · <a href="/traps/">Traps</a> · <a href="/practice/">Practice</a> · <a href="/compare/">Compare</a> · <a href="/writing/">Writing</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>`;
 
   // ---- Hub page: /characters/index.html ----
