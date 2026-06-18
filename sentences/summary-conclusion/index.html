@@ -31,6 +31,10 @@
   .sentence-row { display:flex; gap:14px; background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
   .sent-num { flex:0 0 28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
   .sent-cn { font-size:17px; font-weight:600; line-height:1.7; }
+  .sent-diff { font-size:12px; letter-spacing:1px; vertical-align:middle; white-space:nowrap; }
+  .sent-diff-1 { color:var(--jade); }
+  .sent-diff-2 { color:var(--gold); }
+  .sent-diff-3 { color:var(--accent); }
   .sent-py { color:var(--accent); font-size:13px; margin-top:2px; }
   .sent-en { color:var(--stone); font-size:14px; margin-top:4px; line-height:1.6; }
   .sent-use { color:var(--stone); font-size:12px; margin-top:6px; background:var(--paper); display:inline-block; padding:3px 8px; border-radius:4px; }
@@ -80,75 +84,76 @@
     <a href="/words/cai-jiu/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">才 / 就 (timing) →</a><a href="/strategies/writing-construction/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">总之 (in summary) →</a>
   </section>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 14px;">The 10 sentences / 句子清单</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 6px;">The 10 sentences / 句子清单</h2>
+  <p style="color:var(--stone);font-size:13px;margin-bottom:14px;">Ordered easiest first. Difficulty: <span class="sent-diff sent-diff-1">★</span> simple · <span class="sent-diff sent-diff-2">★★</span> one clause/connector · <span class="sent-diff sent-diff-3">★★★</span> complex sentence (虽然…但是, 因为…所以…).</p>
   
     <div class="sentence-row" id="s1">
       <div class="sent-num">1</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">总之，做事要有计划，不能太着急。</div>
-        <div class="sent-py">Zǒngzhī, zuò shì yào yǒu jìhuà, bù néng tài zháojí.</div>
-        <div class="sent-en">In short, you need a plan when doing things — you can&amp;#x27;t rush.</div>
-        <div class="sent-use">📋 general conclusion</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s2">
-      <div class="sent-num">2</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">总的来说，这次旅行还是很愉快的。</div>
-        <div class="sent-py">Zǒng de lái shuō, zhè cì lǚxíng háishi hěn yúkuài de.</div>
-        <div class="sent-en">Overall, this trip was very pleasant.</div>
-        <div class="sent-use">📋 overall summary</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s3">
-      <div class="sent-num">3</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">通过这次经历，我学到了很多东西。</div>
-        <div class="sent-py">Tōngguò zhè cì jīnglì, wǒ xué dào le hěn duō dōngxi.</div>
-        <div class="sent-en">Through this experience, I learned a lot.</div>
-        <div class="sent-use">📋 lesson learned</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s4">
-      <div class="sent-num">4</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">由此可见，努力是成功的关键。</div>
+        <div class="sent-cn chinese">由此可见，努力是成功的关键。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Yóu cǐ kě jiàn, nǔlì shì chénggōng de guānjiàn.</div>
         <div class="sent-en">From this we can see that effort is the key to success.</div>
         <div class="sent-use">📋 drawing conclusion</div>
       </div>
     </div>
-    <div class="sentence-row" id="s5">
-      <div class="sent-num">5</div>
+    <div class="sentence-row" id="s2">
+      <div class="sent-num">2</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">总而言之，我们应该重视环境保护。</div>
-        <div class="sent-py">Zǒng ér yán zhī, wǒmen yīnggāi zhòngshì huánjìng bǎohù.</div>
-        <div class="sent-en">All in all, we should attach importance to environmental protection.</div>
-        <div class="sent-use">📋 formal summary</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s6">
-      <div class="sent-num">6</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">这就是我对这个问题的看法。</div>
+        <div class="sent-cn chinese">这就是我对这个问题的看法。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Zhè jiùshì wǒ duì zhège wèntí de kànfǎ.</div>
         <div class="sent-en">This is my view on this question.</div>
         <div class="sent-use">📋 ending opinion</div>
       </div>
     </div>
-    <div class="sentence-row" id="s7">
-      <div class="sent-num">7</div>
+    <div class="sentence-row" id="s3">
+      <div class="sent-num">3</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">希望大家能够从中学到一些经验。</div>
+        <div class="sent-cn chinese">希望大家能够从中学到一些经验。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Xīwàng dàjiā nénggòu cóng zhōng xué dào yìxiē jīngyàn.</div>
         <div class="sent-en">I hope everyone can learn some experience from this.</div>
         <div class="sent-use">📋 expressing hope</div>
       </div>
     </div>
+    <div class="sentence-row" id="s4">
+      <div class="sent-num">4</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">总之，做事要有计划，不能太着急。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Zǒngzhī, zuò shì yào yǒu jìhuà, bù néng tài zháojí.</div>
+        <div class="sent-en">In short, you need a plan when doing things — you can&amp;#x27;t rush.</div>
+        <div class="sent-use">📋 general conclusion</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s5">
+      <div class="sent-num">5</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">总的来说，这次旅行还是很愉快的。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Zǒng de lái shuō, zhè cì lǚxíng háishi hěn yúkuài de.</div>
+        <div class="sent-en">Overall, this trip was very pleasant.</div>
+        <div class="sent-use">📋 overall summary</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s6">
+      <div class="sent-num">6</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">通过这次经历，我学到了很多东西。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Tōngguò zhè cì jīnglì, wǒ xué dào le hěn duō dōngxi.</div>
+        <div class="sent-en">Through this experience, I learned a lot.</div>
+        <div class="sent-use">📋 lesson learned</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s7">
+      <div class="sent-num">7</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">总而言之，我们应该重视环境保护。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Zǒng ér yán zhī, wǒmen yīnggāi zhòngshì huánjìng bǎohù.</div>
+        <div class="sent-en">All in all, we should attach importance to environmental protection.</div>
+        <div class="sent-use">📋 formal summary</div>
+      </div>
+    </div>
     <div class="sentence-row" id="s8">
       <div class="sent-num">8</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">最后，我想感谢所有帮助过我的人。</div>
+        <div class="sent-cn chinese">最后，我想感谢所有帮助过我的人。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
         <div class="sent-py">Zuìhòu, wǒ xiǎng gǎnxiè suǒyǒu bāngzhù guò wǒ de rén.</div>
         <div class="sent-en">Finally, I want to thank everyone who has helped me.</div>
         <div class="sent-use">📋 ending speech</div>
@@ -157,7 +162,7 @@
     <div class="sentence-row" id="s9">
       <div class="sent-num">9</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">这个故事告诉我们，做事要坚持到底。</div>
+        <div class="sent-cn chinese">这个故事告诉我们，做事要坚持到底。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
         <div class="sent-py">Zhège gùshi gàosu wǒmen, zuò shì yào jiānchí dàodǐ.</div>
         <div class="sent-en">This story tells us that we should persist to the end in doing things.</div>
         <div class="sent-use">📋 moral of story</div>
@@ -166,7 +171,7 @@
     <div class="sentence-row" id="s10">
       <div class="sent-num">10</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">总之，这件事给了我们很大的启发。</div>
+        <div class="sent-cn chinese">总之，这件事给了我们很大的启发。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
         <div class="sent-py">Zǒngzhī, zhè jiàn shì gěi le wǒmen hěn dà de qǐfā.</div>
         <div class="sent-en">In short, this matter gave us a great inspiration.</div>
         <div class="sent-use">📋 ending with inspiration</div>
@@ -178,38 +183,38 @@
   <div style="margin-bottom:12px;"><button class="btn btn-secondary" onclick="recallAll(true)">Reveal all</button> <button class="btn btn-ghost" onclick="recallAll(false)">Hide all</button></div>
   
       <div class="recall-card" data-i="0">
-        <div class="recall-en">In short, you need a plan when doing things — you can&amp;#x27;t rush.</div>
-        <div class="recall-cn chinese" style="display:none;">总之，做事要有计划，不能太着急。<div class="recall-py">Zǒngzhī, zuò shì yào yǒu jìhuà, bù néng tài zháojí.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="1">
-        <div class="recall-en">Overall, this trip was very pleasant.</div>
-        <div class="recall-cn chinese" style="display:none;">总的来说，这次旅行还是很愉快的。<div class="recall-py">Zǒng de lái shuō, zhè cì lǚxíng háishi hěn yúkuài de.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="2">
-        <div class="recall-en">Through this experience, I learned a lot.</div>
-        <div class="recall-cn chinese" style="display:none;">通过这次经历，我学到了很多东西。<div class="recall-py">Tōngguò zhè cì jīnglì, wǒ xué dào le hěn duō dōngxi.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="3">
         <div class="recall-en">From this we can see that effort is the key to success.</div>
         <div class="recall-cn chinese" style="display:none;">由此可见，努力是成功的关键。<div class="recall-py">Yóu cǐ kě jiàn, nǔlì shì chénggōng de guānjiàn.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="4">
-        <div class="recall-en">All in all, we should attach importance to environmental protection.</div>
-        <div class="recall-cn chinese" style="display:none;">总而言之，我们应该重视环境保护。<div class="recall-py">Zǒng ér yán zhī, wǒmen yīnggāi zhòngshì huánjìng bǎohù.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="5">
+      <div class="recall-card" data-i="1">
         <div class="recall-en">This is my view on this question.</div>
         <div class="recall-cn chinese" style="display:none;">这就是我对这个问题的看法。<div class="recall-py">Zhè jiùshì wǒ duì zhège wèntí de kànfǎ.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="6">
+      <div class="recall-card" data-i="2">
         <div class="recall-en">I hope everyone can learn some experience from this.</div>
         <div class="recall-cn chinese" style="display:none;">希望大家能够从中学到一些经验。<div class="recall-py">Xīwàng dàjiā nénggòu cóng zhōng xué dào yìxiē jīngyàn.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="3">
+        <div class="recall-en">In short, you need a plan when doing things — you can&amp;#x27;t rush.</div>
+        <div class="recall-cn chinese" style="display:none;">总之，做事要有计划，不能太着急。<div class="recall-py">Zǒngzhī, zuò shì yào yǒu jìhuà, bù néng tài zháojí.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="4">
+        <div class="recall-en">Overall, this trip was very pleasant.</div>
+        <div class="recall-cn chinese" style="display:none;">总的来说，这次旅行还是很愉快的。<div class="recall-py">Zǒng de lái shuō, zhè cì lǚxíng háishi hěn yúkuài de.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="5">
+        <div class="recall-en">Through this experience, I learned a lot.</div>
+        <div class="recall-cn chinese" style="display:none;">通过这次经历，我学到了很多东西。<div class="recall-py">Tōngguò zhè cì jīnglì, wǒ xué dào le hěn duō dōngxi.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="6">
+        <div class="recall-en">All in all, we should attach importance to environmental protection.</div>
+        <div class="recall-cn chinese" style="display:none;">总而言之，我们应该重视环境保护。<div class="recall-py">Zǒng ér yán zhī, wǒmen yīnggāi zhòngshì huánjìng bǎohù.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
       <div class="recall-card" data-i="7">

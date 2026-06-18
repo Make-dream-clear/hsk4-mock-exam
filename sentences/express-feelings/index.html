@@ -31,6 +31,10 @@
   .sentence-row { display:flex; gap:14px; background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
   .sent-num { flex:0 0 28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
   .sent-cn { font-size:17px; font-weight:600; line-height:1.7; }
+  .sent-diff { font-size:12px; letter-spacing:1px; vertical-align:middle; white-space:nowrap; }
+  .sent-diff-1 { color:var(--jade); }
+  .sent-diff-2 { color:var(--gold); }
+  .sent-diff-3 { color:var(--accent); }
   .sent-py { color:var(--accent); font-size:13px; margin-top:2px; }
   .sent-en { color:var(--stone); font-size:14px; margin-top:4px; line-height:1.6; }
   .sent-use { color:var(--stone); font-size:12px; margin-top:6px; background:var(--paper); display:inline-block; padding:3px 8px; border-radius:4px; }
@@ -80,12 +84,13 @@
     <a href="/words/cai-jiu/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">才 / 就 (timing) →</a>
   </section>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 14px;">The 10 sentences / 句子清单</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 6px;">The 10 sentences / 句子清单</h2>
+  <p style="color:var(--stone);font-size:13px;margin-bottom:14px;">Ordered easiest first. Difficulty: <span class="sent-diff sent-diff-1">★</span> simple · <span class="sent-diff sent-diff-2">★★</span> one clause/connector · <span class="sent-diff sent-diff-3">★★★</span> complex sentence (虽然…但是, 因为…所以…).</p>
   
     <div class="sentence-row" id="s1">
       <div class="sent-num">1</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">听到这个消息，我感到非常高兴。</div>
+        <div class="sent-cn chinese">听到这个消息，我感到非常高兴。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Tīng dào zhège xiāoxi, wǒ gǎndào fēicháng gāoxìng.</div>
         <div class="sent-en">I felt very happy to hear this news.</div>
         <div class="sent-use">📋 happiness</div>
@@ -94,7 +99,7 @@
     <div class="sentence-row" id="s2">
       <div class="sent-num">2</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">看到他难过的样子，我也很心疼。</div>
+        <div class="sent-cn chinese">看到他难过的样子，我也很心疼。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Kàn dào tā nánguò de yàngzi, wǒ yě hěn xīnténg.</div>
         <div class="sent-en">Seeing him sad, I also feel sorry for him.</div>
         <div class="sent-use">📋 sympathy</div>
@@ -103,7 +108,7 @@
     <div class="sentence-row" id="s3">
       <div class="sent-num">3</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">这件事让我很感动。</div>
+        <div class="sent-cn chinese">这件事让我很感动。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Zhè jiàn shì ràng wǒ hěn gǎndòng.</div>
         <div class="sent-en">This matter really touched me.</div>
         <div class="sent-use">📋 moved</div>
@@ -112,64 +117,64 @@
     <div class="sentence-row" id="s4">
       <div class="sent-num">4</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">考试前他非常紧张，几乎睡不着觉。</div>
-        <div class="sent-py">Kǎoshì qián tā fēicháng jǐnzhāng, jīhū shuì bù zháo jiào.</div>
-        <div class="sent-en">Before the exam he was very nervous, almost couldn&amp;#x27;t sleep.</div>
-        <div class="sent-use">📋 nervousness</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s5">
-      <div class="sent-num">5</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">对于这次的成绩，我感到很满意。</div>
-        <div class="sent-py">Duìyú zhè cì de chéngjì, wǒ gǎndào hěn mǎnyì.</div>
-        <div class="sent-en">I feel very satisfied with the result this time.</div>
-        <div class="sent-use">📋 satisfaction</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s6">
-      <div class="sent-num">6</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">我真的很羡慕你能去那么多地方旅游。</div>
+        <div class="sent-cn chinese">我真的很羡慕你能去那么多地方旅游。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Wǒ zhēn de hěn xiànmù nǐ néng qù nàme duō dìfang lǚyóu.</div>
         <div class="sent-en">I really envy that you can travel to so many places.</div>
         <div class="sent-use">📋 envy</div>
       </div>
     </div>
-    <div class="sentence-row" id="s7">
-      <div class="sent-num">7</div>
+    <div class="sentence-row" id="s5">
+      <div class="sent-num">5</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">失败了不要难过，下次努力就好了。</div>
-        <div class="sent-py">Shībài le bú yào nánguò, xià cì nǔlì jiù hǎo le.</div>
-        <div class="sent-en">Don&amp;#x27;t be sad about failure — just try harder next time.</div>
-        <div class="sent-use">📋 comforting</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s8">
-      <div class="sent-num">8</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">他的成功让大家都感到骄傲。</div>
+        <div class="sent-cn chinese">他的成功让大家都感到骄傲。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Tā de chénggōng ràng dàjiā dōu gǎndào jiāo&amp;#x27;ào.</div>
         <div class="sent-en">His success makes everyone feel proud.</div>
         <div class="sent-use">📋 pride</div>
       </div>
     </div>
+    <div class="sentence-row" id="s6">
+      <div class="sent-num">6</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">我对自己当时的决定感到后悔。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
+        <div class="sent-py">Wǒ duì zìjǐ dāngshí de juédìng gǎndào hòuhuǐ.</div>
+        <div class="sent-en">I regret the decision I made at that time.</div>
+        <div class="sent-use">📋 regret</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s7">
+      <div class="sent-num">7</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">考试前他非常紧张，几乎睡不着觉。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Kǎoshì qián tā fēicháng jǐnzhāng, jīhū shuì bù zháo jiào.</div>
+        <div class="sent-en">Before the exam he was very nervous, almost couldn&amp;#x27;t sleep.</div>
+        <div class="sent-use">📋 nervousness</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s8">
+      <div class="sent-num">8</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">对于这次的成绩，我感到很满意。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Duìyú zhè cì de chéngjì, wǒ gǎndào hěn mǎnyì.</div>
+        <div class="sent-en">I feel very satisfied with the result this time.</div>
+        <div class="sent-use">📋 satisfaction</div>
+      </div>
+    </div>
     <div class="sentence-row" id="s9">
       <div class="sent-num">9</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">听到他要离开公司，大家都很意外。</div>
-        <div class="sent-py">Tīng dào tā yào líkāi gōngsī, dàjiā dōu hěn yìwài.</div>
-        <div class="sent-en">Everyone was very surprised to hear he was leaving the company.</div>
-        <div class="sent-use">📋 surprise</div>
+        <div class="sent-cn chinese">失败了不要难过，下次努力就好了。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Shībài le bú yào nánguò, xià cì nǔlì jiù hǎo le.</div>
+        <div class="sent-en">Don&amp;#x27;t be sad about failure — just try harder next time.</div>
+        <div class="sent-use">📋 comforting</div>
       </div>
     </div>
     <div class="sentence-row" id="s10">
       <div class="sent-num">10</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">我对自己当时的决定感到后悔。</div>
-        <div class="sent-py">Wǒ duì zìjǐ dāngshí de juédìng gǎndào hòuhuǐ.</div>
-        <div class="sent-en">I regret the decision I made at that time.</div>
-        <div class="sent-use">📋 regret</div>
+        <div class="sent-cn chinese">听到他要离开公司，大家都很意外。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Tīng dào tā yào líkāi gōngsī, dàjiā dōu hěn yìwài.</div>
+        <div class="sent-en">Everyone was very surprised to hear he was leaving the company.</div>
+        <div class="sent-use">📋 surprise</div>
       </div>
     </div>
 
@@ -193,38 +198,38 @@
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
       <div class="recall-card" data-i="3">
-        <div class="recall-en">Before the exam he was very nervous, almost couldn&amp;#x27;t sleep.</div>
-        <div class="recall-cn chinese" style="display:none;">考试前他非常紧张，几乎睡不着觉。<div class="recall-py">Kǎoshì qián tā fēicháng jǐnzhāng, jīhū shuì bù zháo jiào.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="4">
-        <div class="recall-en">I feel very satisfied with the result this time.</div>
-        <div class="recall-cn chinese" style="display:none;">对于这次的成绩，我感到很满意。<div class="recall-py">Duìyú zhè cì de chéngjì, wǒ gǎndào hěn mǎnyì.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="5">
         <div class="recall-en">I really envy that you can travel to so many places.</div>
         <div class="recall-cn chinese" style="display:none;">我真的很羡慕你能去那么多地方旅游。<div class="recall-py">Wǒ zhēn de hěn xiànmù nǐ néng qù nàme duō dìfang lǚyóu.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="6">
-        <div class="recall-en">Don&amp;#x27;t be sad about failure — just try harder next time.</div>
-        <div class="recall-cn chinese" style="display:none;">失败了不要难过，下次努力就好了。<div class="recall-py">Shībài le bú yào nánguò, xià cì nǔlì jiù hǎo le.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="7">
+      <div class="recall-card" data-i="4">
         <div class="recall-en">His success makes everyone feel proud.</div>
         <div class="recall-cn chinese" style="display:none;">他的成功让大家都感到骄傲。<div class="recall-py">Tā de chénggōng ràng dàjiā dōu gǎndào jiāo&amp;#x27;ào.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
+      <div class="recall-card" data-i="5">
+        <div class="recall-en">I regret the decision I made at that time.</div>
+        <div class="recall-cn chinese" style="display:none;">我对自己当时的决定感到后悔。<div class="recall-py">Wǒ duì zìjǐ dāngshí de juédìng gǎndào hòuhuǐ.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="6">
+        <div class="recall-en">Before the exam he was very nervous, almost couldn&amp;#x27;t sleep.</div>
+        <div class="recall-cn chinese" style="display:none;">考试前他非常紧张，几乎睡不着觉。<div class="recall-py">Kǎoshì qián tā fēicháng jǐnzhāng, jīhū shuì bù zháo jiào.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="7">
+        <div class="recall-en">I feel very satisfied with the result this time.</div>
+        <div class="recall-cn chinese" style="display:none;">对于这次的成绩，我感到很满意。<div class="recall-py">Duìyú zhè cì de chéngjì, wǒ gǎndào hěn mǎnyì.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
       <div class="recall-card" data-i="8">
-        <div class="recall-en">Everyone was very surprised to hear he was leaving the company.</div>
-        <div class="recall-cn chinese" style="display:none;">听到他要离开公司，大家都很意外。<div class="recall-py">Tīng dào tā yào líkāi gōngsī, dàjiā dōu hěn yìwài.</div></div>
+        <div class="recall-en">Don&amp;#x27;t be sad about failure — just try harder next time.</div>
+        <div class="recall-cn chinese" style="display:none;">失败了不要难过，下次努力就好了。<div class="recall-py">Shībài le bú yào nánguò, xià cì nǔlì jiù hǎo le.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
       <div class="recall-card" data-i="9">
-        <div class="recall-en">I regret the decision I made at that time.</div>
-        <div class="recall-cn chinese" style="display:none;">我对自己当时的决定感到后悔。<div class="recall-py">Wǒ duì zìjǐ dāngshí de juédìng gǎndào hòuhuǐ.</div></div>
+        <div class="recall-en">Everyone was very surprised to hear he was leaving the company.</div>
+        <div class="recall-cn chinese" style="display:none;">听到他要离开公司，大家都很意外。<div class="recall-py">Tīng dào tā yào líkāi gōngsī, dàjiā dōu hěn yìwài.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
 

@@ -31,6 +31,10 @@
   .sentence-row { display:flex; gap:14px; background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
   .sent-num { flex:0 0 28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
   .sent-cn { font-size:17px; font-weight:600; line-height:1.7; }
+  .sent-diff { font-size:12px; letter-spacing:1px; vertical-align:middle; white-space:nowrap; }
+  .sent-diff-1 { color:var(--jade); }
+  .sent-diff-2 { color:var(--gold); }
+  .sent-diff-3 { color:var(--accent); }
   .sent-py { color:var(--accent); font-size:13px; margin-top:2px; }
   .sent-en { color:var(--stone); font-size:14px; margin-top:4px; line-height:1.6; }
   .sent-use { color:var(--stone); font-size:12px; margin-top:6px; background:var(--paper); display:inline-block; padding:3px 8px; border-radius:4px; }
@@ -80,96 +84,97 @@
     <a href="/grammar/complex-sentences/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">虽然…但是 (although) →</a><a href="/grammar/comparison/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">比 comparison →</a><a href="/grammar/comparison/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">不如 (not as good as) →</a><a href="/grammar/comparison/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">跟…相比 (compared with) →</a>
   </section>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 14px;">The 10 sentences / 句子清单</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 6px;">The 10 sentences / 句子清单</h2>
+  <p style="color:var(--stone);font-size:13px;margin-bottom:14px;">Ordered easiest first. Difficulty: <span class="sent-diff sent-diff-1">★</span> simple · <span class="sent-diff sent-diff-2">★★</span> one clause/connector · <span class="sent-diff sent-diff-3">★★★</span> complex sentence (虽然…但是, 因为…所以…).</p>
   
     <div class="sentence-row" id="s1">
       <div class="sent-num">1</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">和他相比，我还有很多需要学习的地方。</div>
-        <div class="sent-py">Hé tā xiāng bǐ, wǒ hái yǒu hěn duō xūyào xuéxí de dìfang.</div>
-        <div class="sent-en">Compared to him, I still have a lot to learn.</div>
-        <div class="sent-use">📋 humble comparison</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s2">
-      <div class="sent-num">2</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">这个方法比那个方法效果好得多。</div>
+        <div class="sent-cn chinese">这个方法比那个方法效果好得多。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Zhège fāngfǎ bǐ nàge fāngfǎ xiàoguǒ hǎo de duō.</div>
         <div class="sent-en">This method is much more effective than that one.</div>
         <div class="sent-use">📋 method comparison</div>
       </div>
     </div>
-    <div class="sentence-row" id="s3">
-      <div class="sent-num">3</div>
+    <div class="sentence-row" id="s2">
+      <div class="sent-num">2</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">今年的天气没有去年那么冷。</div>
+        <div class="sent-cn chinese">今年的天气没有去年那么冷。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Jīnnián de tiānqì méiyǒu qùnián nàme lěng.</div>
         <div class="sent-en">This year&amp;#x27;s weather is not as cold as last year.</div>
         <div class="sent-use">📋 negative comparison</div>
       </div>
     </div>
-    <div class="sentence-row" id="s4">
-      <div class="sent-num">4</div>
+    <div class="sentence-row" id="s3">
+      <div class="sent-num">3</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">他的中文跟中国人一样流利。</div>
+        <div class="sent-cn chinese">他的中文跟中国人一样流利。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Tā de Zhōngwén gēn Zhōngguórén yíyàng liúlì.</div>
         <div class="sent-en">His Chinese is as fluent as a native speaker&amp;#x27;s.</div>
         <div class="sent-use">📋 equality comparison</div>
       </div>
     </div>
-    <div class="sentence-row" id="s5">
-      <div class="sent-num">5</div>
+    <div class="sentence-row" id="s4">
+      <div class="sent-num">4</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">我的工资不如他高，但是工作比较轻松。</div>
-        <div class="sent-py">Wǒ de gōngzī bùrú tā gāo, dànshì gōngzuò bǐjiào qīngsōng.</div>
-        <div class="sent-en">My salary is not as high as his, but the work is relatively easy.</div>
-        <div class="sent-use">📋 balanced comparison</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s6">
-      <div class="sent-num">6</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">比起去年，今年的销售额增加了百分之三十。</div>
-        <div class="sent-py">Bǐ qǐ qùnián, jīnnián de xiāoshòu&amp;#x27;é zēngjiā le bǎi fēn zhī sānshí.</div>
-        <div class="sent-en">Compared to last year, sales have increased by 30% this year.</div>
-        <div class="sent-use">📋 data comparison</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s7">
-      <div class="sent-num">7</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">和城市相比，农村的生活更安静。</div>
+        <div class="sent-cn chinese">和城市相比，农村的生活更安静。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Hé chéngshì xiāng bǐ, nóngcūn de shēnghuó gèng ānjìng.</div>
         <div class="sent-en">Compared with the city, life in the countryside is quieter.</div>
         <div class="sent-use">📋 lifestyle comparison</div>
       </div>
     </div>
-    <div class="sentence-row" id="s8">
-      <div class="sent-num">8</div>
+    <div class="sentence-row" id="s5">
+      <div class="sent-num">5</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">这次考试比上次难一些。</div>
+        <div class="sent-cn chinese">这次考试比上次难一些。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Zhè cì kǎoshì bǐ shàng cì nán yìxiē.</div>
         <div class="sent-en">This exam is a bit harder than the last one.</div>
         <div class="sent-use">📋 test comparison</div>
       </div>
     </div>
-    <div class="sentence-row" id="s9">
-      <div class="sent-num">9</div>
+    <div class="sentence-row" id="s6">
+      <div class="sent-num">6</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">他比我大三岁。</div>
+        <div class="sent-cn chinese">他比我大三岁。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Tā bǐ wǒ dà sān suì.</div>
         <div class="sent-en">He is three years older than me.</div>
         <div class="sent-use">📋 age comparison</div>
       </div>
     </div>
-    <div class="sentence-row" id="s10">
-      <div class="sent-num">10</div>
+    <div class="sentence-row" id="s7">
+      <div class="sent-num">7</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">我觉得这本书没有那本书有意思。</div>
+        <div class="sent-cn chinese">我觉得这本书没有那本书有意思。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
         <div class="sent-py">Wǒ juéde zhè běn shū méiyǒu nà běn shū yǒu yìsi.</div>
         <div class="sent-en">I think this book is not as interesting as that one.</div>
         <div class="sent-use">📋 preference</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s8">
+      <div class="sent-num">8</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">和他相比，我还有很多需要学习的地方。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Hé tā xiāng bǐ, wǒ hái yǒu hěn duō xūyào xuéxí de dìfang.</div>
+        <div class="sent-en">Compared to him, I still have a lot to learn.</div>
+        <div class="sent-use">📋 humble comparison</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s9">
+      <div class="sent-num">9</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">比起去年，今年的销售额增加了百分之三十。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Bǐ qǐ qùnián, jīnnián de xiāoshòu&amp;#x27;é zēngjiā le bǎi fēn zhī sānshí.</div>
+        <div class="sent-en">Compared to last year, sales have increased by 30% this year.</div>
+        <div class="sent-use">📋 data comparison</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s10">
+      <div class="sent-num">10</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">我的工资不如他高，但是工作比较轻松。 <span class="sent-diff sent-diff-3" title="Harder">★★★</span></div>
+        <div class="sent-py">Wǒ de gōngzī bùrú tā gāo, dànshì gōngzuò bǐjiào qīngsōng.</div>
+        <div class="sent-en">My salary is not as high as his, but the work is relatively easy.</div>
+        <div class="sent-use">📋 balanced comparison</div>
       </div>
     </div>
 
@@ -178,53 +183,53 @@
   <div style="margin-bottom:12px;"><button class="btn btn-secondary" onclick="recallAll(true)">Reveal all</button> <button class="btn btn-ghost" onclick="recallAll(false)">Hide all</button></div>
   
       <div class="recall-card" data-i="0">
-        <div class="recall-en">Compared to him, I still have a lot to learn.</div>
-        <div class="recall-cn chinese" style="display:none;">和他相比，我还有很多需要学习的地方。<div class="recall-py">Hé tā xiāng bǐ, wǒ hái yǒu hěn duō xūyào xuéxí de dìfang.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="1">
         <div class="recall-en">This method is much more effective than that one.</div>
         <div class="recall-cn chinese" style="display:none;">这个方法比那个方法效果好得多。<div class="recall-py">Zhège fāngfǎ bǐ nàge fāngfǎ xiàoguǒ hǎo de duō.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="2">
+      <div class="recall-card" data-i="1">
         <div class="recall-en">This year&amp;#x27;s weather is not as cold as last year.</div>
         <div class="recall-cn chinese" style="display:none;">今年的天气没有去年那么冷。<div class="recall-py">Jīnnián de tiānqì méiyǒu qùnián nàme lěng.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="3">
+      <div class="recall-card" data-i="2">
         <div class="recall-en">His Chinese is as fluent as a native speaker&amp;#x27;s.</div>
         <div class="recall-cn chinese" style="display:none;">他的中文跟中国人一样流利。<div class="recall-py">Tā de Zhōngwén gēn Zhōngguórén yíyàng liúlì.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="4">
-        <div class="recall-en">My salary is not as high as his, but the work is relatively easy.</div>
-        <div class="recall-cn chinese" style="display:none;">我的工资不如他高，但是工作比较轻松。<div class="recall-py">Wǒ de gōngzī bùrú tā gāo, dànshì gōngzuò bǐjiào qīngsōng.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="5">
-        <div class="recall-en">Compared to last year, sales have increased by 30% this year.</div>
-        <div class="recall-cn chinese" style="display:none;">比起去年，今年的销售额增加了百分之三十。<div class="recall-py">Bǐ qǐ qùnián, jīnnián de xiāoshòu&amp;#x27;é zēngjiā le bǎi fēn zhī sānshí.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="6">
+      <div class="recall-card" data-i="3">
         <div class="recall-en">Compared with the city, life in the countryside is quieter.</div>
         <div class="recall-cn chinese" style="display:none;">和城市相比，农村的生活更安静。<div class="recall-py">Hé chéngshì xiāng bǐ, nóngcūn de shēnghuó gèng ānjìng.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="7">
+      <div class="recall-card" data-i="4">
         <div class="recall-en">This exam is a bit harder than the last one.</div>
         <div class="recall-cn chinese" style="display:none;">这次考试比上次难一些。<div class="recall-py">Zhè cì kǎoshì bǐ shàng cì nán yìxiē.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="8">
+      <div class="recall-card" data-i="5">
         <div class="recall-en">He is three years older than me.</div>
         <div class="recall-cn chinese" style="display:none;">他比我大三岁。<div class="recall-py">Tā bǐ wǒ dà sān suì.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="9">
+      <div class="recall-card" data-i="6">
         <div class="recall-en">I think this book is not as interesting as that one.</div>
         <div class="recall-cn chinese" style="display:none;">我觉得这本书没有那本书有意思。<div class="recall-py">Wǒ juéde zhè běn shū méiyǒu nà běn shū yǒu yìsi.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="7">
+        <div class="recall-en">Compared to him, I still have a lot to learn.</div>
+        <div class="recall-cn chinese" style="display:none;">和他相比，我还有很多需要学习的地方。<div class="recall-py">Hé tā xiāng bǐ, wǒ hái yǒu hěn duō xūyào xuéxí de dìfang.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="8">
+        <div class="recall-en">Compared to last year, sales have increased by 30% this year.</div>
+        <div class="recall-cn chinese" style="display:none;">比起去年，今年的销售额增加了百分之三十。<div class="recall-py">Bǐ qǐ qùnián, jīnnián de xiāoshòu&amp;#x27;é zēngjiā le bǎi fēn zhī sānshí.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="9">
+        <div class="recall-en">My salary is not as high as his, but the work is relatively easy.</div>
+        <div class="recall-cn chinese" style="display:none;">我的工资不如他高，但是工作比较轻松。<div class="recall-py">Wǒ de gōngzī bùrú tā gāo, dànshì gōngzuò bǐjiào qīngsōng.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
 

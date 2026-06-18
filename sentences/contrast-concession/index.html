@@ -31,6 +31,10 @@
   .sentence-row { display:flex; gap:14px; background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
   .sent-num { flex:0 0 28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
   .sent-cn { font-size:17px; font-weight:600; line-height:1.7; }
+  .sent-diff { font-size:12px; letter-spacing:1px; vertical-align:middle; white-space:nowrap; }
+  .sent-diff-1 { color:var(--jade); }
+  .sent-diff-2 { color:var(--gold); }
+  .sent-diff-3 { color:var(--accent); }
   .sent-py { color:var(--accent); font-size:13px; margin-top:2px; }
   .sent-en { color:var(--stone); font-size:14px; margin-top:4px; line-height:1.6; }
   .sent-use { color:var(--stone); font-size:12px; margin-top:6px; background:var(--paper); display:inline-block; padding:3px 8px; border-radius:4px; }
@@ -80,30 +84,31 @@
     <a href="/grammar/complex-sentences/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">虽然…但是 (although) →</a><a href="/grammar/patterns/jinguan-danshi/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">尽管 (even though) →</a><a href="/grammar/patterns/jishi-ye/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">即使…也 (even if) →</a><a href="/grammar/function-words/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">不过 / 然而 (however) →</a><a href="/grammar/patterns/buguan-dou/" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">无论 / 不管 (no matter) →</a>
   </section>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 14px;">The 10 sentences / 句子清单</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 6px;">The 10 sentences / 句子清单</h2>
+  <p style="color:var(--stone);font-size:13px;margin-bottom:14px;">Ordered easiest first. Difficulty: <span class="sent-diff sent-diff-1">★</span> simple · <span class="sent-diff sent-diff-2">★★</span> one clause/connector · <span class="sent-diff sent-diff-3">★★★</span> complex sentence (虽然…但是, 因为…所以…).</p>
   
     <div class="sentence-row" id="s1">
       <div class="sent-num">1</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">虽然他很累，但是还在坚持工作。</div>
-        <div class="sent-py">Suīrán tā hěn lèi, dànshì hái zài jiānchí gōngzuò.</div>
-        <div class="sent-en">Although he is tired, he is still working hard.</div>
-        <div class="sent-use">📋 concession</div>
+        <div class="sent-cn chinese">其实事情没有想象的那么严重。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
+        <div class="sent-py">Qíshí shìqíng méiyǒu xiǎngxiàng de nàme yánzhòng.</div>
+        <div class="sent-en">Actually, the matter is not as serious as imagined.</div>
+        <div class="sent-use">📋 softening reality</div>
       </div>
     </div>
     <div class="sentence-row" id="s2">
       <div class="sent-num">2</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">尽管下着大雨，他还是按时来上班了。</div>
-        <div class="sent-py">Jǐnguǎn xià zhe dà yǔ, tā háishi ànshí lái shàngbān le.</div>
-        <div class="sent-en">Despite the heavy rain, he still came to work on time.</div>
-        <div class="sent-use">📋 stronger concession</div>
+        <div class="sent-cn chinese">可是我没想到结果会这样。 <span class="sent-diff sent-diff-1" title="Easy">★</span></div>
+        <div class="sent-py">Kěshì wǒ méi xiǎngdào jiéguǒ huì zhèyàng.</div>
+        <div class="sent-en">But I didn&amp;#x27;t expect the outcome would be like this.</div>
+        <div class="sent-use">📋 expressing surprise</div>
       </div>
     </div>
     <div class="sentence-row" id="s3">
       <div class="sent-num">3</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">即使遇到困难，我也不会放弃。</div>
+        <div class="sent-cn chinese">即使遇到困难，我也不会放弃。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
         <div class="sent-py">Jíshǐ yùdào kùnnán, wǒ yě bú huì fàngqì.</div>
         <div class="sent-en">Even if I encounter difficulties, I will not give up.</div>
         <div class="sent-use">📋 hypothetical concession</div>
@@ -112,64 +117,64 @@
     <div class="sentence-row" id="s4">
       <div class="sent-num">4</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">他的中文虽然不太流利，但是发音很标准。</div>
-        <div class="sent-py">Tā de Zhōngwén suīrán bú tài liúlì, dànshì fāyīn hěn biāozhǔn.</div>
-        <div class="sent-en">Although his Chinese is not very fluent, his pronunciation is very standard.</div>
-        <div class="sent-use">📋 balanced contrast</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s5">
-      <div class="sent-num">5</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">其实事情没有想象的那么严重。</div>
-        <div class="sent-py">Qíshí shìqíng méiyǒu xiǎngxiàng de nàme yánzhòng.</div>
-        <div class="sent-en">Actually, the matter is not as serious as imagined.</div>
-        <div class="sent-use">📋 softening reality</div>
-      </div>
-    </div>
-    <div class="sentence-row" id="s6">
-      <div class="sent-num">6</div>
-      <div class="sent-content">
-        <div class="sent-cn chinese">不过，这个办法也有一些缺点。</div>
+        <div class="sent-cn chinese">不过，这个办法也有一些缺点。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
         <div class="sent-py">Búguò, zhège bànfǎ yě yǒu yìxiē quēdiǎn.</div>
         <div class="sent-en">However, this method also has some shortcomings.</div>
         <div class="sent-use">📋 noting drawback</div>
       </div>
     </div>
+    <div class="sentence-row" id="s5">
+      <div class="sent-num">5</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">然而，事实并不像他说的那么简单。 <span class="sent-diff sent-diff-2" title="Medium">★★</span></div>
+        <div class="sent-py">Rán&amp;#x27;ér, shìshí bìng bú xiàng tā shuō de nàme jiǎndān.</div>
+        <div class="sent-en">However, the fact is not as simple as he said.</div>
+        <div class="sent-use">📋 formal contrast</div>
+      </div>
+    </div>
+    <div class="sentence-row" id="s6">
+      <div class="sent-num">6</div>
+      <div class="sent-content">
+        <div class="sent-cn chinese">虽然他很累，但是还在坚持工作。 <span class="sent-diff sent-diff-3" title="Harder">★★★</span></div>
+        <div class="sent-py">Suīrán tā hěn lèi, dànshì hái zài jiānchí gōngzuò.</div>
+        <div class="sent-en">Although he is tired, he is still working hard.</div>
+        <div class="sent-use">📋 concession</div>
+      </div>
+    </div>
     <div class="sentence-row" id="s7">
       <div class="sent-num">7</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">无论遇到什么困难，我们都要坚持到底。</div>
-        <div class="sent-py">Wúlùn yùdào shénme kùnnán, wǒmen dōu yào jiānchí dàodǐ.</div>
-        <div class="sent-en">No matter what difficulties we encounter, we must persist to the end.</div>
-        <div class="sent-use">📋 regardless statement</div>
+        <div class="sent-cn chinese">尽管下着大雨，他还是按时来上班了。 <span class="sent-diff sent-diff-3" title="Harder">★★★</span></div>
+        <div class="sent-py">Jǐnguǎn xià zhe dà yǔ, tā háishi ànshí lái shàngbān le.</div>
+        <div class="sent-en">Despite the heavy rain, he still came to work on time.</div>
+        <div class="sent-use">📋 stronger concession</div>
       </div>
     </div>
     <div class="sentence-row" id="s8">
       <div class="sent-num">8</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">不管多忙，他每天都会陪孩子玩一会儿。</div>
-        <div class="sent-py">Bùguǎn duō máng, tā měi tiān dōu huì péi háizi wán yíhuìr.</div>
-        <div class="sent-en">No matter how busy he is, he plays with his child every day.</div>
-        <div class="sent-use">📋 regardless habit</div>
+        <div class="sent-cn chinese">他的中文虽然不太流利，但是发音很标准。 <span class="sent-diff sent-diff-3" title="Harder">★★★</span></div>
+        <div class="sent-py">Tā de Zhōngwén suīrán bú tài liúlì, dànshì fāyīn hěn biāozhǔn.</div>
+        <div class="sent-en">Although his Chinese is not very fluent, his pronunciation is very standard.</div>
+        <div class="sent-use">📋 balanced contrast</div>
       </div>
     </div>
     <div class="sentence-row" id="s9">
       <div class="sent-num">9</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">可是我没想到结果会这样。</div>
-        <div class="sent-py">Kěshì wǒ méi xiǎngdào jiéguǒ huì zhèyàng.</div>
-        <div class="sent-en">But I didn&amp;#x27;t expect the outcome would be like this.</div>
-        <div class="sent-use">📋 expressing surprise</div>
+        <div class="sent-cn chinese">无论遇到什么困难，我们都要坚持到底。 <span class="sent-diff sent-diff-3" title="Harder">★★★</span></div>
+        <div class="sent-py">Wúlùn yùdào shénme kùnnán, wǒmen dōu yào jiānchí dàodǐ.</div>
+        <div class="sent-en">No matter what difficulties we encounter, we must persist to the end.</div>
+        <div class="sent-use">📋 regardless statement</div>
       </div>
     </div>
     <div class="sentence-row" id="s10">
       <div class="sent-num">10</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">然而，事实并不像他说的那么简单。</div>
-        <div class="sent-py">Rán&amp;#x27;ér, shìshí bìng bú xiàng tā shuō de nàme jiǎndān.</div>
-        <div class="sent-en">However, the fact is not as simple as he said.</div>
-        <div class="sent-use">📋 formal contrast</div>
+        <div class="sent-cn chinese">不管多忙，他每天都会陪孩子玩一会儿。 <span class="sent-diff sent-diff-3" title="Harder">★★★</span></div>
+        <div class="sent-py">Bùguǎn duō máng, tā měi tiān dōu huì péi háizi wán yíhuìr.</div>
+        <div class="sent-en">No matter how busy he is, he plays with his child every day.</div>
+        <div class="sent-use">📋 regardless habit</div>
       </div>
     </div>
 
@@ -178,13 +183,13 @@
   <div style="margin-bottom:12px;"><button class="btn btn-secondary" onclick="recallAll(true)">Reveal all</button> <button class="btn btn-ghost" onclick="recallAll(false)">Hide all</button></div>
   
       <div class="recall-card" data-i="0">
-        <div class="recall-en">Although he is tired, he is still working hard.</div>
-        <div class="recall-cn chinese" style="display:none;">虽然他很累，但是还在坚持工作。<div class="recall-py">Suīrán tā hěn lèi, dànshì hái zài jiānchí gōngzuò.</div></div>
+        <div class="recall-en">Actually, the matter is not as serious as imagined.</div>
+        <div class="recall-cn chinese" style="display:none;">其实事情没有想象的那么严重。<div class="recall-py">Qíshí shìqíng méiyǒu xiǎngxiàng de nàme yánzhòng.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
       <div class="recall-card" data-i="1">
-        <div class="recall-en">Despite the heavy rain, he still came to work on time.</div>
-        <div class="recall-cn chinese" style="display:none;">尽管下着大雨，他还是按时来上班了。<div class="recall-py">Jǐnguǎn xià zhe dà yǔ, tā háishi ànshí lái shàngbān le.</div></div>
+        <div class="recall-en">But I didn&amp;#x27;t expect the outcome would be like this.</div>
+        <div class="recall-cn chinese" style="display:none;">可是我没想到结果会这样。<div class="recall-py">Kěshì wǒ méi xiǎngdào jiéguǒ huì zhèyàng.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
       <div class="recall-card" data-i="2">
@@ -193,38 +198,38 @@
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
       <div class="recall-card" data-i="3">
-        <div class="recall-en">Although his Chinese is not very fluent, his pronunciation is very standard.</div>
-        <div class="recall-cn chinese" style="display:none;">他的中文虽然不太流利，但是发音很标准。<div class="recall-py">Tā de Zhōngwén suīrán bú tài liúlì, dànshì fāyīn hěn biāozhǔn.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="4">
-        <div class="recall-en">Actually, the matter is not as serious as imagined.</div>
-        <div class="recall-cn chinese" style="display:none;">其实事情没有想象的那么严重。<div class="recall-py">Qíshí shìqíng méiyǒu xiǎngxiàng de nàme yánzhòng.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="5">
         <div class="recall-en">However, this method also has some shortcomings.</div>
         <div class="recall-cn chinese" style="display:none;">不过，这个办法也有一些缺点。<div class="recall-py">Búguò, zhège bànfǎ yě yǒu yìxiē quēdiǎn.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
+      <div class="recall-card" data-i="4">
+        <div class="recall-en">However, the fact is not as simple as he said.</div>
+        <div class="recall-cn chinese" style="display:none;">然而，事实并不像他说的那么简单。<div class="recall-py">Rán&amp;#x27;ér, shìshí bìng bú xiàng tā shuō de nàme jiǎndān.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="5">
+        <div class="recall-en">Although he is tired, he is still working hard.</div>
+        <div class="recall-cn chinese" style="display:none;">虽然他很累，但是还在坚持工作。<div class="recall-py">Suīrán tā hěn lèi, dànshì hái zài jiānchí gōngzuò.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
       <div class="recall-card" data-i="6">
+        <div class="recall-en">Despite the heavy rain, he still came to work on time.</div>
+        <div class="recall-cn chinese" style="display:none;">尽管下着大雨，他还是按时来上班了。<div class="recall-py">Jǐnguǎn xià zhe dà yǔ, tā háishi ànshí lái shàngbān le.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="7">
+        <div class="recall-en">Although his Chinese is not very fluent, his pronunciation is very standard.</div>
+        <div class="recall-cn chinese" style="display:none;">他的中文虽然不太流利，但是发音很标准。<div class="recall-py">Tā de Zhōngwén suīrán bú tài liúlì, dànshì fāyīn hěn biāozhǔn.</div></div>
+        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
+      </div>
+      <div class="recall-card" data-i="8">
         <div class="recall-en">No matter what difficulties we encounter, we must persist to the end.</div>
         <div class="recall-cn chinese" style="display:none;">无论遇到什么困难，我们都要坚持到底。<div class="recall-py">Wúlùn yùdào shénme kùnnán, wǒmen dōu yào jiānchí dàodǐ.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
-      <div class="recall-card" data-i="7">
+      <div class="recall-card" data-i="9">
         <div class="recall-en">No matter how busy he is, he plays with his child every day.</div>
         <div class="recall-cn chinese" style="display:none;">不管多忙，他每天都会陪孩子玩一会儿。<div class="recall-py">Bùguǎn duō máng, tā měi tiān dōu huì péi háizi wán yíhuìr.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="8">
-        <div class="recall-en">But I didn&amp;#x27;t expect the outcome would be like this.</div>
-        <div class="recall-cn chinese" style="display:none;">可是我没想到结果会这样。<div class="recall-py">Kěshì wǒ méi xiǎngdào jiéguǒ huì zhèyàng.</div></div>
-        <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
-      </div>
-      <div class="recall-card" data-i="9">
-        <div class="recall-en">However, the fact is not as simple as he said.</div>
-        <div class="recall-cn chinese" style="display:none;">然而，事实并不像他说的那么简单。<div class="recall-py">Rán&amp;#x27;ér, shìshí bìng bú xiàng tā shuō de nàme jiǎndān.</div></div>
         <button class="btn btn-ghost recall-btn" onclick="recallToggle(this)">Show 中文</button>
       </div>
 

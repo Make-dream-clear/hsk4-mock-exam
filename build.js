@@ -170,10 +170,63 @@ function computeExamFrequency(words) {
   return byId;
 }
 
+// Pull one authentic example sentence per word straight from the 12 mock-test
+// papers, so learners see how a word is actually used on the exam (not just a
+// single hand-written gloss). Strips question numbers and test markers
+// (★, 问题：, 录音：…) and prefers complete declarative sentences.
+const EXAM_SENT_PREFIX = /^(★|☆|问题[:：]|阅读短文[:：]|短文[:：]|例如[:：]|录音[:：]|对话[:：]|男[:：]|女[:：])\s*/;
+function extractExamSentences(words) {
+  const index = readJSON('index.json');
+  const sentences = [];
+  index.forEach(meta => {
+    readJSON(meta.file).questions.forEach(q => {
+      if (!q.text) return;
+      const txt = q.text.replace(/^\s*\d+[.、]\s*/, '');
+      txt.split(/(?<=[。！？])/).forEach(raw => {
+        let s = raw.trim(), prev;
+        do { prev = s; s = s.replace(EXAM_SENT_PREFIX, '').trim(); } while (s !== prev);
+        if (s.length >= 8 && s.length <= 34 && /[。！？]$/.test(s) && !/[（）_A-Za-zＡ-Ｚａ-ｚ0-9★☆:：]/.test(s)) {
+          sentences.push(s);
+        }
+      });
+    });
+  });
+  const byId = {};
+  words.forEach(w => {
+    if (!w.word || w.word.length < 2) return;
+    const hits = sentences.filter(s => s.includes(w.word));
+    if (!hits.length) return;
+    hits.sort((a, b) => (a.endsWith('。') ? 0 : 1) - (b.endsWith('。') ? 0 : 1) || a.length - b.length);
+    byId[w.id] = hits[0];
+  });
+  return byId;
+}
+
+// How often each character appears in actual exam CONTENT across the 12 mock
+// papers. Rather than blacklisting characters (which would zero dual-use ones
+// like 确 — 正确答案 vs 确定 — or 部 — 第一部分 vs 部门), we strip the rubric
+// phrases and skip our own answer commentary, then count what's left. Longest
+// phrases first so compounds are removed before their parts.
+const CHAR_BOILERPLATE_PHRASES = ['阅读短文', '排列顺序', '完成句子', '正确答案', '选择正确', '根据短文', '根据录音', '根据对话', '下列', '正确', '排列', '顺序', '阅读', '选择', '填空', '例如', '听力', '录音', '词语', '根据'].sort((a, b) => b.length - a.length);
+function computeCharFrequency() {
+  const index = readJSON('index.json');
+  let corpus = '';
+  index.forEach(meta => readJSON(meta.file).questions.forEach(q => {
+    if (q.text) corpus += q.text;
+    if (q.options) q.options.forEach(o => corpus += String(o).replace(/^[A-F]\s+/, ''));
+    // q.explanation is our own commentary (full of 正确/答案/因为…), not exam content — skip it.
+  }));
+  CHAR_BOILERPLATE_PHRASES.forEach(p => { corpus = corpus.split(p).join(''); });
+  const cf = {};
+  for (const ch of corpus) if (ch >= '一' && ch <= '鿿') cf[ch] = (cf[ch] || 0) + 1;
+  return cf;
+}
+
 function buildVocabulary() {
   console.log('[vocab] Pre-rendering vocabulary...');
   const words = readJSON('vocabulary.json');
   const examFreq = computeExamFrequency(words);
+  const examEx = extractExamSentences(words);
   const htmlPath = path.join(ROOT, 'vocabulary', 'index.html');
   let html = fs.readFileSync(htmlPath, 'utf8');
 
@@ -192,6 +245,10 @@ function buildVocabulary() {
     const label = n >= 20 ? '\u9ad8\u9891' : '\u5e38\u8003';
     return `<span class="freq-badge freq-${tier}" title="Appears ${n} times across the 12 mock exams">${label} ${n}\u00d7</span>`;
   };
+  // Authentic example pulled from a real mock-test paper.
+  const examBlock = w => examEx[w.id]
+    ? `\n      <div class="exam-example"><span class="exam-example-label">\u771f\u9898\u4f8b\u53e5 \u00b7 from a mock exam</span> <span class="chinese">${escHtml(examEx[w.id])}</span></div>`
+    : '';
 
   // Build a static word list that crawlers can index
   // The JS will replace this on load, but crawlers see the full list
@@ -209,7 +266,7 @@ function buildVocabulary() {
       <div class="example-cn chinese">${escHtml(w.example_cn || '')}</div>
       <div class="example-pinyin">${escHtml(w.example_pinyin || '')}</div>
       <div class="example-en">${escHtml(w.example_en || '')}</div>${taskChip(w)}
-    </div>
+    </div>${examBlock(w)}
   </div>
 </div>`;
   }).join('\n');
@@ -219,7 +276,7 @@ function buildVocabulary() {
     Object.entries(wordTask).map(([id, t]) => [id, [t.slug, t.task_cn]])
   ));
   html = html.replace(/\s*<!-- WORD TASKS MAP -->[\s\S]*?<!-- \/WORD TASKS MAP -->/g, '');
-  html = html.replace(/<script>\s*\/\/ === STATE ===/, `<!-- WORD TASKS MAP -->\n<script>window.WORD_TASKS = ${wordTasksJson};\nwindow.WORD_FREQ = ${JSON.stringify(examFreq)};</script>\n<!-- /WORD TASKS MAP -->\n<script>\n// === STATE ===`);
+  html = html.replace(/<script>\s*\/\/ === STATE ===/, `<!-- WORD TASKS MAP -->\n<script>window.WORD_TASKS = ${wordTasksJson};\nwindow.WORD_FREQ = ${JSON.stringify(examFreq)};\nwindow.WORD_EXAMPLES = ${JSON.stringify(examEx)};</script>\n<!-- /WORD TASKS MAP -->\n<script>\n// === STATE ===`);
 
   // Replace the #vocab-list container with freshly pre-rendered content.
   // Walk div depth instead of regexing, so this works whether the container
@@ -3111,6 +3168,8 @@ function addTestLinksToHubs() {
 function buildCharacterPages() {
   console.log('[characters] Generating HSK 4 character writing pages...');
   const chars = readJSON('hsk4-characters.json');
+  const charFreq = computeCharFrequency();
+  const cfAttr = ch => { const n = charFreq[ch] || 0; return ` data-freq="${n}"${n ? ` title="Appears ${n} times across the 12 mock exams"` : ''}`; };
   // Recognition-only characters (认读字): the official syllabus lists 441
   // characters to recognize; the 150 above must also be handwritten. The
   // remaining 291 get recognition pages (reading-focused, stroke animation
@@ -3203,12 +3262,12 @@ function buildCharacterPages() {
       <a href="mailto:info@mandarinzone.com" class="btn btn-ghost">info@mandarinzone.com</a>
     </div>
   </div>
-  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/characters/">Characters</a> · <a href="/grammar/">Grammar</a> · <a href="/strategies/">Strategies</a> · <a href="/traps/">Traps</a> · <a href="/practice/">Practice</a> · <a href="/compare/">Compare</a> · <a href="/writing/">Writing</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/train/">Practice Center</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/characters/">Characters</a> · <a href="/grammar/">Grammar</a> · <a href="/strategies/">Strategies</a> · <a href="/traps/">Traps</a> · <a href="/practice/">Practice</a> · <a href="/compare/">Compare</a> · <a href="/writing/">Writing</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>`;
 
   // ---- Hub page: /characters/index.html ----
   const gridHtml = chars.map((c, i) => `
-    <a class="char-card" href="/characters/${encodeURIComponent(c.char)}/" data-char="${escHtml(c.char)}" data-pinyin="${escHtml(c.pinyin)}" data-idx="${i}">
+    <a class="char-card" href="/characters/${encodeURIComponent(c.char)}/" data-char="${escHtml(c.char)}" data-pinyin="${escHtml(c.pinyin)}" data-idx="${i}"${cfAttr(c.char)}>
       <span class="char-glyph chinese">${escHtml(c.char)}</span>
       <span class="char-pinyin">${escHtml(c.pinyin)}</span>
     </a>`).join('');
@@ -3268,6 +3327,7 @@ ${renderNav('characters')}
     <select id="char-sort" aria-label="Sort characters">
       <option value="default">Default order</option>
       <option value="pinyin">Sort: Pinyin A→Z</option>
+      <option value="freq">Sort: Most seen in exams 🔥</option>
     </select>
     <span id="char-count" style="color:var(--stone);font-size:var(--fs-sm);">${chars.length} characters</span>
   </div>
@@ -3282,7 +3342,7 @@ ${renderNav('characters')}
       Beyond the ${chars.length} writing characters above, the official syllabus lists ${renduChars.length} more characters you must <strong>recognize when reading</strong> — handwriting them is not required. Tap any character for its meaning, pinyin, stroke order, and the HSK 4 words that use it.
     </p>
     <div class="char-grid">
-      ${renduChars.map(rc => `<a class="char-card" href="/characters/${encodeURIComponent(rc.char)}/" data-char="${escHtml(rc.char)}" data-pinyin="${escHtml(rc.pinyin)}">
+      ${renduChars.map(rc => `<a class="char-card" href="/characters/${encodeURIComponent(rc.char)}/" data-char="${escHtml(rc.char)}" data-pinyin="${escHtml(rc.pinyin)}"${cfAttr(rc.char)}>
       <span class="char-glyph chinese">${escHtml(rc.char)}</span>
       <span class="char-pinyin">${escHtml(rc.pinyin)}</span>
     </a>`).join('\n    ')}
@@ -3352,6 +3412,8 @@ ${renderFooter()}
       ordered.sort(function(a,b){
         return norm(a.dataset.pinyin).localeCompare(norm(b.dataset.pinyin));
       });
+    } else if (mode === 'freq') {
+      ordered.sort(function(a,b){ return (+b.dataset.freq||0) - (+a.dataset.freq||0); });
     } else {
       ordered.sort(function(a,b){ return (+a.dataset.idx) - (+b.dataset.idx); });
     }
@@ -4046,6 +4108,22 @@ const SENTENCE_CAT_RELATED = {
   'summary-conclusion':  [['/strategies/writing-construction/', 'Writing strategy'], ['/writing/paragraph/', 'Paragraph writing practice']],
 };
 
+// Heuristic difficulty for a sentence: length + complex connectors + clauses.
+// Used to order each category easy→hard (the audit flagged the lack of a
+// progression) and to star each sentence.
+const SENTENCE_COMPLEX = ['虽然', '但是', '即使', '不管', '无论', '只有', '只要', '不但', '而且', '因为', '所以', '如果', '要是', '尽管', '既然', '除非', '不仅', '并且', '否则', '于是', '然而', '不过', '反而', '何况', '宁可', '与其', '哪怕', '不如', '越来越', '对于', '关于'];
+const DIFF_LABEL = { 1: 'Easy', 2: 'Medium', 3: 'Harder' };
+function sentenceDifficulty(cn) {
+  cn = cn || '';
+  const len = cn.replace(/[，。！？、；：]/g, '').length;
+  const conn = SENTENCE_COMPLEX.filter(c => cn.includes(c)).length;
+  const commas = (cn.match(/[，；]/g) || []).length;
+  const score = len + conn * 6 + commas * 3;
+  if (score >= 28 || (conn >= 1 && len >= 15)) return 3;
+  if (score >= 17) return 2;
+  return 1;
+}
+
 function buildSentenceCategoryPages() {
   console.log('[sentence-cats] Generating sentence category drill-down pages...');
   const cats = readJSON('sentences.json');
@@ -4061,18 +4139,22 @@ function buildSentenceCategoryPages() {
       .map(p => `<a href="${p.href}" style="display:inline-block;background:var(--surface);border:1px solid var(--mist);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none;color:var(--ink);margin:0 6px 6px 0;">${p.label} →</a>`)
       .join('');
 
-    const sentencesHtml = cat.sentences.map((s, i) => `
+    // Order each category easy → hard so learners build up a progression.
+    const sorted = cat.sentences.map(s => ({ s, d: sentenceDifficulty(s.cn) }))
+      .sort((a, b) => a.d - b.d).map(x => Object.assign({ _d: x.d }, x.s));
+
+    const sentencesHtml = sorted.map((s, i) => `
     <div class="sentence-row" id="s${i + 1}">
       <div class="sent-num">${i + 1}</div>
       <div class="sent-content">
-        <div class="sent-cn chinese">${escHtml(s.cn)}</div>
+        <div class="sent-cn chinese">${escHtml(s.cn)} <span class="sent-diff sent-diff-${s._d}" title="${DIFF_LABEL[s._d]}">${'★'.repeat(s._d)}</span></div>
         <div class="sent-py">${escHtml(s.py)}</div>
         <div class="sent-en">${escHtml(s.en)}</div>
         ${s.use ? `<div class="sent-use">\u{1F4CB} ${escHtml(s.use)}</div>` : ''}
       </div>
     </div>`).join('');
 
-    const recallCards = cat.sentences.map((s, i) => `
+    const recallCards = sorted.map((s, i) => `
       <div class="recall-card" data-i="${i}">
         <div class="recall-en">${escHtml(s.en)}</div>
         <div class="recall-cn chinese" style="display:none;">${escHtml(s.cn)}<div class="recall-py">${escHtml(s.py)}</div></div>
@@ -4113,6 +4195,10 @@ ${JSON.stringify({
   .sentence-row { display:flex; gap:14px; background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; }
   .sent-num { flex:0 0 28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
   .sent-cn { font-size:17px; font-weight:600; line-height:1.7; }
+  .sent-diff { font-size:12px; letter-spacing:1px; vertical-align:middle; white-space:nowrap; }
+  .sent-diff-1 { color:var(--jade); }
+  .sent-diff-2 { color:var(--gold); }
+  .sent-diff-3 { color:var(--accent); }
   .sent-py { color:var(--accent); font-size:13px; margin-top:2px; }
   .sent-en { color:var(--stone); font-size:14px; margin-top:4px; line-height:1.6; }
   .sent-use { color:var(--stone); font-size:12px; margin-top:6px; background:var(--paper); display:inline-block; padding:3px 8px; border-radius:4px; }
@@ -4140,7 +4226,8 @@ ${DRILL_HEADER('sentences')}
     ${patternChips}
   </section>` : ''}
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 14px;">The 10 sentences / 句子清单</h2>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 6px;">The 10 sentences / 句子清单</h2>
+  <p style="color:var(--stone);font-size:13px;margin-bottom:14px;">Ordered easiest first. Difficulty: <span class="sent-diff sent-diff-1">★</span> simple · <span class="sent-diff sent-diff-2">★★</span> one clause/connector · <span class="sent-diff sent-diff-3">★★★</span> complex sentence (虽然…但是, 因为…所以…).</p>
   ${sentencesHtml}
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:36px 0 8px;">Active Recall Practice / 回忆练习</h2>
@@ -4555,6 +4642,152 @@ csStart();
 }
 
 // ============================================================
+// PRACTICE CENTER — one hub that gathers every interactive drill and shows
+// live progress (mock-exam scores, vocab mastered, learning-path steps)
+// from the localStorage keys the rest of the site already writes.
+// ============================================================
+function buildPracticeHub() {
+  console.log('[train] Building practice center...');
+  const index = readJSON('index.json');
+  const dir = path.join(ROOT, 'train');
+  ensureDir(dir);
+  // Single source of truth for the study-path total: count the steps the guide
+  // actually renders, so the "x/N" denominator can't drift from the guide.
+  let pathSteps = 8;
+  try {
+    const steps = new Set(fs.readFileSync(path.join(ROOT, 'guide', 'index.html'), 'utf8').match(/data-step="[^"]+"/g) || []);
+    if (steps.size) pathSteps = steps.size;
+  } catch (e) { /* guide not built yet — fall back to 8 */ }
+  const testCards = index.map((m, i) => `<a class="pc-test" href="/test/${String(i + 1).padStart(2, '0')}/" data-test="${i}"><span class="pc-test-num">Test ${String(i + 1).padStart(2, '0')}</span><span class="pc-test-score" data-score="${i}"></span></a>`).join('\n        ');
+
+  const drill = (href, tag, title, desc) => `<a class="pc-card" href="${href}"><div class="pc-card-tag">${tag}</div><h3>${title}</h3><p>${desc}</p></a>`;
+  const title = 'HSK 4 Practice Center — All Drills + Progress | 练习中心 | Mandarin Zone';
+  const desc = truncDesc('Your HSK 4 practice hub: 12 mock exams, mixed 选词填空 drills, 完成句子 writing, sentence ordering, vocab flashcards, confusable-word and grammar quizzes — all in one place, with your progress saved.');
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${escHtml(title)}</title>
+<meta name="description" content="${escHtml(desc)}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/train/">
+<meta property="og:title" content="HSK 4 Practice Center — All Drills in One Place">
+<meta property="og:description" content="${escHtml(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/train/">
+<meta property="og:site_name" content="Mandarin Zone">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .pc-hero { text-align:center; padding:32px 0 14px; }
+  .pc-hero h1 { font-family:'Noto Serif SC',serif; font-size:clamp(22px,4vw,30px); margin-bottom:8px; }
+  .pc-hero p { color:var(--stone); max-width:580px; margin:0 auto; line-height:1.7; }
+  .pc-summary { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 8px; }
+  @media (min-width:600px){ .pc-summary { grid-template-columns:repeat(4,1fr); } }
+  .pc-stat { background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius); padding:16px; text-align:center; }
+  .pc-stat-num { font-size:26px; font-weight:700; font-family:'Noto Serif SC',serif; }
+  .pc-stat-label { font-size:12px; color:var(--stone); text-transform:uppercase; letter-spacing:0.4px; margin-top:2px; }
+  .pc-section-title { font-family:'Noto Serif SC',serif; font-size:20px; margin:32px 0 12px; }
+  .pc-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+  @media (min-width:560px){ .pc-grid { grid-template-columns:1fr 1fr; } }
+  @media (min-width:860px){ .pc-grid { grid-template-columns:repeat(3,1fr); } }
+  .pc-card { display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius); padding:18px 20px; text-decoration:none; color:var(--ink); transition:border-color .15s, transform .15s, box-shadow .15s; }
+  .pc-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow); }
+  .pc-card-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--accent); margin-bottom:5px; }
+  .pc-card h3 { font-size:16px; margin-bottom:5px; }
+  .pc-card p { font-size:13px; color:var(--stone); line-height:1.55; margin:0; }
+  .pc-tests { display:grid; grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); gap:8px; }
+  .pc-test { display:flex; flex-direction:column; gap:3px; background:var(--surface); border:1px solid var(--mist); border-radius:8px; padding:10px; text-decoration:none; color:var(--ink); text-align:center; transition:border-color .15s; }
+  .pc-test:hover { border-color:var(--accent); }
+  .pc-test-num { font-size:13px; font-weight:600; }
+  .pc-test-score { font-size:12px; color:var(--stone); min-height:15px; }
+  .pc-test-score.pass { color:var(--correct); font-weight:700; }
+  .pc-test-score.fail { color:var(--accent); font-weight:700; }
+</style>
+</head>
+<body>
+${DRILL_HEADER('')}
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb" style="font-size:13px;color:var(--stone);margin-bottom:8px;">
+    <a href="/" style="color:var(--accent);text-decoration:none;">Home</a> &rsaquo; Practice Center
+  </nav>
+  <div class="pc-hero">
+    <h1>Practice Center <span class="chinese" style="color:var(--accent);">练习中心</span></h1>
+    <p>Every HSK 4 drill in one place, with your progress saved on this device. Pick a weak spot and start — no sign-up needed.</p>
+  </div>
+
+  <div class="pc-summary">
+    <div class="pc-stat"><div class="pc-stat-num" id="pc-tests-taken">0</div><div class="pc-stat-label">Mocks taken</div></div>
+    <div class="pc-stat"><div class="pc-stat-num" id="pc-best">—</div><div class="pc-stat-label">Best score</div></div>
+    <div class="pc-stat"><div class="pc-stat-num" id="pc-vocab">0</div><div class="pc-stat-label">Words mastered</div></div>
+    <div class="pc-stat"><div class="pc-stat-num" id="pc-path">0/${pathSteps}</div><div class="pc-stat-label">Study steps</div></div>
+  </div>
+
+  <h2 class="pc-section-title">🎯 Mock exams</h2>
+  <p style="color:var(--stone);font-size:13px;margin-bottom:12px;">Full exam simulation with instant scoring. Your last score shows on each.</p>
+  <div class="pc-tests">
+        ${testCards}
+  </div>
+
+  <h2 class="pc-section-title">⚡ Targeted drills</h2>
+  <div class="pc-grid">
+    ${drill('/practice/', 'Reading', '选词填空 Mixed Practice', '156 grammar + confusable questions shuffled like the real reading section.')}
+    ${drill('/writing/complete-sentence/', 'Writing', '完成句子 Sentence Completion', 'Write the second clause from the first, then self-check against the model.')}
+    ${drill('/writing/sentence-order/', 'Writing', '排词成句 Sentence Ordering', 'Rebuild scrambled sentences — the foundation of accurate writing.')}
+    ${drill('/grammar/measure-words/', 'Grammar', '量词 Measure Words Quiz', '8 new HSK 4 measure words with an 8-question quiz.')}
+  </div>
+
+  <h2 class="pc-section-title">📚 Vocabulary &amp; characters</h2>
+  <div class="pc-grid">
+    ${drill('/vocabulary/', 'Vocab', '1,000 Words — Flashcards &amp; Quiz', 'Flashcard and quiz modes; sort by "most tested" to prioritise. Progress saved.')}
+    ${drill('/characters/', 'Characters', '441 Characters — Stroke Practice', 'Animated stroke order + trace-to-practice. Sort by exam frequency.')}
+    ${drill('/topics/', 'Topics', '30 Topic Scenarios', 'Vocabulary and a dialogue for each communicative task.')}
+  </div>
+
+  <h2 class="pc-section-title">🔍 Distinctions &amp; traps</h2>
+  <div class="pc-grid">
+    ${drill('/words/', 'Confusables', '44 Confusable Pairs', 'Each pair has a comparison table, examples, a quiz, and exercises.')}
+    ${drill('/grammar/patterns/', 'Grammar', '8 Complex-Sentence Patterns', '尽管…但是, 即使…也… with examples, quizzes and fill-in exercises.')}
+    ${drill('/traps/', 'Traps', '15 High-Frequency Traps', 'The pitfalls HSK loves — polarity, 把/被, comparison, with quizzes.')}
+  </div>
+
+  <div class="cta-banner" style="margin-top:40px;">
+    <h3 class="chinese">不知道从哪开始？</h3>
+    <p>Take the self-assessment in our study guide to get a personalised plan.</p>
+    <a href="/guide/" class="btn btn-primary">Open the study guide →</a>
+  </div>
+</main>
+<footer>
+  <p class="footer-links" style="text-align:center;"><a href="/">Mock Exams</a> · <a href="/practice/">Mixed Practice</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/guide/">Study Guide</a></p>
+</footer>
+<script>
+(function(){
+  function ls(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  var results=[], best=null;
+  for(var i=0;i<${index.length};i++){
+    var raw=ls('hsk4_result_'+i);
+    if(raw){ try{ var r=JSON.parse(raw); results.push(r); if(best===null||r.pct>best) best=r.pct;
+      var el=document.querySelector('.pc-test-score[data-score="'+i+'"]');
+      if(el){ el.textContent=r.pct+'%'; el.className='pc-test-score '+(r.pct>=60?'pass':'fail'); }
+    }catch(e){} }
+  }
+  document.getElementById('pc-tests-taken').textContent=results.length+'/'+${index.length};
+  document.getElementById('pc-best').textContent=(best===null?'—':best+'%');
+  var mastered=0; try{ var m=JSON.parse(ls('hsk4-vocab-mastered')||'[]'); mastered=Array.isArray(m)?m.length:0; }catch(e){}
+  document.getElementById('pc-vocab').textContent=mastered;
+  var steps=0; try{ var p=JSON.parse(ls('hsk4-guide-path')||'{}'); steps=Object.keys(p).filter(function(k){return p[k];}).length; }catch(e){}
+  document.getElementById('pc-path').textContent=steps+'/${pathSteps}';
+})();
+</script>
+</body>
+</html>`;
+  fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+  console.log('[train] Generated /train/ practice center');
+  return true;
+}
+
+// ============================================================
 // MIXED PRACTICE — exam-style drill that shuffles grammar + confusable
 // items together, the way the real reading section mixes them. Reuses the
 // {stem, correct, wrong, explain} quiz items already authored in the data.
@@ -4802,7 +5035,8 @@ const sentenceCatPages = buildSentenceCategoryPages();
 const trapCatPages = buildTrapCategoryPages();
 buildMixedPractice();
 buildCompleteSentence();
+buildPracticeHub();
 addTestLinksToHubs();
-buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages, { loc: '/practice/', priority: '0.8' }, { loc: '/writing/complete-sentence/', priority: '0.8' }]);
+buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages, { loc: '/practice/', priority: '0.8' }, { loc: '/writing/complete-sentence/', priority: '0.8' }, { loc: '/train/', priority: '0.9' }]);
 injectTheme();
 console.log('\nDone! All static content pre-rendered.');
