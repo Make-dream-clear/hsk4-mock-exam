@@ -29,6 +29,36 @@ function readJSON(file) {
 // How many mock/official exams ship in /data — used everywhere we used to
 // hard-code "12" so the count stays correct as papers are added.
 const TEST_COUNT = readJSON('index.json').length;
+const TOTAL_QUESTIONS = readJSON('index.json').reduce((sum, m) => sum + (m.questions || 0), 0);
+const fmtNum = n => n.toLocaleString('en-US');
+
+// Walk every .html file in the site (skipping build/data dirs).
+function walkHtmlFiles() {
+  const SKIP = new Set(['.git', 'node_modules', 'data', 'scripts']);
+  const out = [];
+  (function walk(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (SKIP.has(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (entry.name.endsWith('.html')) out.push(full);
+    }
+  })(ROOT);
+  return out;
+}
+
+// Official exam papers (full audio + transcripts). These are the source for the
+// auto-generated real-exam writing drills, so adding a paper to /data needs no
+// hand-editing of the drill pages.
+function officialTests() {
+  return readJSON('index.json')
+    .map((meta, i) => ({ num: String(i + 1).padStart(2, '0'), meta, test: readJSON(meta.file) }))
+    .filter(t => t.meta.official || t.test.listening_audio);
+}
+function examCode(meta, num) {
+  const m = (meta.title || '').match(/H\d{5}/);
+  return m ? m[0] : 'Test ' + num;
+}
 
 function truncDesc(s, max) {
   max = max || 155;
@@ -1392,31 +1422,58 @@ function buildSentenceOrder() {
   const htmlPath = path.join(ROOT, 'writing', 'sentence-order', 'index.html');
   let html = fs.readFileSync(htmlPath, 'utf8');
 
-  // Extract EXERCISES data from the script block
-  const match = html.match(/const EXERCISES = \[([\s\S]*?)\];/);
-  if (!match) {
-    console.log('[sentence-order] Could not find EXERCISES data, skipping');
-    return;
-  }
+  // --- 1. Build real-exam items from official papers' 完成句子 (Q86-95). The
+  //        scrambled words tile the sentence, so concatenating them in the
+  //        right order reproduces the answer — exactly what the drill checks. ---
+  const realItems = [];
+  officialTests().forEach(({ meta, num, test }) => {
+    const code = examCode(meta, num);
+    test.questions
+      .filter(q => q.type === 'writing_construction' && q.number >= 86 && q.number <= 95 && !q.image)
+      .forEach(q => {
+        const scrambled = q.text.split(/[:：]/).pop().trim();
+        const fragments = scrambled.split(/\s+/).filter(Boolean);
+        const sentence = (q.options && q.options[0]) || '';
+        const answer = sentence.replace(/[，。！？、；：“”‘’\s]/g, '');
+        if (fragments.length < 2 || !answer) return;
+        realItems.push({
+          fragments, answer, display: sentence,
+          grammar: `${code} · 完成句子 Q${q.number}`,
+          explanation: `Official HSK 4 paper ${code}, writing Q${q.number}. Correct sentence: ${sentence}`,
+          level: 4,
+        });
+      });
+  });
 
-  // Parse exercise data manually (it's JS object notation, not JSON)
+  // --- 2. Inject the REAL_EXAM_EXERCISES JS array between the markers ---
+  const qt = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
+  const itemsJs = realItems.map(it =>
+`  {
+    fragments: [${it.fragments.map(qt).join(', ')}],
+    answer: ${qt(it.answer)},
+    display: ${qt(it.display)},
+    grammar: ${qt(it.grammar)},
+    explanation: ${qt(it.explanation)},
+    level: ${it.level},
+  },`).join('\n');
+  html = html.replace(
+    /\/\*REAL_EXAM_EXERCISES_START\*\/[\s\S]*?\/\*REAL_EXAM_EXERCISES_END\*\//,
+    `/*REAL_EXAM_EXERCISES_START*/\nconst REAL_EXAM_EXERCISES = [\n${itemsJs}\n];\n/*REAL_EXAM_EXERCISES_END*/`
+  );
+
+  // --- 3. Parse the curated set for the noscript fallback, then append the
+  //        real-exam items (build already has them natively). ---
+  const match = html.match(/const CURATED_EXERCISES = \[([\s\S]*?)\n\];/);
   const exercises = [];
-  const exRegex = /fragments:\s*\[([^\]]+)\],\s*answer:\s*'([^']*)',[\s\S]*?display:\s*'([^']*)',\s*grammar:\s*'([^']*)',\s*explanation:\s*'([^']*)'/g;
-  let m;
-  while ((m = exRegex.exec(match[1])) !== null) {
-    const frags = m[1].match(/'([^']*)'/g).map(s => s.replace(/'/g, ''));
-    exercises.push({
-      fragments: frags,
-      display: m[3],
-      grammar: m[4],
-      explanation: m[5],
-    });
+  if (match) {
+    const exRegex = /fragments:\s*\[([^\]]+)\],\s*answer:\s*'([^']*)',[\s\S]*?display:\s*'([^']*)',\s*grammar:\s*'([^']*)',\s*explanation:\s*'([^']*)'/g;
+    let m;
+    while ((m = exRegex.exec(match[1])) !== null) {
+      exercises.push({ fragments: m[1].match(/'([^']*)'/g).map(s => s.replace(/'/g, '')), display: m[3], grammar: m[4], explanation: m[5] });
+    }
   }
-
-  if (exercises.length === 0) {
-    console.log('[sentence-order] No exercises parsed, skipping');
-    return;
-  }
+  const curatedCount = exercises.length;
+  realItems.forEach(it => exercises.push({ fragments: it.fragments, display: it.display, grammar: it.grammar, explanation: it.explanation }));
 
   // Generate static HTML for exercises
   const exercisesHtml = exercises.map((ex, i) => `
@@ -1457,8 +1514,71 @@ function buildSentenceOrder() {
     `${noscriptBlock}\n  <div class="exercise-nav">`
   );
 
+  // Keep the page's stated exercise count in sync with the real total.
+  html = html.replace(/\d+ interactive sentence-building exercises/g, `${exercises.length} interactive sentence-building exercises`);
+
   fs.writeFileSync(htmlPath, html, 'utf8');
-  console.log(`[sentence-order] Pre-rendered ${exercises.length} exercises into noscript block`);
+  console.log(`[sentence-order] ${curatedCount} curated + ${realItems.length} real-exam = ${exercises.length} exercises`);
+}
+
+// Inject worked 看图造句 examples (Q96-100) from every official paper into the
+// picture-templates strategy page, between the REAL_EXAM_PICTURES markers.
+function buildPictureExamples() {
+  const p = path.join(ROOT, 'strategies', 'picture-templates', 'index.html');
+  if (!fs.existsSync(p)) { console.log('[picture-templates] page not found, skipping'); return; }
+  let html = fs.readFileSync(p, 'utf8');
+
+  const sections = officialTests().map(({ meta, num, test }) => {
+    const code = examCode(meta, num);
+    const cards = test.questions
+      .filter(q => q.type === 'writing_construction' && q.number >= 96 && q.number <= 100 && q.image)
+      .map(q => {
+        const word = (q.text.match(/[“"]([^”"]+)[”"]/) || [])[1] || '';
+        const ref = (q.options && q.options[0]) || '';
+        return `    <div class="quiz-item">
+      <div class="quiz-num">Q${q.number}</div>
+      <img src="${escHtml(q.image)}" alt="HSK 4 看图造句 prompt (${escHtml(word)})" loading="lazy" style="max-width:160px;border-radius:8px;border:1px solid var(--mist);margin:8px 0;">
+      <div class="quiz-stem">Keyword: <span style="color:var(--accent);font-weight:700;font-size:18px;">${escHtml(word)}</span></div>
+      <details class="reveal-answer"><summary>See the official reference answer</summary>
+        <ul class="answer-box"><li>${escHtml(ref)}<span style="color:var(--stone);font-size:12px;"> ← 官方参考答案</span></li></ul>
+      </details>
+    </div>`;
+      }).join('\n');
+    if (!cards) return '';
+    return `  <h3 style="font-size:17px;margin:24px 0 10px;">Real exam: ${escHtml(code)} 看图造句 (Q96–100)</h3>\n${cards}`;
+  }).filter(Boolean).join('\n');
+
+  const block = `<!--REAL_EXAM_PICTURES_START-->
+  <h2>Real-exam 看图造句 from official papers / 真题示例</h2>
+  <p>Authentic picture-word prompts from the official HSK 4 papers, each with the official 参考答案. Cover the answer, write your own sentence using the keyword, then compare.</p>
+${sections}
+  <!--REAL_EXAM_PICTURES_END-->`;
+  html = html.replace(/<!--REAL_EXAM_PICTURES_START-->[\s\S]*?<!--REAL_EXAM_PICTURES_END-->/, block);
+  fs.writeFileSync(p, html, 'utf8');
+  console.log('[picture-templates] Injected real-exam 看图造句 examples from official papers');
+}
+
+// Keep test/question counts on every page in sync with /data, so adding a paper
+// never needs hand-edited numbers. Runs last, over the final generated HTML.
+function syncCounts() {
+  const total = fmtNum(TOTAL_QUESTIONS);
+  let touched = 0;
+  walkHtmlFiles().forEach(f => {
+    let html = fs.readFileSync(f, 'utf8');
+    const before = html;
+    // "N mock exams" in any phrasing (free / complete / full / HSK 4 qualifiers,
+    // any case) — replace the leading count only, never the "4" inside "HSK 4"
+    // (guarded by the negative lookbehind).
+    html = html.replace(/(?<!HSK )\d+(\s+(?:(?:free|complete|full|HSK\s*4)\s+)*(?:mock exams))/gi, (m, suf) => TEST_COUNT + suf);
+    html = html.replace(/\d+(\s+free practice tests)/gi, (m, suf) => TEST_COUNT + suf);
+    html = html.replace(/(<div class="stat-num">)\d+(<\/div><div class="stat-label">Mock Exams)/g, `$1${TEST_COUNT}$2`);
+    // Corpus question total, only where it sits right after "mock exams" (a dash,
+    // paren or "with") — never the per-test "100 questions".
+    html = html.replace(/([\d,]+)( questions, auto-scored)/g, `${total}$2`);
+    html = html.replace(/(mock exams\s*(?:[—–-]|with|\()\s*)[\d,]+( questions)/gi, `$1${total}$2`);
+    if (html !== before) { fs.writeFileSync(f, html, 'utf8'); touched++; }
+  });
+  console.log(`[counts] Synced ${touched} pages to ${TEST_COUNT} exams / ${total} questions`);
 }
 
 // ============================================================
@@ -5208,6 +5328,7 @@ buildHomepage();
 buildTopics();
 fixGuide();
 buildSentenceOrder();
+buildPictureExamples();
 addGrammarCrossLinks();
 buildWritingGuide();
 const taskSlugs = buildTaskTopicPages();
@@ -5223,4 +5344,5 @@ buildPracticeHub();
 addTestLinksToHubs();
 buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages, ...transcriptPages, { loc: '/practice/', priority: '0.8' }, { loc: '/writing/complete-sentence/', priority: '0.8' }, { loc: '/train/', priority: '0.9' }]);
 injectTheme();
+syncCounts();
 console.log('\nDone! All static content pre-rendered.');
