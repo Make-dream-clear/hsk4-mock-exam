@@ -26,6 +26,10 @@ function readJSON(file) {
   return JSON.parse(fs.readFileSync(path.join(DATA, file), 'utf8'));
 }
 
+// How many mock/official exams ship in /data — used everywhere we used to
+// hard-code "12" so the count stays correct as papers are added.
+const TEST_COUNT = readJSON('index.json').length;
+
 function truncDesc(s, max) {
   max = max || 155;
   if (s.length <= max) return s;
@@ -243,7 +247,7 @@ function buildVocabulary() {
     if (!n || n < 6) return '';
     const tier = n >= 20 ? 'high' : 'mid';
     const label = n >= 20 ? '\u9ad8\u9891' : '\u5e38\u8003';
-    return `<span class="freq-badge freq-${tier}" title="Appears ${n} times across the 12 mock exams">${label} ${n}\u00d7</span>`;
+    return `<span class="freq-badge freq-${tier}" title="Appears ${n} times across the ${TEST_COUNT} mock exams">${label} ${n}\u00d7</span>`;
   };
   // Authentic example pulled from a real mock-test paper.
   const examBlock = w => examEx[w.id]
@@ -326,7 +330,7 @@ function buildVocabulary() {
     </ul>
 
     <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-      All ${words.length} words below include pinyin, English translations, and example sentences in context. Words that recur in our 12 mock exams are tagged <span class="freq-badge freq-high">高频</span> (appears 20+ times) or <span class="freq-badge freq-mid">常考</span> (6+ times) — switch the sort to <strong>Most tested first</strong> to study the highest-yield vocabulary before exam day. Use the flashcard and quiz modes above to practice active recall; your progress is saved locally so you can pick up where you left off.
+      All ${words.length} words below include pinyin, English translations, and example sentences in context. Words that recur in our ${TEST_COUNT} mock exams are tagged <span class="freq-badge freq-high">高频</span> (appears 20+ times) or <span class="freq-badge freq-mid">常考</span> (6+ times) — switch the sort to <strong>Most tested first</strong> to study the highest-yield vocabulary before exam day. Use the flashcard and quiz modes above to practice active recall; your progress is saved locally so you can pick up where you left off.
     </p>
 
     <p style="color:var(--stone);line-height:1.8;">
@@ -406,6 +410,16 @@ function buildTestPages() {
       sections[label].push(q);
     });
 
+    // Section-level continuous listening player. Official papers ship a single audio
+    // track that plays once, like the real exam, rather than per-question clips.
+    let audioEmitted = false;
+    const sectionAudioHtml = test.listening_audio ? `
+          <div class="static-audio">
+            <div class="static-audio-label">\uD83C\uDFA7 Listening audio &middot; \u542C\u529B\u5F55\u97F3 <span>the real exam plays the whole section once, continuously</span></div>
+            <audio controls preload="none" src="${escHtml(test.listening_audio)}"></audio>
+            <div style="margin-top:10px;font-size:13px;"><a href="/test/${num}/transcript/" style="color:var(--accent);font-weight:600;">\uD83D\uDCC4 Read the full listening transcript / \u542C\u529B\u539F\u6587 \u2192</a></div>
+          </div>` : '';
+
     const questionsHtml = Object.entries(sections).map(([section, qs]) => {
       const qsHtml = qs.map(q => {
         const markers = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -414,28 +428,50 @@ function buildTestPages() {
         ).join('\n            ');
 
         const hasAnswer = typeof q.correct_answer_index === 'number' && q.options[q.correct_answer_index] !== undefined;
+        const noteHtml = q.note ? `<div class="static-explanation">${escHtml(q.note)}</div>` : '';
         const answerHtml = hasAnswer ? `
             <details class="static-answer">
               <summary>Show answer${q.explanation ? ' & explanation' : ''} / \u67E5\u770B\u7B54\u6848${q.explanation ? '\u4E0E\u89E3\u6790' : ''}</summary>
               <div class="static-answer-body">
                 <div class="static-answer-line">\u2713 <strong>${markers[q.correct_answer_index] || q.correct_answer_index + 1}. <span class="chinese">${escHtml(q.options[q.correct_answer_index])}</span></strong></div>
                 ${q.explanation ? `<div class="static-explanation">${escHtml(q.explanation)}</div>` : ''}
+                ${noteHtml}
               </div>
             </details>` : '';
+
+        // Listening transcript, hidden behind a reveal so it never spoils the audio \u2014
+        // ideal for review and shadowing practice after you answer.
+        const transcriptHtml = q.transcript ? `
+            <details class="static-answer static-transcript">
+              <summary>Show transcript / \u542C\u529B\u539F\u6587</summary>
+              <div class="static-answer-body">
+                <div class="static-transcript-text chinese">${escHtml(q.transcript)}</div>
+              </div>
+            </details>` : '';
+
+        const imageHtml = q.image ? `
+            <div class="static-q-image"><img src="${escHtml(q.image)}" alt="HSK 4 \u770B\u56FE\u9020\u53E5 writing prompt" loading="lazy"></div>` : '';
 
         return `
           <div class="static-question">
             <div class="static-q-num">Question ${q.number}</div>
-            ${q.text ? `<div class="static-q-text chinese">${escHtml(q.text)}</div>` : ''}
+            ${q.text ? `<div class="static-q-text chinese">${escHtml(q.text)}</div>` : ''}${imageHtml}
             <div class="static-options">
             ${optionsHtml}
-            </div>${answerHtml}
+            </div>${transcriptHtml}${answerHtml}
           </div>`;
       }).join('\n');
 
+      // Emit the continuous audio player once, at the top of the first listening section.
+      let sectionPlayer = '';
+      if (sectionAudioHtml && !audioEmitted && section.startsWith('Listening')) {
+        sectionPlayer = sectionAudioHtml;
+        audioEmitted = true;
+      }
+
       return `
         <div class="static-section">
-          <h3 class="static-section-title">${escHtml(section)}</h3>
+          <h3 class="static-section-title">${escHtml(section)}</h3>${sectionPlayer}
           ${qsHtml}
         </div>`;
     }).join('\n');
@@ -576,6 +612,15 @@ function buildTestPages() {
   .static-answer-body { margin-top: 8px; padding: 10px 14px; background: var(--paper); border-left: 3px solid var(--jade, #38a169); border-radius: 6px; }
   .static-answer-line { font-size: 14px; }
   .static-explanation { margin-top: 6px; font-size: 13px; color: var(--stone); line-height: 1.7; }
+  .static-transcript summary { color: var(--gold, #b7791f); }
+  .static-transcript .static-answer-body { border-left-color: var(--gold, #b7791f); }
+  .static-transcript-text { font-size: 15px; line-height: 1.9; white-space: pre-wrap; }
+  .static-audio { background: var(--paper); border: 1px solid var(--mist); border-radius: var(--radius); padding: 14px 18px; margin: 4px 0 18px; }
+  .static-audio-label { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .static-audio-label span { display: block; font-weight: 400; font-size: 12px; color: var(--stone); margin-top: 2px; }
+  .static-audio audio { width: 100%; }
+  .static-q-image { margin: 4px 0 14px; }
+  .static-q-image img { max-width: 220px; width: 100%; border-radius: 8px; border: 1px solid var(--mist); }
   .static-question {
     background: var(--surface);
     border: 1px solid var(--mist);
@@ -681,7 +726,7 @@ function buildTestPages() {
       Reading passages in this test cover topics such as: ${sampleTopics.map(t => '\u201c' + escHtml(t) + '\u2026\u201d').join(', ')}. These reflect the HSK 4 syllabus requirement to handle real-world topics with a certain level of complexity.
     </p>` : ''}
     <p style="color:var(--stone);line-height:1.8;">
-      Browse all 12 HSK 4 mock tests on the <a href="/" style="color:var(--accent);">free HSK 4 practice test homepage</a>, or study with our <a href="/vocabulary/" style="color:var(--accent);">1000-word HSK 4 vocabulary list</a>, <a href="/grammar/" style="color:var(--accent);">HSK 4 grammar guide</a>, <a href="/sentences/" style="color:var(--accent);">100 essential HSK 4 sentence patterns</a>, <a href="/writing/" style="color:var(--accent);">HSK 4 writing exercises</a>, or compare difficulty levels with our <a href="/compare/hsk4-vs-hsk3/" style="color:var(--accent);">HSK 4 vs HSK 3</a> and <a href="/compare/hsk4-vs-hsk5/" style="color:var(--accent);">HSK 4 vs HSK 5</a> guides.
+      Browse all ${TEST_COUNT} HSK 4 mock tests on the <a href="/" style="color:var(--accent);">free HSK 4 practice test homepage</a>, or study with our <a href="/vocabulary/" style="color:var(--accent);">1000-word HSK 4 vocabulary list</a>, <a href="/grammar/" style="color:var(--accent);">HSK 4 grammar guide</a>, <a href="/sentences/" style="color:var(--accent);">100 essential HSK 4 sentence patterns</a>, <a href="/writing/" style="color:var(--accent);">HSK 4 writing exercises</a>, or compare difficulty levels with our <a href="/compare/hsk4-vs-hsk3/" style="color:var(--accent);">HSK 4 vs HSK 3</a> and <a href="/compare/hsk4-vs-hsk5/" style="color:var(--accent);">HSK 4 vs HSK 5</a> guides.
     </p>
   </section>
 
@@ -1398,7 +1443,7 @@ function buildSentenceOrder() {
     .static-ex-explain { font-size:14px; color:var(--stone); line-height:1.7; }
   </style>
   <div style="margin:20px 0;">
-    <h3 style="font-size:18px;margin-bottom:16px;">All 10 Exercises (arrange the fragments into correct sentences)</h3>
+    <h3 style="font-size:18px;margin-bottom:16px;">All ${exercises.length} Exercises (arrange the fragments into correct sentences)</h3>
     ${exercisesHtml}
   </div>
   </noscript>`;
@@ -1466,7 +1511,7 @@ function addGrammarCrossLinks() {
       </a>
       <a href="/" style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
         <div style="font-size:11px;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F3AF} Practice</div>
-        <div style="font-size:14px;font-weight:600;">12 HSK 4 mock exams</div>
+        <div style="font-size:14px;font-weight:600;">${TEST_COUNT} HSK 4 mock exams</div>
       </a>
     </div>
     <h3 style="font-size:16px;margin-bottom:12px;color:var(--stone);">Other HSK 4 Grammar Topics</h3>
@@ -1906,7 +1951,7 @@ function buildTaskTopicPages() {
     }
     const realQuestionHtml = matchingQuestions.length > 0
       ? `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Real HSK 4 Questions on ${escHtml(task.task_en)} / 真题示例</h2>
-  <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">Below are 1-${matchingQuestions.length} actual HSK 4 ${escHtml(task.task_en).toLowerCase()} questions from our 12 mock exams. Each was solved using the vocabulary above:</p>
+  <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">Below are 1-${matchingQuestions.length} actual HSK 4 ${escHtml(task.task_en).toLowerCase()} questions from our ${TEST_COUNT} mock exams. Each was solved using the vocabulary above:</p>
   ${matchingQuestions.map(mq => `
   <div style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius);padding:18px 22px;margin:14px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num} · ${mq.type === 'listening_choice' ? '听力 Listening' : '阅读 Reading'}</div>
@@ -2530,7 +2575,7 @@ ${pairFaqHtml}
       </a>
       <a href="/" style="background:var(--paper);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink);display:block;">
         <div style="font-size:11px;color:var(--stone);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">\u{1F3AF} Practice</div>
-        <div style="font-size:14px;font-weight:600;">12 HSK 4 mock exams</div>
+        <div style="font-size:14px;font-weight:600;">${TEST_COUNT} HSK 4 mock exams</div>
       </a>
     </div>
   </section>
@@ -3095,7 +3140,7 @@ ${cards}
   </div>
 
   <p style="color:var(--stone);line-height:1.8;margin-bottom:40px;">
-    Looking for broader grammar coverage? Browse the <a href="/grammar/" style="color:var(--accent);">full HSK 4 grammar guide</a> (把字句, 被动句, 比较句, complements, measure words and more), drill <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering</a>, or test yourself with the <a href="/" style="color:var(--accent);">12 free mock exams</a>.
+    Looking for broader grammar coverage? Browse the <a href="/grammar/" style="color:var(--accent);">full HSK 4 grammar guide</a> (把字句, 被动句, 比较句, complements, measure words and more), drill <a href="/writing/sentence-order/" style="color:var(--accent);">sentence ordering</a>, or test yourself with the <a href="/" style="color:var(--accent);">${TEST_COUNT} free mock exams</a>.
   </p>
 </main>
 
@@ -3169,7 +3214,7 @@ function buildCharacterPages() {
   console.log('[characters] Generating HSK 4 character writing pages...');
   const chars = readJSON('hsk4-characters.json');
   const charFreq = computeCharFrequency();
-  const cfAttr = ch => { const n = charFreq[ch] || 0; return ` data-freq="${n}"${n ? ` title="Appears ${n} times across the 12 mock exams"` : ''}`; };
+  const cfAttr = ch => { const n = charFreq[ch] || 0; return ` data-freq="${n}"${n ? ` title="Appears ${n} times across the ${TEST_COUNT} mock exams"` : ''}`; };
   // Recognition-only characters (认读字): the official syllabus lists 441
   // characters to recognize; the 150 above must also be handwritten. The
   // remaining 291 get recognition pages (reading-focused, stroke animation
@@ -4063,7 +4108,7 @@ const DRILL_FOOTER = `<footer>
 const MOCK_CTA = `
   <section style="margin-top:40px;background:var(--accent-soft);border-radius:var(--radius);padding:24px 28px;text-align:center;">
     <h3 class="chinese" style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:8px;">用模拟考试检验掌握情况</h3>
-    <p style="color:var(--stone);font-size:14px;margin-bottom:16px;">Apply what you just reviewed under real test conditions — 12 free HSK 4 mock exams, instant scoring.</p>
+    <p style="color:var(--stone);font-size:14px;margin-bottom:16px;">Apply what you just reviewed under real test conditions — ${TEST_COUNT} free HSK 4 mock exams, instant scoring.</p>
     <a href="/" class="btn btn-primary">Start a mock exam →</a>
   </section>`;
 
@@ -4662,7 +4707,7 @@ function buildPracticeHub() {
 
   const drill = (href, tag, title, desc) => `<a class="pc-card" href="${href}"><div class="pc-card-tag">${tag}</div><h3>${title}</h3><p>${desc}</p></a>`;
   const title = 'HSK 4 Practice Center — All Drills + Progress | 练习中心 | Mandarin Zone';
-  const desc = truncDesc('Your HSK 4 practice hub: 12 mock exams, mixed 选词填空 drills, 完成句子 writing, sentence ordering, vocab flashcards, confusable-word and grammar quizzes — all in one place, with your progress saved.');
+  const desc = truncDesc('Your HSK 4 practice hub: ' + TEST_COUNT + ' mock exams, mixed 选词填空 drills, 完成句子 writing, sentence ordering, vocab flashcards, confusable-word and grammar quizzes — all in one place, with your progress saved.');
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -5018,8 +5063,147 @@ function injectTheme() {
 }
 
 
+// ============================================================
+//  GENERATE LISTENING TRANSCRIPT STUDY PAGES: /test/NN/transcript/
+//  Only for tests that ship a full audio track + transcripts
+//  (official papers). A read-along / shadowing resource.
+// ============================================================
+function buildTranscriptPages() {
+  const index = readJSON('index.json');
+  const generated = [];
+
+  index.forEach((meta, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    const test = readJSON(meta.file);
+    const listening = test.questions.filter(q => q.type && q.type.startsWith('listening') && q.transcript);
+    if (!test.listening_audio || listening.length === 0) return;
+
+    const partOf = q => (q.number <= 10 ? 1 : q.number <= 25 ? 2 : 3);
+    const partTitles = {
+      1: 'Part 1 · 判断对错 (True / False, Q1–10)',
+      2: 'Part 2 · 短对话 (Short dialogues, Q11–25)',
+      3: 'Part 3 · 长对话与短文 (Long dialogues & passages, Q26–45)',
+    };
+    const markers = ['A', 'B', 'C', 'D'];
+
+    let lastPart = 0;
+    const itemsHtml = listening.map(q => {
+      const p = partOf(q);
+      let head = '';
+      if (p !== lastPart) { head = `<h2 class="ts-part">${partTitles[p]}</h2>`; lastPart = p; }
+      const ans = (q.type === 'listening_true_false')
+        ? `<strong>${escHtml(q.options[q.correct_answer_index])}</strong>`
+        : `<strong>${markers[q.correct_answer_index] || ''} ${escHtml(q.options[q.correct_answer_index])}</strong>`;
+      return `${head}
+      <div class="ts-item">
+        <div class="ts-num">Q${q.number}</div>
+        <div class="ts-script chinese">${escHtml(q.transcript)}</div>
+        <div class="ts-q chinese">${escHtml(q.text)}</div>
+        <div class="ts-a">✓ Answer / 答案: ${ans}</div>
+      </div>`;
+    }).join('\n');
+
+    const title = `${escHtml(meta.title)} — Listening Transcript / 听力原文`;
+    const desc = `Full listening transcript (听力材料) for HSK 4 official paper ${escHtml(meta.title)}: every dialogue and passage word-for-word with answers and the real audio — perfect for shadowing and read-along practice.`;
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${title} | Mandarin Zone</title>
+<meta name="description" content="${desc}">
+<link rel="canonical" href="https://hsk4.mandarinzone.com/test/${num}/transcript/">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hsk4.mandarinzone.com/test/${num}/transcript/">
+<meta property="og:site_name" content="Mandarin Zone">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/common.css">
+<style>
+  .ts-hero { text-align:center; padding:40px 0 24px; }
+  .ts-hero h1 { font-family:'Noto Serif SC',serif; font-size:clamp(22px,4vw,30px); margin-bottom:10px; }
+  .ts-hero p { color:var(--stone); max-width:620px; margin:0 auto; line-height:1.7; }
+  .ts-audio { background:var(--paper); border:1px solid var(--mist); border-radius:var(--radius); padding:16px 18px; margin:20px 0 8px; }
+  .ts-audio-label { font-size:13px; font-weight:600; margin-bottom:10px; }
+  .ts-audio audio { width:100%; }
+  .ts-part { font-family:'Noto Serif SC',serif; font-size:19px; margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--mist); }
+  .ts-item { background:var(--surface); border:1px solid var(--mist); border-radius:var(--radius); padding:18px 22px; margin-bottom:12px; }
+  .ts-num { font-size:12px; font-weight:700; color:var(--stone); margin-bottom:8px; }
+  .ts-script { font-size:16px; line-height:1.95; white-space:pre-wrap; }
+  .ts-q { font-size:14px; color:var(--stone); margin-top:12px; padding-top:10px; border-top:1px dashed var(--mist); }
+  .ts-a { font-size:14px; margin-top:8px; color:var(--jade); }
+  .breadcrumb { font-size:13px; color:var(--stone); margin-bottom:8px; }
+  .breadcrumb a { color:var(--accent); text-decoration:none; }
+  .test-nav { display:flex; justify-content:space-between; gap:12px; margin:36px 0; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png" alt="Mandarin Zone" class="logo-mark" loading="eager">
+      <div class="logo-text">HSK 4 <span>Mock Exam</span></div>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Menu">
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span class="nav-burger-bar"></span></label>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/" class="nav-link">Mock Exams</a>
+      <a href="/vocabulary/" class="nav-link">Vocabulary</a>
+      <a href="/characters/" class="nav-link">Characters</a>
+      <a href="/grammar/" class="nav-link">Grammar</a>
+      <a href="/sentences/" class="nav-link">Sentences</a>
+      <a href="/strategies/" class="nav-link">Strategies</a>
+      <a href="/traps/" class="nav-link">Traps</a>
+      <a href="/topics/" class="nav-link">Topics</a>
+      <a href="/words/" class="nav-link">Words</a>
+      <a href="/compare/" class="nav-link">Compare</a>
+      <a href="/guide/" class="nav-link">Guide</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/">Mock Exams</a> &rsaquo; <a href="/test/${num}/">Test ${num}</a> &rsaquo; Transcript
+  </nav>
+  <div class="ts-hero">
+    <h1 class="chinese">${escHtml(meta.title)}<br>Listening Transcript · 听力原文</h1>
+    <p>The complete listening material (听力材料) for this official HSK 4 paper — every dialogue and passage, word-for-word, with answers. Play the real audio below and read along, or shadow each item to train your listening and pronunciation.</p>
+  </div>
+  <div class="ts-audio">
+    <div class="ts-audio-label">🎧 Listening audio · 听力录音 (one continuous track, plays once in the real exam)</div>
+    <audio controls preload="none" src="${escHtml(test.listening_audio)}"></audio>
+  </div>
+  <p style="font-size:13px;color:var(--stone);margin:0 0 8px;"><a href="/test/${num}/" style="color:var(--accent);font-weight:600;">← Back to Test ${num}</a> · <a href="/strategies/listening-passage/" style="color:var(--accent);">听力长对话 strategy →</a></p>
+
+  ${itemsHtml}
+
+  <div class="test-nav">
+    <a href="/test/${num}/" class="btn btn-ghost">&larr; Back to Test ${num}</a>
+    <a href="/" class="btn btn-secondary">All Tests</a>
+  </div>
+</main>
+<footer>
+  <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/writing/">Writing</a> · <a href="/guide/">Study Guide</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</footer>
+</body>
+</html>`;
+
+    const dir = path.join(ROOT, 'test', num, 'transcript');
+    ensureDir(dir);
+    fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+    generated.push({ loc: `/test/${num}/transcript/`, priority: '0.7' });
+    console.log(`[transcript] Generated test/${num}/transcript/index.html (${listening.length} items)`);
+  });
+
+  return generated;
+}
+
 buildVocabulary();
 buildTestPages();
+const transcriptPages = buildTranscriptPages();
 buildHomepage();
 buildTopics();
 fixGuide();
@@ -5037,6 +5221,6 @@ buildMixedPractice();
 buildCompleteSentence();
 buildPracticeHub();
 addTestLinksToHubs();
-buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages, { loc: '/practice/', priority: '0.8' }, { loc: '/writing/complete-sentence/', priority: '0.8' }, { loc: '/train/', priority: '0.9' }]);
+buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages, ...transcriptPages, { loc: '/practice/', priority: '0.8' }, { loc: '/writing/complete-sentence/', priority: '0.8' }, { loc: '/train/', priority: '0.9' }]);
 injectTheme();
 console.log('\nDone! All static content pre-rendered.');

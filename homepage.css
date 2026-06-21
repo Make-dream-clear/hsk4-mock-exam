@@ -217,6 +217,17 @@
   font-style: italic;
 }
 
+/* 看图造句 picture prompt shown above the options (writing Q96–100). */
+#question-image { margin-bottom: var(--space-5); }
+#question-image[hidden] { display: none; }
+#question-image img {
+  max-width: 240px;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--mist);
+  display: block;
+}
+
 .options-list {
   display: flex;
   flex-direction: column;

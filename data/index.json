@@ -58,5 +58,11 @@
     "file": "test-12.json",
     "title": "HSK 4 Mock Test 12",
     "questions": 100
+  },
+  {
+    "file": "test-13.json",
+    "title": "HSK 4 Official Exam 13 (H41220)",
+    "questions": 100,
+    "official": true
   }
 ]
