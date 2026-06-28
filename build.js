@@ -15,6 +15,12 @@ const path = require('path');
 const ROOT = __dirname;
 const DATA = path.join(ROOT, 'data');
 
+// Google Analytics 4 — the web Data Stream's Measurement ID for
+// hsk4.mandarinzone.com. Swap this single value if the stream changes; the
+// build injects the gtag.js snippet into every page from here.
+// Find it in GA4 → Admin → Data Streams → (web stream) → Measurement ID.
+const GA4_MEASUREMENT_ID = 'G-L4CMDLM3DL';
+
 // --- Helpers ---
 
 function escHtml(str) {
@@ -5184,6 +5190,35 @@ function injectTheme() {
 
 
 // ============================================================
+// ANALYTICS — inject the Google Analytics 4 gtag.js snippet into
+// every generated page. Runs last (like the theme loader) so it
+// covers all pages. Idempotent: re-running won't duplicate it.
+// ============================================================
+function injectAnalytics() {
+  if (!GA4_MEASUREMENT_ID || GA4_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
+    console.log('[analytics] GA4_MEASUREMENT_ID is unset/placeholder — injecting snippet with placeholder ID; replace it before relying on data.');
+  }
+  console.log('[analytics] Injecting GA4 gtag.js into all pages...');
+  // Standard GA4 tag. Placed at the top of <head> so the gtag.js request
+  // fires as early as possible. `async` keeps it off the critical path.
+  const ga = `<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"><\/script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}');<\/script>`;
+
+  let count = 0;
+  walkHtmlFiles().forEach(f => {
+    let html = fs.readFileSync(f, 'utf8');
+    if (html.indexOf('googletagmanager.com/gtag/js') === -1 && html.indexOf('<head>') !== -1) {
+      html = html.replace('<head>', '<head>\n' + ga);
+      fs.writeFileSync(f, html, 'utf8');
+      count++;
+    }
+  });
+  console.log(`[analytics] Injected into ${count} pages`);
+}
+
+
+// ============================================================
 //  GENERATE LISTENING TRANSCRIPT STUDY PAGES: /test/NN/transcript/
 //  Only for tests that ship a full audio track + transcripts
 //  (official papers). A read-along / shadowing resource.
@@ -5344,5 +5379,6 @@ buildPracticeHub();
 addTestLinksToHubs();
 buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages, ...transcriptPages, { loc: '/practice/', priority: '0.8' }, { loc: '/writing/complete-sentence/', priority: '0.8' }, { loc: '/train/', priority: '0.9' }]);
 injectTheme();
+injectAnalytics();
 syncCounts();
 console.log('\nDone! All static content pre-rendered.');
