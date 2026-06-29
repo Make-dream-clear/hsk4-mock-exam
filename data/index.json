@@ -82,5 +82,11 @@
     "title": "HSK 4 Official Exam 16 (H41328)",
     "questions": 100,
     "official": true
+  },
+  {
+    "file": "test-17.json",
+    "title": "HSK 4 Official Exam 17 (H41329)",
+    "questions": 100,
+    "official": true
   }
 ]
