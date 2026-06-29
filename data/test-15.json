@@ -1,0 +1,1240 @@
+{
+  "quiz_id": 15,
+  "title": "HSK 4 Official Exam H41327",
+  "source": "Hanban / Confucius Institute Headquarters — official HSK 4 paper H41327 (国家汉办/孔子学院总部)",
+  "official": true,
+  "total_questions": 100,
+  "listening_audio": "/test/15/listening.mp3",
+  "questions": [
+    {
+      "number": 1,
+      "type": "listening_true_false",
+      "text": "1. 他暑假想去云南旅游。",
+      "transcript": "我打算去云南玩儿，听说那边四季如春，不仅风景美，而且当地少数民族都非常热情，相信这个暑假会十分有趣。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 2,
+      "type": "listening_true_false",
+      "text": "2. 女儿晚上要加班。",
+      "transcript": "女儿说她今天下班后有约会，要跟同学去看电影，晚上不回来吃饭了。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 3,
+      "type": "listening_true_false",
+      "text": "3. 他习惯了这里的生活。",
+      "transcript": "我刚来这儿的时候很不适应，觉得很孤单，后来逐渐习惯了，也交到了很多朋友，我越来越喜欢这儿的生活了。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 4,
+      "type": "listening_true_false",
+      "text": "4. 他们在谈价格。",
+      "transcript": "那个网站上的内容很丰富，不但有科学、艺术方面的知识，还有许多小笑话，我发给你网址，有兴趣的话可以上去看看。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 5,
+      "type": "listening_true_false",
+      "text": "5. 中国人喜欢数字“6”。",
+      "transcript": "中国人认为数字“六”代表顺利，所以他们喜欢在带有“六”的日子结婚，希望自己的电话号码里有“六”。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 6,
+      "type": "listening_true_false",
+      "text": "6. 他几乎每天都去打篮球。",
+      "transcript": "我平时上班忙，很少有时间运动。但是周末我会约朋友们见面，一块儿去打篮球或者踢足球，偶尔也会去爬山。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 7,
+      "type": "listening_true_false",
+      "text": "7. 今天报名还来得及。",
+      "transcript": "你不是准备参加普通话考试吗？明天报名就结束了，你怎么还没交材料？",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 8,
+      "type": "listening_true_false",
+      "text": "8. 小林是律师。",
+      "transcript": "小林，如果你在法律方面有什么问题，我可以给你介绍一位律师，你可以先和他聊一下，他会给你一些专业性的意见。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 9,
+      "type": "listening_true_false",
+      "text": "9. 不要总是羡慕别人。",
+      "transcript": "我们总是羡慕别人有份好工作，有个好妻子，却常常忘记了自己已有的幸福。其实，我们在别人眼中也是幸福的，只是我们没有发现。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 10,
+      "type": "listening_true_false",
+      "text": "10. 明天中午有大雪。",
+      "transcript": "由于冷空气南下，我省明天将迎来大风降温天气，有些地方还会有小到中雨，交通会受到一定影响，听众朋友们出行时一定要注意安全。",
+      "options": [
+        "对",
+        "错"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 11,
+      "type": "listening_choice",
+      "text": "11. 巧克力是谁送的？",
+      "transcript": "男：这块儿巧克力味道不错，你在哪儿买的？\n女：不是我买的，是我叔叔从国外带回来的。",
+      "options": [
+        "A 同事",
+        "B 叔叔",
+        "C 奶奶",
+        "D 观众"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 12,
+      "type": "listening_choice",
+      "text": "12. 男的为什么觉得很凉快？",
+      "transcript": "女：哥，昨天晚上睡得好吗？热不热？\n男：挺好的，房间里开了空调，很凉快。",
+      "options": [
+        "A 下雨了",
+        "B 刚洗完澡",
+        "C 开空调了",
+        "D 开着窗户"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 13,
+      "type": "listening_choice",
+      "text": "13. 女的打算怎么去会场？",
+      "transcript": "男：记者会十点开始，您大概几点下飞机？我去接您吧。\n女：不用了，我七点一刻到，直接打车去会场，就不麻烦你了。",
+      "options": [
+        "A 步行",
+        "B 骑车",
+        "C 坐地铁",
+        "D 坐出租车"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 14,
+      "type": "listening_choice",
+      "text": "14. 男的刚才在做什么？",
+      "transcript": "女：用毛巾擦擦脸上的汗。你俩网球打得都不错呀。\n男：我这是第一次跟老李打球，没想到他这么厉害。",
+      "options": [
+        "A 打网球",
+        "B 擦桌子",
+        "C 洗衣服",
+        "D 找袜子"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 15,
+      "type": "listening_choice",
+      "text": "15. 男的觉得那篇报道怎么样？",
+      "transcript": "男：你这篇报道写得很好，以后要继续努力。\n女：谢谢您，我一定会好好干的。",
+      "options": [
+        "A 太随便",
+        "B 写得不错",
+        "C 没原来的好",
+        "D 与实际不符"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 16,
+      "type": "listening_choice",
+      "text": "16. 男的是什么意思？",
+      "transcript": "女：我想换台笔记本电脑，你知道哪种好吗？\n男：我也不太清楚，你先上网看看吧，多比较比较，然后再做决定。",
+      "options": [
+        "A 暂时别卖",
+        "B 上网看看",
+        "C 先借一个用",
+        "D 找朋友商量"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 17,
+      "type": "listening_choice",
+      "text": "17. 女的最可能在做什么？",
+      "transcript": "男：小姐，请您先填一下这张表格，姓名、性别和年龄是必须要填的。\n女：好的。抱歉，我没带笔，你们这儿有笔吗？",
+      "options": [
+        "A 填表",
+        "B 寄东西",
+        "C 买铅笔",
+        "D 打印菜单"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 18,
+      "type": "listening_choice",
+      "text": "18. 关于男的，下列哪个正确？",
+      "transcript": "女：听说你要出国留学？\n男：是的，签证刚刚办好，这个月底走。",
+      "options": [
+        "A 想请假",
+        "B 在办护照",
+        "C 下周出差",
+        "D 拿到签证了"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 19,
+      "type": "listening_choice",
+      "text": "19. 关于女的，可以知道什么？",
+      "transcript": "男：祝贺你考上了博士！\n女：谢谢，如果没有你们的帮助，恐怕不会这么顺利。",
+      "options": [
+        "A 是教授",
+        "B 成绩不好",
+        "C 在开玩笑",
+        "D 考上了博士"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 20,
+      "type": "listening_choice",
+      "text": "20. 女的刚才在做什么？",
+      "transcript": "女：对不起，刚才我在会议室开会，没办法接电话。\n男：没关系，我猜你也在忙，没打扰你吧？",
+      "options": [
+        "A 开会",
+        "B 买手机",
+        "C 发传真",
+        "D 写邀请信"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 21,
+      "type": "listening_choice",
+      "text": "21. 女的觉得比赛怎么样？",
+      "transcript": "男：昨天的羽毛球比赛，你看了吗？\n女：看了，真是太精彩了，尤其是第二场。",
+      "options": [
+        "A 很无聊",
+        "B 很奇怪",
+        "C 十分精彩",
+        "D 让人失望"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 22,
+      "type": "listening_choice",
+      "text": "22. 女的让男的做什么？",
+      "transcript": "女：一会儿有客人要来，先别看电视了，去帮我把垃圾扔了。\n男：好的，妈妈，是张阿姨要来吗？",
+      "options": [
+        "A 请客",
+        "B 扔垃圾",
+        "C 抬沙发",
+        "D 收拾行李"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 23,
+      "type": "listening_choice",
+      "text": "23. 关于小马，可以知道什么？",
+      "transcript": "男：明天上午的访问还需要一个翻译，你看谁去比较合适？\n女：小马吧，他就是这个专业毕业的，而且经验丰富。",
+      "options": [
+        "A 很成熟",
+        "B 很勇敢",
+        "C 遇事冷静",
+        "D 可以做翻译"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 24,
+      "type": "listening_choice",
+      "text": "24. 女的要去哪儿？",
+      "transcript": "女：师傅，麻烦您快点儿行吗？我得在九点之前到大使馆。\n男：不用担心，保证按时把您送到。",
+      "options": [
+        "A 公园",
+        "B 大使馆",
+        "C 首都体育馆",
+        "D 国家图书馆"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 25,
+      "type": "listening_choice",
+      "text": "25. 女的怎么了？第三部分一共 20 个题，每题听一次。例如：男：把这个材料复印五份，一会儿拿到会议室发给大家。女：好的。会议是下午三点吗？男：改了。三点半，推迟了半个小时。女：好，六零二会议室没变吧？男：对，没变。问：会议几点开始？现在开始第 26 题：？",
+      "transcript": "男：你以前不是很喜欢吃糖吗？怎么不吃了？\n女：我最近牙疼，连饼干这种稍微有点儿甜的东西都不敢吃，更别说糖了。",
+      "options": [
+        "A 牙疼",
+        "B 困了",
+        "C 胖了",
+        "D 肚子不舒服"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 26,
+      "type": "listening_choice",
+      "text": "26. 根据对话，下列哪个正确？",
+      "transcript": "女：怎么回事？你怎么不开灯？\n男：我也是刚进门，刚发现灯不亮，是不是停电了？\n女：应该不会，邻居家的灯都亮着呢。\n男：那就是灯坏了。",
+      "options": [
+        "A 灯不亮了",
+        "B 冰箱坏了",
+        "C 女的迟到了",
+        "D 房间很暖和"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 27,
+      "type": "listening_choice",
+      "text": "27. 女的觉得那家饭馆儿怎么样？",
+      "transcript": "男：对面新开了家饭馆儿，你去过吗？\n女：去过，那儿菜不错，服务态度也挺好，就是去晚了要等座位。\n男：那我这会儿去估计是来不及了。\n女：是，你想去的话要早点儿出发。",
+      "options": [
+        "A 很吵",
+        "B 菜好吃",
+        "C 啤酒便宜",
+        "D 服务员很少"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 28,
+      "type": "listening_choice",
+      "text": "28. 关于小高的父亲，可以知道什么？",
+      "transcript": "女：小高，你父亲以前是京剧演员？\n男：对，他年轻时在我们那儿很有名。\n女：这么说你喜欢听京剧是受了你父亲的影响。\n男：是，我小时候经常去看他的演出。",
+      "options": [
+        "A 爱跳舞",
+        "B 爱听广播",
+        "C 会唱京剧",
+        "D 是数学老师"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 29,
+      "type": "listening_choice",
+      "text": "29. 女的为什么穿得很正式？",
+      "transcript": "男：你今天怎么穿得这么正式？\n女：有家银行通知我去面试，所以就打扮了一下。\n男：银行挺好的，加油啊！\n女：谢谢。有好消息我就告诉你。",
+      "options": [
+        "A 要去面试",
+        "B 要演节目",
+        "C 要看表演",
+        "D 要参加讨论会"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 30,
+      "type": "listening_choice",
+      "text": "30. 他们觉得那位作者的小说写得怎么样？",
+      "transcript": "女：这本书的作者你认识？\n男：对，他在我们学校工作。\n女：是吗？他的小说写得很感人。\n男：是，我也喜欢他的小说。",
+      "options": [
+        "A 不自然",
+        "B 简单易懂",
+        "C 让人感动",
+        "D 不吸引人"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 31,
+      "type": "listening_choice",
+      "text": "31. 他们最可能在哪儿？",
+      "transcript": "男：您好，是您要理发吗？\n女：不是，给我小孙子理发。\n男：好的，想给他理成什么样的呢？\n女：稍微短点儿就行，别太长了。",
+      "options": [
+        "A 教室",
+        "B 电梯里",
+        "C 理发店",
+        "D 办公室"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 32,
+      "type": "listening_choice",
+      "text": "32. 男的让女的买什么？",
+      "transcript": "女：我要去逛商店，你去不去？\n男：我有点儿累，不去了。你顺便买几个西红柿吧，晚上做个汤。\n女：我昨天买了一些，放在厨房了。\n男：我没注意。那你去逛吧，今天我来做饭。",
+      "options": [
+        "A 盐",
+        "B 镜子",
+        "C 牙膏",
+        "D 西红柿"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 33,
+      "type": "listening_choice",
+      "text": "33. 女的怎么了？",
+      "transcript": "男：你找什么呢？把房间弄得这么乱。\n女：你来得正好，看见我的钱包了吗？我到处找都没找到。\n男：没看见。你上午不是去咖啡馆儿了吗？会不会忘在那儿了？\n女：有可能，我打电话问问。",
+      "options": [
+        "A 饿了",
+        "B 没睡醒",
+        "C 钱包丢了",
+        "D 弄脏裙子了"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 34,
+      "type": "listening_choice",
+      "text": "34. 女的是什么意思？",
+      "transcript": "女：听说你在做生意，怎么样？\n男：我本来以为很简单，做起来才发现并不容易，很辛苦。\n女：慢慢来，万事开头难，关键是要多积累经验。\n男：是，我也是这样想的。",
+      "options": [
+        "A 放宽标准",
+        "B 多积累经验",
+        "C 输赢不重要",
+        "D 按照规定办"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 35,
+      "type": "listening_choice",
+      "text": "35. 他们周日在哪儿见面？",
+      "transcript": "男：星期日我们去海洋馆吧，那天有表演。\n女：这个主意好，我还从来没去过呢。\n男：从学校西门走方便一些，我们在那儿见吧。\n女：好的，九点怎么样？",
+      "options": [
+        "A 宾馆右边",
+        "B 学校西门",
+        "C 蛋糕店旁边",
+        "D 植物园后面"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 36,
+      "type": "listening_choice",
+      "text": "36. 儿子将来想做什么？",
+      "transcript": "儿子告诉我，他长大后，想做二零四路公交车的司机。我听了很吃惊，就问他：“当司机也不错，可为什么一定是二零四路呢？”“因为二零四路车的最后一站是动物园，这样我就可以天天到动物园看老虎和猴子了。”",
+      "options": [
+        "A 司机",
+        "B 导游",
+        "C 警察",
+        "D 售货员"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 37,
+      "type": "listening_choice",
+      "text": "37. 关于二零四路公交车，可以知道什么？",
+      "transcript": "儿子告诉我，他长大后，想做二零四路公交车的司机。我听了很吃惊，就问他：“当司机也不错，可为什么一定是二零四路呢？”“因为二零四路车的最后一站是动物园，这样我就可以天天到动物园看老虎和猴子了。”",
+      "options": [
+        "A 很旧",
+        "B 速度快",
+        "C 能到动物园",
+        "D 从火车站始发"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 38,
+      "type": "listening_choice",
+      "text": "38. 茶最早被当做什么？",
+      "transcript": "茶在中国有数千年的历史，是中国最常见的饮料。最早的时候，茶只是被当做一种药，而不是饮料。后来，随着人们对茶的认识的加深，慢慢开始将它当做解渴的饮料，这才逐渐有了中国的茶文化。",
+      "options": [
+        "A 药",
+        "B 草",
+        "C 食品",
+        "D 饮料"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 39,
+      "type": "listening_choice",
+      "text": "39. 关于茶，可以知道什么？",
+      "transcript": "茶在中国有数千年的历史，是中国最常见的饮料。最早的时候，茶只是被当做一种药，而不是饮料。后来，随着人们对茶的认识的加深，慢慢开始将它当做解渴的饮料，这才逐渐有了中国的茶文化。",
+      "options": [
+        "A 是酸的",
+        "B 怕阳光",
+        "C 历史很长",
+        "D 红茶最流行"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 40,
+      "type": "listening_choice",
+      "text": "40. 王先生在买什么？",
+      "transcript": "王先生，您放心，只要是在我们店购买的洗衣机，一年以内出现任何质量问题，我们都会免费给您修。这是保修卡，使用中遇到什么问题，您可以通过上面的电话联系我们。",
+      "options": [
+        "A 照相机",
+        "B 洗衣机",
+        "C 复印机",
+        "D 洗碗机"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 41,
+      "type": "listening_choice",
+      "text": "41. 联系电话写在哪儿？",
+      "transcript": "王先生，您放心，只要是在我们店购买的洗衣机，一年以内出现任何质量问题，我们都会免费给您修。这是保修卡，使用中遇到什么问题，您可以通过上面的电话联系我们。",
+      "options": [
+        "A 箱子上",
+        "B 说明书上",
+        "C 合格证上",
+        "D 保修卡上"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 42,
+      "type": "listening_choice",
+      "text": "42. 体检前一天晚上要注意什么？",
+      "transcript": "明天检查身体，体检前十二小时内不吃东西就可以，不用现在就限制进食。今天晚饭可以少吃一些，别吃太辣、太咸的，不要喝酒。明天早上别吃饭，别喝水。我们明天八点准时在公司门口集合。",
+      "options": [
+        "A 不能吃鱼",
+        "B 不能喝果汁",
+        "C 饭后要散步",
+        "D 不能吃辣的"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 43,
+      "type": "listening_choice",
+      "text": "43. 关于体检当天，下列哪个正确？",
+      "transcript": "明天检查身体，体检前十二小时内不吃东西就可以，不用现在就限制进食。今天晚饭可以少吃一些，别吃太辣、太咸的，不要喝酒。明天早上别吃饭，别喝水。我们明天八点准时在公司门口集合。",
+      "options": [
+        "A 别吃早饭",
+        "B 多吃水果",
+        "C 要有好心情",
+        "D 不能戴手表"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 44,
+      "type": "listening_choice",
+      "text": "44. 有些父母看到孩子做事慢会怎么做？",
+      "transcript": "有些父母觉得孩子做事情慢，总想替他们做，这样做其实很不好。孩子做事慢，往往是因为他们不会安排自己的时间。因此，父母应该让孩子学会管理时间，自己的事情自己做，而不要让他们养成总说“来不及了”“我没办法”这些话的坏习惯。",
+      "options": [
+        "A 发脾气",
+        "B 替孩子做",
+        "C 说孩子懒",
+        "D 故意咳嗽"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 45,
+      "type": "listening_choice",
+      "text": "45. 根据这段话，应让孩子养成什么好习惯？",
+      "transcript": "有些父母觉得孩子做事情慢，总想替他们做，这样做其实很不好。孩子做事慢，往往是因为他们不会安排自己的时间。因此，父母应该让孩子学会管理时间，自己的事情自己做，而不要让他们养成总说“来不及了”“我没办法”这些话的坏习惯。",
+      "options": [
+        "A 仔细",
+        "B 多阅读",
+        "C 主动预习",
+        "D 会安排时间"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 46,
+      "type": "fill_in_blank",
+      "text": "46. 今天晚上的月亮又大又（ ），真漂亮，咱们出去走走吧。",
+      "options": [
+        "A 拉",
+        "B 圆",
+        "C 完全",
+        "D 坚持",
+        "E 重点",
+        "F 饺子"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 47,
+      "type": "fill_in_blank",
+      "text": "47. 我最喜欢过年，全家人在一起包（ ），热闹极了。",
+      "options": [
+        "A 拉",
+        "B 圆",
+        "C 完全",
+        "D 坚持",
+        "E 重点",
+        "F 饺子"
+      ],
+      "correct_answer_index": 5
+    },
+    {
+      "number": 48,
+      "type": "fill_in_blank",
+      "text": "48. 他（ ）有能力做好这件事，但他没有认真去做。",
+      "options": [
+        "A 拉",
+        "B 圆",
+        "C 完全",
+        "D 坚持",
+        "E 重点",
+        "F 饺子"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 49,
+      "type": "fill_in_blank",
+      "text": "49. 那棵树特别粗，要四五个大人手（ ）手才能抱住。",
+      "options": [
+        "A 拉",
+        "B 圆",
+        "C 完全",
+        "D 坚持",
+        "E 重点",
+        "F 饺子"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 50,
+      "type": "fill_in_blank",
+      "text": "50. 讲话应先讲（ ），这样才能使别人更快地了解你想表达的意思。",
+      "options": [
+        "A 拉",
+        "B 圆",
+        "C 完全",
+        "D 坚持",
+        "E 重点",
+        "F 饺子"
+      ],
+      "correct_answer_index": 4
+    },
+    {
+      "number": 51,
+      "type": "fill_in_blank",
+      "text": "51. A：飞机还有 40 分钟就要起飞了，你怎么还没到？\nB：路上堵车。我现在在（ ）处，马上就到。",
+      "options": [
+        "A 样子",
+        "B 超过",
+        "C 温度",
+        "D 入口",
+        "E 严重",
+        "F 整理"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 52,
+      "type": "fill_in_blank",
+      "text": "52. A：能把照片发到我邮箱里吗？\nB：没问题，把你的邮箱地址告诉我，我（ ）好了就发给你。",
+      "options": [
+        "A 样子",
+        "B 超过",
+        "C 温度",
+        "D 入口",
+        "E 严重",
+        "F 整理"
+      ],
+      "correct_answer_index": 5
+    },
+    {
+      "number": 53,
+      "type": "fill_in_blank",
+      "text": "53. A：你好，请问我女儿可以买儿童票吗？\nB：可以，身高没（ ）一米二就可以买。",
+      "options": [
+        "A 样子",
+        "B 超过",
+        "C 温度",
+        "D 入口",
+        "E 严重",
+        "F 整理"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 54,
+      "type": "fill_in_blank",
+      "text": "54. A：看（ ）你对这里很熟悉。\nB：当然了，我在这儿生活了大约 10 年，去年才搬走的。",
+      "options": [
+        "A 样子",
+        "B 超过",
+        "C 温度",
+        "D 入口",
+        "E 严重",
+        "F 整理"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 55,
+      "type": "fill_in_blank",
+      "text": "55. A：只是腿擦破了点儿皮，大夫说不（ ）。\nB：没事就好，你先躺下休息一会儿吧。",
+      "options": [
+        "A 样子",
+        "B 超过",
+        "C 温度",
+        "D 入口",
+        "E 严重",
+        "F 整理"
+      ],
+      "correct_answer_index": 4
+    },
+    {
+      "number": 56,
+      "type": "reading_ordering",
+      "text": "56. 请将下列句子正确排序：A 至少我们努力过 B 即使失败了也没关系 C 机会来了，就该主动去试一试",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 5
+    },
+    {
+      "number": 57,
+      "type": "reading_ordering",
+      "text": "57. 请将下列句子正确排序：A 但世界上还有很多是钱买不到、也换不来的 B 钱虽然能买到很多东西 C 例如生命、爱情、友谊和时间",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 58,
+      "type": "reading_ordering",
+      "text": "58. 请将下列句子正确排序：A 北方秋天很干燥，你刚来 B 觉得不适应很正常 C 每天多喝水，习惯了就不会那么难受了",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 59,
+      "type": "reading_ordering",
+      "text": "59. 请将下列句子正确排序：A 实际上，很多问题的答案都可以从生活中找到 B 课本上的知识并不能解决我们遇到的所有问题 C 但这需要我们用眼睛去发现，用心去总结",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 60,
+      "type": "reading_ordering",
+      "text": "60. 请将下列句子正确排序：A 还能扩大知识面 B 我提高汉语水平的方法就是坚持看中文报纸 C 这样不但能学到很多新的词语",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 61,
+      "type": "reading_ordering",
+      "text": "61. 请将下列句子正确排序：A 这些家具很多都是他帮忙抬上来的 B 力气却大得很 C 别看小黄个子不高，人也瘦",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 5
+    },
+    {
+      "number": 62,
+      "type": "reading_ordering",
+      "text": "62. 请将下列句子正确排序：A 飞往该市的好几趟航班 B 昨晚 19 时南京市突然下起了大雨 C 都不得不推迟起飞",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 63,
+      "type": "reading_ordering",
+      "text": "63. 请将下列句子正确排序：A 我家离北京很近 B 所以周末和节假日我一般都会回家 C 只有 100 多公里，开车的话大约一个小时就到了",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 64,
+      "type": "reading_ordering",
+      "text": "64. 请将下列句子正确排序：A 懂得互相信任和尊重才是最重要的 B 两个人既然决定共同生活 C 那么，只有浪漫和新鲜感是不够的",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 65,
+      "type": "reading_ordering",
+      "text": "65. 请将下列句子正确排序：A 一看见医生就哭，他怎么都没想到 B 我长大后竟然会成为一名护士 C 爸爸说我小时候特别害怕打针",
+      "options": [
+        "A ABC",
+        "B ACB",
+        "C BAC",
+        "D BCA",
+        "E CAB",
+        "F CBA"
+      ],
+      "correct_answer_index": 4
+    },
+    {
+      "number": 66,
+      "type": "reading_comprehension",
+      "text": "66. 每个人都有缺点，再优秀的人也一样。我们总是很容易看到一个人的缺点，但是别忘了，他身上的优点更值得我们去发现、去学习。这段话提醒我们要：",
+      "options": [
+        "A 有耐心",
+        "B 接受批评",
+        "C 学会原谅",
+        "D 看到别人的优点"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 67,
+      "type": "reading_comprehension",
+      "text": "67. 森林有改变小范围气候的作用。在高温的夏季，森林内的温度会比周围低 3 到 5℃；而在寒冷多风的冬季，森林能起到降低风速、提高气温的作用。夏季，森林可以：",
+      "options": [
+        "A 降低气温",
+        "B 改变风向",
+        "C 增加雨量",
+        "D 使皮肤湿润"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 68,
+      "type": "reading_comprehension",
+      "text": "68. 选择职业时，我们首先应该对自己有清楚的认识，不仅要知道自己想做什么，还要根据自己的性格、爱好去判断什么样的工作适合自己，这样才能找到满意的工作。选择职业时，应该：",
+      "options": [
+        "A 多调查",
+        "B 打好基础",
+        "C 及时总结",
+        "D 先认清自己"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 69,
+      "type": "reading_comprehension",
+      "text": "69. 有些人通过节食的方法来减肥，虽然有效，但是时间长了身体会受不了。真正健康的减肥方法应该是多锻炼，这样做既对身体好，还能让自己看起来更有精神。想要健康减肥，应该：",
+      "options": [
+        "A 多运动",
+        "B 少吃米饭",
+        "C 经常站着",
+        "D 多玩儿电子游戏"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 70,
+      "type": "reading_comprehension",
+      "text": "70. 张先生，这儿离你们公司也就两三站的距离，周围环境不错，对面有超市和银行，房租也不贵，您要不要再考虑一下？张先生：",
+      "options": [
+        "A 被骗了",
+        "B 住在附近",
+        "C 在找房子",
+        "D 在看广告"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 71,
+      "type": "reading_comprehension",
+      "text": "71. 大城市和小城市各有各的好处。大城市的工作机会确实多一些，但竞争的压力大；相反，在小城市生活就会轻松许多。他觉得小城市：",
+      "options": [
+        "A 更安静",
+        "B 收入高",
+        "C 招聘会多",
+        "D 生活压力小"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 72,
+      "type": "reading_comprehension",
+      "text": "72. 如果一个人必须要完成一件自己不喜欢的事情，最好的办法就是早点儿把它做完，这样才能提前结束烦恼。对不喜欢却又必须做的事，最好：",
+      "options": [
+        "A 找人帮忙",
+        "B 交给别人",
+        "C 早点儿完成",
+        "D 留到最后做"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 73,
+      "type": "reading_comprehension",
+      "text": "73. 老教授对新生说：“从今天起，如果你每天用 100 字把自己的生活写下来，毕业时你将会得到一本 10 多万字的书，内容就是你 4 年大学生活的美好回忆。”老教授希望学生：",
+      "options": [
+        "A 诚实",
+        "B 别太得意",
+        "C 经常复习",
+        "D 记下自己的生活"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 74,
+      "type": "reading_comprehension",
+      "text": "74. 语言是人们交流的工具，音乐也是一种语言，人们可以用它来表达自己的感情，而且和其他语言比起来，音乐表达的感情有时更容易让人听懂。根据这段话，音乐表达的感情：",
+      "options": [
+        "A 复杂多变",
+        "B 让人难过",
+        "C 更容易理解",
+        "D 让人印象更深"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 75,
+      "type": "reading_comprehension",
+      "text": "75. 很多时候，人们习惯根据过去的经验做事，但有时候也不能完全相信经验，而应该根据不同的情况选择不同的方法，这样才不容易出错。根据这段话，过去的经验：",
+      "options": [
+        "A 更准确",
+        "B 值得重视",
+        "C 无法被证明",
+        "D 不一定适合现在"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 76,
+      "type": "reading_comprehension",
+      "text": "76. 马校长介绍说，学校举办这次文化节活动，一方面是想让各国学生更好地了解中国，另一方面是想为学生们提供互相交流和学习的机会。学校举办这次活动，是想帮助学生们：",
+      "options": [
+        "A 认识汉字",
+        "B 熟悉校园",
+        "C 提高信心",
+        "D 相互增加了解"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 77,
+      "type": "reading_comprehension",
+      "text": "77. 他平时就对自己要求很严格，尤其是赛前那个星期，他每天都会把全部动作练习好几遍，希望在比赛中做到最好。比赛前，他：",
+      "options": [
+        "A 更努力",
+        "B 十分兴奋",
+        "C 非常着急",
+        "D 停止了练习"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 78,
+      "type": "reading_comprehension",
+      "text": "78. 拒绝握手是不礼貌的，不过当手不干净时，可以先拒绝，然后马上解释原因并对此表示抱歉，否则可能引起误会，让人以为你不友好。拒绝握手后为什么要马上道歉？",
+      "options": [
+        "A 减少误会",
+        "B 怕人怀疑",
+        "C 想引人同情",
+        "D 想获得表扬"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 79,
+      "type": "reading_comprehension",
+      "text": "79. 叶诗文是中国著名的游泳运动员，她 6 岁时就比同龄人高不少，老师看她手脚也大，身体其他条件也很符合游泳运动员的要求，就鼓励她专门去学游泳。尽管她现在只有 16 岁，但已经获得了好几个国际大奖。老师鼓励叶诗文学游泳，是因为觉得她：",
+      "options": [
+        "A 聪明",
+        "B 跑得快",
+        "C 获过奖",
+        "D 身体条件好"
+      ],
+      "correct_answer_index": 3
+    },
+    {
+      "number": 80,
+      "type": "reading_comprehension",
+      "text": "80. 目的地也许只有一个，但是通往目的地的道路却有很多条。所以，当一条路走不通时，我们可以换另外一条试试。只要我们不放弃努力，总会找到一条合适的路，通往成功的目的地。当一条路走不通时，我们应该：",
+      "options": [
+        "A 看地图",
+        "B 试试别的路",
+        "C 向当地人问路",
+        "D 给朋友打电话"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 81,
+      "type": "reading_comprehension",
+      "text": "81. 目的地也许只有一个，但是通往目的地的道路却有很多条。所以，当一条路走不通时，我们可以换另外一条试试。只要我们不放弃努力，总会找到一条合适的路，通往成功的目的地。这段话主要想告诉我们：",
+      "options": [
+        "A 要有理想",
+        "B 工作要积极",
+        "C 成功需要坚持",
+        "D 做事要有计划"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 82,
+      "type": "reading_comprehension",
+      "text": "82. 顾客朋友们，本店现推出“购书送好礼”活动，购书满 100 元即可获得日记本一个，满 200 元可获得字典一部。另外，部分图书还有打折活动，其中，小说 7.5 折，杂志 8 折，研究生入学考试用书等 6 折。欢迎选购！祝您购物愉快！购书满 100 元能获得什么礼物？",
+      "options": [
+        "A 词典",
+        "B 日记本",
+        "C 故事书",
+        "D 汉语书"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 83,
+      "type": "reading_comprehension",
+      "text": "83. 顾客朋友们，本店现推出“购书送好礼”活动，购书满 100 元即可获得日记本一个，满 200 元可获得字典一部。另外，部分图书还有打折活动，其中，小说 7.5 折，杂志 8 折，研究生入学考试用书等 6 折。欢迎选购！祝您购物愉快！根据这段话，可以知道：",
+      "options": [
+        "A 小说半价",
+        "B 放寒假了",
+        "C 有些书打折",
+        "D 书店生意很好"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 84,
+      "type": "reading_comprehension",
+      "text": "84. 保护地球环境，并不是离我们很远、很难做到的事情。实际上，我们只需注意一下身边的小事就可以。例如，出门时记得关空调和电脑，节约用电；少开车，多骑车或者坐公共汽车，降低空气污染；买菜时自备购物袋，少用塑料袋，减少白色污染……这些虽然都是小事，却有实实在在的效果。为了减少白色污染，我们应该：",
+      "options": [
+        "A 少说多做",
+        "B 节约用水",
+        "C 少用塑料袋",
+        "D 少用一次性筷子"
+      ],
+      "correct_answer_index": 2
+    },
+    {
+      "number": 85,
+      "type": "reading_comprehension",
+      "text": "85. 保护地球环境，并不是离我们很远、很难做到的事情。实际上，我们只需注意一下身边的小事就可以。例如，出门时记得关空调和电脑，节约用电；少开车，多骑车或者坐公共汽车，降低空气污染；买菜时自备购物袋，少用塑料袋，减少白色污染……这些虽然都是小事，却有实实在在的效果。这段话主要谈什么？",
+      "options": [
+        "A 社会责任",
+        "B 环境保护",
+        "C 节约与浪费",
+        "D 经济的发展"
+      ],
+      "correct_answer_index": 1
+    },
+    {
+      "number": 86,
+      "type": "writing_construction",
+      "text": "86. 请将下列词语组成正确的句子：你最好 一个密码 重新 换",
+      "options": [
+        "你最好重新换一个密码。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 87,
+      "type": "writing_construction",
+      "text": "87. 请将下列词语组成正确的句子：不允许 医院 抽烟 里",
+      "options": [
+        "医院里不允许抽烟。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 88,
+      "type": "writing_construction",
+      "text": "88. 请将下列词语组成正确的句子：看法 我 跟你的 差不多",
+      "options": [
+        "我跟你的看法差不多。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 89,
+      "type": "writing_construction",
+      "text": "89. 请将下列词语组成正确的句子：发生了 这儿究竟 什么 事情",
+      "options": [
+        "这儿究竟发生了什么事情？"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 90,
+      "type": "writing_construction",
+      "text": "90. 请将下列词语组成正确的句子：他 一个 美丽的 小城市 出生在",
+      "options": [
+        "他出生在一个美丽的小城市。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 91,
+      "type": "writing_construction",
+      "text": "91. 请将下列词语组成正确的句子：房间 把 收拾得 姐姐 很整齐",
+      "options": [
+        "姐姐把房间收拾得很整齐。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 92,
+      "type": "writing_construction",
+      "text": "92. 请将下列词语组成正确的句子：是 负责的 由李经理 这次调查",
+      "options": [
+        "这次调查是由李经理负责的。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 93,
+      "type": "writing_construction",
+      "text": "93. 请将下列词语组成正确的句子：反对这样做 大概 三分之二的人 有",
+      "options": [
+        "大概有三分之二的人反对这样做。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 94,
+      "type": "writing_construction",
+      "text": "94. 请将下列词语组成正确的句子：学校 去参观 长城 将 组织大家",
+      "options": [
+        "学校将组织大家去参观长城。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 95,
+      "type": "writing_construction",
+      "text": "95. 请将下列词语组成正确的句子：对 非常感谢您 理解和支持 我们工作的",
+      "options": [
+        "非常感谢您对我们工作的理解和支持。"
+      ],
+      "correct_answer_index": 0
+    },
+    {
+      "number": 96,
+      "type": "writing_construction",
+      "image": "/test/15/img/96.png",
+      "text": "96. 看图，用“轻”造句。",
+      "options": [
+        "没关系，这个箱子很轻。"
+      ],
+      "correct_answer_index": 0,
+      "note": "参考答案 · reference answer (other correct sentences are possible)"
+    },
+    {
+      "number": 97,
+      "type": "writing_construction",
+      "image": "/test/15/img/97.png",
+      "text": "97. 看图，用“答案”造句。",
+      "options": [
+        "这道题的答案在这儿。"
+      ],
+      "correct_answer_index": 0,
+      "note": "参考答案 · reference answer (other correct sentences are possible)"
+    },
+    {
+      "number": 98,
+      "type": "writing_construction",
+      "image": "/test/15/img/98.png",
+      "text": "98. 看图，用“钥匙”造句。",
+      "options": [
+        "钥匙应该就在包里呀。"
+      ],
+      "correct_answer_index": 0,
+      "note": "参考答案 · reference answer (other correct sentences are possible)"
+    },
+    {
+      "number": 99,
+      "type": "writing_construction",
+      "image": "/test/15/img/99.png",
+      "text": "99. 看图，用“激动”造句。",
+      "options": [
+        "那个消息让他很激动。"
+      ],
+      "correct_answer_index": 0,
+      "note": "参考答案 · reference answer (other correct sentences are possible)"
+    },
+    {
+      "number": 100,
+      "type": "writing_construction",
+      "image": "/test/15/img/100.png",
+      "text": "100. 看图，用“聊天儿”造句。",
+      "options": [
+        "她们一边喝茶一边聊天儿。"
+      ],
+      "correct_answer_index": 0,
+      "note": "参考答案 · reference answer (other correct sentences are possible)"
+    }
+  ]
+}

@@ -37,6 +37,10 @@ function readJSON(file) {
 const TEST_COUNT = readJSON('index.json').length;
 const TOTAL_QUESTIONS = readJSON('index.json').reduce((sum, m) => sum + (m.questions || 0), 0);
 const fmtNum = n => n.toLocaleString('en-US');
+function humanList(items) {
+  if (items.length <= 2) return items.join(' and ');
+  return items.slice(0, -1).join(', ') + ', and ' + items[items.length - 1];
+}
 
 // Walk every .html file in the site (skipping build/data dirs).
 function walkHtmlFiles() {
@@ -1568,6 +1572,10 @@ ${sections}
 // never needs hand-edited numbers. Runs last, over the final generated HTML.
 function syncCounts() {
   const total = fmtNum(TOTAL_QUESTIONS);
+  const officialCodes = officialTests().map(t => examCode(t.meta, t.num));
+  const officialPaperPhrase = officialCodes.length === 1
+    ? `the official Hanban paper ${officialCodes[0]}`
+    : `official Hanban papers ${humanList(officialCodes)}`;
   let touched = 0;
   walkHtmlFiles().forEach(f => {
     let html = fs.readFileSync(f, 'utf8');
@@ -1577,7 +1585,12 @@ function syncCounts() {
     // (guarded by the negative lookbehind).
     html = html.replace(/(?<!HSK )\d+(\s+(?:(?:free|complete|full|HSK\s*4)\s+)*(?:mock exams))/gi, (m, suf) => TEST_COUNT + suf);
     html = html.replace(/\d+(\s+free practice tests)/gi, (m, suf) => TEST_COUNT + suf);
+    html = html.replace(/All \d+ tests include/g, `All ${TEST_COUNT} tests include`);
     html = html.replace(/(<div class="stat-num">)\d+(<\/div><div class="stat-label">Mock Exams)/g, `$1${TEST_COUNT}$2`);
+    html = html.replace(/including (?:the official Hanban paper H\d{5}|official Hanban papers H\d{5}(?:, H\d{5})*(?:,? and H\d{5})?)/g, `including ${officialPaperPhrase}`);
+    if (f === path.join(ROOT, 'index.html')) {
+      html = html.replace(/(<div class="stat-num">)[\d,]+(<\/div><div class="stat-label">Questions)/g, `$1${total}$2`);
+    }
     // Corpus question total, only where it sits right after "mock exams" (a dash,
     // paren or "with") — never the per-test "100 questions".
     html = html.replace(/([\d,]+)( questions, auto-scored)/g, `${total}$2`);
@@ -5246,9 +5259,14 @@ function buildTranscriptPages() {
       const p = partOf(q);
       let head = '';
       if (p !== lastPart) { head = `<h2 class="ts-part">${partTitles[p]}</h2>`; lastPart = p; }
+      const answerOption = q.options[q.correct_answer_index] || '';
+      const marker = markers[q.correct_answer_index] || '';
+      const cleanedAnswer = marker
+        ? answerOption.replace(new RegExp(`^${marker}\\s+`), '')
+        : answerOption;
       const ans = (q.type === 'listening_true_false')
-        ? `<strong>${escHtml(q.options[q.correct_answer_index])}</strong>`
-        : `<strong>${markers[q.correct_answer_index] || ''} ${escHtml(q.options[q.correct_answer_index])}</strong>`;
+        ? `<strong>${escHtml(answerOption)}</strong>`
+        : `<strong>${escHtml(marker ? `${marker} ${cleanedAnswer}` : cleanedAnswer)}</strong>`;
       return `${head}
       <div class="ts-item">
         <div class="ts-num">Q${q.number}</div>

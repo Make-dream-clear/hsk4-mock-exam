@@ -2,12 +2,12 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![HSK Level](https://img.shields.io/badge/HSK-Level%204-red)](https://mandarinzone.com)
-[![Tests](https://img.shields.io/badge/Tests-12%20Complete%20Exams-blue)]()
-[![Questions](https://img.shields.io/badge/Questions-1%2C176-green)]()
+[![Tests](https://img.shields.io/badge/Tests-15%20Exam%20Sets-blue)]()
+[![Questions](https://img.shields.io/badge/Questions-1%2C475-green)]()
 
-**12 complete HSK 4 mock exams** with listening, reading, and writing sections — structured JSON data, ready to use in your app, flashcard tool, or study workflow.
+**15 HSK 4 mock and official exam sets** with listening, reading, and writing sections — structured JSON data, ready to use in your app, flashcard tool, or study workflow.
 
-12 套完整的 HSK 4 模拟试题，涵盖听力、阅读、书写三大部分，JSON 格式，可直接用于 App 开发、刷题工具或学习系统。
+15 套 HSK 4 模拟/官方试题，涵盖听力、阅读、书写三大部分，JSON 格式，可直接用于 App 开发、刷题工具或学习系统。
 
 > Created by [**Mandarin Zone**](https://mandarinzone.com) — A Chinese language school in Beijing since 2008, with 5,000+ students from 40+ countries and a 98% HSK pass rate.
 
@@ -56,6 +56,9 @@ for q in test['questions']:
 | [`test-10.json`](data/test-10.json) | HSK 4 Mock Test Series 10 | 100 |
 | [`test-11.json`](data/test-11.json) | HSK 4 Mock Test Series 11 | 100 |
 | [`test-12.json`](data/test-12.json) | HSK 4 Mock Test Series 12 | 100 |
+| [`test-13.json`](data/test-13.json) | HSK 4 Official Exam H41220 | 100 |
+| [`test-14.json`](data/test-14.json) | HSK 4 Official Exam H41221 | 100 |
+| [`test-15.json`](data/test-15.json) | HSK 4 Official Exam H41327 | 100 |
 
 ## Question Types
 
@@ -69,22 +72,24 @@ Each test follows the official HSK 4 exam structure:
 | `reading_ordering` | Reading 阅读 | Arrange sentences in the correct order |
 | `reading_comprehension` | Reading 阅读 | Read a passage and answer the question |
 | `choice` | Writing 书写 | General multiple choice |
+| `writing_construction` | Writing 书写 | Construct a sentence from a picture prompt and keyword |
 
 ## Data Schema
 
 ```json
 {
-  "quiz_id": 2,
-  "title": "HSK 4 SAMPLE QUIZ",
-  "source": "Mandarin Zone (mandarinzone.com)",
+  "quiz_id": 13,
+  "title": "HSK 4 Official Exam H41220",
+  "source": "Hanban / Confucius Institute Headquarters",
+  "official": true,
   "total_questions": 100,
+  "listening_audio": "/test/13/listening.mp3",
   "questions": [
     {
       "number": 1,
-      "original_id": 405,
       "type": "listening_true_false",
-      "audio": "https://media.mandarinzone.com/wp-content/uploads/2025/07/hsk4-1-02.wav",
-      "text": "",
+      "transcript": "今天天气非常好，我们去植物园了。那儿的花儿都开了，非常漂亮，大家玩儿得很高兴，还照了很多照片。",
+      "text": "1. 他们去逛植物园了。",
       "options": ["对", "错"],
       "correct_answer_index": 0
     }
@@ -92,7 +97,18 @@ Each test follows the official HSK 4 exam structure:
 }
 ```
 
-### Field Reference
+### Top-Level Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `quiz_id` | `int` | Test number within the collection |
+| `title` | `string` | Human-readable test title |
+| `source` | `string` | Source attribution |
+| `official` | `boolean?` | Marks official-paper datasets |
+| `total_questions` | `int` | Expected question count for the test |
+| `listening_audio` | `string?` | Continuous full-section listening audio path for official papers |
+
+### Question Fields
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -100,6 +116,7 @@ Each test follows the official HSK 4 exam structure:
 | `original_id` | `int` | Original database ID |
 | `type` | `string` | Question type (see table above) |
 | `audio` | `string?` | Audio file URL (listening questions only) |
+| `transcript` | `string?` | Listening transcript text for official-paper listening questions |
 | `image` | `string?` | Image URL (if applicable) |
 | `text` | `string?` | Question text content |
 | `options` | `string[]` | Answer options |
@@ -107,7 +124,7 @@ Each test follows the official HSK 4 exam structure:
 
 ## Audio Files
 
-Listening comprehension questions include audio file URLs hosted on Mandarin Zone's CDN. The `audio` field contains the direct URL. Audio files are not included in this repository due to size.
+Most listening comprehension questions include audio file URLs hosted on Mandarin Zone's CDN. Official papers that ship a continuous exam recording use `listening_audio`; for example, `test-13` (H41220), `test-14` (H41221), and `test-15` (H41327) include local MP3 files under their `test/NN/` folders.
 
 ## Use Cases
 
