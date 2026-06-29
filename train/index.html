@@ -8,10 +8,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HSK 4 Practice Center — All Drills + Progress | 练习中心 | Mandarin Zone</title>
-<meta name="description" content="Your HSK 4 practice hub: 15 mock exams, mixed 选词填空 drills, 完成句子 writing, sentence ordering, vocab flashcards, confusable-word and grammar quizzes — all...">
+<meta name="description" content="Your HSK 4 practice hub: 16 mock exams, mixed 选词填空 drills, 完成句子 writing, sentence ordering, vocab flashcards, confusable-word and grammar quizzes — all...">
 <link rel="canonical" href="https://hsk4.mandarinzone.com/train/">
 <meta property="og:title" content="HSK 4 Practice Center — All Drills in One Place">
-<meta property="og:description" content="Your HSK 4 practice hub: 15 mock exams, mixed 选词填空 drills, 完成句子 writing, sentence ordering, vocab flashcards, confusable-word and grammar quizzes — all...">
+<meta property="og:description" content="Your HSK 4 practice hub: 16 mock exams, mixed 选词填空 drills, 完成句子 writing, sentence ordering, vocab flashcards, confusable-word and grammar quizzes — all...">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hsk4.mandarinzone.com/train/">
 <meta property="og:site_name" content="Mandarin Zone">
@@ -102,6 +102,7 @@
         <a class="pc-test" href="/test/13/" data-test="12"><span class="pc-test-num">Test 13</span><span class="pc-test-score" data-score="12"></span></a>
         <a class="pc-test" href="/test/14/" data-test="13"><span class="pc-test-num">Test 14</span><span class="pc-test-score" data-score="13"></span></a>
         <a class="pc-test" href="/test/15/" data-test="14"><span class="pc-test-num">Test 15</span><span class="pc-test-score" data-score="14"></span></a>
+        <a class="pc-test" href="/test/16/" data-test="15"><span class="pc-test-num">Test 16</span><span class="pc-test-score" data-score="15"></span></a>
   </div>
 
   <h2 class="pc-section-title">⚡ Targeted drills</h2>
@@ -139,14 +140,14 @@
 (function(){
   function ls(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
   var results=[], best=null;
-  for(var i=0;i<15;i++){
+  for(var i=0;i<16;i++){
     var raw=ls('hsk4_result_'+i);
     if(raw){ try{ var r=JSON.parse(raw); results.push(r); if(best===null||r.pct>best) best=r.pct;
       var el=document.querySelector('.pc-test-score[data-score="'+i+'"]');
       if(el){ el.textContent=r.pct+'%'; el.className='pc-test-score '+(r.pct>=60?'pass':'fail'); }
     }catch(e){} }
   }
-  document.getElementById('pc-tests-taken').textContent=results.length+'/'+15;
+  document.getElementById('pc-tests-taken').textContent=results.length+'/'+16;
   document.getElementById('pc-best').textContent=(best===null?'—':best+'%');
   var mastered=0; try{ var m=JSON.parse(ls('hsk4-vocab-mastered')||'[]'); mastered=Array.isArray(m)?m.length:0; }catch(e){}
   document.getElementById('pc-vocab').textContent=mastered;
