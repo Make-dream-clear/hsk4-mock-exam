@@ -94,5 +94,11 @@
     "title": "HSK 4 Official Exam 18 (H41001)",
     "questions": 100,
     "official": true
+  },
+  {
+    "file": "test-19.json",
+    "title": "HSK 4 Official Exam 19 (H41330)",
+    "questions": 100,
+    "official": true
   }
 ]

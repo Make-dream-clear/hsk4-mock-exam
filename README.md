@@ -2,12 +2,12 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![HSK Level](https://img.shields.io/badge/HSK-Level%204-red)](https://mandarinzone.com)
-[![Tests](https://img.shields.io/badge/Tests-18%20Exam%20Sets-blue)]()
-[![Questions](https://img.shields.io/badge/Questions-1%2C775-green)]()
+[![Tests](https://img.shields.io/badge/Tests-19%20Exam%20Sets-blue)]()
+[![Questions](https://img.shields.io/badge/Questions-1%2C875-green)]()
 
-**18 HSK 4 mock and official exam sets** with listening, reading, and writing sections — structured JSON data, ready to use in your app, flashcard tool, or study workflow.
+**19 HSK 4 mock and official exam sets** with listening, reading, and writing sections — structured JSON data, ready to use in your app, flashcard tool, or study workflow.
 
-18 套 HSK 4 模拟/官方试题，涵盖听力、阅读、书写三大部分，JSON 格式，可直接用于 App 开发、刷题工具或学习系统。
+19 套 HSK 4 模拟/官方试题，涵盖听力、阅读、书写三大部分，JSON 格式，可直接用于 App 开发、刷题工具或学习系统。
 
 > Created by [**Mandarin Zone**](https://mandarinzone.com) — A Chinese language school in Beijing since 2008, with 5,000+ students from 40+ countries and a 98% HSK pass rate.
 
@@ -62,6 +62,7 @@ for q in test['questions']:
 | [`test-16.json`](data/test-16.json) | HSK 4 Official Exam H41328 | 100 |
 | [`test-17.json`](data/test-17.json) | HSK 4 Official Exam H41329 | 100 |
 | [`test-18.json`](data/test-18.json) | HSK 4 Official Exam H41001 | 100 |
+| [`test-19.json`](data/test-19.json) | HSK 4 Official Exam H41330 | 100 |
 
 ## Question Types
 
@@ -127,7 +128,7 @@ Each test follows the official HSK 4 exam structure:
 
 ## Audio Files
 
-Most listening comprehension questions include audio file URLs hosted on Mandarin Zone's CDN. Official papers that ship a continuous exam recording use `listening_audio`; for example, `test-13` (H41220), `test-14` (H41221), `test-15` (H41327), `test-16` (H41328), `test-17` (H41329), and `test-18` (H41001) include local MP3 files under their `test/NN/` folders.
+Most listening comprehension questions include audio file URLs hosted on Mandarin Zone's CDN. Official papers that ship a continuous exam recording use `listening_audio`; for example, `test-13` (H41220), `test-14` (H41221), `test-15` (H41327), `test-16` (H41328), `test-17` (H41329), `test-18` (H41001), and `test-19` (H41330) include local MP3 files under their `test/NN/` folders.
 
 ## Use Cases
 
