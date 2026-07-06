@@ -3695,6 +3695,12 @@ ${renderFooter()}
     ? readJSON('character-data.json')
     : {};
 
+  // Stroke SVG paths + per-stroke start points for the server-rendered,
+  // no-JS stroke-order diagram (unique indexable content per page).
+  const strokeData = fs.existsSync(path.join(DATA, 'character-strokes.json'))
+    ? readJSON('character-strokes.json')
+    : {};
+
   // Same-radical cross-reference across the full page set (150 writing + 291
   // recognition), so both tiers get radical-based internal links.
   const radicalToChars = {};
@@ -3883,6 +3889,28 @@ ${renderFooter()}
       }))
     };
 
+    // Server-rendered stroke-order diagram (no JS). Make Me a Hanzi paths use a
+    // Y-flipped 1024×1024 grid; the outer scale(1,-1) translate(0,-900) is the
+    // standard transform, and each number label re-flips so text reads upright.
+    const sd = strokeData[c.char];
+    const strokeDiagram = !sd ? '' : `
+  <figure style="margin:16px 0;">
+    <svg viewBox="0 0 1024 1024" width="220" height="220" role="img"
+         aria-label="Stroke order diagram for ${escHtml(c.char)} (${sd.strokes.length} strokes)"
+         style="max-width:100%;background:var(--surface);border:1px solid var(--mist);border-radius:8px;">
+      <g transform="scale(1, -1) translate(0, -900)">
+        ${sd.strokes.map(p => `<path d="${p}" fill="var(--ink, #1a1a2e)"/>`).join('')}
+        ${sd.starts.map((pt, si) => pt ? `<g transform="translate(${pt[0]}, ${pt[1]}) scale(1, -1)">
+          <circle r="38" fill="var(--accent, #c23b22)" opacity="0.85"/>
+          <text text-anchor="middle" dy="18" font-size="52" fill="#fff" font-family="sans-serif">${si + 1}</text>
+        </g>` : '').join('')}
+      </g>
+    </svg>
+    <figcaption style="color:var(--stone);font-size:13px;">
+      ${escHtml(c.char)} — ${sd.strokes.length} strokes, numbered in writing order. 笔顺图（数字为下笔顺序）。
+    </figcaption>
+  </figure>`;
+
     // Real-exam sentences that use this character (unique, links to /test/XX/).
     const examHits = examSentencesByChar[c.char] || [];
     const qCount = charQuestionCount[c.char] || 0;
@@ -3992,6 +4020,8 @@ ${renderNav('characters')}
     </div>
     <div id="writer-status" class="writer-status" aria-live="polite"></div>
   </div>
+
+  ${strokeDiagram}
 
   ${decompHtml}
 
