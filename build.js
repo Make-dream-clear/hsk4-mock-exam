@@ -73,7 +73,13 @@ function examCode(meta, num) {
 function truncDesc(s, max) {
   max = max || 155;
   if (s.length <= max) return s;
-  return s.substring(0, s.lastIndexOf(' ', max - 3)) + '...';
+  const head = s.substring(0, max - 1);
+  // Prefer a sentence boundary (CN + EN terminators) when it keeps enough text.
+  const m = head.match(/^[\s\S]*[.!?。！？](?=[^.!?。！？]*$)/);
+  if (m && m[0].length >= max * 0.6) return m[0].trim();
+  // Otherwise fall back to a word boundary and a trailing ellipsis.
+  const cut = head.lastIndexOf(' ');
+  return (cut > 0 ? head.substring(0, cut) : head).replace(/[,;:，；：]$/, '') + '…';
 }
 
 function ensureDir(dir) {
