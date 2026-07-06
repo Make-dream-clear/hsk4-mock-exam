@@ -1188,18 +1188,16 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, character
     priority: '0.7',
   }));
 
-  // Add character writing pages — top-30 enhanced pages get higher priority
-  // than the 120 basic pages to signal Google which pages to crawl deeper.
-  const enhancedSet = new Set((characterList && characterList.enhanced) || []);
+  // Character pages — all 441 now use the enhanced template. Writing
+  // characters rank slightly above recognition characters for crawl priority.
   const allChars = (characterList && characterList.all) || characterList || [];
   const characterPages = allChars.map(ch => ({
     loc: `/characters/${encodeURIComponent(ch)}/`,
-    priority: enhancedSet.has(ch) ? '0.8' : '0.6',
+    priority: '0.7',
   }));
-  // Recognition-character pages: lower priority than the writing set
   const recognitionPages = ((characterList && characterList.recognition) || []).map(ch => ({
     loc: `/characters/${encodeURIComponent(ch)}/`,
-    priority: '0.5',
+    priority: '0.6',
   }));
 
   const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages, ...characterPages, ...recognitionPages, ...(extraPages || [])];
@@ -3447,6 +3445,7 @@ function buildCharacterPages() {
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/train/">Practice Center</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/characters/">Characters</a> · <a href="/grammar/">Grammar</a> · <a href="/strategies/">Strategies</a> · <a href="/traps/">Traps</a> · <a href="/practice/">Practice</a> · <a href="/compare/">Compare</a> · <a href="/writing/">Writing</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p class="footer-links" style="margin-top:2px;font-size:12px;opacity:0.75;">Character stroke &amp; decomposition data: <a href="https://github.com/skishore/makemeahanzi" target="_blank" rel="noopener">Make Me a Hanzi</a> (Arphic Public License)</p>
 </footer>`;
 
   // ---- Hub page: /characters/index.html ----
@@ -3616,25 +3615,29 @@ ${renderFooter()}
   fs.writeFileSync(path.join(charsDir, 'index.html'), hubHtml, 'utf8');
 
   // ---- v2 enhanced template support ----
-  // Compute density rank: chars sorted by HSK 4 vocab appearance frequency.
-  // Used both to pick the top 30 (which get the enhanced template) and to
-  // surface a "rank #N by HSK 4 vocab density" stat in the Quick Answer.
+  // Compute density rank across the 150 writing characters, sorted by HSK 4
+  // vocab appearance frequency. Surfaces a "rank #N by HSK 4 vocab density"
+  // stat in the Quick Answer (writing characters only — recognition chars are
+  // not part of the handwriting set this rank describes).
   const charListIndex = new Map(chars.map((c, idx) => [c.char, idx]));
   const densityRank = chars
     .map(c => ({ char: c.char, hits: (charToWords[c.char] || []).length }))
     .sort((a, b) => b.hits - a.hits || charListIndex.get(a.char) - charListIndex.get(b.char));
   const charToRank = new Map(densityRank.map((r, idx) => [r.char, idx + 1]));
-  const TOP_N = 30;
-  const top30Set = new Set(densityRank.slice(0, TOP_N).map(r => r.char));
+
+  // Every page character (writing + recognition) is a candidate for internal
+  // cross-links; precompute a fast membership set for the decomposition cards.
+  const pageCharSet = new Set([...chars, ...renduChars].map(c => c.char));
 
   // Load Make Me a Hanzi structured data subset
   const mmah = fs.existsSync(path.join(DATA, 'character-data.json'))
     ? readJSON('character-data.json')
     : {};
 
-  // Same-radical cross-reference within all 150
+  // Same-radical cross-reference across the full page set (150 writing + 291
+  // recognition), so both tiers get radical-based internal links.
   const radicalToChars = {};
-  chars.forEach(c => {
+  [...chars, ...renduChars].forEach(c => {
     const e = mmah[c.char];
     if (!e || !e.radical) return;
     if (!radicalToChars[e.radical]) radicalToChars[e.radical] = [];
@@ -3692,7 +3695,7 @@ ${renderFooter()}
     return '';
   }
 
-  function renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar) {
+  function renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar, isRecognition) {
     const e = mmah[c.char] || {};
     const strokes = e.matches ? e.matches.length : null;
     const radical = e.radical || null;
@@ -3703,7 +3706,7 @@ ${renderFooter()}
     const ety = etymologySentence(c, e);
 
     const sameRadicalOthers = radical
-      ? (radicalToChars[radical] || []).filter(x => x.char !== c.char)
+      ? (radicalToChars[radical] || []).filter(x => x.char !== c.char).slice(0, 12)
       : [];
 
     // Quick Answer block. The first segment ("X (pinyin) means Y") reads as
@@ -3712,7 +3715,9 @@ ${renderFooter()}
     const tail = [];
     if (strokes) tail.push(`is written in <strong>${strokes} strokes</strong>`);
     if (radical) tail.push(`with the radical <strong class="chinese">${escHtml(radical)}</strong>${radDef ? ` (${escHtml(radDef)})` : ''}`);
-    tail.push(`and is one of the 150 HSK 4 required writing characters (rank #${charToRank.get(c.char)} by appearance in HSK 4 vocabulary)`);
+    tail.push(isRecognition
+      ? `and is one of the 441 HSK 4 recognition characters (认读字) — you must recognize it when reading, though handwriting it is not required`
+      : `and is one of the 150 HSK 4 required writing characters (rank #${charToRank.get(c.char)} by appearance in HSK 4 vocabulary)`);
     const quickAnswer = `${head}. It ${tail.join(', ')}.`;
 
     // Pinyin & meanings section
@@ -3730,7 +3735,7 @@ ${renderFooter()}
       const compCards = decomp.comps.map((ch, idx) => {
         const compEntry = mmah[ch];
         const compDef = compEntry ? (compEntry.definition || '').split(/[;,]/)[0].trim() : '';
-        const inOurSet = chars.some(x => x.char === ch);
+        const inOurSet = pageCharSet.has(ch);
         const inner = `
           <span class="char-glyph chinese" style="font-size:32px;">${escHtml(ch)}</span>
           <span class="char-pinyin" style="color:var(--stone);font-size:var(--fs-xs);">${IDS_DESC[decomp.op].positions[idx] || 'part'}</span>
@@ -3778,7 +3783,7 @@ ${renderFooter()}
     const faqs = [
       {
         q: `What does ${c.char} mean in Chinese?`,
-        a: `${c.char} (${pinyinList.join(' / ')}) means ${e.definition || c.meaning}. It is one of the 150 characters required for the HSK 4 writing section.`
+        a: `${c.char} (${pinyinList.join(' / ')}) means ${e.definition || c.meaning}. It is one of the ${isRecognition ? '441 characters HSK 4 requires you to recognize when reading (认读字)' : '150 characters required for the HSK 4 writing section'}.`
       },
       {
         q: `How many strokes does ${c.char} have?`,
@@ -3817,8 +3822,10 @@ ${renderFooter()}
       }))
     };
 
-    const detailTitle = `${c.char} (${pinyinList.join('/')}) Stroke Order, Radical & Practice \u2014 HSK 4 \u6C49\u5B57 | Mandarin Zone`;
-    const detailDesc = truncDesc(`Learn the HSK 4 character ${c.char} (${pinyinList.join('/')}, ${meanings.slice(0, 2).join(', ') || c.meaning}): ${strokes ? strokes + ' strokes, ' : ''}${radical ? 'radical ' + radical + ', ' : ''}decomposition, common words and animated practice. Free, by Mandarin Zone.`);
+    const detailTitle = isRecognition
+      ? `${c.char} (${pinyinList.join('/')}) Meaning, Radical & Stroke Order \u2014 HSK 4 \u8BA4\u8BFB\u5B57 | Mandarin Zone`
+      : `${c.char} (${pinyinList.join('/')}) Stroke Order, Radical & Practice \u2014 HSK 4 \u6C49\u5B57 | Mandarin Zone`;
+    const detailDesc = truncDesc(`${isRecognition ? 'The HSK 4 recognition character' : 'Learn the HSK 4 character'} ${c.char} (${pinyinList.join('/')}, ${meanings.slice(0, 2).join(', ') || c.meaning}): ${strokes ? strokes + ' strokes, ' : ''}${radical ? 'radical ' + radical + ', ' : ''}decomposition, common words and animated practice. Free, by Mandarin Zone.`);
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -3866,7 +3873,9 @@ ${renderNav('characters')}
   </nav>
 
   <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(22px,4vw,30px);margin:16px 0 12px;line-height:1.3;">
-    How to write <span class="chinese">${escHtml(c.char)}</span> (${pinyinList.map(escHtml).join(' / ')}) — Stroke Order, Radical &amp; Practice
+    ${isRecognition
+      ? `<span class="chinese">${escHtml(c.char)}</span> (${pinyinList.map(escHtml).join(' / ')}) — HSK 4 Recognition Character: Meaning, Radical &amp; Stroke Order`
+      : `How to write <span class="chinese">${escHtml(c.char)}</span> (${pinyinList.map(escHtml).join(' / ')}) — Stroke Order, Radical &amp; Practice`}
   </h1>
 
   <section class="char-header" aria-label="Character overview">
@@ -3875,10 +3884,14 @@ ${renderNav('characters')}
       <span class="char-pinyin-big">${pinyinList.map(escHtml).join(' / ')}</span>
       <span class="char-meaning">${escHtml(e.definition || c.meaning)}</span>
       <span class="char-stats">
-        ${strokes ? `<strong>${strokes} strokes</strong> · ` : ''}${radical ? `Radical <span class="chinese" style="color:var(--accent);font-weight:600;">${escHtml(radical)}</span>${radDef ? ` (${escHtml(radDef)})` : ''} · ` : ''}HSK 4 required writing character
+        ${strokes ? `<strong>${strokes} strokes</strong> · ` : ''}${radical ? `Radical <span class="chinese" style="color:var(--accent);font-weight:600;">${escHtml(radical)}</span>${radDef ? ` (${escHtml(radDef)})` : ''} · ` : ''}${isRecognition ? 'HSK 4 recognition character (认读字)' : 'HSK 4 required writing character'}
       </span>
     </div>
   </section>
+
+  ${isRecognition ? `<div style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px;line-height:1.6;">
+    \u{1F441} <strong>Recognition only:</strong> the official HSK 4 syllabus asks you to <em>recognize</em> ${escHtml(c.char)} when reading — handwriting it is not required (that applies to the <a href="/characters/" style="color:var(--jade);font-weight:600;">150 writing characters</a>). The stroke animation below is optional but helps memory.
+  </div>` : ''}
 
   <aside style="background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:14px 18px;margin:16px 0;">
     <strong style="display:block;margin-bottom:4px;color:var(--gold);">Quick Answer</strong>
@@ -3986,7 +3999,7 @@ window.addEventListener('load', function(){
     const i = isRecognition ? pi - chars.length : pi;
     const prev = ownList[(i - 1 + ownList.length) % ownList.length];
     const next = ownList[(i + 1) % ownList.length];
-    const wordsForChar = (charToWords[c.char] || []).slice(0, 8);
+    const wordsForChar = (charToWords[c.char] || []).slice(0, 10);
 
     const wordsHtml = wordsForChar.length === 0
       ? `<p style="color:var(--stone);font-size:var(--fs-sm);">No HSK 4 words containing this character are listed in our vocabulary.</p>`
@@ -4008,183 +4021,18 @@ window.addEventListener('load', function(){
       </div>`;
         }).join('\n');
 
-    // Route top-30 high-density chars to enhanced template (writing tier only)
-    if (!isRecognition && top30Set.has(c.char)) {
-      const enhancedHtml = renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar);
-      const charDir = path.join(charsDir, c.char);
-      ensureDir(charDir);
-      fs.writeFileSync(path.join(charDir, 'index.html'), enhancedHtml, 'utf8');
-      return;
-    }
-
-    const detailTitle = isRecognition
-      ? `${c.char} (${c.pinyin}) Meaning, Pinyin & Stroke Order \u2014 HSK 4 \u8BA4\u8BFB\u5B57 | Mandarin Zone`
-      : `${c.char} (${c.pinyin}) Stroke Order & Writing Practice \u2014 HSK 4 \u6C49\u5B57 | Mandarin Zone`;
-    const detailDesc = truncDesc(isRecognition
-      ? `${c.char} (${c.pinyin}) means "${c.meaning}" — an HSK 4 recognition character (认读字). See its meaning, pinyin, stroke order animation, and the HSK 4 words that use it. By Mandarin Zone.`
-      : `Learn how to write the HSK 4 character ${c.char} (${c.pinyin}, ${c.meaning}) with animated stroke order and interactive handwriting practice. Free practice tool by Mandarin Zone.`);
-
-    const detailHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${escHtml(detailTitle)}</title>
-<meta name="description" content="${escHtml(detailDesc)}">
-<link rel="canonical" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
-<meta property="og:title" content="${escHtml(detailTitle)}">
-<meta property="og:description" content="${escHtml(detailDesc)}">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
-<meta property="og:site_name" content="Mandarin Zone">
-<meta property="og:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
-<meta property="og:image:alt" content="Mandarin Zone — HSK 4 character writing practice">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LearningResource",
-  "name": "How to write ${escHtml(c.char)}",
-  "description": "${escHtml(detailDesc)}",
-  "url": "https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/",
-  "inLanguage": ["en", "zh-CN"],
-  "isAccessibleForFree": true,
-  "learningResourceType": "Interactive practice",
-  "educationalLevel": "Intermediate",
-  "about": { "@type": "Thing", "name": "Chinese character ${escHtml(c.char)} (${escHtml(c.pinyin)})" }
-}
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/common.css">
-<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js" defer></script>
-</head>
-<body>
-${renderNav('characters')}
-<main>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> &rsaquo; <a href="/characters/">Characters</a> &rsaquo; <span class="chinese">${escHtml(c.char)}</span>
-  </nav>
-
-  <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(22px,4vw,30px);margin:16px 0 12px;line-height:1.3;">
-    ${isRecognition
-      ? `<span class="chinese">${escHtml(c.char)}</span> (${escHtml(c.pinyin)}) — HSK 4 Recognition Character: Meaning &amp; Stroke Order`
-      : `How to write <span class="chinese">${escHtml(c.char)}</span> (${escHtml(c.pinyin)}) — HSK 4 Stroke Order &amp; Practice`}
-  </h1>
-
-  <section class="char-header" aria-label="Character overview">
-    <span class="char-hero-glyph chinese" aria-hidden="true">${escHtml(c.char)}</span>
-    <div class="char-meta">
-      <span class="char-pinyin-big">${escHtml(c.pinyin)}</span>
-      <span class="char-meaning">${escHtml(c.meaning)}</span>
-      <span class="char-stats">${isRecognition
-        ? `HSK 4 recognition character (认读字) · ${i + 1} of ${renduChars.length}`
-        : `HSK 4 required writing character · ${i + 1} of ${chars.length}`}</span>
-    </div>
-  </section>
-
-  ${isRecognition ? `<div style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px;line-height:1.6;">
-    \u{1F441} <strong>Recognition only:</strong> the official HSK 4 syllabus asks you to <em>recognize</em> ${escHtml(c.char)} when reading — handwriting it is not required (that applies to the <a href="/characters/" style="color:var(--jade);font-weight:600;">150 writing characters</a>). The stroke animation below is optional but helps memory.
-  </div>` : ''}
-
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 8px;">Stroke Order & Practice</h2>
-  <p style="color:var(--stone);font-size:var(--fs-sm);margin-bottom:8px;">
-    Click <strong>Animate</strong> to see the correct stroke order, then <strong>Practice</strong> to trace it yourself.
-  </p>
-  <div class="writer-stage">
-    <div id="writer-target" class="writer-target" role="application" aria-label="Interactive stroke-order practice for ${escHtml(c.char)} — use the buttons below to animate or trace the character"></div>
-    <div class="writer-controls">
-      <button id="btn-animate" class="btn btn-primary" type="button">▶ Animate</button>
-      <button id="btn-quiz" class="btn btn-secondary" type="button">✎ Practice</button>
-      <button id="btn-reset" class="btn btn-ghost" type="button">↺ Reset</button>
-    </div>
-    <div id="writer-status" class="writer-status" aria-live="polite"></div>
-  </div>
-
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">HSK 4 Words Containing ${escHtml(c.char)}</h2>
-  <div class="char-vocab-list">
-    ${wordsHtml}
-  </div>
-
-  ${charTaskLinksHtml(c)}
-
-  <div class="char-pager">
-    <a href="/characters/${encodeURIComponent(prev.char)}/" class="btn btn-ghost">&larr; <span class="chinese">${escHtml(prev.char)}</span> ${escHtml(prev.pinyin)}</a>
-    <a href="/characters/" class="btn btn-secondary">All Characters</a>
-    <a href="/characters/${encodeURIComponent(next.char)}/" class="btn btn-ghost"><span class="chinese">${escHtml(next.char)}</span> ${escHtml(next.pinyin)} &rarr;</a>
-  </div>
-
-  <section style="margin-top:40px;">
-    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">About the character ${escHtml(c.char)}</h2>
-    <p style="color:var(--stone);line-height:1.8;">
-      <span class="chinese" style="font-weight:600;">${escHtml(c.char)}</span> (<span style="color:var(--accent);">${escHtml(c.pinyin)}</span>) means <em>${escHtml(c.meaning)}</em>. It is one of the ${chars.length} characters HSK 4 expects you to write from memory. Practice the stroke order until it feels automatic — most learners need 5–10 successful traces before a character "sticks".
-    </p>
-  </section>
-</main>
-${renderFooter()}
-<script>
-window.addEventListener('load', function(){
-  if (typeof HanziWriter === 'undefined') {
-    document.getElementById('writer-status').textContent = 'Stroke data could not load — please refresh.';
-    return;
-  }
-  var status = document.getElementById('writer-status');
-  function themeColor(n, f){ try { return getComputedStyle(document.documentElement).getPropertyValue(n).trim() || f; } catch(e){ return f; } }
-  var writer = HanziWriter.create('writer-target', ${JSON.stringify(c.char)}, {
-    width: 360, height: 360, padding: 8,
-    showOutline: true, showCharacter: false,
-    strokeAnimationSpeed: 1, delayBetweenStrokes: 180,
-    strokeColor: themeColor('--ink', '#1a1a2e'), outlineColor: themeColor('--mist', '#c9c4be'), highlightColor: themeColor('--accent', '#c23b22')
-  });
-  function setStatus(msg, cls){
-    status.className = 'writer-status' + (cls ? ' ' + cls : '');
-    status.textContent = msg || '';
-  }
-  document.getElementById('btn-animate').addEventListener('click', function(){
-    setStatus('Watching stroke order…');
-    writer.animateCharacter({ onComplete: function(){ setStatus('Stroke order complete. Try Practice ↓'); } });
-  });
-  document.getElementById('btn-quiz').addEventListener('click', function(){
-    setStatus('Practice mode — trace each stroke.');
-    var mistakes = 0;
-    writer.quiz({
-      showHintAfterMisses: 2,
-      onMistake: function(s){
-        mistakes++;
-        setStatus('Stroke ' + (s.strokeNum + 1) + ' — try again (mistakes: ' + mistakes + ')', 'is-mistake');
-      },
-      onCorrectStroke: function(s){
-        var done = s.strokeNum + 1;
-        var total = done + (s.strokesRemaining || 0);
-        setStatus('Stroke ' + done + ' / ' + total + ' ✓');
-      },
-      onComplete: function(s){
-        setStatus('Done! ' + s.totalMistakes + ' mistakes total.', 'is-success');
-      }
-    });
-  });
-  document.getElementById('btn-reset').addEventListener('click', function(){
-    writer.cancelQuiz();
-    writer.hideCharacter();
-    writer.showOutline();
-    setStatus('');
-  });
-});
-</script>
-</body>
-</html>`;
-
+    // Every page character (150 writing + 291 recognition) now uses the
+    // enhanced template: Quick Answer, decomposition, radical cross-links,
+    // etymology, real-exam sentences, and FAQ + FAQPage structured data.
+    const detailHtml = renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar, isRecognition);
     const charDir = path.join(charsDir, c.char);
     ensureDir(charDir);
     fs.writeFileSync(path.join(charDir, 'index.html'), detailHtml, 'utf8');
   });
 
-  const enhancedCount = top30Set.size;
-  const simpleCount = chars.length - enhancedCount;
-  console.log(`[characters] Generated hub + ${enhancedCount} enhanced (top-30) + ${simpleCount} basic + ${renduChars.length} recognition per-character pages`);
+  console.log(`[characters] Generated hub + ${chars.length} writing + ${renduChars.length} recognition per-character pages (all enhanced template)`);
   return {
     all: chars.map(c => c.char),
-    enhanced: Array.from(top30Set),
     recognition: renduChars.map(c => c.char),
   };
 }
