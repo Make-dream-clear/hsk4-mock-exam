@@ -266,6 +266,62 @@ function computeCharFrequency() {
   return cf;
 }
 
+// Index authentic exam sentences by the characters they contain, so each
+// character page can show real HSK 4 exam sentences that use it. Cleaning
+// rules mirror extractExamSentences (strip question numbers / test markers,
+// keep 8–34 char declaratives with no Latin/digits/underscores). Each hit
+// carries the 1-based test number so we can link back to /test/XX/.
+function extractExamSentencesByChar(pageCharsSet) {
+  const index = readJSON('index.json');
+  const raw = []; // { s, test }
+  index.forEach((meta, ti) => {
+    readJSON(meta.file).questions.forEach(q => {
+      if (!q.text) return;
+      const txt = q.text.replace(/^\s*\d+[.、]\s*/, '');
+      txt.split(/(?<=[。！？])/).forEach(chunk => {
+        let s = chunk.trim(), prev;
+        do { prev = s; s = s.replace(EXAM_SENT_PREFIX, '').trim(); } while (s !== prev);
+        if (s.length >= 8 && s.length <= 34 && /[。！？]$/.test(s)
+            && !/[（）_A-Za-zＡ-Ｚａ-ｚ0-9★☆:：]/.test(s)) {
+          raw.push({ s, test: ti + 1 });
+        }
+      });
+    });
+  });
+  // Dedupe identical sentences (keep the earliest test), then bucket by char.
+  const seen = new Map();
+  const byChar = {};
+  raw.forEach(({ s, test }) => {
+    if (seen.has(s)) return;
+    seen.set(s, test);
+    for (const ch of new Set(s)) {
+      if (!pageCharsSet.has(ch)) continue;
+      (byChar[ch] = byChar[ch] || []).push({ s, test });
+    }
+  });
+  // Per character: prefer 。-terminated then shorter sentences; keep top 3.
+  for (const ch in byChar) {
+    byChar[ch].sort((a, b) =>
+      (a.s.endsWith('。') ? 0 : 1) - (b.s.endsWith('。') ? 0 : 1) || a.s.length - b.s.length);
+    byChar[ch] = byChar[ch].slice(0, 3);
+  }
+  return byChar;
+}
+
+// Count how many exam QUESTIONS each character appears in (question-level, not
+// raw frequency — more intuitive for the "appears in N questions" stat). Same
+// rubric-phrase stripping as computeCharFrequency.
+function computeCharQuestionCount(pageCharsSet) {
+  const index = readJSON('index.json');
+  const counts = {};
+  index.forEach(meta => readJSON(meta.file).questions.forEach(q => {
+    let blob = (q.text || '') + (q.options || []).map(o => String(o).replace(/^[A-F]\s+/, '')).join('');
+    CHAR_BOILERPLATE_PHRASES.forEach(p => { blob = blob.split(p).join(''); });
+    for (const ch of new Set(blob)) if (pageCharsSet.has(ch)) counts[ch] = (counts[ch] || 0) + 1;
+  }));
+  return counts;
+}
+
 function buildVocabulary() {
   console.log('[vocab] Pre-rendering vocabulary...');
   const words = readJSON('vocabulary.json');
@@ -3629,6 +3685,11 @@ ${renderFooter()}
   // cross-links; precompute a fast membership set for the decomposition cards.
   const pageCharSet = new Set([...chars, ...renduChars].map(c => c.char));
 
+  // Real-exam evidence: authentic sentences per character + how many exam
+  // questions each appears in. Powers the "真题例句" section (unique content).
+  const examSentencesByChar = extractExamSentencesByChar(pageCharSet);
+  const charQuestionCount = computeCharQuestionCount(pageCharSet);
+
   // Load Make Me a Hanzi structured data subset
   const mmah = fs.existsSync(path.join(DATA, 'character-data.json'))
     ? readJSON('character-data.json')
@@ -3822,6 +3883,22 @@ ${renderFooter()}
       }))
     };
 
+    // Real-exam sentences that use this character (unique, links to /test/XX/).
+    const examHits = examSentencesByChar[c.char] || [];
+    const qCount = charQuestionCount[c.char] || 0;
+    const examHtml = examHits.length === 0 ? '' : `
+  <section>
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Seen in the Real Exams / \u771F\u9898\u4F8B\u53E5</h2>
+    <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">
+      <span class="chinese" style="font-weight:600;">${escHtml(c.char)}</span> appears in
+      <strong>${qCount} question${qCount === 1 ? '' : 's'}</strong> across the ${TEST_COUNT} mock &amp; official HSK 4 exams on this site.
+      Real exam sentences using it:</p>
+    ${examHits.map(({ s, test }) => `<div class="vw-example" style="margin-bottom:10px;">
+      <div class="ex-cn chinese">${escHtml(s).split('').map(ch => ch === c.char ? `<span class="hl">${ch}</span>` : ch).join('')}</div>
+      <div><a href="/test/${String(test).padStart(2, '0')}/" style="color:var(--accent);font-size:13px;">From Mock Exam ${String(test).padStart(2, '0')} &rarr;</a></div>
+    </div>`).join('')}
+  </section>`;
+
     const detailTitle = isRecognition
       ? `${c.char} (${pinyinList.join('/')}) Meaning, Radical & Stroke Order \u2014 HSK 4 \u8BA4\u8BFB\u5B57 | Mandarin Zone`
       : `${c.char} (${pinyinList.join('/')}) Stroke Order, Radical & Practice \u2014 HSK 4 \u6C49\u5B57 | Mandarin Zone`;
@@ -3926,6 +4003,8 @@ ${renderNav('characters')}
   <div class="char-vocab-list">
     ${wordsHtml}
   </div>
+
+  ${examHtml}
 
   ${charTaskLinksHtml(c)}
 
