@@ -11,6 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = __dirname;
 const DATA = path.join(ROOT, 'data');
@@ -73,7 +74,13 @@ function examCode(meta, num) {
 function truncDesc(s, max) {
   max = max || 155;
   if (s.length <= max) return s;
-  return s.substring(0, s.lastIndexOf(' ', max - 3)) + '...';
+  const head = s.substring(0, max - 1);
+  // Prefer a sentence boundary (CN + EN terminators) when it keeps enough text.
+  const m = head.match(/^[\s\S]*[.!?。！？](?=[^.!?。！？]*$)/);
+  if (m && m[0].length >= max * 0.6) return m[0].trim();
+  // Otherwise fall back to a word boundary and a trailing ellipsis.
+  const cut = head.lastIndexOf(' ');
+  return (cut > 0 ? head.substring(0, cut) : head).replace(/[,;:，；：]$/, '') + '…';
 }
 
 function ensureDir(dir) {
@@ -264,6 +271,62 @@ function computeCharFrequency() {
   const cf = {};
   for (const ch of corpus) if (ch >= '一' && ch <= '鿿') cf[ch] = (cf[ch] || 0) + 1;
   return cf;
+}
+
+// Index authentic exam sentences by the characters they contain, so each
+// character page can show real HSK 4 exam sentences that use it. Cleaning
+// rules mirror extractExamSentences (strip question numbers / test markers,
+// keep 8–34 char declaratives with no Latin/digits/underscores). Each hit
+// carries the 1-based test number so we can link back to /test/XX/.
+function extractExamSentencesByChar(pageCharsSet) {
+  const index = readJSON('index.json');
+  const raw = []; // { s, test }
+  index.forEach((meta, ti) => {
+    readJSON(meta.file).questions.forEach(q => {
+      if (!q.text) return;
+      const txt = q.text.replace(/^\s*\d+[.、]\s*/, '');
+      txt.split(/(?<=[。！？])/).forEach(chunk => {
+        let s = chunk.trim(), prev;
+        do { prev = s; s = s.replace(EXAM_SENT_PREFIX, '').trim(); } while (s !== prev);
+        if (s.length >= 8 && s.length <= 34 && /[。！？]$/.test(s)
+            && !/[（）_A-Za-zＡ-Ｚａ-ｚ0-9★☆:：]/.test(s)) {
+          raw.push({ s, test: ti + 1 });
+        }
+      });
+    });
+  });
+  // Dedupe identical sentences (keep the earliest test), then bucket by char.
+  const seen = new Map();
+  const byChar = {};
+  raw.forEach(({ s, test }) => {
+    if (seen.has(s)) return;
+    seen.set(s, test);
+    for (const ch of new Set(s)) {
+      if (!pageCharsSet.has(ch)) continue;
+      (byChar[ch] = byChar[ch] || []).push({ s, test });
+    }
+  });
+  // Per character: prefer 。-terminated then shorter sentences; keep top 3.
+  for (const ch in byChar) {
+    byChar[ch].sort((a, b) =>
+      (a.s.endsWith('。') ? 0 : 1) - (b.s.endsWith('。') ? 0 : 1) || a.s.length - b.s.length);
+    byChar[ch] = byChar[ch].slice(0, 3);
+  }
+  return byChar;
+}
+
+// Count how many exam QUESTIONS each character appears in (question-level, not
+// raw frequency — more intuitive for the "appears in N questions" stat). Same
+// rubric-phrase stripping as computeCharFrequency.
+function computeCharQuestionCount(pageCharsSet) {
+  const index = readJSON('index.json');
+  const counts = {};
+  index.forEach(meta => readJSON(meta.file).questions.forEach(q => {
+    let blob = (q.text || '') + (q.options || []).map(o => String(o).replace(/^[A-F]\s+/, '')).join('');
+    CHAR_BOILERPLATE_PHRASES.forEach(p => { blob = blob.split(p).join(''); });
+    for (const ch of new Set(blob)) if (pageCharsSet.has(ch)) counts[ch] = (counts[ch] || 0) + 1;
+  }));
+  return counts;
 }
 
 function buildVocabulary() {
@@ -1118,10 +1181,15 @@ ${testLinks}
 // 4. UPDATE SITEMAP with test pages
 // ============================================================
 
+// Module-level: buildSitemap collects the URL list here; writeSitemaps() (the
+// final step of RUN ALL) hashes each page's final content and writes the files.
+// Splitting the two lets page mutations that run AFTER buildSitemap
+// (injectAnalytics / injectPreconnect / syncCounts) be reflected in the hashes.
+let SITEMAP_PAGES = [];
+
 function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, extraPages) {
-  console.log('[sitemap] Updating sitemap.xml...');
+  console.log('[sitemap] Collecting URLs...');
   const index = readJSON('index.json');
-  const today = new Date().toISOString().split('T')[0];
 
   const existingPages = [
     { loc: '/', priority: '1.0' },
@@ -1164,61 +1232,127 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, character
     { loc: '/words/', priority: '0.7' },
   ];
 
-  // Add test pages
+  // Test pages (+ their transcript sub-pages arrive via extraPages/core)
   const testPages = index.map((_, i) => ({
     loc: `/test/${String(i + 1).padStart(2, '0')}/`,
     priority: '0.8',
   }));
 
-  // Add task topic pages
+  // Task topic pages
   const taskPages = (taskSlugs || []).map(slug => ({
     loc: `/topics/${slug}/`,
     priority: '0.7',
   }));
 
-  // Add confusable word pages
+  // Confusable word pages
   const confusablePages = (confusableSlugs || []).map(slug => ({
     loc: `/words/${slug}/`,
     priority: '0.7',
   }));
 
-  // Add grammar pattern pages
+  // Grammar pattern pages
   const grammarPatternPages = (grammarPatternSlugs || []).map(slug => ({
     loc: `/grammar/patterns/${slug}/`,
     priority: '0.7',
   }));
 
-  // Add character writing pages — top-30 enhanced pages get higher priority
-  // than the 120 basic pages to signal Google which pages to crawl deeper.
-  const enhancedSet = new Set((characterList && characterList.enhanced) || []);
+  // Character pages — all 441 now use the enhanced template. Writing
+  // characters rank slightly above recognition characters for crawl priority.
   const allChars = (characterList && characterList.all) || characterList || [];
   const characterPages = allChars.map(ch => ({
     loc: `/characters/${encodeURIComponent(ch)}/`,
-    priority: enhancedSet.has(ch) ? '0.8' : '0.6',
+    priority: '0.7',
   }));
-  // Recognition-character pages: lower priority than the writing set
   const recognitionPages = ((characterList && characterList.recognition) || []).map(ch => ({
     loc: `/characters/${encodeURIComponent(ch)}/`,
-    priority: '0.5',
+    priority: '0.6',
   }));
 
-  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages, ...characterPages, ...recognitionPages, ...(extraPages || [])];
+  // Tag each group with a cluster so writeSitemaps() can split the output.
+  // Clusters map to the sitemap-<cluster>.xml files; keeping the big clusters
+  // (characters / tests / topics) separate lets Search Console report their
+  // indexing rates independently.
+  const tag = (arr, cluster) => arr.map(p => ({ ...p, cluster }));
+  SITEMAP_PAGES = [
+    ...tag(existingPages, 'core'),
+    ...tag(extraPages || [], 'core'),
+    ...tag(testPages, 'tests'),
+    ...tag(taskPages, 'topics'),
+    ...tag(characterPages, 'characters'),
+    ...tag(recognitionPages, 'characters'),
+    ...tag(confusablePages, 'words'),
+    ...tag(grammarPatternPages, 'words'),
+  ];
+  console.log(`[sitemap] Collected ${SITEMAP_PAGES.length} URLs (written by writeSitemaps at end of build)`);
+}
 
-  const urls = allPages.map(p => `  <url>
+// Map a sitemap loc back to the on-disk file that backs it.
+function locToFile(loc) {
+  if (loc === '/') return path.join(ROOT, 'index.html');
+  const rel = decodeURIComponent(loc.replace(/^\//, '').replace(/\/$/, ''));
+  return path.join(ROOT, rel, 'index.html');
+}
+
+// Write the split sitemaps with content-hash-based lastmod. Runs LAST so every
+// page mutation is already on disk. A page's <lastmod> only advances when its
+// file content actually changes (tracked in data/sitemap-state.json), so Google
+// sees honest change dates instead of a whole-site date bump every build.
+function writeSitemaps() {
+  console.log('[sitemap] Hashing pages and writing split sitemaps...');
+  const today = new Date().toISOString().split('T')[0];
+  const statePath = path.join(DATA, 'sitemap-state.json');
+  const state = fs.existsSync(statePath) ? JSON.parse(fs.readFileSync(statePath, 'utf8')) : {};
+
+  // Dedupe by loc (a page could be collected twice); first priority/cluster wins.
+  const seen = new Map();
+  for (const p of SITEMAP_PAGES) if (!seen.has(p.loc)) seen.set(p.loc, p);
+
+  const nextState = {};
+  const byCluster = {};
+  let missing = 0, changed = 0;
+  for (const { loc, priority, cluster } of seen.values()) {
+    const file = locToFile(loc);
+    if (!fs.existsSync(file)) { missing++; console.warn(`[sitemap] WARN missing file for ${loc}`); continue; }
+    const hash = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 16);
+    const prev = state[loc];
+    const lastmod = (prev && prev.hash === hash) ? prev.lastmod : today;
+    if (!prev || prev.hash !== hash) changed++;
+    nextState[loc] = { hash, lastmod };
+    (byCluster[cluster] = byCluster[cluster] || []).push({ loc, priority, lastmod });
+  }
+
+  // Write one <urlset> per cluster; sort by loc for stable, diff-friendly output.
+  const clusterLastmod = {};
+  const clusterNames = Object.keys(byCluster).sort();
+  for (const cluster of clusterNames) {
+    const pages = byCluster[cluster].sort((a, b) => a.loc.localeCompare(b.loc));
+    clusterLastmod[cluster] = pages.reduce((max, p) => p.lastmod > max ? p.lastmod : max, '0000-00-00');
+    const urls = pages.map(p => `  <url>
     <loc>https://hsk4.mandarinzone.com${p.loc}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>${p.lastmod}</lastmod>
     <priority>${p.priority}</priority>
   </url>`).join('\n');
+    fs.writeFileSync(path.join(ROOT, `sitemap-${cluster}.xml`),
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`, 'utf8');
+  }
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls}
-</urlset>
-`;
+  // Write the sitemap index pointing at each cluster file.
+  const sitemaps = clusterNames.map(cluster => `  <sitemap>
+    <loc>https://hsk4.mandarinzone.com/sitemap-${cluster}.xml</loc>
+    <lastmod>${clusterLastmod[cluster]}</lastmod>
+  </sitemap>`).join('\n');
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemaps}\n</sitemapindex>\n`, 'utf8');
 
-  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
-  console.log(`[sitemap] Updated with ${allPages.length} URLs (added ${testPages.length} test pages)`);
+  // Persist state (sorted keys → deterministic file).
+  const sortedState = {};
+  Object.keys(nextState).sort().forEach(k => { sortedState[k] = nextState[k]; });
+  fs.writeFileSync(statePath, JSON.stringify(sortedState, null, 2) + '\n', 'utf8');
+
+  const total = Object.keys(nextState).length;
+  console.log(`[sitemap] ${total} URLs across ${clusterNames.length} clusters `
+    + `(${clusterNames.map(c => `${c}:${byCluster[c].length}`).join(', ')}); `
+    + `${changed} changed lastmod${missing ? `, ${missing} missing files` : ''}`);
 }
 
 // ============================================================
@@ -3447,6 +3581,7 @@ function buildCharacterPages() {
     </div>
   </div>
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/train/">Practice Center</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/characters/">Characters</a> · <a href="/grammar/">Grammar</a> · <a href="/strategies/">Strategies</a> · <a href="/traps/">Traps</a> · <a href="/practice/">Practice</a> · <a href="/compare/">Compare</a> · <a href="/writing/">Writing</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  <p class="footer-links" style="margin-top:2px;font-size:12px;opacity:0.75;">Character stroke &amp; decomposition data: <a href="https://github.com/skishore/makemeahanzi" target="_blank" rel="noopener">Make Me a Hanzi</a> (Arphic Public License)</p>
 </footer>`;
 
   // ---- Hub page: /characters/index.html ----
@@ -3616,25 +3751,40 @@ ${renderFooter()}
   fs.writeFileSync(path.join(charsDir, 'index.html'), hubHtml, 'utf8');
 
   // ---- v2 enhanced template support ----
-  // Compute density rank: chars sorted by HSK 4 vocab appearance frequency.
-  // Used both to pick the top 30 (which get the enhanced template) and to
-  // surface a "rank #N by HSK 4 vocab density" stat in the Quick Answer.
+  // Compute density rank across the 150 writing characters, sorted by HSK 4
+  // vocab appearance frequency. Surfaces a "rank #N by HSK 4 vocab density"
+  // stat in the Quick Answer (writing characters only — recognition chars are
+  // not part of the handwriting set this rank describes).
   const charListIndex = new Map(chars.map((c, idx) => [c.char, idx]));
   const densityRank = chars
     .map(c => ({ char: c.char, hits: (charToWords[c.char] || []).length }))
     .sort((a, b) => b.hits - a.hits || charListIndex.get(a.char) - charListIndex.get(b.char));
   const charToRank = new Map(densityRank.map((r, idx) => [r.char, idx + 1]));
-  const TOP_N = 30;
-  const top30Set = new Set(densityRank.slice(0, TOP_N).map(r => r.char));
+
+  // Every page character (writing + recognition) is a candidate for internal
+  // cross-links; precompute a fast membership set for the decomposition cards.
+  const pageCharSet = new Set([...chars, ...renduChars].map(c => c.char));
+
+  // Real-exam evidence: authentic sentences per character + how many exam
+  // questions each appears in. Powers the "真题例句" section (unique content).
+  const examSentencesByChar = extractExamSentencesByChar(pageCharSet);
+  const charQuestionCount = computeCharQuestionCount(pageCharSet);
 
   // Load Make Me a Hanzi structured data subset
   const mmah = fs.existsSync(path.join(DATA, 'character-data.json'))
     ? readJSON('character-data.json')
     : {};
 
-  // Same-radical cross-reference within all 150
+  // Stroke SVG paths + per-stroke start points for the server-rendered,
+  // no-JS stroke-order diagram (unique indexable content per page).
+  const strokeData = fs.existsSync(path.join(DATA, 'character-strokes.json'))
+    ? readJSON('character-strokes.json')
+    : {};
+
+  // Same-radical cross-reference across the full page set (150 writing + 291
+  // recognition), so both tiers get radical-based internal links.
   const radicalToChars = {};
-  chars.forEach(c => {
+  [...chars, ...renduChars].forEach(c => {
     const e = mmah[c.char];
     if (!e || !e.radical) return;
     if (!radicalToChars[e.radical]) radicalToChars[e.radical] = [];
@@ -3692,7 +3842,7 @@ ${renderFooter()}
     return '';
   }
 
-  function renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar) {
+  function renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar, isRecognition) {
     const e = mmah[c.char] || {};
     const strokes = e.matches ? e.matches.length : null;
     const radical = e.radical || null;
@@ -3703,7 +3853,7 @@ ${renderFooter()}
     const ety = etymologySentence(c, e);
 
     const sameRadicalOthers = radical
-      ? (radicalToChars[radical] || []).filter(x => x.char !== c.char)
+      ? (radicalToChars[radical] || []).filter(x => x.char !== c.char).slice(0, 12)
       : [];
 
     // Quick Answer block. The first segment ("X (pinyin) means Y") reads as
@@ -3712,7 +3862,9 @@ ${renderFooter()}
     const tail = [];
     if (strokes) tail.push(`is written in <strong>${strokes} strokes</strong>`);
     if (radical) tail.push(`with the radical <strong class="chinese">${escHtml(radical)}</strong>${radDef ? ` (${escHtml(radDef)})` : ''}`);
-    tail.push(`and is one of the 150 HSK 4 required writing characters (rank #${charToRank.get(c.char)} by appearance in HSK 4 vocabulary)`);
+    tail.push(isRecognition
+      ? `and is one of the 441 HSK 4 recognition characters (认读字) — you must recognize it when reading, though handwriting it is not required`
+      : `and is one of the 150 HSK 4 required writing characters (rank #${charToRank.get(c.char)} by appearance in HSK 4 vocabulary)`);
     const quickAnswer = `${head}. It ${tail.join(', ')}.`;
 
     // Pinyin & meanings section
@@ -3730,7 +3882,7 @@ ${renderFooter()}
       const compCards = decomp.comps.map((ch, idx) => {
         const compEntry = mmah[ch];
         const compDef = compEntry ? (compEntry.definition || '').split(/[;,]/)[0].trim() : '';
-        const inOurSet = chars.some(x => x.char === ch);
+        const inOurSet = pageCharSet.has(ch);
         const inner = `
           <span class="char-glyph chinese" style="font-size:32px;">${escHtml(ch)}</span>
           <span class="char-pinyin" style="color:var(--stone);font-size:var(--fs-xs);">${IDS_DESC[decomp.op].positions[idx] || 'part'}</span>
@@ -3778,7 +3930,7 @@ ${renderFooter()}
     const faqs = [
       {
         q: `What does ${c.char} mean in Chinese?`,
-        a: `${c.char} (${pinyinList.join(' / ')}) means ${e.definition || c.meaning}. It is one of the 150 characters required for the HSK 4 writing section.`
+        a: `${c.char} (${pinyinList.join(' / ')}) means ${e.definition || c.meaning}. It is one of the ${isRecognition ? '441 characters HSK 4 requires you to recognize when reading (认读字)' : '150 characters required for the HSK 4 writing section'}.`
       },
       {
         q: `How many strokes does ${c.char} have?`,
@@ -3817,8 +3969,48 @@ ${renderFooter()}
       }))
     };
 
-    const detailTitle = `${c.char} (${pinyinList.join('/')}) Stroke Order, Radical & Practice \u2014 HSK 4 \u6C49\u5B57 | Mandarin Zone`;
-    const detailDesc = truncDesc(`Learn the HSK 4 character ${c.char} (${pinyinList.join('/')}, ${meanings.slice(0, 2).join(', ') || c.meaning}): ${strokes ? strokes + ' strokes, ' : ''}${radical ? 'radical ' + radical + ', ' : ''}decomposition, common words and animated practice. Free, by Mandarin Zone.`);
+    // Server-rendered stroke-order diagram (no JS). Make Me a Hanzi paths use a
+    // Y-flipped 1024×1024 grid; the outer scale(1,-1) translate(0,-900) is the
+    // standard transform, and each number label re-flips so text reads upright.
+    const sd = strokeData[c.char];
+    const strokeDiagram = !sd ? '' : `
+  <figure style="margin:16px 0;">
+    <svg viewBox="0 0 1024 1024" width="220" height="220" role="img"
+         aria-label="Stroke order diagram for ${escHtml(c.char)} (${sd.strokes.length} strokes)"
+         style="max-width:100%;background:var(--surface);border:1px solid var(--mist);border-radius:8px;">
+      <g transform="scale(1, -1) translate(0, -900)">
+        ${sd.strokes.map(p => `<path d="${p}" fill="var(--ink, #1a1a2e)"/>`).join('')}
+        ${sd.starts.map((pt, si) => pt ? `<g transform="translate(${pt[0]}, ${pt[1]}) scale(1, -1)">
+          <circle r="38" fill="var(--accent, #c23b22)" opacity="0.85"/>
+          <text text-anchor="middle" dy="18" font-size="52" fill="#fff" font-family="sans-serif">${si + 1}</text>
+        </g>` : '').join('')}
+      </g>
+    </svg>
+    <figcaption style="color:var(--stone);font-size:13px;">
+      ${escHtml(c.char)} — ${sd.strokes.length} strokes, numbered in writing order. 笔顺图（数字为下笔顺序）。
+    </figcaption>
+  </figure>`;
+
+    // Real-exam sentences that use this character (unique, links to /test/XX/).
+    const examHits = examSentencesByChar[c.char] || [];
+    const qCount = charQuestionCount[c.char] || 0;
+    const examHtml = examHits.length === 0 ? '' : `
+  <section>
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Seen in the Real Exams / \u771F\u9898\u4F8B\u53E5</h2>
+    <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">
+      <span class="chinese" style="font-weight:600;">${escHtml(c.char)}</span> appears in
+      <strong>${qCount} question${qCount === 1 ? '' : 's'}</strong> across the ${TEST_COUNT} mock &amp; official HSK 4 exams on this site.
+      Real exam sentences using it:</p>
+    ${examHits.map(({ s, test }) => `<div class="vw-example" style="margin-bottom:10px;">
+      <div class="ex-cn chinese">${escHtml(s).split('').map(ch => ch === c.char ? `<span class="hl">${ch}</span>` : ch).join('')}</div>
+      <div><a href="/test/${String(test).padStart(2, '0')}/" style="color:var(--accent);font-size:13px;">From Mock Exam ${String(test).padStart(2, '0')} &rarr;</a></div>
+    </div>`).join('')}
+  </section>`;
+
+    const detailTitle = isRecognition
+      ? `${c.char} (${pinyinList.join('/')}) Meaning, Radical & Stroke Order \u2014 HSK 4 \u8BA4\u8BFB\u5B57 | Mandarin Zone`
+      : `${c.char} (${pinyinList.join('/')}) Stroke Order, Radical & Practice \u2014 HSK 4 \u6C49\u5B57 | Mandarin Zone`;
+    const detailDesc = truncDesc(`${isRecognition ? 'The HSK 4 recognition character' : 'Learn the HSK 4 character'} ${c.char} (${pinyinList.join('/')}, ${meanings.slice(0, 2).join(', ') || c.meaning}): ${strokes ? strokes + ' strokes, ' : ''}${radical ? 'radical ' + radical + ', ' : ''}decomposition, common words and animated practice. Free, by Mandarin Zone.`);
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -3866,7 +4058,9 @@ ${renderNav('characters')}
   </nav>
 
   <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(22px,4vw,30px);margin:16px 0 12px;line-height:1.3;">
-    How to write <span class="chinese">${escHtml(c.char)}</span> (${pinyinList.map(escHtml).join(' / ')}) — Stroke Order, Radical &amp; Practice
+    ${isRecognition
+      ? `<span class="chinese">${escHtml(c.char)}</span> (${pinyinList.map(escHtml).join(' / ')}) — HSK 4 Recognition Character: Meaning, Radical &amp; Stroke Order`
+      : `How to write <span class="chinese">${escHtml(c.char)}</span> (${pinyinList.map(escHtml).join(' / ')}) — Stroke Order, Radical &amp; Practice`}
   </h1>
 
   <section class="char-header" aria-label="Character overview">
@@ -3875,10 +4069,14 @@ ${renderNav('characters')}
       <span class="char-pinyin-big">${pinyinList.map(escHtml).join(' / ')}</span>
       <span class="char-meaning">${escHtml(e.definition || c.meaning)}</span>
       <span class="char-stats">
-        ${strokes ? `<strong>${strokes} strokes</strong> · ` : ''}${radical ? `Radical <span class="chinese" style="color:var(--accent);font-weight:600;">${escHtml(radical)}</span>${radDef ? ` (${escHtml(radDef)})` : ''} · ` : ''}HSK 4 required writing character
+        ${strokes ? `<strong>${strokes} strokes</strong> · ` : ''}${radical ? `Radical <span class="chinese" style="color:var(--accent);font-weight:600;">${escHtml(radical)}</span>${radDef ? ` (${escHtml(radDef)})` : ''} · ` : ''}${isRecognition ? 'HSK 4 recognition character (认读字)' : 'HSK 4 required writing character'}
       </span>
     </div>
   </section>
+
+  ${isRecognition ? `<div style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px;line-height:1.6;">
+    \u{1F441} <strong>Recognition only:</strong> the official HSK 4 syllabus asks you to <em>recognize</em> ${escHtml(c.char)} when reading — handwriting it is not required (that applies to the <a href="/characters/" style="color:var(--jade);font-weight:600;">150 writing characters</a>). The stroke animation below is optional but helps memory.
+  </div>` : ''}
 
   <aside style="background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:14px 18px;margin:16px 0;">
     <strong style="display:block;margin-bottom:4px;color:var(--gold);">Quick Answer</strong>
@@ -3903,6 +4101,8 @@ ${renderNav('characters')}
     <div id="writer-status" class="writer-status" aria-live="polite"></div>
   </div>
 
+  ${strokeDiagram}
+
   ${decompHtml}
 
   ${radicalHtml}
@@ -3913,6 +4113,8 @@ ${renderNav('characters')}
   <div class="char-vocab-list">
     ${wordsHtml}
   </div>
+
+  ${examHtml}
 
   ${charTaskLinksHtml(c)}
 
@@ -3986,7 +4188,7 @@ window.addEventListener('load', function(){
     const i = isRecognition ? pi - chars.length : pi;
     const prev = ownList[(i - 1 + ownList.length) % ownList.length];
     const next = ownList[(i + 1) % ownList.length];
-    const wordsForChar = (charToWords[c.char] || []).slice(0, 8);
+    const wordsForChar = (charToWords[c.char] || []).slice(0, 10);
 
     const wordsHtml = wordsForChar.length === 0
       ? `<p style="color:var(--stone);font-size:var(--fs-sm);">No HSK 4 words containing this character are listed in our vocabulary.</p>`
@@ -4008,183 +4210,18 @@ window.addEventListener('load', function(){
       </div>`;
         }).join('\n');
 
-    // Route top-30 high-density chars to enhanced template (writing tier only)
-    if (!isRecognition && top30Set.has(c.char)) {
-      const enhancedHtml = renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar);
-      const charDir = path.join(charsDir, c.char);
-      ensureDir(charDir);
-      fs.writeFileSync(path.join(charDir, 'index.html'), enhancedHtml, 'utf8');
-      return;
-    }
-
-    const detailTitle = isRecognition
-      ? `${c.char} (${c.pinyin}) Meaning, Pinyin & Stroke Order \u2014 HSK 4 \u8BA4\u8BFB\u5B57 | Mandarin Zone`
-      : `${c.char} (${c.pinyin}) Stroke Order & Writing Practice \u2014 HSK 4 \u6C49\u5B57 | Mandarin Zone`;
-    const detailDesc = truncDesc(isRecognition
-      ? `${c.char} (${c.pinyin}) means "${c.meaning}" — an HSK 4 recognition character (认读字). See its meaning, pinyin, stroke order animation, and the HSK 4 words that use it. By Mandarin Zone.`
-      : `Learn how to write the HSK 4 character ${c.char} (${c.pinyin}, ${c.meaning}) with animated stroke order and interactive handwriting practice. Free practice tool by Mandarin Zone.`);
-
-    const detailHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${escHtml(detailTitle)}</title>
-<meta name="description" content="${escHtml(detailDesc)}">
-<link rel="canonical" href="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
-<meta property="og:title" content="${escHtml(detailTitle)}">
-<meta property="og:description" content="${escHtml(detailDesc)}">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/">
-<meta property="og:site_name" content="Mandarin Zone">
-<meta property="og:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
-<meta property="og:image:alt" content="Mandarin Zone — HSK 4 character writing practice">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.mandarinzone.com/wp-content/uploads/2015/01/logo.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LearningResource",
-  "name": "How to write ${escHtml(c.char)}",
-  "description": "${escHtml(detailDesc)}",
-  "url": "https://hsk4.mandarinzone.com/characters/${encodeURIComponent(c.char)}/",
-  "inLanguage": ["en", "zh-CN"],
-  "isAccessibleForFree": true,
-  "learningResourceType": "Interactive practice",
-  "educationalLevel": "Intermediate",
-  "about": { "@type": "Thing", "name": "Chinese character ${escHtml(c.char)} (${escHtml(c.pinyin)})" }
-}
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/common.css">
-<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js" defer></script>
-</head>
-<body>
-${renderNav('characters')}
-<main>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> &rsaquo; <a href="/characters/">Characters</a> &rsaquo; <span class="chinese">${escHtml(c.char)}</span>
-  </nav>
-
-  <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(22px,4vw,30px);margin:16px 0 12px;line-height:1.3;">
-    ${isRecognition
-      ? `<span class="chinese">${escHtml(c.char)}</span> (${escHtml(c.pinyin)}) — HSK 4 Recognition Character: Meaning &amp; Stroke Order`
-      : `How to write <span class="chinese">${escHtml(c.char)}</span> (${escHtml(c.pinyin)}) — HSK 4 Stroke Order &amp; Practice`}
-  </h1>
-
-  <section class="char-header" aria-label="Character overview">
-    <span class="char-hero-glyph chinese" aria-hidden="true">${escHtml(c.char)}</span>
-    <div class="char-meta">
-      <span class="char-pinyin-big">${escHtml(c.pinyin)}</span>
-      <span class="char-meaning">${escHtml(c.meaning)}</span>
-      <span class="char-stats">${isRecognition
-        ? `HSK 4 recognition character (认读字) · ${i + 1} of ${renduChars.length}`
-        : `HSK 4 required writing character · ${i + 1} of ${chars.length}`}</span>
-    </div>
-  </section>
-
-  ${isRecognition ? `<div style="background:var(--jade-soft);border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px;line-height:1.6;">
-    \u{1F441} <strong>Recognition only:</strong> the official HSK 4 syllabus asks you to <em>recognize</em> ${escHtml(c.char)} when reading — handwriting it is not required (that applies to the <a href="/characters/" style="color:var(--jade);font-weight:600;">150 writing characters</a>). The stroke animation below is optional but helps memory.
-  </div>` : ''}
-
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:24px 0 8px;">Stroke Order & Practice</h2>
-  <p style="color:var(--stone);font-size:var(--fs-sm);margin-bottom:8px;">
-    Click <strong>Animate</strong> to see the correct stroke order, then <strong>Practice</strong> to trace it yourself.
-  </p>
-  <div class="writer-stage">
-    <div id="writer-target" class="writer-target" role="application" aria-label="Interactive stroke-order practice for ${escHtml(c.char)} — use the buttons below to animate or trace the character"></div>
-    <div class="writer-controls">
-      <button id="btn-animate" class="btn btn-primary" type="button">▶ Animate</button>
-      <button id="btn-quiz" class="btn btn-secondary" type="button">✎ Practice</button>
-      <button id="btn-reset" class="btn btn-ghost" type="button">↺ Reset</button>
-    </div>
-    <div id="writer-status" class="writer-status" aria-live="polite"></div>
-  </div>
-
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">HSK 4 Words Containing ${escHtml(c.char)}</h2>
-  <div class="char-vocab-list">
-    ${wordsHtml}
-  </div>
-
-  ${charTaskLinksHtml(c)}
-
-  <div class="char-pager">
-    <a href="/characters/${encodeURIComponent(prev.char)}/" class="btn btn-ghost">&larr; <span class="chinese">${escHtml(prev.char)}</span> ${escHtml(prev.pinyin)}</a>
-    <a href="/characters/" class="btn btn-secondary">All Characters</a>
-    <a href="/characters/${encodeURIComponent(next.char)}/" class="btn btn-ghost"><span class="chinese">${escHtml(next.char)}</span> ${escHtml(next.pinyin)} &rarr;</a>
-  </div>
-
-  <section style="margin-top:40px;">
-    <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px;">About the character ${escHtml(c.char)}</h2>
-    <p style="color:var(--stone);line-height:1.8;">
-      <span class="chinese" style="font-weight:600;">${escHtml(c.char)}</span> (<span style="color:var(--accent);">${escHtml(c.pinyin)}</span>) means <em>${escHtml(c.meaning)}</em>. It is one of the ${chars.length} characters HSK 4 expects you to write from memory. Practice the stroke order until it feels automatic — most learners need 5–10 successful traces before a character "sticks".
-    </p>
-  </section>
-</main>
-${renderFooter()}
-<script>
-window.addEventListener('load', function(){
-  if (typeof HanziWriter === 'undefined') {
-    document.getElementById('writer-status').textContent = 'Stroke data could not load — please refresh.';
-    return;
-  }
-  var status = document.getElementById('writer-status');
-  function themeColor(n, f){ try { return getComputedStyle(document.documentElement).getPropertyValue(n).trim() || f; } catch(e){ return f; } }
-  var writer = HanziWriter.create('writer-target', ${JSON.stringify(c.char)}, {
-    width: 360, height: 360, padding: 8,
-    showOutline: true, showCharacter: false,
-    strokeAnimationSpeed: 1, delayBetweenStrokes: 180,
-    strokeColor: themeColor('--ink', '#1a1a2e'), outlineColor: themeColor('--mist', '#c9c4be'), highlightColor: themeColor('--accent', '#c23b22')
-  });
-  function setStatus(msg, cls){
-    status.className = 'writer-status' + (cls ? ' ' + cls : '');
-    status.textContent = msg || '';
-  }
-  document.getElementById('btn-animate').addEventListener('click', function(){
-    setStatus('Watching stroke order…');
-    writer.animateCharacter({ onComplete: function(){ setStatus('Stroke order complete. Try Practice ↓'); } });
-  });
-  document.getElementById('btn-quiz').addEventListener('click', function(){
-    setStatus('Practice mode — trace each stroke.');
-    var mistakes = 0;
-    writer.quiz({
-      showHintAfterMisses: 2,
-      onMistake: function(s){
-        mistakes++;
-        setStatus('Stroke ' + (s.strokeNum + 1) + ' — try again (mistakes: ' + mistakes + ')', 'is-mistake');
-      },
-      onCorrectStroke: function(s){
-        var done = s.strokeNum + 1;
-        var total = done + (s.strokesRemaining || 0);
-        setStatus('Stroke ' + done + ' / ' + total + ' ✓');
-      },
-      onComplete: function(s){
-        setStatus('Done! ' + s.totalMistakes + ' mistakes total.', 'is-success');
-      }
-    });
-  });
-  document.getElementById('btn-reset').addEventListener('click', function(){
-    writer.cancelQuiz();
-    writer.hideCharacter();
-    writer.showOutline();
-    setStatus('');
-  });
-});
-</script>
-</body>
-</html>`;
-
+    // Every page character (150 writing + 291 recognition) now uses the
+    // enhanced template: Quick Answer, decomposition, radical cross-links,
+    // etymology, real-exam sentences, and FAQ + FAQPage structured data.
+    const detailHtml = renderEnhancedDetail(c, i, prev, next, wordsHtml, wordsForChar, isRecognition);
     const charDir = path.join(charsDir, c.char);
     ensureDir(charDir);
     fs.writeFileSync(path.join(charDir, 'index.html'), detailHtml, 'utf8');
   });
 
-  const enhancedCount = top30Set.size;
-  const simpleCount = chars.length - enhancedCount;
-  console.log(`[characters] Generated hub + ${enhancedCount} enhanced (top-30) + ${simpleCount} basic + ${renduChars.length} recognition per-character pages`);
+  console.log(`[characters] Generated hub + ${chars.length} writing + ${renduChars.length} recognition per-character pages (all enhanced template)`);
   return {
     all: chars.map(c => c.char),
-    enhanced: Array.from(top30Set),
     recognition: renduChars.map(c => c.char),
   };
 }
@@ -5230,6 +5267,38 @@ function injectAnalytics() {
   console.log(`[analytics] Injected into ${count} pages`);
 }
 
+// Add resource hints so the browser opens TLS connections to third-party
+// origins (Google Fonts, and jsdelivr for hanzi-writer) before the CSS/JS
+// requests need them. Idempotent — guarded by a marker so re-runs don't
+// duplicate the tags.
+function injectPreconnect() {
+  console.log('[preconnect] Injecting preconnect resource hints...');
+  const FONTS_HINTS = `<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`;
+  const JSDELIVR_HINT = `<link rel="preconnect" href="https://cdn.jsdelivr.net">`;
+  let count = 0;
+  walkHtmlFiles().forEach(f => {
+    let html = fs.readFileSync(f, 'utf8');
+    let changed = false;
+    const usesFonts = html.indexOf('fonts.googleapis.com') !== -1;
+    const usesJsdelivr = html.indexOf('cdn.jsdelivr.net') !== -1;
+    const hasFontsHint = html.indexOf('rel="preconnect" href="https://fonts.gstatic.com"') !== -1;
+    const hasJsdelivrHint = html.indexOf('rel="preconnect" href="https://cdn.jsdelivr.net"') !== -1;
+    // Insert the font hints immediately before the first Google Fonts <link>.
+    if (usesFonts && !hasFontsHint) {
+      html = html.replace('<link href="https://fonts.googleapis.com', FONTS_HINTS + '\n<link href="https://fonts.googleapis.com');
+      changed = true;
+    }
+    // jsdelivr hint goes before the hanzi-writer script tag.
+    if (usesJsdelivr && !hasJsdelivrHint) {
+      html = html.replace('<script src="https://cdn.jsdelivr.net', JSDELIVR_HINT + '\n<script src="https://cdn.jsdelivr.net');
+      changed = true;
+    }
+    if (changed) { fs.writeFileSync(f, html, 'utf8'); count++; }
+  });
+  console.log(`[preconnect] Injected into ${count} pages`);
+}
+
 
 // ============================================================
 //  GENERATE LISTENING TRANSCRIPT STUDY PAGES: /test/NN/transcript/
@@ -5398,5 +5467,8 @@ addTestLinksToHubs();
 buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages, ...transcriptPages, { loc: '/practice/', priority: '0.8' }, { loc: '/writing/complete-sentence/', priority: '0.8' }, { loc: '/train/', priority: '0.9' }]);
 injectTheme();
 injectAnalytics();
+injectPreconnect();
 syncCounts();
+// Must be last: hashes each page's FINAL on-disk content for honest lastmod.
+writeSitemaps();
 console.log('\nDone! All static content pre-rendered.');

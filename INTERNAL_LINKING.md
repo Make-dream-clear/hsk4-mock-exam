@@ -47,7 +47,7 @@ L2  详情页（6 大集群）:
 | 句型页 /grammar/patterns/{slug}/ | 面包屑 · **真题示例（→ 对应 /test/XX/）** · 上/下一句型 · 易混句型对比链 | build.js（扫描 12 套题文本自动配真题） |
 | /grammar/patterns/ hub | 8 句型卡 + 回 /grammar/ | build.js `buildGrammarPatternsHub` |
 | 测试页 /test/XX/ | 面包屑 · 分题型攻略网格（→ 9 strategies）· 词汇/语法/句子/compare 内文链 · 全部测试回链 | build.js `buildTestPages` |
-| 字符页 /characters/{字}/ | 面包屑 · 含该字的词（→ 词汇）· 字符 hub 回链 | build.js `buildCharacterPages` |
+| 字符页 /characters/{字}/ | 面包屑 · 含该字的词（→ 词汇）· 同部首字互链 · 拆解部件字互链 · 字符 hub 回链 | build.js `buildCharacterPages`（150 书写字 + 291 认读字全部走增强模板：Quick Answer/拆解/部首/字源/真题例句/FAQ） |
 | 易混词页 /words/{a}-vs-{b}/ | 面包屑 · 相关词汇/语法链 · 真题引用 | build.js |
 | /vocabulary/ | SEO 文案内嵌任务页链接（4 个示例任务 + /topics/ 总入口）· 语法专题链 | build.js `buildVocabulary` |
 | /guide/ | 新旧对比页链接 · 词汇/语法/测试链 · 30 任务清单 | 静态 + `fixGuide` 规范化 |
