@@ -11,6 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = __dirname;
 const DATA = path.join(ROOT, 'data');
@@ -1180,10 +1181,15 @@ ${testLinks}
 // 4. UPDATE SITEMAP with test pages
 // ============================================================
 
+// Module-level: buildSitemap collects the URL list here; writeSitemaps() (the
+// final step of RUN ALL) hashes each page's final content and writes the files.
+// Splitting the two lets page mutations that run AFTER buildSitemap
+// (injectAnalytics / injectPreconnect / syncCounts) be reflected in the hashes.
+let SITEMAP_PAGES = [];
+
 function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, extraPages) {
-  console.log('[sitemap] Updating sitemap.xml...');
+  console.log('[sitemap] Collecting URLs...');
   const index = readJSON('index.json');
-  const today = new Date().toISOString().split('T')[0];
 
   const existingPages = [
     { loc: '/', priority: '1.0' },
@@ -1226,25 +1232,25 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, character
     { loc: '/words/', priority: '0.7' },
   ];
 
-  // Add test pages
+  // Test pages (+ their transcript sub-pages arrive via extraPages/core)
   const testPages = index.map((_, i) => ({
     loc: `/test/${String(i + 1).padStart(2, '0')}/`,
     priority: '0.8',
   }));
 
-  // Add task topic pages
+  // Task topic pages
   const taskPages = (taskSlugs || []).map(slug => ({
     loc: `/topics/${slug}/`,
     priority: '0.7',
   }));
 
-  // Add confusable word pages
+  // Confusable word pages
   const confusablePages = (confusableSlugs || []).map(slug => ({
     loc: `/words/${slug}/`,
     priority: '0.7',
   }));
 
-  // Add grammar pattern pages
+  // Grammar pattern pages
   const grammarPatternPages = (grammarPatternSlugs || []).map(slug => ({
     loc: `/grammar/patterns/${slug}/`,
     priority: '0.7',
@@ -1262,23 +1268,91 @@ function buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, character
     priority: '0.6',
   }));
 
-  const allPages = [...existingPages, ...testPages, ...taskPages, ...confusablePages, ...grammarPatternPages, ...characterPages, ...recognitionPages, ...(extraPages || [])];
+  // Tag each group with a cluster so writeSitemaps() can split the output.
+  // Clusters map to the sitemap-<cluster>.xml files; keeping the big clusters
+  // (characters / tests / topics) separate lets Search Console report their
+  // indexing rates independently.
+  const tag = (arr, cluster) => arr.map(p => ({ ...p, cluster }));
+  SITEMAP_PAGES = [
+    ...tag(existingPages, 'core'),
+    ...tag(extraPages || [], 'core'),
+    ...tag(testPages, 'tests'),
+    ...tag(taskPages, 'topics'),
+    ...tag(characterPages, 'characters'),
+    ...tag(recognitionPages, 'characters'),
+    ...tag(confusablePages, 'words'),
+    ...tag(grammarPatternPages, 'words'),
+  ];
+  console.log(`[sitemap] Collected ${SITEMAP_PAGES.length} URLs (written by writeSitemaps at end of build)`);
+}
 
-  const urls = allPages.map(p => `  <url>
+// Map a sitemap loc back to the on-disk file that backs it.
+function locToFile(loc) {
+  if (loc === '/') return path.join(ROOT, 'index.html');
+  const rel = decodeURIComponent(loc.replace(/^\//, '').replace(/\/$/, ''));
+  return path.join(ROOT, rel, 'index.html');
+}
+
+// Write the split sitemaps with content-hash-based lastmod. Runs LAST so every
+// page mutation is already on disk. A page's <lastmod> only advances when its
+// file content actually changes (tracked in data/sitemap-state.json), so Google
+// sees honest change dates instead of a whole-site date bump every build.
+function writeSitemaps() {
+  console.log('[sitemap] Hashing pages and writing split sitemaps...');
+  const today = new Date().toISOString().split('T')[0];
+  const statePath = path.join(DATA, 'sitemap-state.json');
+  const state = fs.existsSync(statePath) ? JSON.parse(fs.readFileSync(statePath, 'utf8')) : {};
+
+  // Dedupe by loc (a page could be collected twice); first priority/cluster wins.
+  const seen = new Map();
+  for (const p of SITEMAP_PAGES) if (!seen.has(p.loc)) seen.set(p.loc, p);
+
+  const nextState = {};
+  const byCluster = {};
+  let missing = 0, changed = 0;
+  for (const { loc, priority, cluster } of seen.values()) {
+    const file = locToFile(loc);
+    if (!fs.existsSync(file)) { missing++; console.warn(`[sitemap] WARN missing file for ${loc}`); continue; }
+    const hash = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 16);
+    const prev = state[loc];
+    const lastmod = (prev && prev.hash === hash) ? prev.lastmod : today;
+    if (!prev || prev.hash !== hash) changed++;
+    nextState[loc] = { hash, lastmod };
+    (byCluster[cluster] = byCluster[cluster] || []).push({ loc, priority, lastmod });
+  }
+
+  // Write one <urlset> per cluster; sort by loc for stable, diff-friendly output.
+  const clusterLastmod = {};
+  const clusterNames = Object.keys(byCluster).sort();
+  for (const cluster of clusterNames) {
+    const pages = byCluster[cluster].sort((a, b) => a.loc.localeCompare(b.loc));
+    clusterLastmod[cluster] = pages.reduce((max, p) => p.lastmod > max ? p.lastmod : max, '0000-00-00');
+    const urls = pages.map(p => `  <url>
     <loc>https://hsk4.mandarinzone.com${p.loc}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>${p.lastmod}</lastmod>
     <priority>${p.priority}</priority>
   </url>`).join('\n');
+    fs.writeFileSync(path.join(ROOT, `sitemap-${cluster}.xml`),
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`, 'utf8');
+  }
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls}
-</urlset>
-`;
+  // Write the sitemap index pointing at each cluster file.
+  const sitemaps = clusterNames.map(cluster => `  <sitemap>
+    <loc>https://hsk4.mandarinzone.com/sitemap-${cluster}.xml</loc>
+    <lastmod>${clusterLastmod[cluster]}</lastmod>
+  </sitemap>`).join('\n');
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemaps}\n</sitemapindex>\n`, 'utf8');
 
-  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
-  console.log(`[sitemap] Updated with ${allPages.length} URLs (added ${testPages.length} test pages)`);
+  // Persist state (sorted keys → deterministic file).
+  const sortedState = {};
+  Object.keys(nextState).sort().forEach(k => { sortedState[k] = nextState[k]; });
+  fs.writeFileSync(statePath, JSON.stringify(sortedState, null, 2) + '\n', 'utf8');
+
+  const total = Object.keys(nextState).length;
+  console.log(`[sitemap] ${total} URLs across ${clusterNames.length} clusters `
+    + `(${clusterNames.map(c => `${c}:${byCluster[c].length}`).join(', ')}); `
+    + `${changed} changed lastmod${missing ? `, ${missing} missing files` : ''}`);
 }
 
 // ============================================================
@@ -5395,4 +5469,6 @@ injectTheme();
 injectAnalytics();
 injectPreconnect();
 syncCounts();
+// Must be last: hashes each page's FINAL on-disk content for honest lastmod.
+writeSitemaps();
 console.log('\nDone! All static content pre-rendered.');
