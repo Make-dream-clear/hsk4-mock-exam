@@ -5193,6 +5193,38 @@ function injectAnalytics() {
   console.log(`[analytics] Injected into ${count} pages`);
 }
 
+// Add resource hints so the browser opens TLS connections to third-party
+// origins (Google Fonts, and jsdelivr for hanzi-writer) before the CSS/JS
+// requests need them. Idempotent — guarded by a marker so re-runs don't
+// duplicate the tags.
+function injectPreconnect() {
+  console.log('[preconnect] Injecting preconnect resource hints...');
+  const FONTS_HINTS = `<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`;
+  const JSDELIVR_HINT = `<link rel="preconnect" href="https://cdn.jsdelivr.net">`;
+  let count = 0;
+  walkHtmlFiles().forEach(f => {
+    let html = fs.readFileSync(f, 'utf8');
+    let changed = false;
+    const usesFonts = html.indexOf('fonts.googleapis.com') !== -1;
+    const usesJsdelivr = html.indexOf('cdn.jsdelivr.net') !== -1;
+    const hasFontsHint = html.indexOf('rel="preconnect" href="https://fonts.gstatic.com"') !== -1;
+    const hasJsdelivrHint = html.indexOf('rel="preconnect" href="https://cdn.jsdelivr.net"') !== -1;
+    // Insert the font hints immediately before the first Google Fonts <link>.
+    if (usesFonts && !hasFontsHint) {
+      html = html.replace('<link href="https://fonts.googleapis.com', FONTS_HINTS + '\n<link href="https://fonts.googleapis.com');
+      changed = true;
+    }
+    // jsdelivr hint goes before the hanzi-writer script tag.
+    if (usesJsdelivr && !hasJsdelivrHint) {
+      html = html.replace('<script src="https://cdn.jsdelivr.net', JSDELIVR_HINT + '\n<script src="https://cdn.jsdelivr.net');
+      changed = true;
+    }
+    if (changed) { fs.writeFileSync(f, html, 'utf8'); count++; }
+  });
+  console.log(`[preconnect] Injected into ${count} pages`);
+}
+
 
 // ============================================================
 //  GENERATE LISTENING TRANSCRIPT STUDY PAGES: /test/NN/transcript/
@@ -5361,5 +5393,6 @@ addTestLinksToHubs();
 buildSitemap(taskSlugs, confusableSlugs, grammarPatternSlugs, characterList, [...sentenceCatPages, ...trapCatPages, ...transcriptPages, { loc: '/practice/', priority: '0.8' }, { loc: '/writing/complete-sentence/', priority: '0.8' }, { loc: '/train/', priority: '0.9' }]);
 injectTheme();
 injectAnalytics();
+injectPreconnect();
 syncCounts();
 console.log('\nDone! All static content pre-rendered.');
