@@ -182,7 +182,7 @@ function generateTopicQuiz(words, seed) {
 // 1. PRE-RENDER VOCABULARY INTO vocabulary/index.html
 // ============================================================
 
-// Count how often each multi-character HSK 4 word appears across the 12 real
+// Count collection occurrences of each multi-character HSK 4 word across the available
 // mock-test papers, so learners can prioritise high-yield vocabulary. Single
 // characters are excluded — substring counts overcount them inside compounds
 // — and a stoplist removes exam-instruction boilerplate (阅读/顺序/正确…) that
@@ -195,8 +195,9 @@ function computeExamFrequency(words) {
     const test = readJSON(meta.file);
     test.questions.forEach(q => {
       if (q.text) corpus += ' ' + q.text;
-      if (q.options) q.options.forEach(o => { corpus += ' ' + String(o).replace(/^[A-F]\s+/, ''); });
-      if (q.explanation) corpus += ' ' + q.explanation;
+      if (q.transcript) corpus += ' ' + q.transcript;
+      if (q.options && q.type !== 'writing_construction') q.options.forEach(o => { corpus += ' ' + String(o).replace(/^[A-F]\s+/, ''); });
+      // Exclude answer commentary and writing model answers.
     });
   });
   const clean = corpus.replace(/[^一-鿿]/g, ' ');
@@ -215,15 +216,15 @@ function computeExamFrequency(words) {
       else i++;
     }
   }
-  // Map id -> count, keeping only words tested at least twice (signal, not noise)
+  // Map id -> count, keeping only words occurring at least twice in this collection
   const byId = {};
   words.forEach(w => { const n = byWord[w.word]; if (n >= 2) byId[w.id] = n; });
   return byId;
 }
 
-// Pull one authentic example sentence per word straight from the 12 mock-test
-// papers, so learners see how a word is actually used on the exam (not just a
-// single hand-written gloss). Strips question numbers and test markers
+// Extract one example sentence with its paper and question reference from
+// question text or listening transcripts. Exclude answer commentary.
+// Strip question numbers and test markers
 // (★, 问题：, 录音：…) and prefers complete declarative sentences.
 const EXAM_SENT_PREFIX = /^(★|☆|问题[:：]|阅读短文[:：]|短文[:：]|例如[:：]|录音[:：]|对话[:：]|男[:：]|女[:：])\s*/;
 function extractExamSentences(words) {
@@ -231,23 +232,25 @@ function extractExamSentences(words) {
   const sentences = [];
   index.forEach(meta => {
     readJSON(meta.file).questions.forEach(q => {
-      if (!q.text) return;
-      const txt = q.text.replace(/^\s*\d+[.、]\s*/, '');
-      txt.split(/(?<=[。！？])/).forEach(raw => {
-        let s = raw.trim(), prev;
-        do { prev = s; s = s.replace(EXAM_SENT_PREFIX, '').trim(); } while (s !== prev);
-        if (s.length >= 8 && s.length <= 34 && /[。！？]$/.test(s) && !/[（）_A-Za-zＡ-Ｚａ-ｚ0-9★☆:：]/.test(s)) {
-          sentences.push(s);
-        }
-      });
+      for (const source of ['text', 'transcript']) {
+        if (!q[source]) continue;
+        const txt = q[source].replace(/^\s*\d+[.、]\s*/, '');
+        txt.split(/(?<=[。！？])/).forEach(raw => {
+          let text = raw.trim(), prev;
+          do { prev = text; text = text.replace(EXAM_SENT_PREFIX, '').trim(); } while (text !== prev);
+          if (text.length >= 8 && text.length <= 34 && /[。！？]$/.test(text) && !/[（）_A-Za-zＡ-Ｚａ-ｚ0-9★☆:：]/.test(text)) {
+            sentences.push({text, test: Number(meta.file.match(/\d+/)[0]), question: q.number, source});
+          }
+        });
+      }
     });
   });
   const byId = {};
   words.forEach(w => {
     if (!w.word || w.word.length < 2) return;
-    const hits = sentences.filter(s => s.includes(w.word));
+    const hits = sentences.filter(s => s.text.includes(w.word));
     if (!hits.length) return;
-    hits.sort((a, b) => (a.endsWith('。') ? 0 : 1) - (b.endsWith('。') ? 0 : 1) || a.length - b.length);
+    hits.sort((a, b) => (a.text.endsWith('。') ? 0 : 1) - (b.text.endsWith('。') ? 0 : 1) || a.text.length - b.text.length);
     byId[w.id] = hits[0];
   });
   return byId;
@@ -329,6 +332,63 @@ function computeCharQuestionCount(pageCharsSet) {
   return counts;
 }
 
+// Search-facing copy and visible version labels share one update path.
+function updateLandingCopy(html, kind) {
+  const isHome = kind === 'home';
+  const title = isHome
+    ? 'HSK 4 Mock Test — 19 Free Online Tests with Answers'
+    : 'HSK 4 Vocabulary List — Pinyin, Examples & Flashcards';
+  const description = isHome
+    ? 'Practise HSK 4 online with 19 free mock tests, listening audio, answer keys and instant scores. Older-format papers plus vocabulary and writing practice.'
+    : 'Study 1,000 new-syllabus HSK 4 words with pinyin, English meanings and examples. Search the list, practise with flashcards and quizzes, and track progress.';
+  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escHtml(title)}</title>`);
+  for (const key of ['description', 'og:description', 'twitter:description']) {
+    const re = new RegExp('(<meta (?:name|property)="' + key + '" content=")[^"]*(">)');
+    html = html.replace(re, (_, a, b) => a + description + b);
+  }
+  for (const key of ['og:title', 'twitter:title']) {
+    const re = new RegExp('(<meta (?:name|property)="' + key + '" content=")[^"]*(">)');
+    html = html.replace(re, (_, a, b) => a + title + b);
+  }
+  if (isHome) {
+    html = html.replace('Free · Open Source · 2026 Syllabus', 'Free · Listening Audio · Answer Keys');
+    html = html.replace(/<h1>HSK 4 Mock (?:Exam|Test)[\s\S]*?<\/h1>/,
+      '<h1>HSK 4 Mock Test <span class="accent" lang="zh-CN">模拟考试</span></h1>');
+    html = html.replace(/<p>The complete HSK 4 prep platform[^<]*<\/p>/,
+      '<p>Practise online with 19 free HSK 4 mock tests, listening audio, answer keys, and instant scores. Build your skills with vocabulary and writing exercises from Mandarin Zone.</p>');
+    html = html.replace('>Browse the Toolkit</a>', '>Study HSK 4 Vocabulary</a>').replace('href="#toolkit" class="btn btn-ghost"', 'href="/vocabulary/" class="btn btn-ghost"');
+    const note = '<p class="landing-version-note" style="font-size:14px;line-height:1.7;">Practice papers use the <strong>older HSK 4 exam format</strong>. The vocabulary list covers <strong>new-syllabus Level 4 additions</strong>. <a href="/compare/new-vs-old-hsk4/" style="color:var(--accent);">Compare versions before you study →</a></p>';
+    html = html.replace(/\s*<p class="landing-version-note"[\s\S]*?<\/p>/g, '');
+    html = html.replace(/(<div class="hero-cta">[\s\S]*?<\/div>)/, '$1\n' + note);
+    html = html.replace('Free online HSK 4 practice tests with 19 complete mock exams covering listening, reading, and writing sections.', '19 free online HSK 4 practice papers in the older exam format, including partial sets, with listening audio, answer keys, and instant scores.');
+    html = html.replace('19 free HSK 4 mock exams with 1,875 questions covering listening, reading, and writing. Plus 1,000 vocabulary, 14 grammar topics, 30 task scenarios. Aligned with the 2026 official syllabus.', '19 free older-format HSK 4 practice papers with 1,875 questions, plus new-syllabus Level 4 vocabulary, grammar, and topic resources.');
+    html = html.replaceAll('The current exam (through June 2026)', 'The older HSK 4 format');
+    html = html.replaceAll('The current HSK 4 exam (administered through June 2026)', 'A full paper in the older HSK 4 format');
+    html = html.replaceAll('From July 2026 the revised syllabus (HSK 3.0) takes effect — our mock exams follow the current format.', 'Our practice papers follow the older format. Check the format for your booked exam with your test centre.');
+    html = html.replaceAll('The 2026 syllabus (published November 2025, effective July 2026)', 'The revised HSK syllabus');
+  } else {
+    html = html.replace('Interactive Study Tool', 'Free · New-Syllabus Level 4 Words');
+    html = html.replace(/<p>Master approximately [^<]*<\/p>/,
+      '<p>Learn 1,000 new-syllabus HSK 4 words with pinyin, English meanings, and example sentences. Search the list or practise with free flashcards and quizzes.</p>');
+    html = html.replace(/<p style="background:var\(--paper\);border-left:3px solid var\(--accent\);[\s\S]*?<\/p>/,
+      '<p style="background:var(--paper);border-left:3px solid var(--accent);padding:12px 18px;margin:16px 0;font-size:14px;line-height:1.7;color:var(--stone);"><strong>List scope:</strong> 1,000 Level 4 additions, not the full 2,000-word cumulative list or the older 1,200-word list. <a href="/compare/new-vs-old-hsk4/" style="color:var(--accent);">Compare versions</a>.</p>');
+    html = html.replace(/\s*<!-- VOCAB QUICK START -->[\s\S]*?<!-- \/VOCAB QUICK START -->/g, '');
+    html = html.replace('  <!-- PROGRESS DASHBOARD -->', `  <!-- VOCAB QUICK START -->
+  <nav aria-label="Vocabulary study options" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+    <a class="btn btn-primary" href="#vocabulary-search">Search the word list</a>
+    <button class="btn btn-jade" onclick="openFlashcards()">Study flashcards</button>
+    <button class="btn btn-gold" onclick="openQuiz()">Take a vocabulary quiz</button>
+  </nav>
+  <!-- /VOCAB QUICK START -->
+  <!-- PROGRESS DASHBOARD -->`);
+    html = html.replace('<div class="filter-bar">', '<div class="filter-bar" id="vocabulary-search" style="scroll-margin-top:90px;">');
+    html = html.replaceAll('Complete HSK 4 vocabulary list with pinyin, English meanings, and example sentences. Interactive flashcards, quizzes, and progress tracking.', description);
+    html = html.replace('Approximately 1000 vocabulary words for HSK Level 4 Chinese Proficiency Test', '1,000 new-syllabus Level 4 additions, entries 1001–2000, rather than the cumulative list');
+    html = html.replace('Complete list of HSK 4 vocabulary words with pinyin and English translations', 'New-syllabus HSK Level 4 additions with pinyin and English meanings');
+  }
+  return html;
+}
+
 function buildVocabulary() {
   console.log('[vocab] Pre-rendering vocabulary...');
   const words = readJSON('vocabulary.json');
@@ -344,18 +404,19 @@ function buildVocabulary() {
     if (!t) return '';
     return `\n      <a class="vocab-task-link" href="/topics/${t.slug}/">\u{1F4DA} ${escHtml(t.task_cn)} \u2192</a>`;
   };
-  // "Frequently tested" badge, driven by real mock-exam appearances.
+  const pairs = readJSON('confusables.json');
+  const wordPairs = {};
+  words.forEach(w => { const hits = pairs.filter(p => [p.wordA, p.wordB, p.wordC].includes(w.word)); if (hits.length) wordPairs[w.id] = hits.map(p => [p.slug, [p.wordA,p.wordB,p.wordC].filter(Boolean).join(' vs ')]); });
+  const pairBlock = w => (wordPairs[w.id] || []).map(([slug,label]) => `<a class="vocab-task-link" href="/words/${slug}/">Compare: ${escHtml(label)} →</a>`).join(' ');
   const freqBadge = w => {
     const n = examFreq[w.id];
     if (!n || n < 6) return '';
-    const tier = n >= 20 ? 'high' : 'mid';
-    const label = n >= 20 ? '\u9ad8\u9891' : '\u5e38\u8003';
-    return `<span class="freq-badge freq-${tier}" title="Appears ${n} times across the ${TEST_COUNT} mock exams">${label} ${n}\u00d7</span>`;
+    return `<span class="freq-badge freq-${n >= 20 ? 'high' : 'mid'}" title="${n} occurrences in this collection; not an exam prediction">语料 ${n}×</span>`;
   };
-  // Authentic example pulled from a real mock-test paper.
-  const examBlock = w => examEx[w.id]
-    ? `\n      <div class="exam-example"><span class="exam-example-label">\u771f\u9898\u4f8b\u53e5 \u00b7 from a mock exam</span> <span class="chinese">${escHtml(examEx[w.id])}</span></div>`
-    : '';
+  const examBlock = w => {
+    const ex = examEx[w.id];
+    return ex ? `<div class="exam-example"><span class="exam-example-label">练习卷例句 · paper example</span> <span class="chinese">${escHtml(ex.text)}</span> <a href="/test/${String(ex.test).padStart(2,'0')}/">Test ${ex.test} · Q${ex.question} · ${ex.source === 'transcript' ? 'listening transcript' : 'question text'}</a></div>` : '';
+  };
 
   // Build a static word list that crawlers can index
   // The JS will replace this on load, but crawlers see the full list
@@ -372,7 +433,7 @@ function buildVocabulary() {
     <div class="example-block">
       <div class="example-cn chinese">${escHtml(w.example_cn || '')}</div>
       <div class="example-pinyin">${escHtml(w.example_pinyin || '')}</div>
-      <div class="example-en">${escHtml(w.example_en || '')}</div>${taskChip(w)}
+      <div class="example-en">${escHtml(w.example_en || '')}</div>${taskChip(w)}${pairBlock(w)}
     </div>${examBlock(w)}
   </div>
 </div>`;
@@ -383,7 +444,7 @@ function buildVocabulary() {
     Object.entries(wordTask).map(([id, t]) => [id, [t.slug, t.task_cn]])
   ));
   html = html.replace(/\s*<!-- WORD TASKS MAP -->[\s\S]*?<!-- \/WORD TASKS MAP -->/g, '');
-  html = html.replace(/<script>\s*\/\/ === STATE ===/, `<!-- WORD TASKS MAP -->\n<script>window.WORD_TASKS = ${wordTasksJson};\nwindow.WORD_FREQ = ${JSON.stringify(examFreq)};\nwindow.WORD_EXAMPLES = ${JSON.stringify(examEx)};</script>\n<!-- /WORD TASKS MAP -->\n<script>\n// === STATE ===`);
+  html = html.replace(/<script>\s*\/\/ === STATE ===/, `<!-- WORD TASKS MAP -->\n<script>window.WORD_TASKS = ${wordTasksJson};\nwindow.WORD_FREQ = ${JSON.stringify(examFreq)};\nwindow.WORD_EXAMPLES = ${JSON.stringify(examEx)};\nwindow.WORD_PAIRS = ${JSON.stringify(wordPairs)};</script>\n<!-- /WORD TASKS MAP -->\n<script>\n// === STATE ===`);
 
   // Replace the #vocab-list container with freshly pre-rendered content.
   // Walk div depth instead of regexing, so this works whether the container
@@ -407,53 +468,19 @@ function buildVocabulary() {
     }
   }
 
-  // Move SEO content BEFORE the vocab list so it's near the top of the page
-  // We do this by replacing the existing SEO section AND injecting new content before the filter bar
-  const newVocabSEO = `<section class="seo-content" style="margin-top:48px;">
-    <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:16px;">HSK 4 Vocabulary (2026 New Syllabus)</h2>
-    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-      This word list follows the <strong>2025 official HSK syllabus</strong> (published by the Center for Language Education and Cooperation, effective July 2026). The new syllabus organizes HSK 4 around 30 communicative tasks \u2014 from <a href="/topics/describe-a-person/" style="color:var(--accent);">discussing people (\u8C08\u8BBA\u67D0\u4E2A\u4EBA\u7269)</a> and <a href="/topics/emotions/" style="color:var(--accent);">emotions (\u8C08\u8BBA\u60C5\u611F\u8BDD\u9898)</a>, to <a href="/topics/daily-affairs/" style="color:var(--accent);">handling daily affairs (\u4EA4\u6D41\u3001\u5904\u7406\u65E5\u5E38\u4E8B\u52A1)</a>, to <a href="/topics/social-phenomena/" style="color:var(--accent);">discussing social phenomena (\u8C08\u8BBA\u793E\u4F1A\u73B0\u8C61)</a>. Browse vocabulary for <a href="/topics/" style="color:var(--accent);">all 30 task scenarios</a>.
-    </p>
-
-    <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">How HSK 4 Vocabulary Differs from HSK 3</h3>
-    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-      Under the new standard, Levels 1\u20133 cover the first 1,000 words for daily survival \u2014 ordering food, asking directions, describing your family. HSK 4 adds 1,000 new words (numbers 1001\u20132000 in the official list, for a 2,000-word cumulative vocabulary) that shift toward <strong>abstract thinking and opinion expression</strong>. The official syllabus explicitly requires you to handle \u201c\u6709\u4E00\u5B9A\u590D\u6742\u5EA6\u201d (a certain level of complexity) in conversations. This means words like \u201c\u5374\u201d (qu\u00E8, however), \u201c\u5C3D\u7BA1\u201d (j\u01D0ngu\u01CEn, despite), \u201c\u7ADF\u7136\u201d (j\u00ECngr\u00E1n, unexpectedly), and \u201c\u65E2\u7136\u201d (j\u00ECr\u00E1n, since) become essential for building the complex sentences the exam tests.
-    </p>
-
-    <h3 style="font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:12px;margin-top:28px;">Key Word Categories Added at HSK 4 (from the Official Grammar Syllabus)</h3>
-    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-      According to the 2025 grammar syllabus, HSK 4 adds these specific categories beyond HSK 3:
-    </p>
-    <ul style="color:var(--stone);line-height:2;margin-bottom:16px;padding-left:20px;">
-      <li><strong>Degree adverbs / \u7A0B\u5EA6\u526F\u8BCD</strong>: \u5341\u5206, \u66F4\u52A0, \u7A0D, \u7A0D\u5FAE, \u5C24\u5176, \u591A\u4E48 \u2014 for expressing nuance and degree</li>
-      <li><strong>Scope adverbs / \u8303\u56F4\u526F\u8BCD</strong>: \u5171, \u5168, \u5149, \u4EC5, \u4EC5\u4EC5, \u81F3\u5C11 \u2014 for being precise about quantities</li>
-      <li><strong>Tone adverbs / \u8BED\u6C14\u526F\u8BCD</strong>: \u7ADF\u7136, \u7A76\u7ADF, \u6B63\u597D, \u5230\u5E95, \u96BE\u9053, \u5343\u4E07, \u786E\u5B9E, \u53EA\u597D, \u5DEE(\u4E00)\u70B9\u513F \u2014 for expressing surprise, emphasis, attitude</li>
-      <li><strong>New conjunctions / \u8FDE\u8BCD</strong>: \u6B64\u5916, \u800C, \u65E2\u7136, \u751A\u81F3, \u4E0D\u8FC7, \u5E76\u4E14, \u4E0D\u5149, \u4E0D\u4EC5, \u53E6\u5916, \u8981\u662F, \u56E0\u6B64, \u7531\u4E8E, \u52A0\u4E0A \u2014 for linking complex sentences</li>
-      <li><strong>New measure words / \u91CF\u8BCD</strong>: \u6253, \u888B, \u68F5, \u53F0, \u5E45, \u8138, \u624B, \u76D2, \u5C4B\u5B50, \u684C\u5B50 \u2014 borrowed and specialized classifiers</li>
-    </ul>
-
-    <p style="color:var(--stone);line-height:1.8;margin-bottom:16px;">
-      All ${words.length} words below include pinyin, English translations, and example sentences in context. Words that recur in our ${TEST_COUNT} mock exams are tagged <span class="freq-badge freq-high">高频</span> (appears 20+ times) or <span class="freq-badge freq-mid">常考</span> (6+ times) — switch the sort to <strong>Most tested first</strong> to study the highest-yield vocabulary before exam day. Use the flashcard and quiz modes above to practice active recall; your progress is saved locally so you can pick up where you left off.
-    </p>
-
-    <p style="color:var(--stone);line-height:1.8;">
-      Created by <a href="https://mandarinzone.com" style="color:var(--accent);">Mandarin Zone</a>, a Chinese language school in Beijing since 2008.
-    </p>
+  // Keep search and study controls ahead of the explanatory content.
+  const newVocabSEO = `<section class="seo-content" id="vocabulary-guide" style="margin-top:32px;line-height:1.8;">
+    <h2>How to study this HSK 4 vocabulary list</h2>
+    <p>Search by Chinese, pinyin, or English; filter by part of speech; then open a word for its example sentence. Use flashcards to recall meanings and the quiz to check what you remember. Progress is saved in this browser.</p>
+    <p>The <strong>Collection frequency</strong> option sorts words by appearances in our ${TEST_COUNT} practice papers. Counts include question text, listening transcripts and non-writing answer options; explanations and writing model answers are excluded. Longest matching multi-character words are counted, with common exam instructions excluded. This is collection frequency, not an exam prediction.</p>
+    <h3>Why 1,000 words rather than 1,200 or 2,000?</h3>
+    <p>This page contains the ${fmtNum(words.length)} Level 4 additions (list entries 1001–2000) in the revised syllabus. The revised cumulative total is 2,000 words including earlier levels. The older HSK 4 syllabus uses a different cumulative list of about 1,200 words; this page is not that list. <a href="/compare/new-vs-old-hsk4/">Compare the vocabulary versions</a> and check the syllabus for your booked exam with your test centre.</p>
+    <h3>Turn vocabulary into exam practice</h3>
+    <p>Study <a href="/words/">confusable word pairs</a>, use new words in <a href="/writing/">HSK 4 writing exercises</a>, or review them by <a href="/topics/">topic</a>. Then <a href="/">take a free HSK 4 mock test with answers</a> to practise words in context.</p>
   </section>`;
-
-  // Remove the previously injected SEO section and any marker comments that
-  // earlier builds accumulated (one per rebuild at one point — 42 observed).
-  // Consume surrounding whitespace too: leaving it behind added one blank
-  // line per rebuild.
-  html = html.replace(/\s*<!-- STATIC SEO CONTENT -->[\s\S]*?<\/section>\s*(?=<!-- SEARCH & FILTER -->)/, '\n\n  ');
-  html = html.replace(/<!-- STATIC SEO CONTENT -->[\s\S]*?<\/section>/, '');
+  html = html.replace(/\s*<!-- STATIC SEO CONTENT -->[\s\S]*?<\/section>/g, '');
   html = html.replace(/[ \t]*<!-- SEO content moved above word list -->\n?/g, '');
-
-  // Inject SEO content BEFORE the search/filter bar so it's near the top
-  html = html.replace(
-    /<!-- SEARCH & FILTER -->/,
-    `<!-- STATIC SEO CONTENT -->\n  ${newVocabSEO}\n\n  <!-- SEARCH & FILTER -->`
-  );
+  html = html.replace('</main>', `<!-- STATIC SEO CONTENT -->\n${newVocabSEO}\n</main>`);
 
   // Keep hardcoded word counts (meta description, ItemList, stat bar) in sync
   html = html.replace(
@@ -477,6 +504,7 @@ function buildVocabulary() {
     `$1${words.length}$2`
   );
 
+  html = updateLandingCopy(html, 'vocabulary');
   fs.writeFileSync(htmlPath, html, 'utf8');
   console.log(`[vocab] Pre-rendered ${words.length} words into vocabulary/index.html`);
 }
@@ -942,7 +970,7 @@ ${testLinks}
           <a href="/vocabulary/" class="toolkit-card">
             <div class="toolkit-card-tag">Vocab</div>
             <h4>1,000 HSK 4 Words</h4>
-            <p>Complete word list with pinyin, examples, and topic tags. Aligned with the 2026 syllabus.</p>
+            <p>New-syllabus Level 4 additions with pinyin, meanings, examples, flashcards, and quizzes.</p>
           </a>
           <a href="/grammar/" class="toolkit-card">
             <div class="toolkit-card-tag">Grammar</div>
@@ -1016,13 +1044,13 @@ ${testLinks}
           <a href="/compare/new-vs-old-hsk4/" class="toolkit-card">
             <div class="toolkit-card-tag">2026 Change</div>
             <h4>New vs Old HSK 4</h4>
-            <p>What the July 2026 syllabus changes: 2,000 words, 150 handwriting characters, 30 tasks.</p>
+            <p>Compare older and revised vocabulary, writing requirements, and practice formats.</p>
           </a>
         </div>
       </div>
 
       <h2 class="section-title">HSK 4 Exam Format</h2>
-      <p class="section-intro">100 questions, 105 minutes total. The pass mark is 180/300 (60%) — but real-world programs and visa applications often look for 240+ (80%). This is the current format, administered through June 2026; from July 2026 the revised HSK 3.0 syllabus takes effect (our mock exams follow the current format).</p>
+      <p class="section-intro">These practice papers use the older HSK 4 format: 100 questions for a full paper, approximately 105 minutes, and a pass mark of 180/300. Test 04 has 99 questions and Test 07 is a partial set. Check the format for your booked exam with your test centre.</p>
       <div class="format-table-wrap">
         <table class="format-table">
           <thead>
@@ -1043,7 +1071,7 @@ ${testLinks}
       </div>
 
       <h2 class="section-title">What the 2026 Syllabus Demands</h2>
-      <p class="section-intro">The new HSK syllabus (《新版HSK考试大纲》, published November 2025, effective July 2026) raises the bar at Level 4. Unlike HSK 3 which focuses on basic daily needs, HSK 4 requires handling "有一定复杂度" (a certain level of complexity) across 30 communicative tasks, grouped here into five themes:</p>
+      <p class="section-intro">The revised HSK syllabus (《新版HSK考试大纲》) raises the bar at Level 4. Unlike HSK 3 which focuses on basic daily needs, HSK 4 requires handling "有一定复杂度" (a certain level of complexity) across 30 communicative tasks, grouped here into five themes:</p>
 
       <h3 class="subsection-title">30 Communicative Tasks</h3>
       <div class="topics-grid">
@@ -1173,6 +1201,7 @@ ${testLinks}
     newSEO
   );
 
+  html = updateLandingCopy(html, 'home');
   fs.writeFileSync(htmlPath, html, 'utf8');
   console.log('[home] Homepage SEO content updated');
 }
@@ -1693,7 +1722,7 @@ function buildPictureExamples() {
   }).filter(Boolean).join('\n');
 
   const block = `<!--REAL_EXAM_PICTURES_START-->
-  <h2>Real-exam 看图造句 from official papers / 真题示例</h2>
+  <h2>Real-exam 看图造句 from official papers / 练习卷示例</h2>
   <p>Authentic picture-word prompts from the official HSK 4 papers, each with the official 参考答案. Cover the answer, write your own sentence using the keyword, then compare.</p>
 ${sections}
   <!--REAL_EXAM_PICTURES_END-->`;
@@ -2192,39 +2221,29 @@ function buildTaskTopicPages() {
       return `<a href="${g}" class="btn btn-ghost" style="font-size:13px;">${name}</a>`;
     }).join(' ');
 
-    // Find real HSK 4 questions matching this topic (search test JSONs)
-    // Build a keyword set from topic words (top 8 high-frequency-content words)
-    const topicKeywords = words
-      .filter(w => w.word && w.word.length >= 2)
-      .slice(0, 12)
-      .map(w => w.word);
-    const matchingQuestions = [];
-    if (topicKeywords.length > 0) {
-      for (let ti = 0; ti < 12 && matchingQuestions.length < 3; ti++) {
-        try {
-          const tjson = readJSON(`test-${String(ti+1).padStart(2,'0')}.json`);
-          for (const q of tjson.questions) {
-            const text = (q.text || '') + ' ' + (q.options || []).join(' ');
-            const matchCount = topicKeywords.filter(kw => text.includes(kw)).length;
-            if (matchCount >= 2 && text.length >= 80 && text.length < 300 &&
-                (q.type === 'reading_comprehension' || q.type === 'listening_choice')) {
-              matchingQuestions.push({
-                test: ti + 1,
-                num: q.number,
-                text: q.text || '',
-                options: q.options || [],
-                answer: q.correct_answer_index,
-                type: q.type,
-              });
-              if (matchingQuestions.length >= 3) break;
-            }
-          }
-        } catch (e) { /* skip */ }
-      }
-    }
+    // Show only manually reviewed references, never infer relevance from shared words.
+    const matchingQuestions = (task.reviewed_questions || []).map(ref => {
+      const q = readJSON(`test-${String(ref.test).padStart(2,'0')}.json`).questions.find(q => q.number === ref.number);
+      if (!q) throw new Error(`Missing reviewed topic question: ${task.slug}`);
+      return {test: ref.test, num: q.number, text: q.text || '', options: q.options || [], answer: q.correct_answer_index, type: q.type};
+    });
+    const retellingHtml = task.slug === 'food-culture' ? `
+  <section id="retelling-practice" lang="zh-CN" style="background:var(--surface);padding:24px;border:1px solid var(--mist);border-radius:var(--radius);margin:24px 0;">
+    <h2>饮食文化复述练习 / Food Culture Retelling Practice</h2>
+    <p><strong>自编练习 · Original practice material</strong>。这是主题阅读与口语练习，不是官方真题或考试题型说明。</p>
+    <h3>短文：第一次和朋友吃中餐</h3>
+    <p style="line-height:1.9;">上周末，小林请外国朋友安娜到家里吃饭。安娜以前不太会用筷子，小林先给她做了示范。桌上有米饭、鱼、蔬菜和汤，大家一边吃饭，一边聊天。安娜发现，这次聚餐不是每个人只吃自己面前的菜，而是一起分享桌上的菜。她觉得这样很热闹，也有机会尝到不同的味道。饭后，安娜想把剩下的菜倒掉。小林说，吃不完的菜可以保存好，下一顿再吃，不要浪费。安娜点了点头，说下次要请小林尝尝自己家乡的菜。</p>
+    <h3>关键词与复述顺序</h3>
+    <p>请客 → 筷子、示范 → 分享、味道 → 剩下、保存、浪费 → 家乡</p>
+    <ol><li>小林请谁吃饭？安娜遇到了什么困难？</li><li>这次聚餐怎样分享菜？安娜有什么感受？</li><li>饭后发生了什么？小林提出了什么建议？</li></ol>
+    <p>练习步骤：读两遍，盖住短文，按三个提示用自己的话复述约一分钟。保留人物、事情顺序与原因，不必逐句背诵。</p>
+    <details id="retelling-model"><summary>查看参考复述 / Show a model retelling</summary><p style="line-height:1.9;">上周末，小林请安娜到家里吃中餐。安娜不太会用筷子，所以小林教她怎么用。吃饭时，他们一起分享几种菜，还聊了天。安娜觉得很热闹，也尝到了不同的味道。饭后，她想倒掉剩下的菜，小林建议保存好，下一顿再吃，避免浪费。安娜同意了，还打算下次请小林吃自己家乡的菜。</p></details>
+    <p>自查：是否交代了人物与时间？是否说清了分享食物和保存剩菜两件事？是否使用了“先、饭后、所以”等连接词？</p>
+    <p><a href="/grammar/ba-sentence/#ba-hua-gua">把剩下的菜保存好：练习把字句 →</a> · <a href="/vocabulary/">查找相关词汇 →</a></p>
+  </section>` : '';
     const realQuestionHtml = matchingQuestions.length > 0
-      ? `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Real HSK 4 Questions on ${escHtml(task.task_en)} / 真题示例</h2>
-  <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">Below are 1-${matchingQuestions.length} actual HSK 4 ${escHtml(task.task_en).toLowerCase()} questions from our ${TEST_COUNT} mock exams. Each was solved using the vocabulary above:</p>
+      ? `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Practice Questions on ${escHtml(task.task_en)} / 练习卷示例</h2>
+  <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">Below are 1-${matchingQuestions.length} HSK 4 practice ${escHtml(task.task_en).toLowerCase()} questions from our ${TEST_COUNT} mock exams. Each was solved using the vocabulary above:</p>
   ${matchingQuestions.map(mq => `
   <div style="background:var(--surface);border:1px solid var(--mist);border-radius:var(--radius);padding:18px 22px;margin:14px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num} · ${mq.type === 'listening_choice' ? '听力 Listening' : '阅读 Reading'}</div>
@@ -2240,18 +2259,18 @@ function buildTaskTopicPages() {
     const topWordsForExample = words.slice(0, 4).map(w => `<strong>${escHtml(w.word)}</strong> (${escHtml(w.pinyin)}, ${escHtml(w.meaning.split(';')[0])})`).join(', ');
     const challengeHtml = `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Why HSK 4 Candidates Struggle with ${escHtml(task.task_en)}</h2>
   <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">${escHtml(task.desc)}</p>
-  <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">The biggest challenge for HSK 4 candidates on the <strong>${escHtml(task.task_en).toLowerCase()}</strong> topic isn't memorizing the ${words.length} core words — it's understanding how they combine in extended contexts. HSK 4 ${escHtml(task.task_en).toLowerCase()} questions typically require you to understand cause and effect, opinion shifts, or comparative judgements, not just basic vocabulary recognition.</p>
-  ${words.length >= 4 ? `<p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">Key vocabulary to anchor your understanding: ${topWordsForExample}. These words frequently appear in HSK 4 listening dialogues (听力) and reading passages (阅读), often with grammar patterns like ${task.grammar.map(g => `<a href="${g}" style="color:var(--accent);">${g.replace('/grammar/','').replace('/','')}</a>`).join(' and ')}.</p>` : ''}`;
+  <p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">After studying the ${words.length} selected words, practise combining them in extended contexts about <strong>${escHtml(task.task_en).toLowerCase()}</strong>. Use the dialogue to identify a sequence of events, opinions, or reasons, then describe them in your own words.</p>
+  ${words.length >= 4 ? `<p style="color:var(--stone);line-height:1.8;margin-bottom:14px;">Key vocabulary to anchor your understanding: ${topWordsForExample}. Practise these words in listening dialogues (听力) and reading passages (阅读), using grammar patterns like ${task.grammar.map(g => `<a href="${g}" style="color:var(--accent);">${g.replace('/grammar/','').replace('/','')}</a>`).join(' and ')}.</p>` : ''}`;
 
     // Topic-specific FAQ (3 unique Q&A per topic, generated from task.task_en)
     const topicFaqs = [
       {
         q: `How many HSK 4 words cover ${task.task_en.toLowerCase()}?`,
-        a: `The HSK 4 official syllabus has ${words.length} core words specifically for the ${task.task_en.toLowerCase()} task scenario. These come from ${task.topic_ids.length} sub-topic categories: ${task.topic_ids.join(', ')}. Mastering these ${words.length} words gives you 70-80% comprehension on ${task.task_en.toLowerCase()}-themed questions in HSK 4.`,
+        a: `This page groups ${words.length} words using this site’s topic tags for ${task.task_en.toLowerCase()}. It is a study selection, not an official separate topic word list or a guarantee of comprehension.`,
       },
       {
         q: `Which HSK 4 grammar points are most relevant to ${task.task_en.toLowerCase()}?`,
-        a: `${task.grammar.length === 0 ? 'General HSK 4 patterns' : task.grammar.map(g => g.replace('/grammar/','').replace('/','')).join(' and ')} appear most frequently in ${task.task_en.toLowerCase()} contexts. The HSK 4 syllabus expects you to ${task.skills.includes('writing') ? 'not only understand but also produce' : 'understand'} these patterns when they involve ${task.task_en.toLowerCase()} vocabulary.`,
+        a: `${task.grammar.length === 0 ? 'General HSK 4 patterns' : task.grammar.map(g => g.replace('/grammar/','').replace('/','')).join(' and ')} are suggested here for practising ${task.task_en.toLowerCase()} contexts. The HSK 4 syllabus expects you to ${task.skills.includes('writing') ? 'not only understand but also produce' : 'understand'} these patterns when they involve ${task.task_en.toLowerCase()} vocabulary.`,
       },
       {
         q: `What's the difference between HSK 3 and HSK 4 expectations on ${task.task_en.toLowerCase()}?`,
@@ -2281,7 +2300,8 @@ function buildTaskTopicPages() {
     if (pageTitle.length > 78) {
       pageTitle = `HSK 4 ${task.task_en} \u2014 ${task.task_cn} | Mandarin Zone`;
     }
-    const pageDesc = truncDesc(`${words.length} HSK 4 words for "${task.task_en}" (${task.task_cn}). Vocabulary with pinyin, meanings, examples from the official syllabus.`);
+    if (task.slug === 'food-culture') pageTitle = '饮食文化复述练习 — HSK 4 Food Culture | Mandarin Zone';
+    const pageDesc = task.slug === 'food-culture' ? '饮食文化复述练习：自编短文、关键词、三个复述提示和参考答案，配合 HSK 4 词汇与情景对话练习。Original food culture retelling practice with a model answer.' : truncDesc(`${words.length} HSK 4 words for "${task.task_en}" (${task.task_cn}). Vocabulary with pinyin, meanings, examples from the official syllabus.`);
 
     const pageHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -2292,7 +2312,7 @@ function buildTaskTopicPages() {
 <meta name="description" content="${escHtml(pageDesc)}">
 <link rel="canonical" href="https://hsk4.mandarinzone.com/topics/${task.slug}/">
 
-<meta property="og:title" content="HSK 4 ${escHtml(task.task_en)} Vocabulary \u2014 ${escHtml(task.task_cn)}">
+<meta property="og:title" content="${escHtml(pageTitle)}">
 <meta property="og:description" content="${escHtml(pageDesc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://hsk4.mandarinzone.com/topics/${task.slug}/">
@@ -2302,7 +2322,7 @@ function buildTaskTopicPages() {
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "HSK 4 ${escHtml(task.task_en)} Vocabulary (${escHtml(task.task_cn)})",
+  "headline": "${escHtml(pageTitle)}",
   "description": "${escHtml(pageDesc)}",
   "url": "https://hsk4.mandarinzone.com/topics/${task.slug}/",
   "author": { "@type": "Organization", "name": "Mandarin Zone", "url": "https://mandarinzone.com" },
@@ -2371,7 +2391,7 @@ ${faqJsonLd}
 
   <div class="hero">
     <div class="task-badge">Official Syllabus Task</div>
-    <h1 class="chinese">HSK 4 ${escHtml(task.task_cn)} \u2014 <span class="accent">${escHtml(task.task_en)}</span></h1>
+    <h1 class="chinese">${task.slug === 'food-culture' ? '饮食文化复述练习' : 'HSK 4 ' + escHtml(task.task_cn)} \u2014 <span class="accent">${task.slug === 'food-culture' ? 'HSK 4 Food Culture' : escHtml(task.task_en)}</span></h1>
     <p>${escHtml(task.desc)}</p>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">${words.length}</div><div class="stat-label">Words</div></div>
@@ -2388,25 +2408,27 @@ ${faqJsonLd}
     <p>${escHtml(task.syllabus_cn)}</p>
   </div>
 
-  ${dialogueHtml}
+${retellingHtml}
+
+${dialogueHtml}
 
   ${challengeHtml}
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Related Grammar Patterns / \u76F8\u5173\u8BED\u6CD5</h2>
-  <p style="color:var(--stone);margin-bottom:12px;">These grammar points are commonly tested in ${escHtml(task.task_en).toLowerCase()} contexts:</p>
+  <p style="color:var(--stone);margin-bottom:12px;">Practise these grammar points in ${escHtml(task.task_en).toLowerCase()} contexts:</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;">
     ${grammarLinksHtml}
   </div>
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Core Vocabulary / \u6838\u5FC3\u8BCD\u6C47 (${words.length} words)</h2>
-  <table class="word-table">
+  <div style="overflow-x:auto;"><table class="word-table">
     <thead>
       <tr><th>Word</th><th>Pinyin</th><th>Meaning</th><th>Example</th></tr>
     </thead>
     <tbody>
       ${wordListHtml}
     </tbody>
-  </table>
+  </table></div>
 
   ${words.length >= 8 ? generateTopicQuiz(words, task.slug) : ''}
 
@@ -2509,7 +2531,7 @@ ${taskNavCards}
 `;
   hubHtml = hubHtml.replace(/<!-- TASK PAGES NAV -->[\s\S]*?<!-- \/TASK PAGES NAV -->\n?/g, '');
   if (hubHtml.includes('<div id="categories"')) {
-    hubHtml = hubHtml.replace(/(\s*)(<div id="categories")/, `\n  ${taskNavBlock}$1$2`);
+    hubHtml = hubHtml.replace(/\s*(<div id="categories")/, `\n  ${taskNavBlock}\n  $1`);
   } else {
     hubHtml = hubHtml.replace('</main>', `${taskNavBlock}\n</main>`);
   }
@@ -2600,8 +2622,8 @@ function buildConfusablePages() {
       } catch (e) { /* skip */ }
     }
     const realQHtml = matchingQs.length > 0
-      ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Real HSK 4 Test Questions Using ${escHtml(pair.wordA)} or ${escHtml(pair.wordB)} / 真题示例</h2>
-  <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">${matchingQs.length} actual HSK 4 questions from our mock exams that test the ${escHtml(pair.wordA)} vs ${escHtml(pair.wordB)} distinction:</p>
+      ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">Real HSK 4 Test Questions Using ${escHtml(pair.wordA)} or ${escHtml(pair.wordB)} / 练习卷示例</h2>
+  <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">${matchingQs.length} HSK 4 practice questions from our mock exams that test the ${escHtml(pair.wordA)} vs ${escHtml(pair.wordB)} distinction:</p>
   ${matchingQs.map(mq => `<div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num}</div>
     <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">${escHtml(mq.text).replace(/\n/g, '<br>')}</div>
@@ -3005,7 +3027,7 @@ function buildGrammarPatternPages() {
       } catch (e) { /* skip */ }
     }
     const patRealQHtml = patMatchQs.length > 0
-      ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">HSK 4 Mock Test Questions Using ${escHtml(pat.pattern_cn)} / 真题示例</h2>
+      ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">HSK 4 Mock Test Questions Using ${escHtml(pat.pattern_cn)} / 练习卷示例</h2>
   <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">${patMatchQs.length} real HSK 4 questions from our mock exams that test this pattern:</p>
   ${patMatchQs.map(mq => `<div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num}</div>
@@ -4533,10 +4555,10 @@ const TRAP_CAT_META = {
     related: [['/words/shi-rang-jiao-bei/', '使 vs 让 vs 叫 vs 被'], ['/grammar/pivotal-sentences/', '兼语句 — pivotal sentences']],
   },
   'ba-sentence': {
-    seo_title: 'HSK 4 把字句 Traps: When 把 Is Mandatory',
-    seo_desc: '把 is mandatory with verb+在+place, imperatives still need a subject, and double-object verbs change order — three 把字句 traps with quiz.',
+    seo_title: 'HSK 4 把字句 Traps: Word Order, Commands & Complements',
+    seo_desc: 'Practise 把字句 word order, implied subjects in commands, and 告诉 sentences. Correct examples and three focused quiz questions.',
     grammar: ['/grammar/ba-sentence/'],
-    intro: 'The 把 construction is mandatory in specific structures — not optional stylistic flair. These three traps cover the cases 排词成句 (Q86-95) tests most.',
+    intro: 'Practise object placement, commands with an implied subject, and 告诉 sentences. Use the examples to check word order and complements.',
     related: [['/grammar/patterns/', '8 sentence patterns'], ['/strategies/writing-construction/', 'Writing Q86-95 strategy']],
   },
   'comparison': {
@@ -4569,11 +4591,21 @@ const TRAP_CAT_META = {
   },
 };
 
-function buildTrapCategoryPages() {
+function buildTrapCategoryPages(onlySlugs) {
   console.log('[trap-cats] Generating trap category drill-down pages...');
   const cats = readJSON('traps.json');
 
   cats.forEach((cat, ci) => {
+    if (onlySlugs && !onlySlugs.includes(cat.slug)) return;
+    if (cat.slug === 'ba-sentence') {
+      const hubPath = path.join(ROOT, 'traps', 'index.html');
+      let hub = fs.readFileSync(hubPath, 'utf8');
+      cat.traps.forEach(t => {
+        hub = hub.replace(new RegExp('<article class="trap-card" id="trap-' + t.id + '">[\\s\\S]*?</article>'), () => t.html);
+        hub = hub.replace(new RegExp('<article class="trap-quiz-item" data-q="' + t.id + '">[\\s\\S]*?</article>'), () => t.quiz_html);
+      });
+      fs.writeFileSync(hubPath, hub);
+    }
     const prev = cats[(ci + cats.length - 1) % cats.length];
     const next = cats[(ci + 1) % cats.length];
     const meta = TRAP_CAT_META[cat.slug] || { grammar: [], intro: '', related: [] };
@@ -4705,7 +4737,7 @@ window.trapAnswer = function(btn, isCorrect, qNum) {
   hub = hub.replace(/(<h2 class="category-h2">A\.)/, navBlock + '$1');
   fs.writeFileSync(hubPath, hub, 'utf8');
 
-  console.log(`[trap-cats] Generated ${cats.length} category pages + hub nav`);
+  console.log(`[trap-cats] Generated ${onlySlugs ? onlySlugs.length : cats.length} category pages + hub nav`);
   return cats.map(c => ({ loc: `/traps/${c.slug}/`, priority: '0.7' }));
 }
 
@@ -5443,6 +5475,17 @@ function buildTranscriptPages() {
   return generated;
 }
 
+if (process.argv.includes('--landing-pages')) {
+  buildVocabulary();
+  buildHomepage();
+} else if (process.argv.includes('--content-opportunities')) {
+  buildVocabulary();
+  buildTaskTopicPages();
+  buildTrapCategoryPages(['ba-sentence']);
+  injectTheme();
+  injectAnalytics();
+} else {
+
 buildVocabulary();
 buildTestPages();
 const transcriptPages = buildTranscriptPages();
@@ -5472,3 +5515,5 @@ syncCounts();
 // Must be last: hashes each page's FINAL on-disk content for honest lastmod.
 writeSitemaps();
 console.log('\nDone! All static content pre-rendered.');
+
+}

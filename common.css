@@ -407,6 +407,8 @@ header {
   .logo-text { font-size: 16px; }
   .site-nav {
     overflow: visible;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     flex: 0 1 auto;
     gap: var(--space-4);
   }

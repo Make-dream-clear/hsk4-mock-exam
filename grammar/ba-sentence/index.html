@@ -46,7 +46,7 @@
       "name": "What is 把字句 in Chinese grammar?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "把字句 (bǎ zì jù) is a Chinese sentence pattern that uses the particle 把 to move the object before the verb, emphasizing the action's effect on the object. The structure is: Subject + 把 + Object + Verb + Result/Complement. The object must be definite (specific), and the verb cannot stand alone — it must be followed by a result, complement, or aspect marker like 了."
+        "text": "把字句 (bǎ zì jù) is a Chinese sentence pattern that uses the particle 把 to move the object before the verb, emphasizing the action's effect on the object. The structure is: Subject + 把 + Object + Verb + Result/Complement. The object is usually specific or identifiable in context, and the verb cannot stand alone — it must be followed by a result, complement, or aspect marker like 了."
       }
     },
     {
@@ -54,7 +54,7 @@
       "name": "When should I use 把 in Chinese?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use 把 when you want to emphasize what happens to a specific object. Common situations: disposing of something (把垃圾扔了), placing something (把书放在桌子上), changing something's state (把门关上), or completing an action on something (把作业做完了). Do NOT use 把 with psychological verbs (喜欢, 知道), with indefinite objects (一本书), or with bare verbs that have no result."
+        "text": "Use 把 when you want to emphasize what happens to a specific object. Common situations: disposing of something (把垃圾扔了), placing something (把书放在桌子上), changing something's state (把门关上), or completing an action on something (把作业做完了). Do NOT use 把 with psychological verbs (喜欢, 知道), with bare action verbs lacking a suitable complement. Numeral objects such as 一本书 can refer to something specific in context."
       }
     },
     {
@@ -687,7 +687,10 @@
     .prog-bar { flex-direction: column; }
     .prog-step { border-right: none; border-bottom: 1px solid var(--mist); }
     .prog-step:last-child { border-bottom: none; }
+    .anatomy-box { padding: 24px 16px; }
     .anatomy-sentence { font-size: 22px; }
+    .anatomy-sentence [data-tip]:first-child::after { left: 0; transform: none; }
+    .anatomy-sentence [data-tip]:last-child::after { left: auto; right: 0; transform: none; }
     .gen-slots { flex-direction: column; align-items: stretch; }
     .gen-output, .rev-sentence { font-size: 20px; }
     .quiz-opts { grid-template-columns: 1fr; }
@@ -740,6 +743,16 @@
     <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Exercises</div></div>
   </div>
 </div>
+
+<section class="tool-section" id="ba-hua-gua" lang="zh-CN" style="margin:28px 0;">
+  <h2>挂在这儿：把字句例句与结构拆解</h2>
+  <p class="chinese" style="font-size:22px;">他们想把画儿挂在这儿。</p>
+  <p>Tāmen xiǎng bǎ huàr guà zài zhèr. — They want to hang the picture here.</p>
+  <p><strong>他们</strong>（主语）＋ <strong>想</strong>（意愿）＋ <strong>把画儿</strong>（处置对象）＋ <strong>挂</strong>（动作）＋ <strong>在这儿</strong>（动作后的放置位置）。想放在把前面；“在这儿”说明画挂在哪里。</p>
+  <p>替换练习（自编）：我把书放在桌子上。／请把照片挂在墙上。／他们想把画儿挂在那儿。</p>
+  <p>注意：“画儿挂在这儿”可以描述状态；“他们把画儿挂在这儿”强调对画儿进行的动作。“把”并非所有含“在”的句子都必须使用。</p>
+  <p><a href="/traps/ba-sentence/">练习把字句易错点 →</a> · <a href="/topics/food-culture/#retelling-practice">用“把剩下的菜保存好”练习主题复述 →</a></p>
+</section>
 
 <!-- PROGRESSION BAR -->
 <div class="section-title">HSK Level Progression / 等级递进</div>
@@ -862,9 +875,9 @@
   <div class="ex-row"><div class="cn chinese">我<span class="hl">把</span>行李<span class="hl">整理一下</span>。</div><div class="py">Wǒ bǎ xínglǐ zhěnglǐ yīxià.</div><div class="en">Let me tidy up the luggage a bit.</div></div>
   <div class="ex-row"><div class="cn chinese">请<span class="hl">把</span>这段话<span class="hl">翻译一下</span>。</div><div class="py">Qǐng bǎ zhè duàn huà fānyì yīxià.</div><div class="en">Please translate this passage.</div></div>
   <div class="error-block">
-    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">把这件衣服看一看。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">把这件衣服看一看。</span></div>
     <div><span class="right-mark">&#10003;</span> <span class="chinese"><b>你</b>把这件衣服看一看。</span></div>
-    <div class="error-note">把字句 requires an explicit subject (你/我/他/请…), even in imperative sentences.</div>
+    <div class="error-note">Commands can omit the understood subject 你: both 把这件衣服看一看 and 你把这件衣服看一看 are grammatical. 请 adds politeness; it is not a subject.</div>
   </div>
 </div>
 
@@ -878,9 +891,9 @@
   <div class="ex-row"><div class="cn chinese">我<span class="hl">把</span>今天的作业<span class="hl">做了</span>。</div><div class="py">Wǒ bǎ jīntiān de zuòyè zuò le.</div><div class="en">I finished today's homework.</div></div>
   <div class="ex-row"><div class="cn chinese">服务员<span class="hl">把</span>菜单<span class="hl">拿走了</span>。</div><div class="py">Fúwùyuán bǎ càidān ná zǒu le.</div><div class="en">The waiter took away the menu.</div></div>
   <div class="error-block">
-    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">我把一本书借了。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">我把一本书借了。</span></div>
     <div><span class="right-mark">&#10003;</span> <span class="chinese">我把<b>那本</b>书借了。</span></div>
-    <div class="error-note">The object after 把 must be definite (这/那/我的…). Indefinite objects (一本书) cannot be used with 把.</div>
+    <div class="error-note">The object is usually identifiable or specific in context. A numeral phrase such as 一本书 can refer to a specific book; it is not automatically wrong. 这/那 makes the reference explicit.</div>
   </div>
 </div>
 
@@ -894,9 +907,9 @@
   <div class="ex-row"><div class="cn chinese">他<span class="hl">把</span>这首歌<span class="hl">唱了两遍</span>。</div><div class="py">Tā bǎ zhè shǒu gē chàng le liǎng biàn.</div><div class="en">He sang this song twice.</div></div>
   <div class="ex-row"><div class="cn chinese">她<span class="hl">把</span>那个电影<span class="hl">看了三次</span>。</div><div class="py">Tā bǎ nàge diànyǐng kàn le sān cì.</div><div class="en">She watched that movie three times.</div></div>
   <div class="error-block">
-    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">我把课文读三遍。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">我把课文读三遍。</span></div>
     <div><span class="right-mark">&#10003;</span> <span class="chinese">我把课文读<b>了</b>三遍。</span></div>
-    <div class="error-note">When quantifying a completed action, 了 is needed between the verb and the quantity to mark completion.</div>
+    <div class="error-note">Use 读了三遍 when reporting a completed action. 读三遍 can express a plan or instruction; it is grammatical in that context.</div>
   </div>
 </div>
 
@@ -910,16 +923,18 @@
   <div class="ex-row"><div class="cn chinese">他<span class="hl">把</span>名字<span class="hl">认真地</span>写在纸上。</div><div class="py">Tā bǎ míngzì rènzhēn de xiě zài zhǐ shàng.</div><div class="en">He carefully wrote the name on the paper.</div></div>
   <div class="ex-row"><div class="cn chinese">我们<span class="hl">把</span>教室<span class="hl">重新</span>布置了一下。</div><div class="py">Wǒmen bǎ jiàoshì chóngxīn bùzhì le yīxià.</div><div class="en">We rearranged the classroom.</div></div>
   <div class="error-block">
-    <div><span class="wrong-mark">&#10007;</span> <span class="chinese">请仔细地把桌子擦干净。</span></div>
+    <div><span class="right-mark">&#10003;</span> <span class="chinese">请仔细地把桌子擦干净。</span></div>
     <div><span class="right-mark">&#10003;</span> <span class="chinese">请把桌子<b>仔细地</b>擦干净。</span></div>
-    <div class="error-note">In this pattern, the adverbial modifier goes <b>after</b> the object, immediately before the verb — not before 把.</div>
+    <div class="error-note">仔细地 can appear before 把 or between the object and verb here. Both examples are grammatical; this lesson practises the second arrangement.</div>
   </div>
 </div>
+
+
 
 <!-- CLASSIC HSK 4 把字句 EXAMPLES — explained one by one -->
 <div class="tool-section" id="classic-examples" style="margin-top:32px;">
   <h2 class="chinese" style="font-family:'Noto Serif SC',serif;font-size:24px;margin-bottom:8px;">Classic HSK 4 把字句 Examples Explained / HSK 4 把字句经典例句详解</h2>
-  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">These 15 把字句 sentences appear repeatedly in HSK 4 textbooks, mock exams, and real conversations. Learn each one with full pinyin, English translation, structural analysis, and contrast with the wrong way to say it.</p>
+  <p style="font-size:14px;color:var(--stone);margin-bottom:20px;">These 15 teaching examples illustrate useful 把字句 constructions. Learn each one with full pinyin, English translation, structural analysis, and contrast with the wrong way to say it.</p>
 
   <div style="display:grid;grid-template-columns:1fr;gap:18px;">
 
@@ -939,10 +954,10 @@
         </tbody>
       </table>
       <div style="background:#fff5f5;border-left:3px solid #c53030;padding:10px 14px;border-radius:6px;margin-bottom:10px;">
-        <strong style="color:#c53030;">✗ 我放书在桌子上。</strong> — <strong>Ungrammatical.</strong> When the verb 放 is followed by 在 + location, Mandarin requires 把字句. The object cannot stay after the verb.
+        <strong style="color:#c53030;">✗ 我放书在桌子上。</strong> — <strong>Ungrammatical.</strong> In this placement example, use 把书 before 放在桌子上. This does not mean every sentence containing 在 must use 把.
       </div>
       <div style="background:#e8f5e9;border-left:3px solid var(--correct);padding:10px 14px;border-radius:6px;">
-        <strong style="color:var(--correct);">✓ 我把书放在桌子上。</strong> — Required HSK 4 form. With "verb + 在 + place" structures (放/挂/写/装/贴/坐 etc.), the object MUST be moved before the verb using 把.
+        <strong style="color:var(--correct);">✓ 我把书放在桌子上。</strong> — Required HSK 4 form. Practise 把 + object + 放/挂/贴 + 在 + place for placement. 我坐在椅子上 describes position and does not require 把; 书放在桌子上 can describe a resulting state.
       </div>
       <p style="font-size:13px;color:var(--stone);margin-top:12px;">Variations to learn: <span class="chinese">把杯子放在桌子上 / 把手机放在床上 / 把钱包放在包里 / 把行李放在车上</span>. Same structure, different objects and locations.</p>
     </article>
@@ -1070,7 +1085,7 @@
         <strong style="color:var(--correct);">✓ 他把这件事告诉了我，我才知道。</strong> Tā bǎ zhè jiàn shì gàosu le wǒ, wǒ cái zhīdào. — "He told me about this matter, only then did I find out."
       </div>
       <div style="background:var(--gold-soft);padding:10px 14px;border-radius:6px;font-size:13px;line-height:1.6;">
-        <strong>HSK 4 grammar note:</strong> Strict prescriptive grammar says double-object verbs like 告诉 / 教 / 给 / 问 should not use 把字句 — the canonical form is 「他告诉了我这件事」(SVO with double object). However, in real HSK 4 listening dialogues and reading passages, the 把字句 form 「他把这件事告诉了我」 appears regularly when the speaker emphasizes the matter. Both are accepted in HSK 4 testing. Recognize both; default to the simple 告诉了我这件事 form when writing.
+        <strong>HSK 4 grammar note:</strong> 他把这件事告诉了我 and 他告诉了我这件事 are both ordinary grammatical sentences. In the 把 form, 这件事 is the information conveyed and 我 is the recipient. Do not place the recipient in the information slot: 他把我告诉了这件事 does not express the intended meaning.
       </div>
     </article>
 
@@ -1270,7 +1285,7 @@
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我把一本书看。</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">他把很累。</button>
     </div>
-    <div class="quiz-explanation">把 cannot be used with psychological verbs (喜欢), indefinite objects (一本书), or without a verb. 请把门关上 is correct: 把+definite O+V+result.</div>
+    <div class="quiz-explanation">喜欢 does not fit this disposal pattern; 我把一本书看 lacks a completed verb phrase, and 他把很累 lacks an action verb. 请把门关上 is correct: 把+definite O+V+result.</div>
   </div>
 
   <div class="quiz-item" data-quiz="ba-full">
@@ -1332,11 +1347,11 @@
     <div class="quiz-stem chinese">请把这段话<span class="blank"></span>翻译成英文。</div>
     <div class="quiz-opts">
       <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">仔细地</button>
-      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">仔细</button>
-      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">很仔细</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">仔细的</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">仔细得</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">仔细了</button>
     </div>
-    <div class="quiz-explanation">把+O+adverbial+V (Pattern 7). The adverbial modifier uses 地 before the verb: 仔细地 = carefully. 仔细 alone is an adjective and cannot modify a verb directly in this structure.</div>
+    <div class="quiz-explanation">把+O+adverbial+V (Pattern 7). 仔细地 = carefully; 地 marks an adverbial modifier. 仔细 without 地 can also modify the verb, so it is not a wrong alternative. 的 and 得 do not fit this slot.</div>
   </div>
 
   <div class="quiz-item" data-quiz="ba-full">
@@ -1353,12 +1368,12 @@
   <div class="quiz-item" data-quiz="ba-full">
     <div class="quiz-stem">Choose the correct word order:</div>
     <div class="quiz-opts">
-      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">把我行李整理一下。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">把整理我行李一下。</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">我把行李整理一下。</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我行李把整理一下。</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我整理一下把行李。</button>
     </div>
-    <div class="quiz-explanation">The correct order is: Subject(我) + 把 + Object(行李) + Verb+complement(整理一下). 把 always comes after the subject and before the object.</div>
+    <div class="quiz-explanation">The correct order is: Subject(我) + 把 + Object(行李) + Verb+complement(整理一下). 把 precedes its object. An explicit subject normally precedes 把, but an understood subject can be omitted in a command.</div>
   </div>
 
   <div class="quiz-item" data-quiz="ba-full">
@@ -1366,10 +1381,10 @@
     <div class="quiz-opts">
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">他把门关上了。</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">请把灯打开。</button>
-      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">请仔细地把作业做完。</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">请把做完作业。</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">我把杯子放在桌子上了。</button>
     </div>
-    <div class="quiz-explanation">In Pattern 7, the adverb goes after the object: 请把作业仔细地做完, not 请仔细地把作业做完. The adverbial modifier belongs between 把+O and V.</div>
+    <div class="quiz-explanation">The object must follow 把 and precede the verb: 请把作业做完. Both 请仔细地把作业做完 and 请把作业仔细地做完 are grammatical.</div>
   </div>
 
   <div class="quiz-item" data-quiz="ba-full">
@@ -1720,7 +1735,7 @@ function genSwitchTab(tab) {
 var REV_SENTENCES = [
   { words: ['她','把','书','放在','桌子上','了'], labels: ['subject','ba','object','verb','result','result'] },
   { words: ['我','把','作业','做完','了'], labels: ['subject','ba','object','verb','result'] },
-  { words: ['请','把','这道题','看一看'], labels: ['subject','ba','object','verb'] },
+  { words: ['你','把','这道题','看一看'], labels: ['subject','ba','object','verb'] },
   { words: ['他','把','课文','读了','三遍'], labels: ['subject','ba','object','verb','result'] },
   { words: ['妈妈','把','房间','仔细地','打扫','干净了'], labels: ['subject','ba','object','verb','verb','result'] }
 ];
@@ -1793,15 +1808,15 @@ function revNext() {
 var EC_CARDS = [
   { sentence: '我把书看。', correct: false, fix: '我把书看了。/ 我把书看完了。', explain: 'After 把, the verb cannot stand alone. It must have a result complement (看完), aspect marker (看了), or other complement.' },
   { sentence: '请把门关上。', correct: true, fix: '', explain: 'Correct! 把+definite O(门)+V+result(关上). A standard HSK3 pattern.' },
-  { sentence: '他把一个苹果吃了。', correct: false, fix: '他把那个苹果吃了。', explain: 'The object after 把 must be definite. 一个苹果 is indefinite — use 那个苹果 or 这个苹果 instead.' },
+  { sentence: '他把一个苹果吃了。', correct: true, fix: '', explain: '一个苹果 can refer to a specific apple in context. A numeral phrase is not automatically excluded from 把 sentences.' },
   { sentence: '我把行李整理一下。', correct: true, fix: '', explain: 'Correct! 把+O+V一V (Pattern 4). 整理一下 provides the tentative complement.' },
   { sentence: '他把她很喜欢。', correct: false, fix: '他很喜欢她。(No 把 needed)', explain: '把 cannot be used with psychological/stative verbs like 喜欢、知道、觉得. Use normal SVO word order instead.' },
   { sentence: '妈妈把菜做好了。', correct: true, fix: '', explain: 'Correct! 把+O+V+result(好)+了. The result complement 好 indicates completion.' },
-  { sentence: '我把课文读三遍。', correct: false, fix: '我把课文读了三遍。', explain: 'When expressing a completed quantified action, 了 is needed: 读了三遍. Without 了, the sentence sounds incomplete.' },
-  { sentence: '请仔细地把这篇文章读一读。', correct: false, fix: '请把这篇文章仔细地读一读。', explain: 'In Pattern 7, the adverb goes after 把+O, before the verb — not before 把. Move 仔细地 after the object.' },
+  { sentence: '我把课文读三遍。', correct: true, fix: '', explain: 'Grammatical as a plan: I will read the text three times. Use 读了三遍 to report a completed action.' },
+  { sentence: '请仔细地把这篇文章读一读。', correct: true, fix: '', explain: '仔细地 may precede 把 here. 请把这篇文章仔细地读一读 is also grammatical.' },
   { sentence: '风把树叶吹走了。', correct: true, fix: '', explain: 'Correct! Even natural forces (风) can be the subject of 把字句. 吹走 is V+direction complement.' },
   { sentence: '她把衣服洗干净了。', correct: true, fix: '', explain: 'Correct! 把+O+V+result(干净)+了. A standard pattern expressing a completed action with a clear result.' },
-  { sentence: '把这件衣服看一看。', correct: false, fix: '你把这件衣服看一看。/ 请把这件衣服看一看。', explain: '把字句 requires an explicit subject (你/我/请…). Even imperatives need 你 or 请 before 把.' },
+  { sentence: '把这件衣服看一看。', correct: true, fix: '', explain: 'A grammatical command with an implied 你. 请 may be added for politeness; it is not the subject.' },
   { sentence: '他把名字认真地写在纸上。', correct: true, fix: '', explain: 'Correct! 把+O+adverb(认真地)+V+在+location (Pattern 7 combined with HSK3 pattern).' }
 ];
 var ecIdx = 0, ecCorrect = 0, ecJudged = false;
