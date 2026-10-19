@@ -4,6 +4,8 @@ const order = HSK4Order;
 const $ = id => document.getElementById(id);
 let currentEx = 0, previousEx = null, answered = false, answerFragments = [], reviewQueue = null;
 const firstResults = {}, firstSentences = {};
+let orderLearning = null;
+function trackOrder(){return orderLearning ||= window.HSK4Learning?.create('sentence_order','order','sentence-order',EXERCISES.length);}
 const labels = {1:'Basic',2:'Intermediate',3:'Advanced',4:'Real exam'};
 function counts() {
   const values = Object.values(firstResults);
@@ -39,7 +41,7 @@ function updateDisplay() {
 }
 $('fragmentBank').addEventListener('click',event=>{
   const button=event.target.closest('button[data-index]'); if(!button || answered)return;
-  const i=Number(button.dataset.index); if(!answerFragments.includes(i)){answerFragments.push(i);updateDisplay();}
+  const i=Number(button.dataset.index); if(!answerFragments.includes(i)){trackOrder()?.start();answerFragments.push(i);updateDisplay();}
 });
 $('answerZone').addEventListener('click',event=>{
   const button=event.target.closest('button[data-index]'); if(!button || answered)return;
@@ -53,6 +55,10 @@ function checkAnswer() {
   const sentence=answerFragments.map(i=>ex.fragments[i]).join('');
   const retried=Object.prototype.hasOwnProperty.call(firstResults,ex.id);
   order.recordFirst(firstResults,ex.id,result);
+  const trackingId='q-'+(currentEx+1);
+  trackOrder()?.answer(trackingId,result==='matched'?'matched':'needs_review',{attempt_type:retried?'retry':'first',topic_id:ex.group});
+  trackOrder()?.explanation(trackingId);
+  if(Object.keys(firstResults).length===EXERCISES.length)trackOrder()?.complete();
   if(!retried)firstSentences[ex.id]=sentence;
   $('answerZone').classList.add(result==='matched'?'correct':'needs-review');
   $('answerZone').querySelectorAll('button').forEach(b=>b.disabled=true);
@@ -69,7 +75,7 @@ function checkAnswer() {
   $('btnSimilar').hidden=!EXERCISES.some((q,i)=>i!==currentEx&&q.group===ex.group);
   $('btnNext').textContent=reviewQueue?'Next review / 下一道复习题':currentEx===EXERCISES.length-1?'Review progress / 查看进度':'Next / 下一题';
 }
-function resetExercise(){renderExercise();$('fragmentBank').querySelector('button').focus();}
+function resetExercise(){if(answered)trackOrder()?.retry('q-'+(currentEx+1));renderExercise();$('fragmentBank').querySelector('button').focus();}
 function navigateTo(i,keepQueue=false){
   if(!Number.isInteger(i)||i<0||i>=EXERCISES.length)return;
   previousEx=currentEx;currentEx=i;if(!keepQueue)reviewQueue=null;renderExercise();$('exerciseSelect').focus();
@@ -84,6 +90,7 @@ function similarExercise(){
   if(next)navigateTo(next.i);
 }
 function showResults(){
+  orderLearning?.submit({answered_count:Object.keys(firstResults).length});
   $('exerciseBox').hidden=true;$('resultsBox').hidden=false;
   const c=counts();
   $('resultsScore').textContent=`${c.matched} matched · ${c.review} to compare · ${c.untouched} not attempted`;
@@ -95,9 +102,10 @@ function showResults(){
 function startReview(){
   const queue=EXERCISES.map((q,i)=>firstResults[q.id]==='review'?i:null).filter(i=>i!==null);
   if(!queue.length)return;
-  navigateTo(queue[0]);reviewQueue=queue;
+  orderLearning?.retry();navigateTo(queue[0]);reviewQueue=queue;
 }
 function restartAll(){
+  orderLearning=null;
   for(const key of Object.keys(firstResults))delete firstResults[key];
   for(const key of Object.keys(firstSentences))delete firstSentences[key];
   currentEx=0;previousEx=null;reviewQueue=null;renderExercise();$('exerciseSelect').focus();

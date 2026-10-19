@@ -734,6 +734,7 @@
     #quiz-overlay .modal-title { font-size:16px; }
   }
 </style>
+<script defer src="/learning-analytics.js"></script>
 </head>
 <body>
 
@@ -16765,6 +16766,7 @@ document.getElementById('sort-toggles').addEventListener('click', function(e) {
 });
 
 // === FLASHCARD MODE ===
+let flashLearning=null, flashRatings=new Set();
 function openFlashcards() {
   fcWords = filtered.filter(w => w.meaning && w.meaning.trim());
   if (fcWords.length === 0) { document.getElementById('study-status').textContent = 'No words match your filters. Change the search or filters to practise. / 当前筛选无词，请调整搜索或筛选。'; return; }
@@ -16773,6 +16775,7 @@ function openFlashcards() {
     const j = Math.floor(Math.random() * (i + 1));
     [fcWords[i], fcWords[j]] = [fcWords[j], fcWords[i]];
   }
+  flashRatings=new Set();flashLearning=window.HSK4Learning?.create('vocabulary','flashcard','vocabulary-flashcard',fcWords.length);flashLearning?.start();
   fcIndex = 0;
   fcRevealed = false;
   renderFlashcard();
@@ -16798,6 +16801,7 @@ function renderFlashcard() {
   const reveal = document.getElementById('fc-reveal');
   const tap = document.getElementById('fc-tap');
   if (fcRevealed) {
+    flashLearning?.explanation('word-'+w.id,'requested');
     reveal.classList.remove('hidden');
     tap.style.display = 'none';
   } else {
@@ -16815,13 +16819,19 @@ document.getElementById('flashcard-body').addEventListener('click', function(e) 
   }
 });
 
+function rateFlashcard(result) {
+  const id='word-'+fcWords[fcIndex].id;flashLearning?.answer(id,result);flashRatings.add(id);
+  if(flashRatings.size===fcWords.length)flashLearning?.complete();
+}
 function flashcardKnow() {
+  rateFlashcard('known');
   const w = fcWords[fcIndex];
   toggleMastered(w.id, true);
   flashcardAdvance();
 }
 
 function flashcardLearning() {
+  rateFlashcard('learning');
   toggleMastered(fcWords[fcIndex].id, false);
   flashcardAdvance();
 }

@@ -5261,8 +5261,13 @@ function injectAnalytics(files = null) {
   let count = 0;
   (files || walkHtmlFiles()).forEach(f => {
     let html = fs.readFileSync(f, 'utf8');
+    const before = html;
+    if (html.includes('</head>') && !html.includes('src="/learning-analytics.js"')) html = html.replace('</head>', '<script defer src="/learning-analytics.js"></script>\n</head>');
+    if (path.relative(__dirname, f).replace(/\\/g, '/').startsWith('grammar/') && !html.includes('src="/grammar/learning-analytics.js"')) html = html.replace('</head>', '<script defer src="/grammar/learning-analytics.js"></script>\n</head>');
     if (html.indexOf('googletagmanager.com/gtag/js') === -1 && html.indexOf('<head>') !== -1) {
       html = html.replace('<head>', '<head>\n' + ga);
+    }
+    if (html !== before) {
       fs.writeFileSync(f, html, 'utf8');
       count++;
     }

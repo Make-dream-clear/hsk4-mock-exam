@@ -7,6 +7,7 @@ const valid=new Set([...vocabulary.map(w=>'meaning-'+w.id),...allContext.keys()]
 const key='hsk4_vocab_review_v1';let saved=[],canSave=true;
 try{saved=lib.parseReview(localStorage.getItem(key),valid);}catch{canSave=false;}
 let questions=[],index=0,first={},answered=false,mode='meaning',returnFocus=null,reviewing=false,initialSize=0,scope='filtered';
+let learning=null, roundAnswers=new Set();
 function save(){try{localStorage.setItem(key,JSON.stringify(saved));}catch{canSave=false;}updateReview();}
 function updateReview(){document.querySelectorAll('[data-vocab-review]').forEach(b=>b.textContent=`Saved review (${saved.length}) / 待复习`);}
 function remember(id){if(!saved.includes(id))saved.push(id);save();}
@@ -24,11 +25,12 @@ function openQuiz(kind='meaning',all=false){
  if(kind==='saved')questions=saved.map(resolve).filter(Boolean);
  else if(kind==='context')questions=lib.shuffle(contexts.filter(q=>ids.has(q.wordId))).map(lib.makeContext);
  else questions=lib.shuffle(pool).slice(0,20).map(w=>lib.makeMeaning(w,vocabulary));
- initialSize=questions.length;
+ initialSize=questions.length;learning=null;roundAnswers=new Set();
  if(!questions.length){
   $('quiz-progress').textContent='No matching exercises / 暂无匹配题';$('quiz-next-btn').hidden=true;
   $('quiz-body').innerHTML=`<h3 tabindex="-1">${kind==='saved'?'Your review list is empty / 暂无待复习题':'No exercises match these filters / 当前筛选下没有可练题目'}</h3><p>${kind==='context'?'The context set covers 24 selected words; the full list still has 1,000 entries. / 语境题目前覆盖 24 个目标词，词表仍有 1,000 词。':'Your word filters have been kept. / 已保留你的词表筛选。'}</p>${kind!=='saved'?'<button class="btn btn-primary" data-action="all">'+(kind==='context'?'Practise all 24 context exercises / 练全部语境题':'Start from the full word list / 从完整词表开始')+'</button>':''}<p>${storageNote()}</p>`;focusBody();return;
  }
+ learning=window.HSK4Learning?.create('vocabulary',mode,'vocabulary-'+mode,questions.length);learning?.start(kind==='saved'?'review':'first');
  render();
 }
 function closeQuiz(){
@@ -48,6 +50,9 @@ function wordCard(w){return `<section class="quiz-word-card"><h4>${lib.escape(li
 function answer(choice){
  if(answered)return;const q=questions[index];if(!q.options.some(o=>o.id===choice))return;
  answered=true;const matched=choice===q.wordId,isFirst=lib.recordFirst(first,q,choice),w=words.get(q.wordId);
+ learning?.answer(q.id,matched?'matched':'needs_review',{attempt_type:isFirst?'first':'retry',topic_id:q.kind});
+ learning?.explanation(q.id);roundAnswers.add(q.id);
+ if(roundAnswers.size===questions.length)learning?.complete();
  if(!matched)remember(q.id);
  $('quiz-options').querySelectorAll('button').forEach(b=>{b.disabled=true;b.classList.add('disabled');if(Number(b.dataset.choice)===q.wordId)b.classList.add('correct');else if(Number(b.dataset.choice)===choice)b.classList.add('wrong');});
  const feedback=$('vocab-feedback');feedback.hidden=false;
@@ -60,13 +65,15 @@ function results(){
  const missed=Object.keys(first).filter(id=>!first[id].matched);
  $('quiz-body').innerHTML=`<h3 tabindex="-1">First attempts / 本轮首次作答</h3><p class="meaning-prompt">${matched} matched · ${records.length-matched} to review</p><p>${records.length} distinct exercises attempted in this session (starting set: ${initialSize}). Retries do not add points, and quiz results do not mark words as mastered. / 本轮已作答 ${records.length} 道不同题目，起始题组 ${initialSize} 道；重做不重复计分，也不自动标记掌握。</p><ul class="vocab-review-list">${missed.map(id=>{const q=resolve(id),r=first[id];return `<li>${lib.escape(words.get(q.wordId).word)} — ${q.kind==='context'?'context / 语境':'meaning / 词义'}<br>Your first choice / 首次选择：${lib.escape(words.get(r.choice).word)} <button type="button" data-retry-id="${lib.escape(id)}">Retry / 重做</button></li>`;}).join('')||'<li>No unmatched first attempts in this session. / 本轮首次作答均匹配目标词。</li>'}</ul><div class="vocab-actions">${missed.length?'<button type="button" class="btn btn-primary" data-action="missed">Review this session / 重练本轮未匹配题</button>':''}<button type="button" class="btn btn-secondary" data-action="saved">Open saved review (${saved.length}) / 打开待复习</button><button type="button" class="btn btn-secondary" data-action="new">New set / 新一轮</button></div><p>${storageNote()}</p>`;focusBody();
 }
-function retryIds(ids){questions=ids.map(resolve).filter(Boolean);index=0;reviewing=true;render();}
+function retryIds(ids){questions=ids.map(resolve).filter(Boolean);index=0;reviewing=true;roundAnswers=new Set();
+ learning=window.HSK4Learning?.create('vocabulary',mode,'vocabulary-'+mode,questions.length);
+ if(questions.length){learning?.start('review');learning?.retry();}render();}
 $('quiz-body').addEventListener('click',event=>{
  const b=event.target.closest('button');if(!b)return;
  if(b.dataset.choice){answer(Number(b.dataset.choice));return;}
  if(b.dataset.retryId){retryIds([b.dataset.retryId]);return;}
  const action=b.dataset.action;
- if(action==='retry')render();
+ if(action==='retry'){learning?.retry(questions[index].id);render();}
  if(action==='all')openQuiz(mode,true);
  if(action==='missed')retryIds(Object.keys(first).filter(id=>!first[id].matched));
  if(action==='saved')openQuiz('saved');

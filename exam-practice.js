@@ -184,7 +184,16 @@ async function startTest(index) {
   }
 }
 
+let examLearning = null;
+let examDraftEvents = new Set(), examExplanationEvents = new Set(), examSubmitted = false;
+function examEvent(name, extra = {}) {
+  window.HSK4Learning?.emit(name, {learning_area:'exam', practice_mode:'paper', activity_id:'test-'+pad2(currentTestIndex+1), ...extra});
+}
 function beginAttempt(saved) {
+  examLearning = window.HSK4Learning?.create('exam', 'paper', 'test-'+pad2(currentTestIndex+1), currentTest.questions.length);
+  examLearning?.start(saved ? 'resume' : 'first');
+  examDraftEvents = new Set(Object.keys(saved?.answers || {}));
+  examExplanationEvents = new Set(); examSubmitted = false;
   reviewMode = false;
   retrying = false;
   retryFeedback = null;
@@ -349,6 +358,11 @@ function renderQuestion() {
       (writing ? '<p>Self-check: use the required words, complete the thought, check word order and match the picture when available. A different sentence is not automatically wrong.</p>' : '') +
       `<div class="review-learning-actions">${!writing ? '<button class="btn btn-secondary" type="button" onclick="retryQuestion()">Try again without the answer</button>' : ''}<a href="${resource.href}" target="_blank" rel="noopener">${resource.label} ↗</a></div>`;
     exBox.hidden = false;
+    const analyticsKey = currentTestIndex + '-' + currentQ;
+    if (!examExplanationEvents.has(analyticsKey)) {
+      examExplanationEvents.add(analyticsKey);
+      examEvent('learning_explanation', {question_id:'q-'+q.number, display_type:retryFeedback?'automatic':'requested'});
+    }
   } else {
     exBox.hidden = true;
     exBox.innerHTML = '';
@@ -369,6 +383,10 @@ function renderQuestion() {
 function saveWritingDraft() {
   if (reviewMode) return;
   const value = $('written-answer').value;
+  if (value.trim() && !examDraftEvents.has(String(currentQ))) {
+    examDraftEvents.add(String(currentQ));
+    examLearning?.answer('q-'+currentTest.questions[currentQ].number, 'draft_started');
+  }
   if (value.trim()) userAnswers[currentQ] = value; else delete userAnswers[currentQ];
   saveProgress();
   $('writing-save-status').textContent = progressSaved ? 'Draft saved in this browser.' : 'This browser cannot save progress. Copy your answer before leaving.';
@@ -380,13 +398,19 @@ function selectOption(i) {
   if (HSK4Scoring.isWriting(q) || !Number.isInteger(i) || i < 0 || i >= q.options.length) return;
   if (reviewMode) {
     if (!retrying) return;
+    examEvent('learning_answer', {question_id:'q-'+q.number, attempt_type:'retry', result:i===q.correct_answer_index?'matched':'needs_review'});
     retryFeedback = { index: currentQ, answer: i };
     retrying = false;
-  } else userAnswers[currentQ] = i;
+  } else {
+    if (userAnswers[currentQ] !== i) examLearning?.answer('q-'+q.number, 'selected', {attempt_type:HSK4Scoring.hasAnswer(q,userAnswers[currentQ])?'revision':'first'});
+    userAnswers[currentQ] = i;
+  }
   saveProgress();
   renderQuestion();
 }
 function retryQuestion() {
+  examEvent('learning_retry', {question_id:'q-'+currentTest.questions[currentQ].number, attempt_type:'retry'});
+  examExplanationEvents.delete(currentTestIndex+'-'+currentQ);
   retrying = true;
   retryFeedback = null;
   renderQuestion();
@@ -516,6 +540,13 @@ function showResults(persist = true) {
   clearRetry();
   lastResult = { ...HSK4Scoring.summarize(currentTest.questions, userAnswers), elapsed };
   const { correct, scoredTotal, pct, wrong, unanswered, sections, writingTotal, writingAnswered } = lastResult;
+  if (persist && !examSubmitted) {
+    examSubmitted = true;
+    const answered = currentTest.questions.filter((q,i)=>HSK4Scoring.hasAnswer(q,userAnswers[i])).length;
+    const metrics = {answered_count:answered, correct_count:correct, writing_count:writingAnswered};
+    examLearning?.submit(metrics);
+    if (answered === currentTest.questions.length) examLearning?.complete(metrics);
+  }
   let resultSaved = true;
   if (persist && currentTestIndex != null) {
     resultSaved = saveResult(currentTestIndex, { ...lastResult, schemaVersion: 2, answers: { ...userAnswers }, ts: Date.now() });

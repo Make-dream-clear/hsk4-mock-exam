@@ -1,0 +1,53 @@
+{
+  "version": "learning_v1",
+  "introduced_on": "2026-10-19",
+  "hostname": "hsk4.mandarinzone.com",
+  "measurement_id": "G-L4CMDLM3DL",
+  "event_scoped_dimensions": {
+    "learning_area": "学习专项",
+    "practice_mode": "练习方式",
+    "activity_id": "练习题组",
+    "attempt_type": "作答阶段",
+    "result": "学习结果",
+    "topic_id": "学习主题",
+    "display_type": "解析展示方式",
+    "tracking_version": "学习统计版本"
+  },
+  "standard_unit_metrics": {
+    "item_count": "题组题目数",
+    "answered_count": "已作答题目数",
+    "correct_count": "整卷客观题答对数",
+    "writing_count": "整卷书写已作答数"
+  },
+  "definitions": {
+    "learning_start": "用户打开非空词汇题组或词卡、开始/继续整卷、首次操作语序词块、写作首次非空输入，或首次回答语法题。单纯页面展示和打开范例不算开始。",
+    "learning_answer": "首次、重做和修改分开。语法和词汇 matched 表示匹配现有参考答案；语序未匹配仅需复核。词卡 known 是用户自评。整卷作答时记录 selected，交卷才汇总客观题结果。写作 draft_started 与 self_reviewed 均不是自动评分。",
+    "learning_complete": "词汇题组全部作答、整卷全部客观题和书写题均有回答、语法题组全部作答、语序全部80题作答、词卡全部自评，或单条写作提示通过用户自查流程。不同方式的完成门槛不可直接横比。短文仅展示范例不产生完成事件。",
+    "learning_submit": "整卷交卷（包括未做完），或语序用户主动查看本轮进度。不是完成事件。汇总指标必须限定事件名称，不能把 submit 与 complete 累加。",
+    "learning_explanation": "automatic 表示答题后展示；requested 表示主动查看、进入整卷复盘或翻开词卡。展示不代表读完、读懂或学会。参考库只记录单题解析展开，展开整个目录不算看完全部解析。",
+    "learning_retry": "明确重做、复习队列或隐藏答案再练。首次结果和重做结果分开分析。",
+    "learning_navigate": "语法页内跳往语法、写作、词汇或试卷的站内链接；topic_id 为固定目标路径标识。",
+    "learning_interaction": "部分既有语法辅助工具的检查、生成、复习操作；不推断正确率。"
+  },
+  "grammar_review": {
+    "base_filters": {"hostname": "hsk4.mandarinzone.com", "tracking_version": "learning_v1"},
+    "first_attempt_difficulty": "筛选 learning_answer、learning_area=grammar、attempt_type=first、result 属于 matched/needs_review；按 activity_id、topic_id、practice_mode 分组，以 needs_review / 两类结果之和观察困难。同步看活跃用户数，避免一名反复练习者主导结论。",
+    "retry_check": "把 attempt_type=retry 单独比较，配合 learning_retry 和解析展示。重做更好可能包含记忆答案，不能当作已掌握；优先用同知识点新题验证迁移。",
+    "entry_check": "页面浏览后没有作答并不自动代表页面无用。结合语法入口点击、后续专项开始、设备和用户路径，再判断入口说明是否需要改善。",
+    "gsc_comparison": "选相同起止日期，GA4 限定带来会话的来源/媒介 google / organic，再按落地页与 GSC 页面和查询需求对应；点击和浏览次数不是同一指标。",
+    "decision": "先检查24–48小时后的收数质量，再看7–14天的初步分布。样本稀少的语法点延长到28天并保留不确定性；不凭几个事件下结论。优先补有搜索需求、首次反复困难且解释后仍需复习的知识点；成功标准是帮助用户理解与独立作答。"
+  },
+  "limitations": [
+    "数据只从上线后开始，不能反推之前28天的学习行为。",
+    "首次是当前练习轮次/页面中的首次，不是某个人终身首次；跨设备、刷新和新题组不合并。整卷继续作答另标 resume。",
+    "没有新增用户身份或会话标识。question_id 不注册成报表维度，以免高基数影响常用报告。",
+    "不上传用户书写、作文、填空原文、搜索词或所选答案文本；仅固定编号、分类和计数。",
+    "仅生产主机发送学习事件；自动化浏览器、显式禁用或统计被拦截时不发送，且不阻断练习。",
+    "现有部分填空判分允许前缀匹配，因此这类练习只记录 selected 与检查操作，不用于困难率；语法内容优化时应另行审核判分。",
+    "部分语法辅助工具只有操作统计，不能与有完整开始/完成统计的题组混算完成率。"
+  ],
+  "sources": [
+    "https://developers.google.com/analytics/devguides/collection/ga4/event-parameters",
+    "https://support.google.com/analytics/answer/14240153"
+  ]
+}

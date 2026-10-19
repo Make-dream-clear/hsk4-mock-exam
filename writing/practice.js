@@ -1,6 +1,17 @@
 /* Local study drafts and self-review; no automatic grammar or exam scoring. */
 (function () {
   'use strict';
+  const learning = new Map(), startedDrafts = new Set(), selfReviewed = new Set();
+  function track(mode, id) {
+    const key=mode+'-'+id;
+    if(!learning.has(key))learning.set(key,window.HSK4Learning?.create('writing',mode,key,1));
+    return learning.get(key);
+  }
+  function startDraft(mode,id,value) {
+    const key=mode+'-'+id;
+    if(!value.trim()||startedDrafts.has(key))return;
+    startedDrafts.add(key);track(mode,id)?.answer(id,'draft_started');
+  }
   const KEY = 'hsk4_writing_drafts_v1';
   let state = { mode: 'picture', positions: {}, drafts: {}, reviewed: [] };
   try {
@@ -77,7 +88,9 @@
     syncReviewed();
     save(status);
   }
+  const sentenceTrackingId=()=>'sentence-'+(bank.indexOf(current)+1);
   input.addEventListener('input', () => {
+    startDraft(state.mode,sentenceTrackingId(),input.value);
     state.reviewed = state.reviewed.filter(id => id !== current.id);
     resetChecks(card);
     syncReviewed();
@@ -104,6 +117,7 @@
   });
   byId('kt-check').addEventListener('click', () => {
     saveSentence();
+    track(state.mode,sentenceTrackingId())?.explanation(sentenceTrackingId(),'requested');
     byId('kt-model').textContent = current.s;
     byId('kt-models').classList.add('show');
     const text = input.value.trim();
@@ -124,6 +138,13 @@
     if (!byId('kt-models').classList.contains('show') || checks.some(el => !el.checked)) {
       feedback.textContent = 'Compare with the model and complete the self-check first. Your sentence can differ from the model.';
       return;
+    }
+    const trackingId=sentenceTrackingId(), trackingKey=state.mode+'-'+trackingId;
+    if(!selfReviewed.has(trackingKey)){
+      selfReviewed.add(trackingKey);
+      track(state.mode,trackingId)?.start(draft(current.id)?'resume':'first');
+      track(state.mode,trackingId)?.event('learning_answer',{question_id:trackingId,result:'self_reviewed',attempt_type:'review'});
+      track(state.mode,trackingId)?.complete({answered_count:1});
     }
     if (!state.reviewed.includes(current.id)) state.reviewed.push(current.id);
     saveSentence();
@@ -167,8 +188,11 @@
     byId('essay-feedback').textContent = '';
     save(essayStatus);
   }
-  essayInput.addEventListener('input', () => { updateCount(); saveEssay(); });
+  const essayTrackingId=()=>'essay-'+(prompts.indexOf(essay)+1);
+  essayInput.addEventListener('input', () => {
+    startDraft('essay',essayTrackingId(),essayInput.value); updateCount(); saveEssay(); });
   byId('essay-show').addEventListener('click', () => {
+    track('essay',essayTrackingId())?.explanation(essayTrackingId(),'requested');
     saveEssay();
     byId('essay-model').textContent = essay.m;
     byId('essay-model-wrap').classList.add('show');
