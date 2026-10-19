@@ -937,3 +937,12 @@ footer a:hover { text-decoration: underline; }
   margin: var(--space-8) 0 var(--space-5);
   flex-wrap: wrap;
 }
+
+/* Evidence-led study notes shared by live review and printable test pages. */
+.learning-explanation { margin-top:20px; padding-top:16px; border-top:1px solid var(--mist); font-size:15px; line-height:1.75; overflow-wrap:anywhere; }
+.learning-explanation-credit { font-size:12px; color:var(--stone); margin:0 0 14px; }
+.learning-explanation-part { margin:16px 0; }
+.learning-explanation h4 { font-size:14px; color:var(--ink); margin:0 0 8px; line-height:1.6; }
+.learning-explanation p { margin:6px 0; }
+.learning-explanation .learning-explanation-zh { color:var(--stone); }
+.learning-explanation blockquote { margin:8px 0; padding:10px 14px; border-left:3px solid var(--accent); background:var(--surface); color:var(--ink); white-space:pre-wrap; }

@@ -255,9 +255,9 @@
     "pinyin": "bèn",
     "pos": "adj.",
     "meaning": "stupid; dull",
-    "example_cn": "这道题我不笨，只是没学过。",
-    "example_pinyin": "Zhè dào tí wǒ bú bèn, zhǐshì méi xué guò.",
-    "example_en": "I'm not stupid about this problem, I just haven't learned it."
+    "example_cn": "我不笨，只是还没学过这种题。",
+    "example_pinyin": "Wǒ bú bèn, zhǐshì hái méi xué guò zhè zhǒng tí.",
+    "example_en": "I am not stupid; I just have not learned how to solve this kind of problem yet."
   },
   {
     "id": 1027,
@@ -724,10 +724,10 @@
     "word": "场",
     "pinyin": "chǎng",
     "pos": "mw.",
-    "meaning": "performances,",
-    "example_cn": "(measure word: 昨天下了一场大雨。",
+    "meaning": "measure word for events, games and performances",
+    "example_cn": "昨天下了一场大雨。",
     "example_pinyin": "Zuótiān xià le yì chǎng dà yǔ.",
-    "example_en": "games) There was a heavy rain yesterday."
+    "example_en": "There was a heavy rain yesterday."
   },
   {
     "id": 1074,
@@ -1024,10 +1024,10 @@
     "word": "从来",
     "pinyin": "cónglái",
     "pos": "adv.",
-    "meaning": "times; never (with",
-    "example_cn": "always; at all 他从来不说谎。",
+    "meaning": "always; ever (often with a negative)",
+    "example_cn": "他从来不说谎。",
     "example_pinyin": "Tā cónglái bù shuōhuǎng.",
-    "example_en": "neg.) He never tells lies."
+    "example_en": "He never tells lies."
   },
   {
     "id": 1104,
@@ -1394,10 +1394,10 @@
     "word": "道",
     "pinyin": "dào",
     "pos": "n./mw.",
-    "meaning": "(measure word:",
-    "example_cn": "road; way; 这道菜味道很好。",
+    "meaning": "road; way; measure word for dishes and questions",
+    "example_cn": "这道菜味道很好。",
     "example_pinyin": "Zhè dào cài wèidao hěn hǎo.",
-    "example_en": "dishes) This dish tastes great."
+    "example_en": "This dish tastes great."
   },
   {
     "id": 1141,
@@ -2664,10 +2664,10 @@
     "word": "故意",
     "pinyin": "gùyì",
     "pos": "adv.",
-    "meaning": "purpose; intentiona",
-    "example_cn": "deliberately; on 他不是故意的，请原谅他。",
+    "meaning": "deliberately; on purpose",
+    "example_cn": "他不是故意的，请原谅他。",
     "example_pinyin": "Tā búshì gùyì de, qǐng yuánliàng tā.",
-    "example_en": "lly He didn't do it on purpose, please forgive him."
+    "example_en": "He did not do it on purpose; please forgive him."
   },
   {
     "id": 1268,
@@ -3044,10 +3044,10 @@
     "word": "环保",
     "pinyin": "huánbǎo",
     "pos": "n./adj.",
-    "meaning": "protection;",
-    "example_cn": "environmental 我们要用环保的购物袋。",
+    "meaning": "environmental protection; environmentally friendly",
+    "example_cn": "我们要用环保的购物袋。",
     "example_pinyin": "Wǒmen yào yòng huánbǎo de gòuwù dài.",
-    "example_en": "eco-friendly We should use eco-friendly shopping bags."
+    "example_en": "We should use environmentally friendly shopping bags."
   },
   {
     "id": 1306,
@@ -4744,10 +4744,10 @@
     "word": "列",
     "pinyin": "liè",
     "pos": "v./mw.",
-    "meaning": "(measure word:",
-    "example_cn": "to list; row; 一列火车正在进站。",
+    "meaning": "to list; row; measure word for trains",
+    "example_cn": "一列火车正在进站。",
     "example_pinyin": "Yí liè huǒchē zhèngzài jìnzhàn.",
-    "example_en": "rows) A train is entering the station."
+    "example_en": "A train is entering the station."
   },
   {
     "id": 1476,
@@ -5544,10 +5544,10 @@
     "word": "片",
     "pinyin": "piàn",
     "pos": "n./mw.",
-    "meaning": "(measure word:",
-    "example_cn": "piece; slice; 他给我看了几片风景照。",
-    "example_pinyin": "Tā gěi wǒ kàn le jǐ piàn fēngjǐng zhào.",
-    "example_en": "flat things) He showed me a few landscape photos."
+    "meaning": "piece; slice; measure word for flat things",
+    "example_cn": "地上有几片树叶。",
+    "example_pinyin": "Dìshang yǒu jǐ piàn shùyè.",
+    "example_en": "There are a few leaves on the ground."
   },
   {
     "id": 1556,
@@ -6524,10 +6524,10 @@
     "word": "师傅",
     "pinyin": "shīfu",
     "pos": "n.",
-    "meaning": "worker (form of",
-    "example_cn": "master; skilled 出租车师傅，请去火车站。",
+    "meaning": "master; skilled worker; respectful address for a worker",
+    "example_cn": "出租车师傅，请去火车站。",
     "example_pinyin": "Chūzūchē shīfu, qǐng qù huǒchēzhàn.",
-    "example_en": "address) Driver, please go to the train station."
+    "example_en": "Driver, please take me to the train station."
   },
   {
     "id": 1654,
@@ -7023,11 +7023,11 @@
     "id": 1703,
     "word": "死",
     "pinyin": "sǐ",
-    "pos": "v./adj./(adv.)",
-    "meaning": "to die; dead; extremely (informal)",
-    "example_cn": "今天热死了！",
-    "example_pinyin": "Jīntiān rè sǐ le!",
-    "example_en": "It's extremely hot today!"
+    "pos": "v./adj.",
+    "meaning": "to die; dead",
+    "example_cn": "这棵树已经死了。",
+    "example_pinyin": "Zhè kē shù yǐjīng sǐ le.",
+    "example_en": "This tree has already died."
   },
   {
     "id": 1704,
@@ -7074,10 +7074,10 @@
     "word": "算",
     "pinyin": "suàn",
     "pos": "v./adv.",
-    "meaning": "consider; to",
-    "example_cn": "to count; to 你算一算一共多少钱。",
+    "meaning": "to count; to calculate; to consider",
+    "example_cn": "你算一算一共多少钱。",
     "example_pinyin": "Nǐ suàn yí suàn yígòng duōshao qián.",
-    "example_en": "calculate Calculate how much it costs in total."
+    "example_en": "Work out how much it costs in total."
   },
   {
     "id": 1709,
@@ -7564,20 +7564,20 @@
     "word": "推出",
     "pinyin": "tuīchū",
     "pos": "v.",
-    "meaning": "introduce; to roll",
-    "example_cn": "to launch; to 这家公司推出了一款新产品。",
+    "meaning": "to launch; to introduce; to roll out",
+    "example_cn": "这家公司推出了一款新产品。",
     "example_pinyin": "Zhè jiā gōngsī tuīchū le yì kuǎn xīn chǎnpǐn.",
-    "example_en": "out This company launched a new product."
+    "example_en": "This company launched a new product."
   },
   {
     "id": 1758,
     "word": "脱",
     "pinyin": "tuō",
     "pos": "v.",
-    "meaning": "(clothing); to",
-    "example_cn": "to take off 进屋前请脱鞋。",
+    "meaning": "to take off; to remove",
+    "example_cn": "进屋前请脱鞋。",
     "example_pinyin": "Jìn wū qián qǐng tuō xié.",
-    "example_en": "remove Please take off your shoes before entering."
+    "example_en": "Please take off your shoes before entering."
   },
   {
     "id": 1759,
@@ -7705,9 +7705,9 @@
     "pinyin": "wéi",
     "pos": "v.",
     "meaning": "to act as; to be",
-    "example_cn": "他为大家做了很多事。",
-    "example_pinyin": "Tā wèi dàjiā zuò le hěn duō shì.",
-    "example_en": "He has done many things for everyone."
+    "example_cn": "大家选他为班长。",
+    "example_pinyin": "Dàjiā xuǎn tā wéi bānzhǎng.",
+    "example_en": "Everyone chose him as class monitor."
   },
   {
     "id": 1772,
@@ -7784,10 +7784,10 @@
     "word": "文字",
     "pinyin": "wénzì",
     "pos": "n.",
-    "meaning": "language; characte",
-    "example_cn": "text; written 汉字是世界上最古老的文字之一。",
+    "meaning": "text; written language; characters",
+    "example_cn": "汉字是世界上最古老的文字之一。",
     "example_pinyin": "Hànzì shì shìjiè shàng zuì gǔlǎo de wénzì zhī yī.",
-    "example_en": "rs Chinese characters are among the oldest writing systems in the world."
+    "example_en": "Chinese characters are among the oldest writing systems in the world."
   },
   {
     "id": 1780,
@@ -8264,10 +8264,10 @@
     "word": "醒",
     "pinyin": "xǐng",
     "pos": "v.",
-    "meaning": "regain consciousne",
-    "example_cn": "to wake up; to 他每天早上六点就醒了。",
+    "meaning": "to wake up; to regain consciousness",
+    "example_cn": "他每天早上六点就醒了。",
     "example_pinyin": "Tā měitiān zǎoshang liù diǎn jiù xǐng le.",
-    "example_en": "ss He wakes up at six every morning."
+    "example_en": "He wakes up at six every morning."
   },
   {
     "id": 1828,
@@ -8704,10 +8704,10 @@
     "word": "因此",
     "pinyin": "yīncǐ",
     "pos": "conj.",
-    "meaning": "result; consequentl",
-    "example_cn": "therefore; as a 他很努力，因此成绩一直很好。",
+    "meaning": "therefore; as a result; consequently",
+    "example_cn": "他很努力，因此成绩一直很好。",
     "example_pinyin": "Tā hěn nǔlì, yīncǐ chéngjì yìzhí hěn hǎo.",
-    "example_en": "y He works hard, therefore his grades are always good."
+    "example_en": "He works hard, so his grades are consistently good."
   },
   {
     "id": 1872,
@@ -9604,17 +9604,17 @@
     "word": "重点",
     "pinyin": "zhòngdiǎn",
     "pos": "n./adv.",
-    "meaning": "emphasis; focal",
-    "example_cn": "key point; 老师讲了这一课的重点。",
+    "meaning": "key point; emphasis; focus",
+    "example_cn": "老师讲了这一课的重点。",
     "example_pinyin": "Lǎoshī jiǎng le zhè yí kè de zhòngdiǎn.",
-    "example_en": "point The teacher covered the key points of this lesson."
+    "example_en": "The teacher covered the key points of this lesson."
   },
   {
     "id": 1962,
     "word": "重视",
     "pinyin": "zhòngshì",
     "pos": "v.",
-    "meaning": "to attach importanc e to; to value",
+    "meaning": "to attach importance to; to value",
     "example_cn": "学校非常重视学生的安全。",
     "example_pinyin": "Xuéxiào fēicháng zhòngshì xuéshēng de ānquán.",
     "example_en": "The school attaches great importance to student safety."
@@ -9814,10 +9814,10 @@
     "word": "自习",
     "pinyin": "zìxí",
     "pos": "v.",
-    "meaning": "study independentl",
-    "example_cn": "to self-study; to 晚上他在图书馆自习。",
+    "meaning": "to study independently",
+    "example_cn": "晚上他在图书馆自习。",
     "example_pinyin": "Wǎnshang tā zài túshūguǎn zìxí.",
-    "example_en": "y He studies by himself in the library at night."
+    "example_en": "He studies by himself in the library in the evening."
   },
   {
     "id": 1983,
@@ -9844,10 +9844,10 @@
     "word": "总结",
     "pinyin": "zǒngjié",
     "pos": "v./n.",
-    "meaning": "summary; conclusio",
-    "example_cn": "to summarize; 请总结一下今天的会议内容。",
+    "meaning": "to summarize; summary; conclusion",
+    "example_cn": "请总结一下今天的会议内容。",
     "example_pinyin": "Qǐng zǒngjié yíxià jīntiān de huìyì nèiróng.",
-    "example_en": "n Please summarize today's meeting."
+    "example_en": "Please summarize today's meeting."
   },
   {
     "id": 1986,
@@ -9894,7 +9894,7 @@
     "word": "左右",
     "pinyin": "zuǒyòu",
     "pos": "n./(v.)",
-    "meaning": "around; approximat ely; left and right",
+    "meaning": "around; approximately; left and right",
     "example_cn": "从这里到火车站大约三十分钟左右。",
     "example_pinyin": "Cóng zhèlǐ dào huǒchēzhàn dàyuē sānshí fēnzhōng zuǒyòu.",
     "example_en": "It's about 30 minutes from here to the train station."

@@ -81,13 +81,13 @@
 
   <div class="pc-summary">
     <div class="pc-stat"><div class="pc-stat-num" id="pc-tests-taken">0</div><div class="pc-stat-label">Mocks taken</div></div>
-    <div class="pc-stat"><div class="pc-stat-num" id="pc-best">—</div><div class="pc-stat-label">Best score</div></div>
+    <div class="pc-stat"><div class="pc-stat-num" id="pc-best">—</div><div class="pc-stat-label">Best objective accuracy</div></div>
     <div class="pc-stat"><div class="pc-stat-num" id="pc-vocab">0</div><div class="pc-stat-label">Words mastered</div></div>
     <div class="pc-stat"><div class="pc-stat-num" id="pc-path">0/8</div><div class="pc-stat-label">Study steps</div></div>
   </div>
 
   <h2 class="pc-section-title">🎯 Mock exams</h2>
-  <p style="color:var(--stone);font-size:13px;margin-bottom:12px;">Full exam simulation with instant scoring. Your last score shows on each.</p>
+  <p style="color:var(--stone);font-size:13px;margin-bottom:12px;">Older-format practice with listening and reading feedback and writing self-review. Percentages show objective accuracy; earlier scoring results are labeled separately.</p>
   <div class="pc-tests">
         <a class="pc-test" href="/test/01/" data-test="0"><span class="pc-test-num">Test 01</span><span class="pc-test-score" data-score="0"></span></a>
         <a class="pc-test" href="/test/02/" data-test="1"><span class="pc-test-num">Test 02</span><span class="pc-test-score" data-score="1"></span></a>
@@ -147,9 +147,9 @@
   var results=[], best=null;
   for(var i=0;i<19;i++){
     var raw=ls('hsk4_result_'+i);
-    if(raw){ try{ var r=JSON.parse(raw); results.push(r); if(best===null||r.pct>best) best=r.pct;
+    if(raw){ try{ var r=JSON.parse(raw); if(!r || typeof r!=='object') continue; results.push(r); if(r.schemaVersion===2 && typeof r.pct==='number' && (best===null||r.pct>best)) best=r.pct;
       var el=document.querySelector('.pc-test-score[data-score="'+i+'"]');
-      if(el){ el.textContent=r.pct+'%'; el.className='pc-test-score '+(r.pct>=60?'pass':'fail'); }
+      if(el){ el.textContent=r.schemaVersion===2 ? (r.pct==null?'Written practice saved':r.pct+'% objective') : 'Earlier result'; el.className='pc-test-score'; }
     }catch(e){} }
   }
   document.getElementById('pc-tests-taken').textContent=results.length+'/'+19;

@@ -1358,11 +1358,11 @@
     <div class="quiz-stem chinese">我们把教室<span class="blank"></span>布置了一下。</div>
     <div class="quiz-opts">
       <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">重新</button>
-      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">重</button>
+      <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">重的</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">新</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">一重</button>
     </div>
-    <div class="quiz-explanation">把+O+adverb+V (Pattern 7). 重新 = again/anew, is a proper adverb that can go between object and verb in 把字句.</div>
+    <div class="quiz-explanation">把+O+adverb+V (Pattern 7). 重新 = again/anew and fits before 布置. 重 (chóng) could also work here, so it is not offered as an incorrect choice. 重的, 新 and 一重 do not fit this sentence.</div>
   </div>
 
   <div class="quiz-item" data-quiz="ba-full">
@@ -1388,25 +1388,25 @@
   </div>
 
   <div class="quiz-item" data-quiz="ba-full">
-    <div class="quiz-stem chinese">她<span class="blank"></span>名字写在了黑板上。</div>
+    <div class="quiz-stem chinese">她<span class="blank"></span>我的名字写在了黑板上。</div>
     <div class="quiz-opts">
       <button class="quiz-opt chinese" onclick="answerQuiz(this,true)">把</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">被</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">的</button>
       <button class="quiz-opt chinese" onclick="answerQuiz(this,false)">给</button>
     </div>
-    <div class="quiz-explanation">She actively wrote the name on the blackboard — this is an action on a specific object, so 把 is correct. 被 would be passive (the name was written by someone), which doesn't match the meaning here.</div>
+    <div class="quiz-explanation">她把我的名字写在了黑板上 describes her writing my name on the board. 我的名字 is the object after 把. 的 would produce 她的我的名字, which does not fit this sentence. Without 我的, 她的名字写在了黑板上 would be a valid sentence with a different structure.</div>
   </div>
 
   <div class="quiz-item" data-quiz="ba-full">
-    <div class="quiz-stem">How many rules must a valid 把字句 follow?</div>
+    <div class="quiz-stem">Which checklist helps you review the 把 sentences in this lesson?</div>
     <div class="quiz-opts">
       <button class="quiz-opt" onclick="answerQuiz(this,false)">Only 1: use 把 before the object</button>
       <button class="quiz-opt" onclick="answerQuiz(this,false)">2: definite object + action verb</button>
-      <button class="quiz-opt" onclick="answerQuiz(this,true)">3: definite object + action verb + result/complement after verb</button>
+      <button class="quiz-opt" onclick="answerQuiz(this,true)">An identifiable object + an action + a complete verb phrase</button>
       <button class="quiz-opt" onclick="answerQuiz(this,false)">4: including the object must be new information</button>
     </div>
-    <div class="quiz-explanation">Three key rules: (1) the object must be definite/specific, (2) the verb must be an action verb (not stative/psychological), (3) the verb must be followed by some result, complement, or aspect marker — never bare.</div>
+    <div class="quiz-explanation">For these practice sentences, check that the listener can identify the object, that an action affects it, and that the verb phrase is complete. A result, direction, duration, repetition or 了 can complete the patterns taught here. This is a learning checklist, not an exhaustive rule for every 把 sentence.</div>
   </div>
 
   <div class="quiz-score-bar" id="score-ba-full" style="display:none;"></div>
@@ -1891,6 +1891,7 @@ function answerQuiz(btn, isCorrect) {
 
   if (!quizScores[quizName]) quizScores[quizName] = { correct: 0, total: 0 };
   quizScores[quizName].total++;
+  item.dataset.answeredCorrectly = String(isCorrect);
 
   var opts = item.querySelectorAll('.quiz-opt');
   opts.forEach(function(o) {
@@ -1908,6 +1909,17 @@ function answerQuiz(btn, isCorrect) {
   // Show explanation
   var expl = item.querySelector('.quiz-explanation');
   if (expl) expl.style.display = 'block';
+  var retry = item.querySelector('.quiz-retry');
+  if (!retry) {
+    retry = document.createElement('button');
+    retry.type = 'button';
+    retry.className = 'quiz-retry';
+    retry.textContent = 'Try this question again / 再试一次';
+    retry.style.cssText = 'margin-top:12px;padding:8px 12px;cursor:pointer;';
+    retry.addEventListener('click', function () { retryQuizItem(item); });
+    item.appendChild(retry);
+  }
+  retry.hidden = false;
 
   // Check if all questions answered
   var allItems = document.querySelectorAll('.quiz-item[data-quiz="' + quizName + '"]');
@@ -1925,6 +1937,24 @@ function answerQuiz(btn, isCorrect) {
     }
     saveProgress();
   }
+}
+
+function retryQuizItem(item) {
+  var name = item.dataset.quiz;
+  if (!item.querySelector('.quiz-opt.disabled')) return;
+  if (quizScores[name]) {
+    quizScores[name].total--;
+    if (item.dataset.answeredCorrectly === 'true') quizScores[name].correct--;
+  }
+  delete item.dataset.answeredCorrectly;
+  item.querySelectorAll('.quiz-opt').forEach(function(btn) { btn.classList.remove('disabled', 'wrong', 'correct'); });
+  var explanation = item.querySelector('.quiz-explanation');
+  if (explanation) explanation.style.display = 'none';
+  item.querySelector('.quiz-retry').hidden = true;
+  var scoreBar = document.getElementById('score-' + name);
+  if (scoreBar) scoreBar.style.display = 'none';
+  saveProgress();
+  item.querySelector('.quiz-opt').focus({ preventScroll: true });
 }
 
 /* === LOCALSTORAGE === */

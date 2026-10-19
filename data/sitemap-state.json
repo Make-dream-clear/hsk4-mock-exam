@@ -1,7 +1,7 @@
 {
   "/": {
-    "hash": "109b28665505ad3a",
-    "lastmod": "2026-10-03"
+    "hash": "e4f001e6db67e502",
+    "lastmod": "2026-10-19"
   },
   "/characters/": {
     "hash": "d9cf783ed7e7aa9e",
@@ -152,8 +152,8 @@
     "lastmod": "2026-07-06"
   },
   "/characters/%E4%BF%9D/": {
-    "hash": "dbf6f198d2c61dd0",
-    "lastmod": "2026-07-06"
+    "hash": "a19d9f051945f75a",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E4%BF%A9/": {
     "hash": "3bdd9c0bb994f9d5",
@@ -184,8 +184,8 @@
     "lastmod": "2026-07-06"
   },
   "/characters/%E5%82%85/": {
-    "hash": "fe372dc59837b0ee",
-    "lastmod": "2026-07-06"
+    "hash": "5818355a5e3a57e0",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E5%82%B2/": {
     "hash": "7068776b5d7ec6eb",
@@ -248,8 +248,8 @@
     "lastmod": "2026-07-06"
   },
   "/characters/%E5%88%97/": {
-    "hash": "e78925d36cdec0f4",
-    "lastmod": "2026-07-06"
+    "hash": "c726fa0cd0323e76",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E5%88%99/": {
     "hash": "9f628d435b511c3b",
@@ -808,8 +808,8 @@
     "lastmod": "2026-07-06"
   },
   "/characters/%E6%8E%A8/": {
-    "hash": "5555e0a35e98f97e",
-    "lastmod": "2026-07-06"
+    "hash": "28e97425919f65d3",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E6%91%84/": {
     "hash": "038523fedb9afde1",
@@ -976,12 +976,12 @@
     "lastmod": "2026-07-06"
   },
   "/characters/%E6%AD%A4/": {
-    "hash": "d34e32ec656fac7b",
-    "lastmod": "2026-07-06"
+    "hash": "c95bde8a073b158a",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E6%AD%BB/": {
-    "hash": "e4bff1252f0ac028",
-    "lastmod": "2026-07-06"
+    "hash": "b246e48d09f33deb",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E6%AF%8D/": {
     "hash": "37df5d364e9d6932",
@@ -1232,8 +1232,8 @@
     "lastmod": "2026-07-06"
   },
   "/characters/%E7%AC%A8/": {
-    "hash": "4958e7af511bfa9f",
-    "lastmod": "2026-07-06"
+    "hash": "add3325ec2432271",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E7%AD%BE/": {
     "hash": "1c8d659ed5166440",
@@ -1356,8 +1356,8 @@
     "lastmod": "2026-07-06"
   },
   "/characters/%E8%84%B1/": {
-    "hash": "ab11dd3e83426618",
-    "lastmod": "2026-07-06"
+    "hash": "7a8d60c75a5d813c",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E8%84%BE/": {
     "hash": "5cde366b7af9a6a0",
@@ -1632,8 +1632,8 @@
     "lastmod": "2026-07-06"
   },
   "/characters/%E9%86%92/": {
-    "hash": "204c301809d60ed9",
-    "lastmod": "2026-07-06"
+    "hash": "21c28a5854ee961b",
+    "lastmod": "2026-10-19"
   },
   "/characters/%E9%87%8A/": {
     "hash": "f64dc59170768ecc",
@@ -1772,8 +1772,8 @@
     "lastmod": "2026-07-06"
   },
   "/compare/": {
-    "hash": "ced7feaced46fdf5",
-    "lastmod": "2026-07-06"
+    "hash": "f586b69cc871c0eb",
+    "lastmod": "2026-10-19"
   },
   "/compare/hsk4-vs-hsk3/": {
     "hash": "dcdd8bacaa29e470",
@@ -1784,8 +1784,8 @@
     "lastmod": "2026-07-06"
   },
   "/compare/new-vs-old-hsk4/": {
-    "hash": "d2d0d5757faca304",
-    "lastmod": "2026-07-06"
+    "hash": "943de02f44dc7f3f",
+    "lastmod": "2026-10-19"
   },
   "/grammar/": {
     "hash": "8c1a77fc49a75b7e",
@@ -1796,8 +1796,8 @@
     "lastmod": "2026-07-06"
   },
   "/grammar/ba-sentence/": {
-    "hash": "ab2c59e8b0f5ab3f",
-    "lastmod": "2026-10-03"
+    "hash": "755f9e282b279de8",
+    "lastmod": "2026-10-19"
   },
   "/grammar/comparison/": {
     "hash": "8186ce42a94f9666",
@@ -1836,32 +1836,32 @@
     "lastmod": "2026-07-06"
   },
   "/grammar/patterns/bushi-ershi/": {
-    "hash": "625ed5338c8f9627",
-    "lastmod": "2026-07-06"
+    "hash": "0df0be25f91f3cf1",
+    "lastmod": "2026-10-19"
   },
   "/grammar/patterns/jinguan-danshi/": {
-    "hash": "99bf17a76f19a4dc",
-    "lastmod": "2026-07-06"
+    "hash": "cd5e25a3f0a424c2",
+    "lastmod": "2026-10-19"
   },
   "/grammar/patterns/jishi-ye/": {
-    "hash": "2c1218fcc9c04248",
-    "lastmod": "2026-07-06"
+    "hash": "cc04fb4a32decac5",
+    "lastmod": "2026-10-19"
   },
   "/grammar/patterns/lian-dou-ye/": {
-    "hash": "3d0532cd60f5e434",
-    "lastmod": "2026-07-06"
+    "hash": "a8ba548d95c50972",
+    "lastmod": "2026-10-19"
   },
   "/grammar/patterns/yaoshi-fouze/": {
-    "hash": "22978257608797dd",
-    "lastmod": "2026-07-06"
+    "hash": "c9955d885ce05797",
+    "lastmod": "2026-10-19"
   },
   "/grammar/patterns/yifangmian-lingyifangmian/": {
     "hash": "eb90f59dcfb7f088",
     "lastmod": "2026-07-06"
   },
   "/grammar/patterns/zhiyou-cai/": {
-    "hash": "3b523a52d3bcc899",
-    "lastmod": "2026-07-06"
+    "hash": "8b3e0a08ab1e2164",
+    "lastmod": "2026-10-19"
   },
   "/grammar/pivotal-sentences/": {
     "hash": "c3da4e48250dc625",
@@ -1872,8 +1872,8 @@
     "lastmod": "2026-07-06"
   },
   "/guide/": {
-    "hash": "256b40ee3a763e51",
-    "lastmod": "2026-07-06"
+    "hash": "ff05b70330416ade",
+    "lastmod": "2026-10-19"
   },
   "/practice/": {
     "hash": "37299490e3c18c77",
@@ -1884,44 +1884,44 @@
     "lastmod": "2026-07-06"
   },
   "/sentences/cause-effect/": {
-    "hash": "dcb6e651525d89c6",
-    "lastmod": "2026-07-06"
+    "hash": "4f58b2c15b508023",
+    "lastmod": "2026-10-19"
   },
   "/sentences/comparison/": {
-    "hash": "2bf33b8bdd37cc79",
-    "lastmod": "2026-07-06"
+    "hash": "811fb6d8fd221a00",
+    "lastmod": "2026-10-19"
   },
   "/sentences/contrast-concession/": {
-    "hash": "71b38bbecf62e86b",
-    "lastmod": "2026-07-06"
+    "hash": "67c0bae544978cf5",
+    "lastmod": "2026-10-19"
   },
   "/sentences/describe-change/": {
-    "hash": "2152513c62b23b57",
-    "lastmod": "2026-07-06"
+    "hash": "e642ce43080f413c",
+    "lastmod": "2026-10-19"
   },
   "/sentences/describe-people/": {
-    "hash": "3e514bfc4867855b",
-    "lastmod": "2026-07-06"
+    "hash": "2b4e95be4b3ea250",
+    "lastmod": "2026-10-19"
   },
   "/sentences/express-feelings/": {
-    "hash": "bd7a3649f9a12077",
-    "lastmod": "2026-07-06"
+    "hash": "b92f37f45300ca85",
+    "lastmod": "2026-10-19"
   },
   "/sentences/express-opinion/": {
-    "hash": "7b195cd23f5a4f31",
-    "lastmod": "2026-07-06"
+    "hash": "1d783369b19d906a",
+    "lastmod": "2026-10-19"
   },
   "/sentences/make-suggestions/": {
-    "hash": "c791258c75f84fd9",
-    "lastmod": "2026-07-06"
+    "hash": "77541f6373df4097",
+    "lastmod": "2026-10-19"
   },
   "/sentences/summary-conclusion/": {
-    "hash": "eaa3fa30ba3027e5",
-    "lastmod": "2026-07-06"
+    "hash": "595e9e2b87364c79",
+    "lastmod": "2026-10-19"
   },
   "/sentences/time-expressions/": {
-    "hash": "fd781865365f0456",
-    "lastmod": "2026-07-06"
+    "hash": "81685b136fbca524",
+    "lastmod": "2026-10-19"
   },
   "/strategies/": {
     "hash": "163f3f9a1bd6e208",
@@ -1944,8 +1944,8 @@
     "lastmod": "2026-07-06"
   },
   "/strategies/picture-templates/": {
-    "hash": "d4cb3b3d872ba523",
-    "lastmod": "2026-07-06"
+    "hash": "f765a54db70a7a58",
+    "lastmod": "2026-10-19"
   },
   "/strategies/reading-comprehension/": {
     "hash": "8f7b31bc66d428f4",
@@ -1964,124 +1964,124 @@
     "lastmod": "2026-07-06"
   },
   "/test/01/": {
-    "hash": "f6a1bab98be18873",
-    "lastmod": "2026-07-06"
+    "hash": "e3113c1ae1cc12ab",
+    "lastmod": "2026-10-19"
   },
   "/test/02/": {
-    "hash": "81956baab10fdb01",
-    "lastmod": "2026-07-06"
+    "hash": "90b70624a2f19b4f",
+    "lastmod": "2026-10-19"
   },
   "/test/03/": {
-    "hash": "e86c8210d2cb511f",
-    "lastmod": "2026-07-06"
+    "hash": "2fc10cd840adfe1a",
+    "lastmod": "2026-10-19"
   },
   "/test/04/": {
-    "hash": "7cfe7327bf7b4e98",
-    "lastmod": "2026-07-06"
+    "hash": "d780783c1134daf5",
+    "lastmod": "2026-10-19"
   },
   "/test/05/": {
-    "hash": "cfc2ff2aaa48bc16",
-    "lastmod": "2026-07-06"
+    "hash": "482eee1615fdde85",
+    "lastmod": "2026-10-19"
   },
   "/test/06/": {
-    "hash": "87fa8442739e9e4d",
-    "lastmod": "2026-07-06"
+    "hash": "dc002480d8d51851",
+    "lastmod": "2026-10-19"
   },
   "/test/07/": {
-    "hash": "7d15b17f36385661",
-    "lastmod": "2026-07-06"
+    "hash": "ce61d4389d5dfb39",
+    "lastmod": "2026-10-19"
   },
   "/test/08/": {
-    "hash": "b4f6507e2c77875e",
-    "lastmod": "2026-07-06"
+    "hash": "40f6c8e1480fcea8",
+    "lastmod": "2026-10-19"
   },
   "/test/09/": {
-    "hash": "2ed5bd677c5e573b",
-    "lastmod": "2026-07-06"
+    "hash": "9729d1e33180e97b",
+    "lastmod": "2026-10-19"
   },
   "/test/10/": {
-    "hash": "f4b92ed45bb3ad3d",
-    "lastmod": "2026-07-06"
+    "hash": "758328bef6c5e110",
+    "lastmod": "2026-10-19"
   },
   "/test/11/": {
-    "hash": "4998a8b6f19b677e",
-    "lastmod": "2026-07-06"
+    "hash": "58c0b685d923d8ff",
+    "lastmod": "2026-10-19"
   },
   "/test/12/": {
-    "hash": "529f1a4aa02d7577",
-    "lastmod": "2026-07-06"
+    "hash": "cdaf4d1a944eb72c",
+    "lastmod": "2026-10-19"
   },
   "/test/13/": {
-    "hash": "f62e17eb1984855a",
-    "lastmod": "2026-07-06"
+    "hash": "35460786278b07f9",
+    "lastmod": "2026-10-19"
   },
   "/test/13/transcript/": {
-    "hash": "61bde92a69275e8d",
-    "lastmod": "2026-07-06"
+    "hash": "c5e819ae67d3a855",
+    "lastmod": "2026-10-19"
   },
   "/test/14/": {
-    "hash": "3e53fb133f37b47a",
-    "lastmod": "2026-07-06"
+    "hash": "67adfb28e7b11deb",
+    "lastmod": "2026-10-19"
   },
   "/test/14/transcript/": {
-    "hash": "cf503d432acb1a76",
-    "lastmod": "2026-07-06"
+    "hash": "f182677cbdbd1138",
+    "lastmod": "2026-10-19"
   },
   "/test/15/": {
-    "hash": "2d5641d1bb64f8a0",
-    "lastmod": "2026-07-06"
+    "hash": "51ce91d7e9093e8f",
+    "lastmod": "2026-10-19"
   },
   "/test/15/transcript/": {
-    "hash": "b730b8ed5b12378d",
-    "lastmod": "2026-07-06"
+    "hash": "3a374ea726004976",
+    "lastmod": "2026-10-19"
   },
   "/test/16/": {
-    "hash": "ad451db88f67a9e9",
-    "lastmod": "2026-07-06"
+    "hash": "e84776284b0b3319",
+    "lastmod": "2026-10-19"
   },
   "/test/16/transcript/": {
-    "hash": "a80892593fb0bed7",
-    "lastmod": "2026-07-06"
+    "hash": "71231dd0eda978a1",
+    "lastmod": "2026-10-19"
   },
   "/test/17/": {
-    "hash": "7264037a69a84475",
-    "lastmod": "2026-07-06"
+    "hash": "5b33d31d3c9c6738",
+    "lastmod": "2026-10-19"
   },
   "/test/17/transcript/": {
-    "hash": "bf711d845b8556f9",
-    "lastmod": "2026-07-06"
+    "hash": "1935a02e3b2a3731",
+    "lastmod": "2026-10-19"
   },
   "/test/18/": {
-    "hash": "48d1f5d464190866",
-    "lastmod": "2026-07-06"
+    "hash": "1aaf3b2f5d8ec8c3",
+    "lastmod": "2026-10-19"
   },
   "/test/18/transcript/": {
-    "hash": "c8b3dcf2a4315438",
-    "lastmod": "2026-07-06"
+    "hash": "16ed72b561154693",
+    "lastmod": "2026-10-19"
   },
   "/test/19/": {
-    "hash": "f0bf795b4d050ec7",
-    "lastmod": "2026-07-06"
+    "hash": "45c7feb738336b56",
+    "lastmod": "2026-10-19"
   },
   "/test/19/transcript/": {
-    "hash": "4eeb0c0a33b3937b",
-    "lastmod": "2026-07-06"
+    "hash": "c1ddd710613187f5",
+    "lastmod": "2026-10-19"
   },
   "/topics/": {
-    "hash": "aba23143928d2b85",
-    "lastmod": "2026-07-06"
+    "hash": "39de72da7ea75bd4",
+    "lastmod": "2026-10-19"
   },
   "/topics/arts-entertainment/": {
     "hash": "2dfa43659393035e",
     "lastmod": "2026-10-03"
   },
   "/topics/campus-life/": {
-    "hash": "dd26f9efca15d55f",
-    "lastmod": "2026-10-03"
+    "hash": "cbae239360d678c9",
+    "lastmod": "2026-10-19"
   },
   "/topics/career-experience/": {
-    "hash": "9e8577b20025753c",
-    "lastmod": "2026-10-03"
+    "hash": "c87e2994820ff426",
+    "lastmod": "2026-10-19"
   },
   "/topics/china-provinces/": {
     "hash": "9e57fa2df72a46c3",
@@ -2096,28 +2096,28 @@
     "lastmod": "2026-10-03"
   },
   "/topics/describe-a-person/": {
-    "hash": "5cb381b31888f511",
-    "lastmod": "2026-10-03"
+    "hash": "c6af4f602d570409",
+    "lastmod": "2026-10-19"
   },
   "/topics/economy/": {
-    "hash": "a19a522298b47c9c",
-    "lastmod": "2026-10-03"
+    "hash": "c8c850847876d008",
+    "lastmod": "2026-10-19"
   },
   "/topics/education-issues/": {
     "hash": "ce2f120634ef72fb",
     "lastmod": "2026-10-03"
   },
   "/topics/education-learning/": {
-    "hash": "770ac86cdf1df8c6",
-    "lastmod": "2026-10-03"
+    "hash": "27f168e5d5f4745c",
+    "lastmod": "2026-10-19"
   },
   "/topics/emotions/": {
     "hash": "c0f3fcf12684f969",
     "lastmod": "2026-10-03"
   },
   "/topics/environment/": {
-    "hash": "2114d47797537742",
-    "lastmod": "2026-10-03"
+    "hash": "438db573e57d6c2a",
+    "lastmod": "2026-10-19"
   },
   "/topics/family-life/": {
     "hash": "5e9c9a4694aedcf8",
@@ -2132,8 +2132,8 @@
     "lastmod": "2026-10-03"
   },
   "/topics/health-medical/": {
-    "hash": "364130530841b387",
-    "lastmod": "2026-10-03"
+    "hash": "58ea0a65a6927cae",
+    "lastmod": "2026-10-19"
   },
   "/topics/historical-figures/": {
     "hash": "1be792e252d417b7",
@@ -2156,8 +2156,8 @@
     "lastmod": "2026-10-03"
   },
   "/topics/proverbs-sayings/": {
-    "hash": "d7ef411ededeecab",
-    "lastmod": "2026-10-03"
+    "hash": "1058d6b7b4fb8f0d",
+    "lastmod": "2026-10-19"
   },
   "/topics/scenic-spots/": {
     "hash": "ce593f36117e7d0c",
@@ -2192,64 +2192,64 @@
     "lastmod": "2026-10-03"
   },
   "/train/": {
-    "hash": "b4ca7071ee754635",
-    "lastmod": "2026-07-06"
+    "hash": "146906639587b930",
+    "lastmod": "2026-10-19"
   },
   "/traps/": {
     "hash": "43621b4f99d7160b",
     "lastmod": "2026-10-03"
   },
   "/traps/adverb-polarity/": {
-    "hash": "dd42ae186031ddc1",
-    "lastmod": "2026-07-06"
+    "hash": "c9b73ecaf4a7b710",
+    "lastmod": "2026-10-19"
   },
   "/traps/ba-sentence/": {
-    "hash": "05d2bac214949f24",
-    "lastmod": "2026-10-03"
+    "hash": "610ba7917106d28c",
+    "lastmod": "2026-10-19"
   },
   "/traps/comparison/": {
-    "hash": "0fe98524e6d2c2a0",
-    "lastmod": "2026-07-06"
+    "hash": "30bdb4a76640f040",
+    "lastmod": "2026-10-19"
   },
   "/traps/connectors/": {
-    "hash": "bd72f00737ca4fa5",
-    "lastmod": "2026-07-06"
+    "hash": "ebeb0923dbe86dbc",
+    "lastmod": "2026-10-19"
   },
   "/traps/passive/": {
-    "hash": "949760ecb9a43af8",
-    "lastmod": "2026-07-06"
+    "hash": "6309a12ffe5800e2",
+    "lastmod": "2026-10-19"
   },
   "/traps/rhetorical/": {
-    "hash": "c838aa4fa489c94d",
-    "lastmod": "2026-07-06"
+    "hash": "d26434eda65ae064",
+    "lastmod": "2026-10-19"
   },
   "/traps/time-adverbs/": {
-    "hash": "524f852d4c710a73",
-    "lastmod": "2026-07-06"
+    "hash": "0b96dcf429acc227",
+    "lastmod": "2026-10-19"
   },
   "/vocabulary/": {
-    "hash": "5a45a3242d0a30ea",
-    "lastmod": "2026-10-03"
+    "hash": "3a9952f963419f25",
+    "lastmod": "2026-10-19"
   },
   "/words/": {
     "hash": "8539f0e5b7baafa6",
     "lastmod": "2026-07-06"
   },
   "/words/anjing-anjing-pingjing/": {
-    "hash": "709c1eea96bceb4c",
-    "lastmod": "2026-07-06"
+    "hash": "6e8d9902fb80ff5c",
+    "lastmod": "2026-10-19"
   },
   "/words/biaoshi-biaoxian/": {
-    "hash": "e25395c6bde37bd0",
-    "lastmod": "2026-07-06"
+    "hash": "03b19871891c8a51",
+    "lastmod": "2026-10-19"
   },
   "/words/bijiao-bi/": {
-    "hash": "67acbc7adc1afc30",
-    "lastmod": "2026-07-06"
+    "hash": "a20eb46c872d3640",
+    "lastmod": "2026-10-19"
   },
   "/words/budan-bujin-buguang/": {
-    "hash": "2189459e91247234",
-    "lastmod": "2026-07-06"
+    "hash": "b5561ddb22e58bf2",
+    "lastmod": "2026-10-19"
   },
   "/words/buguan-wulun/": {
     "hash": "45580a307a9cdb95",
@@ -2260,132 +2260,132 @@
     "lastmod": "2026-07-06"
   },
   "/words/chengji-chengguo-chengjiu/": {
-    "hash": "ee391df1a8b85e90",
-    "lastmod": "2026-07-06"
+    "hash": "0b80ccd8f1ec31f5",
+    "lastmod": "2026-10-19"
   },
   "/words/daodi-jiujing/": {
-    "hash": "81c81ac86694295f",
-    "lastmod": "2026-07-06"
+    "hash": "4128b5cd1a56fb1d",
+    "lastmod": "2026-10-19"
   },
   "/words/de-de-de/": {
-    "hash": "045bad31685e12a0",
-    "lastmod": "2026-07-06"
+    "hash": "f6e08f0b08e583da",
+    "lastmod": "2026-10-19"
   },
   "/words/dui-gei-xiang/": {
-    "hash": "df84c4c9d4742d7c",
-    "lastmod": "2026-07-06"
+    "hash": "20e6e86a8bab3d9e",
+    "lastmod": "2026-10-19"
   },
   "/words/erqie-bingqie/": {
-    "hash": "2f8e08370c0460a4",
-    "lastmod": "2026-07-06"
+    "hash": "c75e12c65d5e9c7d",
+    "lastmod": "2026-10-19"
   },
   "/words/gang-gangcai/": {
-    "hash": "0605f90bc65d5216",
-    "lastmod": "2026-07-06"
+    "hash": "64dd8486c55611c6",
+    "lastmod": "2026-10-19"
   },
   "/words/geng-hai/": {
-    "hash": "0d9ff06df2d4e3b7",
-    "lastmod": "2026-07-06"
+    "hash": "31543086374bb62d",
+    "lastmod": "2026-10-19"
   },
   "/words/guanyu-duiyu/": {
     "hash": "30b25756b86b4762",
     "lastmod": "2026-07-06"
   },
   "/words/haishi-huozhe/": {
-    "hash": "3d3c1acfa7ef40c7",
-    "lastmod": "2026-07-06"
+    "hash": "d5883768de6f4ba3",
+    "lastmod": "2026-10-19"
   },
   "/words/hui-neng-keyi/": {
-    "hash": "aad8aa92225cdd47",
-    "lastmod": "2026-07-06"
+    "hash": "7ed5b3b11740a126",
+    "lastmod": "2026-10-19"
   },
   "/words/jingchang-changchang-wangwang/": {
-    "hash": "8b53f7b893ad0295",
-    "lastmod": "2026-07-06"
+    "hash": "7d0ffa5579b4b496",
+    "lastmod": "2026-10-19"
   },
   "/words/jingran-juran/": {
     "hash": "5503ef3c4b91b64d",
     "lastmod": "2026-07-06"
   },
   "/words/jinguan-danshi-suiran/": {
-    "hash": "d55febe02ab35e45",
-    "lastmod": "2026-07-06"
+    "hash": "28c0e57ca11244e2",
+    "lastmod": "2026-10-19"
   },
   "/words/jiran-jingran/": {
-    "hash": "c8d15fd7748a67b6",
-    "lastmod": "2026-07-06"
+    "hash": "8baaa214b2f042dc",
+    "lastmod": "2026-10-19"
   },
   "/words/jishi-jinguan/": {
-    "hash": "ce51850ee4298af8",
-    "lastmod": "2026-07-06"
+    "hash": "9a4cbfebcebe6687",
+    "lastmod": "2026-10-19"
   },
   "/words/kan-wang-qiao/": {
-    "hash": "000f3405ee7ab7ca",
-    "lastmod": "2026-07-06"
+    "hash": "a5444431434bd8c4",
+    "lastmod": "2026-10-19"
   },
   "/words/le-guo-zhe/": {
-    "hash": "0a22436fe9c78828",
-    "lastmod": "2026-07-06"
+    "hash": "878180d90b70a40d",
+    "lastmod": "2026-10-19"
   },
   "/words/lianxi-practice/": {
-    "hash": "05654ce1e2037123",
-    "lastmod": "2026-07-06"
+    "hash": "dff51e7f65487f58",
+    "lastmod": "2026-10-19"
   },
   "/words/lihai-yanzhong/": {
-    "hash": "45c14d677fe15f76",
-    "lastmod": "2026-07-06"
+    "hash": "8390d1c62d0963fc",
+    "lastmod": "2026-10-19"
   },
   "/words/like-mashang-lijike/": {
-    "hash": "f65fc7ed965e5c35",
-    "lastmod": "2026-07-06"
+    "hash": "372c309ac13b6a42",
+    "lastmod": "2026-10-19"
   },
   "/words/putong-pingchang-richang/": {
-    "hash": "16f76f94562451c2",
-    "lastmod": "2026-07-06"
+    "hash": "73f8f3dbb12d8f56",
+    "lastmod": "2026-10-19"
   },
   "/words/rongyi-jiandan/": {
-    "hash": "45f0cded87e1092f",
-    "lastmod": "2026-07-06"
+    "hash": "7d1b2b92e15f9f15",
+    "lastmod": "2026-10-19"
   },
   "/words/shi-rang-jiao-bei/": {
-    "hash": "b024e549cbad1dca",
-    "lastmod": "2026-07-06"
+    "hash": "23d0ffd0b36ec240",
+    "lastmod": "2026-10-19"
   },
   "/words/shihe-fuhe/": {
-    "hash": "75b20c2d2af70eaf",
-    "lastmod": "2026-07-06"
+    "hash": "dd5c0e2ce96b7f72",
+    "lastmod": "2026-10-19"
   },
   "/words/tingshuo-juede-renwei/": {
-    "hash": "83ace9e307f85759",
-    "lastmod": "2026-07-06"
+    "hash": "e83c9952da146778",
+    "lastmod": "2026-10-19"
   },
   "/words/tongguo-jingguo/": {
     "hash": "681060a524b3d7ec",
     "lastmod": "2026-07-06"
   },
   "/words/turan-huran/": {
-    "hash": "e71bda17460781b7",
-    "lastmod": "2026-07-06"
+    "hash": "859b242886107ffb",
+    "lastmod": "2026-10-19"
   },
   "/words/xiang-yao/": {
-    "hash": "841f956017e9cd8a",
-    "lastmod": "2026-07-06"
+    "hash": "6941e9fd9f5f96a2",
+    "lastmod": "2026-10-19"
   },
   "/words/yiding-keneng/": {
-    "hash": "3903ce9f5a30288b",
-    "lastmod": "2026-07-06"
+    "hash": "d542763691445a4d",
+    "lastmod": "2026-10-19"
   },
   "/words/yihou-zhihou/": {
-    "hash": "dc83520c9376289e",
-    "lastmod": "2026-07-06"
+    "hash": "39daa5c8fcbde0bb",
+    "lastmod": "2026-10-19"
   },
   "/words/yijing-cengjing/": {
     "hash": "57456fbcf9b28052",
     "lastmod": "2026-07-06"
   },
   "/words/yinggai-bixu/": {
-    "hash": "f29282409abb7819",
-    "lastmod": "2026-07-06"
+    "hash": "29f8d63cc67947bf",
+    "lastmod": "2026-10-19"
   },
   "/words/yinwei-youyu/": {
     "hash": "5160cfcbd4cf5ff4",
@@ -2400,20 +2400,20 @@
     "lastmod": "2026-07-06"
   },
   "/words/yushi-yinci/": {
-    "hash": "06fba0f9f9093d46",
-    "lastmod": "2026-07-06"
+    "hash": "43214ceb29e991b4",
+    "lastmod": "2026-10-19"
   },
   "/words/zhiyao-zhiyou/": {
-    "hash": "bd1b21f8ae68596a",
-    "lastmod": "2026-07-06"
+    "hash": "2ebba812e98197dd",
+    "lastmod": "2026-10-19"
   },
   "/words/zhongshi-zunzhong/": {
-    "hash": "9e77a525f6c178c0",
-    "lastmod": "2026-07-06"
+    "hash": "419acca64fc31ebc",
+    "lastmod": "2026-10-19"
   },
   "/writing/": {
-    "hash": "1af3d16122e36559",
-    "lastmod": "2026-07-06"
+    "hash": "0249c98b4a4fb711",
+    "lastmod": "2026-10-19"
   },
   "/writing/complete-sentence/": {
     "hash": "b6f5181856eecec3",
@@ -2424,7 +2424,7 @@
     "lastmod": "2026-07-06"
   },
   "/writing/sentence-order/": {
-    "hash": "e619f3b0df141d35",
-    "lastmod": "2026-07-06"
+    "hash": "31971c32f4526d11",
+    "lastmod": "2026-10-19"
   }
 }

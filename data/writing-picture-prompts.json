@@ -1,0 +1,42 @@
+[
+  {
+    "question": 96,
+    "word": "盒子",
+    "pinyin": "hézi",
+    "meaning": "box",
+    "alt": "Hands holding an open, empty cardboard box.",
+    "hint": "Describe what is inside the box. 里 can introduce its contents."
+  },
+  {
+    "question": 97,
+    "word": "正式",
+    "pinyin": "zhèngshì",
+    "meaning": "formal",
+    "alt": "A man in a suit and tie adjusting his sleeve.",
+    "hint": "Describe how the person is dressed. You can use 穿得 + description."
+  },
+  {
+    "question": 98,
+    "word": "西红柿",
+    "pinyin": "xīhóngshì",
+    "meaning": "tomato",
+    "alt": "Several red tomatoes in a white bowl.",
+    "hint": "Describe what you see, where it is, or ask a question about it."
+  },
+  {
+    "question": 99,
+    "word": "后悔",
+    "pinyin": "hòuhuǐ",
+    "meaning": "to regret",
+    "alt": "A woman holding her head with a troubled expression.",
+    "hint": "Imagine a reason for her regret. A short, plausible context is enough."
+  },
+  {
+    "question": 100,
+    "word": "挂",
+    "pinyin": "guà",
+    "meaning": "to hang",
+    "alt": "A man holding a framed picture against a wall while a woman watches.",
+    "hint": "Describe hanging the picture. You can use 把 + object + 挂在 + place."
+  }
+]

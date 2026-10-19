@@ -15,7 +15,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "我打算去云南玩儿"
+        },
+        "reason": {
+          "zh": "“打算去云南玩儿”说明旅行意愿，结尾“这个暑假”给出时间，与判断句一致。",
+          "en": "打算去云南玩儿 states the travel plan, and 这个暑假 supplies the timing, matching the statement."
+        },
+        "pitfall": {
+          "zh": "“听说”后的风景和热情是选择目的地的理由，不代表旅行已经完成。",
+          "en": "The reported scenery and hospitality explain the choice of destination, not a completed trip."
+        },
+        "tip": {
+          "zh": "把“打算”标为计划，再核对目的地和时间。",
+          "en": "Mark 打算 as a plan, then check destination and time."
+        },
+        "answer": {
+          "index": 0,
+          "text": "对"
+        }
+      }
     },
     {
       "number": 2,
@@ -26,7 +49,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "下班后有约会，要跟同学去看电影"
+        },
+        "reason": {
+          "zh": "女儿下班后要和同学看电影，所以不回家吃饭，并不是加班。",
+          "en": "She plans to see a film with classmates after work, which explains missing dinner at home."
+        },
+        "pitfall": {
+          "zh": "“晚上不回来吃饭”可能有多种原因，不能直接等同于加班。",
+          "en": "Not coming home for dinner does not by itself mean working overtime."
+        },
+        "tip": {
+          "zh": "用原文明确说出的活动解释结果，不凭日常猜测补原因。",
+          "en": "Explain the result using the stated activity rather than an everyday assumption."
+        },
+        "answer": {
+          "index": 1,
+          "text": "错"
+        }
+      }
     },
     {
       "number": 3,
@@ -37,7 +83,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "后来逐渐习惯了"
+        },
+        "reason": {
+          "zh": "刚来时不适应，后来逐渐习惯并交到朋友；题目说的是后来的状态。",
+          "en": "Initial discomfort changes into adjustment and friendship; the statement matches the later situation."
+        },
+        "pitfall": {
+          "zh": "“很不适应”“很孤单”属于刚来时，不能用过去的状态代替现在。",
+          "en": "Not fitting in and feeling lonely describe the beginning, not the later state."
+        },
+        "tip": {
+          "zh": "按“刚来—后来—越来越”排时间线，再判断当前情况。",
+          "en": "Track 刚来, 后来 and 越来越 to distinguish earlier and current circumstances."
+        },
+        "answer": {
+          "index": 0,
+          "text": "对"
+        }
+      }
     },
     {
       "number": 4,
@@ -48,7 +117,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "那个网站上的内容很丰富"
+        },
+        "reason": {
+          "zh": "原文介绍网站的科学、艺术知识和笑话，谈的是内容，没有谈价格。",
+          "en": "The speaker describes a website's knowledge and jokes; the topic is content, not price."
+        },
+        "pitfall": {
+          "zh": "“丰富”指内容多，不表示收费高；原文也没提供免费与否的信息。",
+          "en": "丰富 means plentiful content, not a high price; whether the site charges is unstated."
+        },
+        "tip": {
+          "zh": "主题判断先归纳具体列举的内容，不由一个形容词联想其他话题。",
+          "en": "Identify what the examples are about rather than inferring a different topic from an adjective."
+        },
+        "answer": {
+          "index": 1,
+          "text": "错"
+        }
+      }
     },
     {
       "number": 5,
@@ -59,7 +151,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "所以他们喜欢在带有“六”的日子结婚"
+        },
+        "reason": {
+          "zh": "文中把六与顺利相联系，再举选日期、电话号码的例子，支持喜欢数字六的判断。",
+          "en": "The passage links six with good fortune and illustrates preferences for dates and phone numbers containing it."
+        },
+        "pitfall": {
+          "zh": "这是题文对一种文化习俗的概括，不代表每个中国人都有相同偏好。",
+          "en": "This is a generalization about a cultural custom, not a claim that every Chinese person shares the preference."
+        },
+        "tip": {
+          "zh": "把“认为六代表顺利”与后面的选择相连，同时留意群体概括的范围。",
+          "en": "Connect the symbolic meaning to the choices described, without turning a generalization into a universal rule."
+        },
+        "answer": {
+          "index": 0,
+          "text": "对"
+        }
+      }
     },
     {
       "number": 6,
@@ -70,7 +185,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "平时上班忙，很少有时间运动"
+        },
+        "reason": {
+          "zh": "平时很少运动，周末才约朋友活动，不能说几乎每天打篮球。",
+          "en": "The speaker rarely exercises on workdays and meets friends at weekends, contradicting almost daily basketball."
+        },
+        "pitfall": {
+          "zh": "周末可能打篮球、踢足球或爬山；不能把其中一种活动变成每天固定做的事。",
+          "en": "Weekend activities vary; basketball is not stated as a daily routine."
+        },
+        "tip": {
+          "zh": "同时核对频率和项目：“周末、偶尔”与“几乎每天”差别很大。",
+          "en": "Check both activity and frequency: weekends or occasionally differ greatly from almost every day."
+        },
+        "answer": {
+          "index": 1,
+          "text": "错"
+        }
+      }
     },
     {
       "number": 7,
@@ -81,7 +219,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "明天报名就结束了"
+        },
+        "reason": {
+          "zh": "报名明天才结束，按这句话的时间关系，今天仍在报名期限内。",
+          "en": "Registration ends tomorrow, so today is still within the period described."
+        },
+        "pitfall": {
+          "zh": "“还没交材料”是在催促行动，不表示报名已经截止。",
+          "en": "The reminder about unsubmitted materials urges action; it does not say registration has already closed."
+        },
+        "tip": {
+          "zh": "以“今天”为基准区分“明天结束”和“昨天结束”，不要漏听日期。",
+          "en": "Use today as the reference point and distinguish ending tomorrow from ending yesterday."
+        },
+        "answer": {
+          "index": 0,
+          "text": "对"
+        }
+      }
     },
     {
       "number": 8,
@@ -92,7 +253,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "我可以给你介绍一位律师"
+        },
+        "reason": {
+          "zh": "小林是被介绍去咨询律师的人，原文没有说小林本人是律师。",
+          "en": "Xiaolin is offered an introduction to a lawyer; Xiaolin is not identified as the lawyer."
+        },
+        "pitfall": {
+          "zh": "“小林”和“律师”同时出现，不代表两者是同一个人；也不能推断小林的实际职业。",
+          "en": "Mentioning Xiaolin and a lawyer does not make them the same person or establish Xiaolin's occupation."
+        },
+        "tip": {
+          "zh": "画出“说话人—介绍—律师—给小林咨询”的人物关系。",
+          "en": "Map who introduces whom to whom instead of matching nearby names and professions."
+        },
+        "answer": {
+          "index": 1,
+          "text": "错"
+        }
+      }
     },
     {
       "number": 9,
@@ -103,7 +287,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "却常常忘记了自己已有的幸福"
+        },
+        "reason": {
+          "zh": "原文提醒人们羡慕别人时忽略了自己的幸福，因此支持不要总羡慕别人的建议。",
+          "en": "The passage warns that envy can obscure one's own happiness, supporting the reminder in the statement."
+        },
+        "pitfall": {
+          "zh": "它不是说别人没有幸福，也不是说不能欣赏别人，而是提醒关注自己已有的。",
+          "en": "It does not deny others' happiness or forbid admiration; it redirects attention to what one already has."
+        },
+        "tip": {
+          "zh": "主旨判断把“总是……却……”的对比转成作者希望纠正的习惯。",
+          "en": "Use the contrast in 总是……却…… to identify the habit the speaker wants to correct."
+        },
+        "answer": {
+          "index": 0,
+          "text": "对"
+        }
+      }
     },
     {
       "number": 10,
@@ -114,7 +321,30 @@
         "对",
         "错"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "有些地方还会有小到中雨"
+        },
+        "reason": {
+          "zh": "预报说大风降温、部分地区小到中雨，没有说中午有大雪。",
+          "en": "The forecast mentions wind, cooling and some light-to-moderate rain, not heavy snow at noon."
+        },
+        "pitfall": {
+          "zh": "冷空气或降温不自动意味着下雪；“明天”也不等于明确的“明天中午”。",
+          "en": "Cold air does not necessarily mean snow, and tomorrow does not specify noon."
+        },
+        "tip": {
+          "zh": "逐一核对天气类型、程度和时间，不能用相关现象补全缺失信息。",
+          "en": "Check weather type, intensity and time separately; do not fill gaps with associated phenomena."
+        },
+        "answer": {
+          "index": 1,
+          "text": "错"
+        }
+      }
     },
     {
       "number": 11,
@@ -127,7 +357,30 @@
         "C 奶奶",
         "D 观众"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "是我叔叔从国外带回来的"
+        },
+        "reason": {
+          "zh": "女的说明巧克力不是自己买的，而是叔叔带回来的，对应 B。",
+          "en": "The woman denies buying the chocolate herself and identifies her uncle as its source."
+        },
+        "pitfall": {
+          "zh": "男的问在哪里买只是提问中的假设，已被“不是我买的”纠正。",
+          "en": "The question assumes a purchase, but 不是我买的 explicitly corrects that assumption."
+        },
+        "tip": {
+          "zh": "听到“不是……是……”时，以纠正后的信息确认来源。",
+          "en": "In 不是……是……, use the corrected information to identify the source."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 叔叔"
+        }
+      }
     },
     {
       "number": 12,
@@ -140,7 +393,30 @@
         "C 开空调了",
         "D 开着窗户"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "房间里开了空调，很凉快"
+        },
+        "reason": {
+          "zh": "男的直接用开空调解释房间凉快，原因是 C。",
+          "en": "The man directly links the cool room to the air conditioner being on."
+        },
+        "pitfall": {
+          "zh": "下雨、洗澡、开窗也可能让人凉快，但对话没有说发生了这些事。",
+          "en": "Rain, bathing or open windows are possible explanations in general, but none is stated here."
+        },
+        "tip": {
+          "zh": "原因题选有原文支持的因果，不选只是生活中可能的原因。",
+          "en": "Choose the cause stated in the dialogue, not merely one that is plausible in real life."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 开空调了"
+        }
+      }
     },
     {
       "number": 13,
@@ -153,7 +429,30 @@
         "C 坐地铁",
         "D 坐出租车"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "直接打车去会场"
+        },
+        "reason": {
+          "zh": "“打车”就是乘出租车，女的打算自己坐出租车去会场。",
+          "en": "打车 means taking a taxi, which is her plan for reaching the venue."
+        },
+        "pitfall": {
+          "zh": "男的提出接机，但女的说“不用了”；不能把未被接受的提议当最终安排。",
+          "en": "The offer of a pickup is declined, so it is not the final arrangement."
+        },
+        "tip": {
+          "zh": "先辨认提议是否被接受，再用同义表达“打车＝坐出租车”匹配。",
+          "en": "Check whether the offer is accepted, then match 打车 with 坐出租车."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 坐出租车"
+        }
+      }
     },
     {
       "number": 14,
@@ -166,7 +465,30 @@
         "C 洗衣服",
         "D 找袜子"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "你俩网球打得都不错"
+        },
+        "reason": {
+          "zh": "女的评价两人网球打得不错，男的谈刚与老李打球，因此刚才在打网球。",
+          "en": "Her comment on their tennis and his account of playing Lao Li establish the recent activity."
+        },
+        "pitfall": {
+          "zh": "“用毛巾擦汗”是女的现在提出的建议，不是题目问的刚才的运动。",
+          "en": "Wiping sweat is the present suggestion, not the earlier sport asked about."
+        },
+        "tip": {
+          "zh": "把“刚做过的事”和“现在建议做的事”分开，再确认球类名称。",
+          "en": "Separate the previous activity from the current suggestion and identify the named sport."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 打网球"
+        }
+      }
     },
     {
       "number": 15,
@@ -179,7 +501,30 @@
         "C 没原来的好",
         "D 与实际不符"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "你这篇报道写得很好"
+        },
+        "reason": {
+          "zh": "“写得很好”与“写得不错”表达同方向的肯定评价，选 B。",
+          "en": "写得很好 positively evaluates the report, matching 写得不错."
+        },
+        "pitfall": {
+          "zh": "“以后继续努力”不表示这次写得差，它是在表扬后的鼓励。",
+          "en": "Encouragement to keep working does not turn praise of this report into criticism."
+        },
+        "tip": {
+          "zh": "评价题优先抓直接形容词，再判断后续话语是在鼓励还是转折。",
+          "en": "Find the direct evaluation, then distinguish encouragement from a change of opinion."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 写得不错"
+        }
+      }
     },
     {
       "number": 16,
@@ -192,7 +537,30 @@
         "C 先借一个用",
         "D 找朋友商量"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "你先上网看看吧，多比较比较"
+        },
+        "reason": {
+          "zh": "男的建议先上网查、比较后再决定，对应 B。",
+          "en": "He recommends looking online and comparing before making a decision."
+        },
+        "pitfall": {
+          "zh": "“我也不太清楚”说明他没有具体品牌建议，不代表没有给任何建议。",
+          "en": "Not knowing which model is best does not mean he offers no advice."
+        },
+        "tip": {
+          "zh": "听完整个回应，把“不了解具体答案”和“建议如何查找”分开。",
+          "en": "Separate lack of product knowledge from advice on how to investigate."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 上网看看"
+        }
+      }
     },
     {
       "number": 17,
@@ -205,7 +573,30 @@
         "C 买铅笔",
         "D 打印菜单"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "请您先填一下这张表格"
+        },
+        "reason": {
+          "zh": "男的要求填表，女的找笔配合，最可能处于填表的情境。",
+          "en": "The request to complete a form and her need for a pen establish a form-filling situation."
+        },
+        "pitfall": {
+          "zh": "她是在借用或寻找笔，不是在买铅笔；也未证明她已开始填写。",
+          "en": "Asking whether a pen is available does not mean buying one or prove writing has already begun."
+        },
+        "tip": {
+          "zh": "用“任务＋所需工具”判断情境，同时保留“最可能”的推断程度。",
+          "en": "Combine the task and needed tool to infer the situation, preserving the question's “most likely” wording."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 填表"
+        }
+      }
     },
     {
       "number": 18,
@@ -218,7 +609,30 @@
         "C 下周出差",
         "D 拿到签证了"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "签证刚刚办好，这个月底走"
+        },
+        "reason": {
+          "zh": "签证已经办好，计划月底出发，因此 D 有明确依据。",
+          "en": "The visa has just been arranged and departure is planned for month-end, supporting D."
+        },
+        "pitfall": {
+          "zh": "签证不等于护照；“留学”不等于出差；月底也不能随意改成下周。",
+          "en": "A visa differs from a passport, study abroad from a business trip, and month-end from next week."
+        },
+        "tip": {
+          "zh": "逐项核对证件、目的和时间，特别注意“刚刚办好”的完成状态。",
+          "en": "Check document, purpose and time, including the completion expressed by 刚刚办好."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 拿到签证了"
+        }
+      }
     },
     {
       "number": 19,
@@ -231,7 +645,30 @@
         "C 在开玩笑",
         "D 考上了博士"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "祝贺你考上了博士"
+        },
+        "reason": {
+          "zh": "男的祝贺女的考上博士，女的致谢并承认获得帮助，支持 D。",
+          "en": "He congratulates her on doctoral admission, and she thanks him, confirming D."
+        },
+        "pitfall": {
+          "zh": "考上博士是获得入学机会，不等于已经取得博士学位，更不等于成为教授。",
+          "en": "Doctoral admission is not the same as earning the degree or becoming a professor."
+        },
+        "tip": {
+          "zh": "区分“考上、在读、毕业”不同阶段，避免把入学说成取得资格。",
+          "en": "Distinguish admission, study and graduation rather than turning admission into a completed qualification."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 考上了博士"
+        }
+      }
     },
     {
       "number": 20,
@@ -244,7 +681,30 @@
         "C 发传真",
         "D 写邀请信"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "刚才我在会议室开会"
+        },
+        "reason": {
+          "zh": "女的直接说刚才在开会，所以没法接电话，选 A。",
+          "en": "She explicitly says she was in a meeting, which explains the missed call."
+        },
+        "pitfall": {
+          "zh": "没接电话不表示买手机或发传真；原因已经由本人说明。",
+          "en": "A missed call does not imply phone shopping or faxing; she gives the reason herself."
+        },
+        "tip": {
+          "zh": "围绕“刚才”定位活动，并用后面的结果验证。",
+          "en": "Locate the activity linked to 刚才 and use its consequence as confirmation."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 开会"
+        }
+      }
     },
     {
       "number": 21,
@@ -257,7 +717,30 @@
         "C 十分精彩",
         "D 让人失望"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "真是太精彩了，尤其是第二场"
+        },
+        "reason": {
+          "zh": "女的用“太精彩了”评价比赛，尤其喜欢第二场，与 C 一致。",
+          "en": "She calls the matches exciting, especially the second one, matching C."
+        },
+        "pitfall": {
+          "zh": "“尤其”突出其中一场，不表示其他场次都无聊或令人失望。",
+          "en": "Especially highlights one match without declaring all the others boring or disappointing."
+        },
+        "tip": {
+          "zh": "先确定整体评价，再把“尤其”理解为强调其中的一部分。",
+          "en": "Identify the overall evaluation before treating 尤其 as emphasis on a particular part."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 十分精彩"
+        }
+      }
     },
     {
       "number": 22,
@@ -270,7 +753,30 @@
         "C 抬沙发",
         "D 收拾行李"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "去帮我把垃圾扔了"
+        },
+        "reason": {
+          "zh": "女的要求男的去扔垃圾，动作和对象都直接给出。",
+          "en": "The woman asks him to throw out the rubbish; both action and object are explicit."
+        },
+        "pitfall": {
+          "zh": "“客人要来”是背景，“别看电视”是停止当前活动；真正要求开始做的是扔垃圾。",
+          "en": "Visitors explain the context, and stopping TV ends an activity; throwing out rubbish is the requested new action."
+        },
+        "tip": {
+          "zh": "把“为什么、停止什么、去做什么”分开，按题目选择。",
+          "en": "Separate the reason, the activity to stop and the action to begin."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 扔垃圾"
+        }
+      }
     },
     {
       "number": 23,
@@ -283,7 +789,30 @@
         "C 遇事冷静",
         "D 可以做翻译"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "他就是这个专业毕业的，而且经验丰富"
+        },
+        "reason": {
+          "zh": "对话需要翻译，女的推荐专业相关、经验丰富的小马，所以可以推断他适合做翻译。",
+          "en": "A translator is needed, and Xiaoma is recommended for relevant training and experience, supporting D."
+        },
+        "pitfall": {
+          "zh": "经验丰富不直接证明勇敢、冷静等性格；本题有依据的是他的工作能力。",
+          "en": "Experience does not directly establish bravery or calmness; the evidence concerns suitability for the task."
+        },
+        "tip": {
+          "zh": "先确定需要的人才，再把“这个专业”还原为前文提到的领域。",
+          "en": "Identify the required role, then resolve 这个专业 through the earlier context."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 可以做翻译"
+        }
+      }
     },
     {
       "number": 24,
@@ -296,7 +825,30 @@
         "C 首都体育馆",
         "D 国家图书馆"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "我得在九点之前到大使馆"
+        },
+        "reason": {
+          "zh": "女的明确要在九点前到大使馆，因此目的地是 B。",
+          "en": "The woman explicitly needs to reach the embassy before nine, making B the destination."
+        },
+        "pitfall": {
+          "zh": "“师傅”是对司机等人的称呼，不是地点；男的承诺送到不表示已经到了。",
+          "en": "师傅 addresses the driver, not a place; a promise to arrive is not an arrival already completed."
+        },
+        "tip": {
+          "zh": "地点题抓“到＋地点”，把截止时间与到达状态分开。",
+          "en": "Locate 到 + destination and separate the deadline from whether arrival has happened."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 大使馆"
+        }
+      }
     },
     {
       "number": 25,
@@ -309,7 +861,30 @@
         "C 胖了",
         "D 肚子不舒服"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "我最近牙疼"
+        },
+        "reason": {
+          "zh": "女的明确说明最近牙疼，以此解释不敢吃糖，选 A。",
+          "en": "She directly states that her teeth hurt, explaining why she avoids sweets in this dialogue."
+        },
+        "pitfall": {
+          "zh": "“以前喜欢吃糖”属于过去，“最近牙疼”是现在不吃的原因，不能用旧习惯覆盖新情况。",
+          "en": "Her former liking for sweets is background; the current toothache explains the change."
+        },
+        "tip": {
+          "zh": "用“以前—最近”识别变化，再找本人给出的原因。",
+          "en": "Use 以前 and 最近 to identify the change and its stated cause."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 牙疼"
+        }
+      }
     },
     {
       "number": 26,
@@ -322,7 +897,30 @@
         "C 女的迟到了",
         "D 房间很暖和"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "刚发现灯不亮"
+        },
+        "reason": {
+          "zh": "灯不亮是直接观察到的事实，对应 A；后面讨论的是为什么不亮。",
+          "en": "The light not working is directly observed; the later exchange considers the cause."
+        },
+        "pitfall": {
+          "zh": "停电只是男的最初猜测，邻居灯亮使这一猜测受到质疑；不能把猜测当事实。",
+          "en": "A power cut is an initial guess questioned by the neighbor's lights being on."
+        },
+        "tip": {
+          "zh": "先分开“观察到什么”和“猜测为什么”，优先选直接确认的信息。",
+          "en": "Separate the observation from possible explanations and prefer what is directly confirmed."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 灯不亮了"
+        }
+      }
     },
     {
       "number": 27,
@@ -335,7 +933,30 @@
         "C 啤酒便宜",
         "D 服务员很少"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "那儿菜不错，服务态度也挺好"
+        },
+        "reason": {
+          "zh": "女的肯定菜和服务，其中“菜不错”对应“菜好吃”。",
+          "en": "Her positive comment 菜不错 matches the choice saying the food is good."
+        },
+        "pitfall": {
+          "zh": "晚去要等座位不等于服务员少；座位紧张不能直接推出人员数量。",
+          "en": "Waiting for a table does not establish too few servers; seating demand and staffing are different facts."
+        },
+        "tip": {
+          "zh": "评价题分开菜品、服务和等位情况，不把相关现象当同义表达。",
+          "en": "Distinguish food, service and waiting time instead of treating related circumstances as equivalent."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 菜好吃"
+        }
+      }
     },
     {
       "number": 28,
@@ -348,7 +969,30 @@
         "C 会唱京剧",
         "D 是数学老师"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "你父亲以前是京剧演员"
+        },
+        "reason": {
+          "zh": "男的确认父亲曾是京剧演员，并说小时候看过其演出，所以会唱京剧最有依据。",
+          "en": "He confirms his father was a Peking-opera performer and recalls watching him perform, supporting C."
+        },
+        "pitfall": {
+          "zh": "儿子喜欢听京剧与父亲会表演是不同信息；题目问的是父亲。",
+          "en": "The son's enjoyment of opera and the father's ability to perform it concern different people."
+        },
+        "tip": {
+          "zh": "人物题先锁定被问的人，再整理他的身份、经历和能力。",
+          "en": "Identify the person being asked about, then connect their occupation and experience to the answer."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 会唱京剧"
+        }
+      }
     },
     {
       "number": 29,
@@ -361,7 +1005,30 @@
         "C 要看表演",
         "D 要参加讨论会"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "有家银行通知我去面试"
+        },
+        "reason": {
+          "zh": "女的因银行通知她面试而打扮正式，直接对应 A。",
+          "en": "She dresses formally because a bank has invited her to an interview."
+        },
+        "pitfall": {
+          "zh": "去面试不等于已经录用；“有好消息再告诉你”说明结果还未确定。",
+          "en": "An interview invitation is not a job offer; she will report any good news later."
+        },
+        "tip": {
+          "zh": "用“通知面试—参加面试—录用”区分阶段，不提前推断结果。",
+          "en": "Keep interview invitation, interview and hiring as separate stages."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 要去面试"
+        }
+      }
     },
     {
       "number": 30,
@@ -374,7 +1041,30 @@
         "C 让人感动",
         "D 不吸引人"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "他的小说写得很感人"
+        },
+        "reason": {
+          "zh": "女的说小说感人，男的回应同意并表示喜欢，因此选“让人感动”。",
+          "en": "She calls the novels moving, and he agrees, matching “make people feel moved.”"
+        },
+        "pitfall": {
+          "zh": "“感人”说情感效果，不等于语言简单易懂；原文没有评价理解难度。",
+          "en": "感人 describes emotional impact, not simplicity or ease of understanding."
+        },
+        "tip": {
+          "zh": "把评价词对应到具体维度：感人是情感，不是篇幅、难度或真实性。",
+          "en": "Match an evaluation to its dimension: emotional impact differs from length, difficulty or realism."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 让人感动"
+        }
+      }
     },
     {
       "number": 31,
@@ -387,7 +1077,30 @@
         "C 理发店",
         "D 办公室"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "想给他理成什么样的呢"
+        },
+        "reason": {
+          "zh": "询问谁理发、要理成什么样，符合顾客与理发师在理发店的情境。",
+          "en": "Questions about the haircut recipient and desired style strongly suggest a hair salon."
+        },
+        "pitfall": {
+          "zh": "理发对象是小孙子，不是女的本人；地点推断也应表述为最可能。",
+          "en": "The grandson, not the woman, needs the haircut; the location remains a most-likely inference."
+        },
+        "tip": {
+          "zh": "用服务内容和双方角色共同判断地点，别只抓一个常见动词。",
+          "en": "Infer location from both the service and the speakers' roles."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 理发店"
+        }
+      }
     },
     {
       "number": 32,
@@ -400,7 +1113,30 @@
         "C 牙膏",
         "D 西红柿"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "你顺便买几个西红柿吧"
+        },
+        "reason": {
+          "zh": "男的提出顺便买西红柿的请求，所以问“让她买什么”应选 D。",
+          "en": "His request is to buy tomatoes, which answers what he asked her to buy."
+        },
+        "pitfall": {
+          "zh": "女的随后说已经买了，可能无需再买；这不会改变男的刚才请求的对象。",
+          "en": "She later says tomatoes are already available, but that does not change what he originally requested."
+        },
+        "tip": {
+          "zh": "区分“提出的请求”和“最后是否执行”，按题目问的阶段作答。",
+          "en": "Distinguish the original request from whether it will ultimately be carried out."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 西红柿"
+        }
+      }
     },
     {
       "number": 33,
@@ -413,7 +1149,30 @@
         "C 钱包丢了",
         "D 弄脏裙子了"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "看见我的钱包了吗？我到处找都没找到"
+        },
+        "reason": {
+          "zh": "女的到处找不到钱包，C“钱包丢了”最接近此时的情况。",
+          "en": "She cannot find her wallet despite searching, so C best matches the situation."
+        },
+        "pitfall": {
+          "zh": "咖啡馆是可能遗落的地点，还没确认；原文更没有说被偷。",
+          "en": "The café is only a possible location; neither that location nor theft is established."
+        },
+        "tip": {
+          "zh": "保留“会不会”“有可能”的不确定性，把找不到与已知丢失地点分开。",
+          "en": "Preserve uncertainty in 会不会 and 有可能; a missing item is not a confirmed loss location."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 钱包丢了"
+        }
+      }
     },
     {
       "number": 34,
@@ -426,7 +1185,30 @@
         "C 输赢不重要",
         "D 按照规定办"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "关键是要多积累经验"
+        },
+        "reason": {
+          "zh": "女的鼓励慢慢来，并明确指出关键是积累经验，选 B。",
+          "en": "She encourages patience and explicitly identifies gaining experience as the key, matching B."
+        },
+        "pitfall": {
+          "zh": "男的说辛苦是在描述感受；女的没有建议降低标准或放弃。",
+          "en": "His difficulty describes his experience; she does not advise lowering standards or quitting."
+        },
+        "tip": {
+          "zh": "建议题留意“关键是”“要”后面的具体行动。",
+          "en": "For advice, identify the specific action following 关键是 or 要."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 多积累经验"
+        }
+      }
     },
     {
       "number": 35,
@@ -439,7 +1221,30 @@
         "C 蛋糕店旁边",
         "D 植物园后面"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "从学校西门走方便一些，我们在那儿见吧"
+        },
+        "reason": {
+          "zh": "“那儿”承接学校西门，是约定的见面地点。",
+          "en": "那儿 refers back to the school's west gate, the proposed meeting point."
+        },
+        "pitfall": {
+          "zh": "海洋馆是之后要去的目的地，不是这段话约定的集合地点。",
+          "en": "The aquarium is the outing destination, not the agreed place to meet."
+        },
+        "tip": {
+          "zh": "将“在哪里见”和“之后去哪”分别记录，再解决“那儿”的指代。",
+          "en": "Separate meeting point from later destination and resolve the reference of 那儿."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 学校西门"
+        }
+      }
     },
     {
       "number": 36,
@@ -452,7 +1257,30 @@
         "C 警察",
         "D 售货员"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "想做二零四路公交车的司机"
+        },
+        "reason": {
+          "zh": "儿子明确想当公交车司机，答案 A；去动物园是他选这条线路的原因。",
+          "en": "The son explicitly wants to drive bus route 204; the zoo explains his route preference."
+        },
+        "pitfall": {
+          "zh": "喜欢看动物不代表想当导游或饲养员；职业与选择职业的理由不同。",
+          "en": "Enjoying animals does not change the stated occupation into guide or keeper."
+        },
+        "tip": {
+          "zh": "先抓“想做＋职业”，再把后面的兴趣归入动机。",
+          "en": "Find 想做 + occupation first, then treat the later interest as motivation."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 司机"
+        }
+      }
     },
     {
       "number": 37,
@@ -465,7 +1293,30 @@
         "C 能到动物园",
         "D 从火车站始发"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "二零四路车的最后一站是动物园"
+        },
+        "reason": {
+          "zh": "最后一站是动物园，说明这条公交线能到动物园，选 C。",
+          "en": "The zoo is the route's last stop, so the bus reaches it."
+        },
+        "pitfall": {
+          "zh": "终点已说明，起点却没有；不能因此选择“从火车站始发”。",
+          "en": "The terminus is stated, but the starting point is not; a railway-station origin cannot be inferred."
+        },
+        "tip": {
+          "zh": "路线题区分始发站、途经站和终点，不补出未给出的站点。",
+          "en": "Distinguish origin, intermediate stops and terminus without inventing unstated stops."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 能到动物园"
+        }
+      }
     },
     {
       "number": 38,
@@ -478,7 +1329,30 @@
         "C 食品",
         "D 饮料"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "茶只是被当做一种药，而不是饮料"
+        },
+        "reason": {
+          "zh": "按这段介绍，茶最早被当作药，后来才作为解渴的饮料。",
+          "en": "According to this account, tea was first treated as medicine and later as a drink."
+        },
+        "pitfall": {
+          "zh": "开头“最常见的饮料”说一般用途，不能用来回答带“最早”的历史阶段问题。",
+          "en": "The opening description as a common drink does not answer the specific question about its earliest use."
+        },
+        "tip": {
+          "zh": "给“最早、后来”分别配用途；这里是在理解题文，不是判断茶能治什么病。",
+          "en": "Pair each time stage with its use; the task interprets the passage, not what illnesses tea can treat."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 药"
+        }
+      }
     },
     {
       "number": 39,
@@ -491,7 +1365,30 @@
         "C 历史很长",
         "D 红茶最流行"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "茶在中国有数千年的历史"
+        },
+        "reason": {
+          "zh": "“数千年”直接说明历史长，C 是对这一信息的概括。",
+          "en": "Thousands of years directly supports the statement that tea has a long history."
+        },
+        "pitfall": {
+          "zh": "原文没有比较红茶与其他茶的流行程度，也没有说明酸味或怕光。",
+          "en": "The passage does not compare tea types or discuss sourness or light sensitivity."
+        },
+        "tip": {
+          "zh": "把具体数字转为合适概括，同时排除原文未讨论的维度。",
+          "en": "Translate the numerical detail into a supported summary and reject unrelated attributes."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 历史很长"
+        }
+      }
     },
     {
       "number": 40,
@@ -504,7 +1401,30 @@
         "C 复印机",
         "D 洗碗机"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "在我们店购买的洗衣机"
+        },
+        "reason": {
+          "zh": "店员说的是所售洗衣机的维修与保修，因此购买对象是洗衣机。",
+          "en": "The seller explains warranty service for a washing machine, identifying the product."
+        },
+        "pitfall": {
+          "zh": "多个选项都以“机”结尾，不能只听末字；“洗衣”与“洗碗”对象不同。",
+          "en": "Several choices end in 机; listen to the full compound, especially 洗衣 versus 洗碗."
+        },
+        "tip": {
+          "zh": "识别电器名的完整词组，再用上下文验证，避免只抓共同字。",
+          "en": "Recognize the full appliance name rather than a shared final character."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 洗衣机"
+        }
+      }
     },
     {
       "number": 41,
@@ -517,7 +1437,30 @@
         "C 合格证上",
         "D 保修卡上"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "这是保修卡，使用中遇到什么问题，您可以通过上面的电话联系我们"
+        },
+        "reason": {
+          "zh": "“上面的电话”指刚提到的保修卡上的电话，选 D。",
+          "en": "The phone number “on it” refers to the warranty card just introduced, supporting D."
+        },
+        "pitfall": {
+          "zh": "说明书、包装箱也可能有电话，但此处的指代对象明确是保修卡。",
+          "en": "Manuals or boxes might carry numbers, but the reference here is specifically the warranty card."
+        },
+        "tip": {
+          "zh": "遇到“上面、里面、那里”，回到最近相关名词确认所指。",
+          "en": "Resolve 上面, 里面 or 那里 through the relevant noun in the preceding context."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 保修卡上"
+        }
+      }
     },
     {
       "number": 42,
@@ -530,7 +1473,30 @@
         "C 饭后要散步",
         "D 不能吃辣的"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "今天晚饭可以少吃一些，别吃太辣、太咸的"
+        },
+        "reason": {
+          "zh": "给定答案是 D，它与录音关于辣味食物的提醒最接近；其他选项没有对应依据。",
+          "en": "The supplied key is D, the closest option to the warning about spicy food; the others lack support."
+        },
+        "pitfall": {
+          "zh": "录音是“别吃太辣”，限制程度；D“不能吃辣”更绝对，两者并不完全等义。",
+          "en": "The recording restricts food that is too spicy, while D forbids spicy food altogether; the wording is stronger."
+        },
+        "tip": {
+          "zh": "保留“太”的程度差异；这是旧题的听力理解，实际体检准备应以检查机构说明为准。",
+          "en": "Notice the degree marker 太. This is a listening exercise; actual preparation depends on the examination provider's instructions."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 不能吃辣的"
+        }
+      }
     },
     {
       "number": 43,
@@ -543,7 +1509,30 @@
         "C 要有好心情",
         "D 不能戴手表"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "明天早上别吃饭"
+        },
+        "reason": {
+          "zh": "题文对体检当天早上的安排明确说别吃饭，因此 A 对应原文。",
+          "en": "The passage explicitly says not to eat the next morning, matching A."
+        },
+        "pitfall": {
+          "zh": "今天晚饭可以少吃是前一天的安排，不能拿来替代当天早晨的要求。",
+          "en": "Eating a little at dinner concerns the previous day, not the morning being asked about."
+        },
+        "tip": {
+          "zh": "按“今天晚上—明天早上”整理题文安排；不要把这一段扩展为所有体检的通用要求。",
+          "en": "Separate tonight from tomorrow morning in the passage; do not generalize this script to every medical examination."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 别吃早饭"
+        }
+      }
     },
     {
       "number": 44,
@@ -556,7 +1545,30 @@
         "C 说孩子懒",
         "D 故意咳嗽"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "有些父母觉得孩子做事情慢，总想替他们做"
+        },
+        "reason": {
+          "zh": "题目问这些父母会怎么做，原文直接说想代替孩子做，选 B。",
+          "en": "The question asks about the parents' behavior, directly described as doing tasks for the children."
+        },
+        "pitfall": {
+          "zh": "“这样做其实很不好”是作者对此的评价；描述一种行为不等于建议这样做。",
+          "en": "The criticism that follows distinguishes reporting this behavior from recommending it."
+        },
+        "tip": {
+          "zh": "把“现实中的做法”和“作者建议的做法”分开，先看题目问哪一种。",
+          "en": "Separate the reported behavior from the recommended behavior and answer the one requested."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 替孩子做"
+        }
+      }
     },
     {
       "number": 45,
@@ -569,7 +1581,30 @@
         "C 主动预习",
         "D 会安排时间"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "transcript",
+          "quote": "父母应该让孩子学会管理时间"
+        },
+        "reason": {
+          "zh": "作者建议孩子学会管理时间、自己做自己的事，对应 D“会安排时间”。",
+          "en": "The advice is for children to manage their time and do their own tasks, matching D."
+        },
+        "pitfall": {
+          "zh": "“来不及了”“我没办法”是作者希望避免的习惯，不是好的应对方式。",
+          "en": "The repeated excuses are habits the author wants to avoid, not the recommended response."
+        },
+        "tip": {
+          "zh": "主旨或建议题重点看“因此、应该”后面的结论。",
+          "en": "For advice, focus on the conclusion introduced by 因此 and 应该."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 会安排时间"
+        }
+      }
     },
     {
       "number": 46,
@@ -583,7 +1618,30 @@
         "E 重点",
         "F 饺子"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "月亮又大又（ ）"
+        },
+        "reason": {
+          "zh": "“又大又圆”并列两个形容词描述月亮大小与形状，选“圆”。",
+          "en": "又大又圆 joins two adjectives describing the moon's size and shape."
+        },
+        "pitfall": {
+          "zh": "“又……又……”要求语义和结构能并列；名词“饺子”不能直接与“大”并列作此处描述。",
+          "en": "The paired elements must fit structurally and semantically; 饺子 cannot directly parallel 大 here."
+        },
+        "tip": {
+          "zh": "先按“又＋形容词＋又＋形容词”判断词性，再看形状是否合理。",
+          "en": "Use the adjective pattern to narrow the word class, then check the description."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 圆"
+        }
+      }
     },
     {
       "number": 47,
@@ -597,7 +1655,30 @@
         "E 重点",
         "F 饺子"
       ],
-      "correct_answer_index": 5
+      "correct_answer_index": 5,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "全家人在一起包（ ）"
+        },
+        "reason": {
+          "zh": "“包饺子”是制作饺子的常用搭配，与家人一起过年的场景相符。",
+          "en": "包饺子 means making dumplings and fits the family celebration described."
+        },
+        "pitfall": {
+          "zh": "这里“包”是动词，需要可制作的食物作宾语，不是名词“包”。",
+          "en": "包 is a verb needing the food being made, not the noun meaning bag."
+        },
+        "tip": {
+          "zh": "先判断“包”在句中的词性，再识别“包饺子”这一搭配。",
+          "en": "Identify 包 as a verb, then recognize the expression 包饺子."
+        },
+        "answer": {
+          "index": 5,
+          "text": "F 饺子"
+        }
+      }
     },
     {
       "number": 48,
@@ -611,7 +1692,30 @@
         "E 重点",
         "F 饺子"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "有能力做好这件事，但他没有认真去做"
+        },
+        "reason": {
+          "zh": "“完全有能力”强调能力足够，后面转折说没有认真去做，选“完全”。",
+          "en": "完全有能力 emphasizes sufficient ability, contrasted with not making a serious effort."
+        },
+        "pitfall": {
+          "zh": "“有能力”不等于已经做好；后半句说明能力与实际行动存在差距。",
+          "en": "Having the ability does not mean the task was done well; the contrast concerns actual effort."
+        },
+        "tip": {
+          "zh": "把“完全”放在被强调的“有能力”前，并区分能力和完成结果。",
+          "en": "Place 完全 before 有能力 and distinguish capability from the eventual result."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 完全"
+        }
+      }
     },
     {
       "number": 49,
@@ -625,7 +1729,30 @@
         "E 重点",
         "F 饺子"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "要四五个大人手（ ）手才能抱住"
+        },
+        "reason": {
+          "zh": "“手拉手”表示彼此牵手，几个人围起来才能抱住粗树，选“拉”。",
+          "en": "手拉手 means holding hands, allowing several adults to encircle the thick tree."
+        },
+        "pitfall": {
+          "zh": "“手拉手”中间是连接双方动作的动词，不能用描述形状的“圆”直接替换。",
+          "en": "The middle word in 手拉手 is a verb linking the hands, not a shape adjective such as 圆."
+        },
+        "tip": {
+          "zh": "把“手拉手”作为完整动作短语记住，再结合树粗的情境理解。",
+          "en": "Learn 手拉手 as a complete action phrase and connect it to the tree's width."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 拉"
+        }
+      }
     },
     {
       "number": 50,
@@ -639,7 +1766,30 @@
         "E 重点",
         "F 饺子"
       ],
-      "correct_answer_index": 4
+      "correct_answer_index": 4,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "讲话应先讲（ ）"
+        },
+        "reason": {
+          "zh": "先讲重点能让别人更快理解主要意思，“重点”是“讲”的宾语。",
+          "en": "Stating the key points first helps others understand; 重点 is the object of 讲."
+        },
+        "pitfall": {
+          "zh": "“坚持”是动作，放进“先讲坚持”会变成谈论坚持这个话题，与后文的表达方法不符。",
+          "en": "讲坚持 would mean talking about perseverance, not the communication method described."
+        },
+        "tip": {
+          "zh": "从结果“更快了解意思”回推，应先说的是核心信息“重点”。",
+          "en": "Work back from quicker understanding to the needed core information, 重点."
+        },
+        "answer": {
+          "index": 4,
+          "text": "E 重点"
+        }
+      }
     },
     {
       "number": 51,
@@ -653,7 +1803,30 @@
         "E 严重",
         "F 整理"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "我现在在（ ）处，马上就到"
+        },
+        "reason": {
+          "zh": "“入口处”表示进入某个场所的位置，与正在赶往机场会合的语境相符。",
+          "en": "入口处 names an entrance location, fitting the speaker's report while approaching the meeting point."
+        },
+        "pitfall": {
+          "zh": "“在……处”需要地点；“温度”“严重”等不能直接构成这里的位置表达。",
+          "en": "在……处 calls for a place; 温度 and 严重 cannot supply that location."
+        },
+        "tip": {
+          "zh": "用“在＋地点＋处”判断空格功能，再检查上下文。",
+          "en": "Use 在 + location + 处 to identify the gap's function before checking context."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 入口"
+        }
+      }
     },
     {
       "number": 52,
@@ -667,7 +1840,30 @@
         "E 严重",
         "F 整理"
       ],
-      "correct_answer_index": 5
+      "correct_answer_index": 5,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "我（ ）好了就发给你"
+        },
+        "reason": {
+          "zh": "先把照片整理好，再发送；“整理好了就……”说明完成前一步后做下一步。",
+          "en": "The photos will be organized before sending; 整理好了就…… links completion to the next action."
+        },
+        "pitfall": {
+          "zh": "“好了”在这里接动作结果，不是单独说心情好；也不表示照片已经发出。",
+          "en": "好了 marks completion of organizing here, not a mood or a message already sent."
+        },
+        "tip": {
+          "zh": "识别“动作＋好＋了＋就……”的先后顺序。",
+          "en": "Identify the sequence in action + 好 + 了 + 就……."
+        },
+        "answer": {
+          "index": 5,
+          "text": "F 整理"
+        }
+      }
     },
     {
       "number": 53,
@@ -681,7 +1877,30 @@
         "E 严重",
         "F 整理"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "身高没（ ）一米二就可以买"
+        },
+        "reason": {
+          "zh": "“没超过一米二”表示身高未超出该界限，“超过”可接数量作为比较界限。",
+          "en": "没超过一米二 means not above the stated height; 超过 takes a quantity as its limit."
+        },
+        "pitfall": {
+          "zh": "“没超过”包含恰好等于，“不到”则不包含；本题也没有说儿童票一定免费。",
+          "en": "Not exceeding includes equality, unlike being below; a child's ticket is not necessarily free."
+        },
+        "tip": {
+          "zh": "区分“没超过≤”与“不到＜”，按题文理解条件，不把旧题当现行票务规定。",
+          "en": "Distinguish 没超过 (≤) from 不到 (<), without treating this old exercise as current ticket policy."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 超过"
+        }
+      }
     },
     {
       "number": 54,
@@ -695,7 +1914,30 @@
         "E 严重",
         "F 整理"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "看（ ）你对这里很熟悉"
+        },
+        "reason": {
+          "zh": "“看样子”表示根据表面情况作判断，可理解为“看来”，选“样子”。",
+          "en": "看样子 means “it appears,” introducing the impression that the other person knows the area."
+        },
+        "pitfall": {
+          "zh": "这里不是单独观察某人的外貌；“看样子”整体修饰后面的判断。",
+          "en": "This is not simply looking at someone's appearance; the whole phrase frames a judgment."
+        },
+        "tip": {
+          "zh": "把“看样子＋完整判断”连起来读，再用对方的经历验证。",
+          "en": "Read 看样子 with the following statement and use the reply as confirmation."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 样子"
+        }
+      }
     },
     {
       "number": 55,
@@ -709,7 +1951,30 @@
         "E 严重",
         "F 整理"
       ],
-      "correct_answer_index": 4
+      "correct_answer_index": 4,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "大夫说不（ ）"
+        },
+        "reason": {
+          "zh": "“不严重”评价伤势较轻，与“只是擦破了点儿皮”“没事就好”相呼应。",
+          "en": "不严重 describes the injury as minor, consistent with the surrounding dialogue."
+        },
+        "pitfall": {
+          "zh": "这是人物转述医生对这次伤情的判断，不能由“擦破皮”推出所有类似伤口都无需处理。",
+          "en": "This reports a doctor's judgment in this dialogue, not a universal conclusion about similar injuries."
+        },
+        "tip": {
+          "zh": "程度词结合“只是、点儿”理解，确定句子需要评价严重程度的形容词。",
+          "en": "Use 只是 and 点儿 to identify the needed adjective of severity."
+        },
+        "answer": {
+          "index": 4,
+          "text": "E 严重"
+        }
+      }
     },
     {
       "number": 56,
@@ -723,7 +1988,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 5
+      "correct_answer_index": 5,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "C 机会来了，就该主动去试一试"
+        },
+        "reason": {
+          "zh": "C 先建议遇到机会就尝试，B 说明即使失败也没关系，A 用至少努力过来安慰，顺序 CBA。",
+          "en": "C proposes trying, B allows for failure, and A explains the consolation of having made an effort: CBA."
+        },
+        "pitfall": {
+          "zh": "“即使失败”承接尝试的可能结果，“至少努力过”又解释为什么没关系。",
+          "en": "Possible failure follows the attempt, while having tried explains why failure can be accepted."
+        },
+        "tip": {
+          "zh": "按“建议—可能结果—接受结果的理由”排列，而非只看开头字。",
+          "en": "Follow suggestion, possible outcome and reason for accepting it, rather than isolated opening words."
+        },
+        "answer": {
+          "index": 5,
+          "text": "F CBA"
+        }
+      }
     },
     {
       "number": 57,
@@ -737,7 +2025,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "A 但世界上还有很多是钱买不到、也换不来的"
+        },
+        "reason": {
+          "zh": "B 用“虽然”承认钱能买东西，A 用“但”转折，C 举买不到的例子，顺序 BAC。",
+          "en": "B concedes what money can buy, A contrasts its limits, and C illustrates those limits: BAC."
+        },
+        "pitfall": {
+          "zh": "C 中生命、爱情等解释的是 A 的买不到之物，不能接成钱能买到的例子。",
+          "en": "C illustrates what money cannot buy, not what it can buy."
+        },
+        "tip": {
+          "zh": "先配“虽然—但”，再检查“例如”到底举前面哪个观点的例子。",
+          "en": "Pair 虽然 and 但, then determine which claim the examples illustrate."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C BAC"
+        }
+      }
     },
     {
       "number": 58,
@@ -751,7 +2062,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "A 北方秋天很干燥，你刚来"
+        },
+        "reason": {
+          "zh": "A 交代气候和刚到的背景，B 说不适应正常，C 再给出适应的建议，顺序 ABC。",
+          "en": "A introduces the dry climate and recent arrival, B explains the discomfort, and C offers advice: ABC."
+        },
+        "pitfall": {
+          "zh": "“你刚来”与“觉得不适应”语义相接；把 C 插在中间会打断这条解释。",
+          "en": "The recent arrival leads naturally into feeling unaccustomed; inserting C interrupts that link."
+        },
+        "tip": {
+          "zh": "先读成“你刚来，觉得不适应很正常”，再接后面的建议。",
+          "en": "Connect the recent-arrival clause to its explanation before adding the advice."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A ABC"
+        }
+      }
     },
     {
       "number": 59,
@@ -765,7 +2099,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "B 课本上的知识并不能解决我们遇到的所有问题"
+        },
+        "reason": {
+          "zh": "B 指出课本知识的局限，A 补充生活也有答案，C 说明发现这些答案的条件，顺序 BAC。",
+          "en": "B identifies limits of textbooks, A introduces learning from life, and C adds the effort required: BAC."
+        },
+        "pitfall": {
+          "zh": "C 的“这”指从生活找到答案，需要 A 先交代；“并不能……所有”也不是全盘否定课本。",
+          "en": "这 in C refers to finding answers in life, requiring A first; not solving every problem does not make textbooks useless."
+        },
+        "tip": {
+          "zh": "同时检查代词指向和否定范围，再连成“局限—补充来源—所需行动”。",
+          "en": "Check reference and negation scope, then link limitation, another source and required action."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C BAC"
+        }
+      }
     },
     {
       "number": 60,
@@ -779,7 +2136,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "C 这样不但能学到很多新的词语"
+        },
+        "reason": {
+          "zh": "B 先给出看中文报纸的方法，C 用“这样”承接并说词汇收益，A 用“还”补充知识面，顺序 BCA。",
+          "en": "B gives the method, C refers to it and adds vocabulary benefits, and A adds broader knowledge: BCA."
+        },
+        "pitfall": {
+          "zh": "“这样”不能无所指；“不但……还……”必须按递进关系连接。",
+          "en": "这样 needs a preceding method, and 不但 links forward to 还."
+        },
+        "tip": {
+          "zh": "先找“这样”对应的行为，再把“不但—还”连成一组。",
+          "en": "Identify the action referenced by 这样, then connect the 不但—还 pair."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D BCA"
+        }
+      }
     },
     {
       "number": 61,
@@ -793,7 +2173,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 5
+      "correct_answer_index": 5,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "C 别看小黄个子不高，人也瘦"
+        },
+        "reason": {
+          "zh": "C 先说外表不高、瘦，B 用“却”转到力气大，A 用抬家具作证明，顺序 CBA。",
+          "en": "C describes his small build, B contrasts his strength, and A supplies evidence from moving furniture: CBA."
+        },
+        "pitfall": {
+          "zh": "“他”指小黄，须先介绍人物；抬家具的例子支持力气大，不是说他个子高。",
+          "en": "他 refers to Xiaohuang, and moving furniture supports strength rather than height."
+        },
+        "tip": {
+          "zh": "连接“别看……却……”，再把具体例子放到它支持的判断后。",
+          "en": "Connect 别看 with 却 and put the example after the claim it supports."
+        },
+        "answer": {
+          "index": 5,
+          "text": "F CBA"
+        }
+      }
     },
     {
       "number": 62,
@@ -807,7 +2210,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "A 飞往该市的好几趟航班"
+        },
+        "reason": {
+          "zh": "B 介绍南京下大雨，A 用“该市”指南京并引入航班，C 补出不得不延误，顺序 BAC。",
+          "en": "B introduces rain in Nanjing, A refers to that city and the flights, and C completes their delay: BAC."
+        },
+        "pitfall": {
+          "zh": "A 只有主语“好几趟航班”，还需要 C 的谓语；“该市”也要有前文所指。",
+          "en": "A supplies the flight subject but needs C's predicate; 该市 also needs an earlier city."
+        },
+        "tip": {
+          "zh": "既检查指代“南京—该市”，也检查“航班—推迟起飞”的主谓关系。",
+          "en": "Check both the city reference and the subject-predicate link between flights and delayed departures."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C BAC"
+        }
+      }
     },
     {
       "number": 63,
@@ -821,7 +2247,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "C 只有 100 多公里，开车的话大约一个小时就到了"
+        },
+        "reason": {
+          "zh": "A 先说家离北京近，C 用距离与车程具体说明，B 用所以引出常回家，顺序 ACB。",
+          "en": "A states that home is near Beijing, C supplies distance and travel time, and B gives the consequence: ACB."
+        },
+        "pitfall": {
+          "zh": "“所以”后是结果；把 C 放到 B 后，会拆开“近”的具体说明与回家的原因。",
+          "en": "所以 introduces the result; C completes the explanation of proximity before that result."
+        },
+        "tip": {
+          "zh": "按“概括距离—具体说明—行为结果”组织，并保留“约”的估计含义。",
+          "en": "Follow general distance, supporting detail and resulting behavior, retaining the approximate time."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B ACB"
+        }
+      }
     },
     {
       "number": 64,
@@ -835,7 +2284,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "B 两个人既然决定共同生活"
+        },
+        "reason": {
+          "zh": "B 用既然提出共同生活的前提，C 用那么说浪漫不足，A 再强调信任尊重，顺序 BCA。",
+          "en": "B establishes living together, C says romance alone is insufficient, and A identifies what matters most: BCA."
+        },
+        "pitfall": {
+          "zh": "A 的“才是最重要的”承接 C 的“不够”，不是脱离前提的独立开场。",
+          "en": "才是最重要的 answers the insufficiency introduced in C rather than opening the discussion alone."
+        },
+        "tip": {
+          "zh": "先配“既然—那么”，再把“什么不够—什么重要”接起来。",
+          "en": "Pair 既然 and 那么, then connect what is insufficient to what matters most."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D BCA"
+        }
+      }
     },
     {
       "number": 65,
@@ -849,7 +2321,30 @@
         "E CAB",
         "F CBA"
       ],
-      "correct_answer_index": 4
+      "correct_answer_index": 4,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "A 一看见医生就哭，他怎么都没想到"
+        },
+        "reason": {
+          "zh": "C 交代爸爸说我小时候怕打针，A 继续描述并引出没想到，B 补全长大成为护士的意外，顺序 CAB。",
+          "en": "C introduces childhood fear, A extends it and opens an unexpected outcome, and B completes that outcome: CAB."
+        },
+        "pitfall": {
+          "zh": "A 的“他”指爸爸，“没想到”还缺所想的内容，必须接 B。",
+          "en": "他 refers to the father, and 没想到 needs B to state the unexpected outcome."
+        },
+        "tip": {
+          "zh": "检查“谁说的”和“没想到什么”，用人物指代及句法补全来排序。",
+          "en": "Resolve who is speaking and what was unexpected to connect both references and sentence structure."
+        },
+        "answer": {
+          "index": 4,
+          "text": "E CAB"
+        }
+      }
     },
     {
       "number": 66,
@@ -861,7 +2356,30 @@
         "C 学会原谅",
         "D 看到别人的优点"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "他身上的优点更值得我们去发现、去学习"
+        },
+        "reason": {
+          "zh": "“但是别忘了”后强调发现和学习优点，D 是作者提醒的重点。",
+          "en": "After 但是别忘了, the passage emphasizes discovering and learning from strengths, matching D."
+        },
+        "pitfall": {
+          "zh": "人人有缺点是背景，不等于文章重点在接受批评或原谅某个错误。",
+          "en": "Everyone having faults is background, not a main instruction to accept criticism or forgive a specific act."
+        },
+        "tip": {
+          "zh": "遇到“别忘了”时找被提醒关注的对象，再与开头背景区分。",
+          "en": "Identify what 别忘了 directs attention to and separate it from the opening background."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 看到别人的优点"
+        }
+      }
     },
     {
       "number": 67,
@@ -873,7 +2391,30 @@
         "C 增加雨量",
         "D 使皮肤湿润"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "森林内的温度会比周围低 3 到 5℃"
+        },
+        "reason": {
+          "zh": "题目限定夏季，原文说森林内比周围温度低，对应降低气温。",
+          "en": "For summer, the passage says forest temperatures are lower than nearby areas, matching A."
+        },
+        "pitfall": {
+          "zh": "降低风速、提高气温是文中冬季的描述，不能移到夏季。",
+          "en": "Reduced wind and higher temperature belong to the winter description, not the summer one."
+        },
+        "tip": {
+          "zh": "把“季节—作用”一一对应，防止从同一段中选到错误条件下的信息。",
+          "en": "Pair each season with its stated effect to avoid borrowing a fact from the wrong condition."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 降低气温"
+        }
+      }
     },
     {
       "number": 68,
@@ -885,7 +2426,30 @@
         "C 及时总结",
         "D 先认清自己"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "我们首先应该对自己有清楚的认识"
+        },
+        "reason": {
+          "zh": "“首先”明确把认清自己放在选择职业的第一步，D 与原文对应。",
+          "en": "首先 explicitly puts self-understanding first in career choice, matching D."
+        },
+        "pitfall": {
+          "zh": "兴趣、性格、想做什么都是认识自己的具体方面；“多调查”不是这段明确提出的第一步。",
+          "en": "Interests, personality and wishes specify self-knowledge; investigation is not the stated first step."
+        },
+        "tip": {
+          "zh": "优先定位“首先”，再把后面的列举归纳为同一个行动。",
+          "en": "Locate 首先, then group the following examples under the shared action."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 先认清自己"
+        }
+      }
     },
     {
       "number": 69,
@@ -897,7 +2461,30 @@
         "C 经常站着",
         "D 多玩儿电子游戏"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "真正健康的减肥方法应该是多锻炼"
+        },
+        "reason": {
+          "zh": "按作者的建议，“多锻炼”对应选项“多运动”，所以选 A。",
+          "en": "According to the author's recommendation, 多锻炼 matches 多运动, so A fits."
+        },
+        "pitfall": {
+          "zh": "“虽然有效”是对前述节食的让步，后面有转折；本题考作者观点，不足以制定个人减重方案。",
+          "en": "虽然有效 concedes a point before a contrast; identifying the author's view does not establish an individual weight-loss plan."
+        },
+        "tip": {
+          "zh": "沿“虽然—但是—应该”找到最终建议，再匹配“锻炼”和“运动”的近义关系。",
+          "en": "Follow 虽然, 但是 and 应该 to the recommendation, then match 锻炼 with 运动."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 多运动"
+        }
+      }
     },
     {
       "number": 70,
@@ -909,7 +2496,30 @@
         "C 在找房子",
         "D 在看广告"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "房租也不贵，您要不要再考虑一下"
+        },
+        "reason": {
+          "zh": "对话在介绍位置、环境和租金，并劝再考虑，最符合张先生正在找房子。",
+          "en": "Discussion of location, surroundings and rent, followed by persuasion, fits someone looking for housing."
+        },
+        "pitfall": {
+          "zh": "“这儿离公司近”不表示他已经住在这里；询问是否考虑说明选择尚未确定。",
+          "en": "Being near his workplace does not mean he already lives there; he is still considering the option."
+        },
+        "tip": {
+          "zh": "把房租、周边设施、考虑租住等线索合起来判断情境。",
+          "en": "Combine rent, nearby facilities and consideration of the offer to identify the situation."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 在找房子"
+        }
+      }
     },
     {
       "number": 71,
@@ -921,7 +2531,30 @@
         "C 招聘会多",
         "D 生活压力小"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "在小城市生活就会轻松许多"
+        },
+        "reason": {
+          "zh": "作者把小城市的轻松与大城市的竞争压力对照，D 概括为生活压力小。",
+          "en": "The contrast with big-city competition presents small-city life as less stressful, matching D."
+        },
+        "pitfall": {
+          "zh": "“轻松”说压力感受，不直接证明更安静、收入更高或招聘会更多。",
+          "en": "Less stressful does not directly establish quieter surroundings, higher income or more job fairs."
+        },
+        "tip": {
+          "zh": "比较题保留原文比较的维度，别把压力小换成收入高。",
+          "en": "Keep the comparison on its stated dimension rather than substituting another advantage."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 生活压力小"
+        }
+      }
     },
     {
       "number": 72,
@@ -933,7 +2566,30 @@
         "C 早点儿完成",
         "D 留到最后做"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "最好的办法就是早点儿把它做完"
+        },
+        "reason": {
+          "zh": "对于不喜欢但必须做的事，作者直接建议早点完成，选 C。",
+          "en": "The passage explicitly recommends finishing the unavoidable disliked task early, matching C."
+        },
+        "pitfall": {
+          "zh": "“不喜欢”是心理态度，“必须”限定不能直接不做；也没有说可以交给别人。",
+          "en": "Dislike is an attitude, while 必须 makes the task unavoidable; delegation is not offered."
+        },
+        "tip": {
+          "zh": "先识别“必须”的约束，再在约束内找作者提出的办法。",
+          "en": "Identify the constraint imposed by 必须 before selecting the proposed method."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 早点儿完成"
+        }
+      }
     },
     {
       "number": 73,
@@ -945,7 +2601,30 @@
         "C 经常复习",
         "D 记下自己的生活"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "每天用 100 字把自己的生活写下来"
+        },
+        "reason": {
+          "zh": "教授建议每天记录生活，让四年经历成为回忆，对应 D。",
+          "en": "The professor proposes daily writing to preserve university memories, matching recording one's life."
+        },
+        "pitfall": {
+          "zh": "十多万字是长期积累的结果，不是在要求立即写一本书或每天复习课本。",
+          "en": "The large book is the eventual accumulation, not an immediate writing assignment or textbook revision."
+        },
+        "tip": {
+          "zh": "区分每天要做的行动和多年后的成果，题目问希望学生做什么。",
+          "en": "Separate the daily action from the long-term product; the question targets the action."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 记下自己的生活"
+        }
+      }
     },
     {
       "number": 74,
@@ -957,7 +2636,30 @@
         "C 更容易理解",
         "D 让人印象更深"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "音乐表达的感情有时更容易让人听懂"
+        },
+        "reason": {
+          "zh": "“更容易让人听懂”对应“更容易理解”，C 最贴近原文。",
+          "en": "Being easier to understand by listening matches 更容易理解, making C the best fit."
+        },
+        "pitfall": {
+          "zh": "原文有“有时”，不能扩大为任何音乐都更容易理解；也没限定只表达难过。",
+          "en": "有时 limits the claim to some occasions, not all music or only sadness."
+        },
+        "tip": {
+          "zh": "匹配同义表达时保留频率限制：“有时”不能变成“总是”。",
+          "en": "Preserve frequency limits when paraphrasing: sometimes must not become always."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 更容易理解"
+        }
+      }
     },
     {
       "number": 75,
@@ -969,7 +2671,30 @@
         "C 无法被证明",
         "D 不一定适合现在"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "有时候也不能完全相信经验"
+        },
+        "reason": {
+          "zh": "原文说应按不同情况选择方法，说明过去经验未必适用于现在，选 D。",
+          "en": "Choosing methods for different circumstances means past experience may not fit the present, supporting D."
+        },
+        "pitfall": {
+          "zh": "“不能完全相信”不是经验毫无价值；B 虽可能是一般看法，却未概括本段转折重点。",
+          "en": "Not relying completely on experience does not make it worthless; B misses the passage's caution."
+        },
+        "tip": {
+          "zh": "抓“但”后的限制，把“并非总适用”与“完全无用”分开。",
+          "en": "Follow the limitation after 但 and distinguish not always applicable from entirely useless."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 不一定适合现在"
+        }
+      }
     },
     {
       "number": 76,
@@ -981,7 +2706,30 @@
         "C 提高信心",
         "D 相互增加了解"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "为学生们提供互相交流和学习的机会"
+        },
+        "reason": {
+          "zh": "活动让各国学生了解中国、互相交流学习，D“相互增加了解”与这些目的最接近。",
+          "en": "Learning about China and exchanging ideas with other students best matches increasing mutual understanding."
+        },
+        "pitfall": {
+          "zh": "文化节不一定专门教汉字或熟悉校园；这些常见活动目标在这里没有说明。",
+          "en": "A cultural festival does not necessarily target character learning or campus orientation; neither is stated here."
+        },
+        "tip": {
+          "zh": "用“一方面—另一方面”列出两个目的，再选能对应这些目的的选项。",
+          "en": "List both purposes in 一方面—另一方面 before choosing the supported option."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 相互增加了解"
+        }
+      }
     },
     {
       "number": 77,
@@ -993,7 +2741,30 @@
         "C 非常着急",
         "D 停止了练习"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "尤其是赛前那个星期，他每天都会把全部动作练习好几遍"
+        },
+        "reason": {
+          "zh": "赛前每天多次练全部动作，体现比平时更努力，选 A。",
+          "en": "Repeated daily practice of every movement before the competition demonstrates increased effort, matching A."
+        },
+        "pitfall": {
+          "zh": "希望做到最好不直接证明兴奋或着急；题目有证据的是练习行为。",
+          "en": "Wanting the best result does not establish excitement or anxiety; practice behavior is evidenced."
+        },
+        "tip": {
+          "zh": "从可观察行为判断努力程度，不把目标自动解释成某种情绪。",
+          "en": "Infer effort from described actions rather than assigning an unstated emotion to a goal."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 更努力"
+        }
+      }
     },
     {
       "number": 78,
@@ -1005,7 +2776,30 @@
         "C 想引人同情",
         "D 想获得表扬"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "否则可能引起误会，让人以为你不友好"
+        },
+        "reason": {
+          "zh": "文中解释道歉与说明原因是为了避免被误认为不友好，因此选 A。",
+          "en": "The passage gives avoiding an impression of unfriendliness as the reason for explaining and apologizing, matching A."
+        },
+        "pitfall": {
+          "zh": "“否则”引出不这样做的可能后果，不是在说已经发生误会。",
+          "en": "否则 introduces a possible consequence of not explaining, not a misunderstanding already confirmed."
+        },
+        "tip": {
+          "zh": "把“否则＋不良后果”反推为前面做法要避免的问题。",
+          "en": "Use the negative outcome after 否则 to identify what the suggested action aims to prevent."
+        },
+        "answer": {
+          "index": 0,
+          "text": "A 减少误会"
+        }
+      }
     },
     {
       "number": 79,
@@ -1017,7 +2811,30 @@
         "C 获过奖",
         "D 身体条件好"
       ],
-      "correct_answer_index": 3
+      "correct_answer_index": 3,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "身体其他条件也很符合游泳运动员的要求"
+        },
+        "reason": {
+          "zh": "老师看重身高、手脚等身体条件适合游泳，因此鼓励她学习，选 D。",
+          "en": "The teacher notices physical attributes suited to swimming and encourages training, supporting D."
+        },
+        "pitfall": {
+          "zh": "获奖是后来的结果，不是最初鼓励的原因；文中“现在16岁”属于旧题叙述时间，不是当前年龄。",
+          "en": "Awards come later and are not the original reason; “now 16” belongs to the old passage's timeframe, not the present day."
+        },
+        "tip": {
+          "zh": "按“条件—老师建议—后来成就”整理因果，不能倒因为果。",
+          "en": "Follow attributes, encouragement and later achievement without reversing cause and result."
+        },
+        "answer": {
+          "index": 3,
+          "text": "D 身体条件好"
+        }
+      }
     },
     {
       "number": 80,
@@ -1029,7 +2846,30 @@
         "C 向当地人问路",
         "D 给朋友打电话"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "当一条路走不通时，我们可以换另外一条试试"
+        },
+        "reason": {
+          "zh": "原文直接建议换另一条路尝试，所以选 B。",
+          "en": "The passage directly recommends trying another route, matching B."
+        },
+        "pitfall": {
+          "zh": "“道路”也比喻实现目标的方法，不只是实际出行；问路或打电话不是文中提出的办法。",
+          "en": "Routes also represent methods toward a goal; asking directions or calling a friend is not the stated advice."
+        },
+        "tip": {
+          "zh": "先找直接建议，再结合“成功的目的地”理解道路的比喻。",
+          "en": "Locate the explicit suggestion, then use the success metaphor to understand the routes."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 试试别的路"
+        }
+      }
     },
     {
       "number": 81,
@@ -1041,7 +2881,30 @@
         "C 成功需要坚持",
         "D 做事要有计划"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "只要我们不放弃努力，总会找到一条合适的路"
+        },
+        "reason": {
+          "zh": "文章鼓励不断尝试、不放弃，C“成功需要坚持”最接近主旨，同时包含方法可以改变。",
+          "en": "The passage encourages continued effort and trying alternatives; C best captures that theme."
+        },
+        "pitfall": {
+          "zh": "坚持不等于死守同一条走不通的路；上一句明确允许换方法。",
+          "en": "Persistence does not mean sticking to the same failed method; the passage explicitly allows changing routes."
+        },
+        "tip": {
+          "zh": "把“目标不放弃”和“方法可调整”一起概括，避免只记住一个口号。",
+          "en": "Summarize both commitment to the goal and flexibility in the method."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 成功需要坚持"
+        }
+      }
     },
     {
       "number": 82,
@@ -1053,7 +2916,30 @@
         "C 故事书",
         "D 汉语书"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "购书满 100 元即可获得日记本一个"
+        },
+        "reason": {
+          "zh": "题目问100元档对应的赠品，原文明确是一个日记本，选 B。",
+          "en": "The stated gift for the 100-yuan threshold is a diary, matching B."
+        },
+        "pitfall": {
+          "zh": "字典对应200元档；原文没有交代达到更高档时赠品能否叠加，不应自行补充规则。",
+          "en": "The dictionary belongs to the 200-yuan tier; whether gifts combine at higher amounts is not specified."
+        },
+        "tip": {
+          "zh": "把金额和赠品一一配对，只回答题目指定的档位。",
+          "en": "Pair each threshold with its gift and answer the tier specifically requested."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 日记本"
+        }
+      }
     },
     {
       "number": 83,
@@ -1065,7 +2951,30 @@
         "C 有些书打折",
         "D 书店生意很好"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "部分图书还有打折活动"
+        },
+        "reason": {
+          "zh": "“部分图书打折”直接对应 C“有些书打折”。",
+          "en": "部分图书 matches 有些书: some books are discounted, supporting C."
+        },
+        "pitfall": {
+          "zh": "小说7.5折是按原价75%付款，并非半价；有促销也不能证明生意一定很好。",
+          "en": "A 7.5折 price is 75% of the original, not half price; a promotion does not prove strong sales."
+        },
+        "tip": {
+          "zh": "先保留“部分”的范围，再用“折数÷10”理解实际支付比例。",
+          "en": "Preserve the scope “some,” and divide the 折 number by ten to get the fraction paid."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 有些书打折"
+        }
+      }
     },
     {
       "number": 84,
@@ -1077,7 +2986,30 @@
         "C 少用塑料袋",
         "D 少用一次性筷子"
       ],
-      "correct_answer_index": 2
+      "correct_answer_index": 2,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "少用塑料袋，减少白色污染"
+        },
+        "reason": {
+          "zh": "原文将少用塑料袋与减少白色污染直接连接，答案是 C。",
+          "en": "The passage directly links using fewer plastic bags with reducing white pollution, supporting C."
+        },
+        "pitfall": {
+          "zh": "节约用电、减少空气污染是另外两组措施与目标；不能混用对应关系。",
+          "en": "Saving electricity and reducing air pollution are separate action-purpose pairs in the passage."
+        },
+        "tip": {
+          "zh": "逐项配对“措施—目的”，找到题目指定污染类型对应的做法。",
+          "en": "Match each action to its purpose, then select the one tied to the named pollution type."
+        },
+        "answer": {
+          "index": 2,
+          "text": "C 少用塑料袋"
+        }
+      }
     },
     {
       "number": 85,
@@ -1089,7 +3021,30 @@
         "C 节约与浪费",
         "D 经济的发展"
       ],
-      "correct_answer_index": 1
+      "correct_answer_index": 1,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "question",
+          "quote": "保护地球环境，并不是离我们很远、很难做到的事情"
+        },
+        "reason": {
+          "zh": "开头点出环境保护，后面的省电、交通、购物袋都是具体做法，主旨是 B。",
+          "en": "The opening names environmental protection, and the examples illustrate it, making B the main topic."
+        },
+        "pitfall": {
+          "zh": "“节约与浪费”只覆盖部分例子，不能完整概括减少空气和塑料污染。",
+          "en": "Saving versus wasting covers only part of the examples, not the full environmental theme."
+        },
+        "tip": {
+          "zh": "用开头总述统领所有例子，选择覆盖整段而非只覆盖一个细节的主题。",
+          "en": "Use the opening general statement to unite the examples and choose a topic covering the whole passage."
+        },
+        "answer": {
+          "index": 1,
+          "text": "B 环境保护"
+        }
+      }
     },
     {
       "number": 86,
@@ -1098,7 +3053,30 @@
       "options": [
         "你最好重新换一个密码。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "你最好重新换一个密码。"
+        },
+        "reason": {
+          "zh": "“你”作主语，“最好”提出建议，“重新”修饰“换”，最后接宾语“一个密码”。",
+          "en": "你 is the subject, 最好 gives advice, 重新 modifies 换, and 一个密码 is its object."
+        },
+        "pitfall": {
+          "zh": "“重新”表示再次进行动作，不修饰密码本身；给定词组应完整使用。",
+          "en": "重新 describes doing the action anew, not a property of the password; use all supplied chunks."
+        },
+        "tip": {
+          "zh": "按“谁＋最好＋重新＋做什么”搭句，再核对动词宾语。",
+          "en": "Build subject + 最好 + 重新 + action, then check the verb-object pairing."
+        },
+        "answer": {
+          "index": 0,
+          "text": "你最好重新换一个密码。"
+        }
+      }
     },
     {
       "number": 87,
@@ -1107,7 +3085,30 @@
       "options": [
         "医院里不允许抽烟。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "医院里不允许抽烟。"
+        },
+        "reason": {
+          "zh": "“医院里”交代地点，“不允许＋抽烟”说明禁止的行为。",
+          "en": "医院里 sets the location, and 不允许抽烟 identifies the prohibited action."
+        },
+        "pitfall": {
+          "zh": "“里”要接在医院后形成地点；“不允许”不是“不喜欢”，语义强度不同。",
+          "en": "里 follows 医院 to form the location; prohibition differs from simply disliking smoking."
+        },
+        "tip": {
+          "zh": "先合并“医院里”，再用“不允许＋动作”构成完整规则句。",
+          "en": "Combine 医院里 first, then build the predicate 不允许 + action."
+        },
+        "answer": {
+          "index": 0,
+          "text": "医院里不允许抽烟。"
+        }
+      }
     },
     {
       "number": 88,
@@ -1116,7 +3117,30 @@
       "options": [
         "我跟你的看法差不多。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "我跟你的看法差不多。"
+        },
+        "reason": {
+          "zh": "参考句表示我和你的看法相近，“差不多”评价双方看法的相似程度。",
+          "en": "The reference means our views are similar; 差不多 describes how close those views are."
+        },
+        "pitfall": {
+          "zh": "这里比较的是双方的看法，不是把“我”这个人与一种看法比较；“跟”用于连接比较双方。",
+          "en": "The comparison concerns both people's views, not a person versus an opinion; 跟 links the two sides."
+        },
+        "tip": {
+          "zh": "用“我和你的看法相近”检查意思，再核对题目给定词组是否齐全。",
+          "en": "Check the meaning against “our views are similar,” then verify that all supplied chunks are used."
+        },
+        "answer": {
+          "index": 0,
+          "text": "我跟你的看法差不多。"
+        }
+      }
     },
     {
       "number": 89,
@@ -1125,7 +3149,30 @@
       "options": [
         "这儿究竟发生了什么事情？"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "这儿究竟发生了什么事情？"
+        },
+        "reason": {
+          "zh": "“这儿”是地点，“究竟”加强追问语气，“发生了什么事情”构成疑问内容。",
+          "en": "这儿 sets the place, 究竟 emphasizes the question, and 发生了什么事情 asks what happened."
+        },
+        "pitfall": {
+          "zh": "“什么事情”已经构成疑问，不必再添加“吗”；“究竟”不是问事件发生多久。",
+          "en": "什么事情 already forms the question, so 吗 is unnecessary; 究竟 does not ask about duration."
+        },
+        "tip": {
+          "zh": "先搭“这儿发生了什么事情”，再把“究竟”放在动词前加强疑问。",
+          "en": "Build 这儿发生了什么事情, then place 究竟 before the verb for emphasis."
+        },
+        "answer": {
+          "index": 0,
+          "text": "这儿究竟发生了什么事情？"
+        }
+      }
     },
     {
       "number": 90,
@@ -1134,7 +3181,30 @@
       "options": [
         "他出生在一个美丽的小城市。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "他出生在一个美丽的小城市。"
+        },
+        "reason": {
+          "zh": "“他出生在”后接出生地点，“一个美丽的小城市”中美丽的修饰小城市。",
+          "en": "出生在 takes the birthplace, with 美丽的 describing 小城市 inside the location phrase."
+        },
+        "pitfall": {
+          "zh": "不要把“在”与地点拆开；“美丽的”应位于被修饰的名词前。",
+          "en": "Keep 在 connected to the location and put 美丽的 before the noun it modifies."
+        },
+        "tip": {
+          "zh": "按“谁＋出生在＋数量＋形容词的＋地点”组织给定词。",
+          "en": "Arrange the chunks as person + 出生在 + quantity + descriptive modifier + place."
+        },
+        "answer": {
+          "index": 0,
+          "text": "他出生在一个美丽的小城市。"
+        }
+      }
     },
     {
       "number": 91,
@@ -1143,7 +3213,30 @@
       "options": [
         "姐姐把房间收拾得很整齐。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "姐姐把房间收拾得很整齐。"
+        },
+        "reason": {
+          "zh": "“姐姐把房间”确定动作发出者和受影响对象，“收拾得很整齐”描述整理后的状态。",
+          "en": "姐姐 performs the action on 房间, and 收拾得很整齐 describes the resulting tidiness."
+        },
+        "pitfall": {
+          "zh": "“把”后先放房间，再接收拾；“得”后的很整齐评价动作效果，不是房间前的定语。",
+          "en": "房间 follows 把 before the verb; 很整齐 after 得 evaluates the outcome rather than modifying the noun beforehand."
+        },
+        "tip": {
+          "zh": "用“谁＋把＋什么＋动词得＋怎么样”检查角色和补语位置。",
+          "en": "Check actor + 把 + object + verb 得 + outcome."
+        },
+        "answer": {
+          "index": 0,
+          "text": "姐姐把房间收拾得很整齐。"
+        }
+      }
     },
     {
       "number": 92,
@@ -1152,7 +3245,30 @@
       "options": [
         "这次调查是由李经理负责的。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "这次调查是由李经理负责的。"
+        },
+        "reason": {
+          "zh": "“这次调查”是话题，“是由……负责的”突出负责人是李经理。",
+          "en": "The investigation is the topic; 是由……负责的 identifies Manager Li as the person responsible."
+        },
+        "pitfall": {
+          "zh": "“由李经理”引出负责人，不是地点或调查对象；不能把负责的对象和负责人对调。",
+          "en": "由李经理 names the responsible person, not the location or subject being investigated."
+        },
+        "tip": {
+          "zh": "先确定“哪件事—谁负责”，再把负责人放入“由……负责”的结构。",
+          "en": "Identify the task and responsible person, then place that person in 由……负责."
+        },
+        "answer": {
+          "index": 0,
+          "text": "这次调查是由李经理负责的。"
+        }
+      }
     },
     {
       "number": 93,
@@ -1161,7 +3277,30 @@
       "options": [
         "大概有三分之二的人反对这样做。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "大概有三分之二的人反对这样做。"
+        },
+        "reason": {
+          "zh": "“大概有”引出估计数量，“三分之二的人”是持反对意见的人群。",
+          "en": "大概有 introduces an approximate quantity; 三分之二的人 identifies who opposes the action."
+        },
+        "pitfall": {
+          "zh": "三分之二是2/3，不是3/2；“反对”也不能漏写成支持。",
+          "en": "三分之二 means two thirds, not three halves; retain the negative stance expressed by 反对."
+        },
+        "tip": {
+          "zh": "中文分数先说分母再说分子，并核对“大概”修饰的是数量估计。",
+          "en": "Read Chinese fractions denominator first, then numerator, and retain the approximate quantity."
+        },
+        "answer": {
+          "index": 0,
+          "text": "大概有三分之二的人反对这样做。"
+        }
+      }
     },
     {
       "number": 94,
@@ -1170,7 +3309,30 @@
       "options": [
         "学校将组织大家去参观长城。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "学校将组织大家去参观长城。"
+        },
+        "reason": {
+          "zh": "“学校”发起安排，“将”表示将来，“组织大家”后接活动“去参观长城”。",
+          "en": "The school arranges a future activity; 组织大家 is followed by 去参观长城."
+        },
+        "pitfall": {
+          "zh": "“将”放在组织前表示计划，不是把“长城将”组成词组；长城是参观对象。",
+          "en": "将 marks the future before 组织; 长城 is the destination of the visit, not a phrase with 将."
+        },
+        "tip": {
+          "zh": "按“组织者＋将＋组织谁＋做什么”搭建句子。",
+          "en": "Use organizer + 将 + 组织 + participants + activity."
+        },
+        "answer": {
+          "index": 0,
+          "text": "学校将组织大家去参观长城。"
+        }
+      }
     },
     {
       "number": 95,
@@ -1179,7 +3341,30 @@
       "options": [
         "非常感谢您对我们工作的理解和支持。"
       ],
-      "correct_answer_index": 0
+      "correct_answer_index": 0,
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "非常感谢您对我们工作的理解和支持。"
+        },
+        "reason": {
+          "zh": "“非常感谢”后是感谢的对象与内容：“您对我们工作的理解和支持”。",
+          "en": "非常感谢 introduces appreciation for the person's understanding and support of our work."
+        },
+        "pitfall": {
+          "zh": "“对我们工作的”修饰理解和支持，不能误接成工作在理解或支持别人。",
+          "en": "对我们工作的 modifies 理解和支持; the work is what receives understanding and support."
+        },
+        "tip": {
+          "zh": "先合并“对我们工作的理解和支持”，再接到“非常感谢您”后。",
+          "en": "Group 对我们工作的理解和支持, then attach it after 非常感谢您."
+        },
+        "answer": {
+          "index": 0,
+          "text": "非常感谢您对我们工作的理解和支持。"
+        }
+      }
     },
     {
       "number": 96,
@@ -1190,7 +3375,30 @@
         "没关系，这个箱子很轻。"
       ],
       "correct_answer_index": 0,
-      "note": "参考答案 · reference answer (other correct sentences are possible)"
+      "note": "参考答案 · reference answer (other correct sentences are possible)",
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "没关系，这个箱子很轻。"
+        },
+        "reason": {
+          "zh": "图中男子抱着箱子；可用“这个箱子很轻”评价重量，“轻”在这里作形容词。",
+          "en": "The man holds a box; 这个箱子很轻 supplies a plausible description of its weight, using 轻 as an adjective."
+        },
+        "pitfall": {
+          "zh": "图片不能直接证明重量；“很轻”是合理情境补充，“没关系”也不是必须写的内容。",
+          "en": "The picture cannot establish weight; lightness is an added scenario detail, and 没关系 is optional."
+        },
+        "tip": {
+          "zh": "围绕箱子写完整句子并使用“轻”，如“这个箱子很轻，我能搬动”。",
+          "en": "Use 轻 in a complete sentence consistent with the box, such as 这个箱子很轻，我能搬动."
+        },
+        "answer": {
+          "index": 0,
+          "text": "没关系，这个箱子很轻。"
+        }
+      }
     },
     {
       "number": 97,
@@ -1201,7 +3409,30 @@
         "这道题的答案在这儿。"
       ],
       "correct_answer_index": 0,
-      "note": "参考答案 · reference answer (other correct sentences are possible)"
+      "note": "参考答案 · reference answer (other correct sentences are possible)",
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "这道题的答案在这儿。"
+        },
+        "reason": {
+          "zh": "图中一人指向桌上的材料，可设定为指出答案；“这道题的答案”是主语，“在这儿”是位置。",
+          "en": "One person points at material on the desk, fitting a sentence that locates an answer."
+        },
+        "pitfall": {
+          "zh": "图上看不清具体题目与答案，不能编造为已知事实；人物身份也不必限定为老师与学生。",
+          "en": "The specific question and answer are unreadable, and the people need not be identified as teacher and student."
+        },
+        "tip": {
+          "zh": "可写“她指着书上的答案”，使用“答案”并与指向材料的动作相符。",
+          "en": "A sentence such as 她指着书上的答案 uses the required word and fits the pointing action."
+        },
+        "answer": {
+          "index": 0,
+          "text": "这道题的答案在这儿。"
+        }
+      }
     },
     {
       "number": 98,
@@ -1212,7 +3443,30 @@
         "钥匙应该就在包里呀。"
       ],
       "correct_answer_index": 0,
-      "note": "参考答案 · reference answer (other correct sentences are possible)"
+      "note": "参考答案 · reference answer (other correct sentences are possible)",
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "钥匙应该就在包里呀。"
+        },
+        "reason": {
+          "zh": "图中女士在包里翻找，可合理写成寻找钥匙；参考句的“应该”表示推测钥匙在包里。",
+          "en": "The woman searches her bag, supporting a scenario about looking for keys; 应该 expresses an expectation about their location."
+        },
+        "pitfall": {
+          "zh": "图中没有直接展示钥匙，所以不能说图片证明已经找到；“应该在”也不等于“确实在”。",
+          "en": "No key is visible, so the picture does not prove it was found; expected location is not certainty."
+        },
+        "tip": {
+          "zh": "可以写“她正在包里找钥匙”，保留寻找状态，不必照抄参考句的推测。",
+          "en": "Use 她正在包里找钥匙 to describe searching without claiming the key has been found."
+        },
+        "answer": {
+          "index": 0,
+          "text": "钥匙应该就在包里呀。"
+        }
+      }
     },
     {
       "number": 99,
@@ -1223,7 +3477,30 @@
         "那个消息让他很激动。"
       ],
       "correct_answer_index": 0,
-      "note": "参考答案 · reference answer (other correct sentences are possible)"
+      "note": "参考答案 · reference answer (other correct sentences are possible)",
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "那个消息让他很激动。"
+        },
+        "reason": {
+          "zh": "图中男子张嘴、双手靠近脸，适合设定为激动的反应；“消息让他很激动”表达原因与情绪。",
+          "en": "His open mouth and hands near his face can fit an excited reaction; the reference supplies a cause for it."
+        },
+        "pitfall": {
+          "zh": "“消息”是补充情境，不是图上能看到的信息；“激动”也不必然等于生气。",
+          "en": "The news is an invented context, not a visible fact; 激动 does not necessarily mean anger."
+        },
+        "tip": {
+          "zh": "可写“他看起来很激动”，或补充合理原因，再检查“让＋人＋情绪”的结构。",
+          "en": "Use 他看起来很激动 or add a plausible cause, checking the 让 + person + emotion pattern."
+        },
+        "answer": {
+          "index": 0,
+          "text": "那个消息让他很激动。"
+        }
+      }
     },
     {
       "number": 100,
@@ -1234,7 +3511,30 @@
         "她们一边喝茶一边聊天儿。"
       ],
       "correct_answer_index": 0,
-      "note": "参考答案 · reference answer (other correct sentences are possible)"
+      "note": "参考答案 · reference answer (other correct sentences are possible)",
+      "learning_explanation": {
+        "version": 1,
+        "evidence": {
+          "source": "reference",
+          "quote": "她们一边喝茶一边聊天儿。"
+        },
+        "reason": {
+          "zh": "图中几位女士围着茶具一起相处，可用一边喝茶一边聊天儿描述这一场景。",
+          "en": "The women sit together with tea, fitting a scene of drinking tea and chatting."
+        },
+        "pitfall": {
+          "zh": "图上没有说明聊天内容或她们的关系；不必设定具体身份，也不要漏掉指定词“聊天儿”。",
+          "en": "The topic and relationships are unstated; specific identities are unnecessary, but retain 聊天儿."
+        },
+        "tip": {
+          "zh": "可以写“她们坐在一起聊天儿”；使用“一边……一边……”时，两项活动应能同时进行。",
+          "en": "她们坐在一起聊天儿 works; with 一边……一边……, describe activities that can happen together."
+        },
+        "answer": {
+          "index": 0,
+          "text": "她们一边喝茶一边聊天儿。"
+        }
+      }
     }
   ]
 }

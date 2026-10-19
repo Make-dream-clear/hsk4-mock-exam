@@ -1285,3 +1285,16 @@
 [data-theme="dark"] .toolkit-group--foundation { background: rgba(92, 201, 149, 0.07); border-color: rgba(92, 201, 149, 0.18); }
 [data-theme="dark"] .toolkit-group--precision  { background: rgba(217, 178, 78, 0.07); border-color: rgba(217, 178, 78, 0.18); }
 [data-theme="dark"] .toolkit-group--strategy   { background: rgba(239, 113, 85, 0.07); border-color: rgba(239, 113, 85, 0.18); }
+
+/* Written practice and review actions */
+#writing-answer-panel[hidden], #options-list[hidden] { display:none; }
+#writing-answer-panel { line-height:1.7; }
+#written-answer { display:block; box-sizing:border-box; width:100%; padding:14px; margin-top:8px; font-size:18px; line-height:1.8; border:1px solid var(--mist); border-radius:10px; color:var(--ink); background:var(--surface); resize:vertical; }
+#writing-save-status { font-size:13px; color:var(--stone); }
+.review-learning-actions { display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-top:18px; }
+.saved-attempt { display:block; margin-top:12px; text-decoration:underline; }
+#score-num { font-variant-numeric:tabular-nums; }
+.learning-faq { margin:40px 0; }
+.learning-faq details { border-bottom:1px solid var(--mist); padding:16px 0; }
+.learning-faq summary { cursor:pointer; font-weight:600; line-height:1.6; }
+.learning-faq p { color:var(--stone); line-height:1.8; margin:12px 0 0; }

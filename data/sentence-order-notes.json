@@ -1,0 +1,1547 @@
+{
+  "curated-1": {
+    "sourceAnswer": "请你把窗户关上好吗？",
+    "sourceFragments": [
+      "请你",
+      "把窗户",
+      "关上",
+      "好吗"
+    ],
+    "group": "ba",
+    "notes": {
+      "reason": {
+        "zh": "“请你”引出请求，“把窗户”先交代对象，“关上”说明关的结果，最后用“好吗”询问。",
+        "en": "请你 introduces the request, 把窗户 names the object, 关上 supplies the result, and 好吗 closes the question."
+      },
+      "pitfall": {
+        "zh": "这里“关上”不能拆开，“好吗”应接在完整请求后。",
+        "en": "Keep 关上 intact and place 好吗 after the complete request."
+      },
+      "tip": {
+        "zh": "先找“把＋对象”，再接完整动作。",
+        "en": "Find 把 + object, then add the complete action."
+      }
+    }
+  },
+  "curated-2": {
+    "sourceAnswer": "那本小说已经被同学借走了。",
+    "sourceFragments": [
+      "那本小说",
+      "被同学",
+      "借走了",
+      "已经"
+    ],
+    "group": "passive",
+    "notes": {
+      "reason": {
+        "zh": "小说是被借走的对象；“已经”说明动作已发生，“被同学”引出借书的人。",
+        "en": "The novel receives the action; 已经 marks completion and 被同学 identifies the borrower."
+      },
+      "pitfall": {
+        "zh": "“已经”通常在被字短语前；“被同学已经借走了”在强调同学已做此事的语境也可成立。",
+        "en": "已经 normally precedes 被同学; placing it after the agent can also work in context."
+      },
+      "tip": {
+        "zh": "先分清谁借书、什么被借走，再放时间副词。",
+        "en": "Identify borrower and borrowed object before placing the time adverb."
+      }
+    },
+    "alternatives": [
+      "那本小说被同学已经借走了"
+    ]
+  },
+  "curated-3": {
+    "sourceAnswer": "每天早上他都去公园跑步。",
+    "sourceFragments": [
+      "每天早上",
+      "他都",
+      "去公园",
+      "跑步"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“每天早上”给出重复发生的时间，“他都”表示每次如此，“去公园跑步”说明地点和目的。",
+        "en": "每天早上 gives the recurring time; 他都 marks each occasion and 去公园跑步 gives destination and purpose."
+      },
+      "pitfall": {
+        "zh": "“他都”是本题不可拆的词块，不能为了移动时间词而拆开它。",
+        "en": "他都 is one tile in this exercise and must remain intact."
+      },
+      "tip": {
+        "zh": "区分“什么时候、谁、去哪儿、做什么”。",
+        "en": "Identify when, who, where and what activity."
+      }
+    }
+  },
+  "curated-4": {
+    "sourceAnswer": "虽然外面下着大雨，但是他还是准时到了。",
+    "sourceFragments": [
+      "虽然",
+      "外面下着大雨",
+      "但是",
+      "他还是",
+      "准时到了"
+    ],
+    "group": "connectors",
+    "notes": {
+      "reason": {
+        "zh": "“虽然”引出下雨的背景，“但是他还是准时到了”表达与预期相反的结果。",
+        "en": "虽然 introduces the rain; 但是他还是准时到了 gives the unexpected outcome."
+      },
+      "pitfall": {
+        "zh": "“还是”在这里表示尽管如此仍然，不是让人二选一。",
+        "en": "还是 means nevertheless here, not a choice between alternatives."
+      },
+      "tip": {
+        "zh": "把让步背景和实际结果分成两段再连接。",
+        "en": "Build the concession and outcome clauses before linking them."
+      }
+    }
+  },
+  "curated-5": {
+    "sourceAnswer": "她不但会说中文，而且会写书法。",
+    "sourceFragments": [
+      "她",
+      "不但",
+      "会说中文",
+      "而且",
+      "会写书法"
+    ],
+    "group": "connectors",
+    "notes": {
+      "reason": {
+        "zh": "两个动作都由“她”完成，先说会说中文，再用“而且”增加会写书法。",
+        "en": "Both abilities belong to 她; 而且 adds calligraphy to speaking Chinese."
+      },
+      "pitfall": {
+        "zh": "同主语常放在“不但”前，但“不但她会说中文，而且会写书法”也可成立，不能绝对排除。",
+        "en": "A shared subject usually precedes 不但, but 不但她会说中文，而且会写书法 can also work."
+      },
+      "tip": {
+        "zh": "先明确两个分句的主语是否相同，再连接递进内容。",
+        "en": "Check whether the clauses share a subject before linking the added information."
+      }
+    },
+    "alternatives": [
+      "不但她会说中文而且会写书法"
+    ]
+  },
+  "curated-6": {
+    "sourceAnswer": "他说中文说得比我流利多了。",
+    "sourceFragments": [
+      "他",
+      "说中文",
+      "说得",
+      "比我",
+      "流利多了"
+    ],
+    "group": "complement",
+    "notes": {
+      "reason": {
+        "zh": "本句用“说中文＋说得……”保留宾语，再评价流利程度；“比我”指出比较对象。",
+        "en": "说中文 names the activity; repeating 说 in 说得 allows a fluency evaluation with 比我."
+      },
+      "pitfall": {
+        "zh": "重复动词是本句结构，不是所有含宾语与得的句子都必须照搬的唯一形式。",
+        "en": "Verb repetition fits this sentence but is not the only structure for every object and 得-complement."
+      },
+      "tip": {
+        "zh": "先搭“他说中文说得……”，再加入比较和程度。",
+        "en": "Build 他说中文说得, then add the comparison and degree."
+      }
+    }
+  },
+  "curated-7": {
+    "sourceAnswer": "从我家到公司坐地铁只要半个小时。",
+    "sourceFragments": [
+      "从我家",
+      "到公司",
+      "坐地铁",
+      "只要",
+      "半个小时"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“从我家到公司”是路线，“坐地铁”是方式，“只要半个小时”是耗时。",
+        "en": "从我家到公司 gives the route, 坐地铁 the method, and 只要半个小时 the duration."
+      },
+      "pitfall": {
+        "zh": "方式与路线可以交换前后，但“只要”仍应连接所需时间。",
+        "en": "Method and route can exchange positions; 只要 still introduces the required time."
+      },
+      "tip": {
+        "zh": "把路线、方式、耗时分组，检查表达是否连贯。",
+        "en": "Group route, method and duration and check their connections."
+      }
+    }
+  },
+  "curated-8": {
+    "sourceAnswer": "无论遇到什么困难，他都不会放弃。",
+    "sourceFragments": [
+      "无论",
+      "遇到",
+      "什么困难",
+      "他都",
+      "不会放弃"
+    ],
+    "group": "connectors",
+    "notes": {
+      "reason": {
+        "zh": "“无论遇到什么困难”给出不限具体情况的条件，“他都不会放弃”说明不变的态度。",
+        "en": "无论遇到什么困难 covers any difficulty; 他都不会放弃 states the unchanged response."
+      },
+      "pitfall": {
+        "zh": "“什么困难”是“遇到”的对象，不能放到“不会放弃”后改变关系。",
+        "en": "什么困难 is the object of 遇到, not of 不会放弃."
+      },
+      "tip": {
+        "zh": "先完成“无论……”，再用“都”呼应。",
+        "en": "Complete the 无论 clause, then link it to 都."
+      }
+    }
+  },
+  "curated-9": {
+    "sourceAnswer": "只有多跟中国人交流，才能真正提高口语水平。",
+    "sourceFragments": [
+      "只有",
+      "多跟中国人交流",
+      "才能",
+      "真正",
+      "提高口语水平"
+    ],
+    "group": "connectors",
+    "notes": {
+      "reason": {
+        "zh": "“只有”提出句中所设的必要条件，“才能”引出结果，“真正”修饰提高。",
+        "en": "只有 states the sentence's necessary condition; 才能 introduces the result and 真正 modifies 提高."
+      },
+      "pitfall": {
+        "zh": "这是句子的条件表达，不代表只有与中国人交流才可能提高口语。",
+        "en": "This is the sentence's condition, not a universal claim that only talking with Chinese people improves speaking."
+      },
+      "tip": {
+        "zh": "连接“只有—才”，再把副词放到所修饰的动作前。",
+        "en": "Connect 只有 with 才, then place the adverb before its action."
+      }
+    }
+  },
+  "curated-10": {
+    "sourceAnswer": "即使工作再忙，他也坚持每天锻炼一个小时。",
+    "sourceFragments": [
+      "即使",
+      "工作再忙",
+      "他也",
+      "坚持",
+      "每天锻炼一个小时"
+    ],
+    "group": "connectors",
+    "notes": {
+      "reason": {
+        "zh": "“即使工作再忙”是让步条件，“他也坚持每天锻炼一个小时”是仍会做的事。",
+        "en": "即使工作再忙 gives the concession; 他也坚持每天锻炼一个小时 describes the maintained activity."
+      },
+      "pitfall": {
+        "zh": "“每天”表示频率，“一个小时”表示每次时长，作用不同。",
+        "en": "每天 is frequency; 一个小时 is duration per occasion."
+      },
+      "tip": {
+        "zh": "先配“即使—也”，再检查频率和时长的位置。",
+        "en": "Pair 即使 with 也, then check frequency and duration."
+      }
+    }
+  },
+  "test-13-86": {
+    "sourceAnswer": "弟弟在工作中积累了丰富的经验。",
+    "sourceFragments": [
+      "经验",
+      "积累了",
+      "丰富的",
+      "弟弟在工作中"
+    ],
+    "group": "modifiers"
+  },
+  "test-13-87": {
+    "sourceAnswer": "父亲讲的笑话非常有趣。",
+    "sourceFragments": [
+      "笑话",
+      "非常",
+      "父亲讲的",
+      "有趣"
+    ],
+    "group": "modifiers"
+  },
+  "test-13-88": {
+    "sourceAnswer": "这儿的汤是免费的。",
+    "sourceFragments": [
+      "汤",
+      "这儿的",
+      "免费的",
+      "是"
+    ],
+    "group": "clause"
+  },
+  "test-13-89": {
+    "sourceAnswer": "她们俩的性格完全不一样。",
+    "sourceFragments": [
+      "她们俩的",
+      "不一样",
+      "性格",
+      "完全"
+    ],
+    "group": "adverbs"
+  },
+  "test-13-90": {
+    "sourceAnswer": "诚实的人值得我们尊重。",
+    "sourceFragments": [
+      "我们",
+      "尊重",
+      "诚实的人",
+      "值得"
+    ],
+    "group": "clause",
+    "alternatives": [
+      "我们值得诚实的人尊重"
+    ]
+  },
+  "test-13-91": {
+    "sourceAnswer": "东北大米吃起来很香。",
+    "sourceFragments": [
+      "很",
+      "吃起来",
+      "香",
+      "东北大米"
+    ],
+    "group": "complement"
+  },
+  "test-13-92": {
+    "sourceAnswer": "请把您的传真号码发给我。",
+    "sourceFragments": [
+      "传真号码",
+      "请把",
+      "您的",
+      "发给我"
+    ],
+    "group": "ba"
+  },
+  "test-13-93": {
+    "sourceAnswer": "你和那位记者还有联系吗？",
+    "sourceFragments": [
+      "还有",
+      "联系",
+      "你和",
+      "那位记者",
+      "吗"
+    ],
+    "group": "clause"
+  },
+  "test-13-94": {
+    "sourceAnswer": "这篇文章主要谈儿童教育问题。",
+    "sourceFragments": [
+      "儿童教育问题",
+      "谈",
+      "主要",
+      "这篇文章"
+    ],
+    "group": "adverbs"
+  },
+  "test-13-95": {
+    "sourceAnswer": "一切都进行得很顺利。",
+    "sourceFragments": [
+      "进行得",
+      "很",
+      "一切都",
+      "顺利"
+    ],
+    "group": "complement"
+  },
+  "test-14-86": {
+    "sourceAnswer": "我们保证按时完成任务。",
+    "sourceFragments": [
+      "我们",
+      "完成任务",
+      "保证",
+      "按时"
+    ],
+    "group": "adverbs"
+  },
+  "test-14-87": {
+    "sourceAnswer": "那个法律节目很受欢迎。",
+    "sourceFragments": [
+      "欢迎",
+      "那个",
+      "法律节目",
+      "很",
+      "受"
+    ],
+    "group": "clause"
+  },
+  "test-14-88": {
+    "sourceAnswer": "这场雨下得真及时！",
+    "sourceFragments": [
+      "真",
+      "及时",
+      "下得",
+      "这场雨"
+    ],
+    "group": "complement",
+    "alternatives": [
+      "这场雨真下得及时"
+    ]
+  },
+  "test-14-89": {
+    "sourceAnswer": "这个句子翻译得不对。",
+    "sourceFragments": [
+      "翻译",
+      "得",
+      "不对",
+      "这个句子"
+    ],
+    "group": "complement"
+  },
+  "test-14-90": {
+    "sourceAnswer": "每个人都希望获得别人的尊重。",
+    "sourceFragments": [
+      "每个人",
+      "别人的尊重",
+      "都",
+      "希望获得"
+    ],
+    "group": "adverbs"
+  },
+  "test-14-91": {
+    "sourceAnswer": "火车上不提供免费的饮料。",
+    "sourceFragments": [
+      "饮料",
+      "火车上",
+      "不提供",
+      "免费的"
+    ],
+    "group": "modifiers"
+  },
+  "test-14-92": {
+    "sourceAnswer": "她把裙子弄脏了。",
+    "sourceFragments": [
+      "弄脏了",
+      "她",
+      "把",
+      "裙子"
+    ],
+    "group": "ba"
+  },
+  "test-14-93": {
+    "sourceAnswer": "地球是我们共同的家。",
+    "sourceFragments": [
+      "地球是",
+      "共同的",
+      "家",
+      "我们"
+    ],
+    "group": "modifiers"
+  },
+  "test-14-94": {
+    "sourceAnswer": "这个消息让所有人都大吃一惊。",
+    "sourceFragments": [
+      "这个消息",
+      "大吃一惊",
+      "让",
+      "都",
+      "所有人"
+    ],
+    "group": "clause"
+  },
+  "test-14-95": {
+    "sourceAnswer": "坚持写日记对提高表达能力有好处。",
+    "sourceFragments": [
+      "提高",
+      "表达能力",
+      "坚持写日记",
+      "对",
+      "有好处"
+    ],
+    "group": "clause",
+    "alternatives": [
+      "对提高表达能力坚持写日记有好处"
+    ]
+  },
+  "test-15-86": {
+    "sourceAnswer": "你最好重新换一个密码。",
+    "sourceFragments": [
+      "你最好",
+      "一个密码",
+      "重新",
+      "换"
+    ],
+    "group": "adverbs"
+  },
+  "test-15-87": {
+    "sourceAnswer": "医院里不允许抽烟。",
+    "sourceFragments": [
+      "不允许",
+      "医院",
+      "抽烟",
+      "里"
+    ],
+    "group": "clause"
+  },
+  "test-15-88": {
+    "sourceAnswer": "我跟你的看法差不多。",
+    "sourceFragments": [
+      "看法",
+      "我",
+      "跟你的",
+      "差不多"
+    ],
+    "group": "comparison"
+  },
+  "test-15-89": {
+    "sourceAnswer": "这儿究竟发生了什么事情？",
+    "sourceFragments": [
+      "发生了",
+      "这儿究竟",
+      "什么",
+      "事情"
+    ],
+    "group": "clause"
+  },
+  "test-15-90": {
+    "sourceAnswer": "他出生在一个美丽的小城市。",
+    "sourceFragments": [
+      "他",
+      "一个",
+      "美丽的",
+      "小城市",
+      "出生在"
+    ],
+    "group": "modifiers"
+  },
+  "test-15-91": {
+    "sourceAnswer": "姐姐把房间收拾得很整齐。",
+    "sourceFragments": [
+      "房间",
+      "把",
+      "收拾得",
+      "姐姐",
+      "很整齐"
+    ],
+    "group": "ba"
+  },
+  "test-15-92": {
+    "sourceAnswer": "这次调查是由李经理负责的。",
+    "sourceFragments": [
+      "是",
+      "负责的",
+      "由李经理",
+      "这次调查"
+    ],
+    "group": "clause"
+  },
+  "test-15-93": {
+    "sourceAnswer": "大概有三分之二的人反对这样做。",
+    "sourceFragments": [
+      "反对这样做",
+      "大概",
+      "三分之二的人",
+      "有"
+    ],
+    "group": "modifiers",
+    "alternatives": [
+      "有大概三分之二的人反对这样做"
+    ]
+  },
+  "test-15-94": {
+    "sourceAnswer": "学校将组织大家去参观长城。",
+    "sourceFragments": [
+      "学校",
+      "去参观",
+      "长城",
+      "将",
+      "组织大家"
+    ],
+    "group": "adverbs"
+  },
+  "test-15-95": {
+    "sourceAnswer": "非常感谢您对我们工作的理解和支持。",
+    "sourceFragments": [
+      "对",
+      "非常感谢您",
+      "理解和支持",
+      "我们工作的"
+    ],
+    "group": "modifiers"
+  },
+  "test-16-86": {
+    "sourceAnswer": "电梯已经可以正常使用了。",
+    "sourceFragments": [
+      "电梯",
+      "正常",
+      "使用了",
+      "已经可以"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“电梯”是话题，“已经可以”说明现在具备条件，“正常”修饰使用。",
+        "en": "电梯 is the topic; 已经可以 marks present availability and 正常 modifies use."
+      },
+      "pitfall": {
+        "zh": "“正常”是怎样使用，不是“已经可以正常”之后再另起一句。",
+        "en": "正常 describes the manner of use and belongs with 使用了."
+      },
+      "tip": {
+        "zh": "连好“正常使用”，再放表示状态变化的部分。",
+        "en": "Keep 正常使用 together, then add the change in availability."
+      }
+    }
+  },
+  "test-16-87": {
+    "sourceAnswer": "欢迎您再次乘坐我们的航班。",
+    "sourceFragments": [
+      "乘坐我们的",
+      "航班",
+      "欢迎",
+      "您再次"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“欢迎”后接“您再次乘坐我们的航班”，指出欢迎谁做什么。",
+        "en": "欢迎 introduces the person and action welcomed: taking our flight again."
+      },
+      "pitfall": {
+        "zh": "“我们的”修饰航班，“再次”修饰乘坐，不能交换所修饰的对象。",
+        "en": "我们的 modifies 航班; 再次 modifies 乘坐."
+      },
+      "tip": {
+        "zh": "按“欢迎谁＋再次做什么”读完整句。",
+        "en": "Read the sentence as welcoming whom to do what again."
+      }
+    }
+  },
+  "test-16-88": {
+    "sourceAnswer": "你们商量出解决问题的方法了吗？",
+    "sourceFragments": [
+      "你们",
+      "解决问题的",
+      "方法了吗",
+      "商量出"
+    ],
+    "group": "complement",
+    "notes": {
+      "reason": {
+        "zh": "“商量出”表示讨论得出结果，结果是“解决问题的方法”，“了吗”在句末提问。",
+        "en": "商量出 means reaching a result through discussion; that result is 解决问题的方法."
+      },
+      "pitfall": {
+        "zh": "“解决问题的”修饰方法；不能把方法误当成商量的方式。",
+        "en": "解决问题的 describes 方法, which is the result being discussed."
+      },
+      "tip": {
+        "zh": "先合并“解决问题的方法”，再接到“商量出”后。",
+        "en": "Group 解决问题的方法, then place it after 商量出."
+      }
+    }
+  },
+  "test-16-89": {
+    "sourceAnswer": "第一印象往往很难改变。",
+    "sourceFragments": [
+      "改变",
+      "第一印象往往",
+      "很",
+      "难"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“第一印象”是话题，“往往”表示常见情况，“很难改变”评价改变的难度。",
+        "en": "第一印象 is the topic, 往往 marks frequency, and 很难改变 describes difficulty."
+      },
+      "pitfall": {
+        "zh": "“往往”不是“总是”；本句没有说第一印象绝不可能改变。",
+        "en": "往往 does not mean always; change is difficult, not impossible."
+      },
+      "tip": {
+        "zh": "把“很难＋动作”连起来，再看频率副词修饰哪里。",
+        "en": "Keep 很难 + action together and check the frequency adverb."
+      }
+    }
+  },
+  "test-16-90": {
+    "sourceAnswer": "这个消息真是太让人激动了！",
+    "sourceFragments": [
+      "消息",
+      "真是",
+      "这个",
+      "激动了",
+      "太让人"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“这个消息”引出原因，“太让人激动了”表达强烈反应，“真是”加强语气。",
+        "en": "这个消息 is the cause; 太让人激动了 expresses a strong reaction and 真是 adds emphasis."
+      },
+      "pitfall": {
+        "zh": "“太让人”和“激动了”共同组成感叹，不能把“了”当成单独过去时。",
+        "en": "太让人 and 激动了 form the exclamation; 了 is not a separate past-tense marker."
+      },
+      "tip": {
+        "zh": "先合并主语，再连“真是太……了”。",
+        "en": "Build the subject, then the 真是太……了 exclamation."
+      }
+    }
+  },
+  "test-16-91": {
+    "sourceAnswer": "他们俩有许多共同语言。",
+    "sourceFragments": [
+      "共同语言",
+      "他们俩",
+      "许多",
+      "有"
+    ],
+    "group": "modifiers",
+    "notes": {
+      "reason": {
+        "zh": "“他们俩”是两个人，“有”连接宾语“许多共同语言”。",
+        "en": "他们俩 names two people; 有 takes 许多共同语言 as its object."
+      },
+      "pitfall": {
+        "zh": "“共同语言”这里可指相同兴趣或容易交流，不一定指同一种外语。",
+        "en": "共同语言 can mean shared interests or understanding, not necessarily a shared foreign language."
+      },
+      "tip": {
+        "zh": "数量词“许多”放在它说明数量的名词前。",
+        "en": "Place 许多 before the noun whose quantity it describes."
+      }
+    }
+  },
+  "test-16-92": {
+    "sourceAnswer": "这场比赛赢得非常漂亮。",
+    "sourceFragments": [
+      "这场",
+      "赢得",
+      "比赛",
+      "非常漂亮"
+    ],
+    "group": "complement",
+    "notes": {
+      "reason": {
+        "zh": "“这场比赛”是话题，“赢得非常漂亮”评价赢的表现，“得”引出评价。",
+        "en": "这场比赛 is the topic; 赢得非常漂亮 evaluates how impressively it was won."
+      },
+      "pitfall": {
+        "zh": "这里“漂亮”评价表现，不是比赛的外观；“这场”要修饰比赛。",
+        "en": "漂亮 evaluates performance, not appearance; 这场 modifies 比赛."
+      },
+      "tip": {
+        "zh": "区分“动词＋得＋评价”与形容词修饰名词。",
+        "en": "Distinguish verb + 得 + evaluation from an adjective modifying a noun."
+      }
+    }
+  },
+  "test-16-93": {
+    "sourceAnswer": "任何事情的发生都是有原因的。",
+    "sourceFragments": [
+      "任何事情的",
+      "发生",
+      "有原因的",
+      "都是"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“任何事情的发生”整体作主语，“都是有原因的”是判断。",
+        "en": "任何事情的发生 is the full subject; 都是有原因的 makes the statement about it."
+      },
+      "pitfall": {
+        "zh": "“的”连接事情与发生，不能把“发生”放在原因后变成另一种关系。",
+        "en": "的 links the event to its occurrence; moving 发生 after 原因 changes the relationship."
+      },
+      "tip": {
+        "zh": "先找到完整主语，再放“都＋是……的”。",
+        "en": "Identify the full subject before adding 都 + 是……的."
+      }
+    }
+  },
+  "test-16-94": {
+    "sourceAnswer": "互联网拉近了人与人之间的距离。",
+    "sourceFragments": [
+      "互联网",
+      "距离",
+      "人与人之间的",
+      "拉近了"
+    ],
+    "group": "modifiers",
+    "notes": {
+      "reason": {
+        "zh": "“互联网”是主语，“拉近了”是动作，“人与人之间的距离”是宾语。",
+        "en": "互联网 is the subject; 拉近了 acts on 人与人之间的距离."
+      },
+      "pitfall": {
+        "zh": "“人与人之间的”修饰距离，不能把距离放在这一修饰语前。",
+        "en": "人与人之间的 modifies 距离 and precedes it."
+      },
+      "tip": {
+        "zh": "先合并长宾语，再接到“拉近了”后。",
+        "en": "Build the long object phrase before placing it after 拉近了."
+      }
+    }
+  },
+  "test-16-95": {
+    "sourceAnswer": "请把这篇文章翻译成中文。",
+    "sourceFragments": [
+      "这篇文章",
+      "把",
+      "请",
+      "翻译成",
+      "中文"
+    ],
+    "group": "ba",
+    "notes": {
+      "reason": {
+        "zh": "“请把这篇文章”先交代请求处理的对象，“翻译成中文”说明结果语言。",
+        "en": "请把这篇文章 introduces the object; 翻译成中文 specifies the resulting language."
+      },
+      "pitfall": {
+        "zh": "“成”连接翻译结果，中文不是翻译者；文章须在把后。",
+        "en": "成 introduces the resulting language, not the translator; the article follows 把."
+      },
+      "tip": {
+        "zh": "按“把＋对象＋动作成＋结果”排列。",
+        "en": "Use 把 + object + action 成 + result."
+      }
+    }
+  },
+  "test-17-86": {
+    "sourceAnswer": "她从小就想成为一名演员。",
+    "sourceFragments": [
+      "就想",
+      "她从小",
+      "成为",
+      "一名演员"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“她从小”给出人物与时间，“就想”表示很早已有愿望，后接成为演员。",
+        "en": "她从小 establishes person and time; 就想 introduces an early ambition to become an actor."
+      },
+      "pitfall": {
+        "zh": "“一名演员”是成为的身份，不是句子中实施动作的人。",
+        "en": "一名演员 is the intended role, not the actor performing the sentence's action."
+      },
+      "tip": {
+        "zh": "把“想成为＋身份”连好，再接到人物和时间后。",
+        "en": "Connect 想成为 with the role after the person and time."
+      }
+    }
+  },
+  "test-17-87": {
+    "sourceAnswer": "这种儿童牙膏十分受欢迎。",
+    "sourceFragments": [
+      "儿童牙膏",
+      "十分",
+      "受欢迎",
+      "这种"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“这种儿童牙膏”是主语，“十分受欢迎”表示很受喜爱。",
+        "en": "这种儿童牙膏 is the subject; 十分受欢迎 describes its popularity."
+      },
+      "pitfall": {
+        "zh": "“这种”修饰儿童牙膏；“十分”修饰受欢迎，不表示十分钟。",
+        "en": "这种 modifies 儿童牙膏; 十分 intensifies popularity and is not a time quantity."
+      },
+      "tip": {
+        "zh": "把“受欢迎”当作一组，再添加程度副词。",
+        "en": "Keep 受欢迎 together before adding its degree adverb."
+      }
+    }
+  },
+  "test-17-88": {
+    "sourceAnswer": "他咳嗽得越来越厉害。",
+    "sourceFragments": [
+      "他",
+      "越来越",
+      "厉害",
+      "得",
+      "咳嗽"
+    ],
+    "group": "complement",
+    "notes": {
+      "reason": {
+        "zh": "“咳嗽得越来越厉害”用得后的补语说明咳嗽程度不断加重。",
+        "en": "咳嗽得越来越厉害 uses a 得-complement to describe increasing intensity."
+      },
+      "pitfall": {
+        "zh": "“越来越”应修饰厉害；“他越来越咳嗽得厉害”不符合此处所练结构。",
+        "en": "越来越 modifies 厉害 in this pattern, rather than preceding 咳嗽得."
+      },
+      "tip": {
+        "zh": "先连“咳嗽得……”，再放“越来越＋形容词”。",
+        "en": "Build 咳嗽得, then add 越来越 + adjective."
+      }
+    }
+  },
+  "test-17-89": {
+    "sourceAnswer": "难道你没有先调查一下？",
+    "sourceFragments": [
+      "先",
+      "调查一下",
+      "难道",
+      "你没有"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“难道”引出反问，“你没有先调查一下”是被追问的内容。",
+        "en": "难道 introduces a rhetorical question about not investigating first."
+      },
+      "pitfall": {
+        "zh": "难道可放在“你”前或后，但本题“你没有”是完整词块，不能拆分。",
+        "en": "难道 can follow the subject in other sentences, but 你没有 is one indivisible tile here."
+      },
+      "tip": {
+        "zh": "先保持给定词块完整，再检查反问与“先＋动作”。",
+        "en": "Keep tiles intact, then check the rhetorical frame and 先 + action."
+      }
+    }
+  },
+  "test-17-90": {
+    "sourceAnswer": "请把空瓶子扔进垃圾桶。",
+    "sourceFragments": [
+      "把",
+      "扔进",
+      "空瓶子",
+      "请",
+      "垃圾桶"
+    ],
+    "group": "ba",
+    "notes": {
+      "reason": {
+        "zh": "“请把空瓶子”交代处理对象，“扔进垃圾桶”说明动作和终点。",
+        "en": "请把空瓶子 names the object; 扔进垃圾桶 gives the action and destination."
+      },
+      "pitfall": {
+        "zh": "“进”要与目的地垃圾桶相连；瓶子是被扔的对象，不是目的地。",
+        "en": "进 leads into 垃圾桶; the bottle is the object moved, not the destination."
+      },
+      "tip": {
+        "zh": "明确“扔什么、扔到哪里”，再排把字句。",
+        "en": "Identify what is thrown and where, then arrange the 把 construction."
+      }
+    }
+  },
+  "test-17-91": {
+    "sourceAnswer": "保护环境需要大家的共同努力。",
+    "sourceFragments": [
+      "大家的",
+      "共同努力",
+      "保护环境",
+      "需要"
+    ],
+    "group": "modifiers",
+    "notes": {
+      "reason": {
+        "zh": "“保护环境”整体作主语，“需要”后接“大家的共同努力”。",
+        "en": "保护环境 acts as the subject; 需要 takes 大家的共同努力 as its object."
+      },
+      "pitfall": {
+        "zh": "“共同”修饰努力，“大家的”说明谁的努力，不能放到环境后乱接。",
+        "en": "共同 describes the effort; 大家的 identifies whose effort it is."
+      },
+      "tip": {
+        "zh": "把活动作主语的句子读成“做这件事需要什么”。",
+        "en": "Read an action-subject sentence as “doing this requires what?”"
+      }
+    }
+  },
+  "test-17-92": {
+    "sourceAnswer": "张教授家的院子里有两棵苹果树。",
+    "sourceFragments": [
+      "里",
+      "有两棵",
+      "张教授家的院子",
+      "苹果树"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“张教授家的院子里”是地点，“有两棵苹果树”说明存在的事物。",
+        "en": "张教授家的院子里 is the location; 有两棵苹果树 states what exists there."
+      },
+      "pitfall": {
+        "zh": "“里”接在院子后，“棵”用于树，不要拆开“有两棵”词块。",
+        "en": "里 follows 院子; 棵 counts trees, and 有两棵 stays intact as a tile."
+      },
+      "tip": {
+        "zh": "按“地点＋有＋数量＋事物”检查。",
+        "en": "Check location + 有 + quantity + thing."
+      }
+    }
+  },
+  "test-17-93": {
+    "sourceAnswer": "北京离上海大约 1084 公里。",
+    "sourceFragments": [
+      "大约",
+      "1084",
+      "公里",
+      "北京",
+      "离上海"
+    ],
+    "group": "comparison",
+    "notes": {
+      "reason": {
+        "zh": "“北京离上海”给出两个地点，“大约1084公里”说明题文设定的距离。",
+        "en": "北京离上海 names the two places; 大约1084公里 gives the distance stated in the exercise."
+      },
+      "pitfall": {
+        "zh": "“大约”修饰数字，公里是距离单位；原句数字不是对所有交通路线的距离保证。",
+        "en": "大约 modifies the number; 公里 measures distance, not a guaranteed length for every travel route."
+      },
+      "tip": {
+        "zh": "按“A离B＋大约＋距离”组织。",
+        "en": "Use A 离 B + 大约 + distance."
+      }
+    }
+  },
+  "test-17-94": {
+    "sourceAnswer": "这个消息很快就被亲戚朋友们知道了。",
+    "sourceFragments": [
+      "很快就被",
+      "亲戚朋友们",
+      "这个消息",
+      "知道了"
+    ],
+    "group": "passive",
+    "notes": {
+      "reason": {
+        "zh": "“这个消息”是被知道的内容，“被亲戚朋友们知道了”说明获知者。",
+        "en": "这个消息 is the information learned; 被亲戚朋友们 identifies who learned it."
+      },
+      "pitfall": {
+        "zh": "“很快就被”是完整词块，消息不能放进这个词块中间。",
+        "en": "很快就被 is an indivisible tile; do not insert 消息 into it."
+      },
+      "tip": {
+        "zh": "先区分内容与获知者，再放被字结构。",
+        "en": "Separate information from those learning it before arranging the passive structure."
+      }
+    }
+  },
+  "test-17-95": {
+    "sourceAnswer": "今年公司的收入比去年增加了一倍。",
+    "sourceFragments": [
+      "收入",
+      "比去年",
+      "今年公司的",
+      "增加了一倍"
+    ],
+    "group": "comparison",
+    "notes": {
+      "reason": {
+        "zh": "“今年公司的收入”是主语，“比去年”给出比较基准，“增加了一倍”说明变化。",
+        "en": "今年公司的收入 is the subject; 比去年 gives the baseline and 增加了一倍 the increase."
+      },
+      "pitfall": {
+        "zh": "“增加一倍”是增加原数的100%，结果为原数两倍，不是只变成原数的一倍。",
+        "en": "An increase of one original amount doubles the total; it does not leave the total unchanged."
+      },
+      "tip": {
+        "zh": "先固定比较双方，再区分增加量与最终量。",
+        "en": "Identify the comparison baseline, then distinguish increase from final amount."
+      }
+    }
+  },
+  "test-18-86": {
+    "sourceAnswer": "她很羡慕会弹钢琴的人。/ 会弹钢琴的人很羡慕她。",
+    "sourceFragments": [
+      "会弹钢琴的人",
+      "羡慕",
+      "很",
+      "她"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "两种语序都完整，但施事不同：“她”羡慕会弹钢琴的人，或那些人羡慕她。",
+        "en": "Both orders work, but reverse who envies whom: she envies the pianists, or they envy her."
+      },
+      "pitfall": {
+        "zh": "本题没有限定谁羡慕谁，不能只接受其中一种意思。",
+        "en": "No context fixes who envies whom, so both meanings are valid here."
+      },
+      "tip": {
+        "zh": "先问“谁羡慕谁”，再把“很”放在羡慕前。",
+        "en": "Identify who envies whom and place 很 before 羡慕."
+      }
+    }
+  },
+  "test-18-87": {
+    "sourceAnswer": "亚洲经济的增长速度正在逐渐提高。",
+    "sourceFragments": [
+      "亚洲经济的",
+      "正在",
+      "逐渐",
+      "提高",
+      "增长速度"
+    ],
+    "group": "modifiers",
+    "notes": {
+      "reason": {
+        "zh": "“亚洲经济的增长速度”是长主语，“正在逐渐提高”说明进行中的渐变。",
+        "en": "亚洲经济的增长速度 is the full subject; 正在逐渐提高 describes ongoing gradual change."
+      },
+      "pitfall": {
+        "zh": "“亚洲经济的”修饰增长速度，不能把正在插进这一名词短语中间。",
+        "en": "亚洲经济的 modifies 增长速度; do not insert 正在 inside that noun phrase."
+      },
+      "tip": {
+        "zh": "先合并主语，再按“正在＋逐渐＋动词”排列。",
+        "en": "Build the subject, then use 正在 + 逐渐 + verb."
+      }
+    }
+  },
+  "test-18-88": {
+    "sourceAnswer": "这椅子是专为老年人提供的。",
+    "sourceFragments": [
+      "专为老年人",
+      "提供的",
+      "这椅子",
+      "是"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“这椅子是……提供的”突出用途，“专为老年人”说明专门服务的对象。",
+        "en": "这椅子是……提供的 frames the purpose; 专为老年人 names the intended users."
+      },
+      "pitfall": {
+        "zh": "“老年人”是服务对象，不是提供椅子的人；注意为与由的区别。",
+        "en": "Older people are the intended users, not the suppliers; 为 differs from 由."
+      },
+      "tip": {
+        "zh": "把“专为谁”接到“提供的”前。",
+        "en": "Place the intended-user phrase before 提供的."
+      }
+    }
+  },
+  "test-18-89": {
+    "sourceAnswer": "他的中文说得很流利。",
+    "sourceFragments": [
+      "中文",
+      "很流利",
+      "说得",
+      "他的"
+    ],
+    "group": "complement",
+    "notes": {
+      "reason": {
+        "zh": "“他的中文”是评价对象，“说得很流利”描述说中文的表现。",
+        "en": "他的中文 is the topic; 说得很流利 evaluates the speaking performance."
+      },
+      "pitfall": {
+        "zh": "“很流利”是得后的补语，不是用“很”直接修饰“说”。",
+        "en": "很流利 is the complement after 得, not 很 directly modifying 说."
+      },
+      "tip": {
+        "zh": "找出“评价什么、说得怎么样”两部分。",
+        "en": "Identify the topic being evaluated and the description after 说得."
+      }
+    }
+  },
+  "test-18-90": {
+    "sourceAnswer": "报名人数已经超过了 900。",
+    "sourceFragments": [
+      "已经",
+      "报名人数",
+      "900",
+      "超过了"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“报名人数”是主语，“已经超过了900”表示人数越过这一界限。",
+        "en": "报名人数 is the subject; 已经超过了900 says the count has passed the threshold."
+      },
+      "pitfall": {
+        "zh": "“超过”表示大于，不能解释成恰好900；已经说明状态已达到。",
+        "en": "超过 means greater than, not exactly 900; 已经 marks the achieved state."
+      },
+      "tip": {
+        "zh": "按“数量主体＋已经＋变化＋界限”读。",
+        "en": "Read quantity subject + 已经 + change + threshold."
+      }
+    }
+  },
+  "test-18-91": {
+    "sourceAnswer": "请按从小到大的顺序排列这些数字。/ 这些数字请按从小到大的顺序排列。",
+    "sourceFragments": [
+      "请",
+      "从小到大的顺序",
+      "按",
+      "排列",
+      "这些数字"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "可以先提出请求，也可以先把“这些数字”作为话题，再请求按从小到大的顺序排列。",
+        "en": "The request can come first, or 这些数字 can be fronted as the topic before the request."
+      },
+      "pitfall": {
+        "zh": "两种原题参考表达都使用相同词块；“按”要连接排列依据。",
+        "en": "Both source alternatives use the same tiles; 按 introduces the ordering criterion."
+      },
+      "tip": {
+        "zh": "把“按从小到大的顺序”作为一组检查。",
+        "en": "Check 按从小到大的顺序 as one phrase."
+      }
+    }
+  },
+  "test-18-92": {
+    "sourceAnswer": "那本小说的作者很有名",
+    "sourceFragments": [
+      "作者",
+      "很有名",
+      "小说的",
+      "那本"
+    ],
+    "group": "modifiers",
+    "notes": {
+      "reason": {
+        "zh": "“那本小说的作者”整体是主语，“很有名”评价作者。",
+        "en": "那本小说的作者 is the complete subject; 很有名 evaluates the author."
+      },
+      "pitfall": {
+        "zh": "那本修饰小说，不是“那本作者”；的连接小说和作者。",
+        "en": "那本 modifies the novel, not the author; 的 connects the novel to its author."
+      },
+      "tip": {
+        "zh": "先找中心名词作者，再向前组合修饰语。",
+        "en": "Find the head noun 作者, then assemble its preceding modifiers."
+      }
+    }
+  },
+  "test-18-93": {
+    "sourceAnswer": "一个合格的警察最需要的是责任感。",
+    "sourceFragments": [
+      "合格的警察",
+      "最需要的",
+      "一个",
+      "是责任感"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“一个合格的警察”后用“最需要的是责任感”说明最重要的需要。",
+        "en": "一个合格的警察 is followed by 最需要的是责任感, identifying the main requirement."
+      },
+      "pitfall": {
+        "zh": "“最需要的”与“是责任感”连接，不能把责任感当成一个警察。",
+        "en": "最需要的 connects to 是责任感; responsibility is the requirement, not a person."
+      },
+      "tip": {
+        "zh": "按“谁＋最需要的＋是什么”理解。",
+        "en": "Use who + 最需要的 + 是什么."
+      }
+    }
+  },
+  "test-18-94": {
+    "sourceAnswer": "代表们决定结束会议。",
+    "sourceFragments": [
+      "代表们",
+      "结束",
+      "会议",
+      "决定"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“代表们”是主语，“决定”后接决定做的事“结束会议”。",
+        "en": "代表们 is the subject; 决定 introduces the action 结束会议."
+      },
+      "pitfall": {
+        "zh": "“会议”是结束的对象，不是作出决定的人。",
+        "en": "The meeting is what ends, not who makes the decision."
+      },
+      "tip": {
+        "zh": "先找决定者，再连接“决定＋动作＋对象”。",
+        "en": "Identify the decision-makers, then connect 决定 + action + object."
+      }
+    }
+  },
+  "test-18-95": {
+    "sourceAnswer": "我对这个城市很熟悉。/ 对这个城市我很熟悉。",
+    "sourceFragments": [
+      "对",
+      "很熟悉",
+      "我",
+      "这个城市"
+    ],
+    "group": "clause",
+    "notes": {
+      "reason": {
+        "zh": "“我对这个城市很熟悉”和“对这个城市我很熟悉”都成立，前者先说人，后者先提出范围。",
+        "en": "Both source orders work: one begins with the person, the other with the scope of familiarity."
+      },
+      "pitfall": {
+        "zh": "移动“对这个城市”时须保持这个介词短语完整，不能只移动“对”。",
+        "en": "Move 对这个城市 as a whole phrase, not 对 alone."
+      },
+      "tip": {
+        "zh": "先合并“对＋对象”，再比较它放在主语前后的表达。",
+        "en": "Group 对 + object, then compare placing that phrase before or after the subject."
+      }
+    }
+  },
+  "test-19-86": {
+    "sourceAnswer": "那盒饼干被儿子吃光了。",
+    "sourceFragments": [
+      "吃光了",
+      "那盒饼干",
+      "被",
+      "儿子"
+    ],
+    "group": "passive",
+    "notes": {
+      "reason": {
+        "zh": "“那盒饼干”是受事，“被儿子”引出施事，“吃光了”说明全部吃完的结果。",
+        "en": "The biscuits receive the action; 被儿子 names the agent and 吃光了 gives the completed result."
+      },
+      "pitfall": {
+        "zh": "“光”表示没有剩下，不是描述饼干发光；不能漏掉结果。",
+        "en": "光 means none remain, not that the biscuits shine; preserve the result."
+      },
+      "tip": {
+        "zh": "用“什么被谁怎么样了”检查。",
+        "en": "Check what was acted on, by whom and with what result."
+      }
+    }
+  },
+  "test-19-87": {
+    "sourceAnswer": "所有的事都进行得很顺利。",
+    "sourceFragments": [
+      "都进行得",
+      "顺利",
+      "很",
+      "所有的事"
+    ],
+    "group": "complement",
+    "notes": {
+      "reason": {
+        "zh": "“所有的事”是主语，“都进行得很顺利”说明每一项进展顺利。",
+        "en": "所有的事 is the subject; 都进行得很顺利 describes all of their progress."
+      },
+      "pitfall": {
+        "zh": "“很顺利”放在得后作补语，不能让“得”悬空。",
+        "en": "很顺利 completes the 得-complement; do not leave 得 without its description."
+      },
+      "tip": {
+        "zh": "先连“进行得很顺利”，再加总括主语和都。",
+        "en": "Build 进行得很顺利, then add the inclusive subject and 都."
+      }
+    }
+  },
+  "test-19-88": {
+    "sourceAnswer": "发脾气并不能解决问题。",
+    "sourceFragments": [
+      "解决",
+      "问题",
+      "发脾气",
+      "并",
+      "不能"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“发脾气”整体作主语，“并不能”加强否定，“解决问题”是被否定的作用。",
+        "en": "发脾气 is the action-subject; 并不能 emphatically denies solving the problem."
+      },
+      "pitfall": {
+        "zh": "“并”在这里加强否定，不是连接两件并列的事情。",
+        "en": "并 strengthens the negation here rather than linking two events."
+      },
+      "tip": {
+        "zh": "把“并不能”连在一起，再接动作宾语。",
+        "en": "Keep 并不能 together before the verb-object phrase."
+      }
+    }
+  },
+  "test-19-89": {
+    "sourceAnswer": "经验是需要慢慢积累的。",
+    "sourceFragments": [
+      "经验",
+      "慢慢",
+      "是需要",
+      "积累的"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“经验”是话题，“是需要慢慢积累的”强调获得经验需要逐步积累。",
+        "en": "经验 is the topic; 是需要慢慢积累的 emphasizes gradual accumulation."
+      },
+      "pitfall": {
+        "zh": "“慢慢”修饰积累，不修饰经验这个名词。",
+        "en": "慢慢 modifies accumulating, not the noun 经验."
+      },
+      "tip": {
+        "zh": "先连“慢慢积累”，再放到“是需要……的”中。",
+        "en": "Build 慢慢积累 inside 是需要……的."
+      }
+    }
+  },
+  "test-19-90": {
+    "sourceAnswer": "这两个词语的用法有什么区别？",
+    "sourceFragments": [
+      "词语的用法",
+      "区别",
+      "这两个",
+      "有什么"
+    ],
+    "group": "modifiers",
+    "notes": {
+      "reason": {
+        "zh": "“这两个词语的用法”是比较对象，“有什么区别”询问差异。",
+        "en": "这两个词语的用法 names what is compared; 有什么区别 asks about differences."
+      },
+      "pitfall": {
+        "zh": "“这两个”修饰词语，不是两个用法之后再补词语。",
+        "en": "这两个 modifies 词语 within the noun phrase."
+      },
+      "tip": {
+        "zh": "先合并被比较的名词短语，再接问句。",
+        "en": "Build the compared noun phrase before adding the question."
+      }
+    }
+  },
+  "test-19-91": {
+    "sourceAnswer": "这条裤子稍微有点儿厚。",
+    "sourceFragments": [
+      "这条",
+      "稍微",
+      "裤子",
+      "厚",
+      "有点儿"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“这条裤子”是主语，“稍微有点儿厚”表达厚的程度较小。",
+        "en": "这条裤子 is the subject; 稍微有点儿厚 describes a small excess of thickness."
+      },
+      "pitfall": {
+        "zh": "稍微与有点儿在此共同弱化程度，不能把“厚”放到这条与裤子中间。",
+        "en": "稍微 and 有点儿 soften the degree; do not insert 厚 inside 这条裤子."
+      },
+      "tip": {
+        "zh": "先合并物品名称，再接程度和性质。",
+        "en": "Group the item name before degree and description."
+      }
+    }
+  },
+  "test-19-92": {
+    "sourceAnswer": "我暂时还不打算留学。",
+    "sourceFragments": [
+      "不打算",
+      "留学",
+      "我暂时",
+      "还"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“我暂时”给出人物与时间范围，“还不打算留学”表示目前仍无此计划。",
+        "en": "我暂时 sets person and timeframe; 还不打算留学 expresses no current plan."
+      },
+      "pitfall": {
+        "zh": "暂时不打算不等于永远不去；还应放在不打算前。",
+        "en": "A temporary lack of plans does not mean never; 还 precedes 不打算."
+      },
+      "tip": {
+        "zh": "按“暂时＋还不＋意愿＋动作”检查。",
+        "en": "Check the temporary timeframe, 还不, intention and action."
+      }
+    }
+  },
+  "test-19-93": {
+    "sourceAnswer": "今年报名的人数比去年减少了一半儿。",
+    "sourceFragments": [
+      "比去年",
+      "今年报名的",
+      "人数",
+      "减少了",
+      "一半儿"
+    ],
+    "group": "comparison",
+    "notes": {
+      "reason": {
+        "zh": "“今年报名的人数”是主语，“比去年”给出基准，“减少了一半儿”说明减幅。",
+        "en": "This year's registration count is compared with last year's, with a reduction by half."
+      },
+      "pitfall": {
+        "zh": "减少一半后剩原数的一半，不是减少到零；“今年报名的”修饰人数。",
+        "en": "A reduction by half leaves half, not zero; 今年报名的 modifies 人数."
+      },
+      "tip": {
+        "zh": "先合并人数，再接比较基准和减幅。",
+        "en": "Group the count, then add the baseline and reduction."
+      }
+    }
+  },
+  "test-19-94": {
+    "sourceAnswer": "能帮我把沙发抬到客厅吗？",
+    "sourceFragments": [
+      "能帮我",
+      "把",
+      "抬到客厅",
+      "吗",
+      "沙发"
+    ],
+    "group": "ba",
+    "notes": {
+      "reason": {
+        "zh": "“能帮我”提出请求，“把沙发抬到客厅”说明物品和目的地，吗收尾提问。",
+        "en": "能帮我 introduces the request; 把沙发抬到客厅 gives object and destination, followed by 吗."
+      },
+      "pitfall": {
+        "zh": "沙发是被搬的物品，客厅是终点；两者角色不同。",
+        "en": "The sofa is moved; the living room is its destination."
+      },
+      "tip": {
+        "zh": "用“把什么搬到哪里”检查位置，再加问句结尾。",
+        "en": "Check object and destination before adding the question ending."
+      }
+    }
+  },
+  "test-19-95": {
+    "sourceAnswer": "飞机将于 15 分钟后降落在首都机场。",
+    "sourceFragments": [
+      "降落在",
+      "飞机",
+      "首都机场",
+      "将于",
+      "15",
+      "分钟后"
+    ],
+    "group": "adverbs",
+    "notes": {
+      "reason": {
+        "zh": "“飞机”是主语，“将于15分钟后”给出将来的时间，“降落在首都机场”说明地点。",
+        "en": "飞机 is the subject; 将于15分钟后 sets the future time and 降落在首都机场 the location."
+      },
+      "pitfall": {
+        "zh": "15分钟后是时间点，不是降落持续15分钟；分钟后应跟在数字后。",
+        "en": "15分钟后 gives when, not a fifteen-minute landing duration."
+      },
+      "tip": {
+        "zh": "把“将于＋时间”和“降落在＋地点”分别连好。",
+        "en": "Build 将于 + time and 降落在 + location separately."
+      }
+    }
+  }
+}

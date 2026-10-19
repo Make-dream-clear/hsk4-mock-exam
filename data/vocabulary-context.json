@@ -1,0 +1,746 @@
+[
+  {
+    "id": "context-1",
+    "pair": "适合/符合",
+    "wordId": 1671,
+    "word": "适合",
+    "options": [
+      {
+        "id": 1671,
+        "word": "适合"
+      },
+      {
+        "id": 1208,
+        "word": "符合"
+      }
+    ],
+    "stem": "这双鞋大小正好，也很舒服，很___我。",
+    "translation": "These shoes are just the right size and comfortable; they suit me.",
+    "clue": "大小正好，也很舒服",
+    "reason": {
+      "zh": "“适合我”说明鞋与穿鞋的人相配。",
+      "en": "适合我 means that the shoes suit the wearer."
+    },
+    "contrast": {
+      "zh": "符合通常接条件、要求、标准等：这份材料符合要求。",
+      "en": "符合 often takes requirements or standards: 这份材料符合要求。"
+    },
+    "tip": {
+      "zh": "先看是在说适不适合某个人，还是达没达到某项要求。",
+      "en": "Ask whether something suits a person or meets a requirement."
+    }
+  },
+  {
+    "id": "context-2",
+    "pair": "适合/符合",
+    "wordId": 1208,
+    "word": "符合",
+    "options": [
+      {
+        "id": 1671,
+        "word": "适合"
+      },
+      {
+        "id": 1208,
+        "word": "符合"
+      }
+    ],
+    "stem": "报名要求年满十八岁；他已经二十岁，___这个条件。",
+    "translation": "Applicants must be at least eighteen. He is twenty and meets this requirement.",
+    "clue": "这个条件",
+    "reason": {
+      "zh": "“符合条件”表示满足已经规定的要求。",
+      "en": "符合条件 means meeting a stated requirement."
+    },
+    "contrast": {
+      "zh": "适合侧重相配、合适：这份工作适合他。这里强调达到年龄要求。",
+      "en": "适合 focuses on suitability: 这份工作适合他。 Here the point is meeting the age requirement."
+    },
+    "tip": {
+      "zh": "遇到明确条件或标准，检查是否在表达“达到要求”。",
+      "en": "With an explicit standard, check whether the meaning is meeting it."
+    }
+  },
+  {
+    "id": "context-3",
+    "pair": "表示/表现",
+    "wordId": 1035,
+    "word": "表示",
+    "options": [
+      {
+        "id": 1035,
+        "word": "表示"
+      },
+      {
+        "id": 1036,
+        "word": "表现"
+      }
+    ],
+    "stem": "他送来一张卡片，向老师___感谢。",
+    "translation": "He sent a card to express his thanks to the teacher.",
+    "clue": "感谢",
+    "reason": {
+      "zh": "“表示感谢”是表达谢意的常见搭配。",
+      "en": "表示感谢 is a common expression for conveying thanks."
+    },
+    "contrast": {
+      "zh": "表现常谈行为或能力：她在比赛中表现出色。不要把“表现感谢”当作这里的搭配。",
+      "en": "表现 often concerns conduct or ability: 她在比赛中表现出色。 表现感谢 is not the intended expression here."
+    },
+    "tip": {
+      "zh": "把“表示＋感谢/欢迎/同意”作为表达态度的词组来学。",
+      "en": "Learn 表示感谢、表示欢迎 and 表示同意 as expressions of attitude."
+    }
+  },
+  {
+    "id": "context-4",
+    "pair": "表示/表现",
+    "wordId": 1036,
+    "word": "表现",
+    "options": [
+      {
+        "id": 1035,
+        "word": "表示"
+      },
+      {
+        "id": 1036,
+        "word": "表现"
+      }
+    ],
+    "stem": "她在比赛中___出色，得到了教练的表扬。",
+    "translation": "She performed outstandingly in the competition and was praised by her coach.",
+    "clue": "出色",
+    "reason": {
+      "zh": "这里评价比赛中的实际发挥，用“表现出色”。",
+      "en": "表现出色 evaluates how well she performed in the competition."
+    },
+    "contrast": {
+      "zh": "表示是表达或显示某种意思：点头表示同意。表示出色不能表达这里的发挥好。",
+      "en": "表示 conveys or indicates a meaning: 点头表示同意。 表示出色 does not mean performing well."
+    },
+    "tip": {
+      "zh": "看到“表现＋好/出色”，检查是否在评价行为或发挥。",
+      "en": "With 表现好 or 表现出色, look for an evaluation of performance."
+    }
+  },
+  {
+    "id": "context-5",
+    "pair": "经验/经历",
+    "wordId": 1399,
+    "word": "经验",
+    "options": [
+      {
+        "id": 1399,
+        "word": "经验"
+      },
+      {
+        "id": 1398,
+        "word": "经历"
+      }
+    ],
+    "stem": "他当了十年医生，积累了丰富的工作___。",
+    "translation": "He has been a doctor for ten years and has accumulated extensive professional experience.",
+    "clue": "积累了丰富的",
+    "reason": {
+      "zh": "经验指从实践中获得的知识和能力，能说“积累经验”。",
+      "en": "经验 refers to practical knowledge or skill, something one can accumulate."
+    },
+    "contrast": {
+      "zh": "经历强调亲身发生过的事情：那次旅行是一次难忘的经历。这里不是列举事件。",
+      "en": "经历 focuses on events one has lived through: 那次旅行是一次难忘的经历。 This sentence is about acquired expertise."
+    },
+    "tip": {
+      "zh": "学会“积累经验、经验丰富”，再与“一次经历”比较。",
+      "en": "Compare 积累经验 and 经验丰富 with 一次经历."
+    }
+  },
+  {
+    "id": "context-6",
+    "pair": "经验/经历",
+    "wordId": 1398,
+    "word": "经历",
+    "options": [
+      {
+        "id": 1399,
+        "word": "经验"
+      },
+      {
+        "id": 1398,
+        "word": "经历"
+      }
+    ],
+    "stem": "在那本书里，她讲述了自己第一次出国的___。",
+    "translation": "In the book, she recounts what she went through on her first trip abroad.",
+    "clue": "讲述了自己第一次出国的",
+    "reason": {
+      "zh": "这里要讲述发生过的事情和过程，用“经历”。",
+      "en": "经历 fits a narrative of events she personally went through."
+    },
+    "contrast": {
+      "zh": "经验通常指从事情中学到的认识：她分享了办理签证的经验。此处英文意思强调过程。",
+      "en": "经验 usually concerns lessons learned: 她分享了办理签证的经验。 The intended meaning here is her personal story."
+    },
+    "tip": {
+      "zh": "问自己是在讲“发生了什么”，还是总结“学会了什么”。",
+      "en": "Distinguish what happened from what was learned."
+    }
+  },
+  {
+    "id": "context-7",
+    "pair": "及时/按时",
+    "wordId": 1325,
+    "word": "及时",
+    "options": [
+      {
+        "id": 1325,
+        "word": "及时"
+      },
+      {
+        "id": 1007,
+        "word": "按时"
+      }
+    ],
+    "stem": "幸好有人___发现火情，大家才安全离开。",
+    "translation": "Fortunately someone noticed the fire in time, allowing everyone to leave safely.",
+    "clue": "幸好",
+    "reason": {
+      "zh": "及时强调在需要的时候做了事，没有耽误。发现火情没有预先约定的时间。",
+      "en": "及时 means acting in time to avoid a harmful delay. Detecting this fire was not scheduled."
+    },
+    "contrast": {
+      "zh": "按时强调按照规定或约定的时间：请按时参加会议。",
+      "en": "按时 refers to a scheduled or agreed time: 请按时参加会议。"
+    },
+    "tip": {
+      "zh": "看有没有固定时间；没有安排、强调不耽误时，考虑及时。",
+      "en": "Look for a schedule; if the focus is avoiding delay, consider 及时."
+    }
+  },
+  {
+    "id": "context-8",
+    "pair": "及时/按时",
+    "wordId": 1007,
+    "word": "按时",
+    "options": [
+      {
+        "id": 1325,
+        "word": "及时"
+      },
+      {
+        "id": 1007,
+        "word": "按时"
+      }
+    ],
+    "stem": "会议定在九点开始。请大家___到场，不要迟到。",
+    "translation": "The meeting starts at nine. Please arrive at the scheduled time, without being late.",
+    "clue": "定在九点",
+    "reason": {
+      "zh": "这里明确规定了九点，按时强调遵守这个时间安排。",
+      "en": "The stated nine o’clock start makes 按时 the best fit for following the schedule."
+    },
+    "contrast": {
+      "zh": "及时也可表达“不耽误”，并非所有句子都不能用；本题要表达的是“按约定时间”。",
+      "en": "及时 can also mean without delay; it is not universally impossible. This question specifically asks for following the scheduled time."
+    },
+    "tip": {
+      "zh": "按时看安排；及时看是否耽误需要做的事。",
+      "en": "按时 emphasizes the schedule; 及时 emphasizes acting before it is too late."
+    }
+  },
+  {
+    "id": "context-9",
+    "pair": "负责/责任",
+    "wordId": 1215,
+    "word": "负责",
+    "options": [
+      {
+        "id": 1215,
+        "word": "负责"
+      },
+      {
+        "id": 1920,
+        "word": "责任"
+      }
+    ],
+    "stem": "这次活动由王老师___安排。",
+    "translation": "Teacher Wang is responsible for organizing this event.",
+    "clue": "由王老师",
+    "reason": {
+      "zh": "“负责安排”是承担安排工作的意思，负责后面可接要做的事。",
+      "en": "负责安排 means taking charge of organizing; 负责 can introduce the task."
+    },
+    "contrast": {
+      "zh": "责任是名词：安排活动是他的责任。不能直接替换动词位置的负责。",
+      "en": "责任 is a noun: 安排活动是他的责任。 It cannot directly replace 负责 in this verb position."
+    },
+    "tip": {
+      "zh": "区分“负责做什么”和“是什么人的责任”。",
+      "en": "Compare 负责做什么 with 是某人的责任."
+    }
+  },
+  {
+    "id": "context-10",
+    "pair": "负责/责任",
+    "wordId": 1920,
+    "word": "责任",
+    "options": [
+      {
+        "id": 1215,
+        "word": "负责"
+      },
+      {
+        "id": 1920,
+        "word": "责任"
+      }
+    ],
+    "stem": "保护孩子的安全，是家长和学校共同的___。",
+    "translation": "Protecting children’s safety is the shared responsibility of parents and schools.",
+    "clue": "共同的",
+    "reason": {
+      "zh": "“共同的”后面需要表示职责的名词，这里用责任。",
+      "en": "After 共同的, the sentence needs a noun naming the duty: 责任."
+    },
+    "contrast": {
+      "zh": "负责可作动词，也可形容态度认真：他做事很负责。这里不是评价态度。",
+      "en": "负责 can be a verb or describe a responsible attitude: 他做事很负责。 This sentence names a duty."
+    },
+    "tip": {
+      "zh": "看到“承担责任、共同的责任”，把责任作为名词理解。",
+      "en": "Treat 责任 as a noun in 承担责任 and 共同的责任."
+    }
+  },
+  {
+    "id": "context-11",
+    "pair": "招聘/应聘",
+    "wordId": 1923,
+    "word": "招聘",
+    "options": [
+      {
+        "id": 1923,
+        "word": "招聘"
+      },
+      {
+        "id": 1876,
+        "word": "应聘"
+      }
+    ],
+    "stem": "公司正在___三名工程师，欢迎投递简历。",
+    "translation": "The company is recruiting three engineers and welcomes applications.",
+    "clue": "公司",
+    "reason": {
+      "zh": "公司提供职位、寻找员工，用招聘。",
+      "en": "The company is offering jobs and looking for employees, so it is 招聘."
+    },
+    "contrast": {
+      "zh": "应聘是求职者申请岗位：他来应聘工程师。要分清招聘双方的角色。",
+      "en": "应聘 is what a job applicant does: 他来应聘工程师。 Distinguish the two roles."
+    },
+    "tip": {
+      "zh": "谁提供职位，谁招聘；谁申请职位，谁应聘。",
+      "en": "The employer 招聘; the applicant 应聘."
+    }
+  },
+  {
+    "id": "context-12",
+    "pair": "招聘/应聘",
+    "wordId": 1876,
+    "word": "应聘",
+    "options": [
+      {
+        "id": 1923,
+        "word": "招聘"
+      },
+      {
+        "id": 1876,
+        "word": "应聘"
+      }
+    ],
+    "stem": "我准备好简历，明天去那家公司___工程师。",
+    "translation": "I have prepared my résumé and will apply for an engineering position at that company tomorrow.",
+    "clue": "我准备好简历",
+    "reason": {
+      "zh": "说话人是申请职位的人，所以用应聘。",
+      "en": "The speaker is applying for the job, so 应聘 fits."
+    },
+    "contrast": {
+      "zh": "招聘是单位或雇主寻找员工：公司招聘工程师。求职者不会在这里招聘自己申请的岗位。",
+      "en": "招聘 describes an employer seeking staff: 公司招聘工程师。 Here the speaker is the applicant."
+    },
+    "tip": {
+      "zh": "先判断主语是雇主还是求职者，再选词。",
+      "en": "Identify whether the subject is the employer or the applicant."
+    }
+  },
+  {
+    "id": "context-13",
+    "pair": "数量/质量",
+    "wordId": 1692,
+    "word": "数量",
+    "options": [
+      {
+        "id": 1692,
+        "word": "数量"
+      },
+      {
+        "id": 1955,
+        "word": "质量"
+      }
+    ],
+    "stem": "货单写着一百箱，实际只有九十箱，货物的___不对。",
+    "translation": "The delivery note says one hundred boxes, but only ninety arrived; the quantity is wrong.",
+    "clue": "一百箱，实际只有九十箱",
+    "reason": {
+      "zh": "一百与九十是在核对有多少，属于数量问题。",
+      "en": "Comparing one hundred with ninety checks how many items there are: 数量."
+    },
+    "contrast": {
+      "zh": "质量关注好不好、是否合格：这批货质量很好。数量不足不等于质量差。",
+      "en": "质量 concerns how good the goods are: 这批货质量很好。 Too few goods does not mean poor quality."
+    },
+    "tip": {
+      "zh": "把“多少”和“好坏”分开判断。",
+      "en": "Separate how many from how good."
+    }
+  },
+  {
+    "id": "context-14",
+    "pair": "数量/质量",
+    "wordId": 1955,
+    "word": "质量",
+    "options": [
+      {
+        "id": 1692,
+        "word": "数量"
+      },
+      {
+        "id": 1955,
+        "word": "质量"
+      }
+    ],
+    "stem": "这些杯子一碰就裂，产品___太差，不能出售。",
+    "translation": "These cups crack at the slightest touch; the product quality is too poor to sell them.",
+    "clue": "一碰就裂",
+    "reason": {
+      "zh": "容易破裂说明产品不好，是质量问题。",
+      "en": "Cracking at the slightest touch shows poor product quality: 质量."
+    },
+    "contrast": {
+      "zh": "数量说的是有多少：请检查杯子的数量。这里没有讨论杯子的个数。",
+      "en": "数量 refers to how many there are: 请检查杯子的数量。 No count is being discussed here."
+    },
+    "tip": {
+      "zh": "耐用、合格、做工等线索通常在评价质量。",
+      "en": "Durability, standards and workmanship are clues about quality."
+    }
+  },
+  {
+    "id": "context-15",
+    "pair": "成功/顺利",
+    "wordId": 1079,
+    "word": "成功",
+    "options": [
+      {
+        "id": 1079,
+        "word": "成功"
+      },
+      {
+        "id": 1697,
+        "word": "顺利"
+      }
+    ],
+    "stem": "经过多次试验，研究终于取得了___。",
+    "translation": "After many trials, the research finally achieved success.",
+    "clue": "取得了",
+    "reason": {
+      "zh": "“取得成功”表示达到了预期目标。",
+      "en": "取得成功 means achieving the desired result."
+    },
+    "contrast": {
+      "zh": "顺利描述过程少遇阻碍：研究进展顺利。不能说取得了顺利。",
+      "en": "顺利 describes a process proceeding smoothly: 研究进展顺利。 取得了顺利 is not the matching construction."
+    },
+    "tip": {
+      "zh": "比较“取得成功”和“进展顺利”，同时看搭配和意思。",
+      "en": "Compare the collocations 取得成功 and 进展顺利."
+    }
+  },
+  {
+    "id": "context-16",
+    "pair": "成功/顺利",
+    "wordId": 1697,
+    "word": "顺利",
+    "options": [
+      {
+        "id": 1079,
+        "word": "成功"
+      },
+      {
+        "id": 1697,
+        "word": "顺利"
+      }
+    ],
+    "stem": "一路上没有堵车，也没有迷路，我们的旅程很___。",
+    "translation": "There were no traffic jams or wrong turns; our journey went smoothly.",
+    "clue": "没有堵车，也没有迷路",
+    "reason": {
+      "zh": "这些线索都在说过程没有遇到麻烦，用顺利。",
+      "en": "The clues describe a trouble-free process, which fits 顺利."
+    },
+    "contrast": {
+      "zh": "成功侧重达到目标：这次活动很成功。这里强调路上没有障碍，不是在评价目标是否实现。",
+      "en": "成功 focuses on achieving a goal: 这次活动很成功。 Here the intended meaning is an unobstructed journey."
+    },
+    "tip": {
+      "zh": "问是在说过程顺畅，还是目标达成。",
+      "en": "Ask whether the focus is a smooth process or a successful outcome."
+    }
+  },
+  {
+    "id": "context-17",
+    "pair": "接受/拒绝",
+    "wordId": 1380,
+    "word": "接受",
+    "options": [
+      {
+        "id": 1380,
+        "word": "接受"
+      },
+      {
+        "id": 1416,
+        "word": "拒绝"
+      }
+    ],
+    "stem": "他同意去那家公司工作，已经___了对方的录用邀请。",
+    "translation": "He agreed to work for the company and has accepted its job offer.",
+    "clue": "同意",
+    "reason": {
+      "zh": "同意去工作说明他接受了邀请。",
+      "en": "Agreeing to take the job means he has accepted the offer: 接受."
+    },
+    "contrast": {
+      "zh": "拒绝表示不答应：他拒绝了这份工作。与前文同意相反。",
+      "en": "拒绝 means declining: 他拒绝了这份工作。 That conflicts with his agreement here."
+    },
+    "tip": {
+      "zh": "先找答应或不答应的线索。",
+      "en": "First look for whether the person agrees or declines."
+    }
+  },
+  {
+    "id": "context-18",
+    "pair": "接受/拒绝",
+    "wordId": 1416,
+    "word": "拒绝",
+    "options": [
+      {
+        "id": 1380,
+        "word": "接受"
+      },
+      {
+        "id": 1416,
+        "word": "拒绝"
+      }
+    ],
+    "stem": "她明确说不想参加，所以___了这次邀请。",
+    "translation": "She clearly said she did not want to attend, so she declined the invitation.",
+    "clue": "明确说不想参加",
+    "reason": {
+      "zh": "不愿参加并谢绝邀请，用拒绝。",
+      "en": "Not wanting to attend and declining the invitation calls for 拒绝."
+    },
+    "contrast": {
+      "zh": "接受邀请表示答应参加，与本题的态度不符。",
+      "en": "接受邀请 means agreeing to attend, which conflicts with the stated decision."
+    },
+    "tip": {
+      "zh": "不要只记邀请这个宾语；接受和拒绝都能接邀请，要看态度。",
+      "en": "Both 接受 and 拒绝 can take 邀请; the attitude determines the choice."
+    }
+  },
+  {
+    "id": "context-19",
+    "pair": "节约/浪费",
+    "wordId": 1384,
+    "word": "节约",
+    "options": [
+      {
+        "id": 1384,
+        "word": "节约"
+      },
+      {
+        "id": 1453,
+        "word": "浪费"
+      }
+    ],
+    "stem": "离开房间时关灯，可以___电。",
+    "translation": "Turning off the lights when leaving a room can save electricity.",
+    "clue": "关灯",
+    "reason": {
+      "zh": "关灯减少不必要的用电，节约电就是省电。",
+      "en": "Turning off the lights avoids unnecessary electricity use: 节约电."
+    },
+    "contrast": {
+      "zh": "浪费指不必要地消耗：白天一直开灯很浪费电。与这里的措施作用相反。",
+      "en": "浪费 means using something unnecessarily: 白天一直开灯很浪费电。 It is the opposite effect."
+    },
+    "tip": {
+      "zh": "根据行为是减少消耗还是白白消耗来判断。",
+      "en": "Check whether the action reduces consumption or wastes a resource."
+    }
+  },
+  {
+    "id": "context-20",
+    "pair": "节约/浪费",
+    "wordId": 1453,
+    "word": "浪费",
+    "options": [
+      {
+        "id": 1384,
+        "word": "节约"
+      },
+      {
+        "id": 1453,
+        "word": "浪费"
+      }
+    ],
+    "stem": "水龙头一直开着却没人用水，真___水。",
+    "translation": "The tap is running although nobody is using the water; it really wastes water.",
+    "clue": "没人用水",
+    "reason": {
+      "zh": "没人使用却持续流水，是不必要的消耗，用浪费。",
+      "en": "Water running unused is unnecessary consumption, so 浪费 fits."
+    },
+    "contrast": {
+      "zh": "节约水指减少用水、避免浪费，例如随手关水龙头。",
+      "en": "节约水 means conserving water, for example by turning off the tap."
+    },
+    "tip": {
+      "zh": "先找资源是否被有效使用的线索。",
+      "en": "Look for whether the resource is being put to use."
+    }
+  },
+  {
+    "id": "context-21",
+    "pair": "目的/结果",
+    "wordId": 1518,
+    "word": "目的",
+    "options": [
+      {
+        "id": 1518,
+        "word": "目的"
+      },
+      {
+        "id": 1382,
+        "word": "结果"
+      }
+    ],
+    "stem": "我这次来访的___是了解你们的教学方法。",
+    "translation": "The purpose of my visit is to learn about your teaching methods.",
+    "clue": "是了解你们的教学方法",
+    "reason": {
+      "zh": "这里解释来访想做什么，用目的表示意图。",
+      "en": "The sentence states what the visit aims to do: its 目的."
+    },
+    "contrast": {
+      "zh": "结果说事情后来怎样：调查结果明天公布。这里是在说明来意。",
+      "en": "结果 refers to an outcome: 调查结果明天公布。 Here the intended meaning is the reason for the visit."
+    },
+    "tip": {
+      "zh": "目的回答“为了什么”，结果回答“后来怎样”。",
+      "en": "目的 answers “what for”; 结果 answers “what happened in the end”."
+    }
+  },
+  {
+    "id": "context-22",
+    "pair": "目的/结果",
+    "wordId": 1382,
+    "word": "结果",
+    "options": [
+      {
+        "id": 1518,
+        "word": "目的"
+      },
+      {
+        "id": 1382,
+        "word": "结果"
+      }
+    ],
+    "stem": "比赛已经结束，最终___是三比二。",
+    "translation": "The match is over; the final result is three to two.",
+    "clue": "比赛已经结束",
+    "reason": {
+      "zh": "比赛结束后得到的比分是结果。",
+      "en": "The score after the match is its result: 结果."
+    },
+    "contrast": {
+      "zh": "目的指想达到的目标：比赛的目的是增进友谊。已经出现的比分不是目的。",
+      "en": "目的 is an intended goal: 比赛的目的是增进友谊。 A recorded score is the outcome."
+    },
+    "tip": {
+      "zh": "看到最终比分或已经产生的情况，检查是否在说结果。",
+      "en": "A final score or an outcome that has occurred points to 结果."
+    }
+  },
+  {
+    "id": "context-23",
+    "pair": "尊重/重视",
+    "wordId": 1989,
+    "word": "尊重",
+    "options": [
+      {
+        "id": 1989,
+        "word": "尊重"
+      },
+      {
+        "id": 1962,
+        "word": "重视"
+      }
+    ],
+    "stem": "即使不同意他的观点，也应该___他的人格。",
+    "translation": "Even if we disagree with his views, we should respect his dignity.",
+    "clue": "他的人格",
+    "reason": {
+      "zh": "尊重人格强调承认对方应有的尊严，不因意见不同而侮辱对方。",
+      "en": "尊重人格 means respecting the person’s dignity despite disagreement."
+    },
+    "contrast": {
+      "zh": "重视强调认为重要、认真对待：我们重视这个问题。这里的意思是尊重人的尊严。",
+      "en": "重视 emphasizes importance and attention: 我们重视这个问题。 The intended meaning here is respect for human dignity."
+    },
+    "tip": {
+      "zh": "比较“尊重人格”和“重视问题”，不要认为两个词在所有搭配中都互斥。",
+      "en": "Compare 尊重人格 with 重视问题; the words are not mutually exclusive in every possible context."
+    }
+  },
+  {
+    "id": "context-24",
+    "pair": "尊重/重视",
+    "wordId": 1962,
+    "word": "重视",
+    "options": [
+      {
+        "id": 1989,
+        "word": "尊重"
+      },
+      {
+        "id": 1962,
+        "word": "重视"
+      }
+    ],
+    "stem": "学校不再只看分数，开始更加___学生的心理健康。",
+    "translation": "The school no longer focuses only on grades and is starting to attach more importance to students’ mental health.",
+    "clue": "不再只看分数",
+    "reason": {
+      "zh": "这里强调把心理健康看得更重要、给予更多关注，用重视。",
+      "en": "The school is giving mental health more importance and attention: 重视."
+    },
+    "contrast": {
+      "zh": "尊重通常强调尊严、意愿或权利：要尊重学生的选择。心理健康在这里是需要关注的问题。",
+      "en": "尊重 often concerns dignity, wishes or rights: 要尊重学生的选择。 Here mental health is an issue needing attention."
+    },
+    "tip": {
+      "zh": "根据“认真关注”还是“尊重意愿与权利”的意思判断。",
+      "en": "Distinguish giving something attention from respecting wishes or rights."
+    }
+  }
+]

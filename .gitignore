@@ -3,3 +3,6 @@ node_modules/
 __pycache__/
 *.pyc
 .env
+
+# Local browser review artifacts
+output/playwright/
