@@ -113,6 +113,7 @@
 </style>
 <script defer src="/learning-analytics.js"></script>
 <script defer src="/grammar/learning-analytics.js"></script>
+<link rel="stylesheet" href="/grammar/pattern-practice.css">
 </head>
 <body>
 
@@ -144,7 +145,7 @@
 
   <div class="hero">
     <div class="pattern-type">并列复句 · HSK 4 (new at this level)</div>
-    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">HSK 4 Pattern: 不是…而是…</h1>
+    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">HSK 4 Pattern: 不是…而是…</h1><nav id="pattern-practice-nav" aria-label="Lesson shortcuts"><a href="#usage-check">Understand the difference / 看区别</a><a href="#fill-practice">3 fill exercises / 练填空</a><a href="#quick-quiz">3-question check / 测一测</a></nav>
     <p>Negates one interpretation and asserts the correct one. Used to correct a misunderstanding or clarify the real situation.</p>
   </div>
 
@@ -189,19 +190,11 @@
         <div class="ex-note">Corrects a common assumption — HSK 4 language-learning topic</div>
       </div>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Common Errors / 常见错误</h2>
+  <section id="usage-check" class="compare-box"><h2>Choose the meaning first / 先看要表达什么</h2><p>他不是不会做，而是不想做。He can do it, but does not want to. Compare 他不但会做，而且做得很好。The second sentence adds information; it does not reject the first part. 注意“不是不会”保留了“会”的意思。</p><p><a href="#fill-practice">Practise the pattern / 开始练习 →</a></p></section><h2>Common Errors &amp; Meaning Differences / 易错点与表达区别</h2>
   
-      <div class="wrong-card">
-        <div class="wrong-line"><span class="wrong-mark">✗</span> <span class="chinese">不是他来了，而是她来了。</span></div>
-        <div class="right-line"><span class="right-mark">✓</span> <span class="chinese">来的不是他，而是她。</span></div>
-        <div class="wrong-explain">The structure corrects what comes after 不是. Rephrase so the corrected element follows 不是 directly.</div>
-      </div>
+      <div class="wrong-card"><div class="wrong-line"><span class="wrong-mark">△</span> <span class="chinese">来的不是小王，而且小李。</span></div><div class="right-line"><span class="right-mark">✓</span> <span class="chinese">来的不是小王，而是小李。</span></div><div class="wrong-explain">不是…而是 rejects one identification and supplies another. 不是他来了，而是她来了 is also grammatical: whole clauses can be contrasted. 不要把完整分句也能使用的结构误当成只能接名词。</div></div>
 
-      <div class="wrong-card">
-        <div class="wrong-line"><span class="wrong-mark">✗</span> <span class="chinese">他不是聪明，而且努力。</span></div>
-        <div class="right-line"><span class="right-mark">✓</span> <span class="chinese">他不是聪明，而是努力。/ 他不但聪明，而且努力。</span></div>
-        <div class="wrong-explain">不是 pairs with 而是 (correction). 不但 pairs with 而且 (addition). Don't mix them.</div>
-      </div>
+      <div class="wrong-card"><div class="wrong-line"><span class="wrong-mark">△</span> <span class="chinese">他不是聪明，而且努力。</span></div><div class="right-line"><span class="right-mark">✓</span> <span class="chinese">他不是聪明，而是努力。/ 他不但聪明，而且努力。</span></div><div class="wrong-explain">不是 pairs with 而是 (correction). 不但 pairs with 而且 (addition). Don't mix them.</div></div>
 
   
   <div class="compare-box">
@@ -210,67 +203,46 @@
   </div>
 
   
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Fill in the Blank / 填空练习</h2>
-  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Complete each sentence using this pattern. Type the missing word(s) and press Enter.</p>
-  <div class="fill-exercises">
-    <div class="fill-item" data-answer="不是...而是">
-      <div class="fill-sentence chinese">我<input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="0">不想去，___没有时间。</div>
-      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
-      <div class="fill-feedback"></div>
-      <div class="fill-hint" style="display:none;">Not unwilling, but no time</div>
+  <h2 id="fill-practice">Fill in the Blanks / 填空练习</h2>
+  <p>Fill every blank separately, using the meaning shown below the sentence. Spaces around words are ignored. Feedback lists reviewed answers; an unlisted rewrite is not automatically ungrammatical.</p><div class="fill-exercises"><div class="fill-item" data-answer="不是...而是" data-answers="[[&quot;不是&quot;,&quot;而是&quot;]]" data-reviewed="grammar-20261020">
+      <div class="fill-sentence chinese">我<input type="text" class="fill-input" maxlength="12" autocomplete="off" aria-label="Question 1, blank 1" data-idx="0">不想去，<input type="text" class="fill-input" maxlength="12" autocomplete="off" aria-label="Question 1, blank 2" data-idx="0">没有时间。</div>
+      <p class="fill-hint">Not unwilling, but no time</p>
+      <button type="button" class="fill-check-btn" onclick="checkFill(this)">Check / 检查</button>
+      <button type="button" class="fill-retry-btn" onclick="retryFill(this)" hidden>Hide answers &amp; retry / 重做</button>
+      <div class="fill-feedback" role="status" aria-live="polite"></div>
+      <p class="fill-explanation" hidden>不是否定“不想去”，而是说明“没有时间”。The speaker wants to go but lacks time.</p>
+      <noscript><p>Reference: 不是 / 而是. 不是否定“不想去”，而是说明“没有时间”。The speaker wants to go but lacks time.</p></noscript>
     </div>
-
-    <div class="fill-item" data-answer="而是">
-      <div class="fill-sentence chinese">成功不是靠运气，<input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="1">靠努力。</div>
-      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
-      <div class="fill-feedback"></div>
-      <div class="fill-hint" style="display:none;">...but rather by effort</div>
+<div class="fill-item" data-answer="而是" data-answers="[[&quot;而是&quot;]]" data-reviewed="grammar-20261020">
+      <div class="fill-sentence chinese">成功不是靠运气，<input type="text" class="fill-input" maxlength="12" autocomplete="off" aria-label="Question 2, blank 1" data-idx="1">靠努力。</div>
+      <p class="fill-hint">...but rather by effort</p>
+      <button type="button" class="fill-check-btn" onclick="checkFill(this)">Check / 检查</button>
+      <button type="button" class="fill-retry-btn" onclick="retryFill(this)" hidden>Hide answers &amp; retry / 重做</button>
+      <div class="fill-feedback" role="status" aria-live="polite"></div>
+      <p class="fill-explanation" hidden>而是 supplies the alternative after 不是. 而且 would add rather than correct.</p>
+      <noscript><p>Reference: 而是. 而是 supplies the alternative after 不是. 而且 would add rather than correct.</p></noscript>
     </div>
-
-    <div class="fill-item" data-answer="不是">
-      <div class="fill-sentence chinese"><input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="2">他不聊明，而是不够努力。</div>
-      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
-      <div class="fill-feedback"></div>
-      <div class="fill-hint" style="display:none;">It's not that he's not smart...</div>
+<div class="fill-item" data-answer="不是" data-answers="[[&quot;不是&quot;]]" data-reviewed="grammar-20261020">
+      <div class="fill-sentence chinese"><input type="text" class="fill-input" maxlength="12" autocomplete="off" aria-label="Question 3, blank 1" data-idx="2">他不聪明，而是不够努力。</div>
+      <p class="fill-hint">It's not that he's not smart...</p>
+      <button type="button" class="fill-check-btn" onclick="checkFill(this)">Check / 检查</button>
+      <button type="button" class="fill-retry-btn" onclick="retryFill(this)" hidden>Hide answers &amp; retry / 重做</button>
+      <div class="fill-feedback" role="status" aria-live="polite"></div>
+      <p class="fill-explanation" hidden>不是否定“不聪明”，而是指出努力不足。The sentence does not say he is unintelligent.</p>
+      <noscript><p>Reference: 不是. 不是否定“不聪明”，而是指出努力不足。The sentence does not say he is unintelligent.</p></noscript>
     </div></div>
-
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Quick Quiz / 小测验</h2>
+<h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;" id="quick-quiz">Quick Quiz / 小测验</h2>
   
-      <div class="q-item">
-        <div class="q-stem chinese">问题___出在方法上，___出在态度上。</div>
-        <div class="q-opts"><button class="q-opt" data-correct="1" onclick="answer(this,true)">不是…而是</button> <button class="q-opt" onclick="answer(this,false)">不但…而且</button></div>
-        <div class="q-explain">Correcting where the problem lies → 不是…而是.</div>
-      </div>
+      <div class="q-item"><div class="q-stem chinese">检查发现方法没有问题，真正的问题是态度。问题___出在方法上，___出在态度上。</div><div class="q-opts"><button type="button" class="q-opt"  onclick="answer(this,false)">不但…而且</button> <button type="button" class="q-opt" data-correct="1" onclick="answer(this,true)">不是…而是</button></div><div class="q-explain" role="status" aria-live="polite">The context rejects 方法 and identifies 态度. 不是…而是 corrects the diagnosis. 不但…而且 would say both are problems, contradicting “方法没有问题”。</div><button type="button" class="q-retry" onclick="retryPattern(this)" hidden>Hide answer &amp; retry / 重做</button><noscript><p>Reference: 不是…而是. The context rejects 方法 and identifies 态度. 不是…而是 corrects the diagnosis. 不但…而且 would say both are problems, contradicting “方法没有问题”。</p></noscript></div>
 
-      <div class="q-item">
-        <div class="q-stem chinese">他___不会做，___不想做。</div>
-        <div class="q-opts"><button class="q-opt" onclick="answer(this,false)">虽然…但是</button> <button class="q-opt" data-correct="1" onclick="answer(this,true)">不是…而是</button></div>
-        <div class="q-explain">Correcting assumption (not 'can't' but 'won't') → 不是…而是.</div>
-      </div>
+      <div class="q-item"><div class="q-stem chinese">他___不会做，___不想做。</div><div class="q-opts"><button type="button" class="q-opt" data-correct="1" onclick="answer(this,true)">不是…而是</button> <button type="button" class="q-opt"  onclick="answer(this,false)">虽然…但是</button></div><div class="q-explain" role="status" aria-live="polite">Correcting assumption (not 'can't' but 'won't') → 不是…而是.</div><button type="button" class="q-retry" onclick="retryPattern(this)" hidden>Hide answer &amp; retry / 重做</button><noscript><p>Reference: 不是…而是. Correcting assumption (not 'can't' but 'won't') → 不是…而是.</p></noscript></div>
 
-      <div class="q-item">
-        <div class="q-stem chinese">学好中文___靠天分，___靠坚持。</div>
-        <div class="q-opts"><button class="q-opt" data-correct="1" onclick="answer(this,true)">不是…而是</button> <button class="q-opt" onclick="answer(this,false)">不管…都</button></div>
-        <div class="q-explain">Not talent, but persistence → 不是…而是.</div>
-      </div>
+      <div class="q-item"><div class="q-stem chinese">学好中文___靠天分，___靠坚持。</div><div class="q-opts"><button type="button" class="q-opt"  onclick="answer(this,false)">不管…都</button> <button type="button" class="q-opt" data-correct="1" onclick="answer(this,true)">不是…而是</button></div><div class="q-explain" role="status" aria-live="polite">Not talent, but persistence → 不是…而是.</div><button type="button" class="q-retry" onclick="retryPattern(this)" hidden>Hide answer &amp; retry / 重做</button><noscript><p>Reference: 不是…而是. Not talent, but persistence → 不是…而是.</p></noscript></div>
 
   <div style="text-align:center;margin:32px 0;">
     <a href="/grammar/" class="btn btn-primary">All Grammar Topics</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="margin-left:8px;">Sentence Ordering</a>
-  </div>
-
-
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">HSK 4 Mock Test Questions Using 不是…而是… / 练习卷示例</h2>
-  <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">2 HSK 4 practice questions from our mock exams that test this pattern:</p>
-  <div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/03/" style="color:var(--accent);">HSK 4 Mock Test 03</a> · Q58</div>
-    <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">58. 请将下列句子正确排序：A 语法是语言学习中很重要的一部分 B 却不是语言学习的全部 C 文化在语言学习中也很重要</div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;"><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--correct-soft);color:var(--correct);">A ABC ✓</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">B ACB</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">C BAC</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">D BCA</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">E CAB</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">F CBA</span></div>
-  </div><div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/03/" style="color:var(--accent);">HSK 4 Mock Test 03</a> · Q74</div>
-    <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">74. 同情是最美好的情感之一，然而同情并不是高高在上的关心，它应该是对别人经历的情感的理解、尊重和支持。这段话认为，同情：</div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;"><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">A 很无聊</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">B 让人难受</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--correct-soft);color:var(--correct);">C 不是可怜 ✓</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">D 是暂时的</span></div>
   </div>
 
 
@@ -313,50 +285,7 @@
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/words/">Confusable Words</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>
 
-<script>
-function answer(btn, correct) {
-  const item = btn.closest('.q-item');
-  if (item.dataset.answered === 'true') return;
-  item.dataset.answered = 'true';
-  item.querySelectorAll('.q-opt').forEach(o => {
-    o.classList.add('disabled');
-    if (o.dataset.correct === '1') o.classList.add('correct');
-  });
-  if (!correct) btn.classList.add('wrong');
-  item.querySelector('.q-explain').style.display = 'block';
-}
-function checkFill(btn) {
-  var item = btn.closest('.fill-item');
-  var input = item.querySelector('.fill-input');
-  var fb = item.querySelector('.fill-feedback');
-  var hint = item.querySelector('.fill-hint');
-  var ans = item.dataset.answer;
-  var val = input.value.trim();
-  if (!val) { input.focus(); return; }
-  btn.classList.add('done');
-  input.disabled = true;
-  fb.classList.add('show');
-  // Check if answer matches (handle multi-part answers like "不管...都")
-  var correct = val === ans || val === ans.replace('...','') || ans.indexOf(val) === 0;
-  if (correct) {
-    input.classList.add('correct');
-    fb.classList.add('pass');
-    fb.textContent = '\u2713 Correct! ' + (hint ? hint.textContent : '');
-  } else {
-    input.classList.add('wrong');
-    fb.classList.add('fail');
-    fb.innerHTML = '\u2717 Answer: <strong>' + ans + '</strong>. ' + (hint ? hint.textContent : '');
-  }
-}
-document.querySelectorAll('.fill-input').forEach(function(inp) {
-  inp.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-      var btn = this.closest('.fill-item').querySelector('.fill-check-btn');
-      if (!btn.classList.contains('done')) checkFill(btn);
-    }
-  });
-});
-</script>
+<script src="/grammar/pattern-practice.js"></script>
 
 <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(d){var k=d.getAttribute('data-theme')==='dark';if(k){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','dark')}try{localStorage.setItem('hsk4_theme',k?'light':'dark')}catch(e){}})(document.documentElement)"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
 </body>

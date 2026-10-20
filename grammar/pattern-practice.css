@@ -1,0 +1,16 @@
+.fill-exercises { margin: 16px 0 28px; }
+.fill-sentence { line-height: 2.7; overflow-wrap: anywhere; }
+.fill-item .fill-input { width: 8em; max-width: 100%; min-height: 44px; font-size: 16px; }
+.fill-item .fill-hint { display: block; margin: 8px 0; font-size: 14px; color: var(--stone); }
+.fill-item .fill-explanation { margin-top: 12px; line-height: 1.8; }
+.fill-item button, .q-item .q-retry { min-height: 44px; margin: 8px 8px 0 0; padding: 8px 12px; border: 1px solid var(--mist); border-radius: 6px; background: var(--paper); color: var(--ink); cursor: pointer; }
+.q-item .q-opt { white-space: normal; text-align: left; overflow-wrap: anywhere; min-height: 44px; }
+.q-item .q-opt:disabled { opacity: 1; cursor: default; }
+.fill-item [hidden], .q-item [hidden] { display: none !important; }
+.fill-item input:focus-visible, .fill-item button:focus-visible, .q-item button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+#usage-check h2 { margin: 0 0 12px; font-size: 20px; }
+#usage-check p { margin: 10px 0; line-height: 1.8; }
+#fill-practice { margin: 28px 0 12px; }
+#pattern-practice-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+#pattern-practice-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; border: 1px solid var(--mist); border-radius: 6px; background: var(--paper); color: var(--ink); font-size: 14px; }
+#usage-check, #fill-practice, #quick-quiz { scroll-margin-top: 100px; }

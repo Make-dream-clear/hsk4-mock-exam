@@ -30,7 +30,10 @@
     "learning_interaction": "部分既有语法辅助工具的检查、生成、复习操作；不推断正确率。"
   },
   "grammar_review": {
-    "base_filters": {"hostname": "hsk4.mandarinzone.com", "tracking_version": "learning_v1"},
+    "base_filters": {
+      "hostname": "hsk4.mandarinzone.com",
+      "tracking_version": "learning_v1"
+    },
     "first_attempt_difficulty": "筛选 learning_answer、learning_area=grammar、attempt_type=first、result 属于 matched/needs_review；按 activity_id、topic_id、practice_mode 分组，以 needs_review / 两类结果之和观察困难。同步看活跃用户数，避免一名反复练习者主导结论。",
     "retry_check": "把 attempt_type=retry 单独比较，配合 learning_retry 和解析展示。重做更好可能包含记忆答案，不能当作已掌握；优先用同知识点新题验证迁移。",
     "entry_check": "页面浏览后没有作答并不自动代表页面无用。结合语法入口点击、后续专项开始、设备和用户路径，再判断入口说明是否需要改善。",
@@ -43,11 +46,19 @@
     "没有新增用户身份或会话标识。question_id 不注册成报表维度，以免高基数影响常用报告。",
     "不上传用户书写、作文、填空原文、搜索词或所选答案文本；仅固定编号、分类和计数。",
     "仅生产主机发送学习事件；自动化浏览器、显式禁用或统计被拦截时不发送，且不阻断练习。",
-    "现有部分填空判分允许前缀匹配，因此这类练习只记录 selected 与检查操作，不用于困难率；语法内容优化时应另行审核判分。",
+    "2026-10-20起，八个关联词句型填空改为逐空匹配审核答案，记录 matched/needs_review；未匹配代表需复核题意，不证明所有其他表达都错误。旧版仅记录 selected，不与新版计算同一困难率。",
     "部分语法辅助工具只有操作统计，不能与有完整开始/完成统计的题组混算完成率。"
   ],
   "sources": [
     "https://developers.google.com/analytics/devguides/collection/ga4/event-parameters",
     "https://support.google.com/analytics/answer/14240153"
+  ],
+  "content_revisions": [
+    {
+      "revision": "r20261020",
+      "scope": "八个关联词句型页与被动句页",
+      "activity_suffix": "-r20261020",
+      "notes": "修正语境与判题、增加重做。按 activity_id 区分修订前后题组；不要把难度变化全部解释成用户能力变化。"
+    }
   ]
 }

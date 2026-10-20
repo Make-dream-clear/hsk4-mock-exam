@@ -6,9 +6,10 @@
     if (!analytics) return;
     const topic = location.pathname.split('/').filter(Boolean).slice(1).join('-') || 'overview';
     const sessions = new Map();
+    const revision = /\/grammar\/(?:patterns\/[^/]+|passive)\//.test(location.pathname) ? '-r20261020' : '';
     function session(mode, id, count) {
       const key = mode + '-' + id;
-      if (!sessions.has(key)) sessions.set(key, analytics.create('grammar', mode, topic + '-' + id, count));
+      if (!sessions.has(key)) sessions.set(key, analytics.create('grammar', mode, topic + '-' + id + revision, count));
       return sessions.get(key);
     }
     function wrap(name, observe) {
@@ -83,19 +84,29 @@
         if(patternSeen.size===patternItems.length)s.complete();
       };
     });
-    // Existing free-text fill checks accept partial matches: record checking,
-    // never use those legacy grades to infer grammar knowledge.
+    wrap('retryPattern', button => {
+      const item = button.closest('.q-item');
+      if (!item || item.dataset.answered !== 'true') return;
+      return () => session('quiz', 'pattern-quiz', patternItems.length).retry('q-' + (patternItems.indexOf(item) + 1));
+    });
     const fills = Array.from(document.querySelectorAll('.fill-item')), fillSeen = new Set();
     wrap('checkFill', button => {
       const item = button.closest('.fill-item');
-      if(!item || fillSeen.has(item))return;
+      if (!item || button.classList.contains('done')) return;
       return () => {
-        if(!button.classList.contains('done'))return;
+        if (!button.classList.contains('done')) return;
         fillSeen.add(item);
-        const s=session('interactive','fill-check',fills.length), id='q-'+(fills.indexOf(item)+1);
-        s.answer(id,'selected',{topic_id:topic}); s.explanation(id);
-        if(fillSeen.size===fills.length)s.complete();
+        const reviewed = item.dataset.reviewed === 'grammar-20261020';
+        const result = reviewed && ['matched', 'needs_review'].includes(item.dataset.result) ? item.dataset.result : 'selected';
+        const s = session('interactive', 'fill-check', fills.length), id = 'q-' + (fills.indexOf(item) + 1);
+        s.answer(id, result, {topic_id: topic}); s.explanation(id);
+        if (fillSeen.size === fills.length) s.complete();
       };
+    });
+    wrap('retryFill', button => {
+      const item = button.closest('.fill-item');
+      if (!item?.querySelector('.fill-check-btn.done')) return;
+      return () => session('interactive', 'fill-check', fills.length).retry('q-' + (fills.indexOf(item) + 1));
     });
     const actions = {xrayCheck:'check', revCheck:'check', sortReset:'reset', genUpdate:'generate', toggleReview:'review'};
     document.addEventListener('click', event => {

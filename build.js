@@ -16,6 +16,7 @@ const crypto = require('crypto');
 const Scoring = require('./exam-scoring');
 const Explanations = require('./exam-explanations');
 
+const GrammarPractice = require('./scripts/grammar-pattern-content');
 const ROOT = __dirname;
 const DATA = path.join(ROOT, 'data');
 require('./scripts/validate-learning-data')(ROOT);
@@ -2978,34 +2979,14 @@ function buildGrammarPatternPages() {
     // Patterns flagged customHtml have hand-enriched pages. Skip regeneration
     // to preserve the edits (same mechanism as confusables).
     if (pat.customHtml) {
-      console.log(`[grammar-patterns] Skipping ${pat.slug} (customHtml)`);
+      const file = path.join(dir, 'index.html');
+      fs.writeFileSync(file, GrammarPractice.enrich(fs.readFileSync(file, 'utf8'), pat), 'utf8');
+      console.log(`[grammar-patterns] Refreshed practice for ${pat.slug} (customHtml)`);
       return;
     }
 
-    // Find real HSK 4 questions using this pattern
-    const patMatchQs = [];
-    const patternKey = pat.pattern_cn.split('…')[0].trim() || pat.pattern_cn.split('/')[0].trim();
-    for (let ti = 0; ti < 12 && patMatchQs.length < 2; ti++) {
-      try {
-        const tjson = readJSON(`test-${String(ti+1).padStart(2,'0')}.json`);
-        for (const q of tjson.questions) {
-          const text = (q.text || '') + ' ' + (q.options || []).join(' ');
-          if (patternKey && text.includes(patternKey) && text.length >= 60 && text.length < 250) {
-            patMatchQs.push({ test: ti+1, num: q.number, text: q.text || '', options: q.options || [], answer: q.correct_answer_index });
-            if (patMatchQs.length >= 2) break;
-          }
-        }
-      } catch (e) { /* skip */ }
-    }
-    const patRealQHtml = patMatchQs.length > 0
-      ? `\n  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">HSK 4 Mock Test Questions Using ${escHtml(pat.pattern_cn)} / 练习卷示例</h2>
-  <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">${patMatchQs.length} HSK 4 practice questions from our mock exams that test this pattern:</p>
-  ${patMatchQs.map(mq => `<div style="background:var(--surface);border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/${String(mq.test).padStart(2,'0')}/" style="color:var(--accent);">HSK 4 Mock Test ${String(mq.test).padStart(2,'0')}</a> · Q${mq.num}</div>
-    <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">${escHtml(mq.text).replace(/\n/g, '<br>')}</div>
-    ${mq.options.length > 0 ? `<div style="display:flex;gap:6px;flex-wrap:wrap;">${mq.options.map((o, oi) => `<span style="font-size:12px;padding:3px 9px;border-radius:5px;background:${oi === mq.answer ? 'var(--correct-soft)' : 'var(--paper)'};color:${oi === mq.answer ? 'var(--correct)' : 'var(--stone)'};">${escHtml(o)}${oi === mq.answer ? ' ✓' : ''}</span>`).join('')}</div>` : ''}
-  </div>`).join('')}`
-      : '';
+    // Exam references require manual relevance review, not keyword co-occurrence.
+    const patRealQHtml = '';
 
     // Pattern-specific FAQ
     const patFaqs = [
@@ -3292,7 +3273,7 @@ document.querySelectorAll('.fill-input').forEach(function(inp) {
 </body>
 </html>`;
 
-    fs.writeFileSync(path.join(dir, 'index.html'), pageHtml, 'utf8');
+    fs.writeFileSync(path.join(dir, 'index.html'), GrammarPractice.enrich(pageHtml, pat), 'utf8');
   });
 
   console.log(`[grammar-patterns] Generated ${patterns.length} grammar pattern pages`);

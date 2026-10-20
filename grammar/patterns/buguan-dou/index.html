@@ -129,6 +129,7 @@
 </style>
 <script defer src="/learning-analytics.js"></script>
 <script defer src="/grammar/learning-analytics.js"></script>
+<link rel="stylesheet" href="/grammar/pattern-practice.css">
 </head>
 <body>
 
@@ -160,7 +161,7 @@
 
   <div class="hero">
     <div class="pattern-type">让步状语从句 · Concessive Clause · HSK 4</div>
-    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">HSK 4: 不管…都/也… <span style="font-family:'DM Sans',sans-serif;font-size:18px;color:var(--stone);font-weight:400;">— "no matter how/what/who" (concessive adverbial clause)</span></h1>
+    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">HSK 4: 不管…都/也… <span style="font-family:'DM Sans',sans-serif;font-size:18px;color:var(--stone);font-weight:400;">— "no matter how/what/who" (concessive adverbial clause)</span></h1><nav id="pattern-practice-nav" aria-label="Lesson shortcuts"><a href="#usage-check">Understand the difference / 看区别</a><a href="#fill-practice">3 fill exercises / 练填空</a><a href="#quick-quiz">3-question check / 测一测</a></nav>
     <p>The result holds true regardless of ANY condition. In Chinese grammar this is 让步状语从句 ("concessive adverbial clause"); in English it's the "no matter how / no matter what / no matter who" construction. Pairs with question words (什么/怎么/多/谁) to cover all possibilities.</p>
   </div>
 
@@ -246,19 +247,11 @@
         <div class="ex-note">什么时候 + 总 reinforces the universal claim — HSK 4 commute topic</div>
       </div>
 
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Common Errors / 常见错误</h2>
+  <section id="usage-check" class="compare-box"><h2>Choose the meaning first / 先看要表达什么</h2><p>不管下不下雨，我们都去。Both rain and no rain lead to the same plan. Compare 即使下雨，我们也去。This singles out rain as an obstacle that will not change the plan. 不管 covers a range; 即使 focuses on a concession.</p><p><a href="#fill-practice">Practise the pattern / 开始练习 →</a></p></section><h2>Common Errors &amp; Meaning Differences / 易错点与表达区别</h2>
   
-      <div class="wrong-card">
-        <div class="wrong-line"><span class="wrong-mark">✗</span> <span class="chinese">不管你努力学习，就能通过考试。</span></div>
-        <div class="right-line"><span class="right-mark">✓</span> <span class="chinese">只要你努力学习，就能通过考试。</span></div>
-        <div class="wrong-explain">不管 needs a VARIABLE (怎么/什么/多). A fixed condition uses 只要…就.</div>
-      </div>
+      <div class="wrong-card"><div class="wrong-line"><span class="wrong-mark">△</span> <span class="chinese">不管你努力学习，就能通过考试。</span></div><div class="right-line"><span class="right-mark">✓</span> <span class="chinese">只要你努力学习，就能通过考试。</span></div><div class="wrong-explain">不管 introduces alternatives or a range: 什么、怎么、是否、A 不 A、A 还是 B. To express a single sufficient condition, use 只要…就. 不管你怎么努力，都不能改变结果 has a different meaning.</div></div>
 
-      <div class="wrong-card">
-        <div class="wrong-line"><span class="wrong-mark">✗</span> <span class="chinese">不管下雨，我不去了。</span></div>
-        <div class="right-line"><span class="right-mark">✓</span> <span class="chinese">不管下不下雨，我都去。/ 因为下雨，我不去了。</span></div>
-        <div class="wrong-explain">不管 must cover multiple possibilities (下不下雨) and pair with 都/也.</div>
-      </div>
+      <div class="wrong-card"><div class="wrong-line"><span class="wrong-mark">△</span> <span class="chinese">不管下雨，我不去了。</span></div><div class="right-line"><span class="right-mark">✓</span> <span class="chinese">不管下不下雨，我都去。/ 因为下雨，我不去了。</span></div><div class="wrong-explain">不管 must cover multiple possibilities (下不下雨) and pair with 都/也.</div></div>
 
   
   <div class="compare-box">
@@ -267,67 +260,46 @@
   </div>
 
   
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Fill in the Blank / 填空练习</h2>
-  <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Complete each sentence using this pattern. Type the missing word(s) and press Enter.</p>
-  <div class="fill-exercises">
-    <div class="fill-item" data-answer="不管...都">
-      <div class="fill-sentence chinese"><input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="0">他怎么解释，我___不相信。</div>
-      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
-      <div class="fill-feedback"></div>
-      <div class="fill-hint" style="display:none;">No matter how he explains...</div>
+  <h2 id="fill-practice">Fill in the Blanks / 填空练习</h2>
+  <p>Fill every blank separately, using the meaning shown below the sentence. Spaces around words are ignored. Feedback lists reviewed answers; an unlisted rewrite is not automatically ungrammatical.</p><div class="fill-exercises"><div class="fill-item" data-answer="不管...都" data-answers="[[&quot;不管&quot;,&quot;都&quot;],[&quot;不管&quot;,&quot;也&quot;],[&quot;无论&quot;,&quot;都&quot;],[&quot;无论&quot;,&quot;也&quot;]]" data-reviewed="grammar-20261020">
+      <div class="fill-sentence chinese"><input type="text" class="fill-input" maxlength="12" autocomplete="off" aria-label="Question 1, blank 1" data-idx="0">他怎么解释，我<input type="text" class="fill-input" maxlength="12" autocomplete="off" aria-label="Question 1, blank 2" data-idx="0">不相信。</div>
+      <p class="fill-hint">No matter how he explains...</p>
+      <button type="button" class="fill-check-btn" onclick="checkFill(this)">Check / 检查</button>
+      <button type="button" class="fill-retry-btn" onclick="retryFill(this)" hidden>Hide answers &amp; retry / 重做</button>
+      <div class="fill-feedback" role="status" aria-live="polite"></div>
+      <p class="fill-explanation" hidden>怎么 covers all explanations; 都/也 says belief does not change. 每一种解释都不能改变结果。</p>
+      <noscript><p>Reference: 不管 / 都; 不管 / 也; 无论 / 都; 无论 / 也. 怎么 covers all explanations; 都/也 says belief does not change. 每一种解释都不能改变结果。</p></noscript>
     </div>
-
-    <div class="fill-item" data-answer="都">
-      <div class="fill-sentence chinese">不管多远，他<input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="1">骑自行车去。</div>
-      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
-      <div class="fill-feedback"></div>
-      <div class="fill-hint" style="display:none;">...he always bikes there</div>
+<div class="fill-item" data-answer="都" data-answers="[[&quot;都&quot;],[&quot;也&quot;]]" data-reviewed="grammar-20261020">
+      <div class="fill-sentence chinese">不管多远，他<input type="text" class="fill-input" maxlength="12" autocomplete="off" aria-label="Question 2, blank 1" data-idx="1">骑自行车去。</div>
+      <p class="fill-hint">...he always bikes there</p>
+      <button type="button" class="fill-check-btn" onclick="checkFill(this)">Check / 检查</button>
+      <button type="button" class="fill-retry-btn" onclick="retryFill(this)" hidden>Hide answers &amp; retry / 重做</button>
+      <div class="fill-feedback" role="status" aria-live="polite"></div>
+      <p class="fill-explanation" hidden>多远 covers any distance; 都/也 keeps the cycling decision unchanged.</p>
+      <noscript><p>Reference: 都; 也. 多远 covers any distance; 都/也 keeps the cycling decision unchanged.</p></noscript>
     </div>
-
-    <div class="fill-item" data-answer="不管">
-      <div class="fill-sentence chinese"><input type="text" class="fill-input" placeholder="?" maxlength="10" data-idx="2">是周末还是工作日，他都在学习。</div>
-      <button class="fill-check-btn" onclick="checkFill(this)">Check</button>
-      <div class="fill-feedback"></div>
-      <div class="fill-hint" style="display:none;">Whether weekend or weekday...</div>
+<div class="fill-item" data-answer="不管" data-answers="[[&quot;不管&quot;],[&quot;无论&quot;]]" data-reviewed="grammar-20261020">
+      <div class="fill-sentence chinese"><input type="text" class="fill-input" maxlength="12" autocomplete="off" aria-label="Question 3, blank 1" data-idx="2">是周末还是工作日，他都在学习。</div>
+      <p class="fill-hint">Whether weekend or weekday...</p>
+      <button type="button" class="fill-check-btn" onclick="checkFill(this)">Check / 检查</button>
+      <button type="button" class="fill-retry-btn" onclick="retryFill(this)" hidden>Hide answers &amp; retry / 重做</button>
+      <div class="fill-feedback" role="status" aria-live="polite"></div>
+      <p class="fill-explanation" hidden>是周末还是工作日 supplies two alternatives. 不管/无论 covers both.</p>
+      <noscript><p>Reference: 不管; 无论. 是周末还是工作日 supplies two alternatives. 不管/无论 covers both.</p></noscript>
     </div></div>
-
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;">Quick Quiz / 小测验</h2>
+<h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;" id="quick-quiz">Quick Quiz / 小测验</h2>
   
-      <div class="q-item">
-        <div class="q-stem chinese">___遇到什么困难，我们___不能放弃。</div>
-        <div class="q-opts"><button class="q-opt" onclick="answer(this,false)">只要…就</button> <button class="q-opt" data-correct="1" onclick="answer(this,true)">不管…都</button></div>
-        <div class="q-explain">Any difficulty (variable) → 不管. 只要 is for a specific condition.</div>
-      </div>
+      <div class="q-item"><div class="q-stem chinese">___遇到什么困难，我们___不能放弃。</div><div class="q-opts"><button type="button" class="q-opt"  onclick="answer(this,false)">只要…就</button> <button type="button" class="q-opt" data-correct="1" onclick="answer(this,true)">不管…都</button></div><div class="q-explain" role="status" aria-live="polite">Any difficulty (variable) → 不管. 只要 is for a specific condition.</div><button type="button" class="q-retry" onclick="retryPattern(this)" hidden>Hide answer &amp; retry / 重做</button><noscript><p>Reference: 不管…都. Any difficulty (variable) → 不管. 只要 is for a specific condition.</p></noscript></div>
 
-      <div class="q-item">
-        <div class="q-stem chinese">___结果怎么样，我___不后悔自己的选择。</div>
-        <div class="q-opts"><button class="q-opt" data-correct="1" onclick="answer(this,true)">不管…都</button> <button class="q-opt" onclick="answer(this,false)">尽管…但是</button></div>
-        <div class="q-explain">Covering all possible results → 不管…都.</div>
-      </div>
+      <div class="q-item"><div class="q-stem chinese">___结果怎么样，我___不后悔自己的选择。</div><div class="q-opts"><button type="button" class="q-opt" data-correct="1" onclick="answer(this,true)">不管…都</button> <button type="button" class="q-opt"  onclick="answer(this,false)">尽管…但是</button></div><div class="q-explain" role="status" aria-live="polite">Covering all possible results → 不管…都.</div><button type="button" class="q-retry" onclick="retryPattern(this)" hidden>Hide answer &amp; retry / 重做</button><noscript><p>Reference: 不管…都. Covering all possible results → 不管…都.</p></noscript></div>
 
-      <div class="q-item">
-        <div class="q-stem chinese">___多远，他每天___骑自行车上班。</div>
-        <div class="q-opts"><button class="q-opt" onclick="answer(this,false)">即使…也</button> <button class="q-opt" data-correct="1" onclick="answer(this,true)">不管…都</button></div>
-        <div class="q-explain">多远 = however far (variable degree) → 不管.</div>
-      </div>
+      <div class="q-item"><div class="q-stem chinese">___多远，他每天___骑自行车上班。</div><div class="q-opts"><button type="button" class="q-opt"  onclick="answer(this,false)">即使…也</button> <button type="button" class="q-opt" data-correct="1" onclick="answer(this,true)">不管…都</button></div><div class="q-explain" role="status" aria-live="polite">多远 = however far (variable degree) → 不管.</div><button type="button" class="q-retry" onclick="retryPattern(this)" hidden>Hide answer &amp; retry / 重做</button><noscript><p>Reference: 不管…都. 多远 = however far (variable degree) → 不管.</p></noscript></div>
 
   <div style="text-align:center;margin:32px 0;">
     <a href="/grammar/" class="btn btn-primary">All Grammar Topics</a>
     <a href="/" class="btn btn-secondary" style="margin-left:8px;">Take a Mock Exam</a>
     <a href="/writing/sentence-order/" class="btn btn-ghost" style="margin-left:8px;">Sentence Ordering</a>
-  </div>
-
-
-  <h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 12px;">HSK 4 Mock Test Questions Using 不管…都/也… / 真题示例</h2>
-  <p style="color:var(--stone);margin-bottom:14px;font-size:14px;">2 real HSK 4 questions from our mock exams that test this pattern:</p>
-  <div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/04/" style="color:var(--accent);">HSK 4 Mock Test 04</a> · Q47</div>
-    <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">不管做什么事情，都应该认真、仔细，不能太马虎、太（ ）。选项：A 食品 B 粗心 C 礼貌 D 坚持 E 挂 F 完全</div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;"><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">A 食品</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--correct-soft);color:var(--correct);">B 粗心 ✓</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">C 礼貌</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">D 坚持</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">E 挂</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">F 完全</span></div>
-  </div><div style="background:white;border:1px solid var(--mist);border-radius:8px;padding:14px 18px;margin:10px 0;">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;">From <a href="/test/06/" style="color:var(--accent);">HSK 4 Mock Test 06</a> · Q56</div>
-    <div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.6;margin-bottom:8px;">56. 请将下列句子排列成正确顺序：A 不管是内容还是语言都十分理想 B 这篇报道我看了两遍，质量很高 C 打印几份让同事们看看</div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;"><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--correct-soft);color:var(--correct);">A BAC ✓</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">B ABC</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">C BCA</span><span style="font-size:12px;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--stone);">D ACB</span></div>
   </div>
 
 
@@ -378,50 +350,7 @@
   <p class="footer-links" style="margin-top:4px;"><a href="/">Mock Exams</a> · <a href="/vocabulary/">Vocabulary</a> · <a href="/grammar/">Grammar</a> · <a href="/words/">Confusable Words</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
 </footer>
 
-<script>
-function answer(btn, correct) {
-  const item = btn.closest('.q-item');
-  if (item.dataset.answered === 'true') return;
-  item.dataset.answered = 'true';
-  item.querySelectorAll('.q-opt').forEach(o => {
-    o.classList.add('disabled');
-    if (o.dataset.correct === '1') o.classList.add('correct');
-  });
-  if (!correct) btn.classList.add('wrong');
-  item.querySelector('.q-explain').style.display = 'block';
-}
-function checkFill(btn) {
-  var item = btn.closest('.fill-item');
-  var input = item.querySelector('.fill-input');
-  var fb = item.querySelector('.fill-feedback');
-  var hint = item.querySelector('.fill-hint');
-  var ans = item.dataset.answer;
-  var val = input.value.trim();
-  if (!val) { input.focus(); return; }
-  btn.classList.add('done');
-  input.disabled = true;
-  fb.classList.add('show');
-  // Check if answer matches (handle multi-part answers like "不管...都")
-  var correct = val === ans || val === ans.replace('...','') || ans.indexOf(val) === 0;
-  if (correct) {
-    input.classList.add('correct');
-    fb.classList.add('pass');
-    fb.textContent = '\u2713 Correct! ' + (hint ? hint.textContent : '');
-  } else {
-    input.classList.add('wrong');
-    fb.classList.add('fail');
-    fb.innerHTML = '\u2717 Answer: <strong>' + ans + '</strong>. ' + (hint ? hint.textContent : '');
-  }
-}
-document.querySelectorAll('.fill-input').forEach(function(inp) {
-  inp.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-      var btn = this.closest('.fill-item').querySelector('.fill-check-btn');
-      if (!btn.classList.contains('done')) checkFill(btn);
-    }
-  });
-});
-</script>
+<script src="/grammar/pattern-practice.js"></script>
 
 <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(d){var k=d.getAttribute('data-theme')==='dark';if(k){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','dark')}try{localStorage.setItem('hsk4_theme',k?'light':'dark')}catch(e){}})(document.documentElement)"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
 </body>
