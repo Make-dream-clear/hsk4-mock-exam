@@ -1,6 +1,15 @@
 const fs=require('fs'),assert=require('node:assert/strict');
 const lib=require('../vocabulary/learning'),words=require('../data/vocabulary.json'),contexts=require('../data/vocabulary-context.json');
 lib.validateContext(contexts,words);
+const transfers=contexts.flatMap(q=>q.transfer?[q.transfer]:[]);
+assert.equal(transfers.length,6);
+assert.equal(new Set([...contexts,...transfers].map(q=>q.id)).size,30);
+for(const q of contexts.filter(q=>q.transfer)){
+ assert.notEqual(q.stem,q.transfer.stem,'A transfer must use a new situation');
+ assert.notEqual(q.wordId,q.transfer.wordId,'These first six transfers test a changed intended meaning');
+ const broken=structuredClone(q);broken.transfer.word='错误词';
+ assert.throws(()=>lib.validateContext([broken],words),/changed target/);
+}
 assert.equal(contexts.length,24);assert.equal(new Set(contexts.map(q=>q.pair)).size,12);assert.equal(new Set(contexts.map(q=>q.wordId)).size,24);
 for(const q of contexts){
  const first={};assert(!lib.recordFirst(first,q,999999));assert(lib.recordFirst(first,q,q.options.find(o=>o.id!==q.wordId).id));assert(!lib.recordFirst(first,q,q.wordId));assert.equal(first[q.id].matched,false);

@@ -60,5 +60,40 @@
       "activity_suffix": "-r20261020",
       "notes": "修正语境与判题、增加重做。按 activity_id 区分修订前后题组；不要把难度变化全部解释成用户能力变化。"
     }
-  ]
+  ],
+  "topic_practice_review": {
+    "introduced_on": "2026-10-21",
+    "area": "topics",
+    "activities": [
+      "food-culture-r20261021",
+      "environment-r20261021",
+      "food-dining-r20261021",
+      "scenic-spots-r20261021",
+      "customs-traditions-r20261021",
+      "proverbs-sayings-r20261021"
+    ],
+    "modes": [
+      "retelling",
+      "explain",
+      "roleplay",
+      "describe"
+    ],
+    "start": "点击开始或明确重练才记录 learning_start；阅读材料和打开范例不算开始。",
+    "complete": "用户先点击说完，再对全部要点完成自评，才记录一次 learning_complete / self_reviewed。不是自动口语评分，不证明用户实际说话或掌握。",
+    "retry": "每轮自查完成后可重练，记录 learning_retry，新一轮 start/answer 的 attempt_type=retry。",
+    "privacy": "不录音、不采集口语文本；不上传具体自评选项，仅记录固定题号与 self_reviewed。",
+    "decision": "同一 activity_id 内比较开始、自查完成、主动提示和重练；不同任务不直接比较正确率。排除 QA 与自动化浏览器，使用 learning_v1。",
+    "context_judgement": {
+      "activity_id": "proverbs-sayings-cases-r20261021",
+      "mode": "quiz",
+      "definition": "三道情境判断，matched/needs_review 只表示选择是否符合本题指定重点。第一次点选才开始，全部情境都已作答才完成；看解析不算开始或完成。重做记录 retry，不与口语自评混算。"
+    }
+  },
+  "transfer_review": {
+    "introduced_on": "2026-10-21",
+    "vocabulary": "transfer-context-1…6-r20261021 是独立的新语境题组，每题首次点选才开始，作答即完成。matched/needs_review 只针对题目语境。新语境错题进入待复习，不计入原24题的本轮成绩。",
+    "grammar": "八个句型的 <slug>-transfer-r20261021 为自主改写，mode=interactive。首次非空输入开始，逐项自查后 result=self_reviewed；不匹配字符串、不自动判对。草稿只留当前页面。",
+    "writing": "essay-N-revision-r20261021 是短文的一轮修改，不是整篇作文达标。保留当前稿后开始；有文字修改且用户对照确认才完成，topic_id=detail/structure/connection。草稿和修改前版本仅保存在本浏览器，不上传。",
+    "analysis": "按 activity_id 和 practice_mode 分组，区别自动选词匹配、自主改写自评、修改自查。不要把这三类完成率或结果合并为掌握率。"
+  }
 }

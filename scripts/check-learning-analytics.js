@@ -39,3 +39,23 @@ delete blocked.window.gtag;
 assert.doesNotThrow(()=>blocked.api.create('writing','picture','sentence-1',1).start());
 const disabled=browser();disabled.window['ga-disable-G-L4CMDLM3DL']=true;disabled.api.create('exam','paper','test-01',100).start();assert.equal(disabled.calls.length,0);
 console.log('Learning analytics: privacy allowlist, environment isolation, retry/first separation, completion and explanation deduplication passed.');
+
+for (const mode of ['retelling','explain','roleplay','describe']) {
+  const topic=browser();
+  const first=topic.api.create('topics',mode,'food-culture-r20261021',4);
+  first.explanation('model','requested');
+  first.complete();
+  assert(!topic.calls.some(c=>['learning_start','learning_complete'].includes(c[1])), 'Reading a model must not count as speaking or completing');
+  first.start();
+  for(let i=1;i<=4;i++)first.answer(`point-${i}`,'self_reviewed');
+  first.complete({result:'self_reviewed'});first.complete({result:'self_reviewed'});
+  assert.equal(topic.calls.filter(c=>c[1]==='learning_complete').length,1);
+  const completed=topic.calls.find(c=>c[1]==='learning_complete')[2];
+  assert.equal(completed.learning_area,'topics');assert.equal(completed.practice_mode,mode);
+  assert.equal(completed.result,'self_reviewed');assert.equal(completed.answered_count,4);assert(!('correct_count' in completed));
+  first.retry('whole-task');
+  const retry=topic.api.create('topics',mode,'food-culture-r20261021',4);retry.start('retry');
+  retry.answer('point-1','self_reviewed',{attempt_type:'retry'});
+  assert.equal(topic.calls.at(-1)[2].attempt_type,'retry');
+}
+console.log('Topic analytics: model-only visits, four activity modes, self-review completion, no automatic score, and retry classification passed.');

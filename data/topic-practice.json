@@ -1,0 +1,280 @@
+{
+  "food-culture": {
+    "title": "饮食文化复述练习 / Retell a meal with friends",
+    "entry": "复述一次聚餐 / Retell a shared meal",
+    "mode": "retelling",
+    "anchor": "retelling-practice",
+    "goal": "用自己的话讲清这次聚餐的经过和原因，不必逐句背诵。Retell what happened and why, in your own words.",
+    "sourceTitle": "第一次和朋友吃中餐",
+    "source": "上周末，小林请外国朋友安娜到家里吃饭。安娜以前不太会用筷子，小林先给她做了示范。桌上有米饭、鱼、蔬菜和汤，大家一边吃饭，一边聊天。安娜发现，这次聚餐不是每个人只吃自己面前的菜，而是一起分享桌上的菜。她觉得这样很热闹，也有机会尝到不同的味道。饭后，安娜想把剩下的菜倒掉。小林建议把吃不完的菜妥善保存，避免浪费。安娜点了点头，说下次要请小林尝尝自己家乡的菜。",
+    "translation": "Last weekend, Xiaolin invited Anna to his home for a meal. She was not confident using chopsticks, so he demonstrated. They shared rice, fish, vegetables and soup while chatting. Anna enjoyed the lively meal and trying different flavors. Afterwards, she was about to throw away the leftovers. Xiaolin suggested storing them properly to avoid waste. Anna agreed and offered to introduce food from her hometown next time.",
+    "prompts": ["谁邀请了谁？遇到什么困难？ / Who came, and what was difficult?", "吃饭时怎样分享？有什么感受？ / What happened during the meal?", "饭后有什么建议和打算？ / What happened afterwards?"],
+    "words": [["示范", "shìfàn", "demonstrate"], ["分享", "fēnxiǎng", "share"], ["剩下", "shèngxià", "be left over"], ["保存", "bǎocún", "store; keep"], ["浪费", "làngfèi", "waste"]],
+    "hint": "请客 → 筷子、示范 → 分享、感受 → 剩菜、建议 → 下次。可以用：先……，吃饭时……，饭后……，因为……所以……。",
+    "checks": [
+      {"label": "交代人物、时间和邀请 / People, time and invitation", "help": "可以从“上周末，小林请安娜到家里吃饭”开始。"},
+      {"label": "说清筷子的困难和帮助 / Difficulty and help", "help": "补上安娜不太会用筷子，以及小林教她怎么用。“教她”也能表达“做示范”。"},
+      {"label": "说清分享食物和安娜的感受 / Sharing and feelings", "help": "补上一起分享桌上的菜，以及安娜觉得热闹、能尝到不同味道。"},
+      {"label": "说清饭后的建议、原因和下次打算 / Advice, reason and next plan", "help": "补上妥善保存剩菜、避免浪费，以及安娜打算请小林尝家乡菜。"}
+    ],
+    "model": "上周末，小林请安娜到家里吃中餐。安娜不太会用筷子，所以小林教她怎么用。吃饭时，大家一起分享菜、聊天，安娜觉得很热闹，也尝到了不同的味道。饭后，小林建议把剩菜保存好，避免浪费。安娜同意了，还打算下次请小林吃家乡菜。",
+    "transfer": "换一种说法：用安娜的视角，向另一位朋友讲这次聚餐。Try telling the same story from Anna’s point of view.",
+    "link": "/grammar/ba-sentence/#ba-hua-gua",
+    "linkLabel": "把剩下的菜保存好：练习把字句"
+  },
+  "environment": {
+    "title": "说清环保做法 / Explain an environmental action",
+    "entry": "说清环保建议 / Explain a green habit",
+    "mode": "explain",
+    "anchor": "topic-practice",
+    "goal": "把问题、做法和原因连起来，再提出一个自己能做到的行动。Connect a problem, an action and a reason, then suggest your own action.",
+    "sourceTitle": "办公室里的小改变",
+    "source": "午休后，小陈发现会议室没有人，灯却还开着。桌上还有几个只喝了一半的一次性纸杯。她和同事商量：最后离开会议室的人负责关灯；开会时，大家尽量带自己的杯子，需要多少水就倒多少。小陈觉得，这样既能节约用电，也能减少浪费。同事同意先试一个星期，再看看这些做法是否方便。",
+    "translation": "After lunch, Xiao Chen found the lights on in an empty meeting room, with several half-full disposable cups on the table. She and her colleagues agreed that the last person to leave would turn off the lights. People would try to bring their own cups and pour only the water they needed. They would try this for a week and see whether it was practical.",
+    "prompts": ["发现了什么问题？ / What was the problem?", "提出什么做法？为什么？ / What actions were suggested, and why?", "在你的生活中，可以先做哪一件事？ / What could you do in your own life?"],
+    "words": [["节约", "jiéyuē", "save resources"], ["浪费", "làngfèi", "waste"], ["负责", "fùzé", "be responsible for"], ["减少", "jiǎnshǎo", "reduce"], ["尽量", "jǐnliàng", "as much as possible"]],
+    "hint": "没人却开灯 → 最后离开的人关灯 → 节约用电；一次性杯子、剩水 → 自带杯子、按需倒水 → 减少浪费。自己的建议可以用“我打算先……，因为……”。",
+    "checks": [
+      {"label": "说清材料中的具体问题 / Name the problems", "help": "说出空会议室开着灯，以及一次性杯子里剩下水，避免只说“环境不好”。"},
+      {"label": "让建议对应问题 / Match actions to problems", "help": "说清谁关灯、怎样减少纸杯和水的浪费。建议要对应材料里的问题。"},
+      {"label": "说明至少一个原因 / Give a reason", "help": "补一句“这样能节约用电”或“因为可以减少浪费”，说明行动的作用。"},
+      {"label": "提出自己的一个可行行动 / Add your own action", "help": "明确说“在我的生活中，我打算……”，把个人建议和原文内容分开。"}
+    ],
+    "model": "小陈发现，会议室没有人，灯却开着，纸杯里还剩下一些水。她建议最后离开的人关灯，大家带自己的杯子，按需要倒水。这样能节约用电、减少浪费。他们准备先试一个星期。在我的生活中，我打算上课时带自己的水杯，因为每天都能做到。",
+    "transfer": "换一个场景：给准备出门购物的朋友提一个环保建议，并说明原因。Give a practical shopping suggestion and explain why it helps.",
+    "link": "/grammar/complex-sentences/",
+    "linkLabel": "练习用关联词说明原因和结果",
+    "quizWords": ["保护", "环保", "节约", "浪费", "污染"]
+  },
+  "food-dining": {
+    "title": "完成一次点餐 / Make a restaurant order",
+    "entry": "练习点餐沟通 / Practise ordering food",
+    "mode": "roleplay",
+    "anchor": "topic-practice",
+    "goal": "根据菜单和同伴的口味完成点餐；答案可以不同，但要说明需求和理由。Order from the menu for your group and explain your choices.",
+    "sourceTitle": "你的任务：和朋友一起吃午饭",
+    "source": "这是自编练习菜单：宫保鸡丁（辣，38元）、清蒸鱼（不辣，48元）、炒青菜（不辣，18元）、西红柿鸡蛋汤（不辣，16元），米饭每碗3元。你和一位朋友吃午饭。朋友不吃辣，你们想点一道荤菜、一道青菜、一份汤和两碗米饭。请向服务员说明需求，点菜，并询问大约需要等多久。价格仅用于本练习。",
+    "translation": "Practice menu: spicy kung pao chicken ¥38; non-spicy steamed fish ¥48; greens ¥18; tomato and egg soup ¥16; rice ¥3 per bowl. You and a friend want one meat or fish dish, greens, soup and two bowls of rice. Your friend does not eat spicy food. Explain your needs, place the order and ask how long it will take. These are fictional practice prices.",
+    "prompts": ["说明人数和口味 / Say how many people and describe your preference", "点齐菜、汤和米饭 / Order the dishes, soup and rice", "询问等待时间，确认订单 / Ask about waiting time and confirm"],
+    "words": [["清淡", "qīngdàn", "light; mildly flavored"], ["一份", "yí fèn", "one portion"], ["一碗", "yì wǎn", "one bowl"], ["大约", "dàyuē", "approximately"], ["确认", "quèrèn", "confirm"]],
+    "hint": "“我们两个人，我朋友不吃辣。” → “请来……，再来……。” → “大约要等多久？” → 服务员确认：“一份清蒸鱼、一份青菜、一份汤、两碗米饭，对吗？”你怎样回应？菜单可以随时查看，不需要背价格。",
+    "checks": [
+      {"label": "说明两人用餐和不吃辣 / State group size and preference", "help": "先说“我们两个人，我朋友不吃辣”，让服务员知道需求。"},
+      {"label": "选择符合口味的菜并说明理由 / Choose a suitable dish and explain", "help": "本菜单的清蒸鱼标为不辣，适合这个任务。宫保鸡丁标为辣；如想改做法，要先询问能否不放辣椒。"},
+      {"label": "说清菜、汤、米饭的数量 / Specify items and quantities", "help": "检查有没有漏掉青菜、汤或两碗米饭。可以用“一份……、两碗……”。"},
+      {"label": "询问等待时间并回应确认 / Ask and confirm", "help": "补上“大约要等多久？”，并回应服务员的确认，例如“对，谢谢”。"}
+    ],
+    "model": "我们两个人，我朋友不吃辣。我们点清蒸鱼，因为菜单上写着不辣。请再来一份炒青菜、一份西红柿鸡蛋汤和两碗米饭。大约要等多久？——服务员：一份清蒸鱼、一份青菜、一份汤、两碗米饭，对吗？——对，谢谢。",
+    "transfer": "换角色：你当服务员，复述客人的订单，并询问是否还需要别的。Switch roles: repeat the order back and ask if anything else is needed.",
+    "link": "/grammar/measure-words/",
+    "linkLabel": "点餐时怎样用量词",
+    "keepSource": true,
+    "quizWords": ["餐厅", "味道", "辣", "汤", "结账"]
+  },
+  "scenic-spots": {
+    "title": "介绍一个景点 / Introduce a place to visit",
+    "entry": "介绍一个景点 / Introduce a scenic spot",
+    "mode": "describe",
+    "anchor": "topic-practice",
+    "goal": "选择对听者有用的信息，说明地点、特点、推荐理由和提醒。Choose useful details and explain why someone might visit.",
+    "sourceTitle": "资料卡：青湖公园（虚构练习地点）",
+    "source": "青湖公园在市中心，从地铁站步行大约十分钟就到。公园里有一个湖，湖边有步道，还有一座老桥。小王上周日早上去过，觉得那里很安静，适合散步和拍照。到了中午，人渐渐多了起来。他建议朋友早点儿去，穿舒服的鞋。这里是虚构的练习资料，不是实际景点的出行指南。",
+    "translation": "Qinghu Park is a fictional practice location in the city center, about ten minutes on foot from the subway. It has a lake, a walking path and an old bridge. Xiaowang visited last Sunday morning and found it quiet and suitable for walking and photos. It became busier at noon. He suggests going early and wearing comfortable shoes.",
+    "prompts": ["在哪里，怎样到达？ / Where is it, and how do you get there?", "有什么特点，适合做什么？ / What is special, and what can you do?", "为什么推荐，有什么提醒？ / Why recommend it, and what should visitors know?"],
+    "words": [["步行", "bùxíng", "walk"], ["适合", "shìhé", "be suitable for"], ["渐渐", "jiànjiàn", "gradually"], ["建议", "jiànyì", "suggest"], ["舒服", "shūfu", "comfortable"]],
+    "hint": "市中心、地铁步行十分钟 → 湖、步道、老桥 → 散步、拍照 → 早上安静、中午人多 → 早点去、舒服的鞋。用“如果你喜欢……，可以……”说明推荐理由。",
+    "checks": [
+      {"label": "说清地点与到达方式 / Location and access", "help": "补上市中心、从地铁站步行大约十分钟。不要添加资料里没有的线路。"},
+      {"label": "选出具体特点和活动 / Features and activities", "help": "选湖、步道、老桥等特点，联系散步或拍照，避免只说“很好玩”。"},
+      {"label": "说明推荐理由 / Explain your recommendation", "help": "例如“如果你喜欢散步和拍照，可以去看看”。把特点与听者兴趣联系起来。"},
+      {"label": "给出资料支持的提醒 / Give a supported practical tip", "help": "可提醒早点去、穿舒服的鞋。材料没有票价和开放时间，不必编造。"}
+    ],
+    "model": "我想介绍青湖公园。它在市中心，从地铁站步行大约十分钟就到。公园里有湖、步道和一座老桥。如果你喜欢散步和拍照，可以去看看。小王上周日早上去的时候觉得很安静，但中午人渐渐多了，所以他建议早点去，穿舒服的鞋。",
+    "transfer": "介绍一个你熟悉的真实地方。只说自己知道的信息；不确定的票价和开放时间可以先查证。Introduce a place you know, using facts you can confirm.",
+    "link": "/grammar/comparison/",
+    "linkLabel": "怎样比较两个出游地点",
+    "quizWords": ["参观", "景点", "风景", "排队", "值得"]
+  },
+  "customs-traditions": {
+    "title": "介绍与比较习俗 / Describe and compare traditions",
+    "entry": "介绍你熟悉的习俗 / Describe a tradition",
+    "mode": "describe",
+    "anchor": "topic-practice",
+    "goal": "说清谁在什么时候做什么，再比较一种自己熟悉的习惯。Describe who does what and when, then compare a custom you know.",
+    "sourceTitle": "两个家庭怎样过中秋（自编故事）",
+    "source": "中秋节快到了，小雨和阿明聊起了家里的习惯。小雨一家通常一起吃晚饭，饭后分享月饼。如果天气好，他们会到阳台上看看月亮。今年她的姐姐在外地工作，不能回家，所以他们打算在晚饭后打视频电话。阿明说，他家今年准备去外婆家吃饭，每个人带一道自己做的菜。两家安排不一样，但都希望有时间陪伴家人。这只是两个家庭的故事，各地、各家的习惯可能不同。",
+    "translation": "Xiaoyu’s family usually has dinner together and shares mooncakes. In good weather they look at the moon from the balcony. This year her sister is working elsewhere, so they plan a video call after dinner. Aming’s family plans to visit his grandmother, with everyone bringing a homemade dish. The arrangements differ, but both families want time together. These are two fictional families, not rules for everyone.",
+    "prompts": [
+      "小雨家平时怎样做？今年有什么变化？ / What is usual, and what changes this year?",
+      "阿明家的安排有什么相同和不同？ / How are the two plans alike and different?",
+      "介绍自己熟悉的一种习惯。 / Describe a custom you know."
+    ],
+    "words": [
+      [
+        "习惯",
+        "xíguàn",
+        "habit; custom"
+      ],
+      [
+        "通常",
+        "tōngcháng",
+        "usually"
+      ],
+      [
+        "分享",
+        "fēnxiǎng",
+        "share"
+      ],
+      [
+        "陪伴",
+        "péibàn",
+        "spend time with"
+      ],
+      [
+        "各家",
+        "gèjiā",
+        "each family"
+      ]
+    ],
+    "hint": "先说“在小雨家，通常……”，再说“今年因为……所以……”。比较时可以说“两家都……，不过……”。说自己的经历时用“在我家／我认识的一家人……”。不过这个节日，也可以介绍生日、周末聚会或其他熟悉的习惯。",
+    "checks": [
+      {
+        "label": "说明人物、时间和做法 / People, occasion and actions",
+        "help": "指出是在小雨家过中秋，说明吃晚饭、分享月饼等具体做法。不要只说“他们有很多习俗”。"
+      },
+      {
+        "label": "解释今年变化的原因 / Explain the change",
+        "help": "说明姐姐在外地、不能回家，所以安排视频通话。把原因和做法连起来。"
+      },
+      {
+        "label": "比较一处相同与一处不同 / One similarity and one difference",
+        "help": "两家都希望陪伴家人；小雨家安排视频电话，阿明家去外婆家、各带一道菜。"
+      },
+      {
+        "label": "介绍熟悉的习惯并明确范围 / Add your example without overgeneralizing",
+        "help": "用“在我家”或“我认识的一家人”介绍具体做法，不把一个家庭的习惯说成所有人都必须这样做。"
+      }
+    ],
+    "model": "在小雨家，中秋节通常一起吃晚饭、分享月饼。今年姐姐不能回来，所以他们打算饭后打视频电话。阿明家准备去外婆家，每个人带一道菜。两家安排不同，但都希望陪伴家人。比如在我家，过生日时会一起做饭，我们喜欢边吃边聊。这是我家的习惯，别的家庭可能不一样。",
+    "transfer": "朋友第一次参加你家的聚会。告诉他一件可以提前准备的事，并说明这是你家的安排。Explain one useful preparation for a guest visiting your family.",
+    "link": "/grammar/comparison/",
+    "linkLabel": "练习表达相同与不同"
+  },
+  "proverbs-sayings": {
+    "title": "俗语用在哪种情境？ / Choose a saying for the situation",
+    "entry": "判断俗语的适用情境 / Use sayings in context",
+    "mode": "explain",
+    "anchor": "topic-practice",
+    "keepSource": true,
+    "goal": "先判断材料强调的意思，再说明为什么选这句俗语；最后举一个新例子。Choose the best fit, explain the clue, then give your own example.",
+    "sourceTitle": "两句俗语，两个表达重点",
+    "source": "“熟能生巧”强调通过反复练习，逐渐熟练、掌握技巧。“万事开头难”强调刚开始做一件事时往往会遇到困难，常用来鼓励刚入门的人。判断时要看材料的重点：是在讲练习之后的进步，还是在讲起步时的困难？有的真实经历可能涉及两者；下面的练习要求选择最贴合题目重点的表达。",
+    "translation": "熟能生巧 (shú néng shēng qiǎo) emphasizes gaining skill through repeated practice. 万事开头难 (wàn shì kāi tóu nán) emphasizes the difficulty of starting and can encourage a beginner. A real experience may involve both. In these exercises, choose the expression that best matches the stated focus.",
+    "prompts": [
+      "任选下面一道情境题，说出你的选择。 / Choose one situation and name the saying.",
+      "指出原文线索，并解释另一个表达为什么不如它贴切。 / Use a clue and contrast the other expression.",
+      "换一个生活场景，举自己的例子。 / Give an example in a different setting."
+    ],
+    "words": [
+      [
+        "熟能生巧",
+        "shú néng shēng qiǎo",
+        "practice builds skill"
+      ],
+      [
+        "万事开头难",
+        "wàn shì kāi tóu nán",
+        "starting something is often difficult"
+      ],
+      [
+        "反复",
+        "fǎnfù",
+        "repeatedly"
+      ],
+      [
+        "逐渐",
+        "zhújiàn",
+        "gradually"
+      ],
+      [
+        "鼓励",
+        "gǔlì",
+        "encourage"
+      ]
+    ],
+    "hint": "“我选……，因为材料里说……。这说明……。另一句更强调……。比如……” 不必把俗语逐字翻译；说明它在这件事里表达的意思。",
+    "checks": [
+      {
+        "label": "选出与情境重点相符的表达 / Match the focus",
+        "help": "先找题目强调的是反复练习后的熟练，还是刚开始时的困难；如果只有偶然成功，两句都不一定合适。"
+      },
+      {
+        "label": "指出一条材料中的线索 / Give a concrete clue",
+        "help": "引用或转述“每天练习”“第一次”“刚开始”等具体信息，避免只说“我觉得这个对”。"
+      },
+      {
+        "label": "用自己的话解释含义和区别 / Explain the meaning and contrast",
+        "help": "说明“熟能生巧”关注练习带来的技巧，“万事开头难”关注起步困难；不能只重复俗语本身。"
+      },
+      {
+        "label": "给出相符的新例子 / Add a fitting new example",
+        "help": "换成做饭、骑车或学习等自己的例子，并说清为什么适用；偶然猜对不等于经过练习变熟练。"
+      }
+    ],
+    "model": "我选第一道题。小林每天练打字，现在很少看键盘，速度也快了，所以“熟能生巧”最贴切。这句话强调反复练习让人掌握技巧。“万事开头难”更强调刚开始时的困难，而这道题重点是练习后的进步。比如一个人每天练习切菜，后来切得更快、更均匀，也可以用“熟能生巧”。",
+    "transfer": "给“万事开头难”编一个不同的新情境，说明你想怎样鼓励对方，而不只是让他忽略困难。Create a new beginner situation and add a helpful encouragement.",
+    "link": "/sentences/",
+    "linkLabel": "用完整句子说明理由",
+    "cases": [
+      {
+        "prompt": "小林每天练习打字。几个月后，他很少看键盘，速度也快了。这段话重点是练习后的进步，哪句最贴切？",
+        "translation": "Xiaolin practises typing daily. Months later he types faster without looking at the keyboard. Which saying best expresses this improvement through practice?",
+        "options": [
+          {
+            "text": "熟能生巧",
+            "reason": "“每天练习”和后来速度变快，说明反复练习带来了技巧。Daily practice leads to greater skill."
+          },
+          {
+            "text": "万事开头难",
+            "reason": "这句侧重刚开始的困难，但材料重点是几个月练习后的进步。This focuses on difficulty at the start, not the improvement described."
+          }
+        ],
+        "correct": 0
+      },
+      {
+        "prompt": "安娜第一次学骑自行车，刚开始总是保持不了平衡。朋友想安慰她：“刚开始觉得难很正常。”哪句最贴合这句话？",
+        "translation": "Anna struggles to balance on her first day learning to cycle. Her friend wants to say that finding it hard at the beginning is normal. Which fits that message?",
+        "options": [
+          {
+            "text": "熟能生巧",
+            "reason": "可以用它鼓励今后多练，但题目要表达的是“刚开始觉得难很正常”。It could encourage future practice, but that is not the stated focus."
+          },
+          {
+            "text": "万事开头难",
+            "reason": "“第一次”和“刚开始”表明重点是入门时的困难，符合朋友想表达的安慰。The clues point to the difficulty of starting."
+          }
+        ],
+        "correct": 1
+      },
+      {
+        "prompt": "小周没有练过这类题，今天随便猜了一次，碰巧答对了。只凭这件事，能用哪句解释他答对的原因？",
+        "translation": "Xiaozhou has never practised these questions and happens to guess correctly once. Which saying explains why he got it right, based only on this information?",
+        "options": [
+          {
+            "text": "熟能生巧",
+            "reason": "材料没有反复练习或技巧提高的证据，一次猜对不能说明熟能生巧。A lucky guess is not evidence of practice building skill."
+          },
+          {
+            "text": "万事开头难",
+            "reason": "材料没有描述起步的困难，这句也不能解释为什么猜对。No starting difficulty is described, and this does not explain the lucky guess."
+          },
+          {
+            "text": "这两句都不能解释",
+            "reason": "“碰巧”说明这次是偶然答对；不能把成功都归因于练习或起步困难。The information describes chance, not either saying."
+          }
+        ],
+        "correct": 2
+      }
+    ]
+  }
+}

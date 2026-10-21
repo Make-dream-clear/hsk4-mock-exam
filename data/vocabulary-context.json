@@ -28,6 +28,37 @@
     "tip": {
       "zh": "先看是在说适不适合某个人，还是达没达到某项要求。",
       "en": "Ask whether something suits a person or meets a requirement."
+    },
+    "transfer": {
+      "id": "transfer-context-1",
+      "pair": "适合/符合",
+      "wordId": 1208,
+      "word": "符合",
+      "options": [
+        {
+          "id": 1671,
+          "word": "适合"
+        },
+        {
+          "id": 1208,
+          "word": "符合"
+        }
+      ],
+      "stem": "这份申请材料已经盖章，___学校规定的报名要求。",
+      "translation": "The stamped application meets the school’s registration requirements.",
+      "clue": "报名要求",
+      "reason": {
+        "zh": "“符合要求”表示达到已经规定的标准。",
+        "en": "符合要求 means meeting a stated standard."
+      },
+      "contrast": {
+        "zh": "适合说的是相配；这里强调学校规定的要求。",
+        "en": "适合 describes suitability; this sentence emphasizes a stated requirement."
+      },
+      "tip": {
+        "zh": "遇到明确条件或标准，检查是否在表达“达到要求”。",
+        "en": "With an explicit standard, check whether the meaning is meeting it."
+      }
     }
   },
   {
@@ -59,6 +90,68 @@
     "tip": {
       "zh": "遇到明确条件或标准，检查是否在表达“达到要求”。",
       "en": "With an explicit standard, check whether the meaning is meeting it."
+    },
+    "transfer": {
+      "id": "transfer-context-2",
+      "pair": "适合/符合",
+      "wordId": 1671,
+      "word": "适合",
+      "options": [
+        {
+          "id": 1671,
+          "word": "适合"
+        },
+        {
+          "id": 1208,
+          "word": "符合"
+        }
+      ],
+      "stem": "这门课的内容不难，时间也方便，很___刚开始学中文的人。",
+      "translation": "The course is easy and conveniently scheduled, so it suits beginners.",
+      "clue": "刚开始学中文的人",
+      "reason": {
+        "zh": "“适合……的人”说课程与学习者的水平、时间相配。",
+        "en": "适合…的人 describes a course suited to its learners."
+      },
+      "contrast": {
+        "zh": "符合通常搭配要求、条件、标准，不直接说“符合某个人”。",
+        "en": "符合 usually takes requirements, conditions or standards, not a person directly."
+      },
+      "tip": {
+        "zh": "先看是在说适不适合某个人，还是达没达到某项要求。",
+        "en": "Ask whether something suits a person or meets a requirement."
+      },
+      "transfer": {
+        "id": "transfer-context-1",
+        "pair": "适合/符合",
+        "wordId": 1208,
+        "word": "符合",
+        "options": [
+          {
+            "id": 1671,
+            "word": "适合"
+          },
+          {
+            "id": 1208,
+            "word": "符合"
+          }
+        ],
+        "stem": "这份申请材料已经盖章，___学校规定的报名要求。",
+        "translation": "The stamped application meets the school’s registration requirements.",
+        "clue": "报名要求",
+        "reason": {
+          "zh": "“符合要求”表示达到已经规定的标准。",
+          "en": "符合要求 means meeting a stated standard."
+        },
+        "contrast": {
+          "zh": "适合说的是相配；这里强调学校规定的要求。",
+          "en": "适合 describes suitability; this sentence emphasizes a stated requirement."
+        },
+        "tip": {
+          "zh": "遇到明确条件或标准，检查是否在表达“达到要求”。",
+          "en": "With an explicit standard, check whether the meaning is meeting it."
+        }
+      }
     }
   },
   {
@@ -90,6 +183,37 @@
     "tip": {
       "zh": "把“表示＋感谢/欢迎/同意”作为表达态度的词组来学。",
       "en": "Learn 表示感谢、表示欢迎 and 表示同意 as expressions of attitude."
+    },
+    "transfer": {
+      "id": "transfer-context-3",
+      "pair": "表示/表现",
+      "wordId": 1036,
+      "word": "表现",
+      "options": [
+        {
+          "id": 1035,
+          "word": "表示"
+        },
+        {
+          "id": 1036,
+          "word": "表现"
+        }
+      ],
+      "stem": "第一次上台的小李没有紧张，___得很自然。",
+      "translation": "Xiaoli behaved naturally on stage without getting nervous.",
+      "clue": "得很自然",
+      "reason": {
+        "zh": "“表现得很自然”描述上台时的行为和状态。",
+        "en": "表现得很自然 describes how someone behaves or performs."
+      },
+      "contrast": {
+        "zh": "表示需要说明表达什么，如表示同意；这里是在评价台上的表现。",
+        "en": "表示 conveys something, such as agreement; here we assess stage performance."
+      },
+      "tip": {
+        "zh": "看到“表现＋好/出色”，检查是否在评价行为或发挥。",
+        "en": "With 表现好 or 表现出色, look for an evaluation of performance."
+      }
     }
   },
   {
@@ -121,6 +245,68 @@
     "tip": {
       "zh": "看到“表现＋好/出色”，检查是否在评价行为或发挥。",
       "en": "With 表现好 or 表现出色, look for an evaluation of performance."
+    },
+    "transfer": {
+      "id": "transfer-context-4",
+      "pair": "表示/表现",
+      "wordId": 1035,
+      "word": "表示",
+      "options": [
+        {
+          "id": 1035,
+          "word": "表示"
+        },
+        {
+          "id": 1036,
+          "word": "表现"
+        }
+      ],
+      "stem": "听完大家的建议，经理点头___同意。",
+      "translation": "After hearing everyone’s suggestions, the manager nodded to express agreement.",
+      "clue": "同意",
+      "reason": {
+        "zh": "“表示同意”表达一种态度，点头是表达的方式。",
+        "en": "表示同意 conveys agreement; nodding expresses that attitude."
+      },
+      "contrast": {
+        "zh": "表现多用来描述行为、能力或状态，如表现出色。",
+        "en": "表现 commonly describes conduct, ability or a state, as in 表现出色."
+      },
+      "tip": {
+        "zh": "把“表示＋感谢/欢迎/同意”作为表达态度的词组来学。",
+        "en": "Learn 表示感谢、表示欢迎 and 表示同意 as expressions of attitude."
+      },
+      "transfer": {
+        "id": "transfer-context-3",
+        "pair": "表示/表现",
+        "wordId": 1036,
+        "word": "表现",
+        "options": [
+          {
+            "id": 1035,
+            "word": "表示"
+          },
+          {
+            "id": 1036,
+            "word": "表现"
+          }
+        ],
+        "stem": "第一次上台的小李没有紧张，___得很自然。",
+        "translation": "Xiaoli behaved naturally on stage without getting nervous.",
+        "clue": "得很自然",
+        "reason": {
+          "zh": "“表现得很自然”描述上台时的行为和状态。",
+          "en": "表现得很自然 describes how someone behaves or performs."
+        },
+        "contrast": {
+          "zh": "表示需要说明表达什么，如表示同意；这里是在评价台上的表现。",
+          "en": "表示 conveys something, such as agreement; here we assess stage performance."
+        },
+        "tip": {
+          "zh": "看到“表现＋好/出色”，检查是否在评价行为或发挥。",
+          "en": "With 表现好 or 表现出色, look for an evaluation of performance."
+        }
+      }
     }
   },
   {
@@ -152,6 +338,37 @@
     "tip": {
       "zh": "学会“积累经验、经验丰富”，再与“一次经历”比较。",
       "en": "Compare 积累经验 and 经验丰富 with 一次经历."
+    },
+    "transfer": {
+      "id": "transfer-context-5",
+      "pair": "经验/经历",
+      "wordId": 1398,
+      "word": "经历",
+      "options": [
+        {
+          "id": 1399,
+          "word": "经验"
+        },
+        {
+          "id": 1398,
+          "word": "经历"
+        }
+      ],
+      "stem": "第一次独自旅行的___，让我学会了自己安排时间。",
+      "translation": "The experience of travelling alone for the first time taught me to manage my time.",
+      "clue": "第一次独自旅行",
+      "reason": {
+        "zh": "这里说一次具体发生过的事情，用“经历”。",
+        "en": "经历 refers to a specific event someone has lived through."
+      },
+      "contrast": {
+        "zh": "经验偏重从实践中积累的方法或知识，不是事情本身。",
+        "en": "经验 emphasizes practical knowledge gained, not the event itself."
+      },
+      "tip": {
+        "zh": "问自己是在讲“发生了什么”，还是总结“学会了什么”。",
+        "en": "Distinguish what happened from what was learned."
+      }
     }
   },
   {
@@ -183,6 +400,68 @@
     "tip": {
       "zh": "问自己是在讲“发生了什么”，还是总结“学会了什么”。",
       "en": "Distinguish what happened from what was learned."
+    },
+    "transfer": {
+      "id": "transfer-context-6",
+      "pair": "经验/经历",
+      "wordId": 1399,
+      "word": "经验",
+      "options": [
+        {
+          "id": 1399,
+          "word": "经验"
+        },
+        {
+          "id": 1398,
+          "word": "经历"
+        }
+      ],
+      "stem": "她教书多年，处理课堂问题很有___。",
+      "translation": "After years of teaching, she has considerable practical experience handling classroom problems.",
+      "clue": "教书多年",
+      "reason": {
+        "zh": "“有经验”指长期实践中积累的知识和方法。",
+        "en": "有经验 refers to knowledge and methods gained through practice."
+      },
+      "contrast": {
+        "zh": "经历可说“有过这样的经历”；这里强调处理问题的能力。",
+        "en": "经历 can describe an event one has experienced; this sentence emphasizes practical ability."
+      },
+      "tip": {
+        "zh": "学会“积累经验、经验丰富”，再与“一次经历”比较。",
+        "en": "Compare 积累经验 and 经验丰富 with 一次经历."
+      },
+      "transfer": {
+        "id": "transfer-context-5",
+        "pair": "经验/经历",
+        "wordId": 1398,
+        "word": "经历",
+        "options": [
+          {
+            "id": 1399,
+            "word": "经验"
+          },
+          {
+            "id": 1398,
+            "word": "经历"
+          }
+        ],
+        "stem": "第一次独自旅行的___，让我学会了自己安排时间。",
+        "translation": "The experience of travelling alone for the first time taught me to manage my time.",
+        "clue": "第一次独自旅行",
+        "reason": {
+          "zh": "这里说一次具体发生过的事情，用“经历”。",
+          "en": "经历 refers to a specific event someone has lived through."
+        },
+        "contrast": {
+          "zh": "经验偏重从实践中积累的方法或知识，不是事情本身。",
+          "en": "经验 emphasizes practical knowledge gained, not the event itself."
+        },
+        "tip": {
+          "zh": "问自己是在讲“发生了什么”，还是总结“学会了什么”。",
+          "en": "Distinguish what happened from what was learned."
+        }
+      }
     }
   },
   {

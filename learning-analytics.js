@@ -3,8 +3,8 @@
   'use strict';
   const events = new Set(['learning_start', 'learning_answer', 'learning_complete', 'learning_submit', 'learning_retry', 'learning_explanation', 'learning_navigate', 'learning_interaction']);
   const enums = {
-    learning_area: ['exam', 'vocabulary', 'sentence_order', 'writing', 'grammar'],
-    practice_mode: ['paper', 'meaning', 'context', 'saved', 'flashcard', 'order', 'picture', 'word', 'essay', 'quiz', 'error_cards', 'interactive', 'navigation'],
+    learning_area: ['exam', 'vocabulary', 'sentence_order', 'writing', 'grammar', 'topics'],
+    practice_mode: ['paper', 'meaning', 'context', 'saved', 'flashcard', 'order', 'picture', 'word', 'essay', 'quiz', 'error_cards', 'interactive', 'navigation', 'retelling', 'explain', 'roleplay', 'describe'],
     attempt_type: ['first', 'retry', 'revision', 'resume', 'review'],
     result: ['matched', 'needs_review', 'selected', 'draft_started', 'self_reviewed', 'known', 'learning'],
     display_type: ['automatic', 'requested'],

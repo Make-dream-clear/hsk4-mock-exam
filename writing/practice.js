@@ -13,13 +13,16 @@
     startedDrafts.add(key);track(mode,id)?.answer(id,'draft_started');
   }
   const KEY = 'hsk4_writing_drafts_v1';
-  let state = { mode: 'picture', positions: {}, drafts: {}, reviewed: [] };
+  let state = { mode: 'picture', positions: {}, drafts: {}, reviewed: [], revisions: {} };
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
     if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
       if (['picture', 'word'].includes(saved.mode)) state.mode = saved.mode;
       for (const name of ['positions', 'drafts']) {
         if (saved[name] && typeof saved[name] === 'object' && !Array.isArray(saved[name])) state[name] = saved[name];
+      }
+      if (saved.revisions && typeof saved.revisions === 'object' && !Array.isArray(saved.revisions)) {
+        for (const [id,r] of Object.entries(saved.revisions)) if (r && typeof r.before === 'string' && ['detail','structure','connection'].includes(r.goal)) state.revisions[id] = {before:r.before,goal:r.goal,reviewed:r.reviewed===true};
       }
       if (Array.isArray(saved.reviewed)) state.reviewed = saved.reviewed.filter(x => typeof x === 'string');
     }
@@ -187,10 +190,14 @@
     byId('essay-model-wrap').classList.remove('show');
     byId('essay-feedback').textContent = '';
     save(essayStatus);
+    revisionSession = null; renderRevision();
   }
   const essayTrackingId=()=>'essay-'+(prompts.indexOf(essay)+1);
   essayInput.addEventListener('input', () => {
-    startDraft('essay',essayTrackingId(),essayInput.value); updateCount(); saveEssay(); });
+    startDraft('essay',essayTrackingId(),essayInput.value); updateCount();
+    resetChecks(essayCard);
+    const r=state.revisions[essayId()];if(r)r.reviewed=false;
+    saveEssay(); renderRevision(); });
   byId('essay-show').addEventListener('click', () => {
     track('essay',essayTrackingId())?.explanation(essayTrackingId(),'requested');
     saveEssay();
@@ -209,5 +216,45 @@
   }
   byId('essay-prev').addEventListener('click', () => moveEssay(-1));
   byId('essay-next').addEventListener('click', () => moveEssay(1));
+  const revisionGoals = {
+    detail:'选一句比较空泛的话，补上与题目有关的人、动作或感受。例如把“那里很好”写得具体。 / Add one relevant person, action or feeling to a vague sentence.',
+    structure:'检查先发生什么、后发生什么，调整句子顺序；不要只机械添加“首先、然后”。 / Put events in a clear order; connectors alone cannot fix an unclear sequence.',
+    connection:'选两句关系不清楚的话，补上真正的原因、结果或转折。 / Explain the actual reason, result or contrast between two sentences.'
+  };
+  let revisionSession=null;
+  function renderRevision(){
+    const r=state.revisions[essayId()];
+    byId('revision-work').hidden=!r;
+    if(r){byId('revision-before').textContent=r.before;byId('revision-goal').value=r.goal;}
+    byId('revision-goal').disabled=!!r&&!r.reviewed;
+    byId('revision-tip').textContent=revisionGoals[byId('revision-goal').value];
+    byId('revision-check').checked=!!r?.reviewed;
+    byId('revision-done').disabled=!!r?.reviewed;
+    byId('revision-start').disabled=!!r&&!r.reviewed;
+    byId('revision-start').textContent=r?'Start another revision from current draft / 以当前稿开始下一轮':'Save current draft and begin / 保留当前稿，开始修改';
+    byId('revision-feedback').textContent=r?.reviewed?'本轮修改已自查；还可以选另一个目标继续改。 / Revision self-reviewed; choose another goal if useful.':'';
+  }
+  byId('revision-goal').addEventListener('change',()=>{byId('revision-tip').textContent=revisionGoals[byId('revision-goal').value];});
+  byId('revision-cancel').addEventListener('click',()=>{
+    delete state.revisions[essayId()];revisionSession=null;saveEssay();renderRevision();byId('revision-start').focus();
+    byId('revision-feedback').textContent='已取消本轮目标，上方当前草稿保持不变。 / Goal cancelled; your current draft is unchanged.';
+  });
+  byId('revision-edit').addEventListener('click',event=>{event.preventDefault();essayInput.focus();});
+  byId('revision-start').addEventListener('click',()=>{
+    if(!essayInput.value.trim()){byId('revision-feedback').textContent='先在上方写出草稿，再选择修改目标。 / Write a draft above first.';essayInput.focus();return;}
+    state.revisions[essayId()]={before:essayInput.value,goal:byId('revision-goal').value,reviewed:false};
+    revisionSession=window.HSK4Learning?.create('writing','essay',essayTrackingId()+'-revision-r20261021',1);revisionSession?.start('revision');
+    saveEssay();renderRevision();essayInput.focus();
+  });
+  byId('revision-done').addEventListener('click',()=>{
+    const r=state.revisions[essayId()];if(!r||r.reviewed)return;
+    if(!essayInput.value.trim()||essayInput.value.trim()===r.before.trim()){byId('revision-feedback').textContent='还没有修改文字。请先针对本轮目标改一处，再对照检查。 / Make a relevant change before reviewing.';return;}
+    if(!byId('revision-check').checked){byId('revision-feedback').textContent='请先对照两稿，确认修改是否回应本轮目标。 / Compare both versions against your goal first.';return;}
+    if(!revisionSession){revisionSession=window.HSK4Learning?.create('writing','essay',essayTrackingId()+'-revision-r20261021',1);revisionSession?.start('resume');}
+    revisionSession?.answer('revision','self_reviewed',{attempt_type:'revision',topic_id:r.goal});revisionSession?.complete({result:'self_reviewed',topic_id:r.goal});
+    r.reviewed=true;saveEssay();renderRevision();
+    byId('revision-feedback').focus();
+    if(countCharacters(essayInput.value)<80)byId('revision-feedback').textContent+=' 当前不足80个汉字，还需继续完成短文。 / Still below the 80-character practice target.';
+  });
   renderEssay();
 })();

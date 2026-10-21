@@ -14,3 +14,6 @@
 #pattern-practice-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
 #pattern-practice-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; border: 1px solid var(--mist); border-radius: 6px; background: var(--paper); color: var(--ink); font-size: 14px; }
 #usage-check, #fill-practice, #quick-quiz { scroll-margin-top: 100px; }
+.grammar-transfer{padding:22px;margin:28px 0;border:1px solid var(--mist);border-radius:12px;background:var(--surface);line-height:1.8;scroll-margin-top:90px}
+.grammar-transfer textarea{display:block;box-sizing:border-box;width:100%;font:inherit;line-height:1.8;background:var(--paper);color:var(--ink);border:1px solid var(--control-border);border-radius:8px;padding:12px;margin:10px 0;resize:vertical}
+.grammar-transfer label{display:block;margin:10px 0}.grammar-transfer input[type=checkbox]{appearance:auto;width:18px;height:18px;vertical-align:middle}.grammar-transfer summary{cursor:pointer;padding:12px 0}.grammar-transfer p{white-space:pre-wrap;overflow-wrap:anywhere}.grammar-transfer .transfer-note{font-size:13px;color:var(--stone)}.grammar-transfer [hidden]{display:none!important}.grammar-transfer button{white-space:normal;min-height:44px;max-width:100%}.grammar-transfer :focus-visible{outline:3px solid var(--accent);outline-offset:3px}

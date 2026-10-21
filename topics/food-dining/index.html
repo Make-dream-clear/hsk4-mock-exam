@@ -66,6 +66,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/common.css">
+<link rel="stylesheet" href="/topics/practice.css"><script src="/learning-analytics.js" defer></script><script src="/topics/practice.js" defer></script>
 <style>
   .task-badge { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
   .syllabus-box { background:var(--paper); border:1px solid var(--mist); border-radius:var(--radius); padding:20px 24px; margin:20px 0; }
@@ -141,7 +142,41 @@
     <p>能听懂关于食物饮品、就餐情况、菜品制作情况等有一定复杂度的问题或介绍。如饮食味道、种类、特点、餐厅环境、服务、制作过程等。</p>
   </div>
 
+<section id="topic-practice" class="topic-practice" data-topic="food-dining" data-mode="roleplay" data-keep-source="true" lang="zh-CN" aria-labelledby="tp-title">
+  <p class="tp-kicker">读懂 → 开口 → 自查 → 再练 / Read · Speak · Review · Retry</p>
+  <h2 id="tp-title">完成一次点餐 / Make a restaurant order</h2>
+  <p>根据菜单和同伴的口味完成点餐；答案可以不同，但要说明需求和理由。Order from the menu for your group and explain your choices.</p>
+  <p class="tp-note">自编学习活动，不是官方试题；用自己的话表达即可。Original learning activity, not an official test. No microphone needed.</p>
+  <div class="tp-source" id="tp-source">
+    <h3>你的任务：和朋友一起吃午饭</h3><p>这是自编练习菜单：宫保鸡丁（辣，38元）、清蒸鱼（不辣，48元）、炒青菜（不辣，18元）、西红柿鸡蛋汤（不辣，16元），米饭每碗3元。你和一位朋友吃午饭。朋友不吃辣，你们想点一道荤菜、一道青菜、一份汤和两碗米饭。请向服务员说明需求，点菜，并询问大约需要等多久。价格仅用于本练习。</p>
+    <details data-help="translation"><summary>查看英文帮助 / English support</summary><p lang="en">Practice menu: spicy kung pao chicken ¥38; non-spicy steamed fish ¥48; greens ¥18; tomato and egg soup ¥16; rice ¥3 per bowl. You and a friend want one meat or fish dish, greens, soup and two bowls of rice. Your friend does not eat spicy food. Explain your needs, place the order and ask how long it will take. These are fictional practice prices.</p></details>
+  </div>
 
+  <details data-help="words"><summary>关键词：拼音与词义 / Key words</summary><dl class="tp-words"><div><dt>清淡 <span>qīngdàn</span></dt><dd lang="en">light; mildly flavored</dd></div><div><dt>一份 <span>yí fèn</span></dt><dd lang="en">one portion</dd></div><div><dt>一碗 <span>yì wǎn</span></dt><dd lang="en">one bowl</dd></div><div><dt>大约 <span>dàyuē</span></dt><dd lang="en">approximately</dd></div><div><dt>确认 <span>quèrèn</span></dt><dd lang="en">confirm</dd></div></dl></details>
+  <div class="tp-actions" data-controls hidden><button type="button" data-action="start" class="btn btn-primary">我准备好了，开始练习 / Start</button></div>
+  <noscript><p>读懂材料后，尝试按下面的提示开口，再对照参考表达和自查要点。Read, speak using the prompts, then review the checklist and model below.</p></noscript>
+  <div class="tp-speaking" hidden>
+    <h3 tabindex="-1" data-speaking-title>用自己的话说 / Your turn</h3>
+    <p class="tp-source-note">点餐时可以查看菜单，无须背价格。Keep the menu open if useful.</p>
+    <div class="tp-actions"><button type="button" data-action="source" aria-expanded="true" aria-controls="tp-source">收起材料 / Hide material</button><button type="button" data-action="timer" aria-pressed="false">显示计时 / Show timer</button><output class="tp-timer" hidden aria-label="Elapsed speaking time">0:00</output></div>
+    <p class="tp-note">按自己的节奏说，计时不会自动结束练习。No time limit; finish at your own pace.</p>
+  </div>
+  <ol class="tp-prompts"><li>说明人数和口味 / Say how many people and describe your preference</li><li>点齐菜、汤和米饭 / Order the dishes, soup and rice</li><li>询问等待时间，确认订单 / Ask about waiting time and confirm</li></ol>
+  <details data-help="hints"><summary>卡住了？查看表达提示 / Need a hint?</summary><p>“我们两个人，我朋友不吃辣。” → “请来……，再来……。” → “大约要等多久？” → 服务员确认：“一份清蒸鱼、一份青菜、一份汤、两碗米饭，对吗？”你怎样回应？菜单可以随时查看，不需要背价格。</p></details>
+  <div class="tp-actions" data-finish hidden><button type="button" data-action="finish" class="btn btn-primary">我说完了，开始自查 / Review my attempt</button></div>
+  <details class="tp-model" id="topic-model" data-help="model"><summary>查看一种参考表达 / One possible answer</summary><p>我们两个人，我朋友不吃辣。我们点清蒸鱼，因为菜单上写着不辣。请再来一份炒青菜、一份西红柿鸡蛋汤和两碗米饭。大约要等多久？——服务员：一份清蒸鱼、一份青菜、一份汤、两碗米饭，对吗？——对，谢谢。</p><p class="tp-note">表达可以不同；重点是意思清楚、信息准确。Other wording is welcome. Keep the meaning clear and accurate.</p></details>
+  <div data-static-review><h3>自查要点 / Review points</h3><ul><li>说明两人用餐和不吃辣 / State group size and preference</li><li>选择符合口味的菜并说明理由 / Choose a suitable dish and explain</li><li>说清菜、汤、米饭的数量 / Specify items and quantities</li><li>询问等待时间并回应确认 / Ask and confirm</li></ul></div>
+  <form class="tp-review" hidden>
+    <h3 tabindex="-1" data-review-title>逐项自查 / Check your attempt</h3>
+    <p>这是你的自评，不是自动评分。“还没说清”会变成下一次的练习重点。This is self-review, not an automatic assessment.</p>
+    <fieldset data-check="0" data-tip="先说“我们两个人，我朋友不吃辣”，让服务员知道需求。"><legend>1. 说明两人用餐和不吃辣 / State group size and preference</legend><label><input type="radio" name="point-0" value="yes" required> 说清了 / Covered</label><label><input type="radio" name="point-0" value="review" required> 还没说清 / Needs practice</label></fieldset><fieldset data-check="1" data-tip="本菜单的清蒸鱼标为不辣，适合这个任务。宫保鸡丁标为辣；如想改做法，要先询问能否不放辣椒。"><legend>2. 选择符合口味的菜并说明理由 / Choose a suitable dish and explain</legend><label><input type="radio" name="point-1" value="yes" required> 说清了 / Covered</label><label><input type="radio" name="point-1" value="review" required> 还没说清 / Needs practice</label></fieldset><fieldset data-check="2" data-tip="检查有没有漏掉青菜、汤或两碗米饭。可以用“一份……、两碗……”。"><legend>3. 说清菜、汤、米饭的数量 / Specify items and quantities</legend><label><input type="radio" name="point-2" value="yes" required> 说清了 / Covered</label><label><input type="radio" name="point-2" value="review" required> 还没说清 / Needs practice</label></fieldset><fieldset data-check="3" data-tip="补上“大约要等多久？”，并回应服务员的确认，例如“对，谢谢”。"><legend>4. 询问等待时间并回应确认 / Ask and confirm</legend><label><input type="radio" name="point-3" value="yes" required> 说清了 / Covered</label><label><input type="radio" name="point-3" value="review" required> 还没说清 / Needs practice</label></fieldset>
+    <button type="submit" class="btn btn-primary">完成自查，查看下一步 / Get next steps</button>
+  </form>
+  <div class="tp-result" hidden tabindex="-1" aria-live="polite"></div>
+  <div class="tp-actions" data-retry hidden><button type="button" data-action="retry" class="btn btn-primary">带着重点再练一次 / Try again</button></div>
+  <div class="tp-transfer"><h3>再进一步 / Try a new situation</h3><p>换角色：你当服务员，复述客人的订单，并询问是否还需要别的。Switch roles: repeat the order back and ask if anything else is needed.</p></div>
+  <p><a href="/grammar/measure-words/">点餐时怎样用量词 →</a> · <a href="/topics/#guided-practice">更多话题练习 / More guided practice</a></p>
+  </section>
 
 
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 8px;">Scenario Dialogue / 情景对话</h2>
@@ -522,33 +557,33 @@
   <h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Vocabulary Quiz / 词汇练习</h2>
   <p style="color:var(--stone);font-size:14px;margin-bottom:12px;">Match the Chinese word to its English meaning.</p>
   <div id="topic-quiz">
-    <div class="tq-item" data-answer="Chinese white liquor">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">白酒 <span style="font-size:14px;color:var(--accent);font-weight:400;">báijiǔ</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">delicious food; gourmet food</button><button class="q-opt" onclick="tqAnswer(this,false)">spicy; hot (taste)</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">Chinese white liquor</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
-    <div class="tq-item" data-answer="lunch">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">午餐 <span style="font-size:14px;color:var(--accent);font-weight:400;">wǔcān</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">lunch</button><button class="q-opt" onclick="tqAnswer(this,false)">kitchen</button><button class="q-opt" onclick="tqAnswer(this,false)">biscuit; cracker</button></div>
-      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-
     <div class="tq-item" data-answer="restaurant; dining room">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">餐厅 <span style="font-size:14px;color:var(--accent);font-weight:400;">cāntīng</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">Chinese food; Chinese cuisine</button><button class="q-opt" onclick="tqAnswer(this,false)">food</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">restaurant; dining room</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">to settle a bill; to check out</button><button class="q-opt" onclick="tqAnswer(this,false)">spicy; hot (taste)</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">restaurant; dining room</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="spicy; hot (taste)">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">辣 <span style="font-size:14px;color:var(--accent);font-weight:400;">là</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">spicy; hot (taste)</button><button class="q-opt" onclick="tqAnswer(this,false)">taste; flavor</button><button class="q-opt" onclick="tqAnswer(this,false)">to settle a bill; to check out</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
     <div class="tq-item" data-answer="taste; flavor">
       <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">味道 <span style="font-size:14px;color:var(--accent);font-weight:400;">wèidào</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">restaurant; dining room</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">taste; flavor</button><button class="q-opt" onclick="tqAnswer(this,false)">soup</button></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">soup</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">taste; flavor</button><button class="q-opt" onclick="tqAnswer(this,false)">restaurant; dining room</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div>
 
-    <div class="tq-item" data-answer="to have a group meal; group dinner">
-      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">聚餐 <span style="font-size:14px;color:var(--accent);font-weight:400;">jùcān</span></div>
-      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">fruit juice</button><button class="q-opt" onclick="tqAnswer(this,false)">raw; uncooked; unripe; unfamiliar</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to have a group meal; group dinner</button></div>
+    <div class="tq-item" data-answer="to settle a bill; to check out">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">结账 <span style="font-size:14px;color:var(--accent);font-weight:400;">jiézhàng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">to settle a bill; to check out</button><button class="q-opt" onclick="tqAnswer(this,false)">spicy; hot (taste)</button><button class="q-opt" onclick="tqAnswer(this,false)">taste; flavor</button></div>
+      <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
+    </div>
+
+    <div class="tq-item" data-answer="soup">
+      <div class="tq-word chinese" style="font-size:22px;font-weight:600;margin-bottom:10px;">汤 <span style="font-size:14px;color:var(--accent);font-weight:400;">tāng</span></div>
+      <div class="tq-opts" style="display:flex;gap:8px;flex-wrap:wrap;"><button class="q-opt" onclick="tqAnswer(this,false)">taste; flavor</button><button class="q-opt" data-correct="1" onclick="tqAnswer(this,true)">soup</button><button class="q-opt" onclick="tqAnswer(this,false)">restaurant; dining room</button></div>
       <div class="tq-feedback" style="display:none;margin-top:8px;font-size:13px;padding:8px 12px;border-radius:6px;"></div>
     </div></div>
   <script>

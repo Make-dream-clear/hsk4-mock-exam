@@ -1,6 +1,12 @@
 'use strict';
 // Shared by the site build and targeted content refresh; preserves custom pages.
 const esc = value => String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const transfers = require('../data/grammar-transfer.json');
+function transferExercise(pat) {
+  const t=transfers[pat.slug];
+  if(!t)return '';
+  return `<section id="transfer-practice" class="grammar-transfer" data-slug="${esc(pat.slug)}"><h2>Use it in a new sentence / 换句子表达</h2><p>${esc(t.prompt)}</p><p>${esc(t.hint)}</p><label for="transfer-draft">Your sentence / 自己写一句</label><textarea id="transfer-draft" rows="3" autocomplete="off"></textarea><p class="transfer-note">草稿只保留在当前页面，离开前请自行复制。Draft stays on this page only; copy it before leaving.</p><details><summary>Compare one possible answer / 对照一种参考表达</summary><p>${esc(t.model)}</p><p>Other correct wording is possible. Check the intended meaning, not exact wording. / 可以有其他正确表达，重点是保留题意。</p></details><div class="transfer-checks">${t.checks.map(c=>`<label><input type="checkbox"> 我已核对 / I checked: ${esc(c)}</label>`).join('')}</div><button type="button" class="btn btn-primary" data-transfer-review>Complete self-review / 完成自查</button><p role="status"></p><button type="button" class="btn btn-ghost" data-transfer-retry hidden>Try another wording / 换一种说法</button><details data-previous hidden><summary>Previous attempt / 上次表达</summary><p></p></details></section>\n`;
+}
 function fillExercises(pat) {
   return `<h2 id="fill-practice">Fill in the Blanks / 填空练习</h2>
   <p>${esc(pat.fill_instruction)}</p><div class="fill-exercises">${pat.exercises.map((ex, i) => {
@@ -20,6 +26,10 @@ function fillExercises(pat) {
   }).join('\n')}</div>`;
 }
 function enrich(html, pat) {
+  // Custom lesson layouts also need semantic surfaces after a theme switch.
+  html=html.replace(/background:\s*white(?=;|["}])/g,'background:var(--surface)')
+    .replace(/background:\s*#fff8f7/g,'background:var(--accent-tint)')
+    .replace(/background:\s*#ffe0e0/g,'background:var(--bad-bg)');
   if(!html.includes('id="pattern-practice-nav"')) html=html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, '$1<nav id="pattern-practice-nav" aria-label="Lesson shortcuts"><a href="#usage-check">Understand the difference / 看区别</a><a href="#fill-practice">3 fill exercises / 练填空</a><a href="#quick-quiz">3-question check / 测一测</a></nav>');
   html=html.replace(/<h2([^>]*)>Quick Quiz/, (m,attrs)=>`<h2${attrs.includes('id=')?attrs:attrs+' id="quick-quiz"'}>Quick Quiz`);
   let errorIndex=0, quizIndex=0;
@@ -45,6 +55,10 @@ function enrich(html, pat) {
   html=html.replace(/<h2[^>]*>HSK 4 Mock Test Questions Using[\s\S]*?(?=<h2[^>]*>[^<]* FAQ<\/h2>)/,'');
   html=html.replace(/<script>\s*function answer\(btn, correct\)[\s\S]*?<\/script>/,'<script src="/grammar/pattern-practice.js"></script>');
   if(!html.includes('href="/grammar/pattern-practice.css"'))html=html.replace('</head>','<link rel="stylesheet" href="/grammar/pattern-practice.css">\n</head>');
+  html=html.replace(/<section id="transfer-practice"[\s\S]*?<\/section>\s*/g,'');
+  html=html.replace(/(<h2[^>]*id="quick-quiz"[^>]*>)/,()=>transferExercise(pat)+'<h2 id="quick-quiz">');
+  if(!html.includes('href="#transfer-practice"'))html=html.replace(/(<nav id="pattern-practice-nav"[\s\S]*?)(<\/nav>)/,'$1<a href="#transfer-practice">Use it yourself / 自己表达</a>$2');
+  if(!html.includes('src="/grammar/transfer.js"'))html=html.replace('</head>','<script src="/grammar/transfer.js" defer></script>\n</head>');
   return html;
 }
 module.exports={enrich,fillExercises};

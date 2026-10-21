@@ -114,6 +114,7 @@
 <script defer src="/learning-analytics.js"></script>
 <script defer src="/grammar/learning-analytics.js"></script>
 <link rel="stylesheet" href="/grammar/pattern-practice.css">
+<script src="/grammar/transfer.js" defer></script>
 </head>
 <body>
 
@@ -145,7 +146,7 @@
 
   <div class="hero">
     <div class="pattern-type">递进强调 · HSK 4 (new at this level)</div>
-    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">HSK 4 Pattern: 连…都/也…</h1><nav id="pattern-practice-nav" aria-label="Lesson shortcuts"><a href="#usage-check">Understand the difference / 看区别</a><a href="#fill-practice">3 fill exercises / 练填空</a><a href="#quick-quiz">3-question check / 测一测</a></nav>
+    <h1 class="chinese" style="font-family:'Noto Serif SC',serif;">HSK 4 Pattern: 连…都/也…</h1><nav id="pattern-practice-nav" aria-label="Lesson shortcuts"><a href="#usage-check">Understand the difference / 看区别</a><a href="#fill-practice">3 fill exercises / 练填空</a><a href="#quick-quiz">3-question check / 测一测</a><a href="#transfer-practice">Use it yourself / 自己表达</a></nav>
     <p>Emphasizes that EVEN the most unlikely or extreme case is true, implying everything else is even more so.</p>
   </div>
 
@@ -231,7 +232,8 @@
       <p class="fill-explanation" hidden>连 introduces the unexpected case 老师; 都 already completes the frame.</p>
       <noscript><p>Reference: 连. 连 introduces the unexpected case 老师; 都 already completes the frame.</p></noscript>
     </div></div>
-<h2 style="font-family:'Noto Serif SC',serif;font-size:20px;margin:32px 0 8px;" id="quick-quiz">Quick Quiz / 小测验</h2>
+<section id="transfer-practice" class="grammar-transfer" data-slug="lian-dou-ye"><h2>Use it in a new sentence / 换句子表达</h2><p>这道题对大家来说通常很容易，但今天小张没有做出来。用“连……都……”强调出乎意料的程度。 / Zhang could not solve even a normally easy question.</p><p>强调的对象是“这么容易的题”。 / Put the surprising extreme after 连.</p><label for="transfer-draft">Your sentence / 自己写一句</label><textarea id="transfer-draft" rows="3" autocomplete="off"></textarea><p class="transfer-note">草稿只保留在当前页面，离开前请自行复制。Draft stays on this page only; copy it before leaving.</p><details><summary>Compare one possible answer / 对照一种参考表达</summary><p>小张连这么容易的题都没做出来。</p><p>Other correct wording is possible. Check the intended meaning, not exact wording. / 可以有其他正确表达，重点是保留题意。</p></details><div class="transfer-checks"><label><input type="checkbox"> 我已核对 / I checked: 突出“这么容易的题” / Emphasize the easy question</label><label><input type="checkbox"> 我已核对 / I checked: 保留没有做出来的结果 / Keep the negative result</label><label><input type="checkbox"> 我已核对 / I checked: 连与都搭配，语序自然 / Check 连…都 word order</label></div><button type="button" class="btn btn-primary" data-transfer-review>Complete self-review / 完成自查</button><p role="status"></p><button type="button" class="btn btn-ghost" data-transfer-retry hidden>Try another wording / 换一种说法</button><details data-previous hidden><summary>Previous attempt / 上次表达</summary><p></p></details></section>
+<h2 id="quick-quiz">Quick Quiz / 小测验</h2>
   
       <div class="q-item"><div class="q-stem chinese">这个字太难了，___老师___不认识。</div><div class="q-opts"><button type="button" class="q-opt"  onclick="answer(this,false)">即使…也</button> <button type="button" class="q-opt" data-correct="1" onclick="answer(this,true)">连…都</button></div><div class="q-explain" role="status" aria-live="polite">Emphasizing extreme case (even the teacher) → 连…都.</div><button type="button" class="q-retry" onclick="retryPattern(this)" hidden>Hide answer &amp; retry / 重做</button><noscript><p>Reference: 连…都. Emphasizing extreme case (even the teacher) → 连…都.</p></noscript></div>
 

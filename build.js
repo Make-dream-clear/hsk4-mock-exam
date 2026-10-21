@@ -6,6 +6,7 @@
  * can index vocabulary words, test questions, and other content that
  * would otherwise require JavaScript execution.
  *
+ * Rebuild guided topics: node build.js --topic-practice
  * Usage: node build.js
  * Rebuild selected papers using existing sitemap metadata: node build.js --test-pages=14
  */
@@ -17,6 +18,7 @@ const Scoring = require('./exam-scoring');
 const Explanations = require('./exam-explanations');
 
 const GrammarPractice = require('./scripts/grammar-pattern-content');
+const TopicPractice = require('./scripts/topic-practice-content');
 const ROOT = __dirname;
 const DATA = path.join(ROOT, 'data');
 require('./scripts/validate-learning-data')(ROOT);
@@ -1848,6 +1850,10 @@ function buildWritingGuide() {
     + JSON.stringify(bank) + '</script>\n  <!-- kt-bank:end -->';
   html = html.replace(/<!-- kt-bank:start -->[\s\S]*?<!-- kt-bank:end -->/, () => bankBlock);
 
+  const revisionPanel = require('./scripts/writing-revision-content')();
+  if (html.includes('<!-- WRITING REVISION -->')) html = html.replace(/<!-- WRITING REVISION -->[\s\S]*?<!-- \/WRITING REVISION -->/, () => revisionPanel);
+  else html = html.replace('<p id="essay-feedback" role="status"></p>', () => '<p id="essay-feedback" role="status"></p>\n' + revisionPanel);
+
   // 2) Static, crawlable sample (first 18 words) for SEO and no-JS users
   const seo = bank.slice(0, 18).map(item => {
     return '      <div class="kt-seo-item">\n'
@@ -2131,8 +2137,8 @@ function buildWordTaskMap() {
   return wordTask;
 }
 
-function buildTaskTopicPages() {
-  console.log('[task-topics] Generating 30 task topic pages...');
+function buildTaskTopicPages(selected = null) {
+  console.log(`[task-topics] Generating ${selected ? selected.size : TASKS.length} task topic pages...`);
   const topics = readJSON('topics.json');
   const vocab = readJSON('vocabulary.json');
   const dialogues = fs.existsSync(path.join(DATA, 'task-dialogues.json'))
@@ -2149,7 +2155,7 @@ function buildTaskTopicPages() {
   const skipSlugs = new Set();
 
   tasks.forEach(task => {
-    if (skipSlugs.has(task.slug)) return;
+    if (skipSlugs.has(task.slug) || (selected && !selected.has(task.slug))) return;
     const dir = path.join(ROOT, 'topics', task.slug);
     ensureDir(dir);
 
@@ -2199,20 +2205,7 @@ function buildTaskTopicPages() {
       if (!q) throw new Error(`Missing reviewed topic question: ${task.slug}`);
       return {test: ref.test, num: q.number, text: q.text || '', options: q.options || [], answer: q.correct_answer_index, type: q.type};
     });
-    const retellingHtml = task.slug === 'food-culture' ? `
-  <section id="retelling-practice" lang="zh-CN" style="background:var(--surface);padding:24px;border:1px solid var(--mist);border-radius:var(--radius);margin:24px 0;">
-    <h2>饮食文化复述练习 / Food Culture Retelling Practice</h2>
-    <p><strong>自编练习 · Original practice material</strong>。这是主题阅读与口语练习，不是官方真题或考试题型说明。</p>
-    <h3>短文：第一次和朋友吃中餐</h3>
-    <p style="line-height:1.9;">上周末，小林请外国朋友安娜到家里吃饭。安娜以前不太会用筷子，小林先给她做了示范。桌上有米饭、鱼、蔬菜和汤，大家一边吃饭，一边聊天。安娜发现，这次聚餐不是每个人只吃自己面前的菜，而是一起分享桌上的菜。她觉得这样很热闹，也有机会尝到不同的味道。饭后，安娜想把剩下的菜倒掉。小林说，吃不完的菜可以保存好，下一顿再吃，不要浪费。安娜点了点头，说下次要请小林尝尝自己家乡的菜。</p>
-    <h3>关键词与复述顺序</h3>
-    <p>请客 → 筷子、示范 → 分享、味道 → 剩下、保存、浪费 → 家乡</p>
-    <ol><li>小林请谁吃饭？安娜遇到了什么困难？</li><li>这次聚餐怎样分享菜？安娜有什么感受？</li><li>饭后发生了什么？小林提出了什么建议？</li></ol>
-    <p>练习步骤：读两遍，盖住短文，按三个提示用自己的话复述约一分钟。保留人物、事情顺序与原因，不必逐句背诵。</p>
-    <details id="retelling-model"><summary>查看参考复述 / Show a model retelling</summary><p style="line-height:1.9;">上周末，小林请安娜到家里吃中餐。安娜不太会用筷子，所以小林教她怎么用。吃饭时，他们一起分享几种菜，还聊了天。安娜觉得很热闹，也尝到了不同的味道。饭后，她想倒掉剩下的菜，小林建议保存好，下一顿再吃，避免浪费。安娜同意了，还打算下次请小林吃自己家乡的菜。</p></details>
-    <p>自查：是否交代了人物与时间？是否说清了分享食物和保存剩菜两件事？是否使用了“先、饭后、所以”等连接词？</p>
-    <p><a href="/grammar/ba-sentence/#ba-hua-gua">把剩下的菜保存好：练习把字句 →</a> · <a href="/vocabulary/">查找相关词汇 →</a></p>
-  </section>` : '';
+    const retellingHtml = TopicPractice.render(task.slug);
     const realQuestionHtml = matchingQuestions.length > 0
       ? `<h2 style="font-family:'Noto Serif SC',serif;font-size:22px;margin:32px 0 12px;">Practice Questions on ${escHtml(task.task_en)} / 练习卷示例</h2>
   <p style="color:var(--stone);margin-bottom:16px;font-size:14px;">Below are 1-${matchingQuestions.length} HSK 4 practice ${escHtml(task.task_en).toLowerCase()} questions from our ${TEST_COUNT} mock exams. Each was solved using the vocabulary above:</p>
@@ -2308,6 +2301,7 @@ ${faqJsonLd}
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/common.css">
+${TopicPractice.content[task.slug] ? '<link rel="stylesheet" href="/topics/practice.css"><script src="/learning-analytics.js" defer></script><script src="/topics/practice.js" defer></script>' : ''}
 <style>
   .task-badge { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px; }
   .syllabus-box { background:var(--paper); border:1px solid var(--mist); border-radius:var(--radius); padding:20px 24px; margin:20px 0; }
@@ -2402,7 +2396,7 @@ ${dialogueHtml}
     </tbody>
   </table></div>
 
-  ${words.length >= 8 ? generateTopicQuiz(words, task.slug) : ''}
+  ${words.length >= 8 ? generateTopicQuiz(TopicPractice.content[task.slug]?.quizWords ? words.filter(w => TopicPractice.content[task.slug].quizWords.includes(w.word)) : words, task.slug) : ''}
 
   <div style="text-align:center;margin:32px 0;">
     <a href="/vocabulary/" class="btn btn-primary">Study All HSK 4 Vocabulary</a>
@@ -2482,6 +2476,7 @@ ${dialogueHtml}
   // orphans. Re-emitted on each build (old block stripped first).
   const hubPath = path.join(ROOT, 'topics', 'index.html');
   let hubHtml = fs.readFileSync(hubPath, 'utf8');
+  hubHtml = hubHtml.replace(/\s*<!-- GUIDED TOPIC PRACTICE -->[\s\S]*?<!-- \/GUIDED TOPIC PRACTICE -->\s*/g, '\n');
   const taskNavCards = generated.map(t =>
     `      <a class="task-nav-card" href="/topics/${t.slug}/"><span class="chinese">${escHtml(t.task_cn)}</span><span class="task-nav-en">${escHtml(t.task_en)}</span></a>`
   ).join('\n');
@@ -2507,10 +2502,13 @@ ${taskNavCards}
   } else {
     hubHtml = hubHtml.replace('</main>', `${taskNavBlock}\n</main>`);
   }
+  hubHtml = hubHtml.replace(/<!-- GUIDED TOPIC PRACTICE -->[\s\S]*?<!-- \/GUIDED TOPIC PRACTICE -->\n?/g, '');
+  hubHtml = hubHtml.replace('<!-- TASK PAGES NAV -->', () => TopicPractice.hub() + '\n<!-- TASK PAGES NAV -->');
+  if (!hubHtml.includes('src="/topics/practice.js"')) hubHtml = hubHtml.replace('</head>', '<script src="/topics/practice.js" defer></script>\n</head>');
   fs.writeFileSync(hubPath, hubHtml, 'utf8');
   console.log(`[task-topics] Injected ${generated.length}-task nav into topics/index.html`);
 
-  console.log(`[task-topics] Generated ${generated.length} task topic pages (skipped ${skipSlugs.size} thin pages)`);
+  console.log(`[task-topics] Generated ${selected ? selected.size : generated.length} task topic pages (skipped ${skipSlugs.size} thin pages)`);
   return generated.map(t => t.slug);
 }
 
@@ -5455,11 +5453,11 @@ function buildExamVersionNotices() {
   }
 }
 
-if (process.argv.some(arg => arg.startsWith('--test-pages=')) || process.argv.includes('--sentence-order') || process.argv.includes('--vocabulary')) {
+if (process.argv.some(arg => arg.startsWith('--test-pages=')) || process.argv.includes('--sentence-order') || process.argv.includes('--vocabulary') || process.argv.includes('--topic-practice') || process.argv.includes('--learning-transfer')) {
   const value = (process.argv.find(arg => arg.startsWith('--test-pages=')) || '--test-pages=').slice('--test-pages='.length);
   if (value && !/^\d+(,\d+)*$/.test(value)) throw new Error('Use --test-pages=14 or --test-pages=13,14');
   const numbers = new Set(value ? value.split(',').map(Number) : []);
-  if (!numbers.size && !process.argv.includes('--sentence-order') && !process.argv.includes('--vocabulary')) throw new Error('Select a paper number');
+  if (!numbers.size && !process.argv.includes('--sentence-order') && !process.argv.includes('--vocabulary') && !process.argv.includes('--topic-practice') && !process.argv.includes('--learning-transfer')) throw new Error('Select a paper number');
   if ([...numbers].some(n => n < 1 || n > TEST_COUNT)) throw new Error('Unknown paper number');
   // Reuse the complete route inventory so a partial build cannot drop other URLs.
   const state = readJSON('sitemap-state.json');
@@ -5478,16 +5476,28 @@ if (process.argv.some(arg => arg.startsWith('--test-pages=')) || process.argv.in
   }
   if (numbers.size) buildTestPages(numbers);
   if (process.argv.includes('--sentence-order')) buildSentenceOrder();
-  if (process.argv.includes('--vocabulary')) buildVocabulary();
+  if (process.argv.includes('--vocabulary') || process.argv.includes('--learning-transfer')) buildVocabulary();
+  if (process.argv.includes('--learning-transfer')) {
+    buildWritingGuide();
+    for (const pat of readJSON('grammar-patterns.json')) {
+      const file = path.join(ROOT, 'grammar/patterns', pat.slug, 'index.html');
+      fs.writeFileSync(file, GrammarPractice.enrich(fs.readFileSync(file, 'utf8'), pat));
+    }
+  }
+  if (process.argv.includes('--topic-practice')) buildTaskTopicPages(new Set(Object.keys(TopicPractice.content)));
   const files = [...numbers].map(n => path.join(ROOT, 'test', String(n).padStart(2, '0'), 'index.html'));
   if (process.argv.includes('--sentence-order')) files.push(path.join(ROOT, 'writing/sentence-order/index.html'));
   if (process.argv.includes('--vocabulary')) files.push(path.join(ROOT, 'vocabulary/index.html'));
+  if (process.argv.includes('--topic-practice')) files.push(path.join(ROOT, 'topics/index.html'), ...Object.keys(TopicPractice.content).map(slug => path.join(ROOT, 'topics', slug, 'index.html')));
+  if (process.argv.includes('--learning-transfer')) files.push(path.join(ROOT,'vocabulary/index.html'), path.join(ROOT,'writing/index.html'), ...readJSON('grammar-patterns.json').map(p => path.join(ROOT,'grammar/patterns',p.slug,'index.html')));
   injectTheme(files);
   injectAnalytics(files);
   injectPreconnect(files);
   const changed = new Set([...numbers].map(n => `/test/${String(n).padStart(2, '0')}/`));
   if (process.argv.includes('--sentence-order')) changed.add('/writing/sentence-order/');
   if (process.argv.includes('--vocabulary')) changed.add('/vocabulary/');
+  if (process.argv.includes('--topic-practice')) { changed.add('/topics/'); Object.keys(TopicPractice.content).forEach(slug => changed.add(`/topics/${slug}/`)); }
+  if (process.argv.includes('--learning-transfer')) { changed.add('/vocabulary/'); changed.add('/writing/'); readJSON('grammar-patterns.json').forEach(p => changed.add(`/grammar/patterns/${p.slug}/`)); }
   writeSitemaps(changed);
 } else if (process.argv.includes('--landing-pages')) {
   buildVocabulary();

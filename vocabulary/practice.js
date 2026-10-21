@@ -2,18 +2,20 @@
 'use strict';
 const lib=HSK4Vocabulary,$=id=>document.getElementById(id),words=new Map(vocabulary.map(w=>[w.id,w]));
 const contexts=lib.validateContext(JSON.parse($('vocabulary-context-data').textContent),vocabulary);
-const allContext=new Map(contexts.map(q=>[q.id,q]));
+const allContext=new Map([...contexts,...contexts.flatMap(q=>q.transfer?[q.transfer]:[])].map(q=>[q.id,q]));
+const transferSessions=new Map();
 const valid=new Set([...vocabulary.map(w=>'meaning-'+w.id),...allContext.keys()]);
 const key='hsk4_vocab_review_v1';let saved=[],canSave=true;
 try{saved=lib.parseReview(localStorage.getItem(key),valid);}catch{canSave=false;}
 let questions=[],index=0,first={},answered=false,mode='meaning',returnFocus=null,reviewing=false,initialSize=0,scope='filtered';
-let learning=null, roundAnswers=new Set();
+let learning=null, roundAnswers=new Set(), inertSiblings=[];
 function save(){try{localStorage.setItem(key,JSON.stringify(saved));}catch{canSave=false;}updateReview();}
 function updateReview(){document.querySelectorAll('[data-vocab-review]').forEach(b=>b.textContent=`Saved review (${saved.length}) / 待复习`);}
 function remember(id){if(!saved.includes(id))saved.push(id);save();}
 function resolve(id){if(allContext.has(id))return lib.makeContext(allContext.get(id));const w=words.get(Number(id.replace('meaning-','')));return w?lib.makeMeaning(w,vocabulary):null;}
 function show(){
  returnFocus=document.activeElement;$('quiz-overlay').classList.add('active');document.body.style.overflow='hidden';
+ inertSiblings=[...document.body.children].filter(el=>el!==$('quiz-overlay')&&!el.inert);inertSiblings.forEach(el=>el.inert=true);
  $('context-library').open=false;
 }
 function focusBody(){const heading=$('quiz-body').querySelector('[tabindex="-1"]');if(heading)heading.focus();$('quiz-overlay').querySelector('.modal').scrollTop=0;}
@@ -34,7 +36,7 @@ function openQuiz(kind='meaning',all=false){
  render();
 }
 function closeQuiz(){
- $('quiz-overlay').classList.remove('active');document.body.style.overflow='';applyFilters();
+ $('quiz-overlay').classList.remove('active');document.body.style.overflow='';inertSiblings.forEach(el=>el.inert=false);inertSiblings=[];applyFilters();
  if(returnFocus?.isConnected)returnFocus.focus();
 }
 function render(){
@@ -57,7 +59,27 @@ function answer(choice){
  $('quiz-options').querySelectorAll('button').forEach(b=>{b.disabled=true;b.classList.add('disabled');if(Number(b.dataset.choice)===q.wordId)b.classList.add('correct');else if(Number(b.dataset.choice)===choice)b.classList.add('wrong');});
  const feedback=$('vocab-feedback');feedback.hidden=false;
  feedback.innerHTML=`<h3 tabindex="-1" role="status">${matched?'Matches the target / 匹配目标词':'Compare these words / 对照辨析'}</h3><p>${!isFirst?'Retry: your first-attempt record is unchanged. / 重做不改变首次记录。':matched?'Use the example to check how the word is used. / 结合例句检查用法。':'Added to your review list. / 已加入待复习。'}</p>${q.kind==='context'?`<p class="chinese context-stem">${lib.escape(q.stem.replace('___',w.word))}</p><p>Clue / 线索：${lib.escape(q.clue)}</p>${lib.notes(q)}`:`${wordCard(w)}${!matched?'<h4>Your choice / 你选的词</h4>'+wordCard(words.get(choice))+'<p>English glosses can overlap. Compare the examples; this check records whether you recalled the target word, not whether the other word is impossible in every context. / 英文释义可能交叉；请比较例句。这里记录是否回忆起目标词，不把另一个词判为所有语境下都错误。</p>':''}`}<div class="vocab-actions"><button type="button" class="btn btn-secondary" data-action="retry">Retry with answer hidden / 隐藏答案重做</button><button type="button" class="btn btn-secondary" data-action="save">${saved.includes(q.id)?'Saved for review / 已加入待复习':'Keep for review / 留待复习'}</button>${saved.includes(q.id)?'<button type="button" class="btn btn-secondary" data-action="remove">Remove from review / 移出待复习</button>':''}</div><p id="review-save-status" role="status">${storageNote()}</p>`;
+ if(q.transfer)feedback.insertAdjacentHTML('beforeend',`<section id="vocab-transfer"><button type="button" class="btn btn-primary" data-action="transfer">Try a new situation / 换个语境再练</button></section>`);
  $('quiz-next-btn').hidden=false;feedback.querySelector('h3').focus();
+}
+function showTransfer(){
+ const q=questions[index]?.transfer;if(!q)return;
+ let session=transferSessions.get(q.id);
+ if(!session){session=window.HSK4Learning?.create('vocabulary','context',q.id+'-r20261021',1);transferSessions.set(q.id,session);}
+ const panel=$('vocab-transfer');panel.dataset.done='';
+ panel.innerHTML=`<h4 tabindex="-1">New situation / 新语境</h4><p>This is a different sentence; choose from its clues. / 根据新句子的线索重新判断。</p><p class="chinese context-stem">${lib.escape(q.stem)}</p><p>${lib.escape(q.translation)}</p><div class="quiz-options">${lib.shuffle(q.options).map(o=>`<button type="button" class="quiz-opt-btn" data-transfer-choice="${o.id}">${lib.escape(o.word)}</button>`).join('')}</div><div class="transfer-feedback" hidden></div>`;
+ panel.querySelector('h4').focus();
+}
+function answerTransfer(choice){
+ const q=questions[index]?.transfer,panel=$('vocab-transfer');
+ if(!q||!panel||panel.dataset.done||!q.options.some(o=>o.id===choice))return;
+ panel.dataset.done='true';const matched=choice===q.wordId;
+ const session=transferSessions.get(q.id);session?.answer(q.id,matched?'matched':'needs_review');session?.explanation(q.id);session?.complete();
+ if(!matched)remember(q.id);
+ panel.querySelectorAll('[data-transfer-choice]').forEach(b=>{b.disabled=true;if(Number(b.dataset.transferChoice)===q.wordId)b.classList.add('correct');else if(Number(b.dataset.transferChoice)===choice)b.classList.add('wrong');});
+ const feedback=panel.querySelector('.transfer-feedback');feedback.hidden=false;
+ feedback.innerHTML=`<h4 tabindex="-1" role="status">${matched?'Matches this context / 符合本句语境':'Compare this context / 对照新语境'}</h4><p>${lib.escape(q.stem.replace('___',q.word))}</p>${lib.notes(q)}<p>${matched?'This does not automatically mark the word as mastered. / 这不自动代表已经掌握。':'Added to saved review. / 已加入待复习。'}</p><button type="button" class="btn btn-secondary" data-action="transfer-retry">Hide answer and retry / 隐藏答案重练</button>`;
+ feedback.querySelector('h4').focus();
 }
 function results(){
  const records=Object.values(first),matched=records.filter(r=>r.matched).length;
@@ -70,9 +92,12 @@ function retryIds(ids){questions=ids.map(resolve).filter(Boolean);index=0;review
  if(questions.length){learning?.start('review');learning?.retry();}render();}
 $('quiz-body').addEventListener('click',event=>{
  const b=event.target.closest('button');if(!b)return;
+ if(b.dataset.transferChoice){answerTransfer(Number(b.dataset.transferChoice));return;}
  if(b.dataset.choice){answer(Number(b.dataset.choice));return;}
  if(b.dataset.retryId){retryIds([b.dataset.retryId]);return;}
  const action=b.dataset.action;
+ if(action==='transfer')showTransfer();
+ if(action==='transfer-retry'){const q=questions[index]?.transfer;transferSessions.get(q?.id)?.retry(q.id);showTransfer();}
  if(action==='retry'){learning?.retry(questions[index].id);render();}
  if(action==='all')openQuiz(mode,true);
  if(action==='missed')retryIds(Object.keys(first).filter(id=>!first[id].matched));
